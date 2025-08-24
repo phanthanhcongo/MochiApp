@@ -1,0 +1,842 @@
+[
+  {
+    "kanji": "学校",
+    "reading_hiragana": "がっこう",
+    "reading_romaji": "gakkou",
+    "meaning_vi": "trường học",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "HỌC HIỆU",
+    "explanation": "‘学校’ là từ trình độ N5, mang nghĩa trường học.",
+    "stroke_url": "https://example.com/stroke/gakkou.gif",
+    "audio_url": "https://example.com/audio/gakkou.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "学校を勉強します。",
+        "sentence_hira": "がっこうをべんきょうします。",
+        "sentence_romaji": "gakkou o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'trường học'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'trường học' rất phổ biến trong giao tiếp.",
+        "highlight_line": "学校"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "学校を（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘学校’ là từ đúng vì có nghĩa 'trường học'.",
+        "choices": [
+          {
+            "content": "学校",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "先生",
+    "reading_hiragana": "せんせい",
+    "reading_romaji": "sensei",
+    "meaning_vi": "giáo viên",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "TIÊN SINH",
+    "explanation": "‘先生’ là từ trình độ N5, mang nghĩa giáo viên.",
+    "stroke_url": "https://example.com/stroke/sensei.gif",
+    "audio_url": "https://example.com/audio/sensei.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "先生を勉強します。",
+        "sentence_hira": "せんせいをべんきょうします。",
+        "sentence_romaji": "sensei o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'giáo viên'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'giáo viên' rất phổ biến trong giao tiếp.",
+        "highlight_line": "先生"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "先生を（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘先生’ là từ đúng vì có nghĩa 'giáo viên'.",
+        "choices": [
+          {
+            "content": "先生",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "学生",
+    "reading_hiragana": "がくせい",
+    "reading_romaji": "gakusei",
+    "meaning_vi": "học sinh",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "HỌC SINH",
+    "explanation": "‘学生’ là từ trình độ N5, mang nghĩa học sinh.",
+    "stroke_url": "https://example.com/stroke/gakusei.gif",
+    "audio_url": "https://example.com/audio/gakusei.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "学生を勉強します。",
+        "sentence_hira": "がくせいをべんきょうします。",
+        "sentence_romaji": "gakusei o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'học sinh'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'học sinh' rất phổ biến trong giao tiếp.",
+        "highlight_line": "学生"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "学生を（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘学生’ là từ đúng vì có nghĩa 'học sinh'.",
+        "choices": [
+          {
+            "content": "学生",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "日本",
+    "reading_hiragana": "にほん",
+    "reading_romaji": "nihon",
+    "meaning_vi": "Nhật Bản",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "NHẬT BẢN",
+    "explanation": "‘日本’ là từ trình độ N5, mang nghĩa Nhật Bản.",
+    "stroke_url": "https://example.com/stroke/nihon.gif",
+    "audio_url": "https://example.com/audio/nihon.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "日本を勉強します。",
+        "sentence_hira": "にほんをべんきょうします。",
+        "sentence_romaji": "nihon o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'Nhật Bản'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'Nhật Bản' rất phổ biến trong giao tiếp.",
+        "highlight_line": "日本"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "日本を（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘日本’ là từ đúng vì có nghĩa 'Nhật Bản'.",
+        "choices": [
+          {
+            "content": "日本",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "友達",
+    "reading_hiragana": "ともだち",
+    "reading_romaji": "tomodachi",
+    "meaning_vi": "bạn bè",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "HỮU ĐẠT",
+    "explanation": "‘友達’ là từ trình độ N5, mang nghĩa bạn bè.",
+    "stroke_url": "https://example.com/stroke/tomodachi.gif",
+    "audio_url": "https://example.com/audio/tomodachi.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "友達を勉強します。",
+        "sentence_hira": "ともだちをべんきょうします。",
+        "sentence_romaji": "tomodachi o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'bạn bè'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'bạn bè' rất phổ biến trong giao tiếp.",
+        "highlight_line": "友達"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "友達を（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘友達’ là từ đúng vì có nghĩa 'bạn bè'.",
+        "choices": [
+          {
+            "content": "友達",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "食べる",
+    "reading_hiragana": "たべる",
+    "reading_romaji": "taberu",
+    "meaning_vi": "ăn",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "THỰC",
+    "explanation": "‘食べる’ là từ trình độ N5, mang nghĩa ăn.",
+    "stroke_url": "https://example.com/stroke/taberu.gif",
+    "audio_url": "https://example.com/audio/taberu.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "食べるを勉強します。",
+        "sentence_hira": "たべるをべんきょうします。",
+        "sentence_romaji": "taberu o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'ăn'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'ăn' rất phổ biến trong giao tiếp.",
+        "highlight_line": "食べる"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "食べるを（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘食べる’ là từ đúng vì có nghĩa 'ăn'.",
+        "choices": [
+          {
+            "content": "食べる",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "飲む",
+    "reading_hiragana": "のむ",
+    "reading_romaji": "nomu",
+    "meaning_vi": "uống",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "ẨM",
+    "explanation": "‘飲む’ là từ trình độ N5, mang nghĩa uống.",
+    "stroke_url": "https://example.com/stroke/nomu.gif",
+    "audio_url": "https://example.com/audio/nomu.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "飲むを勉強します。",
+        "sentence_hira": "のむをべんきょうします。",
+        "sentence_romaji": "nomu o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'uống'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'uống' rất phổ biến trong giao tiếp.",
+        "highlight_line": "飲む"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "飲むを（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘飲む’ là từ đúng vì có nghĩa 'uống'.",
+        "choices": [
+          {
+            "content": "飲む",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "買う",
+    "reading_hiragana": "かう",
+    "reading_romaji": "kau",
+    "meaning_vi": "mua",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "MÃI",
+    "explanation": "‘買う’ là từ trình độ N5, mang nghĩa mua.",
+    "stroke_url": "https://example.com/stroke/kau.gif",
+    "audio_url": "https://example.com/audio/kau.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "買うを勉強します。",
+        "sentence_hira": "かうをべんきょうします。",
+        "sentence_romaji": "kau o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'mua'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'mua' rất phổ biến trong giao tiếp.",
+        "highlight_line": "買う"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "買うを（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘買う’ là từ đúng vì có nghĩa 'mua'.",
+        "choices": [
+          {
+            "content": "買う",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "行く",
+    "reading_hiragana": "いく",
+    "reading_romaji": "iku",
+    "meaning_vi": "đi",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "HÀNH",
+    "explanation": "‘行く’ là từ trình độ N5, mang nghĩa đi.",
+    "stroke_url": "https://example.com/stroke/iku.gif",
+    "audio_url": "https://example.com/audio/iku.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "行くを勉強します。",
+        "sentence_hira": "いくをべんきょうします。",
+        "sentence_romaji": "iku o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'đi'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'đi' rất phổ biến trong giao tiếp.",
+        "highlight_line": "行く"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "行くを（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘行く’ là từ đúng vì có nghĩa 'đi'.",
+        "choices": [
+          {
+            "content": "行く",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "来る",
+    "reading_hiragana": "くる",
+    "reading_romaji": "kuru",
+    "meaning_vi": "đến",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "LAI",
+    "explanation": "‘来る’ là từ trình độ N5, mang nghĩa đến.",
+    "stroke_url": "https://example.com/stroke/kuru.gif",
+    "audio_url": "https://example.com/audio/kuru.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "来るを勉強します。",
+        "sentence_hira": "くるをべんきょうします。",
+        "sentence_romaji": "kuru o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'đến'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'đến' rất phổ biến trong giao tiếp.",
+        "highlight_line": "来る"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "来るを（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘来る’ là từ đúng vì có nghĩa 'đến'.",
+        "choices": [
+          {
+            "content": "来る",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "話す",
+    "reading_hiragana": "はなす",
+    "reading_romaji": "hanasu",
+    "meaning_vi": "nói chuyện",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "THOẠI",
+    "explanation": "‘話す’ là từ trình độ N5, mang nghĩa nói chuyện.",
+    "stroke_url": "https://example.com/stroke/hanasu.gif",
+    "audio_url": "https://example.com/audio/hanasu.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "話すを勉強します。",
+        "sentence_hira": "はなすをべんきょうします。",
+        "sentence_romaji": "hanasu o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'nói chuyện'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'nói chuyện' rất phổ biến trong giao tiếp.",
+        "highlight_line": "話す"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "話すを（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘話す’ là từ đúng vì có nghĩa 'nói chuyện'.",
+        "choices": [
+          {
+            "content": "話す",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "聞く",
+    "reading_hiragana": "きく",
+    "reading_romaji": "kiku",
+    "meaning_vi": "nghe",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "VĂN",
+    "explanation": "‘聞く’ là từ trình độ N5, mang nghĩa nghe.",
+    "stroke_url": "https://example.com/stroke/kiku.gif",
+    "audio_url": "https://example.com/audio/kiku.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "聞くを勉強します。",
+        "sentence_hira": "きくをべんきょうします。",
+        "sentence_romaji": "kiku o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'nghe'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'nghe' rất phổ biến trong giao tiếp.",
+        "highlight_line": "聞く"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "聞くを（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘聞く’ là từ đúng vì có nghĩa 'nghe'.",
+        "choices": [
+          {
+            "content": "聞く",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "見る",
+    "reading_hiragana": "みる",
+    "reading_romaji": "miru",
+    "meaning_vi": "xem, nhìn",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "KIẾN",
+    "explanation": "‘見る’ là từ trình độ N5, mang nghĩa xem, nhìn.",
+    "stroke_url": "https://example.com/stroke/miru.gif",
+    "audio_url": "https://example.com/audio/miru.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "見るを勉強します。",
+        "sentence_hira": "みるをべんきょうします。",
+        "sentence_romaji": "miru o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'xem, nhìn'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'xem, nhìn' rất phổ biến trong giao tiếp.",
+        "highlight_line": "見る"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "見るを（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘見る’ là từ đúng vì có nghĩa 'xem, nhìn'.",
+        "choices": [
+          {
+            "content": "見る",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "書く",
+    "reading_hiragana": "かく",
+    "reading_romaji": "kaku",
+    "meaning_vi": "viết",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "THƯ",
+    "explanation": "‘書く’ là từ trình độ N5, mang nghĩa viết.",
+    "stroke_url": "https://example.com/stroke/kaku.gif",
+    "audio_url": "https://example.com/audio/kaku.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "書くを勉強します。",
+        "sentence_hira": "かくをべんきょうします。",
+        "sentence_romaji": "kaku o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'viết'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'viết' rất phổ biến trong giao tiếp.",
+        "highlight_line": "書く"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "書くを（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘書く’ là từ đúng vì có nghĩa 'viết'.",
+        "choices": [
+          {
+            "content": "書く",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "読む",
+    "reading_hiragana": "よむ",
+    "reading_romaji": "yomu",
+    "meaning_vi": "đọc",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "ĐỘC",
+    "explanation": "‘読む’ là từ trình độ N5, mang nghĩa đọc.",
+    "stroke_url": "https://example.com/stroke/yomu.gif",
+    "audio_url": "https://example.com/audio/yomu.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "読むを勉強します。",
+        "sentence_hira": "よむをべんきょうします。",
+        "sentence_romaji": "yomu o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'đọc'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'đọc' rất phổ biến trong giao tiếp.",
+        "highlight_line": "読む"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "読むを（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘読む’ là từ đúng vì có nghĩa 'đọc'.",
+        "choices": [
+          {
+            "content": "読む",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "立つ",
+    "reading_hiragana": "たつ",
+    "reading_romaji": "tatsu",
+    "meaning_vi": "đứng",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "LẬP",
+    "explanation": "‘立つ’ là từ trình độ N5, mang nghĩa đứng.",
+    "stroke_url": "https://example.com/stroke/tatsu.gif",
+    "audio_url": "https://example.com/audio/tatsu.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "立つを勉強します。",
+        "sentence_hira": "たつをべんきょうします。",
+        "sentence_romaji": "tatsu o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'đứng'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'đứng' rất phổ biến trong giao tiếp.",
+        "highlight_line": "立つ"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "立つを（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘立つ’ là từ đúng vì có nghĩa 'đứng'.",
+        "choices": [
+          {
+            "content": "立つ",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "寝る",
+    "reading_hiragana": "ねる",
+    "reading_romaji": "neru",
+    "meaning_vi": "ngủ",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "TẨM",
+    "explanation": "‘寝る’ là từ trình độ N5, mang nghĩa ngủ.",
+    "stroke_url": "https://example.com/stroke/neru.gif",
+    "audio_url": "https://example.com/audio/neru.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "寝るを勉強します。",
+        "sentence_hira": "ねるをべんきょうします。",
+        "sentence_romaji": "neru o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'ngủ'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'ngủ' rất phổ biến trong giao tiếp.",
+        "highlight_line": "寝る"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "寝るを（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘寝る’ là từ đúng vì có nghĩa 'ngủ'.",
+        "choices": [
+          {
+            "content": "寝る",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "起きる",
+    "reading_hiragana": "おきる",
+    "reading_romaji": "okiru",
+    "meaning_vi": "thức dậy",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "KHỞI",
+    "explanation": "‘起きる’ là từ trình độ N5, mang nghĩa thức dậy.",
+    "stroke_url": "https://example.com/stroke/okiru.gif",
+    "audio_url": "https://example.com/audio/okiru.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "起きるを勉強します。",
+        "sentence_hira": "おきるをべんきょうします。",
+        "sentence_romaji": "okiru o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'thức dậy'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'thức dậy' rất phổ biến trong giao tiếp.",
+        "highlight_line": "起きる"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "起きるを（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘起きる’ là từ đúng vì có nghĩa 'thức dậy'.",
+        "choices": [
+          {
+            "content": "起きる",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "帰る",
+    "reading_hiragana": "かえる",
+    "reading_romaji": "kaeru",
+    "meaning_vi": "về",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "QUY",
+    "explanation": "‘帰る’ là từ trình độ N5, mang nghĩa về.",
+    "stroke_url": "https://example.com/stroke/kaeru.gif",
+    "audio_url": "https://example.com/audio/kaeru.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "帰るを勉強します。",
+        "sentence_hira": "かえるをべんきょうします。",
+        "sentence_romaji": "kaeru o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'về'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'về' rất phổ biến trong giao tiếp.",
+        "highlight_line": "帰る"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "帰るを（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘帰る’ là từ đúng vì có nghĩa 'về'.",
+        "choices": [
+          {
+            "content": "帰る",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "働く",
+    "reading_hiragana": "はたらく",
+    "reading_romaji": "hataraku",
+    "meaning_vi": "làm việc",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "ĐỘNG",
+    "explanation": "‘働く’ là từ trình độ N5, mang nghĩa làm việc.",
+    "stroke_url": "https://example.com/stroke/hataraku.gif",
+    "audio_url": "https://example.com/audio/hataraku.mp3",
+    "last_reviewed_at": "2025-07-29 08:14:07",
+    "next_review_at": "2025-08-01 08:14:07",
+    "examples": [
+      {
+        "sentence_jp": "働くを勉強します。",
+        "sentence_hira": "はたらくをべんきょうします。",
+        "sentence_romaji": "hataraku o benkyou shimasu.",
+        "sentence_vi": "Tôi học từ 'làm việc'."
+      }
+    ],
+    "contexts": [
+      {
+        "context_vi": "Từ 'làm việc' rất phổ biến trong giao tiếp.",
+        "highlight_line": "働く"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "働くを（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘働く’ là từ đúng vì có nghĩa 'làm việc'.",
+        "choices": [
+          {
+            "content": "働く",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  }
+]

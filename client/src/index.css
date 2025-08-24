@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+.falseAnswer {
+  @apply bg-red-500 text-stone-50;
+}
+.correctAnswer {
+  @apply bg-green-600 text-stone-50;
+}
+.progress-container {
+  @apply relative h-6 bg-orange-100 overflow-hidden mb-6 rounded-lg;
+}
+
+.progress-fill {
+  @apply bg-orange-400 h-full transition-all ;
+}
+.progress-label {
+  @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xl text-gray-700 font-medium;
+}
+.btn-primary {
+  @apply font-semibold rounded-full transition;
+}
+.btn-primary--active {
+  @apply bg-slate-50 text-stone-950 w-80  h-13 hover:bg-stone-950 hover:text-slate-50 transition-colors duration-200 text-2xl;
+}
+
+.btn-primary--disabled {
+  @apply bg-gray-200 text-gray-500 cursor-not-allowed text-2xl font-semibold h-16;
+}
+.btn-forget {
+  @apply text-sm text-gray-500 hover:text-gray-700 underline;
+}
+.answer-option {
+  @apply w-full px-4 py-3 rounded-lg border text-left transition-all text-base font-medium w-[50%] h-20 mx-auto;
+}
+.answer-option--default {
+  @apply bg-slate-50 border-gray-300 hover:bg-gray-100 shadow-md border-b-6 w-[50%] h-20 mx-auto mb-3 cursor-pointer;
+}
+.answer-option--selected {
+  @apply border-2 border-yellow-400 border-b-6 w-[50%] h-20 mx-auto mb-3;
+}
+.answer-option--correct {
+  @apply bg-green-600 text-stone-50 border-green-700 border-b-6 w-[50%] h-20 mx-auto mb-3;
+}
+.answer-option--wrong {
+  @apply bg-red-200 text-slate-950 border-red-600 border-b-6 w-[50%] h-20 mx-auto mb-3;
+}
+.result-panel_true {
+  @apply bg-green-600 text-stone-50 p-4 rounded-t-lg mx-auto absolute bottom-0 left-0 right-0 transition-transform duration-300 ease-in-out;
+}
+.panel-collapsed_true {
+  @apply relative w-full bg-green-600 min-h-[100px] flex items-center justify-center;
+}
+.result-panel_false {
+  @apply bg-red-600 text-stone-50 p-4 rounded-t-lg mx-auto absolute bottom-0 left-0 right-0 transition-transform duration-300 ease-in-out;
+}
+.panel-collapsed_false {
+  @apply relative w-full bg-red-600 min-h-[100px] flex items-center justify-center;
+}
+.btn-toggle {
+  @apply rounded-full border border-stone-50 text-3xl font-bold w-15 h-15  transition hover:opacity-[90%] ;
+}
+.btn-toggle--green {
+  @apply bg-green-600 text-stone-50 ;
+}
+.btn-toggle--red {
+  @apply bg-red-600 text-stone-50 ;
+}
+.btn-audio {
+  @apply w-15 h-15 flex items-center justify-center bg-slate-50 rounded-full cursor-pointer hover:opacity-80 transition;
+}
+.btn-eye {
+  @apply ml-2 mt-1 text-stone-50 hover:opacity-80 transition;
+}
+.displayBtn{
+  @apply absolute bottom-94 right-10;
+}
+.hiddenBtn{
+  @apply absolute bottom-33 right-10;
+}
+.btn-primary--check{
+  @apply bg-green-600 text-stone-50 hover:bg-green-700 border-green-700 text-2xl font-semibold h-16;
+} 
+.scrollbar-hide {
+    scrollbar-width: none; /* Firefox */
+  }
+
+
+.displayBtnEnglish{
+  @apply absolute bottom-86 right-10;
+}

@@ -1,0 +1,67 @@
+
+services:
+  api-fpm:
+    build:
+      context: ./server
+      target: php-runtime
+    container_name: api-fpm
+    # KHÔNG phụ thuộc vào db nội bộ nữa
+    environment:
+      # trỏ tới MySQL chạy trên Windows
+      DB_HOST: host.docker.internal
+      DB_PORT: "3306"
+      DB_DATABASE: mochi
+      DB_USERNAME: appuser
+      DB_PASSWORD: StrongPass!123
+      TZ: Asia/Bangkok
+    # thêm host.docker.internal cho chắc, dù Windows không bắt buộc
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./server/app:/var/www/html/app
+      - ./server/routes:/var/www/html/routes
+      - ./server/resources:/var/www/html/resources
+      - ./server/database:/var/www/html/database
+      - vendor_data:/var/www/html/vendor
+      - storage_data:/var/www/html/storage
+    networks:
+      - webnet
+    restart: unless-stopped
+
+  nginx-api:
+    build:
+      context: ./server
+      target: nginx-runtime
+    container_name: nginx-api
+    depends_on:
+      - api-fpm
+    ports:
+      - "8000:80"   # Backend: http://localhost:8000
+    networks:
+      - webnet
+    volumes:
+      - ./server/public:/var/www/html/public
+    restart: unless-stopped
+
+  client:
+    build:
+      context: ./client
+    container_name: client
+    depends_on:
+      - nginx-api
+    ports:
+      - "3000:80"   # Frontend: http://localhost:3000
+    networks:
+      - webnet
+    # không bắt buộc, giữ lại cho tiện dev gọi host
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+networks:
+  webnet:
+    driver: bridge
+
+volumes:
+  vendor_data:
+  storage_data:

@@ -1,0 +1,982 @@
+[
+  {
+    "word": "abandon",
+    "ipa": "/əˈbændən/",
+    "meaning_vi": "từ bỏ, bỏ rơi",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/abandon.mp3",
+    "contexts": [
+      {
+        "context_vi": "Thường dùng khi nói về từ bỏ kế hoạch hoặc ý định."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "She decided to ____ the project.",
+        "sentence_vi": "Cô ấy quyết định từ bỏ dự án.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "She decided to ____ the project.",
+            "blank_position": 3,
+            "answer_explanation": "'Abandon' means to give up completely.",
+            "choices": [
+              {
+                "content": "abandon",
+                "is_correct": 1
+              },
+              {
+                "content": "continue",
+                "is_correct": 0
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "accept",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "She decided to abandon the project.",
+    "exampleVn": "Cô ấy quyết định từ bỏ dự án."
+  },
+  {
+    "word": "achieve",
+    "ipa": "/əˈtʃiːv/",
+    "meaning_vi": "đạt được",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-02 09:30:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/achieve.mp3",
+    "contexts": [
+      {
+        "context_vi": "Đạt được điều gì đó sau một quá trình nỗ lực."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "He worked hard to ____ his goals.",
+        "sentence_vi": "Anh ấy làm việc chăm chỉ để đạt được mục tiêu.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "He worked hard to ____ his goals.",
+            "blank_position": 4,
+            "answer_explanation": "'Achieve' means to successfully reach a desired objective.",
+            "choices": [
+              {
+                "content": "achieve",
+                "is_correct": 1
+              },
+              {
+                "content": "lose",
+                "is_correct": 0
+              },
+              {
+                "content": "forget",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "He worked hard to achieve his goals.",
+    "exampleVn": "Anh ấy làm việc chăm chỉ để đạt được mục tiêu."
+  },
+  {
+    "word": "adapt",
+    "ipa": "/əˈdæpt/",
+    "meaning_vi": "thích nghi",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/adapt.mp3",
+    "contexts": [
+      {
+        "context_vi": "Ví dụ sử dụng từ 'adapt' trong giao tiếp hàng ngày."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "They need to ____ the situation carefully.",
+        "sentence_vi": "Họ cần thích nghi tình huống một cách cẩn thận.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "They need to ____ the situation carefully.",
+            "blank_position": 3,
+            "answer_explanation": "'Adapt' means thích nghi in English.",
+            "choices": [
+              {
+                "content": "adapt",
+                "is_correct": 1
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              },
+              {
+                "content": "avoid",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "They need to adapt the situation carefully.",
+    "exampleVn": "Họ cần thích nghi tình huống một cách cẩn thận."
+  },
+  {
+    "word": "admire",
+    "ipa": "/ədˈmaɪə(r)/",
+    "meaning_vi": "ngưỡng mộ",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/admire.mp3",
+    "contexts": [
+      {
+        "context_vi": "Ví dụ sử dụng từ 'admire' trong giao tiếp hàng ngày."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "They need to ____ the situation carefully.",
+        "sentence_vi": "Họ cần ngưỡng mộ tình huống một cách cẩn thận.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "They need to ____ the situation carefully.",
+            "blank_position": 3,
+            "answer_explanation": "'Admire' means ngưỡng mộ in English.",
+            "choices": [
+              {
+                "content": "admire",
+                "is_correct": 1
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              },
+              {
+                "content": "avoid",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "They need to admire the situation carefully.",
+    "exampleVn": "Họ cần ngưỡng mộ tình huống một cách cẩn thận."
+  },
+  {
+    "word": "affect",
+    "ipa": "/əˈfekt/",
+    "meaning_vi": "ảnh hưởng",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/affect.mp3",
+    "contexts": [
+      {
+        "context_vi": "Ví dụ sử dụng từ 'affect' trong giao tiếp hàng ngày."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "They need to ____ the situation carefully.",
+        "sentence_vi": "Họ cần ảnh hưởng tình huống một cách cẩn thận.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "They need to ____ the situation carefully.",
+            "blank_position": 3,
+            "answer_explanation": "'Affect' means ảnh hưởng in English.",
+            "choices": [
+              {
+                "content": "affect",
+                "is_correct": 1
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              },
+              {
+                "content": "avoid",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "They need to affect the situation carefully.",
+    "exampleVn": "Họ cần ảnh hưởng tình huống một cách cẩn thận."
+  },
+  {
+    "word": "afford",
+    "ipa": "/əˈfɔːd/",
+    "meaning_vi": "có đủ khả năng",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/afford.mp3",
+    "contexts": [
+      {
+        "context_vi": "Ví dụ sử dụng từ 'afford' trong giao tiếp hàng ngày."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "They need to ____ the situation carefully.",
+        "sentence_vi": "Họ cần có đủ khả năng tình huống một cách cẩn thận.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "They need to ____ the situation carefully.",
+            "blank_position": 3,
+            "answer_explanation": "'Afford' means có đủ khả năng in English.",
+            "choices": [
+              {
+                "content": "afford",
+                "is_correct": 1
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              },
+              {
+                "content": "avoid",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "They need to afford the situation carefully.",
+    "exampleVn": "Họ cần có đủ khả năng tình huống một cách cẩn thận."
+  },
+  {
+    "word": "analyze",
+    "ipa": "/ˈænəlaɪz/",
+    "meaning_vi": "phân tích",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/analyze.mp3",
+    "contexts": [
+      {
+        "context_vi": "Ví dụ sử dụng từ 'analyze' trong giao tiếp hàng ngày."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "They need to ____ the situation carefully.",
+        "sentence_vi": "Họ cần phân tích tình huống một cách cẩn thận.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "They need to ____ the situation carefully.",
+            "blank_position": 3,
+            "answer_explanation": "'Analyze' means phân tích in English.",
+            "choices": [
+              {
+                "content": "analyze",
+                "is_correct": 1
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              },
+              {
+                "content": "avoid",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "They need to analyze the situation carefully.",
+    "exampleVn": "Họ cần phân tích tình huống một cách cẩn thận."
+  },
+  {
+    "word": "announce",
+    "ipa": "/əˈnaʊns/",
+    "meaning_vi": "thông báo",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/announce.mp3",
+    "contexts": [
+      {
+        "context_vi": "Ví dụ sử dụng từ 'announce' trong giao tiếp hàng ngày."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "They need to ____ the situation carefully.",
+        "sentence_vi": "Họ cần thông báo tình huống một cách cẩn thận.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "They need to ____ the situation carefully.",
+            "blank_position": 3,
+            "answer_explanation": "'Announce' means thông báo in English.",
+            "choices": [
+              {
+                "content": "announce",
+                "is_correct": 1
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              },
+              {
+                "content": "avoid",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "They need to announce the situation carefully.",
+    "exampleVn": "Họ cần thông báo tình huống một cách cẩn thận."
+  },
+  {
+    "word": "apologize",
+    "ipa": "/əˈpɒlədʒaɪz/",
+    "meaning_vi": "xin lỗi",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/apologize.mp3",
+    "contexts": [
+      {
+        "context_vi": "Ví dụ sử dụng từ 'apologize' trong giao tiếp hàng ngày."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "They need to ____ the situation carefully.",
+        "sentence_vi": "Họ cần xin lỗi tình huống một cách cẩn thận.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "They need to ____ the situation carefully.",
+            "blank_position": 3,
+            "answer_explanation": "'Apologize' means xin lỗi in English.",
+            "choices": [
+              {
+                "content": "apologize",
+                "is_correct": 1
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              },
+              {
+                "content": "avoid",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "They need to apologize the situation carefully.",
+    "exampleVn": "Họ cần xin lỗi tình huống một cách cẩn thận."
+  },
+  {
+    "word": "apply",
+    "ipa": "/əˈplaɪ/",
+    "meaning_vi": "nộp đơn, áp dụng",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/apply.mp3",
+    "contexts": [
+      {
+        "context_vi": "Ví dụ sử dụng từ 'apply' trong giao tiếp hàng ngày."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "They need to ____ the situation carefully.",
+        "sentence_vi": "Họ cần nộp đơn, áp dụng tình huống một cách cẩn thận.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "They need to ____ the situation carefully.",
+            "blank_position": 3,
+            "answer_explanation": "'Apply' means nộp đơn, áp dụng in English.",
+            "choices": [
+              {
+                "content": "apply",
+                "is_correct": 1
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              },
+              {
+                "content": "avoid",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "They need to apply the situation carefully.",
+    "exampleVn": "Họ cần nộp đơn, áp dụng tình huống một cách cẩn thận."
+  },
+  {
+    "word": "appreciate",
+    "ipa": "/əˈpriːʃieɪt/",
+    "meaning_vi": "đánh giá cao",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/appreciate.mp3",
+    "contexts": [
+      {
+        "context_vi": "Ví dụ sử dụng từ 'appreciate' trong giao tiếp hàng ngày."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "They need to ____ the situation carefully.",
+        "sentence_vi": "Họ cần đánh giá cao tình huống một cách cẩn thận.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "They need to ____ the situation carefully.",
+            "blank_position": 3,
+            "answer_explanation": "'Appreciate' means đánh giá cao in English.",
+            "choices": [
+              {
+                "content": "appreciate",
+                "is_correct": 1
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              },
+              {
+                "content": "avoid",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "They need to appreciate the situation carefully.",
+    "exampleVn": "Họ cần đánh giá cao tình huống một cách cẩn thận."
+  },
+  {
+    "word": "approach",
+    "ipa": "/əˈprəʊtʃ/",
+    "meaning_vi": "tiếp cận",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/approach.mp3",
+    "contexts": [
+      {
+        "context_vi": "Ví dụ sử dụng từ 'approach' trong giao tiếp hàng ngày."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "They need to ____ the situation carefully.",
+        "sentence_vi": "Họ cần tiếp cận tình huống một cách cẩn thận.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "They need to ____ the situation carefully.",
+            "blank_position": 3,
+            "answer_explanation": "'Approach' means tiếp cận in English.",
+            "choices": [
+              {
+                "content": "approach",
+                "is_correct": 1
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              },
+              {
+                "content": "avoid",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "They need to approach the situation carefully.",
+    "exampleVn": "Họ cần tiếp cận tình huống một cách cẩn thận."
+  },
+  {
+    "word": "approve",
+    "ipa": "/əˈpruːv/",
+    "meaning_vi": "chấp thuận",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/approve.mp3",
+    "contexts": [
+      {
+        "context_vi": "Ví dụ sử dụng từ 'approve' trong giao tiếp hàng ngày."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "They need to ____ the situation carefully.",
+        "sentence_vi": "Họ cần chấp thuận tình huống một cách cẩn thận.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "They need to ____ the situation carefully.",
+            "blank_position": 3,
+            "answer_explanation": "'Approve' means chấp thuận in English.",
+            "choices": [
+              {
+                "content": "approve",
+                "is_correct": 1
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              },
+              {
+                "content": "avoid",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "They need to approve the situation carefully.",
+    "exampleVn": "Họ cần chấp thuận tình huống một cách cẩn thận."
+  },
+  {
+    "word": "argue",
+    "ipa": "/ˈɑːɡjuː/",
+    "meaning_vi": "tranh luận",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/argue.mp3",
+    "contexts": [
+      {
+        "context_vi": "Ví dụ sử dụng từ 'argue' trong giao tiếp hàng ngày."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "They need to ____ the situation carefully.",
+        "sentence_vi": "Họ cần tranh luận tình huống một cách cẩn thận.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "They need to ____ the situation carefully.",
+            "blank_position": 3,
+            "answer_explanation": "'Argue' means tranh luận in English.",
+            "choices": [
+              {
+                "content": "argue",
+                "is_correct": 1
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              },
+              {
+                "content": "avoid",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "They need to argue the situation carefully.",
+    "exampleVn": "Họ cần tranh luận tình huống một cách cẩn thận."
+  },
+  {
+    "word": "arrange",
+    "ipa": "/əˈreɪndʒ/",
+    "meaning_vi": "sắp xếp",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/arrange.mp3",
+    "contexts": [
+      {
+        "context_vi": "Ví dụ sử dụng từ 'arrange' trong giao tiếp hàng ngày."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "They need to ____ the situation carefully.",
+        "sentence_vi": "Họ cần sắp xếp tình huống một cách cẩn thận.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "They need to ____ the situation carefully.",
+            "blank_position": 3,
+            "answer_explanation": "'Arrange' means sắp xếp in English.",
+            "choices": [
+              {
+                "content": "arrange",
+                "is_correct": 1
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              },
+              {
+                "content": "avoid",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "They need to arrange the situation carefully.",
+    "exampleVn": "Họ cần sắp xếp tình huống một cách cẩn thận."
+  },
+  {
+    "word": "arrive",
+    "ipa": "/əˈraɪv/",
+    "meaning_vi": "đến nơi",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/arrive.mp3",
+    "contexts": [
+      {
+        "context_vi": "Ví dụ sử dụng từ 'arrive' trong giao tiếp hàng ngày."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "They need to ____ the situation carefully.",
+        "sentence_vi": "Họ cần đến nơi tình huống một cách cẩn thận.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "They need to ____ the situation carefully.",
+            "blank_position": 3,
+            "answer_explanation": "'Arrive' means đến nơi in English.",
+            "choices": [
+              {
+                "content": "arrive",
+                "is_correct": 1
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              },
+              {
+                "content": "avoid",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "They need to arrive the situation carefully.",
+    "exampleVn": "Họ cần đến nơi tình huống một cách cẩn thận."
+  },
+  {
+    "word": "assist",
+    "ipa": "/əˈsɪst/",
+    "meaning_vi": "hỗ trợ",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/assist.mp3",
+    "contexts": [
+      {
+        "context_vi": "Ví dụ sử dụng từ 'assist' trong giao tiếp hàng ngày."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "They need to ____ the situation carefully.",
+        "sentence_vi": "Họ cần hỗ trợ tình huống một cách cẩn thận.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "They need to ____ the situation carefully.",
+            "blank_position": 3,
+            "answer_explanation": "'Assist' means hỗ trợ in English.",
+            "choices": [
+              {
+                "content": "assist",
+                "is_correct": 1
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              },
+              {
+                "content": "avoid",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "They need to assist the situation carefully.",
+    "exampleVn": "Họ cần hỗ trợ tình huống một cách cẩn thận."
+  },
+  {
+    "word": "assume",
+    "ipa": "/əˈsjuːm/",
+    "meaning_vi": "giả định",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/assume.mp3",
+    "contexts": [
+      {
+        "context_vi": "Ví dụ sử dụng từ 'assume' trong giao tiếp hàng ngày."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "They need to ____ the situation carefully.",
+        "sentence_vi": "Họ cần giả định tình huống một cách cẩn thận.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "They need to ____ the situation carefully.",
+            "blank_position": 3,
+            "answer_explanation": "'Assume' means giả định in English.",
+            "choices": [
+              {
+                "content": "assume",
+                "is_correct": 1
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              },
+              {
+                "content": "avoid",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "They need to assume the situation carefully.",
+    "exampleVn": "Họ cần giả định tình huống một cách cẩn thận."
+  },
+  {
+    "word": "attract",
+    "ipa": "/əˈtrækt/",
+    "meaning_vi": "thu hút",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/attract.mp3",
+    "contexts": [
+      {
+        "context_vi": "Ví dụ sử dụng từ 'attract' trong giao tiếp hàng ngày."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "They need to ____ the situation carefully.",
+        "sentence_vi": "Họ cần thu hút tình huống một cách cẩn thận.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "They need to ____ the situation carefully.",
+            "blank_position": 3,
+            "answer_explanation": "'Attract' means thu hút in English.",
+            "choices": [
+              {
+                "content": "attract",
+                "is_correct": 1
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              },
+              {
+                "content": "avoid",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "They need to attract the situation carefully.",
+    "exampleVn": "Họ cần thu hút tình huống một cách cẩn thận."
+  },
+  {
+    "word": "avoid",
+    "ipa": "/əˈvɔɪd/",
+    "meaning_vi": "tránh",
+    "cefr_level": "B1",
+    "level": 1,
+    "last_reviewed_at": "2025-08-01 10:00:00",
+    "next_review_at": "2025-08-10 09:20:06",
+    "audio_url": "https://example.com/audio/avoid.mp3",
+    "contexts": [
+      {
+        "context_vi": "Ví dụ sử dụng từ 'avoid' trong giao tiếp hàng ngày."
+      }
+    ],
+    "examples": [
+      {
+        "sentence_en": "They need to ____ the situation carefully.",
+        "sentence_vi": "Họ cần tránh tình huống một cách cẩn thận.",
+        "quizzes": [
+          {
+            "question_type": "fill_in_blank",
+            "question_text": "They need to ____ the situation carefully.",
+            "blank_position": 3,
+            "answer_explanation": "'Avoid' means tránh in English.",
+            "choices": [
+              {
+                "content": "avoid",
+                "is_correct": 1
+              },
+              {
+                "content": "ignore",
+                "is_correct": 0
+              },
+              {
+                "content": "delay",
+                "is_correct": 0
+              },
+              {
+                "content": "avoid",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exampleEn": "They need to avoid the situation carefully.",
+    "exampleVn": "Họ cần tránh tình huống một cách cẩn thận."
+  }
+]
