@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { BiLogOutCircle, BiEdit } from "react-icons/bi";
+import { BiLogOutCircle, BiEdit, BiTrash } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+
 type FormState = {
-  id: string; // hoặc có thể để optional: id?: string;
+  id: string;
   kanji: string;
   reading_hiragana: string;
   reading_romaji: string;
@@ -41,10 +42,17 @@ const toFormState = (w: any): FormState => {
 
 const ReviewWordList: React.FC = () => {
   const navigate = useNavigate();
+
   const [words, setWords] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [jlptFilter, setJlptFilter] = useState<'all' | 'N1' | 'N2' | 'N3' | 'N4' | 'N5'>('all');
   const [levelFilter, setLevelFilter] = useState<number | 'all'>('all');
+  const [confirmingId, setConfirmingId] = useState<string | null>(null); // ô xác nhận
+
+  // Thêm state thông báo và lỗi + trạng thái xoá
+  const [message, setMessage] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
 
   const levels = React.useMemo(
     () =>
@@ -54,7 +62,6 @@ const ReviewWordList: React.FC = () => {
     [words]
   );
 
-  // --- helper: lấy nhãn JLPT của 1 word ---
   const getJlpt = (w: any): 'N1' | 'N2' | 'N3' | 'N4' | 'N5' | undefined => {
     if (typeof w?.jlpt_level === 'string') {
       const up = w.jlpt_level.toUpperCase();
@@ -65,7 +72,6 @@ const ReviewWordList: React.FC = () => {
     return undefined;
   };
 
-  // --- filteredWords: bổ sung điều kiện JLPT ---
   const filteredWords = words.filter((word) => {
     const q = searchTerm.toLowerCase();
     const matchText =
@@ -83,43 +89,69 @@ const ReviewWordList: React.FC = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (!token) return; // Nếu chưa login thì có thể redirect về /login
+    if (!token) return;
 
     fetch('/api/practice/listWord', {
       headers: {
         'Accept': 'application/json',
-        'Authorization': `Bearer ${token}`, // gửi token
+        'Authorization': `Bearer ${token}`,
       }
     })
       .then(res => res.json())
       .then(data => {
         setWords(data.allWords || []);
-        console.log(data.allWords);
+        // console.log(data.allWords);
       })
-      .catch(err => console.error('Lỗi khi fetch:', err));
+      .catch(err => setError(`Lỗi khi tải danh sách: ${err?.message || err}`));
   }, []);
 
-const goEdit = (w: any) => {
-  const id = w?.id ?? w?._id;
-  if (!id) {
-    alert('Không tìm thấy ID của từ để sửa');
-    return;
-  }
-  const form = toFormState(w);
+  const goEdit = (w: any) => {
+    const id = w?.id ?? w?._id;
+    if (!id) {
+      alert('Không tìm thấy ID của từ để sửa');
+      return;
+    }
+    const form = toFormState(w);
+    sessionStorage.setItem('editingId', String(id));
+    sessionStorage.setItem('editingForm', JSON.stringify(form));
+    navigate(`/jp/editWord/${id}`, { state: { id, form } });
+  };
 
-  // Lưu dự phòng để chống mất khi refresh
-  sessionStorage.setItem('editingId', String(id));
-  sessionStorage.setItem('editingForm', JSON.stringify(form));
+  // ===== XÓA TỪ VỰNG =====
+  const handleDelete = async (id: string) => {
+    setError(null);
+    setMessage(null);
+    setDeletingId(id);
 
-  // Gửi gọn: chỉ gửi form và id
-  navigate(`/jp/editWord/${id}`, { state: { id, form } });
-};
+    try {
+      const token = localStorage.getItem('token');
+      const res = await fetch(`/api/practice/delete/${id}`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+      });
 
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.message || data.error || `HTTP ${res.status}`);
+      }
+
+      setWords(prev => prev.filter(w => String(w.id ?? w._id) !== id));
+      setMessage(data.message || 'Đã xoá từ vựng.');
+    } catch (e: any) {
+      setError(e?.message || 'Xoá thất bại');
+    } finally {
+      setDeletingId(null);
+      setConfirmingId(null); // ẩn hộp xác nhận
+    }
+  };
 
   return (
     <div className="min-h-screen mx-auto px-4">
       {/* Header + Search */}
-      <div className="bg-gray-100 fixed top-0 left-1/2 -translate-x-1/2 w-full xl:w-[60%]  z-10 shadow-md">
+      <div className="bg-gray-100 fixed top-0 left-1/2 -translate-x-1/2 w-full xl:w-[60%] z-10 shadow-md">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex items-center mb-4 relative">
             <button
@@ -174,76 +206,118 @@ const goEdit = (w: any) => {
               {filteredWords.length} kết quả
             </span>
           </div>
+
+          {/* Thông báo */}
+          {(message || error) && (
+            <div className="mt-3">
+              {error && <p className="text-red-500 text-sm whitespace-pre-line">{error}</p>}
+            </div>
+          )}
         </div>
       </div>
 
       <div className="max-h-[70vh] min-h-screen overflow-y-auto pt-35 scrollbar-hide">
-        {filteredWords.map((word, index) => (
-          <div key={index} className="bg-slate-50 border rounded-lg p-4 mb-4 border-l-4 border-yellow-400">
-            <div className="grid grid-cols-12 gap-4 items-start">
-              <div className="col-span-3 h-full flex items-center justify-center">
-                <h3 className="text-5xl font-bold text-gray-800">{word.kanji}</h3>
-              </div>
+  {filteredWords.map((word, index) => {
+    const wid = String(word.id ?? word._id);
+    return (
+      <div key={index} className="bg-slate-50 border rounded-lg p-4 mb-4 border-l-4 border-yellow-400">
+        <div className="grid grid-cols-12 gap-4 items-start">
+          <div className="col-span-3 h-full flex items-center justify-center">
+            <h3 className="text-5xl font-bold text-gray-800">{word.kanji}</h3>
+          </div>
 
-              <div className="col-span-9">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm text-gray-600">Cấp độ: {word.level}</span>
+          <div className="col-span-9">
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-sm text-gray-600">Cấp độ: {word.level}</span>
 
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm text-gray-600">{word.jlpt_level}</span>
-                    {/* Nút Sửa nho nhỏ */}
-                    <button
-                      onClick={() => goEdit(word)}
-                      className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-100"
-                      title="Sửa từ này"
-                      aria-label="Sửa"
-                    >
-                      <BiEdit className="w-4 h-4" />
-                      Sửa
-                    </button>
-                  </div>
-                </div>
+              <div className="flex items-center gap-2 relative">
+                <span className="text-sm text-gray-600">{word.jlpt_level}</span>
 
-                <div className="text-gray-700 mb-2">
-                  <strong>Romaji:</strong> {word.reading_romaji} <br />
-                  <strong>Nghĩa:</strong> {word.meaning_vi}
-                </div>
+                {/* Nút Sửa */}
+                <button
+                  onClick={() => goEdit(word)}
+                  className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-100"
+                  title="Sửa từ này"
+                >
+                  <BiEdit className="w-4 h-4" /> Sửa
+                </button>
 
-                {word.hanviet && (
-                  <div className="text-gray-700 mb-2">
-                    <strong>Hán Việt:</strong> {word.hanviet.han_viet} <br />
-                    <strong>Giải thích:</strong> {word.hanviet.explanation}
-                  </div>
-                )}
+                {/* Nút Xoá */}
+                <button
+                  onClick={() => setConfirmingId(wid)}
+                  disabled={deletingId === wid}
+                  className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md border border-red-300 text-red-600 hover:bg-red-50 disabled:opacity-60"
+                  title="Xoá từ này"
+                >
+                  <BiTrash className="w-4 h-4" />
+                  {deletingId === wid ? 'Đang xoá...' : 'Xoá'}
+                </button>
 
-                {word.contexts?.length > 0 && (
-                  <div className="mt-3">
-                    <strong>Ngữ cảnh:</strong>
-                    <ul className="list-disc list-inside text-gray-600">
-                      {word.contexts.map((ctx: any, idx: number) => (
-                        <li key={idx}>{ctx.context_vi}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {word.examples?.length > 0 && (
-                  <div className="mt-3">
-                    <strong>Ví dụ:</strong>
-                    {word.examples.map((ex: any, idx: number) => (
-                      <div key={idx} className="mb-2 text-gray-700">
-                        <div><strong>JP:</strong> {ex.sentence_jp}</div>
-                        <div><strong>Romaji:</strong> {ex.sentence_romaji}</div>
-                        <div><strong>VI:</strong> {ex.sentence_vi}</div>
-                      </div>
-                    ))}
+                {/* Cửa sổ xác nhận nhỏ */}
+                {confirmingId === wid && (
+                  <div className="absolute top-full right-0 mt-1  border rounded shadow-md p-2 z-20">
+                    <p className="text-xs text-gray-600 mb-2">Bạn chắc chắn muốn xoá?</p>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => handleDelete(wid)}
+                        className="px-2 py-1 text-xs rounded bg-red-600 text-stone-50 hover:bg-red-700"
+                      >
+                        Có
+                      </button>
+                      <button
+                        onClick={() => setConfirmingId(null)}
+                        className="px-2 py-1 text-xs rounded border hover:bg-gray-100"
+                      >
+                        Huỷ
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>
             </div>
+
+            <div className="text-gray-700 mb-2">
+              <strong>Romaji:</strong> {word.reading_romaji} <br />
+              <strong>Nghĩa:</strong> {word.meaning_vi}
+            </div>
+
+            {word.hanviet && (
+              <div className="text-gray-700 mb-2">
+                <strong>Hán Việt:</strong> {word.hanviet.han_viet} <br />
+                <strong>Giải thích:</strong> {word.hanviet.explanation}
+              </div>
+            )}
+
+            {word.contexts?.length > 0 && (
+              <div className="mt-3">
+                <strong>Ngữ cảnh:</strong>
+                <ul className="list-disc list-inside text-gray-600">
+                  {word.contexts.map((ctx: any, idx: number) => (
+                    <li key={idx}>{ctx.context_vi}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {word.examples?.length > 0 && (
+              <div className="mt-3">
+                <strong>Ví dụ:</strong>
+                {word.examples.map((ex: any, idx: number) => (
+                  <div key={idx} className="mb-2 text-gray-700">
+                    <div><strong>JP:</strong> {ex.sentence_jp}</div>
+                    <div><strong>Romaji:</strong> {ex.sentence_romaji}</div>
+                    <div><strong>VI:</strong> {ex.sentence_vi}</div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-        ))}
+        </div>
       </div>
+    );
+  })}
+</div>
+
 
     </div>
   );

@@ -16,75 +16,8 @@ use Illuminate\Validation\Rule;
 class PracticeController extends Controller
 {
 
-    public function updateReviewedWords(Request $request)
-    {
-        $user = $request->user(); // ->id() có từ token
-        $userId = $user->id;
-        $reviewedWords = $request->input('reviewedWords', []);
-        //lấy tạm user id như này
-        foreach ($reviewedWords as $log) {
-            $wordId = data_get($log, 'word.id');
-            $firstFailed = data_get($log, 'firstFailed');
-            $reviewedAt = Carbon::parse(data_get($log, 'reviewedAt'));
+    
 
-            // Tìm theo cả id và user_id để tránh ghi sai từ của user khác
-            $jpWord = JpWord::where('id', $wordId)
-                ->where('user_id', $userId)
-                ->first();
-
-            if (!$jpWord) {
-                continue;
-            }
-
-            $currentLevel = max(1, $jpWord->level ?? 1);
-
-            $newLevel = $firstFailed
-                ? max(1, $currentLevel - 1)
-                : min(7, $currentLevel + 1);
-
-            $nextReviewAt = match ($newLevel) {
-                1 => $reviewedAt->copy()->addMinutes(30),
-                2 => $reviewedAt->copy()->addHours(6),
-                3 => $reviewedAt->copy()->addDay(),
-                4 => $reviewedAt->copy()->addDays(3),
-                5 => $reviewedAt->copy()->addDays(7),
-                6 => $reviewedAt->copy()->addDays(14),
-                7 => $reviewedAt->copy()->addDays(30),
-            };
-
-            $jpWord->update([
-                'level' => $newLevel,
-                'last_reviewed_at' => $reviewedAt,
-                'next_review_at' => $nextReviewAt,
-            ]);
-            if (!empty($reviewedWords)) {
-                DB::transaction(function () use ($userId) {
-                    $today = Carbon::today(config('app.timezone', 'Asia/Bangkok'))->toDateString();
-
-                    // Khóa bản ghi theo ngày để tránh race condition
-                    $log = JpDailyLog::where('user_id', $userId)
-                        ->where('reviewed_at', $today)
-                        ->lockForUpdate()
-                        ->first();
-
-                    if (!$log) {
-                        // Chưa có: tạo mới với status = true
-                        JpDailyLog::create([
-                            'user_id' => $userId,
-                            'reviewed_at' => $today,
-                            'status' => true,
-                        ]);
-                    } elseif (!$log->status) {
-                        // Đã có nhưng chưa true: set true 1 lần duy nhất
-                        $log->forceFill(['status' => true])->save();
-                    }
-                    // Nếu đã true rồi -> không làm gì; vẫn chỉ 1 bản ghi
-                });
-            }
-        }
-
-        return response()->json(['message' => 'Review log updated']);
-    }
     public function addWord(Request $request)
     {
 
@@ -352,13 +285,13 @@ class PracticeController extends Controller
 
         DB::transaction(function () use ($userId, $reviewedWords) {
             foreach ($reviewedWords as $log) {
-                $wordId      = data_get($log, 'word.id');
+                $wordId = data_get($log, 'word.id');
                 if (!$wordId) continue;
 
                 $firstFailed = (bool) data_get($log, 'firstFailed', false);
                 $reviewedAt  = Carbon::parse(data_get($log, 'reviewedAt', now()));
 
-                // Khóa bản ghi từ vựng của đúng user để cập nhật an toàn
+                // Khóa bản ghi của đúng user
                 $enWord = EnWord::where('id', $wordId)
                     ->where('user_id', $userId)
                     ->lockForUpdate()
@@ -367,28 +300,44 @@ class PracticeController extends Controller
                 if (!$enWord) continue;
 
                 $currentLevel = max(1, (int) ($enWord->level ?? 1));
-                $newLevel = $firstFailed
-                    ? max(1, $currentLevel - 1)
-                    : min(7, $currentLevel + 1);
 
-                $nextReviewAt = match ($newLevel) {
-                    1 => $reviewedAt->copy()->addMinutes(30),
-                    2 => $reviewedAt->copy()->addHours(6),
-                    3 => $reviewedAt->copy()->addDay(),
-                    4 => $reviewedAt->copy()->addDays(3),
-                    5 => $reviewedAt->copy()->addDays(7),
-                    6 => $reviewedAt->copy()->addDays(14),
-                    7 => $reviewedAt->copy()->addDays(30),
-                };
+                if ($firstFailed) {
+                       // Sai: lùi 1 cấp (tối thiểu 1) và hẹn gần hơn bảng chuẩn
+                // Sai: lùi 1 cấp (tối thiểu 1) và hẹn ôn LẬP TỨC
+                $newLevel = max(1, $currentLevel - 1);
 
-                $enWord->update([
-                    'level'            => $newLevel,
-                    'last_reviewed_at' => $reviewedAt,
-                    'next_review_at'   => $nextReviewAt,
-                ]);
+                // Nếu logic lấy lịch dùng where('next_review_at', '<=', now()) thì giữ nguyên như dưới
+                // Nếu dùng so sánh nghiêm ngặt '<', nên đổi sang addSecond(1)
+                $nextReviewAt = $reviewedAt->addSecond(5);
+
+                    $enWord->update([
+                        'level'            => $newLevel,
+                        'last_reviewed_at' => $reviewedAt,
+                        'next_review_at'   => $nextReviewAt,
+                    ]);
+                } else {
+                    // ===== Nhánh TRẢ LỜI ĐÚNG =====
+                    $newLevel = min(7, $currentLevel + 1);
+
+                    $nextReviewAt = match ($newLevel) {
+                        1 => $reviewedAt->copy()->addMinutes(30),
+                        2 => $reviewedAt->copy()->addHours(6),
+                        3 => $reviewedAt->copy()->addDay(),
+                        4 => $reviewedAt->copy()->addDays(3),
+                        5 => $reviewedAt->copy()->addDays(7),
+                        6 => $reviewedAt->copy()->addDays(14),
+                        7 => $reviewedAt->copy()->addDays(30),
+                    };
+
+                    $enWord->update([
+                        'level'            => $newLevel,
+                        'last_reviewed_at' => $reviewedAt,
+                        'next_review_at'   => $nextReviewAt,
+                    ]);
+                }
             }
 
-            // ✅ Ghi nhật ký “đã ôn hôm nay” cho EN (1 lần/ngày)
+            // Ghi “đã ôn hôm nay” cho EN (1 lần/ngày)
             if (class_exists(EnDailyLog::class)) {
                 $today = Carbon::today(config('app.timezone', 'Asia/Bangkok'))->toDateString();
 

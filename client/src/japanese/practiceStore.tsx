@@ -1,7 +1,11 @@
 import { create } from 'zustand';
 
 export type QuizType = 'multiple' | 'hiraganaPractice' | 'romajiPractice' | 'voicePractice' | 'multiCharStrokePractice';
-
+export function containsKanji(text: string): boolean {
+  // Regex kiểm tra ký tự Kanji trong cụm từ
+  const kanjiRegex = /[\u4E00-\u9FFF]/;
+  return kanjiRegex.test(text);
+}
 export interface ReviewWord {
   id: number;
   kanji: string;
@@ -113,20 +117,44 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
   },
 
   getNextQuizType: () => {
-    const { previousType } = get();
+    const { previousType, currentWord } = get();
+
+    // Lấy text để kiểm tra Kanji (hỗ trợ cả ReviewWordState và ReviewWord)
+    const candidate =
+      (currentWord && 'word' in currentWord)
+        ? (currentWord.word?.kanji ?? '')
+        : (currentWord as unknown as ReviewWord | null)?.kanji ?? '';
+
+    const hasKanji = containsKanji(candidate);
+
     const all: QuizType[] = [
       'multiple',
       'voicePractice',
-
       'hiraganaPractice',
       'romajiPractice',
       'multiCharStrokePractice',
     ];
-    const filtered = all.filter(type => type !== previousType);
-    const next = filtered[Math.floor(Math.random() * filtered.length)];
-    set({ previousType: next });
-    return next;
+
+    // Nếu không có Kanji thì loại multiCharStrokePractice
+    let pool = hasKanji ? all : all.filter(t => t !== 'multiCharStrokePractice');
+
+    // Tránh lặp lại type trước đó
+    pool = pool.filter(t => t !== previousType);
+
+    // Nếu rỗng do loại trừ, nới lỏng tránh kẹt
+    if (pool.length === 0) {
+      pool = hasKanji ? all : all.filter(t => t !== 'multiCharStrokePractice');
+    }
+    if (pool.length === 0) {
+      set({ previousType: null });
+      return null;
+    }
+
+    const nextType = pool[Math.floor(Math.random() * pool.length)];
+    set({ previousType: nextType });
+    return nextType;
   },
+
 
   resetSession: () => {
     set({

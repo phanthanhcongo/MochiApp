@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
-import { BiLogOutCircle } from "react-icons/bi";
+import { BiLogOutCircle,BiCodeBlock } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 
 const JLPT_OPTIONS = ['N1', 'N2', 'N3', 'N4', 'N5'] as const;
@@ -206,17 +206,29 @@ const AddJapaneseWordForm = () => {
     <form onSubmit={handleSubmit} className="max-w-4xl mx-auto p-6">
       <div className='text-center w-full text-5xl'>Add new word</div>
 
-      {/* Nút quay lại */}
-      <div className="flex items-center my-5">
-        <button
-          type="button"
-          onClick={() => navigate('/jp/home')}
-          className="flex items-center text-gray-700 hover:text-gray-900 cursor-pointer"
-        >
-          <BiLogOutCircle className="text-gray-700 text-3xl" />
-          <span className="ml-2 text-sm">Quay lại</span>
-        </button>
-      </div>
+   {/* Nút quay lại + Coder Mode */}
+<div className="flex items-center my-5 space-x-4">
+  {/* Nút Quay lại */}
+  <button
+    type="button"
+    onClick={() => navigate('/jp/home')}
+    className="flex items-center text-gray-700 hover:text-gray-900 cursor-pointer"
+  >
+    <BiLogOutCircle className="text-gray-700 text-3xl" />
+    <span className="ml-2 text-sm">Quay lại</span>
+  </button>
+
+  {/* Nút Coder Mode */}
+  <button
+    type="button"
+    onClick={() => navigate('/jp/import')}
+    className="flex items-center text-blue-600 hover:text-blue-800 cursor-pointer"
+  >
+    <BiCodeBlock className="text-blue-600 text-3xl" />
+    <span className="ml-2 text-sm">Coder Mode</span>
+  </button>
+</div>
+
 
       <Section title="1. jp_words">
         <InputField label="Kanji" name="kanji" value={form.kanji} onChange={handleChange} error={errors.kanji} />

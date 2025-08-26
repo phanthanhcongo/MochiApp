@@ -1,6 +1,6 @@
 import  { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { BiLogOutCircle } from "react-icons/bi";
+import { BiLogOutCircle, BiCodeBlock } from 'react-icons/bi';
 
 export interface ReviewWord {
   word: string;
@@ -243,15 +243,27 @@ console.log("Payload to send:", payload);
     <div>
       <div className="mx-auto w-full  px-4 py-8">
         <header className="mb-6 relative">
-  <button
-    onClick={() => navigate("/en/home")}
-    className="absolute left-0 top-1 flex items-center text-gray-700 hover:text-gray-900 cursor-pointer"
-    title="Về trang EN"
-    aria-label="Về trang EN"
-  >
-    <BiLogOutCircle className="text-gray-700 text-3xl" />
-  </button>
-
+  <div className="flex items-center  space-x-4">
+    {/* Nút Quay lại */}
+    <button
+      type="button"
+      onClick={() => navigate('/en/home')}
+      className="flex items-center text-gray-700 hover:text-gray-900 cursor-pointer"
+    >
+      <BiLogOutCircle className="text-gray-700 text-3xl" />
+      <span className="ml-2 text-sm">Quay lại</span>
+    </button>
+  
+    {/* Nút Coder Mode */}
+    <button
+      type="button"
+      onClick={() => navigate('/en/import')}
+      className="flex items-center text-blue-600 hover:text-blue-800 cursor-pointer"
+    >
+      <BiCodeBlock className="text-blue-600 text-3xl" />
+      <span className="ml-2 text-sm">Coder Mode</span>
+    </button>
+  </div>
   <h2 className="text-2xl font-semibold tracking-tight text-center">
     Add New English Word
   </h2>

@@ -145,7 +145,7 @@ const MultipleChoiceQuiz: React.FC = () => {
     removeCurrentWord();
     if (words.length === 0) {
       // Nếu hết từ để ôn → chuyển sang trang summary
-      navigate('/summary', { state: { reviewedWords } });
+      navigate('jp/summary', { state: { reviewedWords } });
     } else {
       const firstQuizType = getNextQuizType();
       navigate(`/jp/quiz/${firstQuizType}`, {
