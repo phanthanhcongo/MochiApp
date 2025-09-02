@@ -1,11 +1,18 @@
 import { create } from 'zustand';
 
 export type QuizType = 'multiple' | 'hiraganaPractice' | 'romajiPractice' | 'voicePractice' | 'multiCharStrokePractice';
-export function containsKanji(text: string): boolean {
-  // Regex kiểm tra ký tự Kanji trong cụm từ
-  const kanjiRegex = /[\u4E00-\u9FFF]/;
-  return kanjiRegex.test(text);
-}
+// Có ÍT NHẤT 1 ký tự Kanji (mọi extension, mọi mặt phẳng)
+export const containsKanjiStrict = (s: string): boolean =>
+  /\p{Script=Han}/u.test(s);
+
+// TẤT CẢ ký tự đều là Kanji (nếu bạn muốn ràng buộc khắt khe hơn)
+export const allKanjiStrict = (s: string): boolean => {
+  const t = (s ?? '').normalize('NFKC').trim();
+  if (!t) return false;
+  // Không cho phép kana/latin… → chỉ Han hoặc khoảng trắng
+  return [...t].every(ch => /\p{Script=Han}/u.test(ch));
+};
+
 export interface ReviewWord {
   id: number;
   kanji: string;
@@ -116,44 +123,42 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
     set({ words: updated, currentWord: nextWord });
   },
 
-  getNextQuizType: () => {
-    const { previousType, currentWord } = get();
+ getNextQuizType: () => {
+  const { previousType, currentWord } = get();
 
-    // Lấy text để kiểm tra Kanji (hỗ trợ cả ReviewWordState và ReviewWord)
-    const candidate =
-      (currentWord && 'word' in currentWord)
-        ? (currentWord.word?.kanji ?? '')
-        : (currentWord as unknown as ReviewWord | null)?.kanji ?? '';
+  const candidate =
+    (currentWord && 'word' in currentWord)
+      ? (currentWord.word?.kanji ?? '')
+      : (currentWord as unknown as ReviewWord | null)?.kanji ?? '';
 
-    const hasKanji = containsKanji(candidate);
+  // ✅ validate chặt: có ÍT NHẤT một ký tự thuộc Script=Han
+  const hasKanji = containsKanjiStrict(candidate);
 
-    const all: QuizType[] = [
-      'multiple',
-      'voicePractice',
-      'hiraganaPractice',
-      'romajiPractice',
-      'multiCharStrokePractice',
-    ];
+  const all: QuizType[] = [
+    'multiple',
+    'voicePractice',
+    'hiraganaPractice',
+    'romajiPractice',
+    'multiCharStrokePractice',
+  ];
 
-    // Nếu không có Kanji thì loại multiCharStrokePractice
-    let pool = hasKanji ? all : all.filter(t => t !== 'multiCharStrokePractice');
+  // Không có Kanji → loại hẳn stroke
+  let pool = hasKanji ? all : all.filter(t => t !== 'multiCharStrokePractice');
 
-    // Tránh lặp lại type trước đó
-    pool = pool.filter(t => t !== previousType);
+  pool = pool.filter(t => t !== previousType);
 
-    // Nếu rỗng do loại trừ, nới lỏng tránh kẹt
-    if (pool.length === 0) {
-      pool = hasKanji ? all : all.filter(t => t !== 'multiCharStrokePractice');
-    }
-    if (pool.length === 0) {
-      set({ previousType: null });
-      return null;
-    }
+  if (pool.length === 0) {
+    pool = hasKanji ? all : all.filter(t => t !== 'multiCharStrokePractice');
+  }
+  if (pool.length === 0) {
+    set({ previousType: null });
+    return null;
+  }
 
-    const nextType = pool[Math.floor(Math.random() * pool.length)];
-    set({ previousType: nextType });
-    return nextType;
-  },
+  const nextType = pool[Math.floor(Math.random() * pool.length)];
+  set({ previousType: nextType });
+  return nextType;
+},
 
 
   resetSession: () => {

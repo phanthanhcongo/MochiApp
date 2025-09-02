@@ -1,0 +1,3359 @@
+[
+    {
+        "kanji": "変化",
+        "reading_hiragana": "へんか",
+        "reading_romaji": "henka",
+        "meaning_vi": "Thay đổi",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "BIẾN HÓA",
+        "explanation": "Danh từ, chỉ sự thay đổi của cuộc sống, môi trường hoặc khí hậu.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "生活が大きく変化する。",
+                "sentence_hira": "せいかつがおおきくへんかする。",
+                "sentence_romaji": "Seikatsu ga ookiku henka suru.",
+                "sentence_vi": "Cuộc sống thay đổi rất nhiều."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "生活が大きく（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘変化’ là đáp án đúng vì có nghĩa 'thay đổi'.",
+                "choices": [
+                    {
+                        "content": "変化",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "発達",
+        "reading_hiragana": "はったつ",
+        "reading_romaji": "hattatsu",
+        "meaning_vi": "Phát triển",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "PHÁT ĐẠT",
+        "explanation": "Danh từ, sự phát triển của cơ thể, trí tuệ hoặc kỹ năng.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "子どもの体の発達は早い。",
+                "sentence_hira": "こどものからだのはったつははやい。",
+                "sentence_romaji": "Kodomo no karada no hattatsu wa hayai.",
+                "sentence_vi": "Cơ thể trẻ con phát triển nhanh."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "子どもの体の（　）は早い。",
+                "blank_position": 1,
+                "answer_explanation": "‘発達’ là đáp án đúng vì có nghĩa 'phát triển'.",
+                "choices": [
+                    {
+                        "content": "発達",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "活躍",
+        "reading_hiragana": "かつやく",
+        "reading_romaji": "katsuyaku",
+        "meaning_vi": "Hoạt động tích cực, năng nổ",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "HOẠT DƯỢC",
+        "explanation": "Danh từ, chỉ sự hoạt động sôi nổi, năng nổ trong công việc, học tập, thể thao.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "娘は演劇で大活躍した。",
+                "sentence_hira": "むすめはえんげきでだいかつやくした。",
+                "sentence_romaji": "Musume wa engeki de dai katsuyaku shita.",
+                "sentence_vi": "Con gái tôi hoạt động rất năng nổ trong hội thi thể thao."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "娘は演劇で大（　）した。",
+                "blank_position": 1,
+                "answer_explanation": "‘活躍’ là đáp án đúng vì có nghĩa 'hoạt động tích cực, năng nổ'.",
+                "choices": [
+                    {
+                        "content": "活躍",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "競争",
+        "reading_hiragana": "きょうそう",
+        "reading_romaji": "kyousou",
+        "meaning_vi": "Cạnh tranh",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "CẠNH TRANH",
+        "explanation": "Danh từ, chỉ sự ganh đua trong học tập, công việc, thể thao.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "友達と速さを競争する。",
+                "sentence_hira": "ともだちとはやさをきょうそうする。",
+                "sentence_romaji": "Tomodachi to hayasa o kyousou suru.",
+                "sentence_vi": "Chạy đua với bạn để xem ai nhanh hơn."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "友達と速さを（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘競争’ là đáp án đúng vì có nghĩa 'cạnh tranh, thi đấu'.",
+                "choices": [
+                    {
+                        "content": "競争",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "応援",
+        "reading_hiragana": "おうえん",
+        "reading_romaji": "ouen",
+        "meaning_vi": "Cổ vũ, ủng hộ",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "ỨNG VIÊN",
+        "explanation": "Danh từ, chỉ sự cổ vũ, động viên trong thi đấu, sự kiện hoặc cuộc sống.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "母校を応援する。",
+                "sentence_hira": "ぼこうをおうえんする。",
+                "sentence_romaji": "Bokou o ouen suru.",
+                "sentence_vi": "Ủng hộ cho trường cũ."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "母校を（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘応援’ là đáp án đúng vì có nghĩa 'cổ vũ, ủng hộ'.",
+                "choices": [
+                    {
+                        "content": "応援",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "自慢",
+        "reading_hiragana": "じまん",
+        "reading_romaji": "jiman",
+        "meaning_vi": "Tự hào, tự mãn",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "TỰ MẠN",
+        "explanation": "Danh từ, chỉ sự hãnh diện, tự hào về bản thân hoặc người khác.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "大企業に就職した息子を自慢する。",
+                "sentence_hira": "だいきぎょうにしゅうしょくしたむすこをじまんする。",
+                "sentence_romaji": "Daikigyō ni shūshoku shita musuko o jiman suru.",
+                "sentence_vi": "Tự hào về đứa con trai đã xin được việc làm ở công ty lớn."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "大企業に就職した息子を（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘自慢’ là đáp án đúng vì có nghĩa 'tự hào, hãnh diện'.",
+                "choices": [
+                    {
+                        "content": "自慢",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "仲",
+        "reading_hiragana": "なか",
+        "reading_romaji": "naka",
+        "meaning_vi": "Mối quan hệ",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "TRỌNG",
+        "explanation": "Danh từ chỉ mối quan hệ giữa người với người.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "あきさんと、ゆきさんは仲が悪い。",
+                "sentence_hira": "あきさんと、ゆきさんはなかがわるい。",
+                "sentence_romaji": "Aki san to, Yuki san wa naka ga warui.",
+                "sentence_vi": "Mối quan hệ giữa Aki và Yuki không tốt."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "あきさんと、ゆきさんは（　）が悪い。",
+                "blank_position": 1,
+                "answer_explanation": "‘仲’ là đáp án đúng vì có nghĩa 'mối quan hệ'.",
+                "choices": [
+                    {
+                        "content": "仲",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "皮",
+        "reading_hiragana": "かわ",
+        "reading_romaji": "kawa",
+        "meaning_vi": "Da, vỏ",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "BÌ",
+        "explanation": "Danh từ chỉ da, vỏ bên ngoài của vật.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "くだものの皮をむいて食べる。",
+                "sentence_hira": "くだもののかわをむいてたべる。",
+                "sentence_romaji": "Kudamono no kawa o muite taberu.",
+                "sentence_vi": "Gọt vỏ hoa quả rồi ăn."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "くだものの（　）をむいて食べる。",
+                "blank_position": 1,
+                "answer_explanation": "‘皮’ là đáp án đúng vì có nghĩa 'vỏ'.",
+                "choices": [
+                    {
+                        "content": "皮",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "缶",
+        "reading_hiragana": "かん",
+        "reading_romaji": "kan",
+        "meaning_vi": "Thùng, can, lon; Hộp",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "PHỮU",
+        "explanation": "Danh từ chỉ vật chứa bằng kim loại như lon, hộp.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "缶詰を食べる。",
+                "sentence_hira": "かんづめをたべる。",
+                "sentence_romaji": "Kandzume o taberu.",
+                "sentence_vi": "Ăn đồ hộp."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "（　）詰を食べる。",
+                "blank_position": 1,
+                "answer_explanation": "‘缶’ là đáp án đúng vì có nghĩa 'hộp, lon'.",
+                "choices": [
+                    {
+                        "content": "缶",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "底",
+        "reading_hiragana": "そこ",
+        "reading_romaji": "soko",
+        "meaning_vi": "Đáy",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "ĐỂ",
+        "explanation": "Danh từ chỉ phần đáy, phía dưới cùng của vật.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "海の底にはたくさんの魚がいる。",
+                "sentence_hira": "うみのそこにはたくさんのさかながいる。",
+                "sentence_romaji": "Umi no soko ni wa takusan no sakana ga iru.",
+                "sentence_vi": "Có rất nhiều cá bơi dưới đáy biển."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "海の（　）にはたくさんの魚がいる。",
+                "blank_position": 1,
+                "answer_explanation": "‘底’ là đáp án đúng vì có nghĩa 'đáy'.",
+                "choices": [
+                    {
+                        "content": "底",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "坂",
+        "reading_hiragana": "さか",
+        "reading_romaji": "saka",
+        "meaning_vi": "Dốc",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "PHẢN",
+        "explanation": "Danh từ chỉ con dốc, đoạn đường nghiêng.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "坂を上ったところに学校がある。",
+                "sentence_hira": "さかをのぼったところにがっこうがある。",
+                "sentence_romaji": "Saka o nobotta tokoro ni gakkou ga aru.",
+                "sentence_vi": "Trường học nằm ở ngay đoạn leo dốc."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "（　）を上ったところに学校がある。",
+                "blank_position": 1,
+                "answer_explanation": "‘坂’ là đáp án đúng vì có nghĩa 'dốc'.",
+                "choices": [
+                    {
+                        "content": "坂",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "煙",
+        "reading_hiragana": "けむり",
+        "reading_romaji": "kemuri",
+        "meaning_vi": "Khói",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "YÊN",
+        "explanation": "Danh từ chỉ khói từ lửa hoặc thuốc lá.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "たばこの煙のせいで服が臭くなった。",
+                "sentence_hira": "たばこのけむりのせいでふくがくさくなった。",
+                "sentence_romaji": "Tabako no kemuri no sei de fuku ga kusaku natta.",
+                "sentence_vi": "Quần áo bị ám mùi do khói thuốc lá."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "たばこの（　）のせいで服が臭くなった。",
+                "blank_position": 1,
+                "answer_explanation": "‘煙’ là đáp án đúng vì có nghĩa 'khói'.",
+                "choices": [
+                    {
+                        "content": "煙",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "灰",
+        "reading_hiragana": "はい",
+        "reading_romaji": "hai",
+        "meaning_vi": "Tàn, tro",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "HÔI",
+        "explanation": "Danh từ chỉ phần tro tàn sau khi cháy.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "灰皿にたくさんのタバコの灰が捨ててある。",
+                "sentence_hira": "はいざらにたくさんのたばこのはいがすててある。",
+                "sentence_romaji": "Haizara ni takusan no tabako no hai ga sutete aru.",
+                "sentence_vi": "Có nhiều mẩu thuốc lá bỏ trong gạt tàn."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "灰皿にたくさんのタバコの（　）が捨ててある。",
+                "blank_position": 1,
+                "answer_explanation": "‘灰’ là đáp án đúng vì có nghĩa 'tro tàn'.",
+                "choices": [
+                    {
+                        "content": "灰",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "判",
+        "reading_hiragana": "はん",
+        "reading_romaji": "han",
+        "meaning_vi": "Con dấu",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "PHÁN",
+        "explanation": "Danh từ chỉ con dấu dùng trong giấy tờ.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "ここに判を押してください。",
+                "sentence_hira": "ここにはんをおしてください。",
+                "sentence_romaji": "Koko ni han o oshite kudasai.",
+                "sentence_vi": "Mời anh chị đóng dấu vào đây ạ."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "ここに（　）を押してください。",
+                "blank_position": 1,
+                "answer_explanation": "‘判’ là đáp án đúng vì có nghĩa 'con dấu'.",
+                "choices": [
+                    {
+                        "content": "判",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "番",
+        "reading_hiragana": "ばん",
+        "reading_romaji": "ban",
+        "meaning_vi": "Lượt; Trông coi",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "PHIÊN",
+        "explanation": "Danh từ chỉ lượt làm gì đó hoặc phiên trông coi.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "空港で荷物の番をする。",
+                "sentence_hira": "くうこうでにもつのばんをする。",
+                "sentence_romaji": "Kuukou de nimotsu no ban o suru.",
+                "sentence_vi": "Trông hành lý ở sân bay."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "空港で荷物の（　）をする。",
+                "blank_position": 1,
+                "answer_explanation": "‘番’ là đáp án đúng vì có nghĩa 'lượt, phiên, trông coi'.",
+                "choices": [
+                    {
+                        "content": "番",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "生",
+        "reading_hiragana": "なま",
+        "reading_romaji": "nama",
+        "meaning_vi": "Sống, tươi",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "SINH",
+        "explanation": "Danh từ/tính từ chỉ trạng thái tươi sống, chưa qua chế biến.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "生野菜は健康にいい。",
+                "sentence_hira": "なまやさいはけんこうにいい。",
+                "sentence_romaji": "Nama yasai wa kenkou ni ii.",
+                "sentence_vi": "Rau sống tốt cho sức khỏe."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "（　）野菜は健康にいい。",
+                "blank_position": 1,
+                "answer_explanation": "‘生’ là đáp án đúng vì có nghĩa 'sống, tươi'.",
+                "choices": [
+                    {
+                        "content": "生",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "倍",
+        "reading_hiragana": "ばい",
+        "reading_romaji": "bai",
+        "meaning_vi": "Gấp đôi",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "BỘI",
+        "explanation": "Danh từ, chỉ số lượng gấp đôi hoặc nhân lên nhiều lần.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "野菜の値段が倍になる。",
+                "sentence_hira": "やさいのねだんがばいになる。",
+                "sentence_romaji": "Yasai no nedan ga bai ni naru.",
+                "sentence_vi": "Giá rau tăng gấp đôi."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "野菜の値段が（　）になる。",
+                "blank_position": 1,
+                "answer_explanation": "‘倍’ là đáp án đúng vì có nghĩa 'gấp đôi'.",
+                "choices": [
+                    {
+                        "content": "倍",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "穴",
+        "reading_hiragana": "あな",
+        "reading_romaji": "ana",
+        "meaning_vi": "- Lỗ; - Hố",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "HUYỆT",
+        "explanation": "Danh từ chỉ hố, lỗ, hoặc khe hở.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "書類に穴をあける。",
+                "sentence_hira": "しょるいにあなをあける。",
+                "sentence_romaji": "Shorui ni ana o akeru.",
+                "sentence_vi": "Bấm lỗ vào hồ sơ."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "書類に（　）をあける。",
+                "blank_position": 1,
+                "answer_explanation": "‘穴’ là đáp án đúng vì có nghĩa 'lỗ'.",
+                "choices": [
+                    {
+                        "content": "穴",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "列",
+        "reading_hiragana": "れつ",
+        "reading_romaji": "retsu",
+        "meaning_vi": "Hàng",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "LIỆT",
+        "explanation": "Danh từ chỉ hàng, dãy người hoặc vật.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "人気店の前に長い列ができている。",
+                "sentence_hira": "にんきてんのまえにながいれつができている。",
+                "sentence_romaji": "Ninkiten no mae ni nagai retsu ga dekite iru.",
+                "sentence_vi": "Nơi cửa hàng được ưa thích có hàng dài người xếp."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "人気店の前に長い（　）ができている。",
+                "blank_position": 1,
+                "answer_explanation": "‘列’ là đáp án đúng vì có nghĩa 'hàng'.",
+                "choices": [
+                    {
+                        "content": "列",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "幅",
+        "reading_hiragana": "はば",
+        "reading_romaji": "haba",
+        "meaning_vi": "- Khoảng cách; - Bề ngang",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "PHÚC",
+        "explanation": "Danh từ chỉ độ rộng, khoảng cách ngang.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "道の幅がせまいので、通りにくい。",
+                "sentence_hira": "みちのはばがせまいので、とおりにくい。",
+                "sentence_romaji": "Michi no haba ga semai node, tooriniku i.",
+                "sentence_vi": "Đường hẹp nên khó đi qua."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "道の（　）がせまいので、通りにくい。",
+                "blank_position": 1,
+                "answer_explanation": "‘幅’ là đáp án đúng vì có nghĩa 'bề ngang'.",
+                "choices": [
+                    {
+                        "content": "幅",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "偽",
+        "reading_hiragana": "にせ",
+        "reading_romaji": "nise",
+        "meaning_vi": "Giả, giả mạo",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "NGỤY",
+        "explanation": "Danh từ chỉ sự giả mạo, đồ giả.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "偽物の商品を買ってしまった。",
+                "sentence_hira": "にせもののしょうひんをかってしまった。",
+                "sentence_romaji": "Nisemono no shouhin o katte shimatta.",
+                "sentence_vi": "Tôi mua phải hàng giả."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "（　）物の商品を買ってしまった。",
+                "blank_position": 1,
+                "answer_explanation": "‘偽’ là đáp án đúng vì có nghĩa 'giả'.",
+                "choices": [
+                    {
+                        "content": "偽",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "別",
+        "reading_hiragana": "べつ",
+        "reading_romaji": "betsu",
+        "meaning_vi": "- Khác; - Riêng biệt",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "BIỆT",
+        "explanation": "Danh từ chỉ sự khác biệt, riêng rẽ.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "彼女とは別の意見を持っている。",
+                "sentence_hira": "かのじょとはべつのいけんをもっている。",
+                "sentence_romaji": "Kanojo to wa betsu no iken o motte iru.",
+                "sentence_vi": "Tôi có ý kiến khác với cô ấy."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "彼女とは（　）の意見を持っている。",
+                "blank_position": 1,
+                "answer_explanation": "‘別’ là đáp án đúng vì có nghĩa 'khác'.",
+                "choices": [
+                    {
+                        "content": "別",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "愛",
+        "reading_hiragana": "あい",
+        "reading_romaji": "ai",
+        "meaning_vi": "Tình yêu",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "ÁI",
+        "explanation": "Danh từ chỉ tình yêu thương giữa con người với nhau.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "愛とはなんだろう。",
+                "sentence_hira": "あいとはなんだろう。",
+                "sentence_romaji": "Ai to wa nan darou.",
+                "sentence_vi": "Tình yêu là gì?"
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "（　）とはなんだろう。",
+                "blank_position": 1,
+                "answer_explanation": "‘愛’ là đáp án đúng vì có nghĩa 'tình yêu'.",
+                "choices": [
+                    {
+                        "content": "愛",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "命",
+        "reading_hiragana": "いのち",
+        "reading_romaji": "inochi",
+        "meaning_vi": "Sinh mạng",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "MỆNH",
+        "explanation": "Danh từ chỉ sự sống, mạng sống.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "命を大切にする。",
+                "sentence_hira": "いのちをたいせつにする。",
+                "sentence_romaji": "Inochi o taisetsu ni suru.",
+                "sentence_vi": "Coi trọng tính mạng."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "（　）を大切にする。",
+                "blank_position": 1,
+                "answer_explanation": "‘命’ là đáp án đúng vì có nghĩa 'sinh mạng'.",
+                "choices": [
+                    {
+                        "content": "命",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "訳",
+        "reading_hiragana": "わけ",
+        "reading_romaji": "wake",
+        "meaning_vi": "Lý do",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "DỊCH",
+        "explanation": "Danh từ chỉ lý do, nguyên nhân.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "休んだわけを話す。",
+                "sentence_hira": "やすんだわけをはなす。",
+                "sentence_romaji": "Yasunda wake o hanasu.",
+                "sentence_vi": "Nói lý do nghỉ."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "休んだ（　）を話す。",
+                "blank_position": 1,
+                "answer_explanation": "‘訳’ là đáp án đúng vì có nghĩa 'lý do'.",
+                "choices": [
+                    {
+                        "content": "訳",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "癖",
+        "reading_hiragana": "くせ",
+        "reading_romaji": "kuse",
+        "meaning_vi": "- Thói quen; - Tật",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "PHÍCH",
+        "explanation": "Danh từ chỉ thói quen hoặc tật xấu.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "足を組む癖がある。",
+                "sentence_hira": "あしをくむくせがある。",
+                "sentence_romaji": "Ashi o kumu kuse ga aru.",
+                "sentence_vi": "Có tật ngồi vắt chân."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "足を組む（　）がある。",
+                "blank_position": 1,
+                "answer_explanation": "‘癖’ là đáp án đúng vì có nghĩa 'tật'.",
+                "choices": [
+                    {
+                        "content": "癖",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "印",
+        "reading_hiragana": "しるし",
+        "reading_romaji": "shirushi",
+        "meaning_vi": "Dấu, dấu hiệu",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "ẤN",
+        "explanation": "Danh từ chỉ dấu hiệu, dấu tích.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "本に印を付ける。",
+                "sentence_hira": "ほんにしるしをつける。",
+                "sentence_romaji": "Hon ni shirushi o tsukeru.",
+                "sentence_vi": "Đánh dấu vào sách."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "本に（　）を付ける。",
+                "blank_position": 1,
+                "answer_explanation": "‘印’ là đáp án đúng vì có nghĩa 'dấu'.",
+                "choices": [
+                    {
+                        "content": "印",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "質",
+        "reading_hiragana": "しつ",
+        "reading_romaji": "shitsu",
+        "meaning_vi": "Chất lượng",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "CHẤT",
+        "explanation": "Danh từ chỉ bản chất, phẩm chất hay chất lượng của sự vật.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "日本製品の質はいいと海外の人から言われた。",
+                "sentence_hira": "にほんせいひんのしつはいいとかいがいのひとからいわれた。",
+                "sentence_romaji": "Nihon seihin no shitsu wa ii to kaigai no hito kara iwareta.",
+                "sentence_vi": "Chất lượng hàng hóa của Nhật Bản được người nước ngoài đánh giá tốt."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "日本製品の（　）はいいと海外の人から言われた。",
+                "blank_position": 1,
+                "answer_explanation": "‘質’ là đáp án đúng vì có nghĩa 'chất lượng'.",
+                "choices": [
+                    {
+                        "content": "質",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "型",
+        "reading_hiragana": "かた",
+        "reading_romaji": "kata",
+        "meaning_vi": "Mẫu, kiểu dáng, cỡ",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "HÌNH",
+        "explanation": "Danh từ chỉ hình dạng, mẫu mã hoặc quy cách.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "大型のトラックの運転は難しい。",
+                "sentence_hira": "おおがたのとらっくのうんてんはむずかしい。",
+                "sentence_romaji": "Oogata no torakku no unten wa muzukashii.",
+                "sentence_vi": "Lái 1 chiếc tải cỡ đại rất khó."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "大型のトラックの（　）の運転は難しい。",
+                "blank_position": 1,
+                "answer_explanation": "‘型’ là đáp án đúng vì có nghĩa 'mẫu, kiểu dáng, cỡ'.",
+                "choices": [
+                    {
+                        "content": "型",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "くじ",
+        "reading_hiragana": "くじ",
+        "reading_romaji": "kuji",
+        "meaning_vi": "Xổ số, lá thăm",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "—",
+        "explanation": "Danh từ chỉ trò chơi xổ số hoặc việc rút thăm.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "宝くじを引いたら、一等が当たった。",
+                "sentence_hira": "たからくじをひいたら、いっとうがあたった。",
+                "sentence_romaji": "Takarakuji o hiitara, ittou ga atatta.",
+                "sentence_vi": "Rút xổ số và trúng giải nhất."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "宝くじを（　）たら、一等が当たった。",
+                "blank_position": 1,
+                "answer_explanation": "‘くじ’ là đáp án đúng vì có nghĩa 'xổ số, lá thăm'.",
+                "choices": [
+                    {
+                        "content": "くじ",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "多く",
+        "reading_hiragana": "おおく",
+        "reading_romaji": "ooku",
+        "meaning_vi": "Nhiều",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "ĐA",
+        "explanation": "Phó từ/danh từ chỉ số lượng nhiều.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "この大会には多くの人が参加した。",
+                "sentence_hira": "このたいかいにはおおくのひとがさんかした。",
+                "sentence_romaji": "Kono taikai ni wa ooku no hito ga sanka shita.",
+                "sentence_vi": "Trong đại hội này có nhiều trường tham gia."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "この大会には（　）の人が参加した。",
+                "blank_position": 1,
+                "answer_explanation": "‘多く’ là đáp án đúng vì có nghĩa 'nhiều'.",
+                "choices": [
+                    {
+                        "content": "多く",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "いじわる",
+        "reading_hiragana": "いじわる",
+        "reading_romaji": "ijiwaru",
+        "meaning_vi": "Xấu tính",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "—",
+        "explanation": "Tính từ/danh từ chỉ sự ác ý, tính xấu, hay bắt nạt người khác.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "山田くんはクラスで一番いじわるだ。",
+                "sentence_hira": "やまだくんはくらすでいちばんいじわるだ。",
+                "sentence_romaji": "Yamada-kun wa kurasu de ichiban ijiwaru da.",
+                "sentence_vi": "Yamada xấu tính nhất lớp."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "山田くんはクラスで一番（　）だ。",
+                "blank_position": 1,
+                "answer_explanation": "‘いじわる’ là đáp án đúng vì có nghĩa 'xấu tính'.",
+                "choices": [
+                    {
+                        "content": "いじわる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "いたずら",
+        "reading_hiragana": "いたずら",
+        "reading_romaji": "itazura",
+        "meaning_vi": "Nghịch ngợm",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "—",
+        "explanation": "Danh từ/tính từ chỉ hành vi nghịch ngợm, hay trêu chọc.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "いたずらをして先生に怒られた。",
+                "sentence_hira": "いたずらをしてせんせいにおこられた。",
+                "sentence_romaji": "Itazura o shite sensei ni okorareta.",
+                "sentence_vi": "Nghịch ngợm nên bị thầy mắng."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "（　）をして先生に怒られた。",
+                "blank_position": 1,
+                "answer_explanation": "‘いたずら’ là đáp án đúng vì có nghĩa 'nghịch ngợm'.",
+                "choices": [
+                    {
+                        "content": "いたずら",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "やり取り",
+        "reading_hiragana": "やりとり",
+        "reading_romaji": "yaritori",
+        "meaning_vi": "Trao đổi, liên lạc",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "—",
+        "explanation": "Danh từ chỉ sự trao đổi thư từ, tin nhắn hoặc liên lạc qua lại.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "遠くにいる祖母と手紙のやり取りをする。",
+                "sentence_hira": "とおくにいるそぼとてがみのやりとりをする。",
+                "sentence_romaji": "Tooku ni iru sobo to tegami no yaritori o suru.",
+                "sentence_vi": "Trao đổi thư từ với người bà sống ở xa."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "祖母と手紙の（　）をする。",
+                "blank_position": 1,
+                "answer_explanation": "‘やり取り’ là đáp án đúng vì có nghĩa 'trao đổi, liên lạc'.",
+                "choices": [
+                    {
+                        "content": "やり取り",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "お礼",
+        "reading_hiragana": "おれい",
+        "reading_romaji": "orei",
+        "meaning_vi": "Lời cảm ơn",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "LỄ",
+        "explanation": "Danh từ chỉ lời cảm ơn, sự biết ơn đối với người khác.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "上司にお礼を言う。",
+                "sentence_hira": "じょうしにおれいをいう。",
+                "sentence_romaji": "Joushi ni orei o iu.",
+                "sentence_vi": "Nói lời cảm ơn với cấp trên."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "上司に（　）を言う。",
+                "blank_position": 1,
+                "answer_explanation": "‘お礼’ là đáp án đúng vì có nghĩa 'lời cảm ơn'.",
+                "choices": [
+                    {
+                        "content": "お礼",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "型",
+        "reading_hiragana": "かた",
+        "reading_romaji": "kata",
+        "meaning_vi": "Mẫu, kiểu dáng, cỡ",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "HÌNH",
+        "explanation": "Danh từ chỉ hình dạng, mẫu mã hoặc quy cách.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "大型のトラックの運転は難しい。",
+                "sentence_hira": "おおがたのとらっくのうんてんはむずかしい。",
+                "sentence_romaji": "Oogata no torakku no unten wa muzukashii.",
+                "sentence_vi": "Lái 1 chiếc tải cỡ đại rất khó."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "大型のトラックの（　）の運転は難しい。",
+                "blank_position": 1,
+                "answer_explanation": "‘型’ là đáp án đúng vì có nghĩa 'mẫu, kiểu dáng, cỡ'.",
+                "choices": [
+                    {
+                        "content": "型",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "くじ",
+        "reading_hiragana": "くじ",
+        "reading_romaji": "kuji",
+        "meaning_vi": "Xổ số, lá thăm",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "—",
+        "explanation": "Danh từ chỉ trò chơi xổ số hoặc việc rút thăm.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "宝くじを引いたら、一等が当たった。",
+                "sentence_hira": "たからくじをひいたら、いっとうがあたった。",
+                "sentence_romaji": "Takarakuji o hiitara, ittou ga atatta.",
+                "sentence_vi": "Rút xổ số và trúng giải nhất."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "宝くじを（　）たら、一等が当たった。",
+                "blank_position": 1,
+                "answer_explanation": "‘くじ’ là đáp án đúng vì có nghĩa 'xổ số, lá thăm'.",
+                "choices": [
+                    {
+                        "content": "くじ",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "多く",
+        "reading_hiragana": "おおく",
+        "reading_romaji": "ooku",
+        "meaning_vi": "Nhiều",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "ĐA",
+        "explanation": "Phó từ/danh từ chỉ số lượng nhiều.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "この大会には多くの人が参加した。",
+                "sentence_hira": "このたいかいにはおおくのひとがさんかした。",
+                "sentence_romaji": "Kono taikai ni wa ooku no hito ga sanka shita.",
+                "sentence_vi": "Trong đại hội này có nhiều trường tham gia."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "この大会には（　）の人が参加した。",
+                "blank_position": 1,
+                "answer_explanation": "‘多く’ là đáp án đúng vì có nghĩa 'nhiều'.",
+                "choices": [
+                    {
+                        "content": "多く",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "いじわる",
+        "reading_hiragana": "いじわる",
+        "reading_romaji": "ijiwaru",
+        "meaning_vi": "Xấu tính",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "—",
+        "explanation": "Tính từ/danh từ chỉ sự ác ý, tính xấu, hay bắt nạt người khác.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "山田くんはクラスで一番いじわるだ。",
+                "sentence_hira": "やまだくんはくらすでいちばんいじわるだ。",
+                "sentence_romaji": "Yamada-kun wa kurasu de ichiban ijiwaru da.",
+                "sentence_vi": "Yamada xấu tính nhất lớp."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "山田くんはクラスで一番（　）だ。",
+                "blank_position": 1,
+                "answer_explanation": "‘いじわる’ là đáp án đúng vì có nghĩa 'xấu tính'.",
+                "choices": [
+                    {
+                        "content": "いじわる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "いたずら",
+        "reading_hiragana": "いたずら",
+        "reading_romaji": "itazura",
+        "meaning_vi": "Nghịch ngợm",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "—",
+        "explanation": "Danh từ/tính từ chỉ hành vi nghịch ngợm, hay trêu chọc.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "いたずらをして先生に怒られた。",
+                "sentence_hira": "いたずらをしてせんせいにおこられた。",
+                "sentence_romaji": "Itazura o shite sensei ni okorareta.",
+                "sentence_vi": "Nghịch ngợm nên bị thầy mắng."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "（　）をして先生に怒られた。",
+                "blank_position": 1,
+                "answer_explanation": "‘いたずら’ là đáp án đúng vì có nghĩa 'nghịch ngợm'.",
+                "choices": [
+                    {
+                        "content": "いたずら",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "やり取り",
+        "reading_hiragana": "やりとり",
+        "reading_romaji": "yaritori",
+        "meaning_vi": "Trao đổi, liên lạc",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "—",
+        "explanation": "Danh từ chỉ sự trao đổi thư từ, tin nhắn hoặc liên lạc qua lại.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "遠くにいる祖母と手紙のやり取りをする。",
+                "sentence_hira": "とおくにいるそぼとてがみのやりとりをする。",
+                "sentence_romaji": "Tooku ni iru sobo to tegami no yaritori o suru.",
+                "sentence_vi": "Trao đổi thư từ với người bà sống ở xa."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "祖母と手紙の（　）をする。",
+                "blank_position": 1,
+                "answer_explanation": "‘やり取り’ là đáp án đúng vì có nghĩa 'trao đổi, liên lạc'.",
+                "choices": [
+                    {
+                        "content": "やり取り",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "お礼",
+        "reading_hiragana": "おれい",
+        "reading_romaji": "orei",
+        "meaning_vi": "Lời cảm ơn",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "LỄ",
+        "explanation": "Danh từ chỉ lời cảm ơn, sự biết ơn đối với người khác.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "上司にお礼を言う。",
+                "sentence_hira": "じょうしにおれいをいう。",
+                "sentence_romaji": "Joushi ni orei o iu.",
+                "sentence_vi": "Nói lời cảm ơn với cấp trên."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "上司に（　）を言う。",
+                "blank_position": 1,
+                "answer_explanation": "‘お礼’ là đáp án đúng vì có nghĩa 'lời cảm ơn'.",
+                "choices": [
+                    {
+                        "content": "お礼",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "年上",
+        "reading_hiragana": "としうえ",
+        "reading_romaji": "toshiue",
+        "meaning_vi": "Hơn tuổi, lớn tuổi",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "NIÊN THƯỢNG",
+        "explanation": "Danh từ chỉ người nhiều tuổi hơn mình.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "私は３つ年上の兄がいる。",
+                "sentence_hira": "わたしはみっつとしうえのあにがいる。",
+                "sentence_romaji": "Watashi wa mittsu toshiue no ani ga iru.",
+                "sentence_vi": "Tôi có 1 người anh trai hơn tôi 3 tuổi."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "私は３つ（　）の兄がいる。",
+                "blank_position": 1,
+                "answer_explanation": "‘年上’ là đáp án đúng vì có nghĩa 'hơn tuổi'.",
+                "choices": [
+                    {
+                        "content": "年上",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "目上",
+        "reading_hiragana": "めうえ",
+        "reading_romaji": "meue",
+        "meaning_vi": "Bề trên, người hơn tuổi",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "MỤC THƯỢNG",
+        "explanation": "Người có địa vị cao hơn, vai vế cao hơn trong xã hội.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "上目の人には礼儀正しくしなければならない。",
+                "sentence_hira": "めうえのひとにはれいぎただしくしなければならない。",
+                "sentence_romaji": "Meue no hito ni wa reigi tadashiku shinakereba naranai.",
+                "sentence_vi": "Cần phải giữ đúng lễ nghĩa với người trên."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "（　）の人には礼儀正しくしなければならない。",
+                "blank_position": 1,
+                "answer_explanation": "‘目上’ là đáp án đúng vì có nghĩa 'người bề trên'.",
+                "choices": [
+                    {
+                        "content": "目上",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "上司",
+        "reading_hiragana": "じょうし",
+        "reading_romaji": "joushi",
+        "meaning_vi": "Cấp trên, ông chủ",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "THƯỢNG TI",
+        "explanation": "Người quản lý, cấp trên trong công việc.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "休日に上司と温泉旅行をした。",
+                "sentence_hira": "きゅうじつにじょうしとおんせんりょこうをした。",
+                "sentence_romaji": "Kyuujitsu ni joushi to onsen ryokou o shita.",
+                "sentence_vi": "Ngày nghỉ tôi đi du lịch suối nước nóng với sếp của công ty."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "休日に（　）と温泉旅行をした。",
+                "blank_position": 1,
+                "answer_explanation": "‘上司’ là đáp án đúng vì có nghĩa 'cấp trên'.",
+                "choices": [
+                    {
+                        "content": "上司",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "相手",
+        "reading_hiragana": "あいて",
+        "reading_romaji": "aite",
+        "meaning_vi": "Đối phương, đối thủ",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "TƯƠNG THỦ",
+        "explanation": "Người mình đang giao tiếp, đối tác hoặc đối thủ.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "試合の相手は強そうだ。",
+                "sentence_hira": "しあいのあいてはつよそうだ。",
+                "sentence_romaji": "Shiai no aite wa tsuyosou da.",
+                "sentence_vi": "Đối thủ trận đấu này có vẻ mạnh."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "試合の（　）は強そうだ。",
+                "blank_position": 1,
+                "answer_explanation": "‘相手’ là đáp án đúng vì có nghĩa 'đối thủ'.",
+                "choices": [
+                    {
+                        "content": "相手",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "範囲",
+        "reading_hiragana": "はんい",
+        "reading_romaji": "han'i",
+        "meaning_vi": "Phạm vi",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "PHẠM VI",
+        "explanation": "Danh từ chỉ phạm vi hoạt động, giới hạn của sự việc.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "この問題は試験の範囲に入っている。",
+                "sentence_hira": "このもんだいはしけんのはんいにはいっている。",
+                "sentence_romaji": "Kono mondai wa shiken no han'i ni haitte iru.",
+                "sentence_vi": "Câu hỏi này nằm trong phạm vi bài kiểm tra."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "この問題は試験の（　）に入っている。",
+                "blank_position": 1,
+                "answer_explanation": "‘範囲’ là đáp án đúng vì có nghĩa 'phạm vi'.",
+                "choices": [
+                    {
+                        "content": "範囲",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "内容",
+        "reading_hiragana": "ないよう",
+        "reading_romaji": "naiyou",
+        "meaning_vi": "Nội dung",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "NỘI DUNG",
+        "explanation": "Danh từ chỉ nội dung bên trong của sự việc, câu chuyện, bài viết...",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "あの人の話は内容がない。",
+                "sentence_hira": "あのひとのはなしはないようがない。",
+                "sentence_romaji": "Ano hito no hanashi wa naiyou ga nai.",
+                "sentence_vi": "Câu chuyện của người đó không có nội dung."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "あの人の話は（　）がない。",
+                "blank_position": 1,
+                "answer_explanation": "‘内容’ là đáp án đúng vì có nghĩa 'nội dung'.",
+                "choices": [
+                    {
+                        "content": "内容",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "中身",
+        "reading_hiragana": "なかみ",
+        "reading_romaji": "nakami",
+        "meaning_vi": "Bên trong, nội dung",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "TRUNG THÂN",
+        "explanation": "Chỉ phần bên trong, phần ruột, hoặc nội dung của sự vật.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "箱の中身を調べる。",
+                "sentence_hira": "はこのなかみをしらべる。",
+                "sentence_romaji": "Hako no nakami o shiraberu.",
+                "sentence_vi": "Kiểm tra đồ bên trong hộp."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "箱の（　）を調べる。",
+                "blank_position": 1,
+                "answer_explanation": "‘中身’ là đáp án đúng vì có nghĩa 'nội dung, bên trong'.",
+                "choices": [
+                    {
+                        "content": "中身",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "特徴",
+        "reading_hiragana": "とくちょう",
+        "reading_romaji": "tokuchou",
+        "meaning_vi": "Đặc trưng",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "ĐẶC TRƯNG",
+        "explanation": "Điểm nổi bật, đặc điểm phân biệt với những cái khác.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "犯人の特徴を覚える。",
+                "sentence_hira": "はんにんのとくちょうをおぼえる。",
+                "sentence_romaji": "Hannin no tokuchou o oboeru.",
+                "sentence_vi": "Nhớ đặc trưng của tên tội phạm."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "犯人の（　）を覚える。",
+                "blank_position": 1,
+                "answer_explanation": "‘特徴’ là đáp án đúng vì có nghĩa 'đặc trưng'.",
+                "choices": [
+                    {
+                        "content": "特徴",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "普通",
+        "reading_hiragana": "ふつう",
+        "reading_romaji": "futsuu",
+        "meaning_vi": "Bình thường",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "PHỔ THÔNG",
+        "explanation": "Chỉ sự việc, trạng thái diễn ra thông thường, không đặc biệt.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "普通に考えたらすぐ分かる。",
+                "sentence_hira": "ふつうにかんがえたらすぐわかる。",
+                "sentence_romaji": "Futsuu ni kangaetara sugu wakaru.",
+                "sentence_vi": "Tôi thấy nếu suy nghĩ theo cách bình thường là sẽ hiểu ngay thôi."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "（　）に考えたらすぐ分かる。",
+                "blank_position": 1,
+                "answer_explanation": "‘普通’ là đáp án đúng vì có nghĩa 'bình thường'.",
+                "choices": [
+                    {
+                        "content": "普通",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "近道",
+        "reading_hiragana": "ちかみち",
+        "reading_romaji": "chikamichi",
+        "meaning_vi": "Đường tắt",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "CẬN ĐẠO",
+        "explanation": "Danh từ chỉ con đường đi nhanh hơn, rút ngắn thời gian so với đường chính.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "会社には近道をして行きます。",
+                "sentence_hira": "かいしゃにはちかみちをしていきます。",
+                "sentence_romaji": "Kaisha ni wa chikamichi o shite ikimasu.",
+                "sentence_vi": "Đi đường tắt để tới công ty."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "会社には（　）をして行きます。",
+                "blank_position": 1,
+                "answer_explanation": "‘近道’ là đáp án đúng vì có nghĩa 'đường tắt'.",
+                "choices": [
+                    {
+                        "content": "近道",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "中心",
+        "reading_hiragana": "ちゅうしん",
+        "reading_romaji": "chuushin",
+        "meaning_vi": "Trung tâm",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "TRUNG TÂM",
+        "explanation": "Danh từ chỉ vị trí trọng yếu, trung tâm của sự vật, sự việc.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "市の中心に大きなビルがある。",
+                "sentence_hira": "しのちゅうしんにおおきなびるがある。",
+                "sentence_romaji": "Shi no chuushin ni ookina biru ga aru.",
+                "sentence_vi": "Ở trung tâm khu phố có tòa nhà lớn."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "市の（　）に大きなビルがある。",
+                "blank_position": 1,
+                "answer_explanation": "‘中心’ là đáp án đúng vì có nghĩa 'trung tâm'.",
+                "choices": [
+                    {
+                        "content": "中心",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "辺り",
+        "reading_hiragana": "あたり",
+        "reading_romaji": "atari",
+        "meaning_vi": "Gần, lân cận",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "BIÊN",
+        "explanation": "Danh từ chỉ khu vực xung quanh, gần nơi đang nói đến.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "この辺りは人が少ない。",
+                "sentence_hira": "このあたりはひとがすくない。",
+                "sentence_romaji": "Kono atari wa hito ga sukunai.",
+                "sentence_vi": "Xung quanh đây không có nhiều người."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "この（　）は人が少ない。",
+                "blank_position": 1,
+                "answer_explanation": "‘辺り’ là đáp án đúng vì có nghĩa 'xung quanh'.",
+                "choices": [
+                    {
+                        "content": "辺り",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "周り",
+        "reading_hiragana": "まわり",
+        "reading_romaji": "mawari",
+        "meaning_vi": "Xung quanh, vòng quanh",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "CHU",
+        "explanation": "Danh từ chỉ phạm vi bao quanh một vật hoặc một khu vực.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "家の周りを歩く。",
+                "sentence_hira": "いえのまわりをあるく。",
+                "sentence_romaji": "Ie no mawari o aruku.",
+                "sentence_vi": "Đi bộ xung quanh nhà."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "家の（　）を歩く。",
+                "blank_position": 1,
+                "answer_explanation": "‘周り’ là đáp án đúng vì có nghĩa 'xung quanh'.",
+                "choices": [
+                    {
+                        "content": "周り",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "前半",
+        "reading_hiragana": "ぜんはん",
+        "reading_romaji": "zenhan",
+        "meaning_vi": "Nửa đầu",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "TIỀN BÁN",
+        "explanation": "Danh từ chỉ phần đầu tiên của một sự việc, giai đoạn, thời gian.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "映画の前半だけ見た。",
+                "sentence_hira": "えいがのぜんはんだけみた。",
+                "sentence_romaji": "Eiga no zenhan dake mita.",
+                "sentence_vi": "Tôi chỉ xem nửa đầu của bộ phim."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "映画の（　）だけ見た。",
+                "blank_position": 1,
+                "answer_explanation": "‘前半’ là đáp án đúng vì có nghĩa 'nửa đầu'.",
+                "choices": [
+                    {
+                        "content": "前半",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "後半",
+        "reading_hiragana": "こうはん",
+        "reading_romaji": "kouhan",
+        "meaning_vi": "Nửa sau",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "HẬU BÁN",
+        "explanation": "Danh từ chỉ phần sau, giai đoạn cuối cùng của một sự việc hoặc thời gian.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "後半もがんばってください。",
+                "sentence_hira": "こうはんもがんばってください。",
+                "sentence_romaji": "Kouhan mo ganbatte kudasai.",
+                "sentence_vi": "Hãy cố gắng cả nửa sau nữa nhé."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "（　）もがんばってください。",
+                "blank_position": 1,
+                "answer_explanation": "‘後半’ là đáp án đúng vì có nghĩa 'nửa sau'.",
+                "choices": [
+                    {
+                        "content": "後半",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "最高",
+        "reading_hiragana": "さいこう",
+        "reading_romaji": "saikou",
+        "meaning_vi": "Cao nhất, tuyệt vời nhất",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "TỐI CAO",
+        "explanation": "Danh từ/tính từ chỉ mức độ cao nhất, tuyệt vời nhất.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "今日は人生で最高の日だ。",
+                "sentence_hira": "きょうはじんせいでさいこうのひだ。",
+                "sentence_romaji": "Kyou wa jinsei de saikou no hi da.",
+                "sentence_vi": "Hôm nay là ngày tuyệt vời nhất trong đời."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "今日は人生で（　）の日だ。",
+                "blank_position": 1,
+                "answer_explanation": "‘最高’ là đáp án đúng vì có nghĩa 'tuyệt vời nhất'.",
+                "choices": [
+                    {
+                        "content": "最高",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "最低",
+        "reading_hiragana": "さいてい",
+        "reading_romaji": "saitei",
+        "meaning_vi": "Thấp nhất, tệ nhất",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "TỐI ĐÊ",
+        "explanation": "Danh từ/tính từ chỉ mức độ thấp nhất, tệ hại nhất.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "今までで最低の点数を出してしまった。",
+                "sentence_hira": "いままででさいていのてんすうをだしてしまった。",
+                "sentence_romaji": "Imamade de saitei no tensuu o dashite shimatta.",
+                "sentence_vi": "Tôi có số điểm thấp nhất từ trước đến giờ."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "今までで（　）の点数を出してしまった。",
+                "blank_position": 1,
+                "answer_explanation": "‘最低’ là đáp án đúng vì có nghĩa 'tệ nhất, thấp nhất'.",
+                "choices": [
+                    {
+                        "content": "最低",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "最初",
+        "reading_hiragana": "さいしょ",
+        "reading_romaji": "saisho",
+        "meaning_vi": "Đầu tiên, ban đầu",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "TỐI SƠ",
+        "explanation": "Danh từ chỉ thời điểm đầu tiên, khởi đầu của sự việc.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "最初に英語を、次に日本語を勉強した。",
+                "sentence_hira": "さいしょにえいごを、つぎににほんごをべんきょうした。",
+                "sentence_romaji": "Saisho ni eigo o, tsugi ni nihongo o benkyou shita.",
+                "sentence_vi": "Đầu tiên tôi học tiếng Anh, sau đó học tiếng Nhật."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "（　）に英語を、次に日本語を勉強した。",
+                "blank_position": 1,
+                "answer_explanation": "‘最初’ là đáp án đúng vì có nghĩa 'đầu tiên'.",
+                "choices": [
+                    {
+                        "content": "最初",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "制服",
+        "reading_hiragana": "せいふく",
+        "reading_romaji": "seifuku",
+        "meaning_vi": "Đồng phục",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "CHẾ PHỤC",
+        "explanation": "Danh từ chỉ trang phục giống nhau theo quy định, thường dùng trong trường học hoặc công sở.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 08:14:07",
+        "next_review_at": "2025-08-30 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "あの学校の制服がかわいいので入学を決めた。",
+                "sentence_hira": "あのがっこうのせいふくがかわいいのでにゅうがくをきめた。",
+                "sentence_romaji": "Ano gakkou no seifuku ga kawaii node nyuugaku o kimeta.",
+                "sentence_vi": "Vì đồng phục của ngôi trường đó dễ thương nên tôi đã quyết định nhập học."
+            },
+            {
+                "sentence_jp": "高校を卒業すると、制服を着られなくなる。",
+                "sentence_hira": "こうこうをそつぎょうすると、せいふくをきられなくなる。",
+                "sentence_romaji": "Koukou o sotsugyou suru to, seifuku o kirarenaku naru.",
+                "sentence_vi": "Tốt nghiệp cấp 3 rồi sẽ không còn được mặc đồng phục nữa."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "高校を卒業すると、（　）を着られなくなる。",
+                "blank_position": 1,
+                "answer_explanation": "‘制服’ là đáp án đúng vì chỉ đồng phục học sinh.",
+                "choices": [
+                    {
+                        "content": "制服",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "洗剤",
+        "reading_hiragana": "せんざい",
+        "reading_romaji": "senzai",
+        "meaning_vi": "Bột giặt, chất tẩy rửa",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "TẨY TỄ",
+        "explanation": "Danh từ chỉ các chất dùng để giặt giũ hoặc tẩy rửa như bột giặt, nước rửa chén.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 08:20:07",
+        "next_review_at": "2025-08-30 08:20:07",
+        "examples": [
+            {
+                "sentence_jp": "洗剤で洋服を洗う。",
+                "sentence_hira": "せんざいでようふくをあらう。",
+                "sentence_romaji": "Senzai de youfuku o arau.",
+                "sentence_vi": "Giặt quần áo bằng bột giặt."
+            },
+            {
+                "sentence_jp": "洗剤を使い過ぎないように気をつけてください。",
+                "sentence_hira": "せんざいをつかいすぎないようにきをつけてください。",
+                "sentence_romaji": "Senzai o tsukaisuginai you ni ki o tsukete kudasai.",
+                "sentence_vi": "Hãy chú ý đừng dùng bột giặt quá nhiều."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "（　）で洋服を洗う。",
+                "blank_position": 1,
+                "answer_explanation": "‘洗剤’ là đáp án đúng vì có nghĩa là bột giặt, chất tẩy rửa.",
+                "choices": [
+                    {
+                        "content": "洗剤",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "携帯",
+        "reading_hiragana": "けいたい",
+        "reading_romaji": "keitai",
+        "meaning_vi": "Điện thoại di động, đồ cầm tay",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "HUỀ ĐỚI",
+        "explanation": "Danh từ chỉ các đồ vật có thể mang theo bên người, phổ biến nhất là điện thoại di động.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 08:25:07",
+        "next_review_at": "2025-08-30 08:25:07",
+        "examples": [
+            {
+                "sentence_jp": "災害時に備え、携帯用トイレを用意する。",
+                "sentence_hira": "さいがいじにそなえ、けいたいようトイレをよういする。",
+                "sentence_romaji": "Saigaiji ni sonae, keitaiyou toire o youi suru.",
+                "sentence_vi": "Chuẩn bị thiết bị toilet cầm tay phòng khi có thảm họa."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "災害時に備え、（　）用トイレを用意する。",
+                "blank_position": 1,
+                "answer_explanation": "‘携帯’ là đáp án đúng vì mang nghĩa cầm tay, dễ mang theo.",
+                "choices": [
+                    {
+                        "content": "携帯",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "自信",
+        "reading_hiragana": "じしん",
+        "reading_romaji": "jishin",
+        "meaning_vi": "Tự tin",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "TỰ TÍN",
+        "explanation": "Danh từ chỉ sự tin tưởng vào bản thân và khả năng của mình.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 08:30:07",
+        "next_review_at": "2025-08-30 08:30:07",
+        "examples": [
+            {
+                "sentence_jp": "運動には自信がある。",
+                "sentence_hira": "うんどうにはじしんがある。",
+                "sentence_romaji": "Undou ni wa jishin ga aru.",
+                "sentence_vi": "Tự tin về khả năng vận động."
+            },
+            {
+                "sentence_jp": "失敗してしまい、自信を失った。",
+                "sentence_hira": "しっぱいしてしまい、じしんをうしなった。",
+                "sentence_romaji": "Shippai shite shimai, jishin o ushinatta.",
+                "sentence_vi": "Thất bại nên đã mất tự tin."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "運動には（　）がある。",
+                "blank_position": 1,
+                "answer_explanation": "‘自信’ là đáp án đúng vì diễn tả sự tự tin.",
+                "choices": [
+                    {
+                        "content": "自信",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "感想",
+        "reading_hiragana": "かんそう",
+        "reading_romaji": "kansou",
+        "meaning_vi": "Cảm nhận, cảm tưởng",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "CẢM TƯỞNG",
+        "explanation": "Danh từ chỉ cảm nhận, suy nghĩ sau khi trải nghiệm hoặc chứng kiến một việc gì đó.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 08:35:07",
+        "next_review_at": "2025-08-30 08:35:07",
+        "examples": [
+            {
+                "sentence_jp": "本を読んだ感想を書く。",
+                "sentence_hira": "ほんをよんだかんそうをかく。",
+                "sentence_romaji": "Hon o yonda kansou o kaku.",
+                "sentence_vi": "Viết cảm nhận sau khi đọc cuốn sách."
+            },
+            {
+                "sentence_jp": "映画の感想を述べる。",
+                "sentence_hira": "えいがのかんそうをのべる。",
+                "sentence_romaji": "Eiga no kansou o noberu.",
+                "sentence_vi": "Nêu lên cảm tưởng về bộ phim."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "本を読んだ（　）を書く。",
+                "blank_position": 1,
+                "answer_explanation": "‘感想’ là đáp án đúng vì diễn tả cảm nhận sau khi đọc.",
+                "choices": [
+                    {
+                        "content": "感想",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "予想",
+        "reading_hiragana": "よそう",
+        "reading_romaji": "yosou",
+        "meaning_vi": "Dự đoán",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "DỰ TƯỞNG",
+        "explanation": "Danh từ, động từ chỉ việc dự đoán, ước đoán trước một sự việc trong tương lai.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 08:40:07",
+        "next_review_at": "2025-08-30 08:40:07",
+        "examples": [
+            {
+                "sentence_jp": "試合の結果を予想する。",
+                "sentence_hira": "しあいのけっかをよそうする。",
+                "sentence_romaji": "Shiai no kekka o yosou suru.",
+                "sentence_vi": "Dự đoán kết quả của trận đấu."
+            },
+            {
+                "sentence_jp": "雨が降るという予想があたった。",
+                "sentence_hira": "あめがふるというよそうがあたった。",
+                "sentence_romaji": "Ame ga furu to iu yosou ga atatta.",
+                "sentence_vi": "Lời dự đoán trời mưa đã thành sự thực."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "試合の結果を（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘予想’ là đáp án đúng vì nghĩa là dự đoán.",
+                "choices": [
+                    {
+                        "content": "予想",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "調査",
+        "reading_hiragana": "ちょうさ",
+        "reading_romaji": "chousa",
+        "meaning_vi": "Điều tra, tìm hiểu, khảo sát",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "ĐIỀU TRA",
+        "explanation": "Danh từ chỉ việc thu thập thông tin, nghiên cứu, khảo sát, điều tra một vấn đề nào đó.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 08:45:07",
+        "next_review_at": "2025-08-30 08:45:07",
+        "examples": [
+            {
+                "sentence_jp": "社員全員に社内調査を行う。",
+                "sentence_hira": "しゃいんぜんいんにしゃないちょうさをおこなう。",
+                "sentence_romaji": "Shain zen'in ni shanai chousa o okonau.",
+                "sentence_vi": "Tiến hành điều tra nội bộ tại các nhân viên trong công ty."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "社員全員に社内（　）を行う。",
+                "blank_position": 1,
+                "answer_explanation": "‘調査’ là đáp án đúng vì chỉ sự điều tra, khảo sát.",
+                "choices": [
+                    {
+                        "content": "調査",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "題名",
+        "reading_hiragana": "だいめい",
+        "reading_romaji": "daimei",
+        "meaning_vi": "Tiêu đề",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "ĐỀ DANH",
+        "explanation": "Danh từ chỉ tên của một cuốn sách, bài văn, bài hát, tác phẩm…",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 08:50:07",
+        "next_review_at": "2025-08-30 08:50:07",
+        "examples": [
+            {
+                "sentence_jp": "本の題名を決める。",
+                "sentence_hira": "ほんのだいめいをきめる。",
+                "sentence_romaji": "Hon no daimei o kimeru.",
+                "sentence_vi": "Quyết định tiêu đề cho cuốn sách."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "本の（　）を決める。",
+                "blank_position": 1,
+                "answer_explanation": "‘題名’ là đáp án đúng vì chỉ tên, tiêu đề của cuốn sách.",
+                "choices": [
+                    {
+                        "content": "題名",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "条件",
+        "reading_hiragana": "じょうけん",
+        "reading_romaji": "jouken",
+        "meaning_vi": "Điều kiện",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "ĐIỀU KIỆN",
+        "explanation": "Danh từ chỉ những điều khoản, hoàn cảnh, tiêu chuẩn cần thiết để thực hiện hay đạt được một việc gì đó.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 09:00:07",
+        "next_review_at": "2025-08-30 09:00:07",
+        "examples": [
+            {
+                "sentence_jp": "条件がいい会社をえらぶ。",
+                "sentence_hira": "じょうけんがいいかいしゃをえらぶ。",
+                "sentence_romaji": "Jouken ga ii kaisha o erabu.",
+                "sentence_vi": "Lựa chọn công ty có những điều kiện tốt."
+            },
+            {
+                "sentence_jp": "大学卒業が採用条件だ。",
+                "sentence_hira": "だいがくそつぎょうがさいようじょうけんだ。",
+                "sentence_romaji": "Daigaku sotsugyou ga saiyou jouken da.",
+                "sentence_vi": "Điều kiện tuyển dụng là phải tốt nghiệp đại học."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "大学卒業が採用（　）だ。",
+                "blank_position": 1,
+                "answer_explanation": "‘条件’ là đáp án đúng vì chỉ điều kiện cần thiết.",
+                "choices": [
+                    {
+                        "content": "条件",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "締め切り",
+        "reading_hiragana": "しめきり",
+        "reading_romaji": "shimekiri",
+        "meaning_vi": "Hạn cuối, deadline, thời hạn",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "ĐẾ THIẾT",
+        "explanation": "Danh từ chỉ thời điểm cuối cùng phải hoàn thành một công việc hay nộp bài.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 09:05:07",
+        "next_review_at": "2025-08-30 09:05:07",
+        "examples": [
+            {
+                "sentence_jp": "今月末の締め切りに間に合わない。",
+                "sentence_hira": "こんげつまつのしめきりにまにあわない。",
+                "sentence_romaji": "Kongetsumatsu no shimekiri ni maniawanai.",
+                "sentence_vi": "Không kịp hạn chót cuối tháng này."
+            },
+            {
+                "sentence_jp": "先生に宿題の締め切りを延ばしてもらった。",
+                "sentence_hira": "せんせいにしゅくだいのしめきりをのばしてもらった。",
+                "sentence_romaji": "Sensei ni shukudai no shimekiri o nobashite moratta.",
+                "sentence_vi": "Được giáo viên cho thêm thời hạn làm bài tập."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "今月末の（　）に間に合わない。",
+                "blank_position": 1,
+                "answer_explanation": "‘締め切り’ là đáp án đúng vì nghĩa là hạn chót, deadline.",
+                "choices": [
+                    {
+                        "content": "締め切り",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "期間",
+        "reading_hiragana": "きかん",
+        "reading_romaji": "kikan",
+        "meaning_vi": "Thời hạn, kỳ hạn, thời gian",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "KỲ GIAN",
+        "explanation": "Danh từ chỉ khoảng thời gian có giới hạn, thời hạn nhất định.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 09:10:07",
+        "next_review_at": "2025-08-30 09:10:07",
+        "examples": [
+            {
+                "sentence_jp": "申込できる期間は一か月です。",
+                "sentence_hira": "もうしこみできるきかんはいっかげつです。",
+                "sentence_romaji": "Moushikomi dekiru kikan wa ikkagetsu desu.",
+                "sentence_vi": "Thời hạn có thể đăng ký là 1 tháng."
+            },
+            {
+                "sentence_jp": "工事期間は3年です。",
+                "sentence_hira": "こうじきかんはさんねんです。",
+                "sentence_romaji": "Kouji kikan wa sannen desu.",
+                "sentence_vi": "Thời gian thi công là 3 năm."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "申込できる（　）は一か月です。",
+                "blank_position": 1,
+                "answer_explanation": "‘期間’ là đáp án đúng vì nghĩa là thời hạn, kỳ hạn.",
+                "choices": [
+                    {
+                        "content": "期間",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "原因",
+        "reading_hiragana": "げんいん",
+        "reading_romaji": "genin",
+        "meaning_vi": "Nguyên nhân",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "NGUYÊN NHÂN",
+        "explanation": "Danh từ chỉ lý do, nguyên nhân dẫn đến kết quả hay sự việc nào đó.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 09:15:07",
+        "next_review_at": "2025-08-30 09:15:07",
+        "examples": [
+            {
+                "sentence_jp": "失敗の原因を調べる。",
+                "sentence_hira": "しっぱいのげんいんをしらべる。",
+                "sentence_romaji": "Shippai no genin o shiraberu.",
+                "sentence_vi": "Tìm hiểu nguyên nhân thất bại."
+            },
+            {
+                "sentence_jp": "原因不明の病気。",
+                "sentence_hira": "げんいんふめいのびょうき。",
+                "sentence_romaji": "Genin fumei no byouki.",
+                "sentence_vi": "Căn bệnh không rõ nguyên nhân."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "失敗の（　）を調べる。",
+                "blank_position": 1,
+                "answer_explanation": "‘原因’ là đáp án đúng vì nghĩa là nguyên nhân.",
+                "choices": [
+                    {
+                        "content": "原因",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "結果",
+        "reading_hiragana": "けっか",
+        "reading_romaji": "kekka",
+        "meaning_vi": "Kết quả",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "KẾT QUẢ",
+        "explanation": "Danh từ chỉ kết quả, thành quả sau một quá trình hay nỗ lực.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 09:20:07",
+        "next_review_at": "2025-08-30 09:20:07",
+        "examples": [
+            {
+                "sentence_jp": "努力の結果が現れる。",
+                "sentence_hira": "どりょくのけっかがあらわれる。",
+                "sentence_romaji": "Doryoku no kekka ga arawareru.",
+                "sentence_vi": "Kết quả của nỗ lực được thể hiện."
+            },
+            {
+                "sentence_jp": "試験の結果を先生に聞く。",
+                "sentence_hira": "しけんのけっかをせんせいにきく。",
+                "sentence_romaji": "Shiken no kekka o sensei ni kiku.",
+                "sentence_vi": "Hỏi kết quả kỳ thi từ thầy giáo."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "努力の（　）が現れる。",
+                "blank_position": 1,
+                "answer_explanation": "‘結果’ là đáp án đúng vì chỉ thành quả, kết quả.",
+                "choices": [
+                    {
+                        "content": "結果",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "関係",
+        "reading_hiragana": "かんけい",
+        "reading_romaji": "kankei",
+        "meaning_vi": "Mối quan hệ, sự liên quan",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "QUAN HỆ",
+        "explanation": "Danh từ chỉ sự liên hệ, mối quan hệ giữa con người hoặc giữa các sự vật, sự việc.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 09:25:07",
+        "next_review_at": "2025-08-30 09:25:07",
+        "examples": [
+            {
+                "sentence_jp": "友達との関係は強くなったり弱くなったりする。",
+                "sentence_hira": "ともだちとのかんけいはつよくなったりよわくなったりする。",
+                "sentence_romaji": "Tomodachi to no kankei wa tsuyoku nattari yowaku nattari suru.",
+                "sentence_vi": "Mối quan hệ với bạn bè sẽ có lúc mạnh, lúc yếu."
+            },
+            {
+                "sentence_jp": "あの人は事件に関係している。",
+                "sentence_hira": "あのひとはじけんにかんけいしている。",
+                "sentence_romaji": "Ano hito wa jiken ni kankei shite iru.",
+                "sentence_vi": "Người đó có liên quan đến vụ án."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "あの人は事件に（　）している。",
+                "blank_position": 1,
+                "answer_explanation": "‘関係’ là đáp án đúng vì chỉ sự liên quan, mối liên hệ.",
+                "choices": [
+                    {
+                        "content": "関係",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "責任",
+        "reading_hiragana": "せきにん",
+        "reading_romaji": "sekinin",
+        "meaning_vi": "Trách nhiệm",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "TRÁCH NHIỆM",
+        "explanation": "Danh từ chỉ trách nhiệm, bổn phận của một người đối với công việc hoặc hành động của mình.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 09:30:07",
+        "next_review_at": "2025-08-30 09:30:07",
+        "examples": [
+            {
+                "sentence_jp": "彼女は責任感が強い。",
+                "sentence_hira": "かのじょはせきにんかんがつよい。",
+                "sentence_romaji": "Kanojo wa sekininkan ga tsuyoi.",
+                "sentence_vi": "Cô ấy là người có tinh thần trách nhiệm cao."
+            },
+            {
+                "sentence_jp": "この失敗はみんなの責任だ。",
+                "sentence_hira": "このしっぱいはみんなのせきにんだ。",
+                "sentence_romaji": "Kono shippai wa minna no sekinin da.",
+                "sentence_vi": "Trách nhiệm đối với thất bại này thuộc về mọi người."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "彼女は（　）感が強い。",
+                "blank_position": 1,
+                "answer_explanation": "‘責任’ là đáp án đúng vì chỉ trách nhiệm.",
+                "choices": [
+                    {
+                        "content": "責任",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "書類",
+        "reading_hiragana": "しょるい",
+        "reading_romaji": "shorui",
+        "meaning_vi": "Tài liệu",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "THƯ LOẠI",
+        "explanation": "Danh từ chỉ giấy tờ, tài liệu chính thức, văn bản hành chính.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 09:35:07",
+        "next_review_at": "2025-08-30 09:35:07",
+        "examples": [
+            {
+                "sentence_jp": "机の書類を整える。",
+                "sentence_hira": "つくえのしょるいをととのえる。",
+                "sentence_romaji": "Tsukue no shorui o totonoeru.",
+                "sentence_vi": "Sắp xếp lại tài liệu có trên bàn."
+            },
+            {
+                "sentence_jp": "先輩に書類を確認してもらった。",
+                "sentence_hira": "せんぱいにしょるいをかくにんしてもらった。",
+                "sentence_romaji": "Senpai ni shorui o kakunin shite moratta.",
+                "sentence_vi": "Được tiền bối xác nhận giúp tài liệu."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "机の（　）を整える。",
+                "blank_position": 1,
+                "answer_explanation": "‘書類’ là đáp án đúng vì nghĩa là tài liệu, giấy tờ.",
+                "choices": [
+                    {
+                        "content": "書類",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "被害",
+        "reading_hiragana": "ひがい",
+        "reading_romaji": "higai",
+        "meaning_vi": "Thiệt hại",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "BỊ HẠI",
+        "explanation": "Danh từ chỉ sự tổn thất, thiệt hại gây ra bởi thiên tai, tai nạn hoặc chiến tranh.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 09:40:07",
+        "next_review_at": "2025-08-30 09:40:07",
+        "examples": [
+            {
+                "sentence_jp": "地震の被害を受ける。",
+                "sentence_hira": "じしんのひがいをうける。",
+                "sentence_romaji": "Jishin no higai o ukeru.",
+                "sentence_vi": "Bị thiệt hại do trận động đất."
+            },
+            {
+                "sentence_jp": "大雨の被害が出る。",
+                "sentence_hira": "おおあめのひがいがでる。",
+                "sentence_romaji": "Ooame no higai ga deru.",
+                "sentence_vi": "Xảy ra thiệt hại do mưa lớn."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "地震の（　）を受ける。",
+                "blank_position": 1,
+                "answer_explanation": "‘被害’ là đáp án đúng vì chỉ sự thiệt hại.",
+                "choices": [
+                    {
+                        "content": "被害",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "事件",
+        "reading_hiragana": "じけん",
+        "reading_romaji": "jiken",
+        "meaning_vi": "Vụ án, vụ việc",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "SỰ KIỆN",
+        "explanation": "Danh từ chỉ một vụ việc, sự kiện bất thường, thường liên quan đến tội phạm hoặc tai nạn.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 09:45:07",
+        "next_review_at": "2025-08-30 09:45:07",
+        "examples": [
+            {
+                "sentence_jp": "近所で殺人事件があった。",
+                "sentence_hira": "きんじょでさつじんじけんがあった。",
+                "sentence_romaji": "Kinjo de satsujin jiken ga atta.",
+                "sentence_vi": "Quanh khu vực này xảy ra một vụ án giết người."
+            },
+            {
+                "sentence_jp": "警察が事件を解決する。",
+                "sentence_hira": "けいさつがじけんをかいけつする。",
+                "sentence_romaji": "Keisatsu ga jiken o kaiketsu suru.",
+                "sentence_vi": "Cảnh sát sẽ giải quyết vụ việc."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "警察が（　）を解決する。",
+                "blank_position": 1,
+                "answer_explanation": "‘事件’ là đáp án đúng vì nghĩa là vụ án, vụ việc.",
+                "choices": [
+                    {
+                        "content": "事件",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "調子",
+        "reading_hiragana": "ちょうし",
+        "reading_romaji": "choushi",
+        "meaning_vi": "Tình trạng, trạng thái",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "ĐIỀU TỬ",
+        "explanation": "Danh từ chỉ tình trạng, trạng thái của cơ thể, sức khỏe hoặc máy móc, công việc.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 09:50:07",
+        "next_review_at": "2025-08-30 09:50:07",
+        "examples": [
+            {
+                "sentence_jp": "最近体の調子がいい。",
+                "sentence_hira": "さいきんからだのちょうしがいい。",
+                "sentence_romaji": "Saikin karada no choushi ga ii.",
+                "sentence_vi": "Dạo này tình trạng sức khỏe tốt."
+            },
+            {
+                "sentence_jp": "後半戦から調子が上がってきた。",
+                "sentence_hira": "こうはんせんからちょうしがあがってきた。",
+                "sentence_romaji": "Kouhansen kara choushi ga agatte kita.",
+                "sentence_vi": "Phong độ lên cao từ nửa sau của trận đấu."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "最近体の（　）がいい。",
+                "blank_position": 1,
+                "answer_explanation": "‘調子’ là đáp án đúng vì chỉ tình trạng, trạng thái sức khỏe.",
+                "choices": [
+                    {
+                        "content": "調子",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "団体",
+        "reading_hiragana": "だんたい",
+        "reading_romaji": "dantai",
+        "meaning_vi": "Đoàn thể, tập thể",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "ĐOÀN THỂ",
+        "explanation": "Danh từ chỉ một nhóm người tập hợp lại thành đoàn thể, tập thể có cùng mục đích.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 09:55:07",
+        "next_review_at": "2025-08-30 09:55:07",
+        "examples": [
+            {
+                "sentence_jp": "団体客をホテルに案内する。",
+                "sentence_hira": "だんたいきゃくをホテルにあんないする。",
+                "sentence_romaji": "Dantai kyaku o hoteru ni annai suru.",
+                "sentence_vi": "Hướng dẫn cho đoàn khách vào khách sạn."
+            },
+            {
+                "sentence_jp": "学校は団体行動を重んじる。",
+                "sentence_hira": "がっこうはだんたいこうどうをおもんじる。",
+                "sentence_romaji": "Gakkou wa dantai koudou o omonjiru.",
+                "sentence_vi": "Trường học đề cao lối hành động tập thể."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "（　）客をホテルに案内する。",
+                "blank_position": 1,
+                "answer_explanation": "‘団体’ là đáp án đúng vì chỉ đoàn thể, tập thể.",
+                "choices": [
+                    {
+                        "content": "団体",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "選挙",
+        "reading_hiragana": "せんきょ",
+        "reading_romaji": "senkyo",
+        "meaning_vi": "Bầu cử",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "TUYỂN CỬ",
+        "explanation": "Danh từ chỉ việc lựa chọn người đại diện thông qua bầu cử chính thức.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 10:00:07",
+        "next_review_at": "2025-08-30 10:00:07",
+        "examples": [
+            {
+                "sentence_jp": "20歳を過ぎると、選挙権がある。",
+                "sentence_hira": "はたちをすぎると、せんきょけんがある。",
+                "sentence_romaji": "Hatachi o sugiru to, senkyoken ga aru.",
+                "sentence_vi": "Qua 20 tuổi, công dân sẽ có quyền bầu cử."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "20歳を過ぎると、（　）権がある。",
+                "blank_position": 1,
+                "answer_explanation": "‘選挙’ là đáp án đúng vì nghĩa là bầu cử.",
+                "choices": [
+                    {
+                        "content": "選挙",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "税金",
+        "reading_hiragana": "ぜいきん",
+        "reading_romaji": "zeikin",
+        "meaning_vi": "Thuế",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "THUẾ KIM",
+        "explanation": "Danh từ chỉ tiền thuế mà người dân phải nộp cho nhà nước.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 10:05:07",
+        "next_review_at": "2025-08-30 10:05:07",
+        "examples": [
+            {
+                "sentence_jp": "毎月税金を納める。",
+                "sentence_hira": "まいつきぜいきんをおさめる。",
+                "sentence_romaji": "Maitsuki zeikin o osameru.",
+                "sentence_vi": "Nộp thuế hàng tháng."
+            },
+            {
+                "sentence_jp": "家を買うと税金がかかる。",
+                "sentence_hira": "いえをかうとぜいきんがかかる。",
+                "sentence_romaji": "Ie o kau to zeikin ga kakaru.",
+                "sentence_vi": "Mua nhà cũng mất tiền thuế."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "毎月（　）を納める。",
+                "blank_position": 1,
+                "answer_explanation": "‘税金’ là đáp án đúng vì nghĩa là thuế.",
+                "choices": [
+                    {
+                        "content": "税金",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "成長",
+        "reading_hiragana": "せいちょう",
+        "reading_romaji": "seichou",
+        "meaning_vi": "Trưởng thành; tăng trưởng (kinh tế)",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "THÀNH TRƯỞNG",
+        "explanation": "Danh từ chỉ sự phát triển, trưởng thành của con người, hoặc sự tăng trưởng kinh tế.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 10:10:07",
+        "next_review_at": "2025-08-30 10:10:07",
+        "examples": [
+            {
+                "sentence_jp": "ベトナムの経済成長率は他国よりも高い。",
+                "sentence_hira": "ベトナムのけいざいせいちょうりつはたこくよりもたかい。",
+                "sentence_romaji": "Betonamu no keizai seichouritsu wa takoku yori mo takai.",
+                "sentence_vi": "Tỷ lệ tăng trưởng kinh tế của Việt Nam cao hơn các nước khác."
+            },
+            {
+                "sentence_jp": "あの子は全く成長していない。",
+                "sentence_hira": "あのこはまったくせいちょうしていない。",
+                "sentence_romaji": "Ano ko wa mattaku seichou shite inai.",
+                "sentence_vi": "Đứa trẻ đó không trưởng thành được chút nào."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "あの子は全く（　）していない。",
+                "blank_position": 1,
+                "answer_explanation": "‘成長’ là đáp án đúng vì chỉ sự trưởng thành, tăng trưởng.",
+                "choices": [
+                    {
+                        "content": "成長",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "成人",
+        "reading_hiragana": "せいじん",
+        "reading_romaji": "seijin",
+        "meaning_vi": "Người trưởng thành",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "THÀNH NHÂN",
+        "explanation": "Danh từ chỉ người đã đủ tuổi trưởng thành theo quy định (thường là 20 tuổi ở Nhật).",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 10:15:07",
+        "next_review_at": "2025-08-30 10:15:07",
+        "examples": [
+            {
+                "sentence_jp": "息子の成人を祝う。",
+                "sentence_hira": "むすこのせいじんをいわう。",
+                "sentence_romaji": "Musuko no seijin o iwau.",
+                "sentence_vi": "Mừng lễ trưởng thành cho con trai."
+            },
+            {
+                "sentence_jp": "二十歳になったので、成人式に参加する。",
+                "sentence_hira": "はたちになったので、せいじんしきにさんかする。",
+                "sentence_romaji": "Hatachi ni natta node, seijinshiki ni sanka suru.",
+                "sentence_vi": "Vì đã 20 tuổi nên tôi tham dự lễ thành nhân."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "息子の（　）を祝う。",
+                "blank_position": 1,
+                "answer_explanation": "‘成人’ là đáp án đúng vì chỉ người trưởng thành.",
+                "choices": [
+                    {
+                        "content": "成人",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "合格",
+        "reading_hiragana": "ごうかく",
+        "reading_romaji": "goukaku",
+        "meaning_vi": "Đỗ (đại học, kỳ thi…)",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "HỢP CÁCH",
+        "explanation": "Danh từ, động từ chỉ việc đỗ đạt trong kỳ thi hoặc được chấp nhận vào một tổ chức.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 10:20:07",
+        "next_review_at": "2025-08-30 10:20:07",
+        "examples": [
+            {
+                "sentence_jp": "JLPTの試験に合格する。",
+                "sentence_hira": "JLPTのしけんにごうかくする。",
+                "sentence_romaji": "JLPT no shiken ni goukaku suru.",
+                "sentence_vi": "Đỗ kỳ thi JLPT."
+            },
+            {
+                "sentence_jp": "それでは、合格者を発表します。",
+                "sentence_hira": "それでは、ごうかくしゃをはっぴょうします。",
+                "sentence_romaji": "Sore de wa, goukakusha o happyou shimasu.",
+                "sentence_vi": "Sau đây xin phép công bố những người thi đỗ."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "JLPTの試験に（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘合格’ là đáp án đúng vì nghĩa là đỗ đạt.",
+                "choices": [
+                    {
+                        "content": "合格",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "進学",
+        "reading_hiragana": "しんがく",
+        "reading_romaji": "shingaku",
+        "meaning_vi": "Học lên",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "TIẾN HỌC",
+        "explanation": "Danh từ chỉ việc học lên bậc cao hơn như đại học, cao học.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 10:25:07",
+        "next_review_at": "2025-08-30 10:25:07",
+        "examples": [
+            {
+                "sentence_jp": "高校を卒業したあと、大学へ進学する。",
+                "sentence_hira": "こうこうをそつぎょうしたあと、だいがくへしんがくする。",
+                "sentence_romaji": "Koukou o sotsugyou shita ato, daigaku e shingaku suru.",
+                "sentence_vi": "Sau khi tốt nghiệp cấp 3 tôi đã học lên đại học."
+            },
+            {
+                "sentence_jp": "今年の進学率は去年より高い。",
+                "sentence_hira": "ことしのしんがくりつはきょねんよりたかい。",
+                "sentence_romaji": "Kotoshi no shingakuritsu wa kyonen yori takai.",
+                "sentence_vi": "Tỷ lệ học lên năm nay cao hơn so với năm ngoái."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "高校を卒業したあと、大学へ（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘進学’ là đáp án đúng vì nghĩa là học lên.",
+                "choices": [
+                    {
+                        "content": "進学",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "退学",
+        "reading_hiragana": "たいがく",
+        "reading_romaji": "taigaku",
+        "meaning_vi": "Bỏ học, bị đuổi học",
+        "jlpt_level": "N3",
+        "level": 2,
+        "han_viet": "THOÁI HỌC",
+        "explanation": "Danh từ chỉ việc thôi học, nghỉ học hoặc bị nhà trường buộc thôi học.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-08-27 10:30:07",
+        "next_review_at": "2025-08-30 10:30:07",
+        "examples": [
+            {
+                "sentence_jp": "学校で問題を起こし、退学処分を受ける。",
+                "sentence_hira": "がっこうでもんだいをおこし、たいがくしょぶんをうける。",
+                "sentence_romaji": "Gakkou de mondai o okoshi, taigaku shobun o ukeru.",
+                "sentence_vi": "Gây rối ở trường nên bị đuổi học."
+            },
+            {
+                "sentence_jp": "学費が払えなくて、退学する。",
+                "sentence_hira": "がくひがはらえなくて、たいがくする。",
+                "sentence_romaji": "Gakuhi ga haraenakute, taigaku suru.",
+                "sentence_vi": "Vì không trả được học phí nên tôi đã bỏ học."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "学費が払えなくて、（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘退学’ là đáp án đúng vì mang nghĩa bỏ học, bị buộc thôi học.",
+                "choices": [
+                    {
+                        "content": "退学",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -81,7 +81,7 @@ const FillInBlankPractice: React.FC = () => {
       return;
     }
 
-    if (newReloadCount >= 4) {
+    if (newReloadCount >= 2) {
       if (Array.isArray(reviewed) && reviewed.length > 0) navigate("/en/summary");
       else navigate("/en/home");
     }

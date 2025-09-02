@@ -10,7 +10,9 @@ class JpWord extends Model
     use HasFactory;
 
     protected $table = 'jp_words';
-
+protected $casts = [
+    'next_review_at' => 'datetime',
+];
     protected $fillable = [
         'user_id',
         'kanji',

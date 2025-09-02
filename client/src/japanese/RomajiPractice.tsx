@@ -73,7 +73,7 @@ const RomajiPractice: React.FC = () => {
         navigate('/jp/home');
       }
     }
-    if (newReloadCount >= 4) {
+    if (newReloadCount >= 2) {
       if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
         navigate('/jp/summary');
       } else {

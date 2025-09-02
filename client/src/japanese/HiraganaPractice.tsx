@@ -62,43 +62,7 @@ const HiraganaPractice: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const {
-    currentWord,
-    words,
-    markAnswer,
-    getNextQuizType,
-    removeCurrentWord,
-    reviewedWords,
-    totalCount,
-    completedCount,
-  } = usePracticeSession();
-  if (!currentWord) return null;
-  const word = currentWord.word;
 
-  const progress = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
-  const question = currentWord?.word.kanji || '';
-  const reading = currentWord?.word.reading_hiragana || '';
-  const correctRomaji = currentWord?.word.reading_romaji || '';
-  const [hiraganaPool, setHiraganaPool] = useState<{ id: string; char: string }[]>([]);
-  const [usedCharIds, setUsedCharIds] = useState<string[]>([]);
-
-  useEffect(() => {
-    speak(reading);
-    const correctChars = convertRomajiToHiraganaArray(correctRomaji); // ex: ['し', 'じ']
-    const distractors = ['あ', 'お', 'ま', 'み', 'む', 'め', 'も', 'ら', 'り', 'る', 'れ', 'ろ']
-      .filter(c => !correctChars.includes(c))
-      .sort(() => 0.5 - Math.random())
-      .slice(0, 5);
-
-    const allChars = [...correctChars, ...distractors].sort(() => 0.5 - Math.random());
-
-    const poolWithIds = allChars.map((char, idx) => ({
-      id: `${char}-${idx}`, // ID là duy nhất theo thứ tự
-      char,
-    }));
-
-    setHiraganaPool(poolWithIds);
-  }, [correctRomaji]);
 
   useEffect(() => {
     const allowedSources = ['multiple', 'hiraganaPractice', 'romajiPractice', 'voicePractice'];
@@ -137,7 +101,7 @@ const HiraganaPractice: React.FC = () => {
         navigate('/jp/home');
       }
     }
-    if (newReloadCount >= 4) {
+    if (newReloadCount >= 2) {
       if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
         navigate('/jp/summary');
       } else {
@@ -146,7 +110,43 @@ const HiraganaPractice: React.FC = () => {
     }
   }, []);
 
+  const {
+    currentWord,
+    words,
+    markAnswer,
+    getNextQuizType,
+    removeCurrentWord,
+    reviewedWords,
+    totalCount,
+    completedCount,
+  } = usePracticeSession();
+  if (!currentWord) return null;
+  const word = currentWord.word;
 
+  const progress = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
+  const question = currentWord?.word.kanji || '';
+  const reading = currentWord?.word.reading_hiragana || '';
+  const correctRomaji = currentWord?.word.reading_romaji || '';
+  const [hiraganaPool, setHiraganaPool] = useState<{ id: string; char: string }[]>([]);
+  const [usedCharIds, setUsedCharIds] = useState<string[]>([]);
+
+  useEffect(() => {
+    speak(reading);
+    const correctChars = convertRomajiToHiraganaArray(correctRomaji); // ex: ['し', 'じ']
+    const distractors = ['あ', 'お', 'ま', 'み', 'む', 'め', 'も', 'ら', 'り', 'る', 'れ', 'ろ']
+      .filter(c => !correctChars.includes(c))
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 5);
+
+    const allChars = [...correctChars, ...distractors].sort(() => 0.5 - Math.random());
+
+    const poolWithIds = allChars.map((char, idx) => ({
+      id: `${char}-${idx}`, // ID là duy nhất theo thứ tự
+      char,
+    }));
+
+    setHiraganaPool(poolWithIds);
+  }, [correctRomaji]);
   const handleCharClick = (id: string) => {
     if (!isAnswered && !usedCharIds.includes(id)) {
       const char = hiraganaPool.find(item => item.id === id)?.char;

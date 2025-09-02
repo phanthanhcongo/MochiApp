@@ -13,87 +13,87 @@ use App\Models\EnDailyLog;
 class PracticeStatsController extends \App\Http\Controllers\Controller
 {
     // Thêm helper dùng chung (đặt trong controller hoặc tách service)
-private function computeStreakWithSelectiveCleanup(
-    $dailyLogModel,
-    int $userId,
-    Carbon $now,
-    bool $returnDetail = false,
-    bool $cleanup = true
-): int|array {
-    // 0) Clone now để không mutate biến bên ngoài
-    $cursor = $now->copy()->startOfDay();
+    private function computeStreakWithSelectiveCleanup(
+        $dailyLogModel,
+        int $userId,
+        Carbon $now,
+        bool $returnDetail = false,
+        bool $cleanup = true
+    ): int|array {
+        // 0) Clone now để không mutate biến bên ngoài
+        $cursor = $now->copy()->startOfDay();
 
-    // 1) Dọn theo log sai mới nhất (nếu bật cleanup)
-    if ($cleanup) {
-        $latestFalse = $dailyLogModel::where('user_id', $userId)
-            ->where('status', 0)
-            ->orderByDesc('reviewed_at')
-            ->first();
+        // 1) Dọn theo log sai mới nhất (nếu bật cleanup)
+        if ($cleanup) {
+            $latestFalse = $dailyLogModel::where('user_id', $userId)
+                ->where('status', 0)
+                ->orderByDesc('reviewed_at')
+                ->first();
 
-        if ($latestFalse) {
-            $cutDate = Carbon::parse($latestFalse->reviewed_at)->toDateString();
-            $dailyLogModel::where('user_id', $userId)
-                ->whereDate('reviewed_at', '<=', $cutDate)
-                ->delete();
-        }
-    }
-
-    // 2) Lấy tất cả ngày học thành công (distinct, desc)
-    $successDaysDesc = $dailyLogModel::where('user_id', $userId)
-        ->where('status', 1)
-        ->select(DB::raw('DATE(reviewed_at) as d'))
-        ->orderByRaw('DATE(reviewed_at) DESC')
-        ->pluck('d')
-        ->toArray();
-
-    if (empty($successDaysDesc)) {
-        return $returnDetail ? ['count' => 0, 'dates' => []] : 0;
-    }
-
-    // Dùng set tra cứu O(1)
-    // (array_fill_keys yêu cầu keys unique)
-    $successDaysDesc = array_values(array_unique($successDaysDesc));
-    $daySet = array_fill_keys($successDaysDesc, true);
-
-    // 3) Nếu hôm nay chưa học, lùi về ngày học gần nhất <= hôm nay
-    if (!isset($daySet[$cursor->toDateString()])) {
-        $nearest = null;
-        foreach ($successDaysDesc as $d) {
-            if ($d <= $now->toDateString()) {
-                $nearest = $d;
-                break;
+            if ($latestFalse) {
+                $cutDate = Carbon::parse($latestFalse->reviewed_at)->toDateString();
+                $dailyLogModel::where('user_id', $userId)
+                    ->whereDate('reviewed_at', '<=', $cutDate)
+                    ->delete();
             }
         }
-        if (!$nearest) {
+
+        // 2) Lấy tất cả ngày học thành công (distinct, desc)
+        $successDaysDesc = $dailyLogModel::where('user_id', $userId)
+            ->where('status', 1)
+            ->select(DB::raw('DATE(reviewed_at) as d'))
+            ->orderByRaw('DATE(reviewed_at) DESC')
+            ->pluck('d')
+            ->toArray();
+
+        if (empty($successDaysDesc)) {
             return $returnDetail ? ['count' => 0, 'dates' => []] : 0;
         }
-        $cursor = Carbon::parse($nearest);
-    }
 
-    // 4) Đếm streak lùi theo ngày; chỉ cleanup khi đã đếm được >=1 ngày và gặp gap
-    $streak = 0;
-    $dates  = [];
+        // Dùng set tra cứu O(1)
+        // (array_fill_keys yêu cầu keys unique)
+        $successDaysDesc = array_values(array_unique($successDaysDesc));
+        $daySet = array_fill_keys($successDaysDesc, true);
 
-    while (true) {
-        $d = $cursor->toDateString();
-        if (isset($daySet[$d])) {
-            $streak++;
-            $dates[] = $d;
-            $cursor->subDay();
-            continue;
+        // 3) Nếu hôm nay chưa học, lùi về ngày học gần nhất <= hôm nay
+        if (!isset($daySet[$cursor->toDateString()])) {
+            $nearest = null;
+            foreach ($successDaysDesc as $d) {
+                if ($d <= $now->toDateString()) {
+                    $nearest = $d;
+                    break;
+                }
+            }
+            if (!$nearest) {
+                return $returnDetail ? ['count' => 0, 'dates' => []] : 0;
+            }
+            $cursor = Carbon::parse($nearest);
         }
 
-        if ($cleanup && $streak > 0) {
-            // Xóa tất cả log <= ngày gap phát hiện
-            $dailyLogModel::where('user_id', $userId)
-                ->whereDate('reviewed_at', '<=', $d)
-                ->delete();
-        }
-        break;
-    }
+        // 4) Đếm streak lùi theo ngày; chỉ cleanup khi đã đếm được >=1 ngày và gặp gap
+        $streak = 0;
+        $dates  = [];
 
-    return $returnDetail ? ['count' => $streak, 'dates' => $dates] : $streak;
-}
+        while (true) {
+            $d = $cursor->toDateString();
+            if (isset($daySet[$d])) {
+                $streak++;
+                $dates[] = $d;
+                $cursor->subDay();
+                continue;
+            }
+
+            if ($cleanup && $streak > 0) {
+                // Xóa tất cả log <= ngày gap phát hiện
+                $dailyLogModel::where('user_id', $userId)
+                    ->whereDate('reviewed_at', '<=', $d)
+                    ->delete();
+            }
+            break;
+        }
+
+        return $returnDetail ? ['count' => $streak, 'dates' => $dates] : $streak;
+    }
     public function statsJP(Request $request)
     {
         $now = Carbon::now();
@@ -138,11 +138,19 @@ private function computeStreakWithSelectiveCleanup(
             ->orderBy('next_review_at')
             ->get();
 
-        // 4. Tính thời gian đến lần ôn gần nhất
-        $nearestReviewTime = $wordsToReviewList->min('next_review_at');
+         // 4. Thời gian đến lần ôn gần nhất
+        $now = Carbon::now();
+
+        $nearestReviewTime = JpWord::where('user_id', $userId)
+            ->where('next_review_at', '>', $now)
+            ->min('next_review_at');
         $nextReviewIn = $nearestReviewTime
             ? Carbon::parse($nearestReviewTime)->diff($now)->format('%H:%I:%S')
             : null;
+        \Log::info('nearestReviewTime', ['time' => $nearestReviewTime, 'nextReviewIn' => $nextReviewIn]);
+
+
+
 
         // 5. Tính streak thật sự (xử lý xoá các log false đúng cách)
         $streak = $this->computeStreakWithSelectiveCleanup(JpDailyLog::class, $userId, $now);
@@ -219,13 +227,19 @@ private function computeStreakWithSelectiveCleanup(
             ->get();
 
         // 4. Thời gian đến lần ôn gần nhất
-        $nearestReviewTime = $wordsToReviewList->min('next_review_at');
+        $now = Carbon::now();
+
+        $nearestReviewTime = EnWord::where('user_id', $userId)
+            ->where('next_review_at', '>', $now)
+            ->min('next_review_at');
         $nextReviewIn = $nearestReviewTime
             ? Carbon::parse($nearestReviewTime)->diff($now)->format('%H:%I:%S')
             : null;
+        \Log::info('nearestReviewTime', ['time' => $nearestReviewTime, 'nextReviewIn' => $nextReviewIn]);
+
 
         // 5. Streak (xoá log sai)
-           $streak = $this->computeStreakWithSelectiveCleanup(EnDailyLog::class, $userId, $now);
+        $streak = $this->computeStreakWithSelectiveCleanup(EnDailyLog::class, $userId, $now);
 
 
         return response()->json([

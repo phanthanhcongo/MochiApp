@@ -1,0 +1,3554 @@
+[
+    {
+        "kanji": "済む",
+        "reading_hiragana": "すむ",
+        "reading_romaji": "sumu",
+        "meaning_vi": "Kết thúc, được hoàn tất",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "TẾ",
+        "explanation": "Tự động từ, chỉ sự việc đã kết thúc, hoàn thành xong.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "留学のための手続きはすべて済んだ。",
+                "sentence_hira": "りゅうがくのためのてつづきはすべてすんだ。",
+                "sentence_romaji": "Ryuugaku no tame no tetsuzuki wa subete sunda.",
+                "sentence_vi": "Các thủ tục để du học đã được hoàn tất."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "留学のための手続きはすべて（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘済む’ là đáp án đúng vì có nghĩa 'kết thúc, hoàn tất'.",
+                "choices": [
+                    {
+                        "content": "済む",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "済ませる",
+        "reading_hiragana": "すませる",
+        "reading_romaji": "sumaseru",
+        "meaning_vi": "Hoàn thành",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "TẾ",
+        "explanation": "Tha động từ, hoàn thành xong công việc hoặc nhiệm vụ trong thời gian đã định.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "今日の仕事を時間内に済ませる。",
+                "sentence_hira": "きょうのしごとをじかんないにすませる。",
+                "sentence_romaji": "Kyou no shigoto o jikan nai ni sumaseru.",
+                "sentence_vi": "Hoàn thành công việc ngày hôm nay trong thời gian đã định."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "今日の仕事を時間内に（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘済ませる’ là đáp án đúng vì có nghĩa 'hoàn thành'.",
+                "choices": [
+                    {
+                        "content": "済ませる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "寄る",
+        "reading_hiragana": "よる",
+        "reading_romaji": "yoru",
+        "meaning_vi": "Sát lại, gần lại; Ghé qua",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "KÍ",
+        "explanation": "Tự động từ, tiến lại gần hoặc ghé qua một nơi nào đó.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "彼氏のそばに寄る。",
+                "sentence_hira": "かれしのそばによる。",
+                "sentence_romaji": "Kareshi no soba ni yoru.",
+                "sentence_vi": "Sát lại bên cạnh bạn trai."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "彼氏のそばに（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘寄る’ là đáp án đúng vì có nghĩa 'sát lại, ghé qua'.",
+                "choices": [
+                    {
+                        "content": "寄る",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "寄せる",
+        "reading_hiragana": "よせる",
+        "reading_romaji": "yoseru",
+        "meaning_vi": "Ghé vào; Quan tâm, yêu thích",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "KÍ",
+        "explanation": "Tha động từ, dịch lại gần, ghé vào hoặc biểu thị sự quan tâm, yêu thích.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "彼に思いを寄せる。",
+                "sentence_hira": "かれにおもいをよせる。",
+                "sentence_romaji": "Kare ni omoi o yoseru.",
+                "sentence_vi": "Có cảm tình với anh ấy."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "彼に思いを（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘寄せる’ là đáp án đúng vì có nghĩa 'ghé vào, có cảm tình'.",
+                "choices": [
+                    {
+                        "content": "寄せる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "与える",
+        "reading_hiragana": "あたえる",
+        "reading_romaji": "ataeru",
+        "meaning_vi": "Trao, cho; Tạo (ấn tượng); Gây (ảnh hưởng)",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "DỮ",
+        "explanation": "Tha động từ, cho, trao hoặc gây ra ảnh hưởng, ấn tượng.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "クラスの雰囲気に影響を与える。",
+                "sentence_hira": "くらすのふんいきにえいきょうをあたえる。",
+                "sentence_romaji": "Kurasu no fun'iki ni eikyou o ataeru.",
+                "sentence_vi": "Gây ảnh hưởng tới bầu không khí trong lớp."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "クラスの雰囲気に影響を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘与える’ là đáp án đúng vì có nghĩa 'cho, gây ảnh hưởng'.",
+                "choices": [
+                    {
+                        "content": "与える",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "得る",
+        "reading_hiragana": "える",
+        "reading_romaji": "eru",
+        "meaning_vi": "Nhận được, đạt được",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "ĐẮC",
+        "explanation": "Tha động từ, chỉ việc đạt được thành quả, nhận lấy sự tin tưởng hoặc kết quả.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "お客様からの信頼を得る。",
+                "sentence_hira": "おきゃくさまからのしんらいをえる。",
+                "sentence_romaji": "Okyakusama kara no shinrai o eru.",
+                "sentence_vi": "Có được sự tin nhiệm từ khách hàng."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "お客様からの信頼を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘得る’ là đáp án đúng vì có nghĩa 'nhận được, đạt được'.",
+                "choices": [
+                    {
+                        "content": "得る",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "濡れる",
+        "reading_hiragana": "ぬれる",
+        "reading_romaji": "nureru",
+        "meaning_vi": "Bị ướt",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "NHU",
+        "explanation": "Tự động từ, chỉ việc bị ướt do mưa hay nước.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "雨で服が濡れた。",
+                "sentence_hira": "あめでふくがぬれた。",
+                "sentence_romaji": "Ame de fuku ga nureta.",
+                "sentence_vi": "Quần áo bị ướt vì trời mưa."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "雨で服が（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘濡れる’ là đáp án đúng vì có nghĩa 'bị ướt'.",
+                "choices": [
+                    {
+                        "content": "濡れる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "濡らす",
+        "reading_hiragana": "ぬらす",
+        "reading_romaji": "nurashu",
+        "meaning_vi": "Làm ướt",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "NHU",
+        "explanation": "Tha động từ, làm cho vật gì đó ướt.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "かばんを濡らしてしまった。",
+                "sentence_hira": "かばんをぬらしてしまった。",
+                "sentence_romaji": "Kaban o nurashite shimatta.",
+                "sentence_vi": "Tôi làm ướt cặp."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "かばんを（　）してしまった。",
+                "blank_position": 1,
+                "answer_explanation": "‘濡らす’ là đáp án đúng vì có nghĩa 'làm ướt'.",
+                "choices": [
+                    {
+                        "content": "濡らす",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "つながる",
+        "reading_hiragana": "つながる",
+        "reading_romaji": "tsunagaru",
+        "meaning_vi": "Được nối/liên kết; Liên hệ",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "TƯ",
+        "explanation": "Tự động từ, chỉ sự nối kết, liên hệ giữa người và người, hoặc giữa các vật với nhau.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "友達に電話がつながらなかった。",
+                "sentence_hira": "ともだちにでんわがつながらなかった。",
+                "sentence_romaji": "Tomodachi ni denwa ga tsunagaranakatta.",
+                "sentence_vi": "Không thể liên hệ điện thoại với bạn."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "友達に電話が（　）なかった。",
+                "blank_position": 1,
+                "answer_explanation": "‘つながる’ là đáp án đúng vì có nghĩa 'liên hệ, nối kết'.",
+                "choices": [
+                    {
+                        "content": "つながる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "つなぐ",
+        "reading_hiragana": "つなぐ",
+        "reading_romaji": "tsunagu",
+        "meaning_vi": "Kết nối; Nắm (tay); Nắm bắt",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "TƯ",
+        "explanation": "Tha động từ, kết nối các vật lại với nhau, nắm tay hoặc giữ chặt lấy.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "彼女と手をつなぐ。",
+                "sentence_hira": "かのじょとてをつなぐ。",
+                "sentence_romaji": "Kanojo to te o tsunagu.",
+                "sentence_vi": "Nắm tay bạn gái."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "彼女と手を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘つなぐ’ là đáp án đúng vì có nghĩa 'kết nối, nắm tay'.",
+                "choices": [
+                    {
+                        "content": "つなぐ",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "つなげる",
+        "reading_hiragana": "つなげる",
+        "reading_romaji": "tsunageru",
+        "meaning_vi": "Kết nối; Nối lại",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "TƯ",
+        "explanation": "Tha động từ, làm cho vật này nối với vật khác hoặc sự việc kết nối lại.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "ピンチをチャンスにつなげる。",
+                "sentence_hira": "ぴんちをちゃんすにつなげる。",
+                "sentence_romaji": "Pinchi o chansu ni tsunageru.",
+                "sentence_vi": "Biến nguy cơ thành cơ hội."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "ピンチをチャンスに（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘つなげる’ là đáp án đúng vì có nghĩa 'kết nối, biến đổi'.",
+                "choices": [
+                    {
+                        "content": "つなげる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "許す",
+        "reading_hiragana": "ゆるす",
+        "reading_romaji": "yurusu",
+        "meaning_vi": "Tha thứ; Cho phép",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "HỨA",
+        "explanation": "Tha động từ, có nghĩa là tha thứ cho lỗi lầm hoặc cho phép ai đó làm điều gì.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "娘が遊びに行くのを許した。",
+                "sentence_hira": "むすめがあそびにいくのをゆるした。",
+                "sentence_romaji": "Musume ga asobi ni iku no o yurushita.",
+                "sentence_vi": "Cho phép con gái đi chơi."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "娘が遊びに行くのを（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘許す’ là đáp án đúng vì có nghĩa 'cho phép, tha thứ'.",
+                "choices": [
+                    {
+                        "content": "許す",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "広まる",
+        "reading_hiragana": "ひろまる",
+        "reading_romaji": "hiromaru",
+        "meaning_vi": "Lan truyền; Phổ biến",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "QUẢNG",
+        "explanation": "Tự động từ, chỉ sự việc được lan truyền, phổ biến rộng rãi trong cộng đồng.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "新しい技術が広まる。",
+                "sentence_hira": "あたらしいぎじゅつがひろまる。",
+                "sentence_romaji": "Atarashii gijutsu ga hiromaru.",
+                "sentence_vi": "Công nghệ mới trở nên phổ biến rộng rãi."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "新しい技術が（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘広まる’ là đáp án đúng vì có nghĩa 'lan truyền, phổ biến'.",
+                "choices": [
+                    {
+                        "content": "広まる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "広める",
+        "reading_hiragana": "ひろめる",
+        "reading_romaji": "hiromeru",
+        "meaning_vi": "Mở rộng, làm rộng",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "QUẢNG",
+        "explanation": "Tha động từ, mở rộng phạm vi hoặc làm cho điều gì đó được lan truyền rộng hơn.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "彼はYouTubeで自分の考えを広めた。",
+                "sentence_hira": "かれはゆーちゅーぶでじぶんのかんがえをひろめた。",
+                "sentence_romaji": "Kare wa Yuuchuubu de jibun no kangae o hirometa.",
+                "sentence_vi": "Anh ta đã lan tỏa tư tưởng của bản thân đến toàn Nhật Bản bằng Youtube."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "彼はYouTubeで自分の考えを（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘広める’ là đáp án đúng vì có nghĩa 'mở rộng, làm lan truyền'.",
+                "choices": [
+                    {
+                        "content": "広める",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "広がる",
+        "reading_hiragana": "ひろがる",
+        "reading_romaji": "hirogaru",
+        "meaning_vi": "Mở rộng, trải dài; Lan tràn, bùng phát",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "QUẢNG",
+        "explanation": "Tự động từ, chỉ không gian, phạm vi được mở rộng, trải dài hoặc sự việc lan tràn ra.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "工事をして、道路が広がった。",
+                "sentence_hira": "こうじをして、どうろがひろがった。",
+                "sentence_romaji": "Kouji o shite, douro ga hirogatta.",
+                "sentence_vi": "Con đường được mở rộng sau khi thi công."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "工事をして、道路が（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘広がる’ là đáp án đúng vì có nghĩa 'mở rộng, lan tràn'.",
+                "choices": [
+                    {
+                        "content": "広がる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "広げる",
+        "reading_hiragana": "ひろげる",
+        "reading_romaji": "hirogeru",
+        "meaning_vi": "Mở rộng, nối rộng",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "QUẢNG",
+        "explanation": "Tha động từ, dùng để mở rộng phạm vi, diện tích hoặc mở ra một thứ gì đó.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "新聞を広げて読む。",
+                "sentence_hira": "しんぶんをひろげてよむ。",
+                "sentence_romaji": "Shinbun o hirogete yomu.",
+                "sentence_vi": "Mở rộng tờ báo ra đọc."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "新聞を（　）て読む。",
+                "blank_position": 1,
+                "answer_explanation": "‘広げる’ là đáp án đúng vì có nghĩa 'mở rộng, trải rộng'.",
+                "choices": [
+                    {
+                        "content": "広げる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "弱まる",
+        "reading_hiragana": "よわまる",
+        "reading_romaji": "yowamaru",
+        "meaning_vi": "Suy yếu, yếu đi",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "NHƯỢC",
+        "explanation": "Tự động từ, chỉ sức mạnh hoặc mức độ bị giảm đi, yếu đi.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "台風の勢力が弱まる。",
+                "sentence_hira": "たいふうのせいりょくがよわまる。",
+                "sentence_romaji": "Taifuu no seiryoku ga yowamaru.",
+                "sentence_vi": "Sức mạnh của cơn bão đã suy yếu đi."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "台風の勢力が（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘弱まる’ là đáp án đúng vì có nghĩa 'suy yếu, yếu đi'.",
+                "choices": [
+                    {
+                        "content": "弱まる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "弱める",
+        "reading_hiragana": "よわめる",
+        "reading_romaji": "yowameru",
+        "meaning_vi": "Làm yếu đi",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "NHƯỢC",
+        "explanation": "Tha động từ, làm giảm sức mạnh, làm cho yếu đi.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "火を弱めて煮る。",
+                "sentence_hira": "ひをよわめてにる。",
+                "sentence_romaji": "Hi o yowamete niru.",
+                "sentence_vi": "Hạ nhỏ lửa và nấu."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "火を（　）て煮る。",
+                "blank_position": 1,
+                "answer_explanation": "‘弱める’ là đáp án đúng vì có nghĩa 'làm yếu đi, hạ nhỏ lửa'.",
+                "choices": [
+                    {
+                        "content": "弱める",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "強まる",
+        "reading_hiragana": "つよまる",
+        "reading_romaji": "tsuyomaru",
+        "meaning_vi": "Mạnh lên, được tăng cường",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "CƯỜNG",
+        "explanation": "Tự động từ, chỉ sức mạnh hoặc mức độ tăng lên, mạnh mẽ hơn.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "台風で雨風が強まった。",
+                "sentence_hira": "たいふうであめかぜがつよまった。",
+                "sentence_romaji": "Taifuu de amekaze ga tsuyomatta.",
+                "sentence_vi": "Vì bão nên mưa gió mạnh hơn."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "台風で雨風が（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘強まる’ là đáp án đúng vì có nghĩa 'mạnh lên, được tăng cường'.",
+                "choices": [
+                    {
+                        "content": "強まる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "強める",
+        "reading_hiragana": "つよめる",
+        "reading_romaji": "tsuyomeru",
+        "meaning_vi": "Làm mạnh lên, tăng lên",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "CƯỜNG",
+        "explanation": "Tha động từ, làm tăng thêm sức mạnh hoặc mức độ.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "コンロの火を強める。",
+                "sentence_hira": "こんろのひをつよめる。",
+                "sentence_romaji": "Konro no hi o tsuyomeru.",
+                "sentence_vi": "Tăng lửa trên bếp gas."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "コンロの火を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘強める’ là đáp án đúng vì có nghĩa 'làm mạnh lên, tăng lên'.",
+                "choices": [
+                    {
+                        "content": "強める",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "高まる",
+        "reading_hiragana": "たかまる",
+        "reading_romaji": "takamaru",
+        "meaning_vi": "Tăng thêm; Trở nên ~ hơn",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "CAO",
+        "explanation": "Tự động từ, chỉ mức độ hoặc cảm xúc tăng lên.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "試合前に気持ちが高まる。",
+                "sentence_hira": "しあいまえにきもちがたかまる。",
+                "sentence_romaji": "Shiai mae ni kimochi ga takamaru.",
+                "sentence_vi": "Nâng cao tinh thần trước trận đấu."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "試合前に気持ちが（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘高まる’ là đáp án đúng vì có nghĩa 'tăng thêm, trở nên mạnh hơn'.",
+                "choices": [
+                    {
+                        "content": "高まる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "高める",
+        "reading_hiragana": "たかめる",
+        "reading_romaji": "takameru",
+        "meaning_vi": "Nâng cao",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "CAO",
+        "explanation": "Tha động từ, nâng cao mức độ, chất lượng, tinh thần.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "運動をして体力を高める。",
+                "sentence_hira": "うんどうをしてたいりょくをたかめる。",
+                "sentence_romaji": "Undou o shite tairyoku o takameru.",
+                "sentence_vi": "Tập thể dục để nâng cao thể chất."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "運動をして体力を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘高める’ là đáp án đúng vì có nghĩa 'nâng cao'.",
+                "choices": [
+                    {
+                        "content": "高める",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "深まる",
+        "reading_hiragana": "ふかまる",
+        "reading_romaji": "fukamaru",
+        "meaning_vi": "Sâu hơn; (hiểu) rõ hơn",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "THÂM",
+        "explanation": "Tự động từ, mối quan hệ hoặc sự hiểu biết trở nên sâu sắc hơn.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "友達との友情が深まる。",
+                "sentence_hira": "ともだちとのゆうじょうがふかまる。",
+                "sentence_romaji": "Tomodachi to no yuujou ga fukamaru.",
+                "sentence_vi": "Mối quan hệ bạn bè trở nên sâu sắc hơn."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "友達との友情が（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘深まる’ là đáp án đúng vì có nghĩa 'sâu hơn, rõ hơn'.",
+                "choices": [
+                    {
+                        "content": "深まる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "深める",
+        "reading_hiragana": "ふかめる",
+        "reading_romaji": "fukameru",
+        "meaning_vi": "Làm sâu thêm; Thắt chặt",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "THÂM",
+        "explanation": "Tha động từ, làm cho mối quan hệ hoặc sự hiểu biết trở nên sâu sắc, chặt chẽ hơn.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "理解を深める。",
+                "sentence_hira": "りかいをふかめる。",
+                "sentence_romaji": "Rikai o fukameru.",
+                "sentence_vi": "Thắt chặt mối quan hệ tin tưởng."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "理解を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘深める’ là đáp án đúng vì có nghĩa 'làm sâu thêm, thắt chặt'.",
+                "choices": [
+                    {
+                        "content": "深める",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "温まる",
+        "reading_hiragana": "あたたまる",
+        "reading_romaji": "atatamaru",
+        "meaning_vi": "Trở nên ấm hơn, ấm lên",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "ÔN",
+        "explanation": "Tự động từ, cơ thể hoặc không khí trở nên ấm hơn.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "運動をすると体が温まる。",
+                "sentence_hira": "うんどうをするとからだがあたたまる。",
+                "sentence_romaji": "Undou o suru to karada ga atatamaru.",
+                "sentence_vi": "Hễ vận động cơ thể sẽ ấm lên."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "運動をすると体が（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘温まる’ là đáp án đúng vì có nghĩa 'trở nên ấm hơn'.",
+                "choices": [
+                    {
+                        "content": "温まる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "温める",
+        "reading_hiragana": "あたためる",
+        "reading_romaji": "atatameru",
+        "meaning_vi": "Làm ấm, làm nóng",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "ÔN",
+        "explanation": "Tha động từ, làm nóng một vật hay một không gian.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "ストーブで部屋を温める。",
+                "sentence_hira": "すとーぶでへやをあたためる。",
+                "sentence_romaji": "Sutoobu de heya o atatameru.",
+                "sentence_vi": "Bật lò sưởi làm ấm phòng."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "ストーブで部屋を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘温める’ là đáp án đúng vì có nghĩa 'làm ấm, làm nóng'.",
+                "choices": [
+                    {
+                        "content": "温める",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "焼ける",
+        "reading_hiragana": "やける",
+        "reading_romaji": "yakeru",
+        "meaning_vi": "Được nướng/rán; Bị cháy (nắng)",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "THIÊU",
+        "explanation": "Tự động từ, chỉ việc thực phẩm được nấu chín bằng nhiệt, hoặc da bị cháy nắng.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "日に焼けて、肌の色が変わった。",
+                "sentence_hira": "ひにやけて、はだのいろがかわった。",
+                "sentence_romaji": "Hi ni yakete, hada no iro ga kawatta.",
+                "sentence_vi": "Bị rám nắng nên màu da thay đổi."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "日に（　）て、肌の色が変わった。",
+                "blank_position": 1,
+                "answer_explanation": "‘焼ける’ là đáp án đúng vì có nghĩa 'được nướng, bị cháy nắng'.",
+                "choices": [
+                    {
+                        "content": "焼ける",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "焼く",
+        "reading_hiragana": "やく",
+        "reading_romaji": "yaku",
+        "meaning_vi": "Rán, nướng",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "THIÊU",
+        "explanation": "Tha động từ, nướng hoặc rán thức ăn bằng nhiệt độ cao.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "フライパンでベーコンを焼く。",
+                "sentence_hira": "ふらいぱんでべーこんをやく。",
+                "sentence_romaji": "Furaipan de beekon o yaku.",
+                "sentence_vi": "Rang thịt xông khói bằng chảo."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "フライパンでベーコンを（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘焼く’ là đáp án đúng vì có nghĩa 'rán, nướng'.",
+                "choices": [
+                    {
+                        "content": "焼く",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "炊ける",
+        "reading_hiragana": "たける",
+        "reading_romaji": "takeru",
+        "meaning_vi": "Được nấu chín",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "XUY",
+        "explanation": "Tự động từ, chỉ việc cơm hoặc thức ăn được nấu chín.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "ご飯が炊けたので、夕食の準備をする。",
+                "sentence_hira": "ごはんがたけたので、ゆうしょくのじゅんびをする。",
+                "sentence_romaji": "Gohan ga taketa node, yuushoku no junbi o suru.",
+                "sentence_vi": "Cơm đã chín nên giờ chuẩn bị ăn tối."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "ご飯が（　）ので、夕食の準備をする。",
+                "blank_position": 1,
+                "answer_explanation": "‘炊ける’ là đáp án đúng vì có nghĩa 'được nấu chín'.",
+                "choices": [
+                    {
+                        "content": "炊ける",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "炊く",
+        "reading_hiragana": "たく",
+        "reading_romaji": "taku",
+        "meaning_vi": "Nấu/ thổi (cơm)",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "XUY",
+        "explanation": "Tha động từ, chỉ việc nấu cơm hoặc món ăn chính bằng nước và nhiệt.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "朝ごはん用に、ご飯を炊く。",
+                "sentence_hira": "あさごはんように、ごはんをたく。",
+                "sentence_romaji": "Asagohan you ni, gohan o taku.",
+                "sentence_vi": "Nấu cơm chuẩn bị bữa sáng."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "朝ごはん用に、ご飯を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘炊く’ là đáp án đúng vì có nghĩa 'nấu cơm'.",
+                "choices": [
+                    {
+                        "content": "炊く",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "煮える",
+        "reading_hiragana": "にえる",
+        "reading_romaji": "nieru",
+        "meaning_vi": "Được nấu/ ninh",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "CHỬ",
+        "explanation": "Tự động từ, chỉ việc thức ăn được nấu chín trong nước nóng.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "じゃがいもが煮える。",
+                "sentence_hira": "じゃがいもがにえる。",
+                "sentence_romaji": "Jagaimo ga nieru.",
+                "sentence_vi": "Khoai tây được ninh nhừ."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "じゃがいもが（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘煮える’ là đáp án đúng vì có nghĩa 'được ninh nhừ'.",
+                "choices": [
+                    {
+                        "content": "煮える",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "煮る",
+        "reading_hiragana": "にる",
+        "reading_romaji": "niru",
+        "meaning_vi": "Nấu/ ninh",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "CHỬ",
+        "explanation": "Tha động từ, chỉ việc nấu món ăn bằng cách đun trong nước nóng.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "やさいを煮て、味を付ける。",
+                "sentence_hira": "やさいをにて、あじをつける。",
+                "sentence_romaji": "Yasai o nite, aji o tsukeru.",
+                "sentence_vi": "Ninh rau rồi nêm gia vị."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "やさいを（　）、味を付ける。",
+                "blank_position": 1,
+                "answer_explanation": "‘煮る’ là đáp án đúng vì có nghĩa 'nấu/ ninh'.",
+                "choices": [
+                    {
+                        "content": "煮る",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "炒める",
+        "reading_hiragana": "いためる",
+        "reading_romaji": "itameru",
+        "meaning_vi": "Xào",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "SAO",
+        "explanation": "Tha động từ, chỉ phương pháp nấu ăn dùng dầu nóng để xào.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "肉と野菜を炒める。",
+                "sentence_hira": "にくとやさいをいためる。",
+                "sentence_romaji": "Niku to yasai o itameru.",
+                "sentence_vi": "Xào rau với thịt."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "肉と野菜を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘炒める’ là đáp án đúng vì có nghĩa 'xào'.",
+                "choices": [
+                    {
+                        "content": "炒める",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "ゆでる",
+        "reading_hiragana": "ゆでる",
+        "reading_romaji": "yuderu",
+        "meaning_vi": "Luộc",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "LUỘC",
+        "explanation": "Tha động từ, luộc rau củ, trứng hoặc mì bằng nước sôi.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "卵と野菜をゆでる。",
+                "sentence_hira": "たまとやさいをゆでる。",
+                "sentence_romaji": "Tamago to yasai o yuderu.",
+                "sentence_vi": "Luộc trứng và rau củ."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "卵と野菜を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘ゆでる’ là đáp án đúng vì có nghĩa 'luộc'.",
+                "choices": [
+                    {
+                        "content": "ゆでる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "揚げる",
+        "reading_hiragana": "あげる",
+        "reading_romaji": "ageru",
+        "meaning_vi": "Rán, chiên",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "DƯƠNG",
+        "explanation": "Tha động từ, chiên rán thức ăn trong dầu nóng.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "やさいを揚げて、天ぷらを作る。",
+                "sentence_hira": "やさいをあげて、てんぷらをつくる。",
+                "sentence_romaji": "Yasai o agete, tenpura o tsukuru.",
+                "sentence_vi": "Chiên rau làm tempura."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "やさいを（　）て、天ぷらを作る。",
+                "blank_position": 1,
+                "answer_explanation": "‘揚げる’ là đáp án đúng vì có nghĩa 'rán, chiên'.",
+                "choices": [
+                    {
+                        "content": "揚げる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "蒸す",
+        "reading_hiragana": "むす",
+        "reading_romaji": "musu",
+        "meaning_vi": "Hấp",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "CHƯNG",
+        "explanation": "Tha động từ, nấu chín thức ăn bằng hơi nước.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "お湯をわかして、肉まんを蒸す。",
+                "sentence_hira": "おゆをわかして、にくまんをむす。",
+                "sentence_romaji": "Oyu o wakashite, nikuman o musu.",
+                "sentence_vi": "Đun nước sôi để hấp bánh bao."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "お湯をわかして、肉まんを（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘蒸す’ là đáp án đúng vì có nghĩa 'hấp'.",
+                "choices": [
+                    {
+                        "content": "蒸す",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "掻く",
+        "reading_hiragana": "かく",
+        "reading_romaji": "kaku",
+        "meaning_vi": "Gãi",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "TAO",
+        "explanation": "Tha động từ, chỉ hành động dùng tay hoặc móng để gãi.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "爪でかゆい所を掻く。",
+                "sentence_hira": "つめでかゆいところをかく。",
+                "sentence_romaji": "Tsume de kayui tokoro o kaku.",
+                "sentence_vi": "Dùng móng tay gãi chỗ ngứa."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "爪でかゆい所を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘掻く’ là đáp án đúng vì có nghĩa 'gãi'.",
+                "choices": [
+                    {
+                        "content": "掻く",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "つかむ",
+        "reading_hiragana": "つかむ",
+        "reading_romaji": "tsukamu",
+        "meaning_vi": "Tóm; Nắm chặt, nắm lấy",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "TRẢO",
+        "explanation": "Tha động từ, chỉ hành động nắm chặt hoặc tóm lấy một cơ hội.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "彼は俳優になるチャンスをつかんだ。",
+                "sentence_hira": "かれははいゆうになるちゃんすをつかんだ。",
+                "sentence_romaji": "Kare wa haiyuu ni naru chansu o tsukanda.",
+                "sentence_vi": "Anh ta đã nắm lấy cơ hội để trở thành diễn viên."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "彼は俳優になるチャンスを（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘つかむ’ là đáp án đúng vì có nghĩa 'tóm, nắm lấy'.",
+                "choices": [
+                    {
+                        "content": "つかむ",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "握る",
+        "reading_hiragana": "にぎる",
+        "reading_romaji": "nigiru",
+        "meaning_vi": "Cầm, nắm",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "ÁC",
+        "explanation": "Tha động từ, chỉ hành động cầm nắm chặt trong tay.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "ペンを握って文字を書く。",
+                "sentence_hira": "ぺんをにぎってもじをかく。",
+                "sentence_romaji": "Pen o nigitte moji o kaku.",
+                "sentence_vi": "Cầm bút viết chữ cái."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "ペンを（　）て文字を書く。",
+                "blank_position": 1,
+                "answer_explanation": "‘握る’ là đáp án đúng vì có nghĩa 'cầm, nắm'.",
+                "choices": [
+                    {
+                        "content": "握る",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "押さえる",
+        "reading_hiragana": "おさえる",
+        "reading_romaji": "osaeru",
+        "meaning_vi": "Giữ",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "ÁP",
+        "explanation": "Tha động từ, chỉ việc giữ chặt để ngăn không cho chuyển động.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "ドアを手で押さえる。",
+                "sentence_hira": "どあをてでおさえる。",
+                "sentence_romaji": "Doa o te de osaeru.",
+                "sentence_vi": "Dùng tay giữ cánh cửa không bị đóng lại."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "ドアを手で（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘押さえる’ là đáp án đúng vì có nghĩa 'giữ'.",
+                "choices": [
+                    {
+                        "content": "押さえる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "いじめる",
+        "reading_hiragana": "いじめる",
+        "reading_romaji": "ijimeru",
+        "meaning_vi": "Bắt nạt",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "HIẾP",
+        "explanation": "Tha động từ, chỉ hành động bắt nạt, ức hiếp người yếu hơn.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "弱い者をいじめる。",
+                "sentence_hira": "よわいものをいじめる。",
+                "sentence_romaji": "Yowai mono o ijimeru.",
+                "sentence_vi": "Bắt nạt kẻ yếu."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "弱い者を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘いじめる’ là đáp án đúng vì có nghĩa 'bắt nạt'.",
+                "choices": [
+                    {
+                        "content": "いじめる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "だます",
+        "reading_hiragana": "だます",
+        "reading_romaji": "damasu",
+        "meaning_vi": "Lừa",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "TRÁ",
+        "explanation": "Tha động từ, chỉ hành động lừa dối người khác.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "年寄りをだまして金を取る。",
+                "sentence_hira": "としよりをだましてかねをとる。",
+                "sentence_romaji": "Toshiyori o damashite kane o toru.",
+                "sentence_vi": "Lừa người già để lấy tiền."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "年寄りを（　）て金を取る。",
+                "blank_position": 1,
+                "answer_explanation": "‘だます’ là đáp án đúng vì có nghĩa 'lừa'.",
+                "choices": [
+                    {
+                        "content": "だます",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "振る",
+        "reading_hiragana": "ふる",
+        "reading_romaji": "furu",
+        "meaning_vi": "Vẫy; Rắc; Bị (người yêu) đá",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "CHẤN",
+        "explanation": "Tha động từ, chỉ hành động vẫy tay, rắc gia vị, hoặc bị người yêu bỏ rơi.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "知らない人に手を振られた。",
+                "sentence_hira": "しらないひとにてをふられた。",
+                "sentence_romaji": "Shiranai hito ni te o furareta.",
+                "sentence_vi": "Người không quen biết vẫy tay gọi tôi."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "知らない人に手を（　）れた。",
+                "blank_position": 1,
+                "answer_explanation": "‘振る’ là đáp án đúng vì có nghĩa 'vẫy'.",
+                "choices": [
+                    {
+                        "content": "振る",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "めくる",
+        "reading_hiragana": "めくる",
+        "reading_romaji": "mekuru",
+        "meaning_vi": "Lật; Bóc",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": null,
+        "explanation": "Tha động từ, chỉ hành động lật trang sách hoặc bóc lớp ngoài.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "本を1ページめくる。",
+                "sentence_hira": "ほんを1ぺーじめくる。",
+                "sentence_romaji": "Hon o ichi peeji mekuru.",
+                "sentence_vi": "Lật 1 trang sách."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "本を1ページ（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘めくる’ là đáp án đúng vì có nghĩa 'lật, bóc'.",
+                "choices": [
+                    {
+                        "content": "めくる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "見かける",
+        "reading_hiragana": "みかける",
+        "reading_romaji": "mikakeru",
+        "meaning_vi": "Bắt gặp",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "KIẾN",
+        "explanation": "Tha động từ, chỉ việc tình cờ nhìn thấy ai đó ở nơi công cộng.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "駅で山田さんを見かけた。",
+                "sentence_hira": "えきでやまださんをみかけた。",
+                "sentence_romaji": "Eki de Yamada san o mikaketa.",
+                "sentence_vi": "Bắt gặp anh Yamada trong nhà ga."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "駅で山田さんを（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘見かける’ là đáp án đúng vì có nghĩa 'bắt gặp'.",
+                "choices": [
+                    {
+                        "content": "見かける",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "確かめる",
+        "reading_hiragana": "たしかめる",
+        "reading_romaji": "tashikameru",
+        "meaning_vi": "Xác minh, xác nhận",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "XÁC",
+        "explanation": "Tha động từ, chỉ hành động kiểm tra, xác nhận tính chính xác.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "電話番号を確かめる。",
+                "sentence_hira": "でんわばんごうをたしかめる。",
+                "sentence_romaji": "Denwa bangou o tashikameru.",
+                "sentence_vi": "Xác minh số điện thoại."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "電話番号を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘確かめる’ là đáp án đúng vì có nghĩa 'xác nhận'.",
+                "choices": [
+                    {
+                        "content": "確かめる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "試す",
+        "reading_hiragana": "ためす",
+        "reading_romaji": "tamesu",
+        "meaning_vi": "Thử",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "THÍ",
+        "explanation": "Tha động từ, chỉ hành động thử nghiệm, kiểm tra tính khả thi.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "このバイクが動くかどうか試してみる。",
+                "sentence_hira": "このばいくがうごくかどうかためしてみる。",
+                "sentence_romaji": "Kono baiku ga ugoku ka dou ka tameshite miru.",
+                "sentence_vi": "Thử xem chiếc xe máy có chạy hay không."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "このバイクが動くかどうか（　）てみる。",
+                "blank_position": 1,
+                "answer_explanation": "‘試す’ là đáp án đúng vì có nghĩa 'thử'.",
+                "choices": [
+                    {
+                        "content": "試す",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "繰り返す",
+        "reading_hiragana": "くりかえす",
+        "reading_romaji": "kurikaesu",
+        "meaning_vi": "Lặp đi lặp lại",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "SÀO PHẢN",
+        "explanation": "Tha động từ, chỉ hành động làm lặp đi lặp lại nhiều lần.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "最近同じ失敗を繰り返している。",
+                "sentence_hira": "さいきんおなじしっぱいをくりかえしている。",
+                "sentence_romaji": "Saikin onaji shippai o kurikaeshite iru.",
+                "sentence_vi": "Gần đây tôi cứ lặp lại những công việc giống nhau mỗi ngày."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "最近同じ失敗を（　）ている。",
+                "blank_position": 1,
+                "answer_explanation": "‘繰り返す’ là đáp án đúng vì có nghĩa 'lặp đi lặp lại'.",
+                "choices": [
+                    {
+                        "content": "繰り返す",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "訳す",
+        "reading_hiragana": "やくす",
+        "reading_romaji": "yakusu",
+        "meaning_vi": "Dịch",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "DỊCH",
+        "explanation": "Tha động từ, chỉ hành động dịch lời nói, văn bản từ ngôn ngữ này sang ngôn ngữ khác.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "彼女の言葉を訳す。",
+                "sentence_hira": "かのじょのことばをやくす。",
+                "sentence_romaji": "Kanojo no kotoba o yakusu.",
+                "sentence_vi": "Dịch những lời nói của cô ấy."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "彼女の言葉を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘訳す’ là đáp án đúng vì có nghĩa 'dịch'.",
+                "choices": [
+                    {
+                        "content": "訳す",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "行う",
+        "reading_hiragana": "おこなう",
+        "reading_romaji": "okonau",
+        "meaning_vi": "Tổ chức",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "HÀNH",
+        "explanation": "Tha động từ, chỉ hành động thực hiện, tổ chức một sự kiện hay hoạt động.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "明日ここで試験が行われる。",
+                "sentence_hira": "あすここでしけんがおこなわれる。",
+                "sentence_romaji": "Asu koko de shiken ga okonawareru.",
+                "sentence_vi": "Kỳ thi sẽ được tổ chức tại đây vào ngày mai."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "明日ここで試験が（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘行う’ là đáp án đúng vì có nghĩa 'tổ chức'.",
+                "choices": [
+                    {
+                        "content": "行う",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "熱中する",
+        "reading_hiragana": "ねっちゅうする",
+        "reading_romaji": "necchuu suru",
+        "meaning_vi": "Đam mê, mải mê",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "NHIỆT TRUNG",
+        "explanation": "Tự động từ, chỉ trạng thái say mê, tập trung cao độ vào một việc gì đó.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "学生の時はスポーツに熱中していた。",
+                "sentence_hira": "がくせいのときはすぽーつにねっちゅうしていた。",
+                "sentence_romaji": "Gakusei no toki wa supootsu ni necchuu shite ita.",
+                "sentence_vi": "Hồi học sinh tôi rất đam mê thể thao."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "学生の時はスポーツに（　）していた。",
+                "blank_position": 1,
+                "answer_explanation": "‘熱中する’ là đáp án đúng vì có nghĩa 'đam mê'.",
+                "choices": [
+                    {
+                        "content": "熱中する",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "暮らす",
+        "reading_hiragana": "くらす",
+        "reading_romaji": "kurasu",
+        "meaning_vi": "Sinh sống, cuộc sống",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "MỘ",
+        "explanation": "Tự động từ, chỉ việc sinh sống, cuộc sống hằng ngày.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "家族と一緒に暮らしている。",
+                "sentence_hira": "かぞくといっしょにくらしている。",
+                "sentence_romaji": "Kazoku to issho ni kurashite iru.",
+                "sentence_vi": "Tôi sống cùng gia đình."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "家族と一緒に（　）ている。",
+                "blank_position": 1,
+                "answer_explanation": "‘暮らす’ là đáp án đúng vì có nghĩa 'sinh sống'.",
+                "choices": [
+                    {
+                        "content": "暮らす",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "巻く",
+        "reading_hiragana": "まく",
+        "reading_romaji": "maku",
+        "meaning_vi": "Quàng, quấn; Cuộn",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "QUYỂN",
+        "explanation": "Tha động từ, chỉ việc quấn quanh hoặc cuộn tròn vật gì đó.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "マフラーを首に巻く。",
+                "sentence_hira": "まふらーをくびにまく。",
+                "sentence_romaji": "Mafuraa o kubi ni maku.",
+                "sentence_vi": "Quàng khăn quanh cổ."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "マフラーを首に（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘巻く’ là đáp án đúng vì có nghĩa 'quàng, cuộn'.",
+                "choices": [
+                    {
+                        "content": "巻く",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "結ぶ",
+        "reading_hiragana": "むすぶ",
+        "reading_romaji": "musubu",
+        "meaning_vi": "Buộc, cột; Kí kết (hợp đồng)",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "KẾT",
+        "explanation": "Tha động từ, chỉ việc buộc chặt, thắt nút hoặc kí kết hợp đồng.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "靴のひもを結ぶ。",
+                "sentence_hira": "くつのひもをむすぶ。",
+                "sentence_romaji": "Kutsu no himo o musubu.",
+                "sentence_vi": "Buộc dây giày."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "靴のひもを（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘結ぶ’ là đáp án đúng vì có nghĩa 'buộc, cột'.",
+                "choices": [
+                    {
+                        "content": "結ぶ",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "任せる",
+        "reading_hiragana": "まかせる",
+        "reading_romaji": "makaseru",
+        "meaning_vi": "Giao phó",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "NHÂM",
+        "explanation": "Tha động từ, chỉ hành động giao việc cho người khác chịu trách nhiệm.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "あとは山田さんに任せておく。",
+                "sentence_hira": "あとはやまださんにまかせておく。",
+                "sentence_romaji": "Ato wa Yamada-san ni makasete oku.",
+                "sentence_vi": "Còn lại thì giao việc cho Yamada."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "あとは山田さんに（　）ておく。",
+                "blank_position": 1,
+                "answer_explanation": "‘任せる’ là đáp án đúng vì có nghĩa 'giao phó'.",
+                "choices": [
+                    {
+                        "content": "任せる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "守る",
+        "reading_hiragana": "まもる",
+        "reading_romaji": "mamoru",
+        "meaning_vi": "Bảo vệ, giữ gìn; Tuân thủ",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "THỦ",
+        "explanation": "Tha động từ, chỉ việc bảo vệ, giữ gìn hoặc tuân thủ quy tắc.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "太陽の光から肌を守る。",
+                "sentence_hira": "たいようのひかりからはだをまもる。",
+                "sentence_romaji": "Taiyou no hikari kara hada o mamoru.",
+                "sentence_vi": "Bảo vệ da khỏi ánh sáng mặt trời."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "太陽の光から肌を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘守る’ là đáp án đúng vì có nghĩa 'bảo vệ, giữ gìn'.",
+                "choices": [
+                    {
+                        "content": "守る",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "争う",
+        "reading_hiragana": "あらそう",
+        "reading_romaji": "arasou",
+        "meaning_vi": "Gây gổ, tranh giành",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "TRANH",
+        "explanation": "Tha động từ, chỉ hành động đấu tranh, tranh giành, gây gổ.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "くだらない事で争うな。",
+                "sentence_hira": "くだらないことであらそうな。",
+                "sentence_romaji": "Kudaranai koto de arasou na.",
+                "sentence_vi": "Đừng tranh giành vì những điều nhỏ nhặt."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "くだらない事で（　）な。",
+                "blank_position": 1,
+                "answer_explanation": "‘争う’ là đáp án đúng vì có nghĩa 'tranh giành'.",
+                "choices": [
+                    {
+                        "content": "争う",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "望む",
+        "reading_hiragana": "のぞむ",
+        "reading_romaji": "nozomu",
+        "meaning_vi": "Hy vọng, mong muốn; Sức khỏe",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "VỌNG",
+        "explanation": "Tha động từ, chỉ việc có ước muốn, hi vọng điều gì đó tốt đẹp.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "私の望みは、家族が健康でいることだ。",
+                "sentence_hira": "わたしののぞみは、かぞくがけんこうでいることだ。",
+                "sentence_romaji": "Watashi no nozomi wa, kazoku ga kenkou de iru koto da.",
+                "sentence_vi": "Điều tôi mong muốn là gia đình được khỏe mạnh."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "私の（　）は、家族が健康でいることだ。",
+                "blank_position": 1,
+                "answer_explanation": "‘望む’ là đáp án đúng vì có nghĩa 'mong muốn'.",
+                "choices": [
+                    {
+                        "content": "望む",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "信じる",
+        "reading_hiragana": "しんじる",
+        "reading_romaji": "shinjiru",
+        "meaning_vi": "Tin tưởng",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "TÍN",
+        "explanation": "Tha động từ, chỉ hành động tin tưởng vào điều gì đó hoặc một ai đó.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "彼の言葉を信じる。",
+                "sentence_hira": "かれのことばをしんじる。",
+                "sentence_romaji": "Kare no kotoba o shinjiru.",
+                "sentence_vi": "Tôi tin vào câu chuyện của anh ấy."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "彼の言葉を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘信じる’ là đáp án đúng vì có nghĩa 'tin tưởng'.",
+                "choices": [
+                    {
+                        "content": "信じる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "通じる",
+        "reading_hiragana": "つうじる",
+        "reading_romaji": "tsuujiru",
+        "meaning_vi": "Hiểu; Dẫn ra, thông qua",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "THÔNG",
+        "explanation": "Tự động từ, chỉ việc hiểu ý nghĩa, hoặc một con đường dẫn ra thông qua nơi nào đó.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "トンネルは海まで通じている。",
+                "sentence_hira": "とんねるはうみまでつうじている。",
+                "sentence_romaji": "Tonneru wa umi made tsuujite iru.",
+                "sentence_vi": "Đường hầm này dẫn ra biển."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "トンネルは海まで（　）ている。",
+                "blank_position": 1,
+                "answer_explanation": "‘通じる’ là đáp án đúng vì có nghĩa 'dẫn ra, thông qua'.",
+                "choices": [
+                    {
+                        "content": "通じる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "飽きる",
+        "reading_hiragana": "あきる",
+        "reading_romaji": "akiru",
+        "meaning_vi": "Chán, ngấy",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "BÃO",
+        "explanation": "Tự động từ, chỉ trạng thái chán ngấy, không còn hứng thú với việc gì đó.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "このゲームにはもう飽きた。",
+                "sentence_hira": "このげーむにはもうあきた。",
+                "sentence_romaji": "Kono geemu ni wa mou akita.",
+                "sentence_vi": "Tôi đã mệt mỏi với trò chơi này."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "このゲームにはもう（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘飽きる’ là đáp án đúng vì có nghĩa 'chán, ngấy'.",
+                "choices": [
+                    {
+                        "content": "飽きる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "譲る",
+        "reading_hiragana": "ゆずる",
+        "reading_romaji": "yuzuru",
+        "meaning_vi": "Nhường, nhượng lại",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "NHƯỢNG",
+        "explanation": "Tha động từ, chỉ hành động nhường chỗ, nhượng lại đồ vật hay quyền lợi cho người khác.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "バスでおじいさんに席を譲った。",
+                "sentence_hira": "ばすでおじいさんにせきをゆずった。",
+                "sentence_romaji": "Basu de ojiisan ni seki o yuzutta.",
+                "sentence_vi": "Tôi nhường ghế cho ông cụ trên xe buýt."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "バスでおじいさんに席を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘譲る’ là đáp án đúng vì có nghĩa 'nhường, nhượng lại'.",
+                "choices": [
+                    {
+                        "content": "譲る",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "越える",
+        "reading_hiragana": "こえる",
+        "reading_romaji": "koeru",
+        "meaning_vi": "Vượt qua (số lượng, giới hạn, trở ngại)",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "VIỆT",
+        "explanation": "Tha động từ, dùng để chỉ hành động vượt qua một giới hạn, số lượng hoặc trở ngại nào đó.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "来場者が100万人を越えた。",
+                "sentence_hira": "らいじょうしゃが100まんにんをこえた。",
+                "sentence_romaji": "Raijousha ga hyakuman nin o koeta.",
+                "sentence_vi": "Số lượng khách vào cửa vượt hơn 1 triệu người."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "来場者が100万人を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘越える’ là đáp án đúng vì có nghĩa 'vượt qua'.",
+                "choices": [
+                    {
+                        "content": "越える",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "眠る",
+        "reading_hiragana": "ねむる",
+        "reading_romaji": "nemuru",
+        "meaning_vi": "Ngủ",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "MIÊN",
+        "explanation": "Tự động từ, chỉ trạng thái ngủ, nghỉ ngơi.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "最近全然眠れない。",
+                "sentence_hira": "さいきんぜんぜんねむれない。",
+                "sentence_romaji": "Saikin zenzen nemurenai.",
+                "sentence_vi": "Dạo này tôi chẳng thể ngủ được."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "最近全然（　）れない。",
+                "blank_position": 1,
+                "answer_explanation": "‘眠る’ là đáp án đúng vì có nghĩa 'ngủ'.",
+                "choices": [
+                    {
+                        "content": "眠る",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "祈る",
+        "reading_hiragana": "いのる",
+        "reading_romaji": "inoru",
+        "meaning_vi": "Cầu nguyện",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "KỲ",
+        "explanation": "Tha động từ, chỉ hành động cầu nguyện, mong ước một điều gì đó tốt đẹp.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "息子の合格を祈る。",
+                "sentence_hira": "むすこのごうかくをいのる。",
+                "sentence_romaji": "Musuko no goukaku o inoru.",
+                "sentence_vi": "Cầu nguyện cho đứa con trai thi đỗ."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "息子の合格を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘祈る’ là đáp án đúng vì có nghĩa 'cầu nguyện'.",
+                "choices": [
+                    {
+                        "content": "祈る",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "祝う",
+        "reading_hiragana": "いわう",
+        "reading_romaji": "iwau",
+        "meaning_vi": "Ăn mừng, chúc mừng",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "CHÚC",
+        "explanation": "Tha động từ, chỉ hành động ăn mừng, chúc mừng trong dịp vui.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "友達の誕生日を祝う。",
+                "sentence_hira": "ともだちのたんじょうびをいわう。",
+                "sentence_romaji": "Tomodachi no tanjoubi o iwau.",
+                "sentence_vi": "Ăn mừng sinh nhật bạn."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "友達の誕生日を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘祝う’ là đáp án đúng vì có nghĩa 'ăn mừng, chúc mừng'.",
+                "choices": [
+                    {
+                        "content": "祝う",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "感じる",
+        "reading_hiragana": "かんじる",
+        "reading_romaji": "kanjiru",
+        "meaning_vi": "Cảm thấy",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "CẢM",
+        "explanation": "Tha động từ, chỉ cảm giác, cảm nhận được một trạng thái hay tình huống nào đó.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "家族に会えて嬉しさを感じる。",
+                "sentence_hira": "かぞくにあえてうれしさをかんじる。",
+                "sentence_romaji": "Kazoku ni aete ureshisa o kanjiru.",
+                "sentence_vi": "Cảm thấy vui khi được gặp gia đình."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "家族に会えて嬉しさを（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘感じる’ là đáp án đúng vì có nghĩa 'cảm thấy'.",
+                "choices": [
+                    {
+                        "content": "感じる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "迷う",
+        "reading_hiragana": "まよう",
+        "reading_romaji": "mayou",
+        "meaning_vi": "Lạc đường; Phân vân",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "MÊ",
+        "explanation": "Tự động từ, chỉ việc lạc đường hoặc phân vân không biết lựa chọn thế nào.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "駅で道に迷う。",
+                "sentence_hira": "えきでみちにまよう。",
+                "sentence_romaji": "Eki de michi ni mayou.",
+                "sentence_vi": "Tôi bị lạc đường ở ga."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "駅で道に（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘迷う’ là đáp án đúng vì có nghĩa 'lạc đường, phân vân'.",
+                "choices": [
+                    {
+                        "content": "迷う",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "悩む",
+        "reading_hiragana": "なやむ",
+        "reading_romaji": "nayamu",
+        "meaning_vi": "Trăn trở, lo lắng",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "NÃO",
+        "explanation": "Tự động từ, chỉ trạng thái phiền não, lo lắng, băn khoăn về một vấn đề nào đó.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "最近頭痛に悩んでいる。",
+                "sentence_hira": "さいきんずつうになやんでいる。",
+                "sentence_romaji": "Saikin zutsuu ni nayande iru.",
+                "sentence_vi": "Dạo này tôi lo lắng về bệnh đau đầu."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "最近頭痛に（　）でいる。",
+                "blank_position": 1,
+                "answer_explanation": "‘悩む’ là đáp án đúng vì có nghĩa 'trăn trở, lo lắng'.",
+                "choices": [
+                    {
+                        "content": "悩む",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "慌てる",
+        "reading_hiragana": "あわてる",
+        "reading_romaji": "awateru",
+        "meaning_vi": "Vội vàng; Hấp tấp",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "HOẢNG",
+        "explanation": "Tự động từ, chỉ trạng thái hấp tấp, hoảng loạn, không giữ được bình tĩnh.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "慌てないで落ち着いてください。",
+                "sentence_hira": "あわてないでおちついてください。",
+                "sentence_romaji": "Awatenai de ochitsuite kudasai.",
+                "sentence_vi": "Đừng hấp tấp, hãy bình tĩnh."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "（　）ないで落ち着いてください。",
+                "blank_position": 1,
+                "answer_explanation": "‘慌てる’ là đáp án đúng vì có nghĩa 'vội vàng, hấp tấp'.",
+                "choices": [
+                    {
+                        "content": "慌てる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "明ける",
+        "reading_hiragana": "あける",
+        "reading_romaji": "akeru",
+        "meaning_vi": "(mùa mưa) kết thúc; (năm mới) bắt đầu; (đêm) xuống",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "MINH",
+        "explanation": "Tự động từ, dùng để chỉ sự thay đổi của thời điểm (mùa, năm, ngày, đêm).",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "梅雨が明ける。",
+                "sentence_hira": "つゆがあける。",
+                "sentence_romaji": "Tsuyu ga akeru.",
+                "sentence_vi": "Kết thúc mùa mưa."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "梅雨が（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘明ける’ là đáp án đúng vì có nghĩa '(mùa mưa) kết thúc'.",
+                "choices": [
+                    {
+                        "content": "明ける",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "差す",
+        "reading_hiragana": "さす",
+        "reading_romaji": "sasu",
+        "meaning_vi": "(Mặt trời) chiếu sáng; mở/bật (ô); nhỏ (thuốc mắt)",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "SOA",
+        "explanation": "Tha động từ, chỉ hành động chiếu sáng, mở ô hoặc nhỏ thuốc mắt.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "部屋の中に日が差してきた。",
+                "sentence_hira": "へやのなかにひがさしてきた。",
+                "sentence_romaji": "Heya no naka ni hi ga sashite kita.",
+                "sentence_vi": "Mặt trời chiếu sáng vào trong phòng."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "部屋の中に日が（　）てきた。",
+                "blank_position": 1,
+                "answer_explanation": "‘差す’ là đáp án đúng vì có nghĩa 'chiếu sáng, mở (ô), nhỏ (thuốc mắt)'.",
+                "choices": [
+                    {
+                        "content": "差す",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "交換",
+        "reading_hiragana": "こうかん",
+        "reading_romaji": "koukan",
+        "meaning_vi": "Trao đổi",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "GIAO HOÁN",
+        "explanation": "Danh từ, suru-verb, dùng khi trao đổi đồ vật, vị trí hoặc thông tin.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "座りにくいのでイスを交換する。",
+                "sentence_hira": "すわりにくいのでいすをこうかんする。",
+                "sentence_romaji": "Suwarinikui node isu o koukan suru.",
+                "sentence_vi": "Đổi ghế vì khó ngồi."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "イスを（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘交換’ là đáp án đúng vì có nghĩa 'trao đổi'.",
+                "choices": [
+                    {
+                        "content": "交換",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "流行",
+        "reading_hiragana": "りゅうこう",
+        "reading_romaji": "ryuukou",
+        "meaning_vi": "Thịnh hành, phổ biến; Bùng phát, lây lan (dịch bệnh)",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "LƯU HÀNH",
+        "explanation": "Danh từ, suru-verb, chỉ sự phổ biến, thịnh hành hoặc sự lan rộng của dịch bệnh.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "今年はこのブランドが流行している。",
+                "sentence_hira": "ことしはこのぶらんどがりゅうこうしている。",
+                "sentence_romaji": "Kotoshi wa kono burando ga ryuukou shite iru.",
+                "sentence_vi": "Năm nay thương hiệu này đang thịnh hành."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "今年はこのブランドが（　）している。",
+                "blank_position": 1,
+                "answer_explanation": "‘流行’ là đáp án đúng vì có nghĩa 'thịnh hành, phổ biến; bùng phát'.",
+                "choices": [
+                    {
+                        "content": "流行",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "報告",
+        "reading_hiragana": "ほうこく",
+        "reading_romaji": "houkoku",
+        "meaning_vi": "Thông cáo, báo cáo",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "BÁO CÁO",
+        "explanation": "Danh từ, suru-verb, chỉ việc thông báo, báo cáo về kết quả, tình hình công việc hoặc sự kiện.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "母にテストの結果を報告する。",
+                "sentence_hira": "ははにてすとのけっかをほうこくする。",
+                "sentence_romaji": "Haha ni tesuto no kekka o houkoku suru.",
+                "sentence_vi": "Tôi báo kết quả bài kiểm tra cho mẹ tôi."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "母にテストの結果を（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘報告’ là đáp án đúng vì có nghĩa 'báo cáo'.",
+                "choices": [
+                    {
+                        "content": "報告",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "録画",
+        "reading_hiragana": "ろくが",
+        "reading_romaji": "rokuga",
+        "meaning_vi": "Ghi hình",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "LỤC HỌA",
+        "explanation": "Danh từ, suru-verb, chỉ việc quay phim, ghi hình một chương trình.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "アニメを録画する。",
+                "sentence_hira": "あにめをろくがする。",
+                "sentence_romaji": "Anime o rokuga suru.",
+                "sentence_vi": "Ghi hình phim hoạt hình."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "アニメを（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘録画’ là đáp án đúng vì có nghĩa 'ghi hình'.",
+                "choices": [
+                    {
+                        "content": "録画",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "混雑",
+        "reading_hiragana": "こんざつ",
+        "reading_romaji": "konzatsu",
+        "meaning_vi": "Đông đúc",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "HỖN TẠP",
+        "explanation": "Danh từ, suru-verb, chỉ tình trạng đông người, chen chúc, hỗn tạp.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "いつもあの店は混雑している。",
+                "sentence_hira": "いつもあのみせはこんざつしている。",
+                "sentence_romaji": "Itsumo ano mise wa konzatsu shite iru.",
+                "sentence_vi": "Cửa hàng đó luôn đông khách."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "あの店はいつも（　）している。",
+                "blank_position": 1,
+                "answer_explanation": "‘混雑’ là đáp án đúng vì có nghĩa 'đông đúc'.",
+                "choices": [
+                    {
+                        "content": "混雑",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "渋滞",
+        "reading_hiragana": "じゅうたい",
+        "reading_romaji": "juutai",
+        "meaning_vi": "Tắc đường",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "SÁP TRỆ",
+        "explanation": "Danh từ, suru-verb, chỉ tình trạng giao thông ùn tắc, kẹt xe.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "道路が渋滞しているので、学校に遅れてしまう。",
+                "sentence_hira": "どうろがじゅうたいしているので、がっこうにおくれてしまう。",
+                "sentence_romaji": "Douro ga juutai shite iru node, gakkou ni okurete shimau.",
+                "sentence_vi": "Đường đang bị tắc do có tai nạn giao thông nên tôi đi học muộn."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "道路が（　）している。",
+                "blank_position": 1,
+                "answer_explanation": "‘渋滞’ là đáp án đúng vì có nghĩa 'tắc đường'.",
+                "choices": [
+                    {
+                        "content": "渋滞",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "衝突",
+        "reading_hiragana": "しょうとつ",
+        "reading_romaji": "shoutotsu",
+        "meaning_vi": "Va chạm, xung đột",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "XUNG ĐỘT",
+        "explanation": "Danh từ, suru-verb, chỉ sự va chạm vật lý (xe cộ) hoặc xung đột ý kiến.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "会社で意見の衝突が頻発している。",
+                "sentence_hira": "かいしゃでいけんのしょうとつがひんぱつしている。",
+                "sentence_romaji": "Kaisha de iken no shoutotsu ga hinpatsu shite iru.",
+                "sentence_vi": "Đã có các ý kiến xung đột tại công ty."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "会社で意見の（　）があった。",
+                "blank_position": 1,
+                "answer_explanation": "‘衝突’ là đáp án đúng vì có nghĩa 'xung đột, va chạm'.",
+                "choices": [
+                    {
+                        "content": "衝突",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "緊張",
+        "reading_hiragana": "きんちょう",
+        "reading_romaji": "kinchou",
+        "meaning_vi": "Lo lắng, căng thẳng",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "KHẨN TRƯƠNG",
+        "explanation": "Danh từ, suru-verb, chỉ trạng thái căng thẳng, hồi hộp trước sự việc quan trọng.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "テストが始まり、緊張する。",
+                "sentence_hira": "てすとがはじまり、きんちょうする。",
+                "sentence_romaji": "Tesuto ga hajimari, kinchou suru.",
+                "sentence_vi": "Bắt đầu thi nên tôi cảm thấy căng thẳng."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "テストが始まり、（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘緊張’ là đáp án đúng vì có nghĩa 'lo lắng, căng thẳng'.",
+                "choices": [
+                    {
+                        "content": "緊張",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "感心",
+        "reading_hiragana": "かんしん",
+        "reading_romaji": "kanshin",
+        "meaning_vi": "Khâm phục",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "CẢM TÂM",
+        "explanation": "Danh từ, suru-verb, chỉ sự khâm phục, ngưỡng mộ trước khả năng hay hành động của ai đó.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "山田くんは両親の手伝いをする感心な息子だ。",
+                "sentence_hira": "やまだくんはりょうしんのてつだいをするかんしんなむすこだ。",
+                "sentence_romaji": "Yamada-kun wa ryoushin no tetsudai o suru kanshin na musuko da.",
+                "sentence_vi": "Yamada là đứa con trai đáng khâm phục khi luôn giúp đỡ bố mẹ."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "山田くんは（　）な息子だ。",
+                "blank_position": 1,
+                "answer_explanation": "‘感心’ là đáp án đúng vì có nghĩa 'khâm phục'.",
+                "choices": [
+                    {
+                        "content": "感心",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "感動",
+        "reading_hiragana": "かんどう",
+        "reading_romaji": "kandou",
+        "meaning_vi": "Cảm động; Thán phục",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "CẢM ĐỘNG",
+        "explanation": "Danh từ, suru-verb, chỉ sự xúc động mạnh mẽ về tình cảm khi chứng kiến hoặc trải nghiệm điều gì đó.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "映画を見てとても感動した。",
+                "sentence_hira": "えいがをみてとてもかんどうした。",
+                "sentence_romaji": "Eiga o mite totemo kandou shita.",
+                "sentence_vi": "Rất cảm động khi xem phim."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "映画を見てとても（　）した。",
+                "blank_position": 1,
+                "answer_explanation": "‘感動’ là đáp án đúng vì có nghĩa 'cảm động'.",
+                "choices": [
+                    {
+                        "content": "感動",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "興奮",
+        "reading_hiragana": "こうふん",
+        "reading_romaji": "koufun",
+        "meaning_vi": "Hưng phấn, phấn khích",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "HƯNG PHẤN",
+        "explanation": "Danh từ, suru-verb, chỉ trạng thái hưng phấn, phấn khích mạnh mẽ do cảm xúc.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "優勝した選手たちは興奮して大声を出した。",
+                "sentence_hira": "ゆうしょうしたせんしゅたちはこうふんしておおごえをだした。",
+                "sentence_romaji": "Yuushou shita senshu-tachi wa koufun shite oogoe o dashita.",
+                "sentence_vi": "Tuyển thủ danh chiến thắng đã gào thét vì phấn khích."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "優勝した選手たちは（　）して大声を出した。",
+                "blank_position": 1,
+                "answer_explanation": "‘興奮’ là đáp án đúng vì có nghĩa 'hưng phấn, phấn khích'.",
+                "choices": [
+                    {
+                        "content": "興奮",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "解決",
+        "reading_hiragana": "かいけつ",
+        "reading_romaji": "kaiketsu",
+        "meaning_vi": "Giải quyết",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "GIẢI QUYẾT",
+        "explanation": "Danh từ, suru-verb, chỉ việc xử lý, giải quyết một vấn đề, mâu thuẫn.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "夫婦のトラブルを解決する。",
+                "sentence_hira": "ふうふのとらぶるをかいけつする。",
+                "sentence_romaji": "Fuufu no toraburu o kaiketsu suru.",
+                "sentence_vi": "Giải quyết rắc rối vợ chồng."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "夫婦のトラブルを（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘解決’ là đáp án đúng vì có nghĩa 'giải quyết'.",
+                "choices": [
+                    {
+                        "content": "解決",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "確認",
+        "reading_hiragana": "かくにん",
+        "reading_romaji": "kakunin",
+        "meaning_vi": "Xác nhận",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "XÁC NHẬN",
+        "explanation": "Danh từ, suru-verb, chỉ hành động kiểm tra, xác minh thông tin để đảm bảo chính xác.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "カギをかけたか最後に確認をする。",
+                "sentence_hira": "かぎをかけたかさいごにかくにんをする。",
+                "sentence_romaji": "Kagi o kaketa ka saigo ni kakunin o suru.",
+                "sentence_vi": "Xác nhận lần cuối xem đã khóa cửa chưa."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "カギをかけたか最後に（　）をする。",
+                "blank_position": 1,
+                "answer_explanation": "‘確認’ là đáp án đúng vì có nghĩa 'xác nhận'.",
+                "choices": [
+                    {
+                        "content": "確認",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "利用",
+        "reading_hiragana": "りよう",
+        "reading_romaji": "riyou",
+        "meaning_vi": "Sử dụng",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "LỢI DỤNG",
+        "explanation": "Danh từ, suru-verb, chỉ việc tận dụng, sử dụng phương tiện, dịch vụ, cơ hội.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "通勤で電車を利用する。",
+                "sentence_hira": "つうきんででんしゃをりようする。",
+                "sentence_romaji": "Tsūkin de densha o riyou suru.",
+                "sentence_vi": "Sử dụng tàu điện đi làm."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "通勤で電車を（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘利用’ là đáp án đúng vì có nghĩa 'sử dụng'.",
+                "choices": [
+                    {
+                        "content": "利用",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "理解",
+        "reading_hiragana": "りかい",
+        "reading_romaji": "rikai",
+        "meaning_vi": "Lý giải, hiểu",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "LÍ GIẢI",
+        "explanation": "Danh từ, suru-verb, chỉ sự hiểu biết, nắm bắt ý nghĩa, lý do.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "社長の話は理解できなかった。",
+                "sentence_hira": "しゃちょうのはなしはりかいできなかった。",
+                "sentence_romaji": "Shachou no hanashi wa rikai dekinakatta.",
+                "sentence_vi": "Không lý giải được câu chuyện của giám đốc."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "社長の話は（　）できなかった。",
+                "blank_position": 1,
+                "answer_explanation": "‘理解’ là đáp án đúng vì có nghĩa 'hiểu, lý giải'.",
+                "choices": [
+                    {
+                        "content": "理解",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "発見",
+        "reading_hiragana": "はっけん",
+        "reading_romaji": "hakken",
+        "meaning_vi": "Phát hiện",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "PHÁT KIẾN",
+        "explanation": "Danh từ, suru-verb, chỉ việc tìm ra, phát hiện ra sự vật, hiện tượng mới.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "新しい星を発見した。",
+                "sentence_hira": "あたらしいほしをはっけんした。",
+                "sentence_romaji": "Atarashii hoshi o hakken shita.",
+                "sentence_vi": "Phát hiện ra ngôi sao mới."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "新しい星を（　）した。",
+                "blank_position": 1,
+                "answer_explanation": "‘発見’ là đáp án đúng vì có nghĩa 'phát hiện'.",
+                "choices": [
+                    {
+                        "content": "発見",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "発明",
+        "reading_hiragana": "はつめい",
+        "reading_romaji": "hatsumei",
+        "meaning_vi": "Phát minh",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "PHÁT MINH",
+        "explanation": "Danh từ, suru-verb, chỉ việc sáng chế, phát minh ra đồ vật, công cụ mới.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "これは100年前に発明された。",
+                "sentence_hira": "これは100ねんまえにはつめいされた。",
+                "sentence_romaji": "Kore wa hyaku nen mae ni hatsumei sareta.",
+                "sentence_vi": "Cái này được phát minh 100 năm trước."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "これは100年前に（　）された。",
+                "blank_position": 1,
+                "answer_explanation": "‘発明’ là đáp án đúng vì có nghĩa 'phát minh'.",
+                "choices": [
+                    {
+                        "content": "発明",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "停電",
+        "reading_hiragana": "ていでん",
+        "reading_romaji": "teiden",
+        "meaning_vi": "Mất/cúp điện",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "ĐÌNH ĐIỆN",
+        "explanation": "Danh từ, chỉ việc mất điện, cúp điện do sự cố hoặc thiên tai.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "雷が落ちて、会社が停電した。",
+                "sentence_hira": "かみなりがおちて、かいしゃがていでんした。",
+                "sentence_romaji": "Kaminari ga ochite, kaisha ga teiden shita.",
+                "sentence_vi": "Sấm sét rơi xuống, công ty mất điện."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "雷が落ちて、会社が（　）した。",
+                "blank_position": 1,
+                "answer_explanation": "‘停電’ là đáp án đúng vì có nghĩa 'mất điện'.",
+                "choices": [
+                    {
+                        "content": "停電",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "翻訳",
+        "reading_hiragana": "ほんやく",
+        "reading_romaji": "honyaku",
+        "meaning_vi": "Biên dịch",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "PHIÊN DỊCH",
+        "explanation": "Danh từ, suru-verb, chỉ việc dịch văn bản từ ngôn ngữ này sang ngôn ngữ khác.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "ベトナム語の本を英語に翻訳する。",
+                "sentence_hira": "べとなむごのほんをえいごにほんやくする。",
+                "sentence_romaji": "Betonamugo no hon o eigo ni honyaku suru.",
+                "sentence_vi": "Dịch sách tiếng Việt sang tiếng Anh."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "ベトナム語の本を英語に（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘翻訳’ là đáp án đúng vì có nghĩa 'biên dịch'.",
+                "choices": [
+                    {
+                        "content": "翻訳",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "経営",
+        "reading_hiragana": "けいえい",
+        "reading_romaji": "keiei",
+        "meaning_vi": "Kinh doanh, điều hành",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "KINH DOANH",
+        "explanation": "Danh từ, suru-verb, chỉ việc quản lý, điều hành công ty, tổ chức, công việc.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "大学で経営について学ぶ。",
+                "sentence_hira": "だいがくでけいえいについてまなぶ。",
+                "sentence_romaji": "Daigaku de keiei ni tsuite manabu.",
+                "sentence_vi": "Tôi học về quản trị kinh doanh ở trường đại học."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "大学で（　）について学ぶ。",
+                "blank_position": 1,
+                "answer_explanation": "‘経営’ là đáp án đúng vì có nghĩa 'kinh doanh, quản lý'.",
+                "choices": [
+                    {
+                        "content": "経営",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "反省",
+        "reading_hiragana": "はんせい",
+        "reading_romaji": "hansei",
+        "meaning_vi": "Kiểm điểm, xem xét lại",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "PHẢN TỈNH",
+        "explanation": "Danh từ, suru-verb, chỉ việc suy ngẫm, kiểm điểm lại hành động, lời nói sai lầm.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "父に怒られ、反省している。",
+                "sentence_hira": "ちちにおこられ、はんせいしている。",
+                "sentence_romaji": "Chichi ni okorare, hansei shite iru.",
+                "sentence_vi": "Bị cha mắng, tôi đang kiểm điểm lại bản thân."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "父に怒られ、（　）している。",
+                "blank_position": 1,
+                "answer_explanation": "‘反省’ là đáp án đúng vì có nghĩa 'kiểm điểm, xem xét lại'.",
+                "choices": [
+                    {
+                        "content": "反省",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "節約",
+        "reading_hiragana": "せつやく",
+        "reading_romaji": "setsuyaku",
+        "meaning_vi": "Tiết kiệm",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "TIẾT ƯỚC",
+        "explanation": "Danh từ, suru-verb, chỉ hành động tiết kiệm chi phí, điện nước, tiền bạc.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "給料前に、節約して生活する。",
+                "sentence_hira": "きゅうりょうまえに、せつやくしてせいかつする。",
+                "sentence_romaji": "Kyuuryou mae ni, setsuyaku shite seikatsu suru.",
+                "sentence_vi": "Sống tiết kiệm trước ngày lĩnh lương."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "給料前に、（　）して生活する。",
+                "blank_position": 1,
+                "answer_explanation": "‘節約’ là đáp án đúng vì có nghĩa 'tiết kiệm'.",
+                "choices": [
+                    {
+                        "content": "節約",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "実行",
+        "reading_hiragana": "じっこう",
+        "reading_romaji": "jikkou",
+        "meaning_vi": "Tiến hành, thực hiện",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "THỰC HÀNH",
+        "explanation": "Danh từ, suru-verb, chỉ hành động thực hiện kế hoạch, công việc.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "予定通りに実行する。",
+                "sentence_hira": "よていどおりにじっこうする。",
+                "sentence_romaji": "Yotei doori ni jikkou suru.",
+                "sentence_vi": "Tiến hành theo dự định."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "予定通りに（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘実行’ là đáp án đúng vì có nghĩa 'thực hiện, tiến hành'.",
+                "choices": [
+                    {
+                        "content": "実行",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "進歩",
+        "reading_hiragana": "しんぽ",
+        "reading_romaji": "shinpo",
+        "meaning_vi": "Tiến bộ, phát triển",
+        "jlpt_level": "N3",
+        "level": 1,
+        "han_viet": "TIẾN BỘ",
+        "explanation": "Danh từ, suru-verb, chỉ sự phát triển, tiến bộ trong học tập, công việc, khoa học.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": "2025-07-29 08:14:07",
+        "next_review_at": "2025-08-01 08:14:07",
+        "examples": [
+            {
+                "sentence_jp": "科学が進歩する。",
+                "sentence_hira": "かがくがしんぽする。",
+                "sentence_romaji": "Kagaku ga shinpo suru.",
+                "sentence_vi": "Khoa học tiến bộ."
+            }
+        ],
+        "contexts": [],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "科学が（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘進歩’ là đáp án đúng vì có nghĩa 'tiến bộ, phát triển'.",
+                "choices": [
+                    {
+                        "content": "進歩",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    }
+]

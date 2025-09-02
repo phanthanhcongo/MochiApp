@@ -41,7 +41,7 @@ class ImportVocabularyController extends Controller
                 'meaning_vi'        => 'required|string',
                 'jlpt_level'        => 'nullable|string',
                 'level'             => 'nullable|integer',
-                'han_viet'          => 'required|string',
+                'han_viet'          => 'nullable|string',
                 'explanation'       => 'required|string',
 
                 'stroke_url'        => 'nullable|url',
@@ -212,6 +212,7 @@ class ImportVocabularyController extends Controller
             return response()->json([
                 'error'   => 'Import thất bại, đã rollback',
                 'details' => config('app.debug') ? $e->getMessage() : null,
+                \Log::error('Import failed', ['details' => $e->getMessage(), 'trace' => $e->getTraceAsString()]),
             ], 500);
         }
     }

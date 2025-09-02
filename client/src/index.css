@@ -30,19 +30,19 @@
   @apply text-sm text-gray-500 hover:text-gray-700 underline;
 }
 .answer-option {
-  @apply w-full px-4 py-3 rounded-lg border text-left transition-all text-base font-medium w-[50%] h-20 mx-auto;
+  @apply w-full px-4 py-3 rounded-lg border text-left transition-all text-base font-medium w-[60%] h-20 mx-auto;
 }
 .answer-option--default {
-  @apply bg-slate-50 border-gray-300 hover:bg-gray-100 shadow-md border-b-6 w-[50%] h-20 mx-auto mb-3 cursor-pointer;
+  @apply bg-slate-50 border-gray-300 hover:bg-gray-100 shadow-md border-b-6 w-[60%] h-20 mx-auto mb-3 cursor-pointer;
 }
 .answer-option--selected {
-  @apply border-2 border-yellow-400 border-b-6 w-[50%] h-20 mx-auto mb-3;
+  @apply border-2 border-yellow-400 border-b-6 w-[60%] h-20 mx-auto mb-3;
 }
 .answer-option--correct {
-  @apply bg-green-600 text-stone-50 border-green-700 border-b-6 w-[50%] h-20 mx-auto mb-3;
+  @apply bg-green-600 text-stone-50 border-green-700 border-b-6 w-[60%] h-20 mx-auto mb-3;
 }
 .answer-option--wrong {
-  @apply bg-red-200 text-slate-950 border-red-600 border-b-6 w-[50%] h-20 mx-auto mb-3;
+  @apply bg-red-200 text-slate-950 border-red-600 border-b-6 w-[60%] h-20 mx-auto mb-3;
 }
 .result-panel_true {
   @apply bg-green-600 text-stone-50 p-4 rounded-t-lg mx-auto absolute bottom-0 left-0 right-0 transition-transform duration-300 ease-in-out;
@@ -51,7 +51,7 @@
   @apply relative w-full bg-green-600 min-h-[100px] flex items-center justify-center;
 }
 .result-panel_false {
-  @apply bg-red-600 text-stone-50 p-4 rounded-t-lg mx-auto absolute bottom-0 left-0 right-0 transition-transform duration-300 ease-in-out;
+  @apply bg-red-400 text-stone-50 p-4 rounded-t-lg mx-auto absolute bottom-0 left-0 right-0 transition-transform duration-300 ease-in-out;
 }
 .panel-collapsed_false {
   @apply relative w-full bg-red-600 min-h-[100px] flex items-center justify-center;
@@ -63,7 +63,7 @@
   @apply bg-green-600 text-stone-50 ;
 }
 .btn-toggle--red {
-  @apply bg-red-600 text-stone-50 ;
+  @apply bg-red-400 text-stone-50 ;
 }
 .btn-audio {
   @apply w-15 h-15 flex items-center justify-center bg-slate-50 rounded-full cursor-pointer hover:opacity-80 transition;

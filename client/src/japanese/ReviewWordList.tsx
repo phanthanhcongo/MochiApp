@@ -87,10 +87,11 @@ const ReviewWordList: React.FC = () => {
     return matchText && matchLevel && matchJlpt;
   });
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) return;
+useEffect(() => {
+  const token = localStorage.getItem('token');
+  if (!token) return;
 
+  const fetchData = () => {
     fetch('/api/practice/listWord', {
       headers: {
         'Accept': 'application/json',
@@ -98,12 +99,16 @@ const ReviewWordList: React.FC = () => {
       }
     })
       .then(res => res.json())
-      .then(data => {
-        setWords(data.allWords || []);
-        // console.log(data.allWords);
-      })
+      .then(data => setWords(data.allWords || []))
       .catch(err => setError(`Lỗi khi tải danh sách: ${err?.message || err}`));
-  }, []);
+  };
+
+  fetchData(); // gọi ngay lần đầu
+  const interval = setInterval(fetchData, 1000); // lặp lại sau 30s
+
+  return () => clearInterval(interval);
+}, []);
+
 
   const goEdit = (w: any) => {
     const id = w?.id ?? w?._id;

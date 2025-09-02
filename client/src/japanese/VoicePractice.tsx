@@ -78,7 +78,7 @@ console.log(`Reload count: ${newReloadCount}`);
       navigate('/jp/home');
     }
   }
-  if(newReloadCount >= 4){
+  if(newReloadCount >= 2){
      if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
       console.log(newReloadCount);
       navigate('/jp/summary');// Lỗi đang ở đây
@@ -240,6 +240,7 @@ console.log(`Reload count: ${newReloadCount}`);
                 statusClass = 'answer-option--selected';
               }
 
+           
               return (
                 <button
                   key={idx}
@@ -247,13 +248,13 @@ console.log(`Reload count: ${newReloadCount}`);
                   onClick={() => handleSelect(idx)}
                   disabled={isAnswered}
                 >
-                  <div className="grid grid-cols-3 items-center w-full gap-4">
-                    <div className="flex justify-center col-span-1">
+                  <div className="flex items-center gap-4 h-full">
+                    <div className="flex-shrink-0 flex justify-center">
                       <span className="inline-flex items-center justify-center h-8 w-8 border-2 border-gray-300 rounded-full text-sm font-medium">
                         {idx + 1}
                       </span>
                     </div>
-                    <div className="text-left col-span-2">{ans.text}</div>
+                    <div className="flex-1 text-center break-words">{ans.text}</div>
                   </div>
                 </button>
               );
