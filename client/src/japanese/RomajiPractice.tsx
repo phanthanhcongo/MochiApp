@@ -25,7 +25,6 @@ const RomajiPractice: React.FC = () => {
     markAnswer,
     getNextQuizType,
     removeCurrentWord,
-    reviewedWords,
     totalCount,
     completedCount,
   } = usePracticeSession();
@@ -128,7 +127,7 @@ const RomajiPractice: React.FC = () => {
 
     removeCurrentWord();
     if (words.length === 0) {
-      navigate('/jp/summary', { state: { reviewedWords } });
+      navigate('/jp/summary');
     } else {
       const firstQuizType = getNextQuizType();
       navigate(`/jp/quiz/${firstQuizType}`, {

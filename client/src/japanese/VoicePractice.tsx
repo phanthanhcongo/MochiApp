@@ -146,7 +146,7 @@ console.log(`Reload count: ${newReloadCount}`);
 
     removeCurrentWord();
     if (words.length === 0) {
-      // navigate('/summary', { state: { reviewedWords } });
+      navigate('/jp/summary');
     } else {
        const firstQuizType = getNextQuizType();
       navigate(`/jp/quiz/${firstQuizType}`, {

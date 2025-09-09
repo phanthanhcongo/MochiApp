@@ -89,7 +89,7 @@ const MultiCharStrokePractice: React.FC = () => {
     sessionStorage.setItem('reload_count', '0');
 
     if (words.length === 0) {
-      navigate('/jp/summary', { state: { reviewedWords } });
+      navigate('/jp/summary');
     } else {
       const firstQuizType = getNextQuizType();
     navigate(`/jp/quiz/${firstQuizType}`, {

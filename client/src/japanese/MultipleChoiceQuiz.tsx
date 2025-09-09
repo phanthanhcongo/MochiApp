@@ -37,7 +37,6 @@ const MultipleChoiceQuiz: React.FC = () => {
     markAnswer,
     getNextQuizType,
     removeCurrentWord,
-    reviewedWords,
   } = usePracticeSession();
   useEffect(() => {
     const allowedSources = ['multiple', 'hiraganaPractice', 'romajiPractice', 'voicePractice', 'multiCharStrokePractice'];
@@ -145,7 +144,7 @@ const MultipleChoiceQuiz: React.FC = () => {
     removeCurrentWord();
     if (words.length === 0) {
       // Nếu hết từ để ôn → chuyển sang trang summary
-      navigate('jp/summary', { state: { reviewedWords } });
+      navigate('/jp/summary');
     } else {
       const firstQuizType = getNextQuizType();
       navigate(`/jp/quiz/${firstQuizType}`, {

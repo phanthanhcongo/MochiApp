@@ -115,9 +115,9 @@ class ImportVocabularyController extends Controller
                         'reading_romaji'   => $item['reading_romaji'],
                         'meaning_vi'       => $item['meaning_vi'],
                         'jlpt_level'       => $item['jlpt_level'] ?? null,
-                        'level'            => $item['level'] ?? null,
-                        'last_reviewed_at' => $item['last_reviewed_at'] ?? null,
-                        'next_review_at'   => $item['next_review_at'] ?? null,
+                        'level'            => $item['level'] ?? 1,
+                        'last_reviewed_at' => Carbon::now()->subDays(3),
+                        'next_review_at'   => Carbon::now()->subDays(2),
                         'audio_url'        => $item['audio_url'] ?? null,
                     ]);
 
@@ -218,183 +218,181 @@ class ImportVocabularyController extends Controller
     }
 
 
-   public function importEnglish(Request $request)
-{
-    // Log thô request để debug khi cần
-    Log::info('EN import incoming', [
-        'headers' => $request->headers->all(),
-        'method'  => $request->method(),
-        'url'     => $request->fullUrl(),
-    ]);
+    public function importEnglish(Request $request)
+    {
+        // Log thô request để debug khi cần
+        Log::info('EN import incoming', [
+            'headers' => $request->headers->all(),
+            'method'  => $request->method(),
+            'url'     => $request->fullUrl(),
+        ]);
 
-    // Validate payload
-    $validator = Validator::make($request->all(), [
-        'words' => ['required', 'array', 'min:1'],
+        // Validate payload
+        $validator = Validator::make($request->all(), [
+            'words' => ['required', 'array', 'min:1'],
 
-        'words.*.word'        => ['required', 'string'],
-        'words.*.ipa'         => ['nullable', 'string'],
-        'words.*.meaning_vi'  => ['required', 'string'],
-        'words.*.cefr_level'  => ['nullable'],
-        'words.*.level'       => ['nullable', 'integer'],
-        'words.*.context_vi'  => ['nullable', 'string'],
-        'words.*.exampleEn'   => ['nullable', 'string'],
-        'words.*.exampleVi'   => ['nullable', 'string'],
+            'words.*.word'        => ['required', 'string'],
+            'words.*.ipa'         => ['nullable', 'string'],
+            'words.*.meaning_vi'  => ['required', 'string'],
+            'words.*.cefr_level'  => ['nullable'],
+            'words.*.level'       => ['nullable', 'integer'],
+            'words.*.context_vi'  => ['nullable', 'string'],
+            'words.*.exampleEn'   => ['nullable', 'string'],
+            'words.*.exampleVi'   => ['nullable', 'string'],
 
-        'words.*.examples'                              => ['nullable', 'array'],
-        'words.*.examples.*.sentence_en'                => ['required_with:words.*.examples', 'string'],
-        'words.*.examples.*.sentence_vi'                => ['nullable', 'string'],
-        'words.*.examples.*.exercises'                  => ['nullable', 'array'],
-        'words.*.examples.*.exercises.*.question_text'  => ['required_with:words.*.examples.*.exercises', 'string'],
-        'words.*.examples.*.exercises.*.answer_explanation' => ['nullable', 'string'],
-        'words.*.examples.*.exercises.*.question_type'  => ['nullable', 'string'],
-        'words.*.examples.*.exercises.*.blank_position' => ['nullable'],
-        'words.*.examples.*.exercises.*.choices'        => ['nullable', 'array'],
-        'words.*.examples.*.exercises.*.choices.*.content'    => ['required_with:words.*.examples.*.exercises.*.choices', 'string'],
-        'words.*.examples.*.exercises.*.choices.*.is_correct' => ['required_with:words.*.examples.*.exercises.*.choices', 'integer'],
-    ]);
+            'words.*.examples'                              => ['nullable', 'array'],
+            'words.*.examples.*.sentence_en'                => ['required_with:words.*.examples', 'string'],
+            'words.*.examples.*.sentence_vi'                => ['nullable', 'string'],
+            'words.*.examples.*.exercises'                  => ['nullable', 'array'],
+            'words.*.examples.*.exercises.*.question_text'  => ['required_with:words.*.examples.*.exercises', 'string'],
+            'words.*.examples.*.exercises.*.answer_explanation' => ['nullable', 'string'],
+            'words.*.examples.*.exercises.*.question_type'  => ['nullable', 'string'],
+            'words.*.examples.*.exercises.*.blank_position' => ['nullable'],
+            'words.*.examples.*.exercises.*.choices'        => ['nullable', 'array'],
+            'words.*.examples.*.exercises.*.choices.*.content'    => ['required_with:words.*.examples.*.exercises.*.choices', 'string'],
+            'words.*.examples.*.exercises.*.choices.*.is_correct' => ['required_with:words.*.examples.*.exercises.*.choices', 'integer'],
+        ]);
 
-    if ($validator->fails()) {
-        return response()->json([
-            'error'   => 'Payload không hợp lệ',
-            'details' => $validator->errors()->toArray(),
-        ], 422);
-    }
-
-    $data    = $validator->validated();
-    $userId  = optional($request->user())->id; // có thể null nếu không login
-    $now     = Carbon::now();
-    $incoming = $data['words'];
-
-    // Kết quả trả về
-    $committed   = []; // [{ word: '...', status: 'commit' }]
-    $duplicates  = []; // ['word1', 'word2', ...]
-    $seenInBatch = []; // chống trùng trong cùng payload (case-insensitive)
-
-    try {
-        DB::transaction(function () use ($incoming, $userId, $now, &$committed, &$duplicates, &$seenInBatch) {
-
-            foreach ($incoming as $w) {
-                $rawWord = trim($w['word']);
-                if ($rawWord === '') {
-                    // Bỏ qua entry rỗng (không coi là duplicate)
-                    continue;
-                }
-                $norm = mb_strtolower($rawWord);
-
-                // 1) Chặn trùng trong chính payload (case-insensitive)
-                if (isset($seenInBatch[$norm])) {
-                    $duplicates[] = $rawWord;
-                    continue;
-                }
-                $seenInBatch[$norm] = true;
-
-                // 2) Check trùng trong DB theo (user_id, word)
-                $query = DB::table('en_words')->where('word', $rawWord);
-                if (!is_null($userId)) {
-                    $query->where('user_id', $userId);
-                } else {
-                    $query->whereNull('user_id');
-                }
-                $exists = $query->exists();
-
-                if ($exists) {
-                    $duplicates[] = $rawWord;
-                    continue;
-                }
-
-                // 3) Insert en_words
-                $wordId = DB::table('en_words')->insertGetId([
-                    'user_id'          => $userId,
-                    'word'             => $rawWord,
-                    'ipa'              => trim((string) ($w['ipa'] ?? '')),
-                    'meaning_vi'       => trim($w['meaning_vi']),
-                    'cefr_level'       => Arr::get($w, 'cefr_level'),
-                    'level'            => (int) ($w['level'] ?? 1),
-                    'last_reviewed_at' => $now,
-                    'next_review_at'   => $now,
-                    'exampleEn'        => trim((string) ($w['exampleEn'] ?? '')),
-                    'exampleVn'        => trim((string) ($w['exampleVi'] ?? '')),
-                    'created_at'       => $now,
-                    'updated_at'       => $now,
-                ]);
-
-                // 4) en_contexts (optional)
-                $contextVi = trim((string) ($w['context_vi'] ?? ''));
-                if ($contextVi !== '') {
-                    DB::table('en_contexts')->insert([
-                        'en_word_id' => $wordId,
-                        'context_vi' => $contextVi,
-                        'created_at' => $now,
-                        'updated_at' => $now,
-                    ]);
-                }
-
-                // 5) en_examples + en_example_exercises + en_exercise_choices (optional)
-                foreach ((array) ($w['examples'] ?? []) as $ex) {
-                    $exampleId = DB::table('en_examples')->insertGetId([
-                        'en_word_id'  => $wordId,
-                        'sentence_en' => trim($ex['sentence_en']),
-                        'sentence_vi' => trim((string) ($ex['sentence_vi'] ?? '')),
-                        'created_at'  => $now,
-                        'updated_at'  => $now,
-                    ]);
-
-                    foreach ((array) ($ex['exercises'] ?? []) as $exer) {
-                        $exerciseId = DB::table('en_example_exercises')->insertGetId([
-                            'example_id'         => $exampleId,
-                            'question_type'      => $exer['question_type'] ?? 'FillInBlankPractice',
-                            'question_text'      => trim($exer['question_text']),
-                            'blank_position'     => Arr::get($exer, 'blank_position'),
-                            'answer_explanation' => trim((string) ($exer['answer_explanation'] ?? '')),
-                            'created_at'         => $now,
-                            'updated_at'         => $now,
-                        ]);
-
-                        foreach ((array) ($exer['choices'] ?? []) as $choice) {
-                            $content = trim((string) ($choice['content'] ?? ''));
-                            if ($content === '') continue;
-
-                            DB::table('en_exercise_choices')->insert([
-                                'exercise_id' => $exerciseId,
-                                'content'     => $content,
-                                'is_correct'  => (int) ($choice['is_correct'] ?? 0),
-                                'created_at'  => $now,
-                                'updated_at'  => $now,
-                            ]);
-                        }
-                    }
-                }
-
-                // 6) Ghi nhận commit để trả về client
-                $committed[] = [
-                    'word'   => $rawWord,
-                    'status' => 'commit',
-                ];
-            }
-        }, 1);
-
-        // Nếu không có dòng nào được thêm thì báo lỗi kèm danh sách trùng
-        if (empty($committed)) {
+        if ($validator->fails()) {
             return response()->json([
-                'error'      => 'Không có từ nào được thêm, toàn bộ đều trùng',
-                'duplicates' => array_values(array_unique($duplicates)),
-            ], 409); // Conflict
+                'error'   => 'Payload không hợp lệ',
+                'details' => $validator->errors()->toArray(),
+            ], 422);
         }
 
-        // Có thêm được ít nhất 1 từ -> trả thành công, kèm danh sách trùng (nếu có)
-        return response()->json([
-            'message'    => 'Inserted successfully',
-            'items'      => $committed,
-            'duplicates' => array_values(array_unique($duplicates)), // có thể rỗng
-        ], 201);
+        $data    = $validator->validated();
+        $userId  = optional($request->user())->id; // có thể null nếu không login
+        $now     = Carbon::now();
+        $incoming = $data['words'];
 
-    } catch (\Throwable $e) {
-        Log::error('EN import failed', ['message' => $e->getMessage(), 'trace' => $e->getTraceAsString()]);
-        return response()->json([
-            'error'   => 'Import thất bại, đã rollback',
-            'details' => config('app.debug') ? $e->getMessage() : null,
-        ], 500);
+        // Kết quả trả về
+        $committed   = []; // [{ word: '...', status: 'commit' }]
+        $duplicates  = []; // ['word1', 'word2', ...]
+        $seenInBatch = []; // chống trùng trong cùng payload (case-insensitive)
+
+        try {
+            DB::transaction(function () use ($incoming, $userId, $now, &$committed, &$duplicates, &$seenInBatch) {
+
+                foreach ($incoming as $w) {
+                    $rawWord = trim($w['word']);
+                    if ($rawWord === '') {
+                        // Bỏ qua entry rỗng (không coi là duplicate)
+                        continue;
+                    }
+                    $norm = mb_strtolower($rawWord);
+
+                    // 1) Chặn trùng trong chính payload (case-insensitive)
+                    if (isset($seenInBatch[$norm])) {
+                        $duplicates[] = $rawWord;
+                        continue;
+                    }
+                    $seenInBatch[$norm] = true;
+
+                    // 2) Check trùng trong DB theo (user_id, word)
+                    $query = DB::table('en_words')->where('word', $rawWord);
+                    if (!is_null($userId)) {
+                        $query->where('user_id', $userId);
+                    } else {
+                        $query->whereNull('user_id');
+                    }
+                    $exists = $query->exists();
+
+                    if ($exists) {
+                        $duplicates[] = $rawWord;
+                        continue;
+                    }
+
+                    // 3) Insert en_words
+                    $wordId = DB::table('en_words')->insertGetId([
+                        'user_id'          => $userId,
+                        'word'             => $rawWord,
+                        'ipa'              => trim((string) ($w['ipa'] ?? '')),
+                        'meaning_vi'       => trim($w['meaning_vi']),
+                        'cefr_level'       => Arr::get($w, 'cefr_level'),
+                        'level'            => (int) ($w['level'] ?? 1),
+                        'last_reviewed_at' => Carbon::now()->subDays(3),
+                        'next_review_at'   => Carbon::now()->subDays(2),
+                        'exampleEn'        => trim((string) ($w['exampleEn'] ?? '')),
+                        'exampleVn'        => trim((string) ($w['exampleVi'] ?? '')),
+                        'created_at'       => $now,
+                        'updated_at'       => $now,
+                    ]);
+
+                    // 4) en_contexts (optional)
+                    $contextVi = trim((string) ($w['context_vi'] ?? ''));
+                    if ($contextVi !== '') {
+                        DB::table('en_contexts')->insert([
+                            'en_word_id' => $wordId,
+                            'context_vi' => $contextVi,
+                            'created_at' => $now,
+                            'updated_at' => $now,
+                        ]);
+                    }
+
+                    // 5) en_examples + en_example_exercises + en_exercise_choices (optional)
+                    foreach ((array) ($w['examples'] ?? []) as $ex) {
+                        $exampleId = DB::table('en_examples')->insertGetId([
+                            'en_word_id'  => $wordId,
+                            'sentence_en' => trim($ex['sentence_en']),
+                            'sentence_vi' => trim((string) ($ex['sentence_vi'] ?? '')),
+                            'created_at'  => $now,
+                            'updated_at'  => $now,
+                        ]);
+
+                        foreach ((array) ($ex['exercises'] ?? []) as $exer) {
+                            $exerciseId = DB::table('en_example_exercises')->insertGetId([
+                                'example_id'         => $exampleId,
+                                'question_type'      => $exer['question_type'] ?? 'FillInBlankPractice',
+                                'question_text'      => trim($exer['question_text']),
+                                'blank_position'     => Arr::get($exer, 'blank_position'),
+                                'answer_explanation' => trim((string) ($exer['answer_explanation'] ?? '')),
+                                'created_at'         => $now,
+                                'updated_at'         => $now,
+                            ]);
+
+                            foreach ((array) ($exer['choices'] ?? []) as $choice) {
+                                $content = trim((string) ($choice['content'] ?? ''));
+                                if ($content === '') continue;
+
+                                DB::table('en_exercise_choices')->insert([
+                                    'exercise_id' => $exerciseId,
+                                    'content'     => $content,
+                                    'is_correct'  => (int) ($choice['is_correct'] ?? 0),
+                                    'created_at'  => $now,
+                                    'updated_at'  => $now,
+                                ]);
+                            }
+                        }
+                    }
+
+                    // 6) Ghi nhận commit để trả về client
+                    $committed[] = [
+                        'word'   => $rawWord,
+                        'status' => 'commit',
+                    ];
+                }
+            }, 1);
+
+            // Nếu không có dòng nào được thêm thì báo lỗi kèm danh sách trùng
+            if (empty($committed)) {
+                return response()->json([
+                    'error'      => 'Không có từ nào được thêm, toàn bộ đều trùng',
+                    'duplicates' => array_values(array_unique($duplicates)),
+                ], 409); // Conflict
+            }
+
+            // Có thêm được ít nhất 1 từ -> trả thành công, kèm danh sách trùng (nếu có)
+            return response()->json([
+                'message'    => 'Inserted successfully',
+                'items'      => $committed,
+                'duplicates' => array_values(array_unique($duplicates)), // có thể rỗng
+            ], 201);
+        } catch (\Throwable $e) {
+            Log::error('EN import failed', ['message' => $e->getMessage(), 'trace' => $e->getTraceAsString()]);
+            return response()->json([
+                'error'   => 'Import thất bại, đã rollback',
+                'details' => config('app.debug') ? $e->getMessage() : null,
+            ], 500);
+        }
     }
-}
-
 }
