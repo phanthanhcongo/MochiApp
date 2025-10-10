@@ -1,0 +1,1129 @@
+[
+  {
+    "kanji": "環境",
+    "reading_hiragana": "かんきょう",
+    "reading_romaji": "kankyou",
+    "meaning_vi": "Môi trường",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "HOÀN CẢNH",
+    "explanation": "Danh từ chỉ môi trường tự nhiên, môi trường sống hoặc môi trường làm việc.",
+    "examples": [
+      {
+        "sentence_jp": "今の職場の環境はとてもいい。",
+        "sentence_hira": "いまのしょくばのかんきょうはとてもいい。",
+        "sentence_romaji": "Ima no shokuba no kankyou wa totemo ii.",
+        "sentence_vi": "Môi trường làm việc hiện tại rất tốt."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "資源",
+    "reading_hiragana": "しげん",
+    "reading_romaji": "shigen",
+    "meaning_vi": "Tài nguyên",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TÀI NGUYÊN",
+    "explanation": "Danh từ chỉ tài nguyên tự nhiên, nguồn lực dùng trong cuộc sống và sản xuất.",
+    "examples": [
+      {
+        "sentence_jp": "この国は資源が豊富だ。",
+        "sentence_hira": "このくにはしげんがほうふだ。",
+        "sentence_romaji": "Kono kuni wa shigen ga houfu da.",
+        "sentence_vi": "Đất nước này có nguồn tài nguyên phong phú."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "知識",
+    "reading_hiragana": "ちしき",
+    "reading_romaji": "chishiki",
+    "meaning_vi": "Tri thức, kiến thức",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TRI THỨC",
+    "explanation": "Danh từ chỉ sự hiểu biết, kiến thức tích lũy được qua học tập và trải nghiệm.",
+    "examples": [
+      {
+        "sentence_jp": "勉強して、知識を身につける。",
+        "sentence_hira": "べんきょうして、ちしきをみにつける。",
+        "sentence_romaji": "Benkyou shite, chishiki o mi ni tsukeru.",
+        "sentence_vi": "Học tập để trang bị kiến thức."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "実力",
+    "reading_hiragana": "じつりょく",
+    "reading_romaji": "jitsuryoku",
+    "meaning_vi": "Thực lực, năng lực",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THỰC LỰC",
+    "explanation": "Khả năng thật sự, sức mạnh có thể chứng minh qua kết quả.",
+    "examples": [
+      {
+        "sentence_jp": "試験で実力を発揮した。",
+        "sentence_hira": "しけんでじつりょくをはっきした。",
+        "sentence_romaji": "Shiken de jitsuryoku o hakki shita.",
+        "sentence_vi": "Đã phát huy thực lực trong kỳ thi."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "手段",
+    "reading_hiragana": "しゅだん",
+    "reading_romaji": "shudan",
+    "meaning_vi": "Phương thức, phương tiện",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THỦ ĐOẠN",
+    "explanation": "Cách thức, phương tiện để đạt được mục đích.",
+    "examples": [
+      {
+        "sentence_jp": "SNSはコミュニケーションを取る一つの手段だ。",
+        "sentence_hira": "SNSはコミュニケーションをとるひとつのしゅだんだ。",
+        "sentence_romaji": "SNS wa komyunikēshon o toru hitotsu no shudan da.",
+        "sentence_vi": "Mạng xã hội là một trong những phương thức giao tiếp."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "代表",
+    "reading_hiragana": "だいひょう",
+    "reading_romaji": "daihyou",
+    "meaning_vi": "Đại biểu, đại diện; Biểu tượng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "ĐẠI BIỂU",
+    "explanation": "Người đại diện cho tập thể, nhóm hoặc mang tính biểu tượng.",
+    "examples": [
+      {
+        "sentence_jp": "全校生徒の代表として、スピーチをする。",
+        "sentence_hira": "ぜんこうせいとのだいひょうとして、スピーチをする。",
+        "sentence_romaji": "Zenkou seito no daihyou to shite, supīchi o suru.",
+        "sentence_vi": "Đại diện toàn thể học sinh phát biểu."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "影響",
+    "reading_hiragana": "えいきょう",
+    "reading_romaji": "eikyou",
+    "meaning_vi": "Ảnh hưởng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "ẢNH HƯỞNG",
+    "explanation": "Danh từ, động từ chỉ sự tác động đến người hay sự vật khác.",
+    "examples": [
+      {
+        "sentence_jp": "母の影響で医者になった。",
+        "sentence_hira": "ははのえいきょうでいしゃになった。",
+        "sentence_romaji": "Haha no eikyou de isha ni natta.",
+        "sentence_vi": "Do ảnh hưởng từ mẹ mà tôi đã trở thành bác sĩ."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "効果",
+    "reading_hiragana": "こうか",
+    "reading_romaji": "kouka",
+    "meaning_vi": "Hiệu quả",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "HIỆU QUẢ",
+    "explanation": "Kết quả tích cực đạt được từ hành động hoặc biện pháp nào đó.",
+    "examples": [
+      {
+        "sentence_jp": "広告の効果が表れた。",
+        "sentence_hira": "こうこくのこうかがあらわれた。",
+        "sentence_romaji": "Koukoku no kouka ga arawareta.",
+        "sentence_vi": "Hoạt động quảng bá đã đạt được hiệu quả."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  
+  {
+    "kanji": "印象",
+    "reading_hiragana": "いんしょう",
+    "reading_romaji": "inshou",
+    "meaning_vi": "Ấn tượng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "ẤN TƯỢNG",
+    "explanation": "Ấn tượng, cảm giác ban đầu hoặc suy nghĩ về ai đó, cái gì đó.",
+    "examples": [
+      {
+        "sentence_jp": "あのシーンが印象に残った。",
+        "sentence_hira": "あのシーンがいんしょうにのこった。",
+        "sentence_romaji": "Ano shīn ga inshou ni nokotta.",
+        "sentence_vi": "Cảnh quay đó đã để lại ấn tượng."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "現代",
+    "reading_hiragana": "げんだい",
+    "reading_romaji": "gendai",
+    "meaning_vi": "Hiện nay, thời nay",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "HIỆN ĐẠI",
+    "explanation": "Danh từ chỉ xã hội, thời đại ngày nay.",
+    "examples": [
+      {
+        "sentence_jp": "現代は情報社会である。",
+        "sentence_hira": "げんだいはじょうほうしゃかいである。",
+        "sentence_romaji": "Gendai wa jouhou shakai de aru.",
+        "sentence_vi": "Thời nay là thời của xã hội thông tin."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "世紀",
+    "reading_hiragana": "せいき",
+    "reading_romaji": "seiki",
+    "meaning_vi": "Thế kỷ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THẾ KỶ",
+    "explanation": "Đơn vị thời gian tương ứng với 100 năm.",
+    "examples": [
+      {
+        "sentence_jp": "22世紀がもうすぐ始まる。",
+        "sentence_hira": "22せいきがもうすぐはじまる。",
+        "sentence_romaji": "Nijuu ni seiki ga mousugu hajimaru.",
+        "sentence_vi": "Thế kỷ 22 sắp tới."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "文化",
+    "reading_hiragana": "ぶんか",
+    "reading_romaji": "bunka",
+    "meaning_vi": "Văn hóa",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "VĂN HÓA",
+    "explanation": "Những thành tựu vật chất và tinh thần đặc trưng của một xã hội.",
+    "examples": [
+      {
+        "sentence_jp": "日本人の考え方と文化の違いを知る。",
+        "sentence_hira": "にほんじんのかんがえかたとぶんかのちがいをしる。",
+        "sentence_romaji": "Nihonjin no kangaekata to bunka no chigai o shiru.",
+        "sentence_vi": "Biết được sự khác biệt về lối sống và văn hóa của người Nhật."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "戦争",
+    "reading_hiragana": "せんそう",
+    "reading_romaji": "sensou",
+    "meaning_vi": "Chiến tranh",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "CHIẾN TRANH",
+    "explanation": "Sự xung đột vũ trang giữa các quốc gia hoặc tổ chức.",
+    "examples": [
+      {
+        "sentence_jp": "戦争がない時代が幸せだ。",
+        "sentence_hira": "せんそうがないじだいがしあわせだ。",
+        "sentence_romaji": "Sensou ga nai jidai ga shiawase da.",
+        "sentence_vi": "Thời đại không có chiến tranh thì hạnh phúc."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "平和",
+    "reading_hiragana": "へいわ",
+    "reading_romaji": "heiwa",
+    "meaning_vi": "Hòa bình",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "BÌNH HÒA",
+    "explanation": "Trạng thái yên ổn, không có chiến tranh, xung đột.",
+    "examples": [
+      {
+        "sentence_jp": "平和的な解決を目指す。",
+        "sentence_hira": "へいわてきなかいけつをめざす。",
+        "sentence_romaji": "Heiwa teki na kaiketsu o mezasu.",
+        "sentence_vi": "Hướng đến giải quyết hòa bình."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "合図",
+    "reading_hiragana": "あいず",
+    "reading_romaji": "aizu",
+    "meaning_vi": "Ám hiệu, tín hiệu",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "HỢP ĐỒ",
+    "explanation": "Dấu hiệu, tín hiệu để truyền đạt thông tin.",
+    "examples": [
+      {
+        "sentence_jp": "大声で合図を送る。",
+        "sentence_hira": "おおごえであいずをおくる。",
+        "sentence_romaji": "Oogoe de aizu o okuru.",
+        "sentence_vi": "Lớn tiếng đưa ra tín hiệu."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "共通",
+    "reading_hiragana": "きょうつう",
+    "reading_romaji": "kyoutsuu",
+    "meaning_vi": "Chung",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "CỘNG THÔNG",
+    "explanation": "Điểm giống nhau, điểm chung giữa nhiều đối tượng.",
+    "examples": [
+      {
+        "sentence_jp": "共通の趣味で知り合った。",
+        "sentence_hira": "きょうつうのしゅみでしりあった。",
+        "sentence_romaji": "Kyoutsuu no shumi de shiriatta.",
+        "sentence_vi": "Chúng tôi đã quen nhau vì cùng sở thích."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "強調",
+    "reading_hiragana": "きょうちょう",
+    "reading_romaji": "kyouchou",
+    "meaning_vi": "Nhấn mạnh",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "CƯỜNG ĐIỀU",
+    "explanation": "Việc làm nổi bật, nhấn mạnh một ý, một điểm quan trọng.",
+    "examples": [
+      {
+        "sentence_jp": "先生が大事な点を強調して説明した。",
+        "sentence_hira": "せんせいがだいじなてんをきょうちょうしてせつめいした。",
+        "sentence_romaji": "Sensei ga daiji na ten o kyouchou shite setsumei shita.",
+        "sentence_vi": "Cô giáo nhấn mạnh và giải thích các câu hỏi sẽ ra trong bài kiểm tra."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  
+
+
+
+  {
+    "kanji": "省略",
+    "reading_hiragana": "しょうりゃく",
+    "reading_romaji": "shouryaku",
+    "meaning_vi": "Lược bớt",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TỈNH LƯỢC",
+    "explanation": "Bỏ bớt, lược bỏ từ ngữ hoặc phần không cần thiết.",
+    "examples": [
+      {
+        "sentence_jp": "話の内容を省略して話す。",
+        "sentence_hira": "はなしのないようをしょうりゃくしてはなす。",
+        "sentence_romaji": "Hanashi no naiyou o shouryaku shite hanasu.",
+        "sentence_vi": "Lược bỏ nội dung câu chuyện rồi nói."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "不足",
+    "reading_hiragana": "ふそく",
+    "reading_romaji": "fusoku",
+    "meaning_vi": "Thiếu",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "BẤT TÚC",
+    "explanation": "Không đủ, thiếu thốn về số lượng hoặc điều kiện cần thiết.",
+    "examples": [
+      {
+        "sentence_jp": "彼は経験が不足している。",
+        "sentence_hira": "かれはけいけんがふそくしている。",
+        "sentence_romaji": "Kare wa keiken ga fusoku shite iru.",
+        "sentence_vi": "Anh ấy vẫn còn thiếu kinh nghiệm."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "平均",
+    "reading_hiragana": "へいきん",
+    "reading_romaji": "heikin",
+    "meaning_vi": "Trung bình",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "BÌNH QUÂN",
+    "explanation": "Mức số học trung bình hoặc tiêu chuẩn chung.",
+    "examples": [
+      {
+        "sentence_jp": "テストの点は平均より下だった。",
+        "sentence_hira": "テストのてんはへいきんよりしただった。",
+        "sentence_romaji": "Tesuto no ten wa heikin yori shita datta.",
+        "sentence_vi": "Điểm kiểm tra thấp hơn mức trung bình."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "割合",
+    "reading_hiragana": "わりあい",
+    "reading_romaji": "wariai",
+    "meaning_vi": "Tỷ lệ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "CÁT HỢP",
+    "explanation": "Tỷ lệ phần trăm, mức độ so sánh trong tổng thể.",
+    "examples": [
+      {
+        "sentence_jp": "この学校は男子の割合が多い。",
+        "sentence_hira": "このがっこうはだんしのわりあいがおおい。",
+        "sentence_romaji": "Kono gakkou wa danshi no wariai ga ooi.",
+        "sentence_vi": "Trường này có tỷ lệ nam sinh nhiều."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "勝負",
+    "reading_hiragana": "しょうぶ",
+    "reading_romaji": "shoubu",
+    "meaning_vi": "Thắng thua, thi đấu",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THẮNG PHỤ",
+    "explanation": "Sự phân định thắng thua trong thi đấu hoặc cạnh tranh.",
+    "examples": [
+      {
+        "sentence_jp": "新入社員は先輩と勝負した。",
+        "sentence_hira": "しんにゅうしゃいんはせんぱいとしょうぶした。",
+        "sentence_romaji": "Shinnyuu shain wa senpai to shoubu shita.",
+        "sentence_vi": "Nhân viên mới đã đấu với đàn anh."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "挑戦",
+    "reading_hiragana": "ちょうせん",
+    "reading_romaji": "chousen",
+    "meaning_vi": "Thử thách, thách thức",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THIÊU CHIẾN",
+    "explanation": "Hành động thử sức, đối mặt với khó khăn hay điều mới mẻ.",
+    "examples": [
+      {
+        "sentence_jp": "新しい仕事に挑戦する。",
+        "sentence_hira": "あたらしいしごとにちょうせんする。",
+        "sentence_romaji": "Atarashii shigoto ni chousen suru.",
+        "sentence_vi": "Thử thách với công việc mới."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "やる気",
+    "reading_hiragana": "やるき",
+    "reading_romaji": "yaruki",
+    "meaning_vi": "Động lực",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "KHÍ",
+    "explanation": "Tinh thần, sự hăng hái để bắt tay vào làm việc.",
+    "examples": [
+      {
+        "sentence_jp": "今日はやる気が出ない。",
+        "sentence_hira": "きょうはやるきがでない。",
+        "sentence_romaji": "Kyou wa yaruki ga denai.",
+        "sentence_vi": "Hôm nay tôi chẳng có động lực làm việc."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "勇気",
+    "reading_hiragana": "ゆうき",
+    "reading_romaji": "yuuki",
+    "meaning_vi": "Dũng cảm, dũng khí",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "DŨNG KHÍ",
+    "explanation": "Sức mạnh tinh thần để đối diện khó khăn, nguy hiểm.",
+    "examples": [
+      {
+        "sentence_jp": "彼は勇気のある青年だ。",
+        "sentence_hira": "かれはゆうきのあるせいねんだ。",
+        "sentence_romaji": "Kare wa yuuki no aru seinen da.",
+        "sentence_vi": "Anh ấy là một thanh niên dũng cảm."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "礼儀",
+    "reading_hiragana": "れいぎ",
+    "reading_romaji": "reigi",
+    "meaning_vi": "Lễ nghĩa",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "LỄ NGHI",
+    "explanation": "Quy tắc, phép tắc cư xử đúng mực trong xã hội.",
+    "examples": [
+      {
+        "sentence_jp": "彼は礼儀正しい人だ。",
+        "sentence_hira": "かれはれいぎただしいひとだ。",
+        "sentence_romaji": "Kare wa reigi tadashii hito da.",
+        "sentence_vi": "Anh ấy là người rất lễ phép."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "文句",
+    "reading_hiragana": "もんく",
+    "reading_romaji": "monku",
+    "meaning_vi": "Phàn nàn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "VĂN CÚ",
+    "explanation": "Lời than phiền, phàn nàn về điều gì đó.",
+    "examples": [
+      {
+        "sentence_jp": "店員に料理の遅さを文句した。",
+        "sentence_hira": "てんいんにりょうりのおそさをもんくした。",
+        "sentence_romaji": "Tenin ni ryouri no ososa o monku shita.",
+        "sentence_vi": "Phàn nàn với nhân viên rằng đồ ăn đem lên chậm."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "表情",
+    "reading_hiragana": "ひょうじょう",
+    "reading_romaji": "hyoujou",
+    "meaning_vi": "Biểu cảm, nét mặt, vẻ mặt",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "BIỂU TÌNH",
+    "explanation": "Sự thể hiện cảm xúc qua gương mặt.",
+    "examples": [
+      {
+        "sentence_jp": "彼はいつも無表情だ。",
+        "sentence_hira": "かれはいつもむひょうじょうだ。",
+        "sentence_romaji": "Kare wa itsumo muhyoujou da.",
+        "sentence_vi": "Anh ấy lúc nào cũng không bày tỏ cảm xúc gì."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  
+  {
+    "kanji": "表面",
+    "reading_hiragana": "ひょうめん",
+    "reading_romaji": "hyoumen",
+    "meaning_vi": "Bề mặt",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "BIỂU DIỆN",
+    "explanation": "Phần ngoài cùng, mặt ngoài của sự vật.",
+    "examples": [
+      {
+        "sentence_jp": "池の表面に氷が張っている。",
+        "sentence_hira": "いけのひょうめんにこおりがはっている。",
+        "sentence_romaji": "Ike no hyoumen ni koori ga hatte iru.",
+        "sentence_vi": "Băng đang trải trên bề mặt cái ao."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "禁煙",
+    "reading_hiragana": "きんえん",
+    "reading_romaji": "kin'en",
+    "meaning_vi": "Cấm hút thuốc",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "CẤM YÊN",
+    "explanation": "Cấm việc hút thuốc trong khu vực, nơi nào đó.",
+    "examples": [
+      {
+        "sentence_jp": "レストランは禁煙だ。",
+        "sentence_hira": "レストランはきんえんだ。",
+        "sentence_romaji": "Resutoran wa kin'en da.",
+        "sentence_vi": "Toàn bộ chỗ ngồi ở nhà hàng này đều là chỗ cấm hút thuốc."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "読書",
+    "reading_hiragana": "どくしょ",
+    "reading_romaji": "dokusho",
+    "meaning_vi": "Đọc sách",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "ĐỘC THƯ",
+    "explanation": "Hoạt động đọc sách, tài liệu để học hoặc giải trí.",
+    "examples": [
+      {
+        "sentence_jp": "休日は、カフェで読書をする。",
+        "sentence_hira": "きゅうじつは、カフェでどくしょをする。",
+        "sentence_romaji": "Kyuujitsu wa, kafe de dokusho o suru.",
+        "sentence_vi": "Ngày nghỉ, tôi đọc sách ở quán cà phê."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "演奏",
+    "reading_hiragana": "えんそう",
+    "reading_romaji": "ensou",
+    "meaning_vi": "Biểu diễn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "DIỄN TẤU",
+    "explanation": "Trình diễn âm nhạc bằng nhạc cụ.",
+    "examples": [
+      {
+        "sentence_jp": "土曜日はピアノの演奏会だ。",
+        "sentence_hira": "どようびはピアノのえんそうかいだ。",
+        "sentence_romaji": "Doyoubi wa piano no ensoukai da.",
+        "sentence_vi": "Thứ bảy có buổi biểu diễn piano."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "芸術",
+    "reading_hiragana": "げいじゅつ",
+    "reading_romaji": "geijutsu",
+    "meaning_vi": "Nghệ thuật",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "NGHỆ THUẬT",
+    "explanation": "Các loại hình sáng tạo thẩm mỹ như âm nhạc, hội họa, điêu khắc.",
+    "examples": [
+      {
+        "sentence_jp": "芸術作品を観に行く。",
+        "sentence_hira": "げいじゅつさくひんをみにいく。",
+        "sentence_romaji": "Geijutsu sakuhin o mi ni iku.",
+        "sentence_vi": "Đi xem tác phẩm nghệ thuật."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "一生",
+    "reading_hiragana": "いっしょう",
+    "reading_romaji": "isshou",
+    "meaning_vi": "Suốt đời",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "NHẤT SINH",
+    "explanation": "Toàn bộ cuộc đời, từ khi sinh ra đến khi mất đi.",
+    "examples": [
+      {
+        "sentence_jp": "一生あなたを大切にします。",
+        "sentence_hira": "いっしょうあなたをたいせつにします。",
+        "sentence_romaji": "Isshou anata o taisetsu ni shimasu.",
+        "sentence_vi": "Tôi sẽ trân trọng bạn suốt đời."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "誤解",
+    "reading_hiragana": "ごかい",
+    "reading_romaji": "gokai",
+    "meaning_vi": "Hiểu nhầm",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "NGỘ GIẢI",
+    "explanation": "Hiểu sai ý hoặc nghĩa của lời nói, sự việc.",
+    "examples": [
+      {
+        "sentence_jp": "話すときは誤解のないようにする。",
+        "sentence_hira": "はなすときはごかいのないようにする。",
+        "sentence_romaji": "Hanasu toki wa gokai no nai you ni suru.",
+        "sentence_vi": "Khi nói, cố không gây ra hiểu lầm."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "後悔",
+    "reading_hiragana": "こうかい",
+    "reading_romaji": "koukai",
+    "meaning_vi": "Hối hận",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "HẬU HỐI",
+    "explanation": "Cảm giác tiếc nuối vì đã làm hoặc không làm một việc trong quá khứ.",
+    "examples": [
+      {
+        "sentence_jp": "あの時、彼女を呼び止めなかったことを後悔しています。",
+        "sentence_hira": "あのとき、かのじょをよびとめなかったことをこうかいしています。",
+        "sentence_romaji": "Ano toki, kanojo o yobitomenakatta koto o koukai shiteimasu.",
+        "sentence_vi": "Cho đến giờ tôi vẫn hối hận vì đã không lên tiếng ngăn cô ấy vào lúc đó."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "予防",
+    "reading_hiragana": "よぼう",
+    "reading_romaji": "yobou",
+    "meaning_vi": "Phòng tránh",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "DỰ PHÒNG",
+    "explanation": "Phòng ngừa, ngăn chặn bệnh tật hoặc tai nạn.",
+    "examples": [
+      {
+        "sentence_jp": "インフルエンザの予防接種を受ける。",
+        "sentence_hira": "インフルエンザのよぼうせっしゅをうける。",
+        "sentence_romaji": "Infuruenza no yobou sesshu o ukeru.",
+        "sentence_vi": "Được tiêm phòng bệnh cúm."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "栄養",
+    "reading_hiragana": "えいよう",
+    "reading_romaji": "eiyou",
+    "meaning_vi": "Dinh dưỡng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "VINH DƯỠNG",
+    "explanation": "Chất cần thiết để duy trì sự sống và sức khỏe.",
+    "examples": [
+      {
+        "sentence_jp": "母は栄養のある物を食べさせた。",
+        "sentence_hira": "はははえいようのあるものをたべさせた。",
+        "sentence_romaji": "Haha wa eiyou no aru mono o tabesaseta.",
+        "sentence_vi": "Mẹ đã cho ăn nhiều chất dinh dưỡng khi cơ thể mệt mỏi."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "手術",
+    "reading_hiragana": "しゅじゅつ",
+    "reading_romaji": "shujutsu",
+    "meaning_vi": "Phẫu thuật",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THỦ THUẬT",
+    "explanation": "Can thiệp y khoa bằng phẫu thuật.",
+    "examples": [
+      {
+        "sentence_jp": "明日手術があるので不安だ。",
+        "sentence_hira": "あしたしゅじゅつがあるのでふあんだ。",
+        "sentence_romaji": "Ashita shujutsu ga aru node fuan da.",
+        "sentence_vi": "Vì có cuộc phẫu thuật vào ngày mai nên tôi thấy lo lắng."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "死亡",
+    "reading_hiragana": "しぼう",
+    "reading_romaji": "shibou",
+    "meaning_vi": "Tử vong",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TỬ VONG",
+    "explanation": "Chết, mất đi sự sống.",
+    "examples": [
+      {
+        "sentence_jp": "事故による死亡者が少なくて安心した。",
+        "sentence_hira": "じこによるしぼうしゃがすくなくてあんしんした。",
+        "sentence_romaji": "Jiko ni yoru shibousha ga sukunakute anshin shita.",
+        "sentence_vi": "Tuy đã xảy ra tai nạn nhưng tôi thấy yên tâm khi số người tử vong ít."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "検査",
+    "reading_hiragana": "けんさ",
+    "reading_romaji": "kensa",
+    "meaning_vi": "Kiểm tra",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "KIỂM TRA",
+    "explanation": "Xem xét, kiểm tra tình trạng sức khỏe hoặc sản phẩm.",
+    "examples": [
+      {
+        "sentence_jp": "持ち物検査を受ける。",
+        "sentence_hira": "もちものけんさをうける。",
+        "sentence_romaji": "Mochimono kensa o ukeru.",
+        "sentence_vi": "Có kiểm tra hành lý."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "血液",
+    "reading_hiragana": "けつえき",
+    "reading_romaji": "ketsueki",
+    "meaning_vi": "Máu",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "HUYẾT DỊCH",
+    "explanation": "Chất lỏng đỏ trong cơ thể, duy trì sự sống.",
+    "examples": [
+      {
+        "sentence_jp": "血液検査を受ける。",
+        "sentence_hira": "けつえきけんさをうける。",
+        "sentence_romaji": "Ketsueki kensa o ukeru.",
+        "sentence_vi": "Xét nghiệm máu."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "治療",
+    "reading_hiragana": "ちりょう",
+    "reading_romaji": "chiryou",
+    "meaning_vi": "Điều trị, trị liệu",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TRỊ LIỆU",
+    "explanation": "Chữa bệnh bằng phương pháp y khoa.",
+    "examples": [
+      {
+        "sentence_jp": "病気は早めに治療したほうがいい。",
+        "sentence_hira": "びょうきははやめにちりょうしたほうがいい。",
+        "sentence_romaji": "Byouki wa hayame ni chiryou shita hou ga ii.",
+        "sentence_vi": "Bệnh nên sớm được điều trị thì tốt hơn."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "症状",
+    "reading_hiragana": "しょうじょう",
+    "reading_romaji": "shoujou",
+    "meaning_vi": "Triệu chứng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "CHỨNG TRẠNG",
+    "explanation": "Biểu hiện ra bên ngoài của một căn bệnh.",
+    "examples": [
+      {
+        "sentence_jp": "風邪の症状は多様だ。",
+        "sentence_hira": "かぜのしょうじょうはたようだ。",
+        "sentence_romaji": "Kaze no shoujou wa tayou da.",
+        "sentence_vi": "Triệu chứng của bệnh cảm rất đa dạng."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "生産",
+    "reading_hiragana": "せいさん",
+    "reading_romaji": "seisan",
+    "meaning_vi": "Sản xuất",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "SINH SẢN",
+    "explanation": "Hoạt động tạo ra sản phẩm, hàng hóa.",
+    "examples": [
+      {
+        "sentence_jp": "野菜を大量に生産する。",
+        "sentence_hira": "やさいをたいりょうにせいさんする。",
+        "sentence_romaji": "Yasai o tairyou ni seisan suru.",
+        "sentence_vi": "Sản xuất trái cây và rau quả."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "消費",
+    "reading_hiragana": "しょうひ",
+    "reading_romaji": "shouhi",
+    "meaning_vi": "Tiêu dùng, tiêu thụ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TIÊU PHÍ",
+    "explanation": "Việc sử dụng hàng hóa, năng lượng hay tiền bạc.",
+    "examples": [
+      {
+        "sentence_jp": "食品を消費期限内に食べる。",
+        "sentence_hira": "しょくひんをしょうひきげんないにたべる。",
+        "sentence_romaji": "Shokuhin o shouhi kigen nai ni taberu.",
+        "sentence_vi": "Ăn đồ ăn trước khi hết hạn sử dụng."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "物価",
+    "reading_hiragana": "ぶっか",
+    "reading_romaji": "bukka",
+    "meaning_vi": "Giá cả, vật giá",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "VẬT GIÁ",
+    "explanation": "Mức giá chung của hàng hóa, dịch vụ.",
+    "examples": [
+      {
+        "sentence_jp": "数年前に比べて、物価が上がった。",
+        "sentence_hira": "すうねんまえにくらべて、ぶっかがあがった。",
+        "sentence_romaji": "Suunen mae ni kurabete, bukka ga agatta.",
+        "sentence_vi": "Giá cả đã tăng so với vài năm trước."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "倒産",
+    "reading_hiragana": "とうさん",
+    "reading_romaji": "tousan",
+    "meaning_vi": "Phá sản",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "ĐẢO SẢN",
+    "explanation": "Tình trạng công ty hoặc cửa hàng bị ngừng hoạt động do thua lỗ.",
+    "examples": [
+      {
+        "sentence_jp": "このままでは会社が倒産する。",
+        "sentence_hira": "このままではかいしゃがとうさんする。",
+        "sentence_romaji": "Kono mama de wa kaisha ga tousan suru.",
+        "sentence_vi": "Nếu tình trạng này tiếp diễn công ty sẽ bị phá sản."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "商売",
+    "reading_hiragana": "しょうばい",
+    "reading_romaji": "shoubai",
+    "meaning_vi": "Kinh doanh, buôn bán",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THƯƠNG MẠI",
+    "explanation": "Hoạt động kinh doanh, mua bán hàng hóa, dịch vụ.",
+    "examples": [
+      {
+        "sentence_jp": "今年新しく商売を始めた。",
+        "sentence_hira": "ことしあたらしくしょうばいをはじめた。",
+        "sentence_romaji": "Kotoshi atarashiku shoubai o hajimeta.",
+        "sentence_vi": "Công việc kinh doanh bắt đầu vào năm nay sẽ thành công."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "商品",
+    "reading_hiragana": "しょうひん",
+    "reading_romaji": "shouhin",
+    "meaning_vi": "Sản phẩm",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THƯƠNG PHẨM",
+    "explanation": "Hàng hóa, sản phẩm được bày bán hoặc trao đổi.",
+    "examples": [
+      {
+        "sentence_jp": "新商品を店の目立つ場所に並べる。",
+        "sentence_hira": "しんしょうひんをみせのめだつばしょにならべる。",
+        "sentence_romaji": "Shin shouhin o mise no medatsu basho ni naraberu.",
+        "sentence_vi": "Bày sản phẩm mới tại những vị trí nổi bật của cửa hàng."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "禁止",
+    "reading_hiragana": "きんし",
+    "reading_romaji": "kinshi",
+    "meaning_vi": "Cấm",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "CẤM CHỈ",
+    "explanation": "Ngăn cấm, không cho phép làm một hành động nào đó.",
+    "examples": [
+      {
+        "sentence_jp": "この場所では喫煙禁止です。",
+        "sentence_hira": "このばしょできつえんきんしです。",
+        "sentence_romaji": "Kono basho de kitsuen kinshi desu.",
+        "sentence_vi": "Khu vực này cấm hút thuốc."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "完成",
+    "reading_hiragana": "かんせい",
+    "reading_romaji": "kansei",
+    "meaning_vi": "Hoàn thành",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "HOÀN THÀNH",
+    "explanation": "Làm xong, kết thúc một công việc hay sản phẩm.",
+    "examples": [
+      {
+        "sentence_jp": "3年かけて新商品が完成した。",
+        "sentence_hira": "3ねんかけてしんしょうひんがかんせいした。",
+        "sentence_romaji": "Sannen kakete shin shouhin ga kansei shita.",
+        "sentence_vi": "Dành 3 năm để hoàn thiện sản phẩm mới."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "課題",
+    "reading_hiragana": "かだい",
+    "reading_romaji": "kadai",
+    "meaning_vi": "Vấn đề, bài tập",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "KHÓA ĐỀ",
+    "explanation": "Nhiệm vụ, bài tập cần phải làm hoặc vấn đề cần giải quyết.",
+    "examples": [
+      {
+        "sentence_jp": "今日中に学校の課題を終わらせる。",
+        "sentence_hira": "きょうじゅうにがっこうのかだいをおわらせる。",
+        "sentence_romaji": "Kyoujuu ni gakkou no kadai o owaraseru.",
+        "sentence_vi": "Hoàn thành bài tập của trường trong ngày hôm nay."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "例外",
+    "reading_hiragana": "れいがい",
+    "reading_romaji": "reigai",
+    "meaning_vi": "Ngoại lệ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "LỆ NGOẠI",
+    "explanation": "Trường hợp khác thường, không theo quy định chung.",
+    "examples": [
+      {
+        "sentence_jp": "今回は例外的に参加を認める。",
+        "sentence_hira": "こんかいはれいがいてきにさんかをみとめる。",
+        "sentence_romaji": "Konkai wa reigaiteki ni sanka o mitomeru.",
+        "sentence_vi": "Lần này chúng tôi sẽ chấp nhận sự tham gia như một trường hợp ngoại lệ."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "基本",
+    "reading_hiragana": "きほん",
+    "reading_romaji": "kihon",
+    "meaning_vi": "Cơ bản",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "CƠ BẢN",
+    "explanation": "Điều quan trọng, nền tảng, căn bản.",
+    "examples": [
+      {
+        "sentence_jp": "君は基本的な礼儀も知らないの。",
+        "sentence_hira": "きみはきほんてきなれいぎもしらないの。",
+        "sentence_romaji": "Kimi wa kihonteki na reigi mo shiranai no.",
+        "sentence_vi": "Ngay cả phép lịch sự cơ bản mà bạn cũng không biết ư."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  },
+  {
+    "kanji": "戻り",
+    "reading_hiragana": "もどり",
+    "reading_romaji": "modori",
+    "meaning_vi": "Trở lại",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "LỆ",
+    "explanation": "Quay trở lại trạng thái, vị trí hoặc thời điểm trước đó.",
+    "examples": [
+      {
+        "sentence_jp": "4月の寒さを寒の戻りと言う。",
+        "sentence_hira": "4がつのさむさをかんのもどりという。",
+        "sentence_romaji": "Shigatsu no samusa o kan no modori to iu.",
+        "sentence_vi": "Những ngày trời trở rét vào tháng 4 được gọi là 'kan no modori'."
+      }
+    ],
+    "contexts": [],
+    "quizzes": []
+  }
+
+]
