@@ -1,0 +1,722 @@
+[
+  {
+    "kanji": "お互い",
+    "reading_hiragana": "おたがい",
+    "reading_romaji": "otagai",
+    "meaning_vi": "lẫn nhau",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "HỖ",
+    "explanation": "Diễn tả mối quan hệ hai bên cùng nhau; thường đi với に/さま để nhấn mạnh tính qua lại.",
+    "examples": [
+      {
+        "sentence_jp": "お互いに助け合うことが大切です。",
+        "sentence_hira": "おたがいにたすけあうことがたいせつです。",
+        "sentence_romaji": "Otagai ni tasukeau koto ga taisetsu desu.",
+        "sentence_vi": "Việc giúp đỡ lẫn nhau là điều quan trọng."
+      }
+    ]
+  },
+  {
+    "kanji": "疑問",
+    "reading_hiragana": "ぎもん",
+    "reading_romaji": "gimon",
+    "meaning_vi": "nghi vấn, thắc mắc",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "NGHI VẤN",
+    "explanation": "Cảm giác chưa chắc chắn, còn hoài nghi về tính đúng sai.",
+    "examples": [
+      {
+        "sentence_jp": "彼の言葉には少し疑問を感じます。",
+        "sentence_hira": "かれのことばにはすこしぎもんをかんじます。",
+        "sentence_romaji": "Kare no kotoba ni wa sukoshi gimon o kanjimasu.",
+        "sentence_vi": "Tôi cảm thấy có chút nghi ngờ trong lời nói của anh ấy."
+      }
+    ]
+  },
+  {
+    "kanji": "結構",
+    "reading_hiragana": "けっこう",
+    "reading_romaji": "kekkou",
+    "meaning_vi": "khá; được rồi",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "KẾT CẤU",
+    "explanation": "Dùng để đánh giá mức độ “khá/khá là”; cũng dùng lịch sự nghĩa “được rồi/không cần”.",
+    "examples": [
+      {
+        "sentence_jp": "この料理は結構おいしいですね。",
+        "sentence_hira": "このりょうりはけっこうおいしいですね。",
+        "sentence_romaji": "Kono ryouri wa kekkou oishii desu ne.",
+        "sentence_vi": "Món ăn này khá ngon nhỉ."
+      }
+    ]
+  },
+  {
+    "kanji": "懐かしい",
+    "reading_hiragana": "なつかしい",
+    "reading_romaji": "natsukashii",
+    "meaning_vi": "bồi hồi, hoài niệm",
+    "jlpt_level": "N3",
+    "level": 2,
+    "han_viet": "HOÀI",
+    "explanation": "Cảm xúc nhớ nhung, bồi hồi về quá khứ hay điều thân thuộc.",
+    "examples": [
+      {
+        "sentence_jp": "子どものころの歌を聞くと懐かしい気持ちになります。",
+        "sentence_hira": "こどものころのうたをきくとなつかしいきもちになります。",
+        "sentence_romaji": "Kodomo no koro no uta o kiku to natsukashii kimochi ni narimasu.",
+        "sentence_vi": "Khi nghe những bài hát thời thơ ấu, tôi thấy bồi hồi nhớ lại."
+      }
+    ]
+  },
+  {
+    "kanji": "聴いて",
+    "reading_hiragana": "きいて",
+    "reading_romaji": "kiite",
+    "meaning_vi": "hãy lắng nghe",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THÍNH",
+    "explanation": "Dạng て của 聴く (lắng nghe chăm chú); dùng trong yêu cầu/nhờ vả.",
+    "examples": [
+      {
+        "sentence_jp": "先生の話をよく聴いてください。",
+        "sentence_hira": "せんせいのはなしをよくきいてください。",
+        "sentence_romaji": "Sensei no hanashi o yoku kiite kudasai.",
+        "sentence_vi": "Hãy lắng nghe kỹ lời thầy nói."
+      }
+    ]
+  },
+  {
+    "kanji": "突然",
+    "reading_hiragana": "とつぜん",
+    "reading_romaji": "totsuzen",
+    "meaning_vi": "đột nhiên",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "ĐỘT NHIÊN",
+    "explanation": "Biểu thị sự việc xảy ra bất ngờ, không báo trước.",
+    "examples": [
+      {
+        "sentence_jp": "突然雨が降り始めました。",
+        "sentence_hira": "とつぜんあめがふりはじめました。",
+        "sentence_romaji": "Totsuzen ame ga furi hajimemashita.",
+        "sentence_vi": "Đột nhiên trời bắt đầu mưa."
+      }
+    ]
+  },
+  {
+    "kanji": "能力",
+    "reading_hiragana": "のうりょく",
+    "reading_romaji": "nouryoku",
+    "meaning_vi": "năng lực, khả năng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "NĂNG LỰC",
+    "explanation": "Khả năng thực hiện một việc nào đó (kỹ năng, tố chất).",
+    "examples": [
+      {
+        "sentence_jp": "彼にはリーダーとしての能力があります。",
+        "sentence_hira": "かれにはりーだーとしてののうりょくがあります。",
+        "sentence_romaji": "Kare ni wa riidaa to shite no nouryoku ga arimasu.",
+        "sentence_vi": "Anh ấy có năng lực của một người lãnh đạo."
+      }
+    ]
+  },
+  {
+    "kanji": "相談",
+    "reading_hiragana": "そうだん",
+    "reading_romaji": "soudan",
+    "meaning_vi": "bàn bạc, trao đổi",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TƯƠNG ĐÀM",
+    "explanation": "Trao đổi ý kiến để xin lời khuyên hoặc quyết định.",
+    "examples": [
+      {
+        "sentence_jp": "友だちに進路について相談しました。",
+        "sentence_hira": "ともだちにしんろについてそうだんしました。",
+        "sentence_romaji": "Tomodachi ni shinro ni tsuite soudan shimashita.",
+        "sentence_vi": "Tôi đã bàn bạc với bạn về con đường tương lai."
+      }
+    ]
+  },
+  {
+    "kanji": "秘密",
+    "reading_hiragana": "ひみつ",
+    "reading_romaji": "himitsu",
+    "meaning_vi": "bí mật",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "BÍ MẬT",
+    "explanation": "Thông tin không nên tiết lộ cho người khác.",
+    "examples": [
+      {
+        "sentence_jp": "これは誰にも言わないで、秘密ですよ。",
+        "sentence_hira": "これはだれにもいわないで、ひみつですよ。",
+        "sentence_romaji": "Kore wa dare ni mo iwanaide, himitsu desu yo.",
+        "sentence_vi": "Đừng nói với ai nhé, đây là bí mật đấy."
+      }
+    ]
+  },
+  {
+    "kanji": "健康",
+    "reading_hiragana": "けんこう",
+    "reading_romaji": "kenkou",
+    "meaning_vi": "sức khỏe",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "KIỆN KHANG",
+    "explanation": "Tình trạng cơ thể và tinh thần tốt, không bệnh tật.",
+    "examples": [
+      {
+        "sentence_jp": "健康のために毎日運動しています。",
+        "sentence_hira": "けんこうのためにまいにちうんどうしています。",
+        "sentence_romaji": "Kenkou no tame ni mainichi undou shiteimasu.",
+        "sentence_vi": "Tôi tập thể dục mỗi ngày để giữ sức khỏe."
+      }
+    ]
+  },
+   {
+    "kanji": "規則",
+    "reading_hiragana": "きそく",
+    "reading_romaji": "kisoku",
+    "meaning_vi": "quy tắc, quy định",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "QUY TẮC",
+    "explanation": "Những điều lệ, quy định cần tuân thủ trong tổ chức hoặc tập thể.",
+    "examples": [
+      {
+        "sentence_jp": "会社の規則を守ることは社員の義務です。",
+        "sentence_hira": "かいしゃのきそくをまもることはしゃいんのぎむです。",
+        "sentence_romaji": "Kaisha no kisoku o mamoru koto wa shain no gimu desu.",
+        "sentence_vi": "Tuân thủ quy định của công ty là nghĩa vụ của nhân viên."
+      }
+    ]
+  },
+  {
+    "kanji": "診断",
+    "reading_hiragana": "しんだん",
+    "reading_romaji": "shindan",
+    "meaning_vi": "chẩn đoán",
+    "jlpt_level": "N2",
+    "level": 2,
+    "han_viet": "CHẨN ĐOÁN",
+    "explanation": "Xác định tình trạng bệnh hoặc nguyên nhân sự cố thông qua kiểm tra, phân tích.",
+    "examples": [
+      {
+        "sentence_jp": "医者に診断してもらったら、風邪だと言われました。",
+        "sentence_hira": "いしゃにしんだんしてもらったら、かぜだといわれました。",
+        "sentence_romaji": "Isha ni shindan shite morattara, kaze da to iwaremashita.",
+        "sentence_vi": "Sau khi được bác sĩ khám, tôi được nói là bị cảm."
+      }
+    ]
+  },
+  {
+    "kanji": "検査",
+    "reading_hiragana": "けんさ",
+    "reading_romaji": "kensa",
+    "meaning_vi": "kiểm tra, xét nghiệm",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "KIỂM TRA",
+    "explanation": "Kiểm tra tình trạng hoặc chất lượng của vật, người, hay dữ liệu.",
+    "examples": [
+      {
+        "sentence_jp": "来週、健康検査を受ける予定です。",
+        "sentence_hira": "らいしゅう、けんこうけんさをうけるよていです。",
+        "sentence_romaji": "Raishuu, kenkou kensa o ukeru yotei desu.",
+        "sentence_vi": "Tuần sau tôi dự định đi kiểm tra sức khỏe."
+      }
+    ]
+  },
+  {
+    "kanji": "母親",
+    "reading_hiragana": "ははおや",
+    "reading_romaji": "hahaoya",
+    "meaning_vi": "mẹ, người mẹ",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "MẪU THÂN",
+    "explanation": "Người phụ nữ sinh ra và nuôi dưỡng con cái.",
+    "examples": [
+      {
+        "sentence_jp": "母親はいつも家族のために頑張っています。",
+        "sentence_hira": "ははおやはいつもかぞくのためにがんばっています。",
+        "sentence_romaji": "Hahaoya wa itsumo kazoku no tame ni ganbatteimasu.",
+        "sentence_vi": "Mẹ lúc nào cũng cố gắng vì gia đình."
+      }
+    ]
+  },
+  {
+    "kanji": "変化",
+    "reading_hiragana": "へんか",
+    "reading_romaji": "henka",
+    "meaning_vi": "thay đổi, biến đổi",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "BIẾN HÓA",
+    "explanation": "Chỉ sự thay đổi trạng thái hoặc hình dạng của sự vật, hiện tượng.",
+    "examples": [
+      {
+        "sentence_jp": "気温の変化が激しくて、風邪をひきそうです。",
+        "sentence_hira": "きおんのへんかがはげしくて、かぜをひきそうです。",
+        "sentence_romaji": "Kion no henka ga hageshikute, kaze o hikisou desu.",
+        "sentence_vi": "Sự thay đổi nhiệt độ quá lớn nên tôi sắp bị cảm mất."
+      }
+    ]
+  },
+  {
+    "kanji": "通勤",
+    "reading_hiragana": "つうきん",
+    "reading_romaji": "tsuukin",
+    "meaning_vi": "đi làm, đi làm hằng ngày",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THÔNG CẦN",
+    "explanation": "Hành động di chuyển từ nhà đến nơi làm việc, thường xuyên mỗi ngày.",
+    "examples": [
+      {
+        "sentence_jp": "毎朝電車で通勤しています。",
+        "sentence_hira": "まいあさでんしゃでつうきんしています。",
+        "sentence_romaji": "Maiasa densha de tsuukin shiteimasu.",
+        "sentence_vi": "Mỗi sáng tôi đi làm bằng tàu điện."
+      }
+    ]
+  },
+  {
+    "kanji": "海岸",
+    "reading_hiragana": "かいがん",
+    "reading_romaji": "kaigan",
+    "meaning_vi": "bờ biển, ven biển",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "HẢI NGẠN",
+    "explanation": "Phần đất liền tiếp giáp với biển, thường là nơi nghỉ ngơi hoặc tắm biển.",
+    "examples": [
+      {
+        "sentence_jp": "夏休みに家族と海岸を散歩しました。",
+        "sentence_hira": "なつやすみにかぞくとかいがんをさんぽしました。",
+        "sentence_romaji": "Natsuyasumi ni kazoku to kaigan o sanpo shimashita.",
+        "sentence_vi": "Kỳ nghỉ hè tôi đi dạo bãi biển cùng gia đình."
+      }
+    ]
+  },
+  {
+    "kanji": "努力",
+    "reading_hiragana": "どりょく",
+    "reading_romaji": "doryoku",
+    "meaning_vi": "nỗ lực, cố gắng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "NỖ LỰC",
+    "explanation": "Cố gắng hết sức để đạt được mục tiêu hoặc kết quả mong muốn.",
+    "examples": [
+      {
+        "sentence_jp": "彼は夢をかなえるために努力している。",
+        "sentence_hira": "かれはゆめをかなえるためにどりょくしている。",
+        "sentence_romaji": "Kare wa yume o kanaeru tame ni doryoku shiteiru.",
+        "sentence_vi": "Anh ấy đang nỗ lực để biến ước mơ thành hiện thực."
+      }
+    ]
+  },
+  {
+    "kanji": "物語",
+    "reading_hiragana": "ものがたり",
+    "reading_romaji": "monogatari",
+    "meaning_vi": "câu chuyện, truyện kể",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "VẬT NGỮ",
+    "explanation": "Một câu chuyện có cốt truyện và nhân vật; thường dùng trong văn học hoặc phim.",
+    "examples": [
+      {
+        "sentence_jp": "この映画は実際の物語に基づいています。",
+        "sentence_hira": "このえいがはじっさいのものがたりにもとづいています。",
+        "sentence_romaji": "Kono eiga wa jissai no monogatari ni motozuiteimasu.",
+        "sentence_vi": "Bộ phim này dựa trên một câu chuyện có thật."
+      }
+    ]
+  },
+  {
+    "kanji": "誰でも",
+    "reading_hiragana": "だれでも",
+    "reading_romaji": "daredemo",
+    "meaning_vi": "ai cũng, bất kỳ ai",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THÙY DÃ MÔ",
+    "explanation": "Dùng để chỉ tất cả mọi người, không phân biệt cá nhân nào.",
+    "examples": [
+      {
+        "sentence_jp": "誰でも失敗することはあります。",
+        "sentence_hira": "だれでもしっぱいすることはあります。",
+        "sentence_romaji": "Dare demo shippai suru koto wa arimasu.",
+        "sentence_vi": "Ai cũng có lúc mắc sai lầm."
+      }
+    ]
+  },
+   {
+    "kanji": "感じがする",
+    "reading_hiragana": "かんじがする",
+    "reading_romaji": "kanji ga suru",
+    "meaning_vi": "cảm thấy, có cảm giác",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "CẢM GIÁC",
+    "explanation": "Dùng để diễn tả cảm giác chủ quan hoặc ấn tượng nhận được.",
+    "examples": [
+      {
+        "sentence_jp": "この部屋は少し寒い感じがします。",
+        "sentence_hira": "このへやはすこしさむいかんじがします。",
+        "sentence_romaji": "Kono heya wa sukoshi samui kanji ga shimasu.",
+        "sentence_vi": "Tôi cảm thấy căn phòng này hơi lạnh."
+      }
+    ]
+  },
+  {
+    "kanji": "借りる",
+    "reading_hiragana": "かりる",
+    "reading_romaji": "kariru",
+    "meaning_vi": "mượn",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "TÁ",
+    "explanation": "Nhận tạm một vật của người khác để dùng rồi trả lại sau.",
+    "examples": [
+      {
+        "sentence_jp": "友だちに本を借りましたが、まだ返していません。",
+        "sentence_hira": "ともだちにほんをかりましたが、まだかえしていません。",
+        "sentence_romaji": "Tomodachi ni hon o karimashita ga, mada kaeshiteimasen.",
+        "sentence_vi": "Tôi đã mượn sách của bạn nhưng vẫn chưa trả."
+      }
+    ]
+  },
+  {
+    "kanji": "家賃",
+    "reading_hiragana": "やちん",
+    "reading_romaji": "yachin",
+    "meaning_vi": "tiền thuê nhà",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "GIA NHẪM",
+    "explanation": "Số tiền phải trả định kỳ cho chủ nhà để thuê chỗ ở.",
+    "examples": [
+      {
+        "sentence_jp": "家賃が高いので、引っ越すことにしました。",
+        "sentence_hira": "やちんがたかいので、ひっこすことにしました。",
+        "sentence_romaji": "Yachin ga takai node, hikkosu koto ni shimashita.",
+        "sentence_vi": "Vì tiền thuê nhà cao nên tôi quyết định chuyển đi."
+      }
+    ]
+  },
+  {
+    "kanji": "若者",
+    "reading_hiragana": "わかもの",
+    "reading_romaji": "wakamono",
+    "meaning_vi": "giới trẻ, người trẻ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "NHƯỢC GIẢ",
+    "explanation": "Những người thuộc lứa tuổi thanh niên hoặc thế hệ trẻ.",
+    "examples": [
+      {
+        "sentence_jp": "最近の若者は海外で働くことに興味を持っています。",
+        "sentence_hira": "さいきんのわかものはかいがいではたらくことにきょうみをもっています。",
+        "sentence_romaji": "Saikin no wakamono wa kaigai de hataraku koto ni kyoumi o motteimasu.",
+        "sentence_vi": "Giới trẻ dạo gần đây quan tâm đến việc làm việc ở nước ngoài."
+      }
+    ]
+  },
+  {
+    "kanji": "最新",
+    "reading_hiragana": "さいしん",
+    "reading_romaji": "saishin",
+    "meaning_vi": "mới nhất, hiện đại nhất",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TỐI TÂN",
+    "explanation": "Chỉ cái gì vừa được cập nhật, mới phát hành hoặc ở trạng thái hiện đại nhất.",
+    "examples": [
+      {
+        "sentence_jp": "最新のスマートフォンを買いました。",
+        "sentence_hira": "さいしんのすまーとふぉんをかいました。",
+        "sentence_romaji": "Saishin no sumaato fon o kaimashita.",
+        "sentence_vi": "Tôi đã mua chiếc điện thoại thông minh mới nhất."
+      }
+    ]
+  },
+  {
+    "kanji": "締めて",
+    "reading_hiragana": "しめて",
+    "reading_romaji": "shimete",
+    "meaning_vi": "thắt chặt, buộc lại",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "ĐẾ",
+    "explanation": "Dạng て của 締める, dùng để yêu cầu ai đó buộc, thắt vật gì cho chặt.",
+    "examples": [
+      {
+        "sentence_jp": "ベルトをしっかり締めてください。",
+        "sentence_hira": "べるとをしっかりしめてください。",
+        "sentence_romaji": "Beruto o shikkari shimete kudasai.",
+        "sentence_vi": "Hãy thắt chặt dây nịt lại nhé."
+      }
+    ]
+  },
+  {
+    "kanji": "うっかり",
+    "reading_hiragana": "うっかり",
+    "reading_romaji": "ukkari",
+    "meaning_vi": "vô ý, sơ suất",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Chỉ hành động hoặc lỗi lầm do bất cẩn, không để ý.",
+    "examples": [
+      {
+        "sentence_jp": "うっかり電気をつけっぱなしにしてしまいました。",
+        "sentence_hira": "うっかりでんきをつけっぱなしにしてしまいました。",
+        "sentence_romaji": "Ukkari denki o tsukeppanashi ni shite shimaimashita.",
+        "sentence_vi": "Tôi vô ý để đèn bật suốt."
+      }
+    ]
+  },
+  {
+    "kanji": "きつい",
+    "reading_hiragana": "きつい",
+    "reading_romaji": "kitsui",
+    "meaning_vi": "chật, khắc nghiệt, nghiêm",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Dùng để chỉ sự khó khăn, khắc nghiệt hoặc vật chật, bó.",
+    "examples": [
+      {
+        "sentence_jp": "この靴は少しきつくて歩きにくいです。",
+        "sentence_hira": "このくつはすこしきつくてあるきにくいです。",
+        "sentence_romaji": "Kono kutsu wa sukoshi kitsukute arukiniku i desu.",
+        "sentence_vi": "Đôi giày này hơi chật nên đi lại khó."
+      }
+    ]
+  },
+  {
+    "kanji": "くたびれた",
+    "reading_hiragana": "くたびれた",
+    "reading_romaji": "kutabireta",
+    "meaning_vi": "mệt mỏi, kiệt sức",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Dạng quá khứ của くたびれる, diễn tả sự mệt do vận động hoặc làm việc nhiều.",
+    "examples": [
+      {
+        "sentence_jp": "一日中歩いて、すっかりくたびれました。",
+        "sentence_hira": "いちにちじゅうあるいて、すっかりくたびれました。",
+        "sentence_romaji": "Ichinichijuu aruite, sukkari kutabiremashita.",
+        "sentence_vi": "Đi bộ cả ngày nên tôi mệt rã rời."
+      }
+    ]
+  },
+  {
+    "kanji": "終わったら",
+    "reading_hiragana": "おわったら",
+    "reading_romaji": "owattara",
+    "meaning_vi": "khi xong, sau khi kết thúc",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "CHUNG",
+    "explanation": "Dạng điều kiện của 終わる, dùng để diễn tả hành động xảy ra sau khi việc khác kết thúc.",
+    "examples": [
+      {
+        "sentence_jp": "仕事が終わったら、一緒にご飯を食べませんか。",
+        "sentence_hira": "しごとがおわったら、いっしょにごはんをたべませんか。",
+        "sentence_romaji": "Shigoto ga owattara, issho ni gohan o tabemasen ka.",
+        "sentence_vi": "Khi xong việc rồi, mình đi ăn cùng nhé?"
+      }
+    ]
+  },
+  {
+    "kanji": "混雑",
+    "reading_hiragana": "こんざつ",
+    "reading_romaji": "konzatsu",
+    "meaning_vi": "đông đúc, tắc nghẽn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "HỖN TẠP",
+    "explanation": "Tình trạng nhiều người hoặc xe cộ tụ tập gây khó di chuyển.",
+    "examples": [
+      {
+        "sentence_jp": "朝の電車はとても混雑しています。",
+        "sentence_hira": "あさのでんしゃはとてもこんざつしています。",
+        "sentence_romaji": "Asa no densha wa totemo konzatsu shiteimasu.",
+        "sentence_vi": "Tàu điện buổi sáng rất đông đúc."
+      }
+    ]
+  },
+  {
+    "kanji": "落ち着く",
+    "reading_hiragana": "おちつく",
+    "reading_romaji": "ochitsuku",
+    "meaning_vi": "bình tĩnh, yên ổn, thoải mái",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "LẠC TRƯỚC",
+    "explanation": "Chỉ trạng thái tâm lý hoặc không gian yên ổn, thoải mái.",
+    "examples": [
+      {
+        "sentence_jp": "このカフェは静かで落ち着きますね。",
+        "sentence_hira": "このかふぇはしずかでおちつきますね。",
+        "sentence_romaji": "Kono kafe wa shizuka de ochitsukimasu ne.",
+        "sentence_vi": "Quán cà phê này yên tĩnh, thật dễ chịu."
+      }
+    ]
+  },
+  {
+    "kanji": "見込んでいます",
+    "reading_hiragana": "みこんでいます",
+    "reading_romaji": "mikondeimasu",
+    "meaning_vi": "dự kiến, kỳ vọng",
+    "jlpt_level": "N2",
+    "level": 2,
+    "han_viet": "KIẾN NHẬP",
+    "explanation": "Dự đoán hoặc kỳ vọng về kết quả trong tương lai dựa trên dữ kiện hiện tại.",
+    "examples": [
+      {
+        "sentence_jp": "来月の売上は増えると見込んでいます。",
+        "sentence_hira": "らいげつのうりあげはふえるとみこんでいます。",
+        "sentence_romaji": "Raigetsu no uriage wa fueru to mikondeimasu.",
+        "sentence_vi": "Dự kiến doanh thu tháng sau sẽ tăng."
+      }
+    ]
+  },
+  {
+    "kanji": "予想しています",
+    "reading_hiragana": "よそうしています",
+    "reading_romaji": "yosou shiteimasu",
+    "meaning_vi": "dự đoán, tiên liệu",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "DƯ TƯỞNG",
+    "explanation": "Dự đoán tình huống tương lai dựa vào cảm nhận hoặc thông tin.",
+    "examples": [
+      {
+        "sentence_jp": "明日の天気は雨になると予想しています。",
+        "sentence_hira": "あしたのてんきはあめになるとよそうしています。",
+        "sentence_romaji": "Ashita no tenki wa ame ni naru to yosou shiteimasu.",
+        "sentence_vi": "Tôi dự đoán ngày mai sẽ mưa."
+      }
+    ]
+  },
+  {
+    "kanji": "見積もっています",
+    "reading_hiragana": "みつもっています",
+    "reading_romaji": "mitsumotteimasu",
+    "meaning_vi": "ước tính, dự toán",
+    "jlpt_level": "N2",
+    "level": 2,
+    "han_viet": "KIẾN TÍCH",
+    "explanation": "Tính toán trước số lượng, chi phí hay thời gian cần thiết cho một việc.",
+    "examples": [
+      {
+        "sentence_jp": "このプロジェクトの費用を見積もっています。",
+        "sentence_hira": "このぷろじぇくとのひようをみつもっています。",
+        "sentence_romaji": "Kono purojekuto no hiyou o mitsumotteimasu.",
+        "sentence_vi": "Tôi đang ước tính chi phí cho dự án này."
+      }
+    ]
+  },
+  {
+    "kanji": "計算した",
+    "reading_hiragana": "けいさんした",
+    "reading_romaji": "keisan shita",
+    "meaning_vi": "đã tính toán",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "KÊ TOÁN",
+    "explanation": "Thực hiện phép tính để tìm ra kết quả tổng hợp hoặc chính xác.",
+    "examples": [
+      {
+        "sentence_jp": "合計金額を計算したら、1万円でした。",
+        "sentence_hira": "ごうけいきんがくをけいさんしたら、いちまんえんでした。",
+        "sentence_romaji": "Goukei kingaku o keisan shitara, ichiman en deshita.",
+        "sentence_vi": "Khi tính tổng lại thì là 10.000 yên."
+      }
+    ]
+  },
+  {
+    "kanji": "敵",
+    "reading_hiragana": "てき",
+    "reading_romaji": "teki",
+    "meaning_vi": "kẻ thù, đối thủ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "ĐỊCH",
+    "explanation": "Người đối lập hoặc có mâu thuẫn với mình trong một hoàn cảnh nào đó.",
+    "examples": [
+      {
+        "sentence_jp": "彼を敵だと思っていたが、今は親友です。",
+        "sentence_hira": "かれをてきだとおもっていたが、いまはしんゆうです。",
+        "sentence_romaji": "Kare o teki da to omotteita ga, ima wa shinyuu desu.",
+        "sentence_vi": "Tôi từng nghĩ anh ta là kẻ thù, nhưng giờ là bạn thân."
+      }
+    ]
+  },
+  {
+    "kanji": "ユーモアがある人",
+    "reading_hiragana": "ゆーもあがあるひと",
+    "reading_romaji": "yuumoa ga aru hito",
+    "meaning_vi": "người có khiếu hài hước",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Người có khả năng làm người khác vui vẻ bằng lời nói hoặc hành động dí dỏm.",
+    "examples": [
+      {
+        "sentence_jp": "ユーモアがある人はみんなに好かれます。",
+        "sentence_hira": "ゆーもあがあるひとはみんなにすかれます。",
+        "sentence_romaji": "Yuumoa ga aru hito wa minna ni sukaremasu.",
+        "sentence_vi": "Người có khiếu hài hước thường được mọi người yêu mến."
+      }
+    ]
+  },
+  {
+    "kanji": "医師",
+    "reading_hiragana": "いし",
+    "reading_romaji": "ishi",
+    "meaning_vi": "bác sĩ, y sĩ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "Y SƯ",
+    "explanation": "Người có chuyên môn y học và hành nghề chữa bệnh.",
+    "examples": [
+      {
+        "sentence_jp": "医師に相談してから決めたほうがいいです。",
+        "sentence_hira": "いしにそうだんしてからきめたほうがいいです。",
+        "sentence_romaji": "Ishi ni soudan shite kara kimeta hou ga ii desu.",
+        "sentence_vi": "Nên quyết định sau khi trao đổi với bác sĩ thì tốt hơn."
+      }
+    ]
+  },
+  {
+    "kanji": "結局",
+    "reading_hiragana": "けっきょく",
+    "reading_romaji": "kekkyoku",
+    "meaning_vi": "cuối cùng, rốt cuộc",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "KẾT CỤC",
+    "explanation": "Kết quả sau cùng của sự việc, thường khác với dự đoán ban đầu.",
+    "examples": [
+      {
+        "sentence_jp": "結局、彼は約束を守りませんでした。",
+        "sentence_hira": "けっきょく、かれはやくそくをまもりませんでした。",
+        "sentence_romaji": "Kekkyoku, kare wa yakusoku o mamorimasen deshita.",
+        "sentence_vi": "Cuối cùng, anh ta đã không giữ lời hứa."
+      }
+    ]
+  }
+]

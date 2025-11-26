@@ -1,0 +1,1677 @@
+[
+  {
+    "kanji": "苦手な",
+    "reading_hiragana": "にがてな",
+    "reading_romaji": "nigatena",
+    "meaning_vi": "không thích; kém",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "KHỔ THỦ",
+    "explanation": "Diễn tả sự không giỏi hoặc không thích một điều gì đó.",
+    "examples": [
+      {
+        "sentence_jp": "私の苦手な飲み物は牛乳です。",
+        "sentence_hira": "わたしのにがてなのみものはぎゅうにゅうです。",
+        "sentence_romaji": "watashi no nigatena nomimono wa gyuunyuu desu.",
+        "sentence_vi": "Tôi không thích uống sữa bò."
+      }
+    ]
+  },
+  {
+    "kanji": "熱心な",
+    "reading_hiragana": "ねっしんな",
+    "reading_romaji": "nesshinna",
+    "meaning_vi": "nhiệt tình",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "NHIỆT TÂM",
+    "explanation": "Chỉ sự chăm chỉ, tận tâm và nghiêm túc trong hành động.",
+    "examples": [
+      {
+        "sentence_jp": "彼は自分に対しても他人に対しても熱心な性格だ。",
+        "sentence_hira": "かれはじぶんにたいしてもたにんにたいしてもねっしんなせいかくだ。",
+        "sentence_romaji": "kare wa jibun ni taishite mo tanin ni taishite mo nesshinna seikaku da.",
+        "sentence_vi": "Anh ấy là người nhiệt tình với bản thân và cả người khác."
+      }
+    ]
+  },
+  {
+    "kanji": "豪華な",
+    "reading_hiragana": "ごうかな",
+    "reading_romaji": "goukana",
+    "meaning_vi": "hào nhoáng; lộng lẫy",
+    "jlpt_level": "N2",
+    "level": 2,
+    "han_viet": "HÀO HOA",
+    "explanation": "Miêu tả sự xa hoa, sang trọng vượt mức bình thường.",
+    "examples": [
+      {
+        "sentence_jp": "彼の生活ぶりは豪華だ。",
+        "sentence_hira": "かれのせいかつぶりはごうかだ。",
+        "sentence_romaji": "kare no seikatsuburi wa gouka da.",
+        "sentence_vi": "Cuộc sống của anh ấy rất hào nhoáng."
+      }
+    ]
+  },
+  {
+    "kanji": "必要な",
+    "reading_hiragana": "ひつような",
+    "reading_romaji": "hitsuyouna",
+    "meaning_vi": "cần thiết",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "TẤT YẾU",
+    "explanation": "Chỉ những thứ bắt buộc hoặc rất quan trọng cho một mục đích.",
+    "examples": [
+      {
+        "sentence_jp": "テストに必要なものは、ペンと消しゴムです。",
+        "sentence_hira": "てすとにひつようなものは、ぺんとけしごむです。",
+        "sentence_romaji": "tesuto ni hitsuyou na mono wa, pen to keshigomu desu.",
+        "sentence_vi": "Những thứ cần cho bài kiểm tra là bút và tẩy."
+      }
+    ]
+  },
+  {
+    "kanji": "不思議な",
+    "reading_hiragana": "ふしぎな",
+    "reading_romaji": "fushigina",
+    "meaning_vi": "kì lạ",
+    "jlpt_level": "N3",
+    "level": 2,
+    "han_viet": "BẤT TƯ NGHỊ",
+    "explanation": "Chỉ điều gì đó lạ lùng, khó giải thích hoặc vượt ngoài hiểu biết.",
+    "examples": [
+      {
+        "sentence_jp": "この教室では、不思議なことが起こる。",
+        "sentence_hira": "このきょうしつでは、ふしぎなことがおこる。",
+        "sentence_romaji": "kono kyoushitsu de wa, fushigi na koto ga okoru.",
+        "sentence_vi": "Ở trong phòng học này xảy ra điều kì lạ."
+      }
+    ]
+  },
+  {
+    "kanji": "不自由な",
+    "reading_hiragana": "ふじゆうな",
+    "reading_romaji": "fujiyuuna",
+    "meaning_vi": "bất tiện; tàn tật",
+    "jlpt_level": "N3",
+    "level": 2,
+    "han_viet": "BẤT TỰ DO",
+    "explanation": "Chỉ trạng thái không thoải mái, thiếu thuận tiện hoặc hạn chế khả năng.",
+    "examples": [
+      {
+        "sentence_jp": "スマートフォンがないと生活に不自由だ。",
+        "sentence_hira": "すまーとふぉんがないとせいかつにふじゆうだ。",
+        "sentence_romaji": "sumaato fon ga nai to seikatsu ni fujiyuu da.",
+        "sentence_vi": "Không có điện thoại thì cuộc sống khá bất tiện."
+      }
+    ]
+  },
+  {
+    "kanji": "不注意な",
+    "reading_hiragana": "ふちゅういな",
+    "reading_romaji": "fuchuui na",
+    "meaning_vi": "không chú ý; vô ý",
+    "jlpt_level": "N3",
+    "level": 2,
+    "han_viet": "BẤT CHÚ Ý",
+    "explanation": "Chỉ hành động thiếu cẩn trọng, dễ gây rắc rối.",
+    "examples": [
+      {
+        "sentence_jp": "彼を怒らせるような不注意なことを言ってしまった。",
+        "sentence_hira": "かれをおこらせるようなふちゅういなことをいってしまった。",
+        "sentence_romaji": "kare o okoraseru you na fuchuui na koto o itte shimatta.",
+        "sentence_vi": "Tôi lỡ nói điều vô ý khiến anh ấy nổi giận."
+      }
+    ]
+  },
+  {
+    "kanji": "不満な",
+    "reading_hiragana": "ふまんな",
+    "reading_romaji": "fumanna",
+    "meaning_vi": "bất mãn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "BẤT MÃN",
+    "explanation": "Cảm giác không hài lòng về tình huống hoặc điều gì đó.",
+    "examples": [
+      {
+        "sentence_jp": "今の生活に不満な点がある。",
+        "sentence_hira": "いまのせいかつにふまんなてんがある。",
+        "sentence_romaji": "ima no seikatsu ni fumanna ten ga aru.",
+        "sentence_vi": "Tôi có vài điểm bất mãn về cuộc sống hiện tại."
+      }
+    ]
+  },
+   {
+    "kanji": "不安な",
+    "reading_hiragana": "ふあんな",
+    "reading_romaji": "fuanna",
+    "meaning_vi": "bất an",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "BẤT AN",
+    "explanation": "Cảm giác lo lắng, bất ổn về điều gì đó.",
+    "examples": [
+      {
+        "sentence_jp": "仕事がなくなり不安な毎日だ。",
+        "sentence_hira": "しごとがなくなりふあんなまいにちだ。",
+        "sentence_romaji": "shigoto ga nakunari fuanna mainichi da.",
+        "sentence_vi": "Mất việc khiến tôi lo lắng mỗi ngày."
+      }
+    ]
+  },
+  {
+    "kanji": "不可能な",
+    "reading_hiragana": "ふかのうな",
+    "reading_romaji": "fukanouna",
+    "meaning_vi": "bất khả thi",
+    "jlpt_level": "N3",
+    "level": 2,
+    "han_viet": "BẤT KHẢ NĂNG",
+    "explanation": "Điều không thể thực hiện được dù cố gắng thế nào.",
+    "examples": [
+      {
+        "sentence_jp": "今日中にこの仕事を終わらせるなんて不可能だ。",
+        "sentence_hira": "きょうじゅうにこのしごとをおわらせるなんてふかのうだ。",
+        "sentence_romaji": "kyoujuu ni kono shigoto o owaraseru nante fukanou da.",
+        "sentence_vi": "Hoàn thành hết khối lượng công việc hôm nay là điều bất khả thi."
+      }
+    ]
+  },
+  {
+    "kanji": "平気な",
+    "reading_hiragana": "へいきな",
+    "reading_romaji": "heikina",
+    "meaning_vi": "bình thản, không sao",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "BÌNH KHÍ",
+    "explanation": "Không cảm thấy khó khăn hay ảnh hưởng dù trong hoàn cảnh xấu.",
+    "examples": [
+      {
+        "sentence_jp": "彼女は寒くても平気だ。",
+        "sentence_hira": "かのじょはさむくてもへいきだ。",
+        "sentence_romaji": "kanojo wa samukute mo heiki da.",
+        "sentence_vi": "Cô ấy bình thản dù trời rất lạnh."
+      }
+    ]
+  },
+  {
+    "kanji": "ましな",
+    "reading_hiragana": "ましな",
+    "reading_romaji": "mashina",
+    "meaning_vi": "hơn, đỡ hơn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Diễn tả sự cải thiện tương đối so với mức tệ hơn.",
+    "examples": [
+      {
+        "sentence_jp": "もう少しましな生活はできないのか。",
+        "sentence_hira": "もうすこしましなせいかつはできないのか。",
+        "sentence_romaji": "mou sukoshi mashina seikatsu wa dekinai no ka.",
+        "sentence_vi": "Không thể sống một cuộc sống khá hơn một chút sao?"
+      }
+    ]
+  },
+  {
+    "kanji": "満足な",
+    "reading_hiragana": "まんぞくな",
+    "reading_romaji": "manzokuna",
+    "meaning_vi": "thỏa mãn, hài lòng",
+    "jlpt_level": "N3",
+    "level": 2,
+    "han_viet": "MÃN TÚC",
+    "explanation": "Chỉ trạng thái hài lòng với những gì mình có.",
+    "examples": [
+      {
+        "sentence_jp": "今の収入では満足な暮らしができない。",
+        "sentence_hira": "いまのしゅうにゅうではまんぞくなくらしができない。",
+        "sentence_romaji": "ima no shuunyuu de wa manzokuna kurashi ga dekinai.",
+        "sentence_vi": "Với mức thu nhập hiện tại thì không thể sống thỏa mãn được."
+      }
+    ]
+  },
+  {
+    "kanji": "むだな",
+    "reading_hiragana": "むだな",
+    "reading_romaji": "mudana",
+    "meaning_vi": "vô ích, lãng phí",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "VÔ ĐÀ",
+    "explanation": "Chỉ những vật hoặc hành động không có ích, không cần thiết.",
+    "examples": [
+      {
+        "sentence_jp": "部屋にあるむだな物を捨てる。",
+        "sentence_hira": "へやにあるむだなものをすてる。",
+        "sentence_romaji": "heya ni aru mudana mono o suteru.",
+        "sentence_vi": "Vứt bỏ đồ dư thừa/vô ích trong phòng."
+      }
+    ]
+  },
+  {
+    "kanji": "無理な",
+    "reading_hiragana": "むりな",
+    "reading_romaji": "murina",
+    "meaning_vi": "không thể; quá sức; vô lý",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "VÔ LÍ",
+    "explanation": "Điều vượt quá khả năng hoặc không hợp lý để thực hiện.",
+    "examples": [
+      {
+        "sentence_jp": "今日中にこの量の仕事を終わらせるのは無理だ。",
+        "sentence_hira": "きょうじゅうにこのりょうのしごとをおわらせるのはむりだ。",
+        "sentence_romaji": "kyoujuu ni kono ryou no shigoto o owaraseru no wa muri da.",
+        "sentence_vi": "Hoàn thành từng này công việc trong hôm nay là điều không thể."
+      }
+    ]
+  },
+  {
+    "kanji": "夢中な",
+    "reading_hiragana": "むちゅうな",
+    "reading_romaji": "muchuuna",
+    "meaning_vi": "say sưa, say mê",
+    "jlpt_level": "N3",
+    "level": 2,
+    "han_viet": "MỘNG TRUNG",
+    "explanation": "Chỉ sự tập trung hoặc đam mê mạnh mẽ vào một sở thích hay hoạt động.",
+    "examples": [
+      {
+        "sentence_jp": "小学生のころ、アニメに夢中だった。",
+        "sentence_hira": "しょうがくせいのころ、あにめにむちゅうだった。",
+        "sentence_romaji": "shougakusei no koro, anime ni muchuu datta.",
+        "sentence_vi": "Tôi đã rất say mê anime hồi tiểu học."
+      }
+    ]
+  },
+   {
+    "kanji": "面倒な",
+    "reading_hiragana": "めんどうな",
+    "reading_romaji": "mendouna",
+    "meaning_vi": "phiền phức",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "DIỆN ĐẢO",
+    "explanation": "Diễn tả sự rắc rối, phiền toái khiến bản thân không muốn làm.",
+    "examples": [
+      {
+        "sentence_jp": "朝起きて仕事に行くのが面倒だ。",
+        "sentence_hira": "あさおきてしごとにいくのがめんどうだ。",
+        "sentence_romaji": "asa okite shigoto ni iku no ga mendou da.",
+        "sentence_vi": "Sáng dậy lại phải đi làm thật là phiền phức."
+      }
+    ]
+  },
+  {
+    "kanji": "豊かな",
+    "reading_hiragana": "ゆたかな",
+    "reading_romaji": "yutakana",
+    "meaning_vi": "giàu có; phong phú",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "PHONG",
+    "explanation": "Chỉ sự dồi dào, phong phú về tài nguyên, cảm xúc hoặc vật chất.",
+    "examples": [
+      {
+        "sentence_jp": "この森には豊かな自然がある。",
+        "sentence_hira": "このもりにはゆたかなしぜんがある。",
+        "sentence_romaji": "kono mori ni wa yutaka na shizen ga aru.",
+        "sentence_vi": "Khu rừng này có thiên nhiên rất phong phú."
+      }
+    ]
+  },
+  {
+    "kanji": "楽な",
+    "reading_hiragana": "らくな",
+    "reading_romaji": "rakuna",
+    "meaning_vi": "thoải mái; nhàn nhã",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "LẠC",
+    "explanation": "Chỉ trạng thái dễ chịu, không vất vả, nhẹ nhàng.",
+    "examples": [
+      {
+        "sentence_jp": "もう少し楽な生活がしたい。",
+        "sentence_hira": "もうすこしらくなせいかつがしたい。",
+        "sentence_romaji": "mou sukoshi raku na seikatsu ga shitai.",
+        "sentence_vi": "Tôi muốn có một cuộc sống thoải mái hơn một chút."
+      }
+    ]
+  },
+  {
+    "kanji": "立派な",
+    "reading_hiragana": "りっぱな",
+    "reading_romaji": "rippana",
+    "meaning_vi": "tuyệt vời; lộng lẫy; đáng tự hào",
+    "jlpt_level": "N3",
+    "level": 2,
+    "han_viet": "LẬP PHÁI",
+    "explanation": "Dùng cho người hoặc vật có phẩm chất tốt, khiến người khác ngưỡng mộ.",
+    "examples": [
+      {
+        "sentence_jp": "息子は立派に育ってくれた。",
+        "sentence_hira": "むすこはりっぱにそだってくれた。",
+        "sentence_romaji": "musuko wa rippa ni sodatte kureta.",
+        "sentence_vi": "Con trai đã lớn lên khỏe mạnh, đáng tự hào."
+      }
+    ]
+  },
+  {
+    "kanji": "わがままな",
+    "reading_hiragana": "わがままな",
+    "reading_romaji": "wagamamana",
+    "meaning_vi": "ương bướng; ích kỷ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Chỉ người chỉ nghĩ đến mình, không quan tâm đến người khác.",
+    "examples": [
+      {
+        "sentence_jp": "妹はとてもわがままな性格だ。",
+        "sentence_hira": "いもうとはとてもわがままなせいかくだ。",
+        "sentence_romaji": "imouto wa totemo wagamama na seikaku da.",
+        "sentence_vi": "Em gái tôi có tính cách rất ương bướng."
+      }
+    ]
+  },
+  {
+    "kanji": "地味な",
+    "reading_hiragana": "じみな",
+    "reading_romaji": "jimina",
+    "meaning_vi": "giản dị",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "ĐỊA VỊ",
+    "explanation": "Dùng cho thứ không nổi bật, đơn giản, không phô trương.",
+    "examples": [
+      {
+        "sentence_jp": "彼女は地味な洋服を着ている。",
+        "sentence_hira": "かのじょはじみなようふくをきている。",
+        "sentence_romaji": "kanojo wa jimi na youfuku o kite iru.",
+        "sentence_vi": "Cô ấy mặc đồ rất giản dị."
+      }
+    ]
+  },
+  {
+    "kanji": "重要な",
+    "reading_hiragana": "じゅうような",
+    "reading_romaji": "juuyouna",
+    "meaning_vi": "quan trọng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TRỌNG YẾU",
+    "explanation": "Điều cần thiết, có ảnh hưởng lớn và không thể xem nhẹ.",
+    "examples": [
+      {
+        "sentence_jp": "重要な書類をなくしてしまった。",
+        "sentence_hira": "じゅうようなしょるいをなくしてしまった。",
+        "sentence_romaji": "juuyou na shorui o nakushite shimatta.",
+        "sentence_vi": "Tôi đã làm mất giấy tờ quan trọng."
+      }
+    ]
+  },
+    {
+    "kanji": "浅い",
+    "reading_hiragana": "あさい",
+    "reading_romaji": "asai",
+    "meaning_vi": "nông; cạn; ít",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THIỂN",
+    "explanation": "Diễn tả độ sâu thấp, mức độ nhẹ hoặc còn ít kinh nghiệm.",
+    "examples": [
+      {
+        "sentence_jp": "この海は浅いので子どもも安心だ。",
+        "sentence_hira": "このうみはあさいのでこどももあんしんだ。",
+        "sentence_romaji": "kono umi wa asai no de kodomo mo anshin da.",
+        "sentence_vi": "Biển này nông nên trẻ em cũng có thể yên tâm tắm."
+      }
+    ]
+  },
+  {
+    "kanji": "薄い",
+    "reading_hiragana": "うすい",
+    "reading_romaji": "usui",
+    "meaning_vi": "mỏng; nhạt",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "BẠC",
+    "explanation": "Dùng cho vật thể mỏng hoặc vị nhạt, ít đậm.",
+    "examples": [
+      {
+        "sentence_jp": "この本は表紙がとても薄い。",
+        "sentence_hira": "このほんはひょうしがとてもうすい。",
+        "sentence_romaji": "kono hon wa hyoushi ga totemo usui.",
+        "sentence_vi": "Sách này có bìa rất mỏng."
+      }
+    ]
+  },
+  {
+    "kanji": "美しい",
+    "reading_hiragana": "うつくしい",
+    "reading_romaji": "utsukushii",
+    "meaning_vi": "đẹp",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "MĨ",
+    "explanation": "Diễn tả vẻ đẹp cả về ngoại hình lẫn hành động hay tâm hồn.",
+    "examples": [
+      {
+        "sentence_jp": "友達はダンスが美しい。",
+        "sentence_hira": "ともだちはだんすがうつくしい。",
+        "sentence_romaji": "tomodachi wa dansu ga utsukushii.",
+        "sentence_vi": "Bạn tôi nhảy đẹp."
+      }
+    ]
+  },
+  {
+    "kanji": "うらやましい",
+    "reading_hiragana": "うらやましい",
+    "reading_romaji": "urayamashii",
+    "meaning_vi": "ghen tị (mong muốn được như người ta)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Cảm giác muốn được như người khác do họ có điều tốt đẹp.",
+    "examples": [
+      {
+        "sentence_jp": "彼女は収入の多い人をうらやましがっている。",
+        "sentence_hira": "かのじょはしゅうにゅうのおおいひとをうらやましがっている。",
+        "sentence_romaji": "kanojo wa shuunyuu no ooi hito o urayamashigatte iru.",
+        "sentence_vi": "Cô ấy ghen tị với người có thu nhập cao."
+      }
+    ]
+  },
+  {
+    "kanji": "おとなしい",
+    "reading_hiragana": "おとなしい",
+    "reading_romaji": "otonashii",
+    "meaning_vi": "nhẹ nhàng; ngoan ngoãn",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Diễn tả tính cách trầm, ít nói, biết nghe lời.",
+    "examples": [
+      {
+        "sentence_jp": "娘はおとなしく、母の言うことをよく聞いている。",
+        "sentence_hira": "むすめはおとなしく、ははのいうことをよくきいている。",
+        "sentence_romaji": "musume wa otonashiku, haha no iu koto o yoku kiite iru.",
+        "sentence_vi": "Con gái tôi ngoan ngoãn và hay nghe lời mẹ."
+      }
+    ]
+  },
+  {
+    "kanji": "おかしい",
+    "reading_hiragana": "おかしい",
+    "reading_romaji": "okashii",
+    "meaning_vi": "kỳ lạ; không bình thường",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Dùng cho sự việc bất thường, hoặc hành vi kỳ lạ.",
+    "examples": [
+      {
+        "sentence_jp": "スマートフォンの調子がおかしい。",
+        "sentence_hira": "すまーとふぉんのちょうしがおかしい。",
+        "sentence_romaji": "sumaato fon no choushi ga okashii.",
+        "sentence_vi": "Tình trạng điện thoại thông minh hơi bất thường."
+      }
+    ]
+  },
+  {
+    "kanji": "かっこいい",
+    "reading_hiragana": "かっこいい",
+    "reading_romaji": "kakkoii",
+    "meaning_vi": "ngầu; lôi cuốn; bảnh bao",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Khen ngoại hình hoặc phong thái hấp dẫn, thu hút.",
+    "examples": [
+      {
+        "sentence_jp": "彼は背が高くてかっこいいので人気がある。",
+        "sentence_hira": "かれはせがたかくてかっこいいのでにんきがある。",
+        "sentence_romaji": "kare wa se ga takakute kakkoii no de ninki ga aru.",
+        "sentence_vi": "Anh ấy được hâm mộ vì vừa cao vừa đẹp trai."
+      }
+    ]
+  },
+   {
+    "kanji": "かたい",
+    "reading_hiragana": "かたい",
+    "reading_romaji": "katai",
+    "meaning_vi": "cứng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "NGẠNH",
+    "explanation": "Chỉ vật hoặc cơ thể có độ cứng, khó uốn, khó chuyển động.",
+    "examples": [
+      {
+        "sentence_jp": "体がかたくて運動が苦手だ。",
+        "sentence_hira": "からだがかたくてうんどうがにがてだ。",
+        "sentence_romaji": "karada ga katakute undou ga nigate da.",
+        "sentence_vi": "Vì cơ thể cứng nên tôi kém vận động."
+      }
+    ]
+  },
+  {
+    "kanji": "かゆい",
+    "reading_hiragana": "かゆい",
+    "reading_romaji": "kayui",
+    "meaning_vi": "ngứa",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "DƯƠNG",
+    "explanation": "Cảm giác khó chịu trên da khiến muốn gãi.",
+    "examples": [
+      {
+        "sentence_jp": "虫に刺されてとてもかゆい。",
+        "sentence_hira": "むしにさされてとてもかゆい。",
+        "sentence_romaji": "mushi ni sasarete totemo kayui.",
+        "sentence_vi": "Tôi bị côn trùng đốt và chỗ đó rất ngứa."
+      }
+    ]
+  },
+  {
+    "kanji": "くやしい",
+    "reading_hiragana": "くやしい",
+    "reading_romaji": "kuyashii",
+    "meaning_vi": "cay cú; bực bội; tiếc nuối",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "HỐI",
+    "explanation": "Cảm giác tiếc nuối hoặc bực tức khi không đạt điều mong muốn.",
+    "examples": [
+      {
+        "sentence_jp": "試合に負けてくやしい。",
+        "sentence_hira": "しあいにまけてくやしい。",
+        "sentence_romaji": "shiai ni makete kuyashii.",
+        "sentence_vi": "Thua trận nên tôi rất cay cú/tiếc nuối."
+      }
+    ]
+  },
+  {
+    "kanji": "くるしい",
+    "reading_hiragana": "くるしい",
+    "reading_romaji": "kurushii",
+    "meaning_vi": "khổ; cực khổ",
+    "jlpt_level": "N3",
+    "level": 2,
+    "han_viet": "KHỔ",
+    "explanation": "Dùng khi cảm thấy khó chịu, đau đớn hoặc vất vả.",
+    "examples": [
+      {
+        "sentence_jp": "夏の夜は、寝苦しい。",
+        "sentence_hira": "なつのよるは、ねぐるしい。",
+        "sentence_romaji": "natsu no yoru wa negurushii.",
+        "sentence_vi": "Đêm mùa hè nóng bức khó ngủ."
+      }
+    ]
+  },
+  {
+    "kanji": "くさい",
+    "reading_hiragana": "くさい",
+    "reading_romaji": "kusai",
+    "meaning_vi": "thối; hôi",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "XÚ",
+    "explanation": "Chỉ mùi khó chịu, hôi thối.",
+    "examples": [
+      {
+        "sentence_jp": "家で魚を焼いたら部屋がくさくなった。",
+        "sentence_hira": "いえでさかなをやいたらへやがくさくなった。",
+        "sentence_romaji": "ie de sakana o yaitara heya ga kusaku natta.",
+        "sentence_vi": "Nướng cá trong nhà làm cả phòng bị hôi."
+      }
+    ]
+  },
+  {
+    "kanji": "くわしい",
+    "reading_hiragana": "くわしい",
+    "reading_romaji": "kuwashii",
+    "meaning_vi": "chi tiết; rành rẽ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TƯỜNG",
+    "explanation": "Diễn tả sự hiểu biết rõ ràng, cụ thể về một vấn đề.",
+    "examples": [
+      {
+        "sentence_jp": "分からないので、くわしく説明してください。",
+        "sentence_hira": "わからないので、くわしくせつめいしてください。",
+        "sentence_romaji": "wakaranai no de, kuwashiku setsumei shite kudasai.",
+        "sentence_vi": "Vì không hiểu, xin hãy giải thích chi tiết."
+      }
+    ]
+  },
+  {
+    "kanji": "こい",
+    "reading_hiragana": "こい",
+    "reading_romaji": "koi",
+    "meaning_vi": "đậm; đặc",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "NÙNG",
+    "explanation": "Dùng để chỉ vị đậm, màu đậm hoặc trạng thái đặc.",
+    "examples": [
+      {
+        "sentence_jp": "母の料理は味がこい。",
+        "sentence_hira": "ははのりょうりはあじがこい。",
+        "sentence_romaji": "haha no ryouri wa aji ga koi.",
+        "sentence_vi": "Món mẹ nấu thường có vị đậm."
+      }
+    ]
+  },
+  {
+    "kanji": "したしい",
+    "reading_hiragana": "したしい",
+    "reading_romaji": "shitashii",
+    "meaning_vi": "thân thiết",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THÂN",
+    "explanation": "Chỉ mối quan hệ gần gũi, thân mật.",
+    "examples": [
+      {
+        "sentence_jp": "同じ環境で育ったので、彼とはとてもしたしい。",
+        "sentence_hira": "おなじかんきょうでそだったので、かれとはとてもしたしい。",
+        "sentence_romaji": "onaji kankyou de sodatta node, kare to wa totemo shitashii.",
+        "sentence_vi": "Vì cùng lớn lên trong môi trường giống nhau nên tôi rất thân thiết với anh ấy."
+      }
+    ]
+  },
+  {
+    "kanji": "もったいない",
+    "reading_hiragana": "もったいない",
+    "reading_romaji": "mottainai",
+    "meaning_vi": "lãng phí",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Thể hiện sự tiếc nuối khi một thứ gì đó bị lãng phí.",
+    "examples": [
+      {
+        "sentence_jp": "食べ物を残すのはもったいない。",
+        "sentence_hira": "たべものをのこすのはもったいない。",
+        "sentence_romaji": "tabemono o nokosu no wa mottainai.",
+        "sentence_vi": "Để thừa đồ ăn thật là lãng phí."
+      }
+    ]
+  },
+    {
+    "kanji": "蒸し暑い",
+    "reading_hiragana": "むしあつい",
+    "reading_romaji": "mushiatsui",
+    "meaning_vi": "nóng nực; oi bức",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "CHƯNG THỬ",
+    "explanation": "Thời tiết nóng ẩm, bí bách và khó chịu.",
+    "examples": [
+      {
+        "sentence_jp": "ベトナムの夏は蒸し暑い。",
+        "sentence_hira": "べとなむのなつはむしあつい。",
+        "sentence_romaji": "betonamu no natsu wa mushiatsui.",
+        "sentence_vi": "Mùa hè ở Việt Nam oi bức."
+      }
+    ]
+  },
+  {
+    "kanji": "すごい",
+    "reading_hiragana": "すごい",
+    "reading_romaji": "sugoi",
+    "meaning_vi": "ghê; siêu",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Dùng để khen mức độ cao hoặc thể hiện sự ngạc nhiên mạnh.",
+    "examples": [
+      {
+        "sentence_jp": "ジムで、100キロを持ち上げるすごい人を見たよ。",
+        "sentence_hira": "じむで、100きろをもちあげるすごいひとをみたよ。",
+        "sentence_romaji": "jimu de hyaku kiro o mochiageru sugoi hito o mita yo.",
+        "sentence_vi": "Ở phòng gym tôi đã thấy một người cực siêu nâng được tạ 100kg."
+      }
+    ]
+  },
+  {
+    "kanji": "すっぱい",
+    "reading_hiragana": "すっぱい",
+    "reading_romaji": "suppai",
+    "meaning_vi": "chua",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "TOAN",
+    "explanation": "Diễn tả vị chua mạnh của thức ăn hoặc trái cây.",
+    "examples": [
+      {
+        "sentence_jp": "このくだものはすっぱい。",
+        "sentence_hira": "このくだものはすっぱい。",
+        "sentence_romaji": "kono kudamono wa suppai.",
+        "sentence_vi": "Loại quả này chua."
+      }
+    ]
+  },
+  {
+    "kanji": "ぬるい",
+    "reading_hiragana": "ぬるい",
+    "reading_romaji": "nurui",
+    "meaning_vi": "nguội; hơi âm ấm; nửa vời",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "ÔN",
+    "explanation": "Chỉ nhiệt độ nước/đồ uống không nóng cũng không lạnh.",
+    "examples": [
+      {
+        "sentence_jp": "飲みものがぬるくなったので、冷やす。",
+        "sentence_hira": "のみものがぬるくなったので、ひやす。",
+        "sentence_romaji": "nomimono ga nuruku natta no de hiyasu.",
+        "sentence_vi": "Vì đồ uống đã nguội nên tôi làm lạnh lại."
+      }
+    ]
+  },
+  {
+    "kanji": "激しい",
+    "reading_hiragana": "はげしい",
+    "reading_romaji": "hageshii",
+    "meaning_vi": "mãnh liệt; dữ dội",
+    "jlpt_level": "N3",
+    "level": 2,
+    "han_viet": "KÍCH",
+    "explanation": "Chỉ mức độ mạnh, diễn biến nhanh hoặc cực đoan.",
+    "examples": [
+      {
+        "sentence_jp": "昨日は激しい雨が降った。",
+        "sentence_hira": "きのうははげしいあめがふった。",
+        "sentence_romaji": "kinou wa hageshii ame ga futta.",
+        "sentence_vi": "Hôm qua mưa dữ dội."
+      }
+    ]
+  },
+  {
+    "kanji": "ひどい",
+    "reading_hiragana": "ひどい",
+    "reading_romaji": "hidoi",
+    "meaning_vi": "tồi tệ; nghiêm trọng",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Dùng khi mức độ việc gì đó trở nên xấu hoặc nặng.",
+    "examples": [
+      {
+        "sentence_jp": "昨日はひどい熱が出た。",
+        "sentence_hira": "きのうはひどいねつがでた。",
+        "sentence_romaji": "kinou wa hidoi netsu ga deta.",
+        "sentence_vi": "Hôm qua bị sốt cao."
+      }
+    ]
+  },
+  {
+    "kanji": "細かい",
+    "reading_hiragana": "こまかい",
+    "reading_romaji": "komakai",
+    "meaning_vi": "tiểu tiết; nhỏ bé; chi li",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TẾ",
+    "explanation": "Diễn tả kích thước nhỏ hoặc mức độ chi tiết cao.",
+    "examples": [
+      {
+        "sentence_jp": "細かい字は読みにくい。",
+        "sentence_hira": "こまかいじはよみにくい。",
+        "sentence_romaji": "komakai ji wa yominikui.",
+        "sentence_vi": "Chữ bé khó đọc."
+      }
+    ]
+  },
+  {
+    "kanji": "まぶしい",
+    "reading_hiragana": "まぶしい",
+    "reading_romaji": "mabushii",
+    "meaning_vi": "chói chang",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "DIỄU",
+    "explanation": "Ánh sáng mạnh gây khó nhìn.",
+    "examples": [
+      {
+        "sentence_jp": "太陽の光はまぶしいので前をよく見ることができない。",
+        "sentence_hira": "たいようのひかりはまぶしいのでまえをよくみることができない。",
+        "sentence_romaji": "taiyou no hikari wa mabushii no de mae o yoku miru koto ga dekinai.",
+        "sentence_vi": "Nắng chói quá nên không nhìn phía trước được."
+      }
+    ]
+  },
+  {
+    "kanji": "我慢強い",
+    "reading_hiragana": "がまんづよい",
+    "reading_romaji": "gamandzuyoi",
+    "meaning_vi": "chịu đựng giỏi; kiên trì",
+    "jlpt_level": "N3",
+    "level": 2,
+    "han_viet": "NGÃ MẠN CƯỜNG",
+    "explanation": "Chỉ sự kiên nhẫn, chịu đựng tốt trong hoàn cảnh khó khăn.",
+    "examples": [
+      {
+        "sentence_jp": "彼女は何事にも我慢強く、努力をする。",
+        "sentence_hira": "かのじょはなにごとにもがまんづよく、どりょくをする。",
+        "sentence_romaji": "kanojo wa nanigoto ni mo gamandzuyoku, doryoku o suru.",
+        "sentence_vi": "Cô ấy rất kiên trì và chịu khó trong mọi việc."
+      }
+    ]
+  },
+    {
+    "kanji": "あたりまえ",
+    "reading_hiragana": "あたりまえ",
+    "reading_romaji": "atarimae",
+    "meaning_vi": "đương nhiên; tất nhiên",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "DUONG NHIEN",
+    "explanation": "Điều hiển nhiên, hoàn toàn bình thường.",
+    "examples": [
+      {
+        "sentence_jp": "あんなことをしたのだから、怒られてあたりまえだ。",
+        "sentence_hira": "あんなことをしたのだから、おこられてあたりまえだ。",
+        "sentence_romaji": "anna koto o shita no dakara, okorarete atarimae da.",
+        "sentence_vi": "Làm mấy chuyện như thế thì bị mắng là đương nhiên rồi."
+      }
+    ]
+  },
+  {
+    "kanji": "もちろん",
+    "reading_hiragana": "もちろん",
+    "reading_romaji": "mochiron",
+    "meaning_vi": "tất nhiên",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "DUONG NHIEN",
+    "explanation": "Dùng để khẳng định điều hiển nhiên.",
+    "examples": [
+      {
+        "sentence_jp": "友だちのために、もちろんお金を貸すよ。",
+        "sentence_hira": "ともだちのために、もちろんおかねをかすよ。",
+        "sentence_romaji": "tomodachi no tame ni, mochiron okane o kasu yo.",
+        "sentence_vi": "Vì bạn nên tất nhiên tôi sẽ cho mượn tiền."
+      }
+    ]
+  },
+  {
+    "kanji": "当然",
+    "reading_hiragana": "とうぜん",
+    "reading_romaji": "touzen",
+    "meaning_vi": "đương nhiên",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "DUONG NHIEN",
+    "explanation": "Điều hiển nhiên xảy ra theo logic.",
+    "examples": [
+      {
+        "sentence_jp": "テストの点が悪かったのは当然だ。",
+        "sentence_hira": "てすとのてんがわるかったのはとうぜんだ。",
+        "sentence_romaji": "tesuto no ten ga warukatta no wa touzen da.",
+        "sentence_vi": "Điểm bài kiểm tra thấp là điều đương nhiên."
+      }
+    ]
+  },
+  {
+    "kanji": "ほとんど",
+    "reading_hiragana": "ほとんど",
+    "reading_romaji": "hotondo",
+    "meaning_vi": "hầu như, gần như",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "HAU NHU",
+    "explanation": "Diễn tả mức độ gần như hoàn toàn.",
+    "examples": [
+      {
+        "sentence_jp": "明日の準備はほとんどできた。",
+        "sentence_hira": "あしたのじゅんびはほとんどできた。",
+        "sentence_romaji": "ashita no junbi wa hotondo dekita.",
+        "sentence_vi": "Việc chuẩn bị cho ngày mai hầu như đã xong."
+      }
+    ]
+  },
+  {
+    "kanji": "大体",
+    "reading_hiragana": "だいたい",
+    "reading_romaji": "daitai",
+    "meaning_vi": "đại khái, hầu hết",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "DAI THE",
+    "explanation": "Diễn tả mức độ chung chung, không chi tiết.",
+    "examples": [
+      {
+        "sentence_jp": "大体のテストはだいたいできた。",
+        "sentence_hira": "だいたいのてすとはだいたいできた。",
+        "sentence_romaji": "daitai no tesuto wa daitai dekita.",
+        "sentence_vi": "Bài kiểm tra hôm nay đại khái là làm được."
+      }
+    ]
+  },
+  {
+    "kanji": "かなり",
+    "reading_hiragana": "かなり",
+    "reading_romaji": "kanari",
+    "meaning_vi": "khá, tương đối",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "KHA",
+    "explanation": "Mức độ cao hơn trung bình, đáng kể.",
+    "examples": [
+      {
+        "sentence_jp": "今週はかなり忙しい。",
+        "sentence_hira": "こんしゅうはかなりいそがしい。",
+        "sentence_romaji": "konshuu wa kanari isogashii.",
+        "sentence_vi": "Tuần này tôi khá bận."
+      }
+    ]
+  },
+  {
+    "kanji": "ずいぶん",
+    "reading_hiragana": "ずいぶん",
+    "reading_romaji": "zuibun",
+    "meaning_vi": "khá, đáng kể",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TUNG PHAN",
+    "explanation": "Chỉ sự chênh lệch hay thay đổi nhiều hơn dự đoán.",
+    "examples": [
+      {
+        "sentence_jp": "今日はずいぶん寒い。",
+        "sentence_hira": "きょうはずいぶんさむい。",
+        "sentence_romaji": "kyou wa zuibun samui.",
+        "sentence_vi": "Hôm nay lạnh đáng kể."
+      }
+    ]
+  },
+  {
+    "kanji": "非常に",
+    "reading_hiragana": "ひじょうに",
+    "reading_romaji": "hijouni",
+    "meaning_vi": "vô cùng, cực kỳ",
+    "jlpt_level": "N3",
+    "level": 2,
+    "han_viet": "PHI THUONG",
+    "explanation": "Mức độ cực kỳ mạnh, cao hơn bình thường nhiều.",
+    "examples": [
+      {
+        "sentence_jp": "この薬は非常に危険です。",
+        "sentence_hira": "このくすりはひじょうにきけんです。",
+        "sentence_romaji": "kono kusuri wa hijouni kiken desu.",
+        "sentence_vi": "Loại thuốc này cực kỳ nguy hiểm."
+      }
+    ]
+  },
+    {
+    "kanji": "大変",
+    "reading_hiragana": "たいへん",
+    "reading_romaji": "taihen",
+    "meaning_vi": "vô cùng, rất",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "ĐẠI BIẾN",
+    "explanation": "Diễn tả mức độ rất lớn, thường dùng cho tình huống khó khăn hoặc cực độ.",
+    "examples": [
+      {
+        "sentence_jp": "今日の渋滞は大変だった。",
+        "sentence_hira": "きょうのじゅうたいはたいへんだった。",
+        "sentence_romaji": "kyou no juutai wa taihen datta.",
+        "sentence_vi": "Vào giờ này đường tắc vô cùng."
+      }
+    ]
+  },
+  {
+    "kanji": "もっと",
+    "reading_hiragana": "もっと",
+    "reading_romaji": "motto",
+    "meaning_vi": "hơn, thêm nữa",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "HƠN NỮA",
+    "explanation": "Chỉ mức độ tăng thêm so với hiện tại.",
+    "examples": [
+      {
+        "sentence_jp": "今より、もっと努力しなければならない。",
+        "sentence_hira": "いまより、もっとどりょくしなければならない。",
+        "sentence_romaji": "ima yori, motto doryoku shinakereba naranai.",
+        "sentence_vi": "Phải nỗ lực hơn so với hiện tại."
+      }
+    ]
+  },
+  {
+    "kanji": "すっかり",
+    "reading_hiragana": "すっかり",
+    "reading_romaji": "sukkari",
+    "meaning_vi": "toàn bộ, hoàn toàn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TOÀN BỘ",
+    "explanation": "Diễn tả sự thay đổi hoàn toàn hoặc mức độ hoàn chỉnh.",
+    "examples": [
+      {
+        "sentence_jp": "この雨ですっかりぬれてしまった。",
+        "sentence_hira": "このあめですっかりぬれてしまった。",
+        "sentence_romaji": "kono ame de sukkari nurete shimatta.",
+        "sentence_vi": "Trời mưa làm tôi ướt hoàn toàn."
+      }
+    ]
+  },
+  {
+    "kanji": "いっぱい",
+    "reading_hiragana": "いっぱい",
+    "reading_romaji": "ippai",
+    "meaning_vi": "đầy",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "ĐẦY",
+    "explanation": "Diễn tả trạng thái đầy, kín không còn chỗ trống.",
+    "examples": [
+      {
+        "sentence_jp": "部屋は荷物でいっぱいだ。",
+        "sentence_hira": "へやはにもつでいっぱいだ。",
+        "sentence_romaji": "heya wa nimotsu de ippai da.",
+        "sentence_vi": "Phòng của tôi đầy đồ đạc."
+      }
+    ]
+  },
+  {
+    "kanji": "けっこう",
+    "reading_hiragana": "けっこう",
+    "reading_romaji": "kekkou",
+    "meaning_vi": "khá, tương đối",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "KHÁ",
+    "explanation": "Mức độ khá hơn dự kiến, thường mang sắc thái tích cực.",
+    "examples": [
+      {
+        "sentence_jp": "彼はけっこう料理が上手だ。",
+        "sentence_hira": "かれはけっこうりょうりがじょうずだ。",
+        "sentence_romaji": "kare wa kekkou ryouri ga jouzu da.",
+        "sentence_vi": "Anh ấy nấu ăn khá giỏi."
+      }
+    ]
+  },
+  {
+    "kanji": "だいぶ",
+    "reading_hiragana": "だいぶ",
+    "reading_romaji": "daibu",
+    "meaning_vi": "nhiều, rất",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "ĐẠI PHẦN",
+    "explanation": "Diễn tả sự thay đổi lớn hoặc tiến triển đáng kể.",
+    "examples": [
+      {
+        "sentence_jp": "病気がだいぶよくなった。",
+        "sentence_hira": "びょうきがだいぶよくなった。",
+        "sentence_romaji": "byouki ga daibu yokunatta.",
+        "sentence_vi": "Bệnh của tôi đã khá hơn nhiều."
+      }
+    ]
+  },
+  {
+    "kanji": "ぴったり",
+    "reading_hiragana": "ぴったり",
+    "reading_romaji": "pittari",
+    "meaning_vi": "vừa vặn, đúng",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "KHÍT",
+    "explanation": "Vừa khít, hoàn toàn phù hợp.",
+    "examples": [
+      {
+        "sentence_jp": "この服は私にぴったりだ。",
+        "sentence_hira": "このふくはわたしにぴったりだ。",
+        "sentence_romaji": "kono fuku wa watashi ni pittari da.",
+        "sentence_vi": "Bộ quần áo này vừa vặn với tôi."
+      }
+    ]
+  },
+  {
+    "kanji": "たいてい",
+    "reading_hiragana": "たいてい",
+    "reading_romaji": "taitei",
+    "meaning_vi": "hầu như, thường",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "ĐẠI ĐỂ",
+    "explanation": "Diễn tả tần suất xảy ra ở mức nhiều hoặc phổ biến.",
+    "examples": [
+      {
+        "sentence_jp": "たいてい家で過ごす。",
+        "sentence_hira": "たいていいえですごす。",
+        "sentence_romaji": "taitei ie de sugosu.",
+        "sentence_vi": "Hầu như tôi dành thời gian ở nhà."
+      }
+    ]
+  },
+    {
+    "kanji": "突然",
+    "reading_hiragana": "とつぜん",
+    "reading_romaji": "totsuzen",
+    "meaning_vi": "đột nhiên, đường đột",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "ĐỘT NHIÊN",
+    "explanation": "Diễn tả một sự việc xảy ra bất ngờ, không báo trước.",
+    "examples": [
+      {
+        "sentence_jp": "友達が突然家に来た。",
+        "sentence_hira": "ともだちがとつぜんいえにきた。",
+        "sentence_romaji": "tomodachi ga totsuzen ie ni kita.",
+        "sentence_vi": "Đột nhiên cậu bạn tới nhà."
+      }
+    ]
+  },
+  {
+    "kanji": "同時に",
+    "reading_hiragana": "どうじに",
+    "reading_romaji": "doujini",
+    "meaning_vi": "ngay khi, cùng lúc",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "ĐỒNG THỜI",
+    "explanation": "Hai sự việc xảy ra đồng thời hoặc ngay lập tức sau một mốc.",
+    "examples": [
+      {
+        "sentence_jp": "あのゲームは発売と同時に売り切れた。",
+        "sentence_hira": "あのげーむははつばいとどうじにうりきれた。",
+        "sentence_romaji": "ano geemu wa hatsubai to doujini urikireta.",
+        "sentence_vi": "Trò chơi này đã lập tức cháy hàng ngay khi vừa được bán ra."
+      }
+    ]
+  },
+  {
+    "kanji": "前もって",
+    "reading_hiragana": "まえもって",
+    "reading_romaji": "maemotte",
+    "meaning_vi": "trước khi",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TIỀN",
+    "explanation": "Chuẩn bị trước để không bị động.",
+    "examples": [
+      {
+        "sentence_jp": "水を汲む前もって準備をしてください。",
+        "sentence_hira": "みずをくむまえもってじゅんびをしてください。",
+        "sentence_romaji": "mizu o kumu maemotte junbi o shite kudasai.",
+        "sentence_vi": "Hãy chuẩn bị trước khi lấy nước."
+      }
+    ]
+  },
+  {
+    "kanji": "すぐに",
+    "reading_hiragana": "すぐに",
+    "reading_romaji": "sugu ni",
+    "meaning_vi": "ngay lập tức",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "LẬP TỨC",
+    "explanation": "Hành động xảy ra ngay tức khắc, không trì hoãn.",
+    "examples": [
+      {
+        "sentence_jp": "すぐにケーキを持ってきてください。",
+        "sentence_hira": "すぐにけーきをもってきてください。",
+        "sentence_romaji": "sugu ni keeki o motte kite kudasai.",
+        "sentence_vi": "Hãy mang bánh tới ngay lập tức."
+      }
+    ]
+  },
+  {
+    "kanji": "もうすぐ",
+    "reading_hiragana": "もうすぐ",
+    "reading_romaji": "mousugu",
+    "meaning_vi": "sắp",
+    "jlpt_level": "N5",
+    "level": 1,
+    "han_viet": "SẮP",
+    "explanation": "Diễn tả thời điểm gần kề.",
+    "examples": [
+      {
+        "sentence_jp": "もうすぐ子どもの誕生日です。",
+        "sentence_hira": "もうすぐこどものたんじょうびです。",
+        "sentence_romaji": "mousugu kodomo no tanjoubi desu.",
+        "sentence_vi": "Sinh nhật của con sắp tới rồi."
+      }
+    ]
+  },
+  {
+    "kanji": "ずっと",
+    "reading_hiragana": "ずっと",
+    "reading_romaji": "zutto",
+    "meaning_vi": "suốt, nhiều",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "MÃI",
+    "explanation": "Diễn tả hành động kéo dài liên tục.",
+    "examples": [
+      {
+        "sentence_jp": "昨日はずっと勉強していた。",
+        "sentence_hira": "きのうはずっとべんきょうしていた。",
+        "sentence_romaji": "kinou wa zutto benkyou shite ita.",
+        "sentence_vi": "Hôm qua tôi đã học suốt."
+      }
+    ]
+  },
+  {
+    "kanji": "相変わらず",
+    "reading_hiragana": "あいかわらず",
+    "reading_romaji": "aikawarazu",
+    "meaning_vi": "như mọi khi, vẫn vậy",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TƯƠNG BIẾN",
+    "explanation": "Một trạng thái không thay đổi theo thời gian.",
+    "examples": [
+      {
+        "sentence_jp": "彼女は相変わらずきれいだ。",
+        "sentence_hira": "かのじょはあいかわらずきれいだ。",
+        "sentence_romaji": "kanojo wa aikawarazu kirei da.",
+        "sentence_vi": "Cô ấy vẫn đẹp như mọi khi."
+      }
+    ]
+  },
+  {
+    "kanji": "次々に",
+    "reading_hiragana": "つぎつぎに",
+    "reading_romaji": "tsugitsugini",
+    "meaning_vi": "lần lượt, liên tiếp",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THỨ THỨ",
+    "explanation": "Sự việc xảy ra nối tiếp nhau không ngừng.",
+    "examples": [
+      {
+        "sentence_jp": "友達が次々に結婚していく。",
+        "sentence_hira": "ともだちがつぎつぎにけっこんしていく。",
+        "sentence_romaji": "tomodachi ga tsugitsugini kekkon shite iku.",
+        "sentence_vi": "Bạn bè tôi lần lượt kết hôn."
+      }
+    ]
+  },
+   {
+    "kanji": "やはり",
+    "reading_hiragana": "やはり",
+    "reading_romaji": "yahari",
+    "meaning_vi": "quả nhiên, đúng là",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "NHƯ DỰ ĐOÁN",
+    "explanation": "Dùng khi kết quả đúng như dự đoán hoặc cảm giác ban đầu.",
+    "examples": [
+      {
+        "sentence_jp": "やはりあの人が持っていった。",
+        "sentence_hira": "やはりあのひとがもっていった。",
+        "sentence_romaji": "yahari ano hito ga motte itta.",
+        "sentence_vi": "Quả nhiên là người đó đã cầm."
+      }
+    ]
+  },
+  {
+    "kanji": "きっと",
+    "reading_hiragana": "きっと",
+    "reading_romaji": "kitto",
+    "meaning_vi": "nhất định, chắc chắn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TẤT",
+    "explanation": "Biểu thị sự chắc chắn cao dựa trên cảm giác hoặc suy đoán.",
+    "examples": [
+      {
+        "sentence_jp": "きっと今日中に返します。",
+        "sentence_hira": "きっときょうじゅうにかえします。",
+        "sentence_romaji": "kitto kyoujuu ni kaeshimasu.",
+        "sentence_vi": "Chắc chắn trong hôm nay sẽ trả lại."
+      }
+    ]
+  },
+  {
+    "kanji": "ぜひ",
+    "reading_hiragana": "ぜひ",
+    "reading_romaji": "zehi",
+    "meaning_vi": "nhất định",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THỊ PHI",
+    "explanation": "Thể hiện mong muốn mạnh mẽ, khuyến khích ai đó làm gì.",
+    "examples": [
+      {
+        "sentence_jp": "ぜひ、旅行に行きましょう。",
+        "sentence_hira": "ぜひ、りょこうにいきましょう。",
+        "sentence_romaji": "zehi, ryokou ni ikimashou.",
+        "sentence_vi": "Nhất định đi du lịch nhé."
+      }
+    ]
+  },
+  {
+    "kanji": "なるべく",
+    "reading_hiragana": "なるべく",
+    "reading_romaji": "narubeku",
+    "meaning_vi": "cố gắng, nếu có thể",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "NÊ PHÁC",
+    "explanation": "Cố gắng làm điều gì đó trong phạm vi có thể.",
+    "examples": [
+      {
+        "sentence_jp": "なるべく早く来てください。",
+        "sentence_hira": "なるべくはやくきてください。",
+        "sentence_romaji": "narubeku hayaku kite kudasai.",
+        "sentence_vi": "Cố gắng đến sớm nhất có thể."
+      }
+    ]
+  },
+  {
+    "kanji": "うっかり",
+    "reading_hiragana": "うっかり",
+    "reading_romaji": "ukkari",
+    "meaning_vi": "lơ đễnh, không để ý",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "LƠ ĐỄNH",
+    "explanation": "Vô tình làm gì đó vì bất cẩn.",
+    "examples": [
+      {
+        "sentence_jp": "うっかりして携帯を忘れてしまった。",
+        "sentence_hira": "うっかりしてけいたいをわすれてしまった。",
+        "sentence_romaji": "ukkari shite keitai o wasurete shimatta.",
+        "sentence_vi": "Lơ đễnh nên quên điện thoại mất rồi."
+      }
+    ]
+  },
+  {
+    "kanji": "つい",
+    "reading_hiragana": "つい",
+    "reading_romaji": "tsui",
+    "meaning_vi": "vô ý, lỡ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "LỠ",
+    "explanation": "Hành động xảy ra không chủ ý.",
+    "examples": [
+      {
+        "sentence_jp": "つい甘い物を食べてしまう。",
+        "sentence_hira": "ついあまいものをたべてしまう。",
+        "sentence_romaji": "tsui amaimono o tabete shimau.",
+        "sentence_vi": "Tôi lỡ ăn đồ ngọt."
+      }
+    ]
+  },
+  {
+    "kanji": "思わず",
+    "reading_hiragana": "おもわず",
+    "reading_romaji": "omowazu",
+    "meaning_vi": "không ngờ, bất giác",
+    "jlpt_level": "N2",
+    "level": 1,
+    "han_viet": "TƯ",
+    "explanation": "Một phản ứng vô thức, không chủ ý.",
+    "examples": [
+      {
+        "sentence_jp": "思わず笑ってしまった。",
+        "sentence_hira": "おもわずわらってしまった。",
+        "sentence_romaji": "omowazu waratte shimatta.",
+        "sentence_vi": "Tôi bất giác cười."
+      }
+    ]
+  },
+  {
+    "kanji": "案外",
+    "reading_hiragana": "あんがい",
+    "reading_romaji": "angai",
+    "meaning_vi": "không ngờ, bất ngờ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "ÁN NGOẠI",
+    "explanation": "Kết quả khác với dự đoán ban đầu.",
+    "examples": [
+      {
+        "sentence_jp": "案外早く終わりました。",
+        "sentence_hira": "あんがいはやくおわりました。",
+        "sentence_romaji": "angai hayaku owarimashita.",
+        "sentence_vi": "Bất ngờ là tôi xong sớm hơn dự định."
+      }
+    ]
+  },
+  {
+    "kanji": "もしかすると",
+    "reading_hiragana": "もしかすると",
+    "reading_romaji": "moshikasuruto",
+    "meaning_vi": "có lẽ, không chừng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "GIẢ SỬ",
+    "explanation": "Dùng để nêu khả năng không chắc chắn.",
+    "examples": [
+      {
+        "sentence_jp": "もしかすると、山田さんは病気かもしれない。",
+        "sentence_hira": "もしかすると、やまださんはびょうきかもしれない。",
+        "sentence_romaji": "moshikasuruto, Yamada san wa byouki kamo shirenai.",
+        "sentence_vi": "Có lẽ anh Yamada bị bệnh."
+      }
+    ]
+  },
+  {
+    "kanji": "まさか",
+    "reading_hiragana": "まさか",
+    "reading_romaji": "masaka",
+    "meaning_vi": "không thể ngờ, chẳng có lẽ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "KHÔNG THỂ NGỜ",
+    "explanation": "Diễn tả sự ngạc nhiên mạnh khi điều gì đó xảy ra trái với suy nghĩ.",
+    "examples": [
+      {
+        "sentence_jp": "まさか彼が犯人だとは思わなかった。",
+        "sentence_hira": "まさかかれがはんにんだとはおもわなかった。",
+        "sentence_romaji": "masaka kare ga hannin da to wa omowanakatta.",
+        "sentence_vi": "Không thể tin được! Tôi không nghĩ anh ta là thủ phạm."
+      }
+    ]
+  },
+  {
+    "kanji": "どんどん",
+    "reading_hiragana": "どんどん",
+    "reading_romaji": "dondon",
+    "meaning_vi": "dần dần",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "DẦN DẦN",
+    "explanation": "Diễn tả sự tiến triển nhanh chóng theo chiều hướng tăng hoặc giảm.",
+    "examples": [
+      {
+        "sentence_jp": "体の調子がどんどんよくなった。",
+        "sentence_hira": "からだのちょうしがどんどんよくなった。",
+        "sentence_romaji": "karada no choushi ga dondon yoku natta.",
+        "sentence_vi": "Tình trạng sức khỏe dần dần trở nên khá hơn."
+      }
+    ]
+  },
+  {
+    "kanji": "ますます",
+    "reading_hiragana": "ますます",
+    "reading_romaji": "masumasu",
+    "meaning_vi": "càng ngày càng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "MÃ TĂNG",
+    "explanation": "Diễn tả sự phát triển hoặc thay đổi theo hướng tăng dần theo thời gian.",
+    "examples": [
+      {
+        "sentence_jp": "物価がますます上がってきた。",
+        "sentence_hira": "ぶっかがますますあがってきた。",
+        "sentence_romaji": "bukka ga masumasu agatte kita.",
+        "sentence_vi": "Giá cả càng ngày càng tăng."
+      }
+    ]
+  },
+  {
+    "kanji": "やっと",
+    "reading_hiragana": "やっと",
+    "reading_romaji": "yatto",
+    "meaning_vi": "cuối cùng",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "CUỐI CÙNG",
+    "explanation": "Diễn tả cảm giác đạt được điều gì đó sau thời gian dài khó khăn.",
+    "examples": [
+      {
+        "sentence_jp": "やっと試験に合格できた。",
+        "sentence_hira": "やっとしけんにごうかくできた。",
+        "sentence_romaji": "yatto shiken ni goukaku dekita.",
+        "sentence_vi": "Cuối cùng thì cũng đỗ kỳ thi."
+      }
+    ]
+  },
+  {
+    "kanji": "とうとう",
+    "reading_hiragana": "とうとう",
+    "reading_romaji": "toutou",
+    "meaning_vi": "sau cùng, cuối cùng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "CHUNG CỤC",
+    "explanation": "Diễn tả kết quả cuối cùng sau thời gian dài chờ đợi hoặc nhiều diễn biến.",
+    "examples": [
+      {
+        "sentence_jp": "１年かけてとうとう家が完成した。",
+        "sentence_hira": "いちねんかけてとうとういえがかんせいした。",
+        "sentence_romaji": "ichinen kakete toutou ie ga kansei shita.",
+        "sentence_vi": "Mất 1 năm, cuối cùng thì căn nhà đã hoàn thành."
+      }
+    ]
+  },
+  {
+    "kanji": "ついに",
+    "reading_hiragana": "ついに",
+    "reading_romaji": "tsuini",
+    "meaning_vi": "cuối cùng, sau tất cả",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "CHUNG",
+    "explanation": "Nhấn mạnh khoảnh khắc kết thúc sau quá trình dài.",
+    "examples": [
+      {
+        "sentence_jp": "ついにテストが終わった。",
+        "sentence_hira": "ついにてすとがおわった。",
+        "sentence_romaji": "tsuini tesuto ga owatta.",
+        "sentence_vi": "Cuối cùng thì bài kiểm tra cũng đã xong."
+      }
+    ]
+  },
+  {
+    "kanji": "ほっと",
+    "reading_hiragana": "ほっと",
+    "reading_romaji": "hotto",
+    "meaning_vi": "thở phào, nhẹ nhõm",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "NHẸ NHÕM",
+    "explanation": "Biểu thị cảm giác nhẹ nhàng sau khi lo lắng.",
+    "examples": [
+      {
+        "sentence_jp": "上司に間に合って、ほっとした。",
+        "sentence_hira": "じょうしにまにあって、ほっとした。",
+        "sentence_romaji": "joushi ni mania tte, hotto shita.",
+        "sentence_vi": "Kịp giờ với sếp nên tôi thở phào nhẹ nhõm."
+      }
+    ]
+  },
+  {
+    "kanji": "のんびり",
+    "reading_hiragana": "のんびり",
+    "reading_romaji": "nonbiri",
+    "meaning_vi": "thong thả",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "THONG THẢ",
+    "explanation": "Không vội vàng, thư giãn và thoải mái.",
+    "examples": [
+      {
+        "sentence_jp": "休日はのんびり過ごす。",
+        "sentence_hira": "きゅうじつはのんびりすごす。",
+        "sentence_romaji": "kyuujitsu wa nonbiri sugosu.",
+        "sentence_vi": "Ngày nghỉ tôi dành thời gian thong thả ở nhà."
+      }
+    ]
+  },
+  {
+    "kanji": "実は",
+    "reading_hiragana": "じつは",
+    "reading_romaji": "jitsuwa",
+    "meaning_vi": "thực ra, thực tế là",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "THỰC",
+    "explanation": "Dùng khi muốn tiết lộ sự thật khác với bề ngoài.",
+    "examples": [
+      {
+        "sentence_jp": "実は、それは本当なんです。",
+        "sentence_hira": "じつは、それはほんとうなんです。",
+        "sentence_romaji": "jitsuwa, sore wa hontou nan desu.",
+        "sentence_vi": "Thực ra câu chuyện đó là thật."
+      }
+    ]
+  },
+   {
+    "kanji": "あっという間に",
+    "reading_hiragana": "あっというまに",
+    "reading_romaji": "attoiu mani",
+    "meaning_vi": "loáng một cái, chớp mắt",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "KHOẢNH KHẮC",
+    "explanation": "Diễn tả thời gian trôi qua rất nhanh, gần như không nhận ra.",
+    "examples": [
+      {
+        "sentence_jp": "友達と過ごす時間はあっという間に過ぎる。",
+        "sentence_hira": "ともだちとすごすじかんはあっというまにすぎる。",
+        "sentence_romaji": "tomodachi to sugosu jikan wa attoiu mani sugiru.",
+        "sentence_vi": "Thời gian chơi với bạn bè trôi qua trong chớp mắt."
+      }
+    ]
+  },
+  {
+    "kanji": "いつの間にか",
+    "reading_hiragana": "いつのまにか",
+    "reading_romaji": "itsunomanika",
+    "meaning_vi": "lúc nào không biết",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "KHI NÀO KHÔNG HAY",
+    "explanation": "Diễn tả sự việc xảy ra mà bản thân không nhận ra thời điểm.",
+    "examples": [
+      {
+        "sentence_jp": "いつの間にか雨が止んでいた。",
+        "sentence_hira": "いつのまにかあめがやんでいた。",
+        "sentence_romaji": "itsunomanika ame ga yande ita.",
+        "sentence_vi": "Trời tạnh lúc nào tôi không hay."
+      }
+    ]
+  },
+  {
+    "kanji": "しばらく",
+    "reading_hiragana": "しばらく",
+    "reading_romaji": "shibaraku",
+    "meaning_vi": "chốc lát, một thời gian",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "MỘT LÚC",
+    "explanation": "Khoảng thời gian ngắn hoặc tương đối dài tùy ngữ cảnh.",
+    "examples": [
+      {
+        "sentence_jp": "しばらくしてから友達が来た。",
+        "sentence_hira": "しばらくしてからともだちがきた。",
+        "sentence_romaji": "shibaraku shite kara tomodachi ga kita.",
+        "sentence_vi": "Một lúc sau bạn tôi mới tới."
+      }
+    ]
+  }
+
+]

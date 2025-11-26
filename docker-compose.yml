@@ -50,7 +50,7 @@ services:
     depends_on:
       - nginx-api
     ports:
-      - "3000:80"   # Frontend: http://localhost:3000
+      - "3005:80"   # Frontend: http://localhost:3000
     networks:
       - webnet
     # không bắt buộc, giữ lại cho tiện dev gọi host

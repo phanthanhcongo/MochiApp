@@ -1,0 +1,1424 @@
+[
+  {
+    "kanji": "別れ",
+    "reading_hiragana": "わかれ",
+    "reading_romaji": "wakare",
+    "meaning_vi": "chia tay, ly biệt",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "BIỆT",
+    "explanation": "Sự chia xa giữa con người; dùng trong hoàn cảnh chia tay, tạm biệt.",
+    "examples": [
+      {
+        "sentence_jp": "彼との別れは本当に悲しかったです。",
+        "sentence_hira": "かれとのわかれはほんとうにかなしかったです。",
+        "sentence_romaji": "Kare to no wakare wa hontou ni kanashikatta desu.",
+        "sentence_vi": "Cuộc chia tay với anh ấy thật sự rất buồn."
+      }
+    ]
+  },
+  {
+    "kanji": "喜び",
+    "reading_hiragana": "よろこび",
+    "reading_romaji": "yorokobi",
+    "meaning_vi": "niềm vui, sự hân hoan",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "HỈ",
+    "explanation": "Cảm giác vui mừng khi đạt được điều mong muốn hoặc nhận tin tốt.",
+    "examples": [
+      {
+        "sentence_jp": "合格の知らせを聞いて大きな喜びを感じました。",
+        "sentence_hira": "ごうかくのしらせをきいておおきなよろこびをかんじました。",
+        "sentence_romaji": "Goukaku no shirase o kiite ookina yorokobi o kanjimashita.",
+        "sentence_vi": "Tôi cảm thấy niềm vui lớn khi nghe tin đỗ."
+      }
+    ]
+  },
+  {
+    "kanji": "楽しみ",
+    "reading_hiragana": "たのしみ",
+    "reading_romaji": "tanoshimi",
+    "meaning_vi": "niềm vui, mong đợi",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "LẠC",
+    "explanation": "Điều khiến bản thân cảm thấy hứng thú, vui vẻ hoặc mong chờ.",
+    "examples": [
+      {
+        "sentence_jp": "旅行の計画を立てるのが一番の楽しみです。",
+        "sentence_hira": "りょこうのけいかくをたてるのがいちばんのたのしみです。",
+        "sentence_romaji": "Ryokou no keikaku o tateru no ga ichiban no tanoshimi desu.",
+        "sentence_vi": "Việc lên kế hoạch cho chuyến du lịch là niềm vui lớn nhất của tôi."
+      }
+    ]
+  },
+  {
+    "kanji": "笑い",
+    "reading_hiragana": "わらい",
+    "reading_romaji": "warai",
+    "meaning_vi": "tiếng cười, nụ cười",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "TIẾU",
+    "explanation": "Cảm xúc vui vẻ biểu hiện qua hành động cười hoặc giọng cười.",
+    "examples": [
+      {
+        "sentence_jp": "友だちの冗談で大きな笑いが起きました。",
+        "sentence_hira": "ともだちのじょうだんでおおきなわらいがおきました。",
+        "sentence_romaji": "Tomodachi no joudan de ookina warai ga okimashita.",
+        "sentence_vi": "Cả nhóm bật cười lớn vì trò đùa của bạn tôi."
+      }
+    ]
+  },
+  {
+    "kanji": "驚き",
+    "reading_hiragana": "おどろき",
+    "reading_romaji": "odoroki",
+    "meaning_vi": "sự ngạc nhiên, bất ngờ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "KINH",
+    "explanation": "Phản ứng khi gặp điều không ngờ tới hoặc gây ấn tượng mạnh.",
+    "examples": [
+      {
+        "sentence_jp": "彼の上達の速さに驚きました。",
+        "sentence_hira": "かれのじょうたつのはやさにおどろきました。",
+        "sentence_romaji": "Kare no joutatsu no hayasa ni odorokimashita.",
+        "sentence_vi": "Tôi ngạc nhiên trước tốc độ tiến bộ của anh ấy."
+      }
+    ]
+  },
+  {
+    "kanji": "怒り",
+    "reading_hiragana": "いかり",
+    "reading_romaji": "ikari",
+    "meaning_vi": "sự tức giận",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "NỘ",
+    "explanation": "Cảm xúc mạnh mẽ khi không hài lòng hoặc bị xúc phạm.",
+    "examples": [
+      {
+        "sentence_jp": "彼の失礼な態度に怒りを感じました。",
+        "sentence_hira": "かれのしつれいなたいどにいかりをかんじました。",
+        "sentence_romaji": "Kare no shitsurei na taido ni ikari o kanjimashita.",
+        "sentence_vi": "Tôi cảm thấy tức giận vì thái độ thô lỗ của anh ta."
+      }
+    ]
+  },
+  {
+    "kanji": "悲しみ",
+    "reading_hiragana": "かなしみ",
+    "reading_romaji": "kanashimi",
+    "meaning_vi": "nỗi buồn, đau khổ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "BI",
+    "explanation": "Cảm xúc đau buồn, mất mát hoặc thất vọng trong lòng.",
+    "examples": [
+      {
+        "sentence_jp": "悲しみを乗り越えて、前に進もうと決めました。",
+        "sentence_hira": "かなしみをのりこえて、まえにすすもうときめました。",
+        "sentence_romaji": "Kanashimi o norikoete, mae ni susumou to kimemashita.",
+        "sentence_vi": "Tôi quyết định vượt qua nỗi buồn và bước tiếp về phía trước."
+      }
+    ]
+  },
+    {
+    "kanji": "飾り",
+    "reading_hiragana": "かざり",
+    "reading_romaji": "kazari",
+    "meaning_vi": "đồ trang trí",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "SỨC",
+    "explanation": "Vật dùng để trang trí, làm đẹp cho không gian hoặc sự kiện.",
+    "examples": [
+      {
+        "sentence_jp": "秋のパーティーの飾りを買う。",
+        "sentence_hira": "あきのぱーてぃーのかざりをかう。",
+        "sentence_romaji": "Aki no paatii no kazari o kau.",
+        "sentence_vi": "Mua đồ trang trí cho tiệc đêm mùa thu."
+      }
+    ]
+  },
+  {
+    "kanji": "遊び",
+    "reading_hiragana": "あそび",
+    "reading_romaji": "asobi",
+    "meaning_vi": "trò chơi, đi chơi",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "DU",
+    "explanation": "Hoạt động vui chơi, giải trí để thư giãn.",
+    "examples": [
+      {
+        "sentence_jp": "クラスのみんなを遊びに誘う。",
+        "sentence_hira": "くらすのみんなをあそびにさそう。",
+        "sentence_romaji": "Kurasu no minna o asobi ni sasou.",
+        "sentence_vi": "Rủ các bạn trong lớp đi chơi."
+      }
+    ]
+  },
+  {
+    "kanji": "集まり",
+    "reading_hiragana": "あつまり",
+    "reading_romaji": "atsumari",
+    "meaning_vi": "cuộc tụ họp, tập trung",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TẬP",
+    "explanation": "Sự kiện có nhiều người tập trung lại một nơi.",
+    "examples": [
+      {
+        "sentence_jp": "今日の午後、町内の集まりがある。",
+        "sentence_hira": "きょうのごご、ちょうないのあつまりがある。",
+        "sentence_romaji": "Kyou no gogo, chounai no atsumari ga aru.",
+        "sentence_vi": "Chiều nay có buổi tập trung trong khu phố."
+      }
+    ]
+  },
+  {
+    "kanji": "教え",
+    "reading_hiragana": "おしえ",
+    "reading_romaji": "oshie",
+    "meaning_vi": "lời dạy, giáo huấn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "GIÁO",
+    "explanation": "Điều được dạy bảo, chỉ dẫn, thường mang ý nghĩa đạo đức hoặc kinh nghiệm sống.",
+    "examples": [
+      {
+        "sentence_jp": "祖母の教えは今でも役に立っている。",
+        "sentence_hira": "そぼのおしえはいまでもやくにたっている。",
+        "sentence_romaji": "Sobo no oshie wa ima demo yaku ni tatteiru.",
+        "sentence_vi": "Lời dạy của bà cho tới bây giờ vẫn còn hữu ích."
+      }
+    ]
+  },
+  {
+    "kanji": "踊り",
+    "reading_hiragana": "おどり",
+    "reading_romaji": "odori",
+    "meaning_vi": "điệu nhảy, múa",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "DŨNG",
+    "explanation": "Hành động nhảy múa theo nhạc hoặc truyền thống.",
+    "examples": [
+      {
+        "sentence_jp": "日本の踊りを教えてもらう。",
+        "sentence_hira": "にほんのおどりをおしえてもらう。",
+        "sentence_romaji": "Nihon no odori o oshiete morau.",
+        "sentence_vi": "Được dạy điệu nhảy Nhật Bản."
+      }
+    ]
+  },
+  {
+    "kanji": "思い",
+    "reading_hiragana": "おもい",
+    "reading_romaji": "omoi",
+    "meaning_vi": "cảm xúc, suy nghĩ, tấm lòng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TƯ",
+    "explanation": "Cảm xúc hoặc ý nghĩ sâu sắc trong lòng đối với ai đó hoặc điều gì đó.",
+    "examples": [
+      {
+        "sentence_jp": "母に感謝の思いを伝える。",
+        "sentence_hira": "ははにかんしゃのおもいをつたえる。",
+        "sentence_romaji": "Haha ni kansha no omoi o tsutaeru.",
+        "sentence_vi": "Bày tỏ lòng biết ơn tới mẹ."
+      }
+    ]
+  },
+  {
+    "kanji": "知らせ",
+    "reading_hiragana": "しらせ",
+    "reading_romaji": "shirase",
+    "meaning_vi": "thông báo, tin tức",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TRI",
+    "explanation": "Tin tức hoặc thông báo gửi đến ai đó.",
+    "examples": [
+      {
+        "sentence_jp": "友人から結婚の知らせが届いた。",
+        "sentence_hira": "ゆうじんからけっこんのしらせがとどいた。",
+        "sentence_romaji": "Yuuji n kara kekkon no shirase ga todoita.",
+        "sentence_vi": "Nhận được thông báo kết hôn từ một người bạn."
+      }
+    ]
+  },
+  {
+    "kanji": "違い",
+    "reading_hiragana": "ちがい",
+    "reading_romaji": "chigai",
+    "meaning_vi": "sự khác biệt",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "VI",
+    "explanation": "Điểm không giống nhau giữa hai hay nhiều sự vật, hiện tượng.",
+    "examples": [
+      {
+        "sentence_jp": "学生に似ているが、交通費の違いを説明する。",
+        "sentence_hira": "がくせいににているが、こうつうひのちがいをせつめいする。",
+        "sentence_romaji": "Gakusei ni niteiru ga, koutsuuhi no chigai o setsumei suru.",
+        "sentence_vi": "Giải thích cho học sinh sự khác nhau của chi phí đi lại."
+      }
+    ]
+  },
+  {
+    "kanji": "片づけ",
+    "reading_hiragana": "かたづけ",
+    "reading_romaji": "katazuke",
+    "meaning_vi": "dọn dẹp, sắp xếp",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "PHIẾN PHÓ",
+    "explanation": "Việc sắp xếp, làm gọn gàng đồ đạc hoặc không gian.",
+    "examples": [
+      {
+        "sentence_jp": "友達が来る前に部屋の片づけをする。",
+        "sentence_hira": "ともだちがくるまえにへやのかたづけをする。",
+        "sentence_romaji": "Tomodachi ga kuru mae ni heya no katazuke o suru.",
+        "sentence_vi": "Dọn phòng trước khi bạn đến."
+      }
+    ]
+  },
+  {
+    "kanji": "働き",
+    "reading_hiragana": "はたらき",
+    "reading_romaji": "hataraki",
+    "meaning_vi": "làm việc, hoạt động",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "ĐỘNG",
+    "explanation": "Hành động lao động, hoặc vai trò, chức năng của sự vật.",
+    "examples": [
+      {
+        "sentence_jp": "父は今地方で働きに出ている。",
+        "sentence_hira": "ちちはいまちほうではたらきにでている。",
+        "sentence_romaji": "Chichi wa ima chihou de hataraki ni deteiru.",
+        "sentence_vi": "Bố tôi đang làm việc tại địa phương."
+      }
+    ]
+  },
+  {
+    "kanji": "決まり",
+    "reading_hiragana": "きまり",
+    "reading_romaji": "kimari",
+    "meaning_vi": "quy định, luật lệ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "QUY",
+    "explanation": "Luật lệ, quy tắc cần phải tuân thủ trong tổ chức hay xã hội.",
+    "examples": [
+      {
+        "sentence_jp": "会社の決まりで残業することができない。",
+        "sentence_hira": "かいしゃのきまりでざんぎょうすることができない。",
+        "sentence_romaji": "Kaisha no kimari de zangyou suru koto ga dekinai.",
+        "sentence_vi": "Theo quy định của công ty thì không thể làm thêm giờ."
+      }
+    ]
+  },
+  {
+    "kanji": "騒ぎ",
+    "reading_hiragana": "さわぎ",
+    "reading_romaji": "sawagi",
+    "meaning_vi": "ồn ào, náo động",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TAO",
+    "explanation": "Tiếng ồn lớn do nhiều người gây ra hoặc tình huống hỗn loạn.",
+    "examples": [
+      {
+        "sentence_jp": "警察が来てやっと騒ぎが収まった。",
+        "sentence_hira": "けいさつがきてやっとさわぎがおさまった。",
+        "sentence_romaji": "Keisatsu ga kite yatto sawagi ga osamatta.",
+        "sentence_vi": "Cuối cùng sự ồn ào cũng được dập tắt khi cảnh sát tới."
+      }
+    ]
+  },
+  {
+    "kanji": "考え",
+    "reading_hiragana": "かんがえ",
+    "reading_romaji": "kangae",
+    "meaning_vi": "ý tưởng, suy nghĩ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "KHẢO",
+    "explanation": "Suy nghĩ, quan điểm hoặc ý tưởng về điều gì đó.",
+    "examples": [
+      {
+        "sentence_jp": "散歩中によくいい考えが浮かぶ。",
+        "sentence_hira": "さんぽちゅうによくいいかんがえがうかぶ。",
+        "sentence_romaji": "Sanpochuu ni yoku ii kangae ga ukabu.",
+        "sentence_vi": "Trong lúc đi dạo, tôi thường nảy ra nhiều ý tưởng hay."
+      }
+    ]
+  },
+  {
+    "kanji": "頼み",
+    "reading_hiragana": "たのみ",
+    "reading_romaji": "tanomi",
+    "meaning_vi": "nhờ vả, yêu cầu",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "LẠI",
+    "explanation": "Việc nhờ người khác giúp đỡ hoặc làm gì đó cho mình.",
+    "examples": [
+      {
+        "sentence_jp": "父が朝私に頼みをしてくれた。",
+        "sentence_hira": "ちちがあさわたしにたのみをしてくれた。",
+        "sentence_romaji": "Chichi ga asa watashi ni tanomi o shite kureta.",
+        "sentence_vi": "Cha nhờ tôi làm giúp việc gì đó vào buổi sáng."
+      }
+    ]
+  },
+  {
+    "kanji": "疲れ",
+    "reading_hiragana": "つかれ",
+    "reading_romaji": "tsukare",
+    "meaning_vi": "mệt mỏi",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "BÌ",
+    "explanation": "Tình trạng cơ thể hoặc tinh thần kiệt sức sau khi làm việc.",
+    "examples": [
+      {
+        "sentence_jp": "最近は寝ても疲れが取れない。",
+        "sentence_hira": "さいきんはねてもつかれがとれない。",
+        "sentence_romaji": "Saikin wa netemo tsukare ga torenai.",
+        "sentence_vi": "Gần đây dù có ngủ cũng không hết mệt."
+      }
+    ]
+  },
+    {
+    "kanji": "手伝い",
+    "reading_hiragana": "てつだい",
+    "reading_romaji": "tetsudai",
+    "meaning_vi": "giúp đỡ, phụ giúp",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "THỦ TRUYỀN",
+    "explanation": "Hành động hỗ trợ hoặc làm việc giúp người khác.",
+    "examples": [
+      {
+        "sentence_jp": "息子はよく家事の手伝いをしてくれる。",
+        "sentence_hira": "むすこはよくかじのてつだいをしてくれる。",
+        "sentence_romaji": "Musuko wa yoku kaji no tetsudai o shite kureru.",
+        "sentence_vi": "Con trai hay giúp tôi làm việc nhà."
+      }
+    ]
+  },
+  {
+    "kanji": "始め",
+    "reading_hiragana": "はじめ",
+    "reading_romaji": "hajime",
+    "meaning_vi": "bắt đầu, khởi đầu",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "THỦY",
+    "explanation": "Thời điểm hoặc phần mở đầu của một việc, sự kiện.",
+    "examples": [
+      {
+        "sentence_jp": "授業の始めに単語テストをする。",
+        "sentence_hira": "じゅぎょうのはじめにたんごてすとをする。",
+        "sentence_romaji": "Jugyou no hajime ni tango tesuto o suru.",
+        "sentence_vi": "Đầu giờ học làm bài kiểm tra từ vựng."
+      }
+    ]
+  },
+  {
+    "kanji": "続き",
+    "reading_hiragana": "つづき",
+    "reading_romaji": "tsudzuki",
+    "meaning_vi": "phần tiếp theo, tiếp diễn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TỤC",
+    "explanation": "Phần còn lại hoặc diễn biến tiếp theo của sự việc.",
+    "examples": [
+      {
+        "sentence_jp": "ドラマの続きが気になる。",
+        "sentence_hira": "どらまのつづきがきになる。",
+        "sentence_romaji": "Dorama no tsudzuki ga ki ni naru.",
+        "sentence_vi": "Tôi tò mò về những diễn biến tiếp theo của bộ phim."
+      }
+    ]
+  },
+  {
+    "kanji": "暮れ",
+    "reading_hiragana": "くれ",
+    "reading_romaji": "kure",
+    "meaning_vi": "cuối năm, hoàng hôn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "MỘ",
+    "explanation": "Thời điểm cuối trong ngày hoặc cuối năm.",
+    "examples": [
+      {
+        "sentence_jp": "毎年暮れに家族で旅行する。",
+        "sentence_hira": "まいとしくれにかぞくでりょこうする。",
+        "sentence_romaji": "Maitoshi kure ni kazoku de ryokou suru.",
+        "sentence_vi": "Mỗi dịp cuối năm, gia đình tôi đi du lịch."
+      }
+    ]
+  },
+  {
+    "kanji": "行き",
+    "reading_hiragana": "いき",
+    "reading_romaji": "iki",
+    "meaning_vi": "chiều đi, đi đến",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "HÀNH",
+    "explanation": "Chuyến đi đến một nơi nào đó (trái nghĩa với 帰り).",
+    "examples": [
+      {
+        "sentence_jp": "学校へ行きは歩いて、帰りはバスで帰った。",
+        "sentence_hira": "がっこうへいきはあるいて、かえりはばすでかえった。",
+        "sentence_romaji": "Gakkou e iki wa aruite, kaeri wa basu de kaetta.",
+        "sentence_vi": "Tôi đi bộ đến trường và trở về bằng xe buýt."
+      }
+    ]
+  },
+  {
+    "kanji": "帰り",
+    "reading_hiragana": "かえり",
+    "reading_romaji": "kaeri",
+    "meaning_vi": "chiều về, trở về",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "QUY",
+    "explanation": "Việc quay lại nơi xuất phát, thường dùng cho người hoặc phương tiện.",
+    "examples": [
+      {
+        "sentence_jp": "帰りが遅くなって心配した。",
+        "sentence_hira": "かえりがおそくなってしんぱいした。",
+        "sentence_romaji": "Kaeri ga osoku natte shinpai shita.",
+        "sentence_vi": "Tôi lo lắng vì con về muộn."
+      }
+    ]
+  },
+  {
+    "kanji": "急ぎ",
+    "reading_hiragana": "いそぎ",
+    "reading_romaji": "isogi",
+    "meaning_vi": "vội vàng, gấp rút",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "CẤP",
+    "explanation": "Sự việc hoặc công việc cần thực hiện nhanh chóng.",
+    "examples": [
+      {
+        "sentence_jp": "急ぎの仕事を先に片づけてしまおう。",
+        "sentence_hira": "いそぎのしごとをさきにかたづけてしまおう。",
+        "sentence_romaji": "Isogi no shigoto o saki ni katazukete shimaou.",
+        "sentence_vi": "Làm xong công việc gấp trước đã nhé."
+      }
+    ]
+  },
+  {
+    "kanji": "遅れ",
+    "reading_hiragana": "おくれ",
+    "reading_romaji": "okure",
+    "meaning_vi": "trễ, chậm trễ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TRÌ",
+    "explanation": "Tình trạng đến muộn hơn thời gian dự kiến.",
+    "examples": [
+      {
+        "sentence_jp": "電車は5分遅れてホームに到着した。",
+        "sentence_hira": "でんしゃはごふんおくれてほーむにとうちゃくした。",
+        "sentence_romaji": "Densha wa gofun okurete hoomu ni touchaku shita.",
+        "sentence_vi": "Tàu tới ga chậm 5 phút."
+      }
+    ]
+  },
+  {
+    "kanji": "貸し",
+    "reading_hiragana": "かし",
+    "reading_romaji": "kashi",
+    "meaning_vi": "cho mượn, khoản cho vay",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THẢI",
+    "explanation": "Hành động cho người khác mượn tiền hoặc đồ vật.",
+    "examples": [
+      {
+        "sentence_jp": "彼には1万円の貸しがある。",
+        "sentence_hira": "かれにはいちまんえんのかしがある。",
+        "sentence_romaji": "Kare ni wa ichiman en no kashi ga aru.",
+        "sentence_vi": "Tôi cho anh ấy mượn 10.000 yên."
+      }
+    ]
+  },
+  {
+    "kanji": "借り",
+    "reading_hiragana": "かり",
+    "reading_romaji": "kari",
+    "meaning_vi": "mượn, khoản vay",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TÁ",
+    "explanation": "Hành động mượn đồ vật hoặc tiền từ người khác.",
+    "examples": [
+      {
+        "sentence_jp": "彼に1つ大きな借りができた。",
+        "sentence_hira": "かれにひとつおおきなかりができた。",
+        "sentence_romaji": "Kare ni hitotsu ookina kari ga dekita.",
+        "sentence_vi": "Anh ấy đã vay tôi một khoản lớn."
+      }
+    ]
+  },
+  {
+    "kanji": "勝ち",
+    "reading_hiragana": "かち",
+    "reading_romaji": "kachi",
+    "meaning_vi": "chiến thắng, thắng lợi",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THẮNG",
+    "explanation": "Kết quả khi đánh bại đối thủ hoặc giành phần thắng.",
+    "examples": [
+      {
+        "sentence_jp": "今回の勝ちは私たちの勝ちだ。",
+        "sentence_hira": "こんかいのかちはわたしたちのかちだ。",
+        "sentence_romaji": "Konkai no kachi wa watashitachi no kachi da.",
+        "sentence_vi": "Trong lần phân thắng bại này, chiến thắng là của chúng ta."
+      }
+    ]
+  },
+  {
+    "kanji": "負け",
+    "reading_hiragana": "まけ",
+    "reading_romaji": "make",
+    "meaning_vi": "thua, thất bại",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "PHỤ",
+    "explanation": "Kết quả không đạt được chiến thắng trong thi đấu hoặc cạnh tranh.",
+    "examples": [
+      {
+        "sentence_jp": "彼は自分の負けを認めなかった。",
+        "sentence_hira": "かれはじぶんのまけをみとめなかった。",
+        "sentence_romaji": "Kare wa jibun no make o mitomenakatta.",
+        "sentence_vi": "Anh ấy đã không thừa nhận thất bại của bản thân."
+      }
+    ]
+  },
+  {
+    "kanji": "迎え",
+    "reading_hiragana": "むかえ",
+    "reading_romaji": "mukae",
+    "meaning_vi": "đón tiếp, nghênh đón",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "NGHÊNH",
+    "explanation": "Hành động đến đón ai đó hoặc chào mừng một dịp đặc biệt.",
+    "examples": [
+      {
+        "sentence_jp": "空港に迎えの車がたくさん来ている。",
+        "sentence_hira": "くうこうにむかえのくるまがたくさんきている。",
+        "sentence_romaji": "Kuukou ni mukae no kuruma ga takusan kiteiru.",
+        "sentence_vi": "Có rất nhiều xe tới đón tại sân bay."
+      }
+    ]
+  },
+  {
+    "kanji": "始まり",
+    "reading_hiragana": "はじまり",
+    "reading_romaji": "hajimari",
+    "meaning_vi": "sự bắt đầu, khởi đầu",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "THỦY",
+    "explanation": "Thời điểm hoặc giai đoạn một việc bắt đầu diễn ra.",
+    "examples": [
+      {
+        "sentence_jp": "雨の影響で試合の始まりが遅れた。",
+        "sentence_hira": "あめのえいきょうでしあいのはじまりがおくれた。",
+        "sentence_romaji": "Ame no eikyou de shiai no hajimari ga okureta.",
+        "sentence_vi": "Trận đấu bắt đầu muộn do ảnh hưởng của mưa."
+      }
+    ]
+  },
+  {
+    "kanji": "終わり",
+    "reading_hiragana": "おわり",
+    "reading_romaji": "owari",
+    "meaning_vi": "kết thúc, chấm dứt",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "CHUNG",
+    "explanation": "Phần cuối cùng hoặc sự hoàn tất của một sự kiện hay quá trình.",
+    "examples": [
+      {
+        "sentence_jp": "映画は感動的な結末で終わりを迎えた。",
+        "sentence_hira": "えいがはかんどうてきなけつまつでおわりをむかえた。",
+        "sentence_romaji": "Eiga wa kandouteki na ketsumatsu de owari o mukaeta.",
+        "sentence_vi": "Bộ phim kết thúc bằng một cái kết đầy xúc động."
+      }
+    ]
+  },
+    {
+    "kanji": "いらいら",
+    "reading_hiragana": "いらいら",
+    "reading_romaji": "iraira",
+    "meaning_vi": "sốt ruột, bực bội",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Diễn tả cảm giác khó chịu, bực bội khi mọi việc không như ý hoặc bị chờ đợi quá lâu.",
+    "examples": [
+      {
+        "sentence_jp": "時間通りに来ない友達にいらいらする。",
+        "sentence_hira": "じかんどおりにこないともだちにいらいらする。",
+        "sentence_romaji": "Jikan doori ni konai tomodachi ni iraira suru.",
+        "sentence_vi": "Tôi sốt ruột khi bạn không tới đúng giờ hẹn."
+      }
+    ]
+  },
+  {
+    "kanji": "わくわく",
+    "reading_hiragana": "わくわく",
+    "reading_romaji": "wakuwaku",
+    "meaning_vi": "háo hức, phấn khích",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Cảm giác vui mừng, mong chờ điều gì đó sắp xảy ra.",
+    "examples": [
+      {
+        "sentence_jp": "先生の話をわくわくしながら聞いた。",
+        "sentence_hira": "せんせいのはなしをわくわくしながらきいた。",
+        "sentence_romaji": "Sensei no hanashi o wakuwaku shinagara kiita.",
+        "sentence_vi": "Hào hứng nghe câu chuyện của thầy giáo."
+      }
+    ]
+  },
+  {
+    "kanji": "どきどき",
+    "reading_hiragana": "どきどき",
+    "reading_romaji": "dokidoki",
+    "meaning_vi": "hồi hộp, tim đập nhanh",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Trạng thái tim đập nhanh do căng thẳng hoặc phấn khích.",
+    "examples": [
+      {
+        "sentence_jp": "試験の前は何回どきどきする。",
+        "sentence_hira": "しけんのまえはなんかいどきどきする。",
+        "sentence_romaji": "Shiken no mae wa nankai dokidoki suru.",
+        "sentence_vi": "Trước khi thi lần nào tôi cũng thấy hồi hộp."
+      }
+    ]
+  },
+  {
+    "kanji": "ぎりぎり",
+    "reading_hiragana": "ぎりぎり",
+    "reading_romaji": "girigiri",
+    "meaning_vi": "vừa kịp, sát nút",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Chỉ việc hoàn thành hoặc đến nơi ngay trước giới hạn thời gian.",
+    "examples": [
+      {
+        "sentence_jp": "会社にぎりぎりで間に合った。",
+        "sentence_hira": "かいしゃにぎりぎりでまにあった。",
+        "sentence_romaji": "Kaisha ni girigiri de maniatta.",
+        "sentence_vi": "Tôi vừa kịp giờ làm việc ở công ty."
+      }
+    ]
+  },
+  {
+    "kanji": "にこにこ",
+    "reading_hiragana": "にこにこ",
+    "reading_romaji": "nikoniko",
+    "meaning_vi": "tươi cười, mỉm cười",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Biểu cảm khuôn mặt tươi vui, thường thể hiện sự thân thiện.",
+    "examples": [
+      {
+        "sentence_jp": "彼女はいつもにこにこしている。",
+        "sentence_hira": "かのじょはいつもにこにこしている。",
+        "sentence_romaji": "Kanojo wa itsumo nikoniko shiteiru.",
+        "sentence_vi": "Cô ấy lúc nào cũng tươi cười."
+      }
+    ]
+  },
+  {
+    "kanji": "びしょびしょ",
+    "reading_hiragana": "びしょびしょ",
+    "reading_romaji": "bishobisho",
+    "meaning_vi": "ướt sũng, ướt đẫm",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Trạng thái bị ướt toàn thân do nước mưa hoặc chất lỏng.",
+    "examples": [
+      {
+        "sentence_jp": "急に雨に降られて全身びしょびしょだ。",
+        "sentence_hira": "きゅうにあめにふられてぜんしんびしょびしょだ。",
+        "sentence_romaji": "Kyuu ni ame ni furarete zenshin bishobisho da.",
+        "sentence_vi": "Bất ngờ bị mưa làm ướt sũng toàn thân."
+      }
+    ]
+  },
+  {
+    "kanji": "ぺこぺこ",
+    "reading_hiragana": "ぺこぺこ",
+    "reading_romaji": "pekopeko",
+    "meaning_vi": "đói meo, đói cồn cào",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Trạng thái bụng rỗng, rất đói.",
+    "examples": [
+      {
+        "sentence_jp": "今日は何も食べてなくて、お腹がぺこぺこだ。",
+        "sentence_hira": "きょうはなにもたべてなくて、おなかがぺこぺこだ。",
+        "sentence_romaji": "Kyou wa nani mo tabetenakute, onaka ga pekopeko da.",
+        "sentence_vi": "Hôm nay chưa ăn gì nên bụng tôi đói cồn cào."
+      }
+    ]
+  },
+  {
+    "kanji": "めちゃくちゃ",
+    "reading_hiragana": "めちゃくちゃ",
+    "reading_romaji": "mechakucha",
+    "meaning_vi": "lộn xộn, bừa bộn, cực kỳ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Chỉ trạng thái hỗn loạn, không trật tự hoặc mức độ cực kỳ của sự việc.",
+    "examples": [
+      {
+        "sentence_jp": "地震で部屋がめちゃくちゃになった。",
+        "sentence_hira": "じしんでへやがめちゃくちゃになった。",
+        "sentence_romaji": "Jishin de heya ga mechakucha ni natta.",
+        "sentence_vi": "Căn phòng trở nên bừa bộn sau trận động đất."
+      }
+    ]
+  },
+  {
+    "kanji": "めちゃくちゃ",
+    "reading_hiragana": "めちゃくちゃ",
+    "reading_romaji": "mechakucha",
+    "meaning_vi": "rối tung, hỗn loạn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Chỉ trạng thái bị đảo lộn, hư hỏng hoặc vô trật tự; cũng dùng để nhấn mạnh mức độ cực kỳ.",
+    "examples": [
+      {
+        "sentence_jp": "彼のせいで計画がめちゃくちゃだ。",
+        "sentence_hira": "かれのせいでけいかくがめちゃくちゃだ。",
+        "sentence_romaji": "Kare no sei de keikaku ga mechakucha da.",
+        "sentence_vi": "Do anh ta mà kế hoạch rối tung rối mù."
+      }
+    ]
+  },
+  {
+    "kanji": "ぐちゃぐちゃ",
+    "reading_hiragana": "ぐちゃぐちゃ",
+    "reading_romaji": "guchagucha",
+    "meaning_vi": "bừa bộn, lộn xộn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Diễn tả trạng thái không gọn gàng, rối rắm, hoặc bị nhàu nát.",
+    "examples": [
+      {
+        "sentence_jp": "机の上がぐちゃぐちゃで、何がどこにあるかわからない。",
+        "sentence_hira": "つくえのうえがぐちゃぐちゃで、なにがどこにあるかわからない。",
+        "sentence_romaji": "Tsukue no ue ga guchagucha de, nani ga doko ni aru ka wakaranai.",
+        "sentence_vi": "Trên mặt bàn bừa bộn lộn xộn quá, chẳng biết cái gì ở đâu cả."
+      }
+    ]
+  },
+  {
+    "kanji": "がらがら",
+    "reading_hiragana": "がらがら",
+    "reading_romaji": "garagara",
+    "meaning_vi": "vắng tanh, trống rỗng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Diễn tả nơi chốn ít người, rộng rãi, vắng vẻ; cũng dùng cho âm thanh khàn khàn.",
+    "examples": [
+      {
+        "sentence_jp": "この店はいつ見ても客ががらがらだ。",
+        "sentence_hira": "このみせはいつみてもきゃくががらがらだ。",
+        "sentence_romaji": "Kono mise wa itsu mite mo kyaku ga garagara da.",
+        "sentence_vi": "Cửa hàng này lúc nào tôi thấy cũng vắng tanh."
+      }
+    ]
+  },
+  {
+    "kanji": "ぶらぶら",
+    "reading_hiragana": "ぶらぶら",
+    "reading_romaji": "burabura",
+    "meaning_vi": "lang thang, đung đưa",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Chỉ hành động đi dạo không mục đích hoặc vật đung đưa qua lại.",
+    "examples": [
+      {
+        "sentence_jp": "町をぶらぶらするのが好きです。",
+        "sentence_hira": "まちをぶらぶらするのがすきです。",
+        "sentence_romaji": "Machi o burabura suru no ga suki desu.",
+        "sentence_vi": "Tôi thích đi lang thang trên phố."
+      }
+    ]
+  },
+  {
+    "kanji": "ふらふら",
+    "reading_hiragana": "ふらふら",
+    "reading_romaji": "furafura",
+    "meaning_vi": "chập chờn, loạng choạng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Chỉ trạng thái mất thăng bằng hoặc đi lang thang không định hướng.",
+    "examples": [
+      {
+        "sentence_jp": "時々、知らない町をふらふらする。",
+        "sentence_hira": "ときどき、しらないまちをふらふらする。",
+        "sentence_romaji": "Tokidoki, shiranai machi o furafura suru.",
+        "sentence_vi": "Thỉnh thoảng tôi lang thang tại những thị trấn xa lạ."
+      }
+    ]
+  },
+  {
+    "kanji": "ぶつぶつ",
+    "reading_hiragana": "ぶつぶつ",
+    "reading_romaji": "butsubutsu",
+    "meaning_vi": "lẩm bẩm, càu nhàu",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Âm thanh nhỏ khi lẩm bẩm hoặc than phiền một mình.",
+    "examples": [
+      {
+        "sentence_jp": "彼はぶつぶつと文句ばかり言っている。",
+        "sentence_hira": "かれはぶつぶつともんくばかりいっている。",
+        "sentence_romaji": "Kare wa butsubutsu to monku bakari itteiru.",
+        "sentence_vi": "Anh ấy chỉ toàn lẩm bẩm than phiền thôi."
+      }
+    ]
+  },
+  {
+    "kanji": "ばらばら",
+    "reading_hiragana": "ばらばら",
+    "reading_romaji": "barabara",
+    "meaning_vi": "rời rạc, lung tung",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Trạng thái tách rời, không thống nhất hoặc không theo trật tự.",
+    "examples": [
+      {
+        "sentence_jp": "家族みんな忙しいので、ばらばらの時間に食事をしている。",
+        "sentence_hira": "かぞくみんないそがしいので、ばらばらのじかんにしょくじをしている。",
+        "sentence_romaji": "Kazoku minna isogashii node, barabara no jikan ni shokuji o shiteiru.",
+        "sentence_vi": "Vì cả nhà tôi đều bận nên mỗi người ăn uống vào giờ giấc lung tung."
+      }
+    ]
+  },
+  {
+    "kanji": "ぼろぼろ",
+    "reading_hiragana": "ぼろぼろ",
+    "reading_romaji": "boroboro",
+    "meaning_vi": "rách rưới, tả tơi",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Trạng thái vật bị cũ nát, hư hỏng; cũng dùng chỉ người mệt mỏi kiệt sức.",
+    "examples": [
+      {
+        "sentence_jp": "お金がないので、ぼろぼろな服を着ている。",
+        "sentence_hira": "おかねがないので、ぼろぼろなふくをきている。",
+        "sentence_romaji": "Okane ga nai node, boroboro na fuku o kiteiru.",
+        "sentence_vi": "Vì không có tiền nên tôi mặc quần áo rách rưới."
+      }
+    ]
+  },
+  {
+    "kanji": "意外な",
+    "reading_hiragana": "いがいな",
+    "reading_romaji": "igaina",
+    "meaning_vi": "ngoài dự đoán, bất ngờ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "Ý NGOẠI",
+    "explanation": "Diễn tả điều gì đó xảy ra khác với dự kiến hoặc mong đợi.",
+    "examples": [
+      {
+        "sentence_jp": "あのチームが勝つなんて意外な結果になった。",
+        "sentence_hira": "あのちーむがかつなんていがいなけっかになった。",
+        "sentence_romaji": "Ano chiimu ga katsu nante igai na kekka ni natta.",
+        "sentence_vi": "Việc đội đó chiến thắng là một kết quả ngoài dự tính."
+      }
+    ]
+  },
+  {
+    "kanji": "おしゃれな",
+    "reading_hiragana": "おしゃれな",
+    "reading_romaji": "osharena",
+    "meaning_vi": "sành điệu, hợp thời trang",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Diễn tả người hoặc vật có gu thẩm mỹ, thời trang tinh tế.",
+    "examples": [
+      {
+        "sentence_jp": "おしゃれなレストランに彼女と行く。",
+        "sentence_hira": "おしゃれなれすとらんにかのじょといく。",
+        "sentence_romaji": "Oshare na resutoran ni kanojo to iku.",
+        "sentence_vi": "Tôi đi với cô ấy đến nhà hàng sang chảnh."
+      }
+    ]
+  },
+  {
+    "kanji": "完全な",
+    "reading_hiragana": "かんぜんな",
+    "reading_romaji": "kanzenna",
+    "meaning_vi": "hoàn toàn, toàn diện",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "HOÀN TOÀN",
+    "explanation": "Chỉ trạng thái không thiếu sót, hoàn hảo.",
+    "examples": [
+      {
+        "sentence_jp": "完全な勝利を手に入れた。",
+        "sentence_hira": "かんぜんなしょうりをてにいれた。",
+        "sentence_romaji": "Kanzen na shouri o te ni ireta.",
+        "sentence_vi": "Giành được thắng lợi hoàn toàn."
+      }
+    ]
+  },
+  {
+    "kanji": "可能な",
+    "reading_hiragana": "かのうな",
+    "reading_romaji": "kanouna",
+    "meaning_vi": "có thể, khả thi",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "KHẢ NĂNG",
+    "explanation": "Diễn tả việc gì đó có thể thực hiện được hoặc có khả năng xảy ra.",
+    "examples": [
+      {
+        "sentence_jp": "この成績なら大学合格は十分可能だ。",
+        "sentence_hira": "このせいせきならだいがくごうかくはじゅうぶんかのうだ。",
+        "sentence_romaji": "Kono seiseki nara daigaku goukaku wa juubun kanou da.",
+        "sentence_vi": "Với thành tích này, việc đỗ đại học là hoàn toàn có khả năng."
+      }
+    ]
+  },
+  {
+    "kanji": "基本的な",
+    "reading_hiragana": "きほんてきな",
+    "reading_romaji": "kihontekina",
+    "meaning_vi": "cơ bản, nền tảng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "CƠ BẢN ĐÍCH",
+    "explanation": "Dùng để nói đến điều căn bản, gốc rễ trong sự vật, sự việc.",
+    "examples": [
+      {
+        "sentence_jp": "あの店は基本的に閉まっている。",
+        "sentence_hira": "あのみせはきほんてきにしまっている。",
+        "sentence_romaji": "Ano mise wa kihonteki ni shimatteiru.",
+        "sentence_vi": "Cửa hàng đó về cơ bản là đang đóng cửa."
+      }
+    ]
+  },
+  {
+    "kanji": "急な",
+    "reading_hiragana": "きゅうな",
+    "reading_romaji": "kyuuna",
+    "meaning_vi": "đột ngột, gấp gáp",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "CẤP",
+    "explanation": "Chỉ sự thay đổi hoặc việc xảy ra một cách bất ngờ, đột ngột.",
+    "examples": [
+      {
+        "sentence_jp": "急な用事ができて、仕事を休んだ。",
+        "sentence_hira": "きゅうなようじができて、しごとをやすんだ。",
+        "sentence_romaji": "Kyuu na youji ga dekite, shigoto o yasunda.",
+        "sentence_vi": "Vì có việc gấp nên tôi nghỉ làm."
+      }
+    ]
+  },
+  {
+    "kanji": "健康な",
+    "reading_hiragana": "けんこうな",
+    "reading_romaji": "kenkouna",
+    "meaning_vi": "khỏe mạnh",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "KIỆN KHANG",
+    "explanation": "Trạng thái cơ thể hoặc tinh thần tốt, không bệnh tật.",
+    "examples": [
+      {
+        "sentence_jp": "たくさん食べて、健康な子どもになってほしい。",
+        "sentence_hira": "たくさんたべて、けんこうなこどもになってほしい。",
+        "sentence_romaji": "Takusan tabete, kenkou na kodomo ni natte hoshii.",
+        "sentence_vi": "Mong con ăn nhiều và trở thành một đứa trẻ khỏe mạnh."
+      }
+    ]
+  },
+  {
+    "kanji": "けちな",
+    "reading_hiragana": "けちな",
+    "reading_romaji": "kechina",
+    "meaning_vi": "keo kiệt, bủn xỉn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "KIỆT",
+    "explanation": "Dùng để chỉ người không muốn tiêu tiền hoặc chia sẻ tài sản.",
+    "examples": [
+      {
+        "sentence_jp": "上司はとてもけちで、みんなから嫌われている。",
+        "sentence_hira": "じょうしはとてもけちで、みんなからきらわれている。",
+        "sentence_romaji": "Joushi wa totemo kechi de, minna kara kirawareteiru.",
+        "sentence_vi": "Sếp tôi rất keo kiệt, nên bị mọi người ghét."
+      }
+    ]
+  },
+  {
+    "kanji": "結構な",
+    "reading_hiragana": "けっこうな",
+    "reading_romaji": "kekkouna",
+    "meaning_vi": "tươm tất, đầy đủ, khá tốt",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "KẾT CẤU",
+    "explanation": "Diễn tả trạng thái tốt, đủ, hoặc dùng để khen một cách lịch sự.",
+    "examples": [
+      {
+        "sentence_jp": "結構な料理が並べられてきた。",
+        "sentence_hira": "けっこうなりょうりがならべられてきた。",
+        "sentence_romaji": "Kekkou na ryouri ga naraberarete kita.",
+        "sentence_vi": "Các món ăn được bày ra thật đầy đủ và tươm tất."
+      }
+    ]
+  },
+    {
+    "kanji": "国際的な",
+    "reading_hiragana": "こくさいてきな",
+    "reading_romaji": "kokusaitekina",
+    "meaning_vi": "mang tính quốc tế",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "QUỐC TẾ ĐÍCH",
+    "explanation": "Diễn tả phạm vi hoặc hoạt động có tính quốc tế, liên quan nhiều quốc gia.",
+    "examples": [
+      {
+        "sentence_jp": "父は国際的に活動している弁護士だ。",
+        "sentence_hira": "ちちはこくさいてきにかつどうしているべんごしだ。",
+        "sentence_romaji": "Chichi wa kokusaiteki ni katsudou shiteiru bengoshi da.",
+        "sentence_vi": "Bố tôi là một luật sư hoạt động quốc tế."
+      }
+    ]
+  },
+  {
+    "kanji": "盛んな",
+    "reading_hiragana": "さかんな",
+    "reading_romaji": "sakanna",
+    "meaning_vi": "thịnh hành, phát triển",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THỊNH",
+    "explanation": "Chỉ điều gì đó đang phát triển mạnh mẽ hoặc phổ biến rộng rãi.",
+    "examples": [
+      {
+        "sentence_jp": "今の時代はインターネットを使った授業が盛んだ。",
+        "sentence_hira": "いまのじだいはいんたーねっとをつかったじゅぎょうがさかんだ。",
+        "sentence_romaji": "Ima no jidai wa intaanetto o tsukatta jugyou ga sakanda.",
+        "sentence_vi": "Trong thời đại hiện nay, các giờ học sử dụng Internet rất thịnh hành."
+      }
+    ]
+  },
+  {
+    "kanji": "様々な",
+    "reading_hiragana": "さまざまな",
+    "reading_romaji": "samazamana",
+    "meaning_vi": "đa dạng, nhiều loại",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "DẠNG DẠNG",
+    "explanation": "Diễn tả sự đa dạng, nhiều loại khác nhau của người hoặc vật.",
+    "examples": [
+      {
+        "sentence_jp": "いろいろな人の意見を参考にする。",
+        "sentence_hira": "いろいろなひとのいけんをさんこうにする。",
+        "sentence_romaji": "Iroirona hito no iken o sankou ni suru.",
+        "sentence_vi": "Tham khảo ý kiến của nhiều người."
+      }
+    ]
+  },
+  {
+    "kanji": "失礼な",
+    "reading_hiragana": "しつれいな",
+    "reading_romaji": "shitsureina",
+    "meaning_vi": "thô lỗ, vô lễ",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "THẤT LỄ",
+    "explanation": "Dùng để chỉ hành vi thiếu tôn trọng hoặc không đúng phép lịch sự.",
+    "examples": [
+      {
+        "sentence_jp": "あの人は、目上の人に失礼な態度をとる。",
+        "sentence_hira": "あのひとは、めうえのひとにしつれいなたいどをとる。",
+        "sentence_romaji": "Ano hito wa meue no hito ni shitsurei na taido o toru.",
+        "sentence_vi": "Người đó có thái độ thô lỗ với người bề trên."
+      }
+    ]
+  },
+  {
+    "kanji": "否定的な",
+    "reading_hiragana": "ひていてきな",
+    "reading_romaji": "hiteitekina",
+    "meaning_vi": "tiêu cực, phủ định",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "PHỦ ĐỊNH ĐÍCH",
+    "explanation": "Diễn tả suy nghĩ hoặc thái độ bi quan, không tích cực.",
+    "examples": [
+      {
+        "sentence_jp": "彼は恋愛に否定的な考えを持っている。",
+        "sentence_hira": "かれはれんあいにひていてきなかんがえをもっている。",
+        "sentence_romaji": "Kare wa ren'ai ni hiteiteki na kangae o motteiru.",
+        "sentence_vi": "Anh ấy có quan điểm tiêu cực về tình yêu."
+      }
+    ]
+  },
+  {
+    "kanji": "正直な",
+    "reading_hiragana": "しょうじきな",
+    "reading_romaji": "shoujikina",
+    "meaning_vi": "thành thật, trung thực",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "CHÍNH TRỰC",
+    "explanation": "Chỉ tính cách thật thà, không nói dối, không che giấu.",
+    "examples": [
+      {
+        "sentence_jp": "正直に言ったら怒りません。",
+        "sentence_hira": "しょうじきにいったらおこりません。",
+        "sentence_romaji": "Shoujiki ni ittara okorimasen.",
+        "sentence_vi": "Nếu nói thật lòng thì tôi sẽ không giận."
+      }
+    ]
+  },
+  {
+    "kanji": "新鮮な",
+    "reading_hiragana": "しんせんな",
+    "reading_romaji": "shinsenna",
+    "meaning_vi": "tươi mới, tươi sống",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "TÂN TIÊN",
+    "explanation": "Dùng cho thực phẩm tươi hoặc trải nghiệm mới mẻ.",
+    "examples": [
+      {
+        "sentence_jp": "新鮮な魚を料理する。",
+        "sentence_hira": "しんせんなさかなをりょうりする。",
+        "sentence_romaji": "Shinsen na sakana o ryouri suru.",
+        "sentence_vi": "Tôi nấu cá tươi."
+      }
+    ]
+  },
+  {
+    "kanji": "積極的な",
+    "reading_hiragana": "せっきょくてきな",
+    "reading_romaji": "sekkyokutekina",
+    "meaning_vi": "tích cực, chủ động",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TÍCH CỰC ĐÍCH",
+    "explanation": "Chỉ hành động năng nổ, chủ động, không thụ động.",
+    "examples": [
+      {
+        "sentence_jp": "積極的に行動をする。",
+        "sentence_hira": "せっきょくてきにこうどうをする。",
+        "sentence_romaji": "Sekkyokuteki ni koudou o suru.",
+        "sentence_vi": "Hành động một cách tích cực."
+      }
+    ]
+  },
+  {
+    "kanji": "そっくりな",
+    "reading_hiragana": "そっくりな",
+    "reading_romaji": "sokkurina",
+    "meaning_vi": "giống hệt, y chang",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "—",
+    "explanation": "Dùng để diễn tả hai người hoặc vật có vẻ ngoài giống nhau đến mức khó phân biệt.",
+    "examples": [
+      {
+        "sentence_jp": "声がそっくりな人がいて、友達だと思った。",
+        "sentence_hira": "こえがそっくりなひとがいて、ともだちだとおもった。",
+        "sentence_romaji": "Koe ga sokkuri na hito ga ite, tomodachi da to omotta.",
+        "sentence_vi": "Có người có giọng nói y hệt bạn tôi nên tôi tưởng nhầm."
+      }
+    ]
+  },
+   {
+    "kanji": "正確な",
+    "reading_hiragana": "せいかくな",
+    "reading_romaji": "seikakuna",
+    "meaning_vi": "chính xác",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "CHÍNH XÁC",
+    "explanation": "Diễn tả sự đúng đắn, không sai lệch, đặc biệt về thời gian, số liệu hoặc thông tin.",
+    "examples": [
+      {
+        "sentence_jp": "彼は時間に正確なので、遅刻しない。",
+        "sentence_hira": "かれはじかんにせいかくなので、ちこくしない。",
+        "sentence_romaji": "Kare wa jikan ni seikaku na node, chikoku shinai.",
+        "sentence_vi": "Anh ấy là người rất chính xác về thời gian, không bao giờ đi trễ."
+      }
+    ]
+  },
+  {
+    "kanji": "清潔な",
+    "reading_hiragana": "せいけつな",
+    "reading_romaji": "seiketsuna",
+    "meaning_vi": "sạch sẽ, thanh khiết",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "THANH KHIẾT",
+    "explanation": "Dùng để chỉ tình trạng sạch sẽ, vệ sinh hoặc sự tinh khiết về tinh thần.",
+    "examples": [
+      {
+        "sentence_jp": "レストランでは清潔な服を身につける。",
+        "sentence_hira": "れすとらんではせいけつなふくをみにつける。",
+        "sentence_romaji": "Resutoran de wa seiketsu na fuku o mi ni tsukeru.",
+        "sentence_vi": "Mặc vào bộ đồ sạch sẽ tại nhà hàng."
+      }
+    ]
+  },
+  {
+    "kanji": "退屈な",
+    "reading_hiragana": "たいくつな",
+    "reading_romaji": "taikutsuna",
+    "meaning_vi": "nhàm chán, buồn tẻ",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "THOÁI KHUẤT",
+    "explanation": "Diễn tả cảm giác chán nản khi không có gì thú vị hoặc khi phải nghe/nhìn điều nhàm chán.",
+    "examples": [
+      {
+        "sentence_jp": "先生の話が長くて退屈だった。",
+        "sentence_hira": "せんせいのはなしがながくてたいくつだった。",
+        "sentence_romaji": "Sensei no hanashi ga nagakute taikutsu datta.",
+        "sentence_vi": "Câu chuyện của thầy giáo dài và nhàm chán."
+      }
+    ]
+  },
+  {
+    "kanji": "確かな",
+    "reading_hiragana": "たしかな",
+    "reading_romaji": "tashikana",
+    "meaning_vi": "chắc chắn, xác thực",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "XÁC",
+    "explanation": "Chỉ thông tin hoặc điều gì đó có căn cứ, đáng tin cậy.",
+    "examples": [
+      {
+        "sentence_jp": "この話は確かな情報ですか。",
+        "sentence_hira": "このはなしはたしかなじょうほうですか。",
+        "sentence_romaji": "Kono hanashi wa tashika na jouhou desu ka.",
+        "sentence_vi": "Chuyện này có phải là thông tin chính xác không?"
+      }
+    ]
+  },
+  {
+    "kanji": "大変な",
+    "reading_hiragana": "たいへんな",
+    "reading_romaji": "taihenna",
+    "meaning_vi": "vất vả, nghiêm trọng",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "ĐẠI BIẾN",
+    "explanation": "Diễn tả mức độ khó khăn, nặng nhọc hoặc vấn đề nghiêm trọng.",
+    "examples": [
+      {
+        "sentence_jp": "毎日働いている父は、大変だ。",
+        "sentence_hira": "まいにちはたらいているちちは、たいへんだ。",
+        "sentence_romaji": "Mainichi hataraite iru chichi wa taihen da.",
+        "sentence_vi": "Cha tôi phải lao động mỗi ngày, thật là vất vả."
+      }
+    ]
+  },
+  {
+    "kanji": "適当な",
+    "reading_hiragana": "てきとうな",
+    "reading_romaji": "tekitouna",
+    "meaning_vi": "phù hợp, thích hợp",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THÍCH ĐƯƠNG",
+    "explanation": "Dùng cho sự lựa chọn phù hợp hoặc hành động qua loa tùy tiện tùy ngữ cảnh.",
+    "examples": [
+      {
+        "sentence_jp": "その木は適当な場所にしまってください。",
+        "sentence_hira": "そのきはてきとうなばしょにしまってください。",
+        "sentence_romaji": "Sono ki wa tekitou na basho ni shimatte kudasai.",
+        "sentence_vi": "Hãy cất quyển sách đó vào vị trí thích hợp."
+      }
+    ]
+  },
+  {
+    "kanji": "特別な",
+    "reading_hiragana": "とくべつな",
+    "reading_romaji": "tokubetsuna",
+    "meaning_vi": "đặc biệt",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "ĐẶC BIỆT",
+    "explanation": "Chỉ điều gì đó khác thường, có ý nghĩa riêng hoặc nổi bật.",
+    "examples": [
+      {
+        "sentence_jp": "私にとって彼は特別な人です。",
+        "sentence_hira": "わたしにとってかれはとくべつなひとです。",
+        "sentence_romaji": "Watashi ni totte kare wa tokubetsu na hito desu.",
+        "sentence_vi": "Đối với tôi, anh ấy là một người rất đặc biệt."
+      }
+    ]
+  },
+  {
+    "kanji": "得意な",
+    "reading_hiragana": "とくいな",
+    "reading_romaji": "tokui na",
+    "meaning_vi": "giỏi, sở trường",
+    "jlpt_level": "N4",
+    "level": 1,
+    "han_viet": "ĐẮC Ý",
+    "explanation": "Diễn tả khả năng giỏi hơn người khác trong một lĩnh vực nào đó.",
+    "examples": [
+      {
+        "sentence_jp": "私の得意なことは、バドミントンです。",
+        "sentence_hira": "わたしのとくいなことは、ばどみんとんです。",
+        "sentence_romaji": "Watashi no tokui na koto wa badominton desu.",
+        "sentence_vi": "Sở trường của tôi là cầu lông."
+      }
+    ]
+  }
+]
