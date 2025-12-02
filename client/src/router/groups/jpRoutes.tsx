@@ -12,6 +12,7 @@ import RomajiPractice from '../../japanese/RomajiPractice';
 import VoicePractice from '../../japanese/VoicePractice';
 import MultiCharStrokePractice from '../../japanese/MultiCharStrokePractice';
 import ReviewWordList from '../../japanese/ReviewWordList';
+import PracticeWrapper from '../../japanese/PracticeWrapper';
 
 import LoginPage from '../../Login';
 import ProfileSettings from '../../ProfileSettings';
@@ -29,11 +30,11 @@ export default function JpRoutes() {
         <Route path="/jp/home" element={<PracticePage />} />
         <Route path="/jp/add" element={<AddJapaneseWordForm />} />
         <Route path="/jp/import" element={<ImportVocabularyButton />} />
-        <Route path="/jp/quiz/multiple" element={<MultipleChoiceQuiz />} />
-        <Route path="/jp/quiz/hiraganaPractice" element={<HiraganaPractice />} />
-        <Route path="/jp/quiz/romajiPractice" element={<RomajiPractice />} />
-        <Route path="/jp/quiz/voicePractice" element={<VoicePractice />} />
-        <Route path="/jp/quiz/multiCharStrokePractice" element={<MultiCharStrokePractice />} />
+        <Route path="/jp/quiz/multiple" element={<PracticeWrapper><MultipleChoiceQuiz /></PracticeWrapper>} />
+        <Route path="/jp/quiz/hiraganaPractice" element={<PracticeWrapper><HiraganaPractice /></PracticeWrapper>} />
+        <Route path="/jp/quiz/romajiPractice" element={<PracticeWrapper><RomajiPractice /></PracticeWrapper>} />
+        <Route path="/jp/quiz/voicePractice" element={<PracticeWrapper><VoicePractice /></PracticeWrapper>} />
+        <Route path="/jp/quiz/multiCharStrokePractice" element={<PracticeWrapper><MultiCharStrokePractice /></PracticeWrapper>} />
         <Route path="/jp/summary" element={<ResultProgress />} />
         <Route path="/jp/listWord" element={<ReviewWordList />} />
         <Route path="/jp/ProfileSettings" element={<ProfileSettings />} />

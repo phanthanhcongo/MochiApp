@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Eye, EyeOff, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from './router/LanguageContext';
 
 type Lang = 'jp' | 'en';
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
+  const { setLang, refresh } = useLanguage();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPw, setShowPw] = useState(false);
@@ -46,6 +48,11 @@ const LoginPage: React.FC = () => {
       }
       const lang = await fetchLangPrefix(token);
       if (lang) {
+        // Set language vào context, refresh context, đợi một chút rồi mới navigate
+        setLang(lang);
+        await refresh({ silent: true });
+        // Đợi một chút để đảm bảo context đã cập nhật
+        await new Promise(resolve => setTimeout(resolve, 100));
         navigate(`/${lang}/home`, { replace: true });
       } else {
         // token không hợp lệ -> dọn và ở lại login
@@ -54,7 +61,7 @@ const LoginPage: React.FC = () => {
       }
     };
     void bootstrap();
-  }, [navigate]);
+  }, [navigate, setLang, refresh]);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -81,7 +88,8 @@ const LoginPage: React.FC = () => {
 
       const lang = await fetchLangPrefix(token);
       if (lang) {
-        navigate(`/${lang}/home`, { replace: true });
+        // Dùng window.location.href để force reload, đảm bảo LanguageContext khởi tạo lại
+        window.location.href = `/${lang}/home`;
       } else {
         setErr('Không lấy được ngôn ngữ người dùng.');
       }

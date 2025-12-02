@@ -132,7 +132,7 @@ const PracticePage = () => {
     }, 1000);
     return () => clearInterval(id);
   }, [remainingSec]);
-  const handleStartPractice = () => {
+  const handleStartPractice = async () => {
     const preparedWords: ReviewWord[] = wordsToReview.map((w): ReviewWord => ({
       id: w.id,
       kanji: w.kanji,
@@ -157,7 +157,13 @@ const PracticePage = () => {
       console.log('📦 Dữ liệu đã lưu trong store:', storedWords);
     }, 0);
 
-    const firstQuizType = getNextQuizType();
+    const firstQuizType = await getNextQuizType();
+
+    if (!firstQuizType) {
+      console.error('Không thể lấy quiz type, redirect về summary');
+      navigate('/jp/summary');
+      return;
+    }
 
     navigate(`/jp/quiz/${firstQuizType}`, {
       state: { from: firstQuizType }

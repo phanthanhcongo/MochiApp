@@ -35,9 +35,92 @@ export const containsHan = (s: string | null | undefined): boolean =>
   ((s ?? '').normalize('NFKC').match(HAN_RE) ?? null) !== null;
 
 // ------------------------------------------------------------------
-// 2) Loader dữ liệu nét qua CDN hanzi-writer-data (không throw)
+// 2) Loader dữ liệu nét - dùng một nguồn duy nhất
+//    Nguồn: hanzi-writer-data từ jsdelivr CDN
 // ------------------------------------------------------------------
+
+// Cache để tránh load lại
+const dataCache = new Map<string, unknown>();
+const loadingPromises = new Map<string, Promise<unknown>>();
+
+// Loader chính: thử nhiều nguồn với cache
 export function cnCharDataLoader(
+  ch: string,
+  onComplete: (data: unknown) => void,
+  onError: (err: unknown) => void
+): void {
+  // Kiểm tra cache trước
+  if (dataCache.has(ch)) {
+    onComplete(dataCache.get(ch)!);
+    return;
+  }
+
+  // Nếu đang load rồi thì đợi
+  if (loadingPromises.has(ch)) {
+    loadingPromises.get(ch)!
+      .then((data) => onComplete(data))
+      .catch((err) => onError(err));
+    return;
+  }
+
+  // Chỉ dùng một nguồn duy nhất
+  const url = `https://cdn.jsdelivr.net/npm/hanzi-writer-data@latest/${encodeURIComponent(ch)}.json`;
+
+  const promise = new Promise<unknown>((resolve, reject) => {
+    // Timeout sau 5s
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+    fetch(url, {
+      signal: controller.signal,
+    })
+      .then((r) => {
+        clearTimeout(timeoutId);
+        if (!r.ok) {
+          reject(new Error(`No stroke data for ${ch} (HTTP ${r.status})`));
+          return;
+        }
+        return r.json();
+      })
+      .then((data) => {
+        clearTimeout(timeoutId);
+        if (data != null) {
+          // Cache lại
+          dataCache.set(ch, data);
+          loadingPromises.delete(ch);
+          resolve(data);
+        } else {
+          reject(new Error(`No stroke data for ${ch}`));
+        }
+      })
+      .catch((err) => {
+        clearTimeout(timeoutId);
+        loadingPromises.delete(ch);
+        // Nếu là lỗi 404, đây là expected behavior (ký tự không có trong dataset)
+        if (err instanceof Error && err.message.includes('404')) {
+          reject(new Error(`Character ${ch} not found in stroke dataset (404)`));
+        } else {
+          reject(err);
+        }
+      });
+  });
+  loadingPromises.set(ch, promise);
+
+  promise
+    .then((data) => onComplete(data))
+    .catch((err) => {
+      loadingPromises.delete(ch);
+      // Chỉ log warning nếu không phải 404 (404 là expected cho một số ký tự)
+      const is404 = err instanceof Error && (err.message.includes('404') || err.message.includes('not found'));
+      if (!is404) {
+        console.warn(`⚠️ Không tải được data cho ${ch}:`, err?.message ?? err);
+      }
+      onError(err);
+    });
+}
+
+// Loader cũ (giữ lại để tương thích)
+export function cnCharDataLoaderLegacy(
   ch: string,
   onComplete: (data: unknown) => void,
   onError: (err: unknown) => void
@@ -49,7 +132,6 @@ export function cnCharDataLoader(
   fetch(url)
     .then((r) => {
       if (!r.ok) {
-        // Không ném lỗi ra ngoài; báo qua onError để HanziWriter reject promise nội bộ
         onError(new Error(`No stroke data for ${ch} (HTTP ${r.status})`));
         return null;
       }
@@ -72,6 +154,8 @@ const strokeCache = new Map<string, boolean>(); // cache nhẹ nhàng
 
 export function clearStrokeCache() {
   strokeCache.clear();
+  dataCache.clear();
+  loadingPromises.clear();
 }
 
 export async function safeLoadCharData(
@@ -85,8 +169,10 @@ export async function safeLoadCharData(
     await HanziWriter.loadCharacterData(ch, { charDataLoader: loader as any });
     strokeCache.set(ch, true);
     return true;
-  } catch {
+  } catch (err) {
+    // Cache kết quả false để tránh thử lại nhiều lần
     strokeCache.set(ch, false);
+    // Không log ở đây vì đã log trong cnCharDataLoader
     return false;
   }
 }
