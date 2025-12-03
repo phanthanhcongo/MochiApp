@@ -18,6 +18,8 @@ const MultiCharStrokePractice: React.FC = () => {
     currentWord,
     markAnswer,
     continueToNextQuiz,
+    isNavigating: storeIsNavigating,
+    previousType,
   } = usePracticeSession();
   const [kanjiStatus, setKanjiStatus] = useState<boolean[]>([]);
   const containerRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -27,6 +29,8 @@ const MultiCharStrokePractice: React.FC = () => {
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [isNavigating, setIsNavigating] = useState(false);
   const isProcessingRef = useRef(false);
+  const [isExiting, setIsExiting] = useState(false);
+  const exitTimeoutRef = useRef<number | null>(null);
   const writersRef = useRef<(HanziWriter | null)[]>([]);
 
   const word = currentWord?.word;
@@ -98,90 +102,8 @@ const MultiCharStrokePractice: React.FC = () => {
 
     return () => clearTimeout(checkState);
   }, [location.state, location.pathname, navigate, currentWord, isCorrectAnswer, isForgetClicked]);
+
   const isResultShown = isCorrectAnswer !== null || isForgetClicked;
- useEffect(() => {
-  if (!word) return;
-
-  let cancelled = false;
-
-  const chars = Array.from(word.kanji ?? '');
-  // initStatus: non-Kanji -> true, Kanji -> false
-  const initStatus = chars.map(ch => !isKanji(ch));
-  
-  // Set trạng thái ban đầu
-  setKanjiStatus(initStatus);
-
-  // Dọn cũ trước khi vẽ mới
-  writersRef.current.forEach(w => { try { w?.cancelQuiz?.(); } catch {} });
-  writersRef.current = [];
-
-  const timer = setTimeout(async () => {
-    await Promise.all(chars.map(async (ch, idx) => {
-      const container = containerRefs.current[idx];
-      if (!container) return;
-      container.innerHTML = '';
-
-      // Non-Kanji → render tĩnh, đã set true ở initStatus
-      if (!isKanji(ch)) {
-        container.textContent = ch;
-        return;
-      }
-
-      // Pre-load dataset
-      await HanziWriter.loadCharacterData(ch, { charDataLoader: cnCharDataLoader as any });
-      if (cancelled) return;
-
-      const writer = HanziWriter.create(container, ch, {
-        width: 200,
-        height: 200,
-        padding: 5,
-        strokeColor: '#22c55e',
-        radicalColor: '#0ea5e9',
-        highlightColor: '#f97316',
-        showOutline: true,
-        showCharacter: false,
-        showHintAfterMisses: 1,
-        drawingFadeDuration: 300,
-        strokeFadeDuration: 300,
-        charDataLoader: cnCharDataLoader as any,
-      });
-      writersRef.current[idx] = writer;
-
-      if (!isForgetClicked) {
-        writer.quiz({
-          onComplete: () => {
-            setKanjiStatus(prev => {
-              if (cancelled) return prev;
-              const next = [...prev];
-              next[idx] = true;
-              return next;
-            });
-          },
-          onMistake: () => speak(word.reading_hiragana),
-        });
-      }
-    }));
-  }, 1000);
-
-  // Cleanup
-  return () => {
-    cancelled = true;
-    clearTimeout(timer);
-    writersRef.current.forEach(w => { try { w?.cancelQuiz?.(); } catch {} });
-    writersRef.current = [];
-  };
-}, [word, isForgetClicked]);
-
-
-
- 
-
-  useEffect(() => {
-    if (kanjiStatus.length > 0 && kanjiStatus.every((status) => status === true)) {
-      setIsCorrectAnswer(true);
-      markAnswer(true);
-    }
-  }, [kanjiStatus]);
 
   const speak = (text: string) => {
     if ('speechSynthesis' in window && text) {
@@ -191,6 +113,117 @@ const MultiCharStrokePractice: React.FC = () => {
       speechSynthesis.speak(utterance);
     }
   };
+
+  useEffect(() => {
+    if (!word) return;
+
+    let cancelled = false;
+
+    const chars = Array.from(word.kanji ?? '');
+    // initStatus: non-Kanji -> true, Kanji -> false
+    const initStatus = chars.map(ch => !isKanji(ch));
+    
+    // Set trạng thái ban đầu
+    setKanjiStatus(initStatus);
+
+    // Dọn cũ trước khi vẽ mới
+    writersRef.current.forEach(w => { try { w?.cancelQuiz?.(); } catch {} });
+    writersRef.current = [];
+
+    const timer = setTimeout(async () => {
+      await Promise.all(chars.map(async (ch, idx) => {
+        const container = containerRefs.current[idx];
+        if (!container) return;
+        container.innerHTML = '';
+
+        // Non-Kanji → render tĩnh, đã set true ở initStatus
+        if (!isKanji(ch)) {
+          container.textContent = ch;
+          return;
+        }
+
+        // Pre-load dataset
+        await HanziWriter.loadCharacterData(ch, { charDataLoader: cnCharDataLoader as any });
+        if (cancelled) return;
+
+        const writer = HanziWriter.create(container, ch, {
+          width: 200,
+          height: 200,
+          padding: 5,
+          strokeColor: '#22c55e',
+          radicalColor: '#0ea5e9',
+          highlightColor: '#f97316',
+          showOutline: true,
+          showCharacter: false,
+          showHintAfterMisses: 1,
+          drawingFadeDuration: 300,
+          strokeFadeDuration: 300,
+          charDataLoader: cnCharDataLoader as any,
+        });
+        writersRef.current[idx] = writer;
+
+        if (!isForgetClicked) {
+          writer.quiz({
+            onComplete: () => {
+              setKanjiStatus(prev => {
+                if (cancelled) return prev;
+                const next = [...prev];
+                next[idx] = true;
+                return next;
+              });
+            },
+            onMistake: () => speak(word.reading_hiragana),
+          });
+        }
+      }));
+    }, 1000);
+
+    // Cleanup
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+      writersRef.current.forEach(w => { try { w?.cancelQuiz?.(); } catch {} });
+      writersRef.current = [];
+    };
+  }, [word, isForgetClicked]);
+
+  useEffect(() => {
+    if (kanjiStatus.length > 0 && kanjiStatus.every((status) => status === true)) {
+      setIsCorrectAnswer(true);
+      markAnswer(true);
+    }
+  }, [kanjiStatus]);
+
+  // Ẩn component ngay khi đang navigate hoặc không phải quiz type hiện tại
+  const currentPath = location.pathname;
+  const isCorrectRoute = currentPath.includes('multiCharStrokePractice');
+  const shouldHide = storeIsNavigating || (previousType && previousType !== 'multiCharStrokePractice');
+  
+  // Đồng bộ exit animation với state updates
+  useEffect(() => {
+    if (shouldHide && !isExiting) {
+      setIsExiting(true);
+      exitTimeoutRef.current = setTimeout(() => {
+        // Component sẽ được unmount bởi shouldHide check
+      }, 400);
+    } else if (!shouldHide && isExiting) {
+      setIsExiting(false);
+      if (exitTimeoutRef.current) {
+        clearTimeout(exitTimeoutRef.current);
+        exitTimeoutRef.current = null;
+      }
+    }
+    
+    return () => {
+      if (exitTimeoutRef.current) {
+        clearTimeout(exitTimeoutRef.current);
+      }
+    };
+  }, [shouldHide, isExiting]);
+  
+  if (!word || shouldHide || !isCorrectRoute) {
+    return null;
+  }
 
   const handleForget = () => {
     if (!isCorrectAnswer) {
@@ -223,16 +256,14 @@ const MultiCharStrokePractice: React.FC = () => {
     });
   };
 
-  if (!word) return null;
-
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait" onExitComplete={() => setIsExiting(false)}>
       <motion.div
-        key={word.id}
+        key={`${word.id}-${previousType || 'none'}`}
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
         className=" w-full"
       >
         <div className="text-center mb-6 p-10">

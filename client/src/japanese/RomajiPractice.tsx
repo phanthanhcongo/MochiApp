@@ -15,6 +15,8 @@ const RomajiPractice: React.FC = () => {
   const [hasAccentWarning, setHasAccentWarning] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
   const isProcessingRef = useRef(false);
+  const [isExiting, setIsExiting] = useState(false);
+  const exitTimeoutRef = useRef<number | null>(null);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -23,6 +25,8 @@ const RomajiPractice: React.FC = () => {
     currentWord,
     markAnswer,
     continueToNextQuiz,
+    isNavigating: storeIsNavigating,
+    previousType,
   } = usePracticeSession();
 
   const question = currentWord?.word.kanji || '';
@@ -165,17 +169,47 @@ const RomajiPractice: React.FC = () => {
       isProcessingRef.current = false;
     });
   };
-  if (!currentWord) return null;
+  // Ẩn component ngay khi đang navigate hoặc không phải quiz type hiện tại
+  const currentPath = location.pathname;
+  const isCorrectRoute = currentPath.includes('romajiPractice');
+  const shouldHide = storeIsNavigating || (previousType && previousType !== 'romajiPractice');
+  
+  // Đồng bộ exit animation với state updates
+  useEffect(() => {
+    if (shouldHide && !isExiting) {
+      setIsExiting(true);
+      exitTimeoutRef.current = setTimeout(() => {
+        // Component sẽ được unmount bởi shouldHide check
+      }, 400);
+    } else if (!shouldHide && isExiting) {
+      setIsExiting(false);
+      if (exitTimeoutRef.current) {
+        clearTimeout(exitTimeoutRef.current);
+        exitTimeoutRef.current = null;
+      }
+    }
+    
+    return () => {
+      if (exitTimeoutRef.current) {
+        clearTimeout(exitTimeoutRef.current);
+      }
+    };
+  }, [shouldHide, isExiting]);
+  
+  if (!currentWord || shouldHide || !isCorrectRoute) {
+    return null;
+  }
+  
   const word = currentWord.word;
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait" onExitComplete={() => setIsExiting(false)}>
       <motion.div
-        key={word.id}
+        key={`${word.id}-${previousType || 'none'}`}
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
         className=""  >
         <div className="text-center mb-6 p-10">
                 <h4 className="text-gray-600 mb-4">Nhập cách đọc romaji của từ sau:</h4>

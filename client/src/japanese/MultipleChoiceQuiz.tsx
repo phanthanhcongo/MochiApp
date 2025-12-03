@@ -6,10 +6,7 @@ import { usePracticeSession } from './practiceStore';
 import { motion, AnimatePresence } from 'framer-motion';
 import { RELOAD_COUNT_THRESHOLD } from './practiceConfig';
 
-interface AnswerOption {
-  text: string;
-  isCorrect: boolean;
-}
+
 
 const MultipleChoiceQuiz: React.FC = () => {
   const location = useLocation();
@@ -23,8 +20,8 @@ const MultipleChoiceQuiz: React.FC = () => {
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [isNavigating, setIsNavigating] = useState(false);
   const isProcessingRef = useRef(false);
-
-  const isResultShown = isAnswered || isForgetClicked;
+  const [isExiting, setIsExiting] = useState(false);
+  const exitTimeoutRef = useRef<number | null>(null);
 
 
   const {
@@ -32,6 +29,8 @@ const MultipleChoiceQuiz: React.FC = () => {
     words,
     markAnswer,
     continueToNextQuiz,
+    isNavigating: storeIsNavigating,
+    previousType,
   } = usePracticeSession();
   useEffect(() => {
     // Đợi một chút để đảm bảo location.state đã được set đúng cách sau khi navigate
@@ -42,7 +41,7 @@ const MultipleChoiceQuiz: React.FC = () => {
       // Kiểm tra xem có đang ở đúng route không
       const currentPath = location.pathname;
       const isCorrectRoute = currentPath.includes('multiple');
-      
+
       // Nếu không ở đúng route, không làm gì cả (có thể đang navigate đi)
       if (!isCorrectRoute) {
         return;
@@ -75,7 +74,7 @@ const MultipleChoiceQuiz: React.FC = () => {
       // ✅ Nếu có state nhưng không đến từ nguồn hợp lệ
       // Kiểm tra xem state.from có khớp với route hiện tại không
       const stateFromMatchesRoute = state.from === 'multiple';
-      
+
       if (!allowedSources.includes(state.from)) {
         // Chỉ navigate nếu state.from không khớp với route hiện tại
         if (!stateFromMatchesRoute) {
@@ -88,7 +87,7 @@ const MultipleChoiceQuiz: React.FC = () => {
         }
         return;
       }
-      
+
       if (newReloadCount >= RELOAD_COUNT_THRESHOLD) {
         if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
           navigate('/jp/summary');
@@ -101,20 +100,25 @@ const MultipleChoiceQuiz: React.FC = () => {
     return () => clearTimeout(checkState);
   }, [location.state, location.pathname, navigate]);
 
-
-
-
+  const speak = (text: string) => {
+    if ('speechSynthesis' in window && text) {
+      if (speechSynthesis.speaking) return;
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'ja-JP';
+      speechSynthesis.speak(utterance);
+    }
+  };
 
   // Sử dụng useMemo để đảm bảo thứ tự đáp án cố định cho mỗi từ
   // Chỉ shuffle một lần khi currentWord thay đổi
   const answers = useMemo(() => {
     if (!currentWord) return [];
-    
+
     const correctAnswer = {
       text: currentWord.word.meaning_vi,
       isCorrect: true,
     };
-    
+
     const incorrects = words
       .filter(w => w.word.id !== currentWord.word.id && w.word.meaning_vi !== currentWord.word.meaning_vi)
       .map(w => ({
@@ -131,9 +135,47 @@ const MultipleChoiceQuiz: React.FC = () => {
 
   useEffect(() => {
     // Phát âm khi từ thay đổi
-    speak(currentWord?.word.reading_hiragana || '');
+    if (currentWord) {
+      speak(currentWord.word.reading_hiragana || '');
+    }
   }, [currentWord?.word.id]);
 
+  // Ẩn component ngay khi đang navigate hoặc không phải quiz type hiện tại
+  // Điều này ngăn component cũ render trong nháy mắt khi chuyển quiz type
+  const currentPath = location.pathname;
+  const isCorrectRoute = currentPath.includes('multiple');
+  
+  // Nếu đang navigate hoặc previousType đã được set thành type khác → ẩn component
+  // previousType được set ngay lập tức trong navigateToQuiz để chặn render của type cũ
+  const shouldHide = storeIsNavigating || (previousType && previousType !== 'multiple');
+  
+  // Đồng bộ exit animation với state updates
+  useEffect(() => {
+    if (shouldHide && !isExiting) {
+      setIsExiting(true);
+      exitTimeoutRef.current = setTimeout(() => {
+        // Component sẽ được unmount bởi shouldHide check
+      }, 400);
+    } else if (!shouldHide && isExiting) {
+      setIsExiting(false);
+      if (exitTimeoutRef.current) {
+        clearTimeout(exitTimeoutRef.current);
+        exitTimeoutRef.current = null;
+      }
+    }
+    
+    return () => {
+      if (exitTimeoutRef.current) {
+        clearTimeout(exitTimeoutRef.current);
+      }
+    };
+  }, [shouldHide, isExiting]);
+  
+  if (!currentWord || shouldHide || !isCorrectRoute) {
+    return null;
+  }
+
+  const word = currentWord.word;
 
   const handleSelect = (index: number) => {
     if (!isAnswered) setSelectedIndex(index);
@@ -153,7 +195,7 @@ const MultipleChoiceQuiz: React.FC = () => {
 
   const handleContinue = async () => {
     if (isNavigating || isProcessingRef.current) return;
-    
+
     isProcessingRef.current = true;
     setIsNavigating(true);
     setSelectedIndex(null);
@@ -183,135 +225,130 @@ const MultipleChoiceQuiz: React.FC = () => {
     }
   };
 
-  const speak = (text: string) => {
-    if ('speechSynthesis' in window && text) {
-      if (speechSynthesis.speaking) return;
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ja-JP';
-      speechSynthesis.speak(utterance);
-    }
-  };
-  if (!currentWord) return null;
-
-  const word = currentWord.word;
-
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait" onExitComplete={() => setIsExiting(false)}>
       <motion.div
-        key={word.id}
+        key={`${word.id}-${previousType || 'none'}`}
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.4 }}
-        className=" w-full relative"  >
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+        className=" w-full "  >
         <div className="text-center pb-8">
-            <h4 className="text-gray-600 mb-1">Chọn đúng nghĩa của từ</h4>
-            <h1 className="text-5xl font-bold text-gray-900">{word.kanji}</h1>
-          </div>
-          <div className="flex flex-col gap-3 mb-6">
-            {answers.map((ans, idx) => {
-              const isSelected = selectedIndex === idx;
-              let statusClass = 'answer-option--default';
-              if (isAnswered || isForgetClicked) {
-                if (ans.isCorrect) {
-                  statusClass = 'answer-option--correct';
-                } else if (selectedIndex === idx) {
-                  statusClass = 'answer-option--wrong';
-                }
-              } else if (isSelected) {
-                statusClass = 'answer-option--selected';
+          <h4 className="text-gray-600 mb-1">Chọn đúng nghĩa của từc2</h4>
+          <h1 className="text-5xl font-bold text-gray-900">{word.kanji}</h1>
+        </div>
+        <div className="flex flex-col gap-3 mb-6">
+          {answers.map((ans, idx) => {
+            const isSelected = selectedIndex === idx;
+            let statusClass = 'answer-option--default';
+            if (isAnswered || isForgetClicked) {
+              if (ans.isCorrect) {
+                statusClass = 'answer-option--correct';
+              } else if (selectedIndex === idx) {
+                statusClass = 'answer-option--wrong';
               }
+            } else if (isSelected) {
+              statusClass = 'answer-option--selected';
+            }
 
-              return (
-                <button
-                  key={idx}
-                  className={`answer-option ${statusClass}`}
-                  onClick={() => handleSelect(idx)}
-                  disabled={isAnswered}
-                >
-                  <div className="flex items-center gap-4 h-full">
-                    <div className="flex-shrink-0 flex justify-center">
-                      <span className="inline-flex items-center justify-center h-8 w-8 border-2 border-gray-300 rounded-full text-sm font-medium">
-                        {idx + 1}
-                      </span>
-                    </div>
-                    <div className="flex-1 text-center break-words">{ans.text}</div>
+            return (
+              <button
+                key={idx}
+                className={`answer-option ${statusClass}`}
+                onClick={() => handleSelect(idx)}
+                disabled={isAnswered}
+              >
+                <div className="flex items-center gap-4 h-full">
+                  <div className="flex-shrink-0 flex justify-center">
+                    <span className="inline-flex items-center justify-center h-8 w-8 border-2 border-gray-300 rounded-full text-sm font-medium">
+                      {idx + 1}
+                    </span>
                   </div>
-                </button>
-              );
-
-            })}
-          </div>
-          <div className="flex flex-col items-center gap-4 p-8 ">
-            <button
-              className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-80 px-6 py-2`}
-              onClick={handleCheck}
-              disabled={selectedIndex === null || isAnswered}>
-              Kiểm tra
-            </button>
-            <button className="btn-forget" onClick={handleForget} disabled={isAnswered}>
-              Tôi ko nhớ từ này
-            </button>
-          </div>
-
-          {isResultShown && !isResultHidden && (
-            <div className={isCorrectAnswer && !isForgetClicked ? 'result-panel_true' : 'result-panel_false'}>
-              <div className="flex items-start justify-end mb-4 w-[90%] mx-auto">
-                <button className={`btn-toggle ${isCorrectAnswer ? 'btn-toggle--green' : 'btn-toggle--red'} displayBtn`} onClick={() => setIsResultHidden(true)}>
-                  <FontAwesomeIcon icon={faChevronDown} />
-                </button>
-              </div>
-              <div className="flex items-start gap-4 mb-4 w-[90%] mx-auto">
-                <div className="btn-audio text-2xl" onClick={() => speak(word.reading_hiragana)} title="Phát âm">🔊</div>
-                <div>
-                  <p className="text-xl text-stone-50/90">{word.reading_hiragana} • {word.hanviet}</p>
-                  <p className="text-4xl font-bold">{word.kanji}</p>
-                  <p className="text-2xl text-stone-50/100 my-5">{word.meaning_vi}</p>
-                  <p className="text-xl text-stone-50/90 mt-1 italic">{word.hanviet_explanation}</p>
+                  <div className="flex-1 text-center break-words">{ans.text}</div>
                 </div>
-              </div>
-              <div className="flex items-start gap-4 mb-1 w-[90%] mx-auto">
-                <button className="btn-audio text-2xl" onClick={() => speak(word.example || '')} title="Phát âm ví dụ">🔊</button>
-                <div className="flex-1">
-                  <div className="flex items-center justify-between gap-2">
-                    <p className="text-stone-50 text-2xl">{word.example}
-                      <button className="btn-eye" onClick={() => setIsTranslationHidden(!isTranslationHidden)}>
-                        {isTranslationHidden ? '🙈' : '👁'}
-                      </button>
-                    </p>
-                  </div>
-                  <p className={`text-stone-50/90 text-xl mt-1 italic ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.example_romaji}</p>
-                  <p className={`text-stone-50/90 text-xl ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.example_vi}</p>
-                </div>
-              </div>
-              <div className="w-80 mx-auto mt-6">
-                <button 
-                  className="btn-primary btn-primary--active w-full" 
-                  onClick={handleContinue}
-                  disabled={isNavigating}
-                >
-                  {isNavigating ? 'Đang tải...' : 'Tiếp tục'}
-                </button>
-              </div>
-            </div>
-          )}
-
-          {isResultShown && isResultHidden && (
-            <div className={isCorrectAnswer && !isForgetClicked ? 'result-panel_true' : 'result-panel_false'}>
-              <button className={`btn-toggle ${isCorrectAnswer ? 'btn-toggle--green' : 'btn-toggle--red'} hiddenBtn`} onClick={() => setIsResultHidden(false)}>
-                <FontAwesomeIcon icon={faChevronUp} />
               </button>
-              <div className=" text-center  p-10">
-                <button 
-                  className="btn-primary btn-primary--active w-full" 
-                  onClick={handleContinue}
-                  disabled={isNavigating}
-                >
-                  {isNavigating ? 'Đang tải...' : 'Tiếp tục'}
-                </button>
+            );
+
+          })}
+        </div>
+        <div className="flex flex-col items-center gap-4 p-8 ">
+          <button
+            className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-80 px-6 py-2`}
+            onClick={handleCheck}
+            disabled={selectedIndex === null || isAnswered}>
+            Kiểm tra
+          </button>
+          <button className="btn-forget" onClick={handleForget} disabled={isAnswered}>
+            Tôi ko nhớ từ này
+          </button>
+        </div>
+
+        {(isAnswered || isForgetClicked) && !isResultHidden && (
+          <div className={isCorrectAnswer && !isForgetClicked ? 'result-panel_true' : 'result-panel_false'}>
+            <div className="flex items-start justify-end mb-4 w-[90%] mx-auto">
+              <button
+                className={`btn-toggle ${isCorrectAnswer ? 'btn-toggle--green' : 'btn-toggle--red'} displayBtn`}
+                onClick={() => setIsResultHidden(true)}
+              >
+                <FontAwesomeIcon icon={faChevronDown} />
+              </button>
+            </div>
+            <div className="flex items-start gap-4 mb-4 w-[90%] mx-auto">
+              <div className="btn-audio text-2xl" onClick={() => speak(word.reading_hiragana)} title="Phát âm">🔊</div>
+              <div>
+                <p className="text-xl text-stone-50/90">{word.reading_hiragana} • {word.hanviet}</p>
+                <p className="text-4xl font-bold">{word.kanji}</p>
+                <p className="text-2xl text-stone-50/100 my-5">{word.meaning_vi}</p>
+                <p className="text-xl text-stone-50/90 mt-1 italic">{word.hanviet_explanation}</p>
               </div>
             </div>
-          )}
+            <div className="flex items-start gap-4 mb-1 w-[90%] mx-auto">
+              <button className="btn-audio text-2xl" onClick={() => speak(word.example || '')} title="Phát âm ví dụ">🔊</button>
+              <div className="flex-1">
+                <div className="flex items-center justify-between gap-2">
+                  <p className="text-stone-50 text-2xl">
+                    {word.example}
+                    <button className="btn-eye" onClick={() => setIsTranslationHidden(!isTranslationHidden)}>
+                      {isTranslationHidden ? '🙈' : '👁'}
+                    </button>
+                  </p>
+                </div>
+                <p className={`text-stone-50/90 text-xl mt-1 italic ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.example_romaji}</p>
+                <p className={`text-stone-50/90 text-xl ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.example_vi}</p>
+              </div>
+            </div>
+            <div className="w-80 mx-auto mt-6">
+              <button 
+                className="btn-primary btn-primary--active w-full" 
+                onClick={handleContinue}
+                disabled={isNavigating}
+              >
+                {isNavigating ? 'Đang tải...' : 'Tiếp tục'}
+              </button>
+            </div>
+          </div>
+        )}
+
+        {(isAnswered || isForgetClicked) && isResultHidden && (
+          <div className={isCorrectAnswer && !isForgetClicked ? 'result-panel_true' : 'result-panel_false'}>
+            <button
+              className={`btn-toggle ${isCorrectAnswer ? 'btn-toggle--green ' : 'btn-toggle--red'} hiddenBtn`}
+              onClick={() => setIsResultHidden(false)}
+            >
+              <FontAwesomeIcon icon={faChevronUp} />
+            </button>
+            <div className="w-full text-center p-10">
+              <button 
+                className="btn-primary btn-primary--active w-full" 
+                onClick={handleContinue}
+                disabled={isNavigating}
+              >
+                {isNavigating ? 'Đang tải...' : 'Tiếp tục'}
+              </button>
+            </div>
+          </div>
+        )}
       </motion.div>
     </AnimatePresence>
   );

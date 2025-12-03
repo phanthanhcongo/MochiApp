@@ -21,6 +21,8 @@ const VoicePractice: React.FC = () => {
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [isNavigating, setIsNavigating] = useState(false);
   const isProcessingRef = useRef(false);
+  const [isExiting, setIsExiting] = useState(false);
+  const exitTimeoutRef = useRef<number | null>(null);
 
   const isResultShown = isAnswered || isForgetClicked;
   const navigate = useNavigate();
@@ -31,6 +33,8 @@ const VoicePractice: React.FC = () => {
     words,
     markAnswer,
     continueToNextQuiz,
+    isNavigating: storeIsNavigating,
+    previousType,
   } = usePracticeSession();
 
 
@@ -109,8 +113,18 @@ useEffect(() => {
   const reading = currentWord?.word.reading_hiragana || '';
   const correctAnswer = currentWord?.word.meaning_vi || '';
 
+  const speak = (text: string) => {
+    if ('speechSynthesis' in window && text) {
+      if (speechSynthesis.speaking) return;
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'ja-JP';
+      speechSynthesis.speak(utterance);
+    }
+  };
 
   const answers: AnswerOption[] = useMemo(() => {
+    if (!correctAnswer) return [];
+    
     const incorrects = words
       .filter(w => w.word.meaning_vi !== correctAnswer)
       .map(w => ({ text: w.word.meaning_vi, isCorrect: false }))
@@ -120,6 +134,39 @@ useEffect(() => {
 
     return [...incorrects, { text: correctAnswer, isCorrect: true }].sort(() => 0.5 - Math.random());
   }, [words, correctAnswer]);
+
+  // Ẩn component ngay khi đang navigate hoặc không phải quiz type hiện tại
+  const currentPath = location.pathname;
+  const isCorrectRoute = currentPath.includes('voicePractice');
+  const shouldHide = storeIsNavigating || (previousType && previousType !== 'voicePractice');
+  
+  // Đồng bộ exit animation với state updates
+  useEffect(() => {
+    if (shouldHide && !isExiting) {
+      setIsExiting(true);
+      exitTimeoutRef.current = setTimeout(() => {
+        // Component sẽ được unmount bởi shouldHide check
+      }, 400);
+    } else if (!shouldHide && isExiting) {
+      setIsExiting(false);
+      if (exitTimeoutRef.current) {
+        clearTimeout(exitTimeoutRef.current);
+        exitTimeoutRef.current = null;
+      }
+    }
+    
+    return () => {
+      if (exitTimeoutRef.current) {
+        clearTimeout(exitTimeoutRef.current);
+      }
+    };
+  }, [shouldHide, isExiting]);
+  
+  if (!currentWord || shouldHide || !isCorrectRoute) {
+    return null;
+  }
+
+  const word = currentWord.word;
 
   const handleSelect = (index: number) => {
     if (!isAnswered) setSelectedIndex(index);
@@ -169,27 +216,14 @@ useEffect(() => {
     });
   };
 
-  const speak = (text: string) => {
-    if ('speechSynthesis' in window && text) {
-      if (speechSynthesis.speaking) return;
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ja-JP';
-      speechSynthesis.speak(utterance);
-    }
-  };
-
-  if (!currentWord) return null;
-
-  const word = currentWord.word;
-
   return (
-       <AnimatePresence mode="wait">
+       <AnimatePresence mode="wait" onExitComplete={() => setIsExiting(false)}>
       <motion.div
-        key={word.id}
+        key={`${word.id}-${previousType || 'none'}`}
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
         className=""
       >
       {/* Question */}

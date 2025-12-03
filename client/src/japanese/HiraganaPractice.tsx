@@ -15,6 +15,8 @@ const HiraganaPractice: React.FC = () => {
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [isNavigating, setIsNavigating] = useState(false);
   const isProcessingRef = useRef(false);
+  const [isExiting, setIsExiting] = useState(false);
+  const exitTimeoutRef = useRef<number | null>(null);
 
   const [hiraganaPool, setHiraganaPool] = useState<{ id: string; char: string }[]>([]);
   const [usedCharIds, setUsedCharIds] = useState<string[]>([]);
@@ -89,12 +91,12 @@ const HiraganaPractice: React.FC = () => {
     currentWord,
     markAnswer,
     continueToNextQuiz,
+    isNavigating: storeIsNavigating,
+    previousType,
   } = usePracticeSession();
 
-  if (!currentWord) return null;
-  const word = currentWord.word;
-  const question = word.kanji || '';
-  const reading = word.reading_hiragana || ''; // ✅ ground truth in kana
+  // Định nghĩa reading với optional chaining để dùng trong useEffect
+  const reading = currentWord?.word.reading_hiragana || '';
 
   // ---------- Speech synthesis (robust) ----------
   const speak = (text: string) => {
@@ -110,6 +112,8 @@ const HiraganaPractice: React.FC = () => {
 
   // ---------- Build choice pool directly from kana (fixes っ, ゃ/ゅ/ょ, etc.) ----------
   useEffect(() => {
+    if (!reading) return;
+    
     speak(reading);
 
     // Split exact kana units; Array.from handles surrogate pairs safely
@@ -138,6 +142,42 @@ const HiraganaPractice: React.FC = () => {
     setIsForgetClicked(false);
     setIsTranslationHidden(false);
   }, [reading]);
+
+  // Ẩn component ngay khi đang navigate hoặc không phải quiz type hiện tại
+  const currentPath = location.pathname;
+  const isCorrectRoute = currentPath.includes('hiraganaPractice');
+  const shouldHide = storeIsNavigating || (previousType && previousType !== 'hiraganaPractice');
+  
+  // Đồng bộ exit animation với state updates
+  useEffect(() => {
+    if (shouldHide && !isExiting) {
+      setIsExiting(true);
+      // Đợi exit animation hoàn thành (400ms) trước khi unmount
+      exitTimeoutRef.current = setTimeout(() => {
+        // Component sẽ được unmount bởi shouldHide check
+      }, 400);
+    } else if (!shouldHide && isExiting) {
+      setIsExiting(false);
+      if (exitTimeoutRef.current) {
+        clearTimeout(exitTimeoutRef.current);
+        exitTimeoutRef.current = null;
+      }
+    }
+    
+    return () => {
+      if (exitTimeoutRef.current) {
+        clearTimeout(exitTimeoutRef.current);
+      }
+    };
+  }, [shouldHide, isExiting]);
+  
+  if (!currentWord || shouldHide || !isCorrectRoute) {
+    return null;
+  }
+
+  // Sau khi check, currentWord chắc chắn không null
+  const word = currentWord.word;
+  const question = word.kanji || '';
 
   // ---------- Interactions ----------
   const handleCharClick = (id: string) => {
@@ -214,13 +254,13 @@ const HiraganaPractice: React.FC = () => {
 
 
   return (
-    <AnimatePresence mode="wait" >
+    <AnimatePresence mode="wait" onExitComplete={() => setIsExiting(false)}>
       <motion.div
-        key={word.id}
+        key={`${word.id}-${previousType || 'none'}`}
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
         className=" w-full"
       >
         <div className="text-center mb-6 p-10">

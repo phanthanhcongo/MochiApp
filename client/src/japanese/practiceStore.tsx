@@ -232,6 +232,11 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
 
       let pool: QuizType[] = hasStrokeData ? allWithStroke : allWithoutStroke;
 
+      // Nếu không có kanji, loại bỏ hiraganaPractice khỏi pool
+      if (!hasKanji) {
+        pool = pool.filter(t => t !== 'hiraganaPractice');
+      }
+
       // Filter cả previousType và excludeType để đảm bảo không chọn lại type cũ
       const typesToExclude = [currentPreviousType, excludeType].filter(Boolean) as QuizType[];
       pool = pool.filter(t => !typesToExclude.includes(t));
@@ -239,6 +244,10 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       // Nếu pool rỗng sau khi filter, thử lại với tất cả types (trừ excludeType nếu có)
       if (pool.length === 0) {
         pool = hasStrokeData ? allWithStroke : allWithoutStroke;
+        // Nếu không có kanji, loại bỏ hiraganaPractice
+        if (!hasKanji) {
+          pool = pool.filter(t => t !== 'hiraganaPractice');
+        }
         // Chỉ filter excludeType, không filter previousType nữa
         if (excludeType) {
           pool = pool.filter(t => t !== excludeType);
@@ -366,8 +375,9 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
     // console.log('🔒 [continueToNextQuiz] SET LOCK');
     set({ isGettingNextType: true });
     
-    // Đợi state update hoàn thành
-    await Promise.resolve();
+    // Đợi state update hoàn thành - sử dụng requestAnimationFrame để đảm bảo state đã được flush
+    await new Promise(resolve => requestAnimationFrame(resolve));
+    await new Promise(resolve => setTimeout(resolve, 0));
 
     try {
       // Lưu words.length và currentWord vào localStorage trước khi remove để tránh race condition
@@ -379,32 +389,34 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       // Remove current word (xóa từ khỏi pool)
       removeCurrentWord();
       
-      // Đợi state update sau removeCurrentWord hoàn thành
-      await Promise.resolve();
+      // Đợi state update sau removeCurrentWord hoàn thành - đảm bảo state đã ổn định
+      await new Promise(resolve => requestAnimationFrame(resolve));
+      await new Promise(resolve => setTimeout(resolve, 0));
 
       // Nếu hết từ, navigate đến summary
       if (remainingWordsCount <= 1) {
         // console.log('📊 [continueToNextQuiz] HẾT TỪ - navigate to summary', { remainingWordsCount });
-        await Promise.resolve();
-        await new Promise(resolve => setTimeout(resolve, 100));
-        navigate('/jp/summary');
-        await Promise.resolve();
+        // Đợi state ổn định trước khi navigate
+        await new Promise(resolve => requestAnimationFrame(resolve));
         await new Promise(resolve => setTimeout(resolve, 50));
         set({ isGettingNextType: false, isNavigating: false });
+        await new Promise(resolve => requestAnimationFrame(resolve));
+        navigate('/jp/summary');
         if (onComplete) onComplete();
         return;
       }
 
-      // Lấy từ tiếp theo sau khi remove
+      // Lấy từ tiếp theo sau khi remove - đảm bảo state đã được cập nhật
+      await new Promise(resolve => requestAnimationFrame(resolve));
       const { currentWord: nextWord } = get();
       if (!nextWord) {
         // console.log('📊 [continueToNextQuiz] KHÔNG CÓ TỪ TIẾP THEO - navigate to summary', { remainingWordsCount });
-        await Promise.resolve();
-        await new Promise(resolve => setTimeout(resolve, 100));
-        navigate('/jp/summary');
-        await Promise.resolve();
+        // Đợi state ổn định trước khi navigate
+        await new Promise(resolve => requestAnimationFrame(resolve));
         await new Promise(resolve => setTimeout(resolve, 50));
         set({ isGettingNextType: false, isNavigating: false });
+        await new Promise(resolve => requestAnimationFrame(resolve));
+        navigate('/jp/summary');
         if (onComplete) onComplete();
         return;
       }
@@ -414,7 +426,9 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       
       // Reset previousType trước khi gọi getNextQuizType để tránh dùng giá trị cũ
       set({ previousType: null });
-      await Promise.resolve();
+      // Đợi state update hoàn thành
+      await new Promise(resolve => requestAnimationFrame(resolve));
+      await new Promise(resolve => setTimeout(resolve, 0));
       
       // Gọi getNextQuizType với từ tiếp theo - ĐỢI HOÀN THÀNH
       // skipLock = true vì continueToNextQuiz đã quản lý lock rồi
@@ -425,6 +439,10 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       //   timestamp: new Date().toISOString()
       // });
       const nextType = await getNextQuizType(nextWord, true, oldQuizType);
+      
+      // Đợi state ổn định sau khi getNextQuizType hoàn thành
+      await new Promise(resolve => requestAnimationFrame(resolve));
+      await new Promise(resolve => setTimeout(resolve, 0));
       
       // Kiểm tra lại lock sau khi getNextQuizType hoàn thành
       const { isGettingNextType: stillLocked, isNavigating: stillNavigating } = get();
@@ -447,12 +465,12 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
           timestamp: new Date().toISOString()
         });
         set({ previousType: null });
-        await Promise.resolve();
-        await new Promise(resolve => setTimeout(resolve, 100));
-        navigate('/jp/summary');
-        await Promise.resolve();
+        // Đợi state ổn định trước khi navigate
+        await new Promise(resolve => requestAnimationFrame(resolve));
         await new Promise(resolve => setTimeout(resolve, 50));
         set({ isGettingNextType: false, isNavigating: false });
+        await new Promise(resolve => requestAnimationFrame(resolve));
+        navigate('/jp/summary');
         if (onComplete) onComplete();
         return;
       }
@@ -463,6 +481,10 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
         nextWord: nextWord.word?.kanji,
         timestamp: new Date().toISOString()
       });
+
+      // Đợi state ổn định trước khi navigate
+      await new Promise(resolve => requestAnimationFrame(resolve));
+      await new Promise(resolve => setTimeout(resolve, 0));
 
       // Navigate đến quiz type đã chọn NGAY LẬP TỨC sau khi có QuizType mới
       // navigateToQuiz sẽ tự set previousType để vô hiệu hóa các navigation khác
@@ -475,7 +497,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
     } catch (error) {
       console.error('❌ [continueToNextQuiz] LỖI', { error, timestamp: new Date().toISOString() });
       set({ isGettingNextType: false, isNavigating: false });
-      await Promise.resolve();
+      await new Promise(resolve => requestAnimationFrame(resolve));
       if (onComplete) onComplete();
     }
   },
