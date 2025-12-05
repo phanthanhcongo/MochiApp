@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { usePracticeSession } from './practiceStore';
-import { motion, AnimatePresence } from 'framer-motion';
+import PracticeAnimationWrapper from './PracticeAnimationWrapper';
 import { RELOAD_COUNT_THRESHOLD } from './practiceConfig';
 
 
@@ -27,6 +27,7 @@ const MultipleChoiceQuiz: React.FC = () => {
   const {
     currentWord,
     words,
+    scenarios,
     markAnswer,
     continueToNextQuiz,
     isNavigating: storeIsNavigating,
@@ -119,19 +120,58 @@ const MultipleChoiceQuiz: React.FC = () => {
       isCorrect: true,
     };
 
-    const incorrects = words
-      .filter(w => w.word.id !== currentWord.word.id && w.word.meaning_vi !== currentWord.word.meaning_vi)
-      .map(w => ({
-        text: w.word.meaning_vi,
-        isCorrect: false,
-      }))
-      .filter((v, i, arr) => arr.findIndex(x => x.text === v.text) === i)
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 2);
+    let incorrects: Array<{ text: string; isCorrect: boolean }> = [];
+
+    // Nếu có scenarios, dùng TẤT CẢ scenarios để có pool lớn hơn
+    if (scenarios.length > 0) {
+      incorrects = scenarios
+        .filter(s => s.word.id !== currentWord.word.id && s.word.meaning_vi && s.word.meaning_vi !== currentWord.word.meaning_vi)
+        .map(s => ({
+          text: s.word.meaning_vi!,
+          isCorrect: false,
+        }))
+        .filter((v, i, arr) => arr.findIndex(x => x.text === v.text) === i);
+    } else {
+      // Fallback về logic cũ với words
+      incorrects = words
+        .filter(w => w.word.id !== currentWord.word.id && w.word.meaning_vi && w.word.meaning_vi !== currentWord.word.meaning_vi)
+        .map(w => ({
+          text: w.word.meaning_vi!,
+          isCorrect: false,
+        }))
+        .filter((v, i, arr) => arr.findIndex(x => x.text === v.text) === i);
+    }
+
+    // Shuffle và lấy 2 incorrect answers
+    const shuffled = incorrects.sort(() => Math.random() - 0.5);
+    let selectedIncorrects = shuffled.slice(0, 2);
+    
+    // Nếu không đủ 2, lặp lại từ danh sách để đảm bảo có đủ (nhưng vẫn unique)
+    if (selectedIncorrects.length < 2 && shuffled.length > 0) {
+      // Lặp lại từ danh sách có sẵn nhưng đảm bảo unique
+      const maxAttempts = 10; // Tránh infinite loop
+      let attempts = 0;
+      while (selectedIncorrects.length < 2 && attempts < maxAttempts) {
+        const randomItem = shuffled[Math.floor(Math.random() * shuffled.length)];
+        if (!selectedIncorrects.find(item => item.text === randomItem.text)) {
+          selectedIncorrects.push(randomItem);
+        }
+        attempts++;
+      }
+    }
+
+    // Đảm bảo luôn có 3 lựa chọn (1 correct + 2 incorrect)
+    // Nếu vẫn không đủ, tạo placeholder
+    if (selectedIncorrects.length < 2) {
+      const placeholders = ['...', '...'];
+      for (let i = selectedIncorrects.length; i < 2; i++) {
+        selectedIncorrects.push({ text: placeholders[i] || '...', isCorrect: false });
+      }
+    }
 
     // Shuffle một lần và giữ nguyên thứ tự
-    return [correctAnswer, ...incorrects].sort(() => Math.random() - 0.5);
-  }, [currentWord?.word.id, words]); // Chỉ re-shuffle khi word.id thay đổi
+    return [correctAnswer, ...selectedIncorrects].sort(() => Math.random() - 0.5);
+  }, [currentWord?.word.id, scenarios, words]); // Chỉ re-shuffle khi word.id thay đổi
 
   useEffect(() => {
     // Phát âm khi từ thay đổi
@@ -226,19 +266,17 @@ const MultipleChoiceQuiz: React.FC = () => {
   };
 
   return (
-    <AnimatePresence mode="wait" onExitComplete={() => setIsExiting(false)}>
-      <motion.div
-        key={`${word.id}-${previousType || 'none'}`}
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        className=" w-full "  >
+    <PracticeAnimationWrapper
+      keyValue={`${word.id}-${previousType || 'none'}`}
+      isExiting={isExiting}
+      onExitComplete={() => setIsExiting(false)}
+      className="w-full"
+    >
         <div className="text-center pb-8">
-          <h4 className="text-gray-600 mb-1">Chọn đúng nghĩa của từc2</h4>
+          <h4 className="text-gray-600 mb-1">Chọn đúng nghĩa của từ</h4>
           <h1 className="text-5xl font-bold text-gray-900">{word.kanji}</h1>
         </div>
-        <div className="flex flex-col gap-3 mb-6">
+        <div className="flex flex-col  ">
           {answers.map((ans, idx) => {
             const isSelected = selectedIndex === idx;
             let statusClass = 'answer-option--default';
@@ -349,8 +387,7 @@ const MultipleChoiceQuiz: React.FC = () => {
             </div>
           </div>
         )}
-      </motion.div>
-    </AnimatePresence>
+    </PracticeAnimationWrapper>
   );
 };
 

@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { usePracticeSession } from './practiceStore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import { motion, AnimatePresence } from 'framer-motion';
+import PracticeAnimationWrapper from './PracticeAnimationWrapper';
 import { cnCharDataLoader } from './strokeData';
 import { RELOAD_COUNT_THRESHOLD } from './practiceConfig';
 
@@ -260,16 +260,13 @@ const MultiCharStrokePractice: React.FC = () => {
   };
 
   return (
-    <AnimatePresence mode="wait" onExitComplete={() => setIsExiting(false)}>
-      <motion.div
-        key={`${word.id}-${previousType || 'none'}`}
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        className=" w-full"
-      >
-        <div className="text-center mb-6 p-10">
+    <PracticeAnimationWrapper
+      keyValue={`${word.id}-${previousType || 'none'}`}
+      isExiting={isExiting}
+      onExitComplete={() => setIsExiting(false)}
+      className="w-full"
+    >
+        <div className="text-center ">
                 <h4 className="text-gray-600 mb-4">Vẽ từng nét đúng theo thứ tự</h4>
                 <div className="flex gap-4 flex-wrap justify-center">
                   {word.kanji.split('').map((char, idx) => (
@@ -363,8 +360,7 @@ const MultiCharStrokePractice: React.FC = () => {
                   </div>
                 </div>
               )}
-      </motion.div>
-    </AnimatePresence>
+    </PracticeAnimationWrapper>
   );
 };
 

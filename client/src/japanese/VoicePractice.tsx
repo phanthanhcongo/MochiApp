@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import PracticeAnimationWrapper from './PracticeAnimationWrapper';
 import { usePracticeSession } from './practiceStore';
 import { RELOAD_COUNT_THRESHOLD } from './practiceConfig';
 interface AnswerOption {
@@ -31,6 +31,7 @@ const VoicePractice: React.FC = () => {
   const {
     currentWord,
     words,
+    scenarios,
     markAnswer,
     continueToNextQuiz,
     isNavigating: storeIsNavigating,
@@ -125,15 +126,51 @@ useEffect(() => {
   const answers: AnswerOption[] = useMemo(() => {
     if (!correctAnswer) return [];
     
-    const incorrects = words
-      .filter(w => w.word.meaning_vi !== correctAnswer)
-      .map(w => ({ text: w.word.meaning_vi, isCorrect: false }))
-      .filter((v, i, arr) => arr.findIndex(x => x.text === v.text) === i)
-      .sort(() => 0.5 - Math.random())
-      .slice(0, 2);
+    let incorrects: AnswerOption[] = [];
+    
+    // Nếu có scenarios, dùng TẤT CẢ scenarios để có pool lớn hơn
+    if (scenarios.length > 0) {
+      incorrects = scenarios
+        .filter(s => s.word.meaning_vi && s.word.meaning_vi !== correctAnswer)
+        .map(s => ({ text: s.word.meaning_vi, isCorrect: false }))
+        .filter((v, i, arr) => arr.findIndex(x => x.text === v.text) === i);
+    } else {
+      // Fallback về logic cũ với words
+      incorrects = words
+        .filter(w => w.word.meaning_vi && w.word.meaning_vi !== correctAnswer)
+        .map(w => ({ text: w.word.meaning_vi, isCorrect: false }))
+        .filter((v, i, arr) => arr.findIndex(x => x.text === v.text) === i);
+    }
 
-    return [...incorrects, { text: correctAnswer, isCorrect: true }].sort(() => 0.5 - Math.random());
-  }, [words, correctAnswer]);
+    // Shuffle và lấy 2 incorrect answers
+    const shuffled = incorrects.sort(() => 0.5 - Math.random());
+    let selectedIncorrects = shuffled.slice(0, 2);
+    
+    // Nếu không đủ 2, lặp lại từ danh sách để đảm bảo có đủ (nhưng vẫn unique)
+    if (selectedIncorrects.length < 2 && shuffled.length > 0) {
+      // Lặp lại từ danh sách có sẵn nhưng đảm bảo unique
+      const maxAttempts = 10; // Tránh infinite loop
+      let attempts = 0;
+      while (selectedIncorrects.length < 2 && attempts < maxAttempts) {
+        const randomItem = shuffled[Math.floor(Math.random() * shuffled.length)];
+        if (!selectedIncorrects.find(item => item.text === randomItem.text)) {
+          selectedIncorrects.push(randomItem);
+        }
+        attempts++;
+      }
+    }
+
+    // Đảm bảo luôn có 3 lựa chọn (1 correct + 2 incorrect)
+    // Nếu vẫn không đủ, tạo placeholder
+    if (selectedIncorrects.length < 2) {
+      const placeholders = ['...', '...'];
+      for (let i = selectedIncorrects.length; i < 2; i++) {
+        selectedIncorrects.push({ text: placeholders[i] || '...', isCorrect: false });
+      }
+    }
+
+    return [...selectedIncorrects, { text: correctAnswer, isCorrect: true }].sort(() => 0.5 - Math.random());
+  }, [scenarios, words, correctAnswer]);
 
   // Ẩn component ngay khi đang navigate hoặc không phải quiz type hiện tại
   const currentPath = location.pathname;
@@ -217,15 +254,12 @@ useEffect(() => {
   };
 
   return (
-       <AnimatePresence mode="wait" onExitComplete={() => setIsExiting(false)}>
-      <motion.div
-        key={`${word.id}-${previousType || 'none'}`}
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        className=""
-      >
+    <PracticeAnimationWrapper
+      keyValue={`${word.id}-${previousType || 'none'}`}
+      isExiting={isExiting}
+      onExitComplete={() => setIsExiting(false)}
+      className=""
+    >
       {/* Question */}
       {/* Question (Phát âm thay vì hiển thị chữ) */}
       <div className="text-center mb-6">
@@ -239,7 +273,7 @@ useEffect(() => {
   </button>
 </div>
           {/* Answers */}
-          <div className="flex flex-col gap-3 mb-6">
+          <div className="flex flex-col  mb-6">
             {answers.map((ans, idx) => {
               const isSelected = selectedIndex === idx;
               let statusClass = 'answer-option--default';
@@ -346,9 +380,7 @@ useEffect(() => {
                        </div>
                      </div>
                    )}
-      </motion.div>
-    </AnimatePresence>
-    
+    </PracticeAnimationWrapper>
   );
 };
 

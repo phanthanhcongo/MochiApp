@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\PracticeController;
 use App\Http\Controllers\Api\UserLanguageController;
 use App\Http\Controllers\Api\EnglishController;
 use App\Http\Controllers\Api\JapaneseController;
+use App\Http\Controllers\Api\HandlePracticeController;
 
 // Public
 Route::post('/auth/login', [AuthController::class, 'login']);
@@ -31,6 +32,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/practice/add-word', [PracticeController::class, 'addWord']);
     Route::post('/practice/delete/{id}', [JapaneseController::class, 'destroy']);
     Route::post('/practice/updateWord/{id}', [PracticeController::class, 'updateWord']);
+    Route::get('/practice/scenarios', [HandlePracticeController::class, 'getPracticeScenarios']);
 
 
 

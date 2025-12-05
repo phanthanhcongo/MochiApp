@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { canStrokeWordCN } from './strokeData';
 
 export type QuizType = 'multiple' | 'hiraganaPractice' | 'romajiPractice' | 'voicePractice' | 'multiCharStrokePractice';
 export type QuizType_withoutStroke = 'multiple' | 'hiraganaPractice' | 'romajiPractice' | 'voicePractice' ;
@@ -29,6 +28,27 @@ export interface ReviewWord {
   example_vi?: string;
 }
 
+export interface PracticeScenario {
+  order: number;
+  word: {
+    id: number;
+    kanji: string;
+    reading_hiragana: string | null;
+    reading_romaji: string | null;
+    meaning_vi: string | null;
+    examples: {
+      sentence_jp: string;
+      sentence_romaji: string;
+      sentence_vi: string;
+    }[];
+    hanviet: {
+      han_viet: string;
+      explanation: string;
+    } | null;
+  };
+  quizType: string | null;
+}
+
 interface ReviewedWordLog {
   word: ReviewWord;
   firstFailed: boolean;
@@ -49,11 +69,16 @@ interface PracticeSessionStore {
   completedCount: number;
   isGettingNextType: boolean; // Lock để tránh gọi đồng thời
   isNavigating: boolean; // Lock để đảm bảo chỉ một navigation được thực hiện
+  
+  // Scenarios từ API
+  scenarios: PracticeScenario[];
+  currentScenarioIndex: number;
+  completedWordIds: Set<number>; // Track những từ đã trả lời đúng
 
   setWords: (words: ReviewWord[]) => void;
+  setScenarios: (scenarios: PracticeScenario[]) => void;
   markAnswer: (isCorrect: boolean) => void;
   removeCurrentWord: () => void;
-  getNextQuizType: (word?: ReviewWordState | null, skipLock?: boolean, excludeType?: QuizType | null) => Promise<QuizType | null>;
   navigateToQuiz: (navigate: (path: string, state?: any) => void, newQuizType: QuizType, oldQuizType?: QuizType | null, onComplete?: () => void) => Promise<void>;
   continueToNextQuiz: (navigate: (path: string, state?: any) => void, onComplete?: () => void) => Promise<void>;
   resetSession: () => void;
@@ -79,6 +104,9 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
   completedCount: 0,
   isGettingNextType: false,
   isNavigating: false,
+  scenarios: [],
+  currentScenarioIndex: 0,
+  completedWordIds: new Set<number>(),
 
   setWords: (words) => {
     // Shuffle toàn bộ danh sách trước khi chọn từ đầu tiên
@@ -97,8 +125,50 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
     });
   },
 
+  setScenarios: (scenarios) => {
+    if (scenarios.length === 0) {
+      set({
+        scenarios: [],
+        currentScenarioIndex: 0,
+        currentWord: null,
+        totalCount: 0,
+        completedCount: 0,
+      });
+      return;
+    }
+
+    // Convert scenario đầu tiên thành ReviewWordState
+    const firstScenario = scenarios[0];
+    const firstWord: ReviewWord = {
+      id: firstScenario.word.id,
+      kanji: firstScenario.word.kanji,
+      reading_hiragana: firstScenario.word.reading_hiragana || '',
+      reading_romaji: firstScenario.word.reading_romaji || '',
+      meaning_vi: firstScenario.word.meaning_vi || '',
+      hanviet: firstScenario.word.hanviet?.han_viet,
+      hanviet_explanation: firstScenario.word.hanviet?.explanation,
+      example: firstScenario.word.examples?.[0]?.sentence_jp,
+      example_romaji: firstScenario.word.examples?.[0]?.sentence_romaji,
+      example_vi: firstScenario.word.examples?.[0]?.sentence_vi,
+    };
+
+    localStorage.setItem('practice_active', 'true');
+    localStorage.setItem('reviewed_words', '[]');
+
+    set({
+      scenarios,
+      currentScenarioIndex: 0,
+      currentWord: { word: firstWord, hasFailed: false },
+      reviewedWords: [],
+      totalCount: scenarios.length,
+      completedCount: 0,
+      previousType: null,
+      completedWordIds: new Set<number>(),
+    });
+  },
+
   markAnswer: (isCorrect) => {
-    const { currentWord, words, reviewedWords, completedCount } = get();
+    const { currentWord, words, reviewedWords, completedCount, scenarios, completedWordIds } = get();
     if (!currentWord) return;
 
     const updatedCurrent = { ...currentWord };
@@ -124,6 +194,89 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       set({ reviewedWords: updatedLogs });
     }
 
+    // Nếu có scenarios, xử lý theo logic mới
+    if (scenarios.length > 0) {
+      if (isCorrect) {
+        // Trả lời đúng: đánh dấu từ đã hoàn thành
+        const newCompletedIds = new Set(completedWordIds);
+        newCompletedIds.add(currentWord.word.id);
+        set({ 
+          completedWordIds: newCompletedIds,
+          completedCount: completedCount + 1,
+          currentWord: updatedCurrent 
+        });
+        
+        // Console log list còn lại
+        const remainingScenarios = scenarios.filter(s => !newCompletedIds.has(s.word.id));
+        console.log('📋 [markAnswer] LIST SCENARIOS CÒN LẠI (sau khi trả lời đúng):', {
+          total: scenarios.length,
+          completed: newCompletedIds.size,
+          remaining: remainingScenarios.length,
+          remainingList: remainingScenarios.map(s => ({
+            order: s.order,
+            wordId: s.word.id,
+            kanji: s.word.kanji,
+            quizType: s.quizType
+          }))
+        });
+      } else {
+        // Trả lời sai: đẩy xuống cuối và đổi quizType
+        const currentWordId = currentWord.word.id;
+        const scenarioIndex = scenarios.findIndex(s => s.word.id === currentWordId);
+        
+        if (scenarioIndex !== -1) {
+          const updatedScenarios = [...scenarios];
+          const currentScenario = updatedScenarios[scenarioIndex];
+          
+          // Đổi quizType thành một trong: multiple, romajiPractice, voicePractice
+          // Đảm bảo không trùng với quizType cũ
+          const availableQuizTypes: QuizType[] = ['multiple', 'romajiPractice', 'voicePractice'];
+          const oldQuizType = currentScenario.quizType;
+          const filteredQuizTypes = availableQuizTypes.filter(type => type !== oldQuizType);
+          
+          // Nếu tất cả 3 loại đều trùng (không xảy ra), fallback về danh sách gốc
+          const newQuizTypes = filteredQuizTypes.length > 0 ? filteredQuizTypes : availableQuizTypes;
+          const randomQuizType = newQuizTypes[Math.floor(Math.random() * newQuizTypes.length)];
+          
+          // Xóa scenario hiện tại
+          updatedScenarios.splice(scenarioIndex, 1);
+          
+          // Tìm order lớn nhất hiện tại
+          const maxOrder = updatedScenarios.length > 0 
+            ? Math.max(...updatedScenarios.map(s => s.order))
+            : 0;
+          
+          // Thêm vào cuối với quizType mới và order mới
+          updatedScenarios.push({
+            ...currentScenario,
+            order: maxOrder + 1,
+            quizType: randomQuizType,
+          });
+          
+          set({ 
+            scenarios: updatedScenarios,
+            currentWord: updatedCurrent 
+          });
+          
+          // Console log list còn lại
+          const remainingScenarios = updatedScenarios.filter(s => !completedWordIds.has(s.word.id));
+          console.log('📋 [markAnswer] LIST SCENARIOS CÒN LẠI (sau khi trả lời sai):', {
+            total: updatedScenarios.length,
+            completed: completedWordIds.size,
+            remaining: remainingScenarios.length,
+            remainingList: remainingScenarios.map(s => ({
+              order: s.order,
+              wordId: s.word.id,
+              kanji: s.word.kanji,
+              quizType: s.quizType
+            }))
+          });
+        }
+      }
+      return;
+    }
+
+    // Logic cũ cho words (fallback)
     if (!isCorrect) {
       // Thêm từ sai vào lại mảng và shuffle để đảm bảo ngẫu nhiên
       const updatedWords = shuffleArray([...words, updatedCurrent]);
@@ -156,156 +309,9 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
     set({ words: updated, currentWord: nextWord });
   },
 
-  getNextQuizType: async (word?: ReviewWordState | null, skipLock = false, excludeType?: QuizType | null) => {
-    const { currentWord, isGettingNextType } = get();
-    
-    // Nếu skipLock = false và đang trong quá trình lấy type, đợi một chút rồi thử lại hoặc return null
-    if (!skipLock && isGettingNextType) {
-      console.warn('⚠️ [getNextQuizType] Đang được gọi, bỏ qua lần gọi này');
-      // Đợi một chút để lần gọi trước hoàn thành
-      await new Promise(resolve => setTimeout(resolve, 100));
-      const { isGettingNextType: stillGetting } = get();
-      if (stillGetting) {
-        return null;
-      }
-    }
-
-    // Chỉ set lock nếu skipLock = false (tức là được gọi độc lập, không từ continueToNextQuiz)
-    if (!skipLock) {
-      set({ isGettingNextType: true });
-    }
-
-    try {
-      // Đọc previousType từ state mới nhất, không dùng từ closure
-      const { previousType: currentPreviousType } = get();
-      
-      // Sử dụng word được truyền vào hoặc currentWord mặc định
-      const targetWord = word ?? currentWord;
-      
-      if (!targetWord) {
-        if (!skipLock) {
-          set({ isGettingNextType: false });
-        }
-        return null;
-      }
-      
-      const candidate =
-        (targetWord && 'word' in targetWord)
-          ? (targetWord.word?.kanji ?? '')
-          : (targetWord as unknown as ReviewWord | null)?.kanji ?? '';
-
-      if (!candidate) {
-       
-        if (!skipLock) {
-          set({ isGettingNextType: false });
-        }
-        return null;
-      }
-
-      // ✅ validate chặt: có ÍT NHẤT một ký tự thuộc Script=Han
-      const hasKanji = containsKanjiStrict(candidate);
-
-      // Kiểm tra stroke data trước để quyết định pool
-      let hasStrokeData = false;
-      if (hasKanji) {
-        hasStrokeData = await canStrokeWordCN(candidate);
-      }
-
-     
-
-      // Nếu có stroke data → random từ QuizType (bao gồm multiCharStrokePractice)
-      // Nếu không có stroke data → random từ QuizType_withoutStroke
-      const allWithStroke: QuizType[] = [
-        'multiple',
-        'voicePractice',
-        'hiraganaPractice',
-        'romajiPractice',
-        'multiCharStrokePractice',
-      ];
-
-      const allWithoutStroke: QuizType_withoutStroke[] = [
-        'multiple',
-        'voicePractice',
-        'hiraganaPractice',
-        'romajiPractice',
-      ];
-
-      let pool: QuizType[] = hasStrokeData ? allWithStroke : allWithoutStroke;
-
-      // Nếu không có kanji, loại bỏ hiraganaPractice khỏi pool
-      if (!hasKanji) {
-        pool = pool.filter(t => t !== 'hiraganaPractice');
-      }
-
-      // Filter cả previousType và excludeType để đảm bảo không chọn lại type cũ
-      const typesToExclude = [currentPreviousType, excludeType].filter(Boolean) as QuizType[];
-      pool = pool.filter(t => !typesToExclude.includes(t));
-
-      // Nếu pool rỗng sau khi filter, thử lại với tất cả types (trừ excludeType nếu có)
-      if (pool.length === 0) {
-        pool = hasStrokeData ? allWithStroke : allWithoutStroke;
-        // Nếu không có kanji, loại bỏ hiraganaPractice
-        if (!hasKanji) {
-          pool = pool.filter(t => t !== 'hiraganaPractice');
-        }
-        // Chỉ filter excludeType, không filter previousType nữa
-        if (excludeType) {
-          pool = pool.filter(t => t !== excludeType);
-        }
-      }
-      
-      if (pool.length === 0) {
-       
-        if (!skipLock) {
-          set({ previousType: null, isGettingNextType: false });
-        } else {
-          set({ previousType: null });
-        }
-        return null;
-      }
-
-      const nextType = pool[Math.floor(Math.random() * pool.length)];
-      console.log('✅ [getNextQuizType] CHỌN QUIZ TYPE', {
-        nextType,
-        pool,
-        candidate,
-        previousType: currentPreviousType,
-        excludeType,
-        skipLock,
-        timestamp: new Date().toISOString()
-      });
-      
-      if (!skipLock) {
-        set({ previousType: nextType, isGettingNextType: false });
-      }
-      // Khi skipLock = true, KHÔNG set previousType ở đây
-      // Để continueToNextQuiz tự quản lý và set sau khi đã có oldQuizType
-      return nextType;
-    } catch (error) {
-      console.error('❌ [getNextQuizType] LỖI', { error, timestamp: new Date().toISOString() });
-      if (!skipLock) {
-        set({ isGettingNextType: false });
-      }
-      return null;
-    }
-  },
-
   navigateToQuiz: async (navigate, newQuizType, oldQuizType, onComplete) => {
-    const { isNavigating, previousType } = get();
+    const { isNavigating } = get();
     console.log("oldQuizType", oldQuizType , "and newQuizType", newQuizType);
-    // Lấy oldQuizType từ parameter hoặc từ state
-    const currentOldType = oldQuizType ?? previousType;
-    
-    // So sánh và chỉ navigate nếu khác nhau
-    if (currentOldType === newQuizType) {
-      console.warn('⚠️ [navigateToQuiz] QUIZ TYPE GIỐNG NHAU, BỎ QUA', {
-        oldQuizType: currentOldType,
-        newQuizType,
-        timestamp: new Date().toISOString()
-      });
-      if (onComplete) onComplete();
-      return;
-    }
     
     if (isNavigating) {
       console.warn('⚠️ [navigateToQuiz] ĐÃ ĐƯỢC GỌI KHI ĐANG NAVIGATING, BỎ QUA', {
@@ -320,11 +326,11 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
     // Điều này đảm bảo quiz type mới chiếm quyền navigate trước
     set({ isNavigating: true, previousType: newQuizType });
   
-    console.log('🚀 [navigateToQuiz] BẮT ĐẦU', {
-      oldQuizType: currentOldType,
-      newQuizType,
-      timestamp: new Date().toISOString()
-    });
+    // console.log('🚀 [navigateToQuiz] BẮT ĐẦU', {
+    //   oldQuizType: currentOldType,
+    //   newQuizType,
+    //   timestamp: new Date().toISOString()
+    // });
   
     try {
       // Sử dụng requestAnimationFrame để đảm bảo DOM đã update và navigate mượt mà
@@ -341,7 +347,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       await new Promise(resolve => requestAnimationFrame(resolve));
       set({ isNavigating: false, isGettingNextType: false });
   
-      console.log('✅ [navigateToQuiz] HOÀN THÀNH', { newQuizType, timestamp: new Date().toISOString() });
+      // console.log('✅ [navigateToQuiz] HOÀN THÀNH', { newQuizType, timestamp: new Date().toISOString() });
     } catch (error) {
       console.error('❌ [navigateToQuiz] LỖI', { error, newQuizType, timestamp: new Date().toISOString() });
       set({ isNavigating: false, isGettingNextType: false });
@@ -352,154 +358,150 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
   
 
   continueToNextQuiz: async (navigate, onComplete) => {
-    // const stackTrace = new Error().stack;
-    // console.log('🔵 [continueToNextQuiz] BẮT ĐẦU', {
-    //   timestamp: new Date().toISOString(),
-    //   stackTrace: stackTrace?.split('\n').slice(0, 5).join('\n')
-    // });
-    
-    const { words, isGettingNextType, isNavigating, removeCurrentWord, getNextQuizType, navigateToQuiz } = get();
+    const { scenarios, currentScenarioIndex, isGettingNextType, isNavigating, navigateToQuiz, previousType } = get();
     
     // Nếu đang trong quá trình xử lý hoặc đang navigate, bỏ qua
     if (isGettingNextType || isNavigating) {
-      // console.warn('⚠️ [continueToNextQuiz] BỊ BLOCK - đang được gọi, bỏ qua lần gọi này', { 
-      //   isGettingNextType, 
-      //   isNavigating,
-      //   timestamp: new Date().toISOString()
-      // });
       if (onComplete) onComplete();
       return;
     }
 
-    // Set lock - chỉ set isGettingNextType, isNavigating sẽ được set khi thực sự navigate
-    // console.log('🔒 [continueToNextQuiz] SET LOCK');
-    set({ isGettingNextType: true });
-    
-    // Đợi state update hoàn thành - sử dụng requestAnimationFrame để đảm bảo state đã được flush
-    await new Promise(resolve => requestAnimationFrame(resolve));
-    await new Promise(resolve => setTimeout(resolve, 0));
-
-    try {
-      // Lưu words.length và currentWord vào localStorage trước khi remove để tránh race condition
-      const remainingWordsCount = words.length;
-      const hasCurrentWord = !!get().currentWord;
-      localStorage.setItem('practice_remainingWordsCount', String(remainingWordsCount));
-      localStorage.setItem('practice_hasCurrentWord', String(hasCurrentWord));
-      
-      // Remove current word (xóa từ khỏi pool)
-      removeCurrentWord();
-      
-      // Đợi state update sau removeCurrentWord hoàn thành - đảm bảo state đã ổn định
+    // Nếu có scenarios từ API, dùng logic mới
+    if (scenarios.length > 0) {
+      set({ isGettingNextType: true });
       await new Promise(resolve => requestAnimationFrame(resolve));
       await new Promise(resolve => setTimeout(resolve, 0));
 
-      // Nếu hết từ, navigate đến summary
-      if (remainingWordsCount <= 1) {
-        // console.log('📊 [continueToNextQuiz] HẾT TỪ - navigate to summary', { remainingWordsCount });
-        // Đợi state ổn định trước khi navigate
-        await new Promise(resolve => requestAnimationFrame(resolve));
-        await new Promise(resolve => setTimeout(resolve, 50));
-        set({ isGettingNextType: false, isNavigating: false });
-        await new Promise(resolve => requestAnimationFrame(resolve));
-        navigate('/jp/summary');
-        if (onComplete) onComplete();
-        return;
-      }
+      try {
+        const { completedWordIds } = get();
+        
+        // Lọc ra những scenarios chưa trả lời đúng
+        const remainingScenarios = scenarios.filter(s => !completedWordIds.has(s.word.id));
+        
+        // Console log list còn lại
+        console.log('📋 [continueToNextQuiz] LIST SCENARIOS CÒN LẠI:', {
+          total: scenarios.length,
+          completed: completedWordIds.size,
+          remaining: remainingScenarios.length,
+          remainingList: remainingScenarios.map(s => ({
+            order: s.order,
+            wordId: s.word.id,
+            kanji: s.word.kanji,
+            quizType: s.quizType
+          }))
+        });
+        
+        // Nếu không còn từ nào, navigate đến summary
+        if (remainingScenarios.length === 0) {
+          await new Promise(resolve => requestAnimationFrame(resolve));
+          await new Promise(resolve => setTimeout(resolve, 50));
+          set({ isGettingNextType: false, isNavigating: false });
+          await new Promise(resolve => requestAnimationFrame(resolve));
+          navigate('/jp/summary');
+          if (onComplete) onComplete();
+          return;
+        }
 
-      // Lấy từ tiếp theo sau khi remove - đảm bảo state đã được cập nhật
-      await new Promise(resolve => requestAnimationFrame(resolve));
-      const { currentWord: nextWord } = get();
-      if (!nextWord) {
-        // console.log('📊 [continueToNextQuiz] KHÔNG CÓ TỪ TIẾP THEO - navigate to summary', { remainingWordsCount });
-        // Đợi state ổn định trước khi navigate
-        await new Promise(resolve => requestAnimationFrame(resolve));
-        await new Promise(resolve => setTimeout(resolve, 50));
-        set({ isGettingNextType: false, isNavigating: false });
-        await new Promise(resolve => requestAnimationFrame(resolve));
-        navigate('/jp/summary');
-        if (onComplete) onComplete();
-        return;
-      }
+        // Tìm scenario tiếp theo (bỏ qua những từ đã trả lời đúng)
+        let nextIndex = currentScenarioIndex + 1;
+        while (nextIndex < scenarios.length && completedWordIds.has(scenarios[nextIndex].word.id)) {
+          nextIndex++;
+        }
+        
+        // Nếu không tìm thấy từ tiếp theo trong phần còn lại, tìm từ đầu
+        if (nextIndex >= scenarios.length) {
+          nextIndex = scenarios.findIndex(s => !completedWordIds.has(s.word.id));
+        }
+        
+        // Nếu vẫn không tìm thấy, navigate đến summary
+        if (nextIndex === -1 || nextIndex >= scenarios.length) {
+          await new Promise(resolve => requestAnimationFrame(resolve));
+          await new Promise(resolve => setTimeout(resolve, 50));
+          set({ isGettingNextType: false, isNavigating: false });
+          await new Promise(resolve => requestAnimationFrame(resolve));
+          navigate('/jp/summary');
+          if (onComplete) onComplete();
+          return;
+        }
 
-      // Lưu previousType cũ trước khi reset để so sánh và exclude
-      const { previousType: oldQuizType } = get();
-      
-      // Reset previousType trước khi gọi getNextQuizType để tránh dùng giá trị cũ
-      set({ previousType: null });
-      // Đợi state update hoàn thành
-      await new Promise(resolve => requestAnimationFrame(resolve));
-      await new Promise(resolve => setTimeout(resolve, 0));
-      
-      // Gọi getNextQuizType với từ tiếp theo - ĐỢI HOÀN THÀNH
-      // skipLock = true vì continueToNextQuiz đã quản lý lock rồi
-      // Truyền oldQuizType vào excludeType để đảm bảo không chọn lại type cũ
-      // console.log('🔄 [continueToNextQuiz] GỌI getNextQuizType', {
-      //   nextWord: nextWord.word?.kanji,
-      //   oldQuizType,
-      //   timestamp: new Date().toISOString()
-      // });
-      const nextType = await getNextQuizType(nextWord, true, oldQuizType);
-      
-      // Đợi state ổn định sau khi getNextQuizType hoàn thành
-      await new Promise(resolve => requestAnimationFrame(resolve));
-      await new Promise(resolve => setTimeout(resolve, 0));
-      
-      // Kiểm tra lại lock sau khi getNextQuizType hoàn thành
-      const { isGettingNextType: stillLocked, isNavigating: stillNavigating } = get();
-      if (!stillLocked || stillNavigating) {
-        // console.warn('⚠️ [continueToNextQuiz] LOCK ĐÃ BỊ MỞ HOẶC ĐANG NAVIGATE SAU getNextQuizType - bỏ qua navigate', {
-        //   stillLocked,
-        //   stillNavigating,
-        //   nextType,
+        const nextScenario = scenarios[nextIndex];
+        const nextQuizType = nextScenario.quizType as QuizType | null;
+        const oldQuizType = previousType;
+
+        // Convert scenario word thành ReviewWord
+        const nextWord: ReviewWord = {
+          id: nextScenario.word.id,
+          kanji: nextScenario.word.kanji,
+          reading_hiragana: nextScenario.word.reading_hiragana || '',
+          reading_romaji: nextScenario.word.reading_romaji || '',
+          meaning_vi: nextScenario.word.meaning_vi || '',
+          hanviet: nextScenario.word.hanviet?.han_viet,
+          hanviet_explanation: nextScenario.word.hanviet?.explanation,
+          example: nextScenario.word.examples?.[0]?.sentence_jp,
+          example_romaji: nextScenario.word.examples?.[0]?.sentence_romaji,
+          example_vi: nextScenario.word.examples?.[0]?.sentence_vi,
+        };
+
+        // Cập nhật currentWord và index
+        // completedCount chỉ tăng khi trả lời đúng, không cập nhật khi chuyển từ
+        // Đảm bảo completedCount không bao giờ giảm
+        set({
+          currentWord: { word: nextWord, hasFailed: false },
+          currentScenarioIndex: nextIndex,
+          // Giữ nguyên completedCount, không cập nhật dựa trên index
+          // completedCount chỉ tăng trong markAnswer khi trả lời đúng
+        });
+
+        await new Promise(resolve => requestAnimationFrame(resolve));
+        await new Promise(resolve => setTimeout(resolve, 0));
+
+        // Nếu không có quiz type hợp lệ, navigate đến summary
+        if (!nextQuizType) {
+          console.log('📊 [continueToNextQuiz] KHÔNG CÓ QUIZ TYPE - navigate to summary', {
+            nextWord: nextWord.kanji,
+            timestamp: new Date().toISOString()
+          });
+          set({ previousType: null, isGettingNextType: false, isNavigating: false });
+          await new Promise(resolve => requestAnimationFrame(resolve));
+          await new Promise(resolve => setTimeout(resolve, 50));
+          navigate('/jp/summary');
+          if (onComplete) onComplete();
+          return;
+        }
+
+        // console.log('✅ [continueToNextQuiz] DÙNG QUIZ TYPE TỪ SCENARIO', {
+        //   oldQuizType,
+        //   nextQuizType,
+        //   nextWord: nextWord.kanji,
+        //   order: nextScenario.order,
         //   timestamp: new Date().toISOString()
         // });
-        set({ isGettingNextType: false });
-        if (onComplete) onComplete();
-        return;
-      }
 
-      // Nếu không có quiz type hợp lệ, navigate đến summary
-      if (!nextType) {
-        console.log('📊 [continueToNextQuiz] KHÔNG CÓ QUIZ TYPE - navigate to summary', {
-          nextWord: nextWord.word?.kanji,
-          timestamp: new Date().toISOString()
+        await new Promise(resolve => requestAnimationFrame(resolve));
+        await new Promise(resolve => setTimeout(resolve, 0));
+
+        // Navigate đến quiz type từ scenario
+        await navigateToQuiz(navigate, nextQuizType, oldQuizType, () => {
+          // console.log('✅ [continueToNextQuiz] HOÀN THÀNH', { nextQuizType, timestamp: new Date().toISOString() });
+          set({ isGettingNextType: false, isNavigating: false });
+          if (onComplete) onComplete();
         });
-        set({ previousType: null });
-        // Đợi state ổn định trước khi navigate
-        await new Promise(resolve => requestAnimationFrame(resolve));
-        await new Promise(resolve => setTimeout(resolve, 50));
+      } catch (error) {
+        console.error('❌ [continueToNextQuiz] LỖI', { error, timestamp: new Date().toISOString() });
         set({ isGettingNextType: false, isNavigating: false });
         await new Promise(resolve => requestAnimationFrame(resolve));
-        navigate('/jp/summary');
         if (onComplete) onComplete();
-        return;
       }
-
-      console.log('✅ [continueToNextQuiz] ĐÃ LẤY ĐƯỢC QUIZ TYPE', {
-        oldQuizType,
-        nextType,
-        nextWord: nextWord.word?.kanji,
-        timestamp: new Date().toISOString()
-      });
-
-      // Đợi state ổn định trước khi navigate
-      await new Promise(resolve => requestAnimationFrame(resolve));
-      await new Promise(resolve => setTimeout(resolve, 0));
-
-      // Navigate đến quiz type đã chọn NGAY LẬP TỨC sau khi có QuizType mới
-      // navigateToQuiz sẽ tự set previousType để vô hiệu hóa các navigation khác
-      // Truyền oldQuizType để so sánh và chỉ navigate nếu khác nhau
-      await navigateToQuiz(navigate, nextType, oldQuizType, () => {
-        console.log('✅ [continueToNextQuiz] HOÀN THÀNH', { nextType, timestamp: new Date().toISOString() });
-        set({ isGettingNextType: false, isNavigating: false });
-        if (onComplete) onComplete();
-      });
-    } catch (error) {
-      console.error('❌ [continueToNextQuiz] LỖI', { error, timestamp: new Date().toISOString() });
-      set({ isGettingNextType: false, isNavigating: false });
-      await new Promise(resolve => requestAnimationFrame(resolve));
-      if (onComplete) onComplete();
+      return;
     }
+
+    // Nếu không có scenarios, navigate đến summary
+    await new Promise(resolve => requestAnimationFrame(resolve));
+    await new Promise(resolve => setTimeout(resolve, 50));
+    set({ isGettingNextType: false, isNavigating: false });
+    await new Promise(resolve => requestAnimationFrame(resolve));
+    navigate('/jp/summary');
+    if (onComplete) onComplete();
   },
 
 
@@ -513,6 +515,9 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       completedCount: 0,
       isGettingNextType: false,
       isNavigating: false,
+      scenarios: [],
+      currentScenarioIndex: 0,
+      completedWordIds: new Set<number>(),
     });
     localStorage.removeItem('practice_active');
     localStorage.removeItem('reviewed_words');

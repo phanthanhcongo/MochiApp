@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { usePracticeSession } from './practiceStore';
-import { motion, AnimatePresence } from 'framer-motion';
+import PracticeAnimationWrapper from './PracticeAnimationWrapper';
 import { RELOAD_COUNT_THRESHOLD } from './practiceConfig';
 
 const HiraganaPractice: React.FC = () => {
@@ -254,16 +254,13 @@ const HiraganaPractice: React.FC = () => {
 
 
   return (
-    <AnimatePresence mode="wait" onExitComplete={() => setIsExiting(false)}>
-      <motion.div
-        key={`${word.id}-${previousType || 'none'}`}
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        className=" w-full"
-      >
-        <div className="text-center mb-6 p-10">
+    <PracticeAnimationWrapper
+      keyValue={`${word.id}-${previousType || 'none'}`}
+      isExiting={isExiting}
+      onExitComplete={() => setIsExiting(false)}
+      className="w-full"
+    >
+        <div className="text-center ">
             <h4 className="text-gray-600 mb-4">Chọn các ký tự hiragana để ghép cách đọc:</h4>
             <h1 className="text-5xl font-bold text-gray-900 mb-6">{question}</h1>
             <div className="mb-4 h-15 w-[70%] mx-auto border border-gray-400 rounded-2xl px-4 text-3xl font-semibold tracking-widest text-gray-800 bg-slate-50 flex items-center justify-center text-center">
@@ -361,8 +358,7 @@ const HiraganaPractice: React.FC = () => {
               </div>
             </div>
           )}
-      </motion.div>
-    </AnimatePresence>
+    </PracticeAnimationWrapper>
   );
 };
 

@@ -17,7 +17,7 @@ interface PracticeLayoutProps {
   children: React.ReactNode;
 }
 
-const PracticeLayout: React.FC<PracticeLayoutProps> = ({
+const PracticeLayout: React.FC<PracticeLayoutProps> = React.memo(({
   completedCount,
   totalCount,
   isPlaying,
@@ -29,8 +29,8 @@ const PracticeLayout: React.FC<PracticeLayoutProps> = ({
   children,
 }) => {
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="w-full min-h-screen mx-auto pt-6 relative bg-slate-50 min-h-[700px]">
+    <div className="min-h-screen bg-gray-100 mx-auto ">
+      <div className="w-full min-h-screen mx-auto pt-6 relative bg-slate-50 ">
         {/* Header with padding */}
         <div className="mx-auto px-8">
           <PracticeProgressBar 
@@ -50,7 +50,7 @@ const PracticeLayout: React.FC<PracticeLayoutProps> = ({
         </div>
 
         {/* Practice content without padding */}
-        <div className="mx-auto">
+        <div className="mx-auto w-full max-w-6xl ">
           {children}
         </div>
       </div>
@@ -93,7 +93,9 @@ const PracticeLayout: React.FC<PracticeLayoutProps> = ({
       )}
     </div>
   );
-};
+});
+
+PracticeLayout.displayName = 'PracticeLayout';
 
 export default PracticeLayout;
 

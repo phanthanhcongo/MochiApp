@@ -1,9 +1,8 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { usePracticeSession } from './practiceStore';
 import type { QuizType } from './practiceStore';
 import PracticeLayout from './PracticeLayout';
-import LoadingScreen from './LoadingScreen';
 import MultipleChoiceQuiz from './MultipleChoiceQuiz';
 import HiraganaPractice from './HiraganaPractice';
 import RomajiPractice from './RomajiPractice';
@@ -13,10 +12,12 @@ import MultiCharStrokePractice from './MultiCharStrokePractice';
 const PracticeWrapper: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { totalCount, completedCount, isNavigating: storeIsNavigating, previousType } = usePracticeSession();
+  const { totalCount, completedCount } = usePracticeSession();
   const [isPlaying, setIsPlaying] = useState(false);
   const [showConfirmExit, setShowConfirmExit] = useState(false);
-  const [isWaitingForState, setIsWaitingForState] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [displayQuizType, setDisplayQuizType] = useState<QuizType | null>(null);
+  const prevQuizTypeRef = useRef<QuizType | null>(null);
 
   // Lấy quizType từ pathname
   const quizType = useMemo<QuizType | null>(() => {
@@ -28,9 +29,9 @@ const PracticeWrapper: React.FC = () => {
 
   // Render component quiz tương ứng
   const quizComponent = useMemo(() => {
-    if (!quizType) return null;
+    if (!displayQuizType) return null;
     
-    switch (quizType) {
+    switch (displayQuizType) {
       case 'multiple':
         return <MultipleChoiceQuiz />;
       case 'hiraganaPractice':
@@ -44,93 +45,43 @@ const PracticeWrapper: React.FC = () => {
       default:
         return null;
     }
+  }, [displayQuizType]);
+
+  // Xử lý animation khi quizType thay đổi
+  useEffect(() => {
+    if (!quizType) {
+      setDisplayQuizType(null);
+      prevQuizTypeRef.current = null;
+      return;
+    }
+
+    // Nếu quizType thay đổi, bắt đầu animation
+    if (prevQuizTypeRef.current !== quizType && prevQuizTypeRef.current !== null) {
+      // Bắt đầu fade out
+      setIsAnimating(true);
+      
+      // Sau khi fade out một nửa, thay đổi component
+      const timeoutId = setTimeout(() => {
+        setDisplayQuizType(quizType);
+        prevQuizTypeRef.current = quizType;
+        
+        // Fade in component mới ngay sau đó
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            setIsAnimating(false);
+          });
+        });
+      }, 250); // Thời gian fade out (một nửa của tổng thời gian animation)
+
+      return () => clearTimeout(timeoutId);
+    } else if (prevQuizTypeRef.current === null) {
+      // Lần đầu tiên, không cần animation
+      setDisplayQuizType(quizType);
+      prevQuizTypeRef.current = quizType;
+      setIsAnimating(false);
+    }
   }, [quizType]);
 
-  // Kiểm tra xem có đang chờ state đúng không - hiển thị loading khi không đúng new quiz type
-  useEffect(() => {
-    const checkState = () => {
-      const state = location.state as any;
-      const currentPath = location.pathname;
-      
-      // Nếu không phải quiz route, không cần check
-      if (!currentPath.includes('/quiz/')) {
-        setIsWaitingForState(false);
-        return;
-      }
-
-      // Nếu không có quizType hợp lệ, hiển thị loading
-      if (!quizType) {
-        setIsWaitingForState(true);
-        return;
-      }
-
-      // Nếu đang navigate từ store, hiển thị loading
-      if (storeIsNavigating) {
-        setIsWaitingForState(true);
-        return;
-      }
-
-      // Kiểm tra xem state.from có khớp với quiz type hiện tại không
-      const stateFrom = state?.from;
-      const isStateCorrect = stateFrom && stateFrom === quizType;
-
-      // Nếu previousType đã được set và khác với quiz type hiện tại, đang chờ navigate đến quiz type mới
-      if (previousType && quizType && previousType !== quizType) {
-        // Đang chờ navigate đến quiz type mới, hiển thị loading
-        setIsWaitingForState(true);
-        return;
-      }
-
-      // Nếu state.from không khớp với quiz type hiện tại, đang chờ state đúng
-      if (stateFrom && stateFrom !== quizType) {
-        // State không đúng với quiz type hiện tại, hiển thị loading
-        setIsWaitingForState(true);
-        return;
-      }
-
-      // Nếu không có state, có thể đang trong quá trình navigate
-      if (!stateFrom) {
-        // Đợi một chút để state được set
-        const timeout = setTimeout(() => {
-          const newState = location.state as any;
-          const newStateFrom = newState?.from;
-          
-          // Nếu sau khi đợi vẫn không có state hoặc state không khớp
-          if (!newStateFrom || newStateFrom !== quizType) {
-            // Nếu không đang navigate, có thể là direct access - để component tự xử lý
-            if (!storeIsNavigating) {
-              setIsWaitingForState(false);
-            } else {
-              // Vẫn đang navigate, tiếp tục hiển thị loading
-              setIsWaitingForState(true);
-            }
-          } else {
-            // State đã đúng, ẩn loading
-            setIsWaitingForState(false);
-          }
-        }, 300);
-
-        return () => clearTimeout(timeout);
-      }
-
-      // State đúng, không cần loading
-      if (isStateCorrect) {
-        setIsWaitingForState(false);
-      }
-    };
-
-    // Check ngay lập tức
-    checkState();
-    
-    // Check lại sau một frame để đảm bảo state đã được update
-    const rafId = requestAnimationFrame(() => {
-      checkState();
-    });
-
-    return () => {
-      cancelAnimationFrame(rafId);
-    };
-  }, [location.state, location.pathname, storeIsNavigating, previousType, quizType]);
 
   const handleToggle = () => {
     setIsPlaying(prev => !prev);
@@ -150,9 +101,9 @@ const PracticeWrapper: React.FC = () => {
     navigate('/jp/summary');
   };
 
-  // Hiển thị loading screen nếu đang chờ state đúng hoặc không có quizType hợp lệ
-  if (isWaitingForState || storeIsNavigating || !quizType || !quizComponent) {
-    return <LoadingScreen />;
+  // Nếu không có quizType hoặc quizComponent, không render gì
+  if (!quizType || !quizComponent) {
+    return null;
   }
 
   return (
@@ -166,7 +117,17 @@ const PracticeWrapper: React.FC = () => {
       onContinuePractice={handleContinuePractice}
       onExitPractice={handleExitPractice}
     >
-      {quizComponent}
+      <div
+        className={`transition-opacity duration-500 ease-in-out w-full ${
+          isAnimating ? 'opacity-0' : 'opacity-100'
+        }`}
+        style={{
+          willChange: 'opacity',
+          minHeight: '100%',
+        }}
+      >
+        {quizComponent}
+      </div>
     </PracticeLayout>
   );
 };

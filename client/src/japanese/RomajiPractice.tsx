@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { usePracticeSession } from './practiceStore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import { motion, AnimatePresence } from 'framer-motion';
+import PracticeAnimationWrapper from './PracticeAnimationWrapper';
 import { RELOAD_COUNT_THRESHOLD } from './practiceConfig';
 const RomajiPractice: React.FC = () => {
   const [userRomajiAnswer, setUserRomajiAnswer] = useState('');
@@ -203,15 +203,13 @@ const RomajiPractice: React.FC = () => {
   const word = currentWord.word;
 
   return (
-    <AnimatePresence mode="wait" onExitComplete={() => setIsExiting(false)}>
-      <motion.div
-        key={`${word.id}-${previousType || 'none'}`}
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        className=""  >
-        <div className="text-center mb-6 p-10">
+    <PracticeAnimationWrapper
+      keyValue={`${word.id}-${previousType || 'none'}`}
+      isExiting={isExiting}
+      onExitComplete={() => setIsExiting(false)}
+      className=""
+    >
+        <div className="text-center ">
                 <h4 className="text-gray-600 mb-4">Nhập cách đọc romaji của từ sau:</h4>
                 <h1 className="text-4xl font-bold text-gray-900 mb-6">{question}</h1>
                 <input
@@ -308,9 +306,7 @@ const RomajiPractice: React.FC = () => {
                   </div>
                 </div>
               )}
-      </motion.div>
-    </AnimatePresence>
-
+    </PracticeAnimationWrapper>
   );
 };
 
