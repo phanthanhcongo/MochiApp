@@ -248,6 +248,9 @@ const MultiCharStrokePractice: React.FC = () => {
     setIsTranslationHidden(false);
     sessionStorage.setItem('reload_count', '0');
 
+    // Đợi animation exit hoàn thành trước khi chuyển bài (400ms để khớp với animation duration)
+    await new Promise(resolve => setTimeout(resolve, 400));
+
     // Xóa từ khỏi pool khi trả lời đúng (kể cả stroke practice)
     console.log('📞 [MultiCharStrokePractice.handleContinue] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
     await continueToNextQuiz(navigate, () => {

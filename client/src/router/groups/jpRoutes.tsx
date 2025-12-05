@@ -5,12 +5,7 @@ import ProtectedRoute from '../ProtectedRoute';
 import PracticePage from '../../japanese/PracticePage';
 import AddJapaneseWordForm from '../../japanese/AddJapaneseWordForm';
 import ImportVocabularyButton from '../../japanese/ImportVocabularyButton';
-import MultipleChoiceQuiz from '../../japanese/MultipleChoiceQuiz';
 import ResultProgress from '../../japanese/ResultProgress';
-import HiraganaPractice from '../../japanese/HiraganaPractice';
-import RomajiPractice from '../../japanese/RomajiPractice';
-import VoicePractice from '../../japanese/VoicePractice';
-import MultiCharStrokePractice from '../../japanese/MultiCharStrokePractice';
 import ReviewWordList from '../../japanese/ReviewWordList';
 import PracticeWrapper from '../../japanese/PracticeWrapper';
 
@@ -30,11 +25,11 @@ export default function JpRoutes() {
         <Route path="/jp/home" element={<PracticePage />} />
         <Route path="/jp/add" element={<AddJapaneseWordForm />} />
         <Route path="/jp/import" element={<ImportVocabularyButton />} />
-        <Route path="/jp/quiz/multiple" element={<PracticeWrapper><MultipleChoiceQuiz /></PracticeWrapper>} />
-        <Route path="/jp/quiz/hiraganaPractice" element={<PracticeWrapper><HiraganaPractice /></PracticeWrapper>} />
-        <Route path="/jp/quiz/romajiPractice" element={<PracticeWrapper><RomajiPractice /></PracticeWrapper>} />
-        <Route path="/jp/quiz/voicePractice" element={<PracticeWrapper><VoicePractice /></PracticeWrapper>} />
-        <Route path="/jp/quiz/multiCharStrokePractice" element={<PracticeWrapper><MultiCharStrokePractice /></PracticeWrapper>} />
+        <Route path="/jp/quiz/multiple" element={<PracticeWrapper />} />
+        <Route path="/jp/quiz/hiraganaPractice" element={<PracticeWrapper />} />
+        <Route path="/jp/quiz/romajiPractice" element={<PracticeWrapper />} />
+        <Route path="/jp/quiz/voicePractice" element={<PracticeWrapper />} />
+        <Route path="/jp/quiz/multiCharStrokePractice" element={<PracticeWrapper />} />
         <Route path="/jp/summary" element={<ResultProgress />} />
         <Route path="/jp/listWord" element={<ReviewWordList />} />
         <Route path="/jp/ProfileSettings" element={<ProfileSettings />} />
