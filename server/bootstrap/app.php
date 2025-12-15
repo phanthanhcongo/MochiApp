@@ -12,10 +12,22 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-         // Đăng ký alias cho middleware
-        $middleware->alias([
-            'lang.redirect' => \App\Http\Middleware\LanguageRedirect::class,
+        // Đăng ký CORS middleware - PHẢI được đăng ký đầu tiên
+        // Middleware này sẽ tự động đọc config từ config/cors.php
+        $middleware->api(prepend: [
+            \Illuminate\Http\Middleware\HandleCors::class,
         ]);
+
+        // Disable CSRF cho API routes
+        $middleware->validateCsrfTokens(except: [
+            'api/*',
+        ]);
+
+        // Nếu cần middleware lang.redirect, hãy tạo file:
+        // app/Http/Middleware/PLanguageRedirect.php
+        // $middleware->alias([
+        //     'lang.redirect' => \App\Http\Middleware\PLanguageRedirect::class,
+        // ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Eye, EyeOff, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { useLanguage } from './router/LanguageContext';
+import { useLanguage } from './routes/LanguageContext';
 
 type Lang = 'jp' | 'en';
 
@@ -23,8 +23,7 @@ const LoginPage: React.FC = () => {
           Accept: 'application/json',
           Authorization: `Bearer ${token}`,
         },
-        // nếu bạn dùng cookie session (Sanctum), bật dòng sau
-        // credentials: 'include',
+        credentials: 'include',
       });
       if (!res.ok) return null;
       const data = await res.json().catch(() => ({}));
@@ -76,7 +75,7 @@ const LoginPage: React.FC = () => {
       const res = await fetch('http://localhost:8000/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        // nếu login bằng email thì đổi key tương ứng
+        credentials: 'include',
         body: JSON.stringify({ name: email, password }),
       });
 

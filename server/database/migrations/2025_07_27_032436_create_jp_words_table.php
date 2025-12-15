@@ -23,6 +23,10 @@ return new class extends Migration
         $table->timestamp('last_reviewed_at')->nullable();
         $table->timestamp('next_review_at')->nullable();
         $table->string('audio_url')->nullable(); // ✅ Thêm dòng này
+        $table->boolean('is_grammar')->default(false);
+        $table->boolean('is_active')->default(false);
+    $table->integer('lapses')->default(0);
+        $table->integer('streak')->default(0);
         $table->timestamps();
     });
     }

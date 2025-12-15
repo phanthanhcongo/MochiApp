@@ -2,50 +2,91 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\Api\ImportVocabularyController;
-use App\Http\Controllers\Api\PracticeStatsController;
-use App\Http\Controllers\Api\PracticeController;
 use App\Http\Controllers\Api\UserLanguageController;
 use App\Http\Controllers\Api\EnglishController;
 use App\Http\Controllers\Api\JapaneseController;
-use App\Http\Controllers\Api\HandlePracticeController;
+
+// CORS Test Routes - Xóa sau khi test xong
+Route::options('/test-cors', function () {
+    return response()->json(['message' => 'CORS preflight OK'], 200);
+});
+
+Route::get('/test-cors', function () {
+    return response()->json([
+        'message' => 'CORS is working!',
+        'timestamp' => now()->toDateTimeString(),
+        'headers' => request()->headers->all(),
+    ], 200);
+});
+
+Route::post('/test-cors', function () {
+    return response()->json([
+        'message' => 'CORS POST is working!',
+        'data' => request()->all(),
+        'timestamp' => now()->toDateTimeString(),
+    ], 200);
+});
+
+// Test authentication route
+Route::middleware('auth:sanctum')->get('/test-auth', function (\Illuminate\Http\Request $request) {
+    return response()->json([
+        'message' => 'Authentication working!',
+        'user' => [
+            'id' => $request->user()->id,
+            'name' => $request->user()->name,
+        ],
+        'token_present' => $request->bearerToken() ? 'yes' : 'no',
+    ], 200);
+});
 
 // Public
 Route::post('/auth/login', [AuthController::class, 'login']);
 
 // Protected
 Route::middleware('auth:sanctum')->group(function () {
+    // User language settings
     Route::get('/me/language', [UserLanguageController::class, 'show']);
-
-    //japanese
     Route::post('/me/language', [UserLanguageController::class, 'update']);
-    Route::post('/auth/logout', [AuthController::class, 'logout']); // tùy chọn
 
-    Route::post('/vocabulary/import', [ImportVocabularyController::class, 'importJP']);
+    // User avatar settings
+    Route::put('/me/avatar', [UserLanguageController::class, 'updateAvatar']);
 
-    Route::get('/practice/stats', [PracticeStatsController::class, 'statsJP']);
-    Route::get('/practice/listWord', [PracticeStatsController::class, 'getAllWordsJP']);
+    Route::post('/auth/logout', [AuthController::class, 'logout']);
 
-    Route::get('/practice/quiz', [PracticeController::class, 'getQuiz']);
+    // ========== Japanese Routes (prefix /jp) ==========
+    Route::prefix('jp')->group(function () {
+        // Vocabulary
+        Route::post('/vocabulary/import', [JapaneseController::class, 'importVocabulary']);
 
-    Route::post('/practice/reviewed-words', [JapaneseController::class, 'updateReviewedWords']);
-    Route::post('/practice/add-word', [PracticeController::class, 'addWord']);
-    Route::post('/practice/delete/{id}', [JapaneseController::class, 'destroy']);
-    Route::post('/practice/updateWord/{id}', [PracticeController::class, 'updateWord']);
-    Route::get('/practice/scenarios', [HandlePracticeController::class, 'getPracticeScenarios']);
+        // Practice Stats
+        Route::get('/practice/stats', [JapaneseController::class, 'getStats']);
+        Route::get('/practice/stats-grammar', [JapaneseController::class, 'getStatsGrammar']);
+        Route::get('/practice/listWord', [JapaneseController::class, 'getAllWords']);
 
+        // Practice Words
+        Route::post('/practice/reviewed-words', [JapaneseController::class, 'updateReviewedWords']);
+        Route::post('/practice/add-word', [JapaneseController::class, 'addWord']);
+        Route::post('/practice/updateWord/{id}', [JapaneseController::class, 'updateWord']);
+        Route::post('/practice/delete/{id}', [JapaneseController::class, 'destroy']);
+        Route::get('/practice/scenarios', [JapaneseController::class, 'getPracticeScenarios']);
+    });
 
+    // ========== English Routes (prefix /en) ==========
+    Route::prefix('en')->group(function () {
+        // Vocabulary
+        Route::post('/vocabulary/import', [EnglishController::class, 'importVocabulary']);
 
-    //english
-    Route::get('/en/practice/stats', [PracticeStatsController::class, 'statsEN']);
-    Route::get('/en/practice/listWord', [PracticeStatsController::class, 'getAllWordsEN']);
-    Route::post('/en/practice/reviewed-words', [EnglishController::class, 'updateReviewedWordsEn']);
-    Route::post('/en/practice/addWord', [EnglishController::class, 'store']);
-    Route::post('/en/practice/display', [EnglishController::class, 'index']);
-Route::delete('/en/practice/delete/{id}', [EnglishController::class, 'destroy']);
-Route::get('/en/practice/{id}', [EnglishController::class, 'getById']);
-Route::post('/en/practice/update/{id}', [EnglishController::class, 'update']);
-Route::post('/english/vocabulary/import', [ImportVocabularyController::class, 'importEnglish']);
+        // Practice Stats
+        Route::get('/practice/stats', [EnglishController::class, 'getStats']);
+        Route::get('/practice/stats-grammar', [EnglishController::class, 'getStatsGrammar']);
+        Route::get('/practice/listWord', [EnglishController::class, 'getAllWords']);
 
-
+        // Practice Words
+        Route::post('/practice/reviewed-words', [EnglishController::class, 'updateReviewedWordsEn']);
+        Route::post('/practice/addWord', [EnglishController::class, 'store']);
+        Route::post('/practice/display', [EnglishController::class, 'index']);
+        Route::get('/practice/{id}', [EnglishController::class, 'getById']);
+        Route::post('/practice/update/{id}', [EnglishController::class, 'update']);
+        Route::delete('/practice/delete/{id}', [EnglishController::class, 'destroy']);
+    });
 });

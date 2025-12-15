@@ -8,6 +8,7 @@ services:
     # KHÔNG phụ thuộc vào db nội bộ nữa
     environment:
       # trỏ tới MySQL chạy trên Windows
+      DB_CONNECTION: mysql
       DB_HOST: host.docker.internal
       DB_PORT: "3306"
       DB_DATABASE: mochi

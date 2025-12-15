@@ -18,8 +18,11 @@ return new class extends Migration
             $table->integer('level')->nullable();
             $table->timestamp('last_reviewed_at')->nullable();
             $table->timestamp('next_review_at')->nullable();
-            $table->string('exampleEn')->nullable(); // ✅ Thêm dòng này
-            $table->string('exampleVn')->nullable(); // ✅ Thêm dòng này
+            $table->string('exampleEn')->nullable();
+            $table->string('exampleVn')->nullable();
+            $table->boolean('is_active')->default(true);
+            $table->integer('lapses')->default(0);
+            $table->integer('streak')->default(0);
 
             $table->timestamps();
         });

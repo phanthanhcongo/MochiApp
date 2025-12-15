@@ -19,6 +19,7 @@ class User extends Authenticatable
         'password',
         'role',
         'learning_language', // Thêm trường ngôn ngữ đang học
+        'avatar_url',
     ];
 
     protected $hidden = [

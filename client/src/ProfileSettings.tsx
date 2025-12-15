@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useLanguage } from './router/LanguageContext';
+import { useLanguage } from './routes/LanguageContext';
 
 // Supported languages
 const SUPPORTED = ['en', 'jp'] as const;
@@ -36,6 +36,8 @@ const ProfileSettings: React.FC = () => {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [lang, setLang] = useState<Lang | null>(null);
   const [saving, setSaving] = useState(false);
+  const [avatarUrl, setAvatarUrl] = useState<string>('');
+  const [showAvatarModal, setShowAvatarModal] = useState(false);
   const token = localStorage.getItem('token');
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
@@ -69,6 +71,7 @@ const ProfileSettings: React.FC = () => {
   const authFetch = async (url: string, init?: RequestInit) => {
     const res = await fetch(url, {
       ...init,
+      credentials: 'include',
       headers: {
         Accept: 'application/json',
         ...(init?.headers || {}),
@@ -117,115 +120,320 @@ const ProfileSettings: React.FC = () => {
     if (lang) localStorage.setItem('preferred_lang', lang);
   }, [lang]);
 
-  // Save language to server
-  const saveLanguage = async () => {
+  // Handle avatar URL change
+  const handleAvatarUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAvatarUrl(e.target.value);
+  };
+
+  // Validate and preview avatar URL
+  const handleAvatarUrlSubmit = () => {
+    if (!avatarUrl.trim()) {
+      setMessage({ type: 'error', text: 'Vui lòng nhập đường dẫn ảnh' });
+      return;
+    }
+
+    // Basic URL validation
+    try {
+      new URL(avatarUrl);
+      setShowAvatarModal(false);
+      // Preview will be updated automatically via avatarUrl state
+    } catch {
+      setMessage({ type: 'error', text: 'Đường dẫn ảnh không hợp lệ. Vui lòng nhập URL đầy đủ (ví dụ: https://example.com/image.jpg)' });
+    }
+  };
+
+  // Save profile (avatar and language) to server
+  const saveProfile = async () => {
     if (!profile || !resolvedLang) return;
     setSaving(true);
     setMessage(null);
 
     try {
-      const res = await authFetch('http://localhost:8000/api/me/language', {
+      let updatedAvatarUrl = profile.avatar_url;
+      let avatarUpdated = false;
+
+      // Update avatar URL if there's a new one
+      if (avatarUrl.trim() && avatarUrl !== profile.avatar_url) {
+        const avatarRes = await authFetch('http://localhost:8000/api/me/avatar', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ avatar_url: avatarUrl.trim() }),
+        });
+
+        if (!avatarRes.ok) {
+          const errorText = await avatarRes.text();
+          throw new Error(errorText || 'Cập nhật avatar thất bại');
+        }
+
+        const avatarData = await avatarRes.json();
+        updatedAvatarUrl = avatarData.avatar_url;
+        setProfile(p => (p ? { ...p, avatar_url: updatedAvatarUrl } : p));
+        setAvatarUrl('');
+        avatarUpdated = true;
+      }
+
+      // Save language
+      const langRes = await authFetch('http://localhost:8000/api/me/language', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ language: resolvedLang }),
       });
-      if (!res.ok) throw new Error(await res.text());
+      if (!langRes.ok) throw new Error(await langRes.text());
 
-      setProfile(p => (p ? { ...p, target_language: resolvedLang } : p));
+      setProfile(p => (p ? { ...p, target_language: resolvedLang, avatar_url: updatedAvatarUrl } : p));
       setGlobalLang(resolvedLang);
-      setMessage({ type: 'success', text: 'Đã lưu ngôn ngữ muốn học' });
-
-      navigateWithLang('/home', { replace: true });
+      
+      const successMessages = [];
+      if (avatarUpdated) {
+        successMessages.push('Cập nhật avatar');
+      }
+      successMessages.push('Cập nhật ngôn ngữ');
+      
+      setMessage({ type: 'success', text: `${successMessages.join(' và ')} thành công!` });
       refresh({ silent: true }).catch(() => {});
     } catch (e) {
       console.error(e);
-      setMessage({ type: 'error', text: 'Lưu thất bại, vui lòng thử lại' });
+      setMessage({ type: 'error', text: e instanceof Error ? e.message : 'Lưu thất bại, vui lòng thử lại' });
     } finally {
       setSaving(false);
     }
   };
 
-  if (!profile || !resolvedLang) return <div className="p-6">Đang tải...</div>;
+  if (!profile || !resolvedLang) {
+    return (
+      <div className="w-full min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin  h-12 w-12 border-4 border-yellow-400 border-t-transparent mb-4"></div>
+          <p className="text-gray-600 font-medium">Đang tải...</p>
+        </div>
+      </div>
+    );
+  }
 
   const langLabel = (v: Lang) => (v === 'jp' ? 'Tiếng Nhật' : 'Tiếng Anh');
 
   return (
-    <div className="w-full min-h-screen bg-stone-50 shadow overflow-hidden">
+    <div className="w-full min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50">
       {/* Header */}
-      <div className="bg-yellow-400 h-16 flex items-center justify-between px-4">
-        <button
-          onClick={() => navigateWithLang('/home')}
-          className="text-stone-50 text-xl font-bold hover:opacity-80"
-        >
-          ←
-        </button>
-        <h1 className="text-black font-semibold text-lg">Cài đặt tài khoản</h1>
-        <div className="w-6" />
+      <div className="bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 shadow-lg">
+        <div className="h-20 flex items-center justify-between px-6 max-w-4xl mx-auto">
+          <button
+            onClick={() => navigateWithLang('/home')}
+            className="text-white text-2xl font-bold hover:bg-white/20  w-10 h-10 flex items-center justify-center transition-all duration-200 active:scale-95"
+            aria-label="Back"
+          >
+            ←
+          </button>
+          <h1 className="text-white font-bold text-xl md:text-2xl tracking-tight drop-shadow-sm">
+            Cài đặt tài khoản
+          </h1>
+          <div className="w-10" />
+        </div>
       </div>
 
       {/* Body */}
-      <div className="p-6 flex flex-col items-center">
-        <img
-          src={profile.avatar_url || '/avatar.png'}
-          alt="avatar"
-          className="w-24 h-24 rounded-full border-4 border-yellow-400 object-cover"
-        />
-        <h2 className="mt-4 text-xl font-bold">{profile.name}</h2>
-
-        {/* Language picker */}
-        <div className="mt-6 w-full max-w-md">
-          <div className="text-gray-700 font-medium mb-2">Ngôn ngữ muốn học</div>
-
-          <div className="flex gap-2">
-            <button
-              type="button"
-              onClick={() => setLang('jp')}
-              className={`flex-1 px-4 py-2 rounded-xl border transition ${
-                resolvedLang === 'jp'
-                  ? 'bg-yellow-400 text-stone-50 border-yellow-400'
-                  : 'bg-white text-gray-800 hover:bg-gray-50 border-gray-300'
-              }`}
-            >
-              Tiếng Nhật
-            </button>
-            <button
-              type="button"
-              onClick={() => setLang('en')}
-              className={`flex-1 px-4 py-2 rounded-xl border transition ${
-                resolvedLang === 'en'
-                  ? 'bg-yellow-400 text-stone-50 border-yellow-400'
-                  : 'bg-white text-gray-800 hover:bg-gray-50 border-gray-300'
-              }`}
-            >
-              Tiếng Anh
-            </button>
+      <div className="p-6 md:p-8 flex flex-col items-center  mx-auto">
+        {/* Profile Card */}
+        <div className="w-full  bg-white rounded-3xl shadow-xl p-8 mb-6 transform transition-all duration-300 hover:shadow-2xl">
+          {/* Avatar Section */}
+          <div className="flex flex-col items-center mb-8">
+            <div className="relative w-60 h-80">
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-2xl blur-md opacity-50"></div>
+              <img
+                src={avatarUrl.trim() || profile.avatar_url || '/avatar.png'}
+                alt="avatar"
+                className="relative w-60 h-80 rounded-2xl border-4 border-white object-cover shadow-lg ring-4 ring-yellow-400/30"
+                onError={(e) => {
+                  // Fallback nếu ảnh không load được
+                  (e.target as HTMLImageElement).src = '/avatar.png';
+                }}
+              />
+              <div className="absolute -bottom-2 -right-2 bg-green-500 rounded-full w-6 h-6 border-4 border-white shadow-md"></div>
+            </div>
+            
+            {/* Change Avatar Button */}
+            <div className="mt-4 flex flex-col items-center">
+              <button
+                onClick={() => {
+                  setAvatarUrl(profile.avatar_url || '');
+                  setShowAvatarModal(true);
+                }}
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-white font-semibold shadow-lg hover:shadow-xl transform transition-all duration-200 active:scale-95 cursor-pointer flex items-center gap-2"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span>Thay ảnh đại diện</span>
+              </button>
+              {avatarUrl.trim() && avatarUrl !== profile.avatar_url && (
+                <p className="mt-2 text-sm text-green-600 font-medium">✓ Đã nhập URL mới, nhấn "Lưu thay đổi" để cập nhật</p>
+              )}
+            </div>
+            
+            <h2 className="mt-4 text-2xl font-bold text-gray-800 tracking-tight">{profile.name}</h2>
+            <p className="mt-2 text-sm text-gray-500">Hồ sơ của bạn</p>
           </div>
 
-          <div className="mt-4 text-sm text-gray-600">
-            Đang chọn: <span className="font-semibold">{langLabel(resolvedLang)}</span>
-          </div>
+          {/* Divider */}
+          <div className="border-t border-gray-200 my-6"></div>
 
-          <div className="mt-6">
-            <button
-              onClick={saveLanguage}
-              disabled={saving}
-              className="px-5 py-2 rounded-xl bg-gray-900 hover:bg-black text-white font-semibold disabled:opacity-60"
-            >
-              {saving ? 'Đang lưu...' : 'Lưu'}
-            </button>
+          {/* Language picker */}
+          <div className="w-full">
+            <div className="text-gray-800 font-semibold m-5 text-lg flex items-center gap-2">
+              <svg className="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+              </svg>
+              Ngôn ngữ muốn học
+            </div>
 
-            {message && (
-              <p
-                className={`mt-2 text-sm ${
-                  message.type === 'success' ? 'text-green-600' : 'text-red-600'
+            <div className="flex gap-3 m-4">
+              <button
+                type="button"
+                onClick={() => setLang('jp')}
+                className={`flex-1 px-6 py-4 m-5 rounded-2xl border-2 transition-all duration-200 transform active:scale-95 font-semibold ${
+                  resolvedLang === 'jp'
+                    ? 'bg-gradient-to-r from-yellow-400 to-amber-500 text-white border-yellow-500 shadow-lg shadow-yellow-400/50 scale-105'
+                    : 'bg-white text-gray-700 hover:bg-gray-50 border-gray-200 hover:border-yellow-300 hover:shadow-md'
                 }`}
               >
-                {message.text}
-              </p>
-            )}
+                <div className="flex items-center justify-center gap-2">
+                  <span className="text-lg">🇯🇵</span>
+                  <span>Tiếng Nhật</span>
+                </div>
+              </button>
+              <button
+                type="button"
+                onClick={() => setLang('en')}
+                className={`flex-1 px-6 m-5 py-4 rounded-2xl border-2 transition-all duration-200 transform active:scale-95 font-semibold ${
+                  resolvedLang === 'en'
+                    ? 'bg-gradient-to-r from-yellow-400 to-amber-500 text-white border-yellow-500 shadow-lg shadow-yellow-400/50 scale-105'
+                    : 'bg-white text-gray-700 hover:bg-gray-50 border-gray-200 hover:border-yellow-300 hover:shadow-md'
+                }`}
+              >
+                <div className="flex items-center justify-center gap-2">
+                  <span className="text-lg">🇬🇧</span>
+                  <span>Tiếng Anh</span>
+                </div>
+              </button>
+            </div>
+
+            <div className="m-5 p-4 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-xl border border-yellow-200">
+              <div className="text-sm text-gray-700 flex items-center gap-2">
+                <svg className="w-4 h-4 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                </svg>
+                <span>Đang chọn: <span className="font-bold text-yellow-700">{langLabel(resolvedLang)}</span></span>
+              </div>
+            </div>
+
+            {/* Save Button */}
+            <div className="m-5">
+              <button
+                onClick={saveProfile}
+                disabled={saving}
+                className="w-full px-6 py-4 rounded-2xl bg-gradient-to-r from-gray-900 via-gray-800 to-black hover:from-black hover:via-gray-900 hover:to-gray-800 text-white font-bold text-lg shadow-lg hover:shadow-xl transform transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none active:scale-95 flex items-center justify-center gap-2"
+              >
+                {saving ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span>Đang lưu...</span>
+                  </>
+                ) : (
+                  <>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Lưu thay đổi</span>
+                  </>
+                )}
+              </button>
+
+              {message && (
+                <div
+                  className={`mt-4 p-4 rounded-xl border-2 flex items-center gap-3 animate-in slide-in-from-top-2 duration-300 ${
+                    message.type === 'success'
+                      ? 'bg-green-50 text-green-800 border-green-200'
+                      : 'bg-red-50 text-red-800 border-red-200'
+                  }`}
+                >
+                  {message.type === 'success' ? (
+                    <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  ) : (
+                    <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    </svg>
+                  )}
+                  <p className="text-sm font-medium">{message.text}</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Avatar URL Modal */}
+      {showAvatarModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowAvatarModal(false)}>
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 transform transition-all" onClick={(e) => e.stopPropagation()}>
+            <h3 className="text-xl font-bold text-gray-800 mb-4">Nhập đường dẫn ảnh đại diện</h3>
+            
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                URL ảnh (ví dụ: https://example.com/image.jpg)
+              </label>
+              <input
+                type="url"
+                value={avatarUrl}
+                onChange={handleAvatarUrlChange}
+                placeholder="https://example.com/image.jpg"
+                className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 outline-none transition-all"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    handleAvatarUrlSubmit();
+                  }
+                  if (e.key === 'Escape') {
+                    setShowAvatarModal(false);
+                  }
+                }}
+                autoFocus
+              />
+              {avatarUrl.trim() && (
+                <div className="mt-3 p-3 bg-gray-50 rounded-xl border border-gray-200">
+                  <p className="text-xs text-gray-600 mb-2">Xem trước:</p>
+                  <img
+                    src={avatarUrl.trim()}
+                    alt="Preview"
+                    className="w-full h-32 object-cover rounded-lg"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                </div>
+              )}
+            </div>
+
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowAvatarModal(false)}
+                className="flex-1 px-4 py-3 rounded-xl border-2 border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-all"
+              >
+                Hủy
+              </button>
+              <button
+                onClick={handleAvatarUrlSubmit}
+                className="flex-1 px-4 py-3 rounded-xl bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-white font-semibold shadow-lg hover:shadow-xl transform transition-all active:scale-95"
+              >
+                Xác nhận
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

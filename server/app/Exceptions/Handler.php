@@ -28,7 +28,16 @@ class Handler extends ExceptionHandler
     // 👉 Đây là phần mình custom thêm cho API:
     public function render($request, Throwable $exception)
     {
-        if ($request->expectsJson()) {
+        if ($request->expectsJson() || $request->is('api/*')) {
+            // Handle authentication exceptions
+            if ($exception instanceof \Illuminate\Auth\AuthenticationException) {
+                return response()->json([
+                    'message' => 'Unauthorized. Please login again.',
+                    'error' => 'Unauthorized'
+                ], 401);
+            }
+
+            // Handle validation exceptions
             if ($exception instanceof ValidationException) {
                 return response()->json([
                     'message' => 'Dữ liệu không hợp lệ',

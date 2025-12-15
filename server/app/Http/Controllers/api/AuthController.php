@@ -11,29 +11,39 @@ class AuthController extends Controller
 {
 public function login(Request $request)
 {
-    $validated = $request->validate([
-        'name'     => 'required|string', // đổi từ username -> name
-        'password' => 'required|string',
-    ]);
+    try {
+        $validated = $request->validate([
+            'name'     => 'required|string',
+            'password' => 'required|string',
+        ]);
 
-    $user = User::where('name', $validated['name'])->first();
+        $user = User::where('name', $validated['name'])->first();
 
-    if (!$user || !\Illuminate\Support\Facades\Hash::check($validated['password'], $user->password)) {
-        return response()->json(['message' => 'Tài khoản hoặc mật khẩu không đúng'], 401);
+        if (!$user || !Hash::check($validated['password'], $user->password)) {
+            return response()->json(['message' => 'Tài khoản hoặc mật khẩu không đúng'], 401);
+        }
+
+        $token = $user->createToken('api-token')->plainTextToken;
+
+        return response()->json([
+            'message' => 'Đăng nhập thành công',
+            'token'   => $token,
+            'user'    => [
+                'id'       => $user->id,
+                'name'     => $user->name,
+                'email'    => $user->email,
+                'role'     => $user->role,
+            ]
+        ]);
+    } catch (\Exception $e) {
+        \Log::error('Login error: ' . $e->getMessage(), [
+            'trace' => $e->getTraceAsString(),
+        ]);
+        return response()->json([
+            'message' => 'Đã xảy ra lỗi khi đăng nhập',
+            'error' => config('app.debug') ? $e->getMessage() : 'Internal server error'
+        ], 500);
     }
-
-    $token = $user->createToken('api-token')->plainTextToken;
-
-    return response()->json([
-        'message' => 'Đăng nhập thành công',
-        'token'   => $token,
-        'user'    => [
-            'id'       => $user->id,
-            'name'     => $user->name,
-            'email'    => $user->email,
-            'role'     => $user->role,
-        ]
-    ]);
 }
 
 public function register(Request $request)

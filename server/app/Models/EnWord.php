@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class EnWord extends Model
 {
     use HasFactory;
+    protected $casts = [
+    'next_review_at' => 'datetime',
+    'is_active' => 'boolean',
+    'is_grammar' => 'boolean',
+];
 
      protected $fillable = [
         'user_id',
@@ -20,6 +25,10 @@ class EnWord extends Model
         'next_review_at',
         'exampleEn',
         'exampleVn',
+        'is_active',
+        'is_grammar',
+        'streak',
+        'lapses',
     ];
 
     // Quan hệ với bảng con

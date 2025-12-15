@@ -15,8 +15,12 @@ WORKDIR /var/www/html
 COPY composer.json composer.lock ./
 RUN composer install --no-dev --prefer-dist --no-interaction --no-progress --optimize-autoloader || true
 
-# Copy source
+# Copy source (sẽ bỏ qua các file trong .dockerignore như public/storage)
 COPY . ./
+
+# Tạo các thư mục cần thiết cho Laravel
+RUN mkdir -p storage/app/public storage/framework/{sessions,views,cache} storage/logs bootstrap/cache && \
+    chmod -R 775 storage bootstrap/cache
 
 # PHP tuning for speed
 RUN set -eux; \

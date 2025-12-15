@@ -1,0 +1,169 @@
+[
+  {
+    "word": "hello",
+    "ipa": "/həˈloʊ/",
+    "meaning_vi": "xin chào",
+    "cefr_level": "A1",
+    "level": 1,
+    "context_vi": "Từ chào hỏi cơ bản trong tiếng Anh",
+    "is_grammar": false,
+    "exampleEn": "Hello, how are you?",
+    "exampleVi": "Xin chào, bạn khỏe không?",
+    "examples": [
+      {
+        "sentence_en": "Hello, my name is John.",
+        "sentence_vi": "Xin chào, tên tôi là John.",
+        "exercises": [
+          {
+            "question_text": "Hello, my name is ____.",
+            "answer_explanation": "Điền từ 'John' vào chỗ trống",
+            "question_type": "FillInBlankPractice",
+            "blank_position": 4,
+            "choices": [
+              {
+                "content": "John",
+                "is_correct": 1
+              },
+              {
+                "content": "Mary",
+                "is_correct": 0
+              },
+              {
+                "content": "Tom",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "word": "beautiful",
+    "ipa": "/ˈbjuːtɪfəl/",
+    "meaning_vi": "đẹp, xinh đẹp",
+    "cefr_level": "A2",
+    "level": 2,
+    "context_vi": "Từ mô tả vẻ đẹp",
+    "is_grammar": false,
+    "exampleEn": "She is a beautiful girl.",
+    "exampleVi": "Cô ấy là một cô gái xinh đẹp.",
+    "examples": [
+      {
+        "sentence_en": "The sunset is beautiful.",
+        "sentence_vi": "Hoàng hôn thật đẹp.",
+        "exercises": [
+          {
+            "question_text": "The sunset is ____.",
+            "answer_explanation": "Điền tính từ 'beautiful' vào chỗ trống",
+            "question_type": "FillInBlankPractice",
+            "blank_position": 3,
+            "choices": [
+              {
+                "content": "beautiful",
+                "is_correct": 1
+              },
+              {
+                "content": "ugly",
+                "is_correct": 0
+              },
+              {
+                "content": "big",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "word": "present perfect",
+    "ipa": "",
+    "meaning_vi": "thì hiện tại hoàn thành",
+    "cefr_level": "B1",
+    "level": 3,
+    "context_vi": "Mẫu ngữ pháp về thì hiện tại hoàn thành",
+    "is_grammar": true,
+    "exampleEn": "I have finished my homework.",
+    "exampleVi": "Tôi đã hoàn thành bài tập về nhà.",
+    "examples": [
+      {
+        "sentence_en": "She has lived here for 5 years.",
+        "sentence_vi": "Cô ấy đã sống ở đây được 5 năm.",
+        "exercises": [
+          {
+            "question_text": "She ____ lived here for 5 years.",
+            "answer_explanation": "Dùng 'has' với chủ ngữ số ít (she)",
+            "question_type": "FillInBlankPractice",
+            "blank_position": 1,
+            "choices": [
+              {
+                "content": "has",
+                "is_correct": 1
+              },
+              {
+                "content": "have",
+                "is_correct": 0
+              },
+              {
+                "content": "had",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "word": "run",
+    "ipa": "/rʌn/",
+    "meaning_vi": "chạy",
+    "cefr_level": "A1",
+    "level": 1,
+    "context_vi": "Động từ chỉ hành động chạy",
+    "is_grammar": false,
+    "exampleEn": "I run every morning.",
+    "exampleVi": "Tôi chạy mỗi buổi sáng."
+  },
+  {
+    "word": "conditional sentence",
+    "ipa": "",
+    "meaning_vi": "câu điều kiện",
+    "cefr_level": "B2",
+    "level": 4,
+    "context_vi": "Mẫu ngữ pháp về câu điều kiện",
+    "is_grammar": true,
+    "exampleEn": "If it rains, I will stay home.",
+    "exampleVi": "Nếu trời mưa, tôi sẽ ở nhà.",
+    "examples": [
+      {
+        "sentence_en": "If I were you, I would study harder.",
+        "sentence_vi": "Nếu tôi là bạn, tôi sẽ học chăm chỉ hơn.",
+        "exercises": [
+          {
+            "question_text": "If I ____ you, I would study harder.",
+            "answer_explanation": "Câu điều kiện loại 2 dùng 'were' cho tất cả các ngôi",
+            "question_type": "FillInBlankPractice",
+            "blank_position": 2,
+            "choices": [
+              {
+                "content": "were",
+                "is_correct": 1
+              },
+              {
+                "content": "was",
+                "is_correct": 0
+              },
+              {
+                "content": "am",
+                "is_correct": 0
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

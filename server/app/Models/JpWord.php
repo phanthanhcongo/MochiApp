@@ -12,6 +12,8 @@ class JpWord extends Model
     protected $table = 'jp_words';
 protected $casts = [
     'next_review_at' => 'datetime',
+      'is_grammar' => 'boolean',
+        'is_active' => 'boolean',
 ];
     protected $fillable = [
         'user_id',
@@ -24,6 +26,10 @@ protected $casts = [
         'last_reviewed_at',
         'next_review_at',
         'audio_url',
+        'is_grammar',
+        'is_active',
+        'streak',
+        'lapses',
     ];
 
     public function user()
