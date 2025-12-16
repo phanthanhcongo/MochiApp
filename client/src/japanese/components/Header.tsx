@@ -1,13 +1,61 @@
 import  { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useLanguage } from "../../routes/LanguageContext";
+import { API_BASE_URL } from "../../apiClient";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [navLoading, setNavLoading] = useState(false); // loading khi vào profile
+  const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
+  const [userName, setUserName] = useState<string>("User");
   const menuRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const { lang } = useLanguage(); // 'jp' | 'en'
+
+  // Fetch user info (avatar_url và name) từ database
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+
+    const fetchUserInfo = async () => {
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/me/language`, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          credentials: "include",
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          if (data.avatar_url) {
+            setAvatarUrl(data.avatar_url);
+          }
+          if (data.name) {
+            setUserName(data.name);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching user info:", error);
+      }
+    };
+
+    fetchUserInfo();
+
+    // Lắng nghe event khi avatar được cập nhật từ ProfileSettings
+    const handleAvatarUpdate = (event: CustomEvent) => {
+      if (event.detail?.avatar_url) {
+        setAvatarUrl(event.detail.avatar_url);
+      }
+    };
+
+    window.addEventListener("avatar-updated" as any, handleAvatarUpdate as EventListener);
+    return () => {
+      window.removeEventListener("avatar-updated" as any, handleAvatarUpdate as EventListener);
+    };
+  }, []);
 
   // đóng menu khi bấm ra ngoài hoặc nhấn Escape
   useEffect(() => {
@@ -42,7 +90,7 @@ const Header = () => {
     navigate("/login", { replace: true });
   };
 
-  const userDisplay = localStorage.getItem("username") || "User";
+  const userDisplay = userName;
 
   // chuẩn hóa đường dẫn có tiền tố ngôn ngữ
   const buildTo = (to: string) => {
@@ -108,9 +156,13 @@ const Header = () => {
             {userDisplay}
           </span>
           <img
-            src="https://st.quantrimang.com/photos/image/2022/11/21/tai-sao-gojo-lai-deo-bit-mat-3.jpg"
+            src={avatarUrl || "https://st.quantrimang.com/photos/image/2022/11/21/tai-sao-gojo-lai-deo-bit-mat-3.jpg"}
             alt="User"
-            className="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 rounded-full border-2 border-yellow-400"
+            className="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 rounded-full border-2 border-yellow-400 object-cover"
+            onError={(e) => {
+              // Fallback nếu ảnh lỗi
+              (e.target as HTMLImageElement).src = "https://st.quantrimang.com/photos/image/2022/11/21/tai-sao-gojo-lai-deo-bit-mat-3.jpg";
+            }}
           />
         </button>
 

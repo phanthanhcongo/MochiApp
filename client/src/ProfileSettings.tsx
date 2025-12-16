@@ -170,6 +170,11 @@ const ProfileSettings: React.FC = () => {
         setProfile(p => (p ? { ...p, avatar_url: updatedAvatarUrl } : p));
         setAvatarUrl('');
         avatarUpdated = true;
+        
+        // Dispatch event để Header cập nhật avatar
+        window.dispatchEvent(new CustomEvent('avatar-updated', {
+          detail: { avatar_url: updatedAvatarUrl }
+        }));
       }
 
       // Save language
