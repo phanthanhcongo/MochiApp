@@ -150,7 +150,6 @@ const ProfileSettings: React.FC = () => {
 
     try {
       let updatedAvatarUrl = profile.avatar_url;
-      let avatarUpdated = false;
 
       // Update avatar URL if there's a new one
       if (avatarUrl.trim() && avatarUrl !== profile.avatar_url) {
@@ -169,7 +168,6 @@ const ProfileSettings: React.FC = () => {
         updatedAvatarUrl = avatarData.avatar_url;
         setProfile(p => (p ? { ...p, avatar_url: updatedAvatarUrl } : p));
         setAvatarUrl('');
-        avatarUpdated = true;
         
         // Dispatch event để Header cập nhật avatar
         window.dispatchEvent(new CustomEvent('avatar-updated', {
@@ -187,15 +185,10 @@ const ProfileSettings: React.FC = () => {
 
       setProfile(p => (p ? { ...p, target_language: resolvedLang, avatar_url: updatedAvatarUrl } : p));
       setGlobalLang(resolvedLang);
-      
-      const successMessages = [];
-      if (avatarUpdated) {
-        successMessages.push('Cập nhật avatar');
-      }
-      successMessages.push('Cập nhật ngôn ngữ');
-      
-      setMessage({ type: 'success', text: `${successMessages.join(' và ')} thành công!` });
       refresh({ silent: true }).catch(() => {});
+      
+      // Redirect về trang home ngay lập tức
+      navigateWithLang('/home');
     } catch (e) {
       console.error(e);
       setMessage({ type: 'error', text: e instanceof Error ? e.message : 'Lưu thất bại, vui lòng thử lại' });
@@ -208,8 +201,11 @@ const ProfileSettings: React.FC = () => {
     return (
       <div className="w-full min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="inline-block animate-spin  h-12 w-12 border-4 border-yellow-400 border-t-transparent mb-4"></div>
-          <p className="text-gray-600 font-medium">Đang tải...</p>
+          <div className="relative inline-block">
+            {/* Rotating circle border only */}
+            <div className="animate-spin rounded-full h-20 w-20 border-4 border-transparent border-t-yellow-400 border-r-amber-500 border-b-orange-500 border-l-yellow-400"></div>
+          </div>
+          <p className="mt-6 text-lg font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Đang tải...</p>
         </div>
       </div>
     );
@@ -336,7 +332,7 @@ const ProfileSettings: React.FC = () => {
               <button
                 onClick={saveProfile}
                 disabled={saving}
-                className="w-full px-6 py-4 rounded-2xl bg-gradient-to-r from-gray-900 via-gray-800 to-black hover:from-black hover:via-gray-900 hover:to-gray-800 text-white font-bold text-lg shadow-lg hover:shadow-xl transform transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none active:scale-95 flex items-center justify-center gap-2"
+                className="w-full px-6 py-4 rounded-full bg-gradient-to-r from-gray-900 via-gray-800 to-black hover:from-black hover:via-gray-900 hover:to-gray-800 text-white font-bold text-lg shadow-lg hover:shadow-xl transform transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none active:scale-95 flex items-center justify-center gap-2"
               >
                 {saving ? (
                   <>
