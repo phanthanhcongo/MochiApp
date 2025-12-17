@@ -74,9 +74,11 @@ interface PracticeSessionStore {
   scenarios: PracticeScenario[];
   currentScenarioIndex: number;
   completedWordIds: Set<number>; // Track những từ đã trả lời đúng
+  randomAnswers: Array<{ meaning_vi: string }>; // Mảng 50 từ ngẫu nhiên để làm đáp án sai
 
   setWords: (words: ReviewWord[]) => void;
   setScenarios: (scenarios: PracticeScenario[]) => void;
+  setRandomAnswers: (randomAnswers: Array<{ meaning_vi: string }>) => void;
   markAnswer: (isCorrect: boolean) => void;
   removeCurrentWord: () => void;
   navigateToQuiz: (navigate: (path: string, state?: any) => void, newQuizType: QuizType, oldQuizType?: QuizType | null, onComplete?: () => void) => Promise<void>;
@@ -107,6 +109,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
   scenarios: [],
   currentScenarioIndex: 0,
   completedWordIds: new Set<number>(),
+  randomAnswers: [],
 
   setWords: (words) => {
     // Shuffle toàn bộ danh sách trước khi chọn từ đầu tiên
@@ -165,6 +168,10 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       previousType: null,
       completedWordIds: new Set<number>(),
     });
+  },
+
+  setRandomAnswers: (randomAnswers) => {
+    set({ randomAnswers });
   },
 
   markAnswer: (isCorrect) => {
@@ -518,6 +525,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       scenarios: [],
       currentScenarioIndex: 0,
       completedWordIds: new Set<number>(),
+      randomAnswers: [],
     });
     localStorage.removeItem('practice_active');
     localStorage.removeItem('reviewed_words');

@@ -213,9 +213,9 @@ const MultipleChoiceQuiz: React.FC = () => {
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -100 }}
         transition={{ duration: 0.4 }}
-        className="min-h-screen bg-gray-100 relative"  >
-        <div className="mx-auto p-10 ">
-          <div className="relative w-full h-5"> {/* wrapper chứa thanh tiến độ + runner */}
+        className="min-h-screen bg-gray-100 relative flex items-center justify-center"  >
+        <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto px-8 py-12">
+          <div className="relative w-full h-5 mb-6"> {/* wrapper chứa thanh tiến độ + runner */}
             {/* Thanh tiến độ nền */}
             <div className="w-full h-full bg-gray-200 rounded-full overflow-hidden">
               <div
@@ -232,7 +232,7 @@ const MultipleChoiceQuiz: React.FC = () => {
               style={{ left: `calc(${progress}% - 24px)` }} // dịch trái = nửa ảnh
             />
           </div>
-          <div className="flex items-center justify-between m-6">
+          <div className="flex items-center justify-between w-full mb-8">
             <button
               className="bg-yellow-400 px-3 py-1 rounded-full flex items-center justify-center h-15 w-15 text-3xl text-slate-50"
               onClick={handleToggle}
@@ -241,11 +241,11 @@ const MultipleChoiceQuiz: React.FC = () => {
             </button>
             <div className="text-xs">1 / {totalWords}</div>
           </div>
-          <div className="text-center pb-8">
-            <h4 className="text-gray-600 mb-1">Chọn đúng nghĩa của từ</h4>
-            <h1 className="text-5xl font-bold text-gray-900">{word.word}</h1>
+          <div className="text-center pb-10 w-full">
+            <h4 className="text-gray-600 mb-4 text-3xl">Chọn đúng nghĩa của từ</h4>
+            <h1 className="text-7xl font-bold text-gray-900">{word.word}</h1>
           </div>
-          <div className="flex flex-col gap-3 mb-6">
+          <div className="flex flex-col gap-4 mb-8 w-full max-w-2xl">
             {answers.map((ans, idx) => {
               const isSelected = selectedIndex === idx;
               let statusClass = 'answer-option--default';
@@ -269,24 +269,24 @@ const MultipleChoiceQuiz: React.FC = () => {
                 >
                   <div className="flex items-center gap-4 h-full">
                     <div className="flex-shrink-0 flex justify-center">
-                      <span className="inline-flex items-center justify-center h-8 w-8 border-2 border-gray-300 rounded-full text-sm font-medium">
+                      <span className="inline-flex items-center justify-center h-10 w-10 border-2 border-gray-300 rounded-full text-lg font-medium">
                         {idx + 1}
                       </span>
                     </div>
-                    <div className="flex-1 text-center break-words">{ans.text}</div>
+                    <div className="flex-1 text-center break-words text-xl">{ans.text}</div>
                   </div>
                 </button>
               );
             })}
           </div>
-          <div className="flex flex-col items-center gap-4 p-8 ">
+          <div className="flex flex-col items-center gap-6 p-8 w-full">
             <button
-              className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-80 px-6 py-2`}
+              className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-6 py-3`}
               onClick={handleCheck}
               disabled={selectedIndex === null || isAnswered}>
               Kiểm tra
             </button>
-            <button className="btn-forget" onClick={handleForget} disabled={isAnswered}>
+            <button className="btn-forget text-lg" onClick={handleForget} disabled={isAnswered}>
               Tôi ko nhớ từ này
             </button>
           </div>

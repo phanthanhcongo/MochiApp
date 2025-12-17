@@ -115,13 +115,12 @@ const Header = () => {
     <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-gradient-to-r from-white/95 via-blue-50/95 to-purple-50/95 border-b border-gray-200/50 shadow-lg shadow-gray-200/20">
       <div className="flex items-center justify-between px-4 md:px-8 lg:px-16 py-3 md:py-4">
         {/* Logo */}
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 min-w-0 flex-shrink-0">
           <Link 
             to={buildTo("/home")}
-            className="group relative"
+            className="relative block overflow-visible"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 rounded-lg blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
-            <h1 className="relative text-2xl md:text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-500 bg-clip-text text-transparent drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
+            <h1 className="relative text-2xl md:text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-500 bg-clip-text text-transparent drop-shadow-sm overflow-visible whitespace-nowrap" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundImage: 'linear-gradient(to right, #eab308, #f59e0b, #f97316)' }}>
               成功
             </h1>
           </Link>

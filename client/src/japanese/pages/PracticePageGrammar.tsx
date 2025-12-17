@@ -56,7 +56,7 @@ const PracticePageGrammar = () => {
   const [nextReviewIn, setNextReviewIn] = useState<string | null>(null);
   const [remainingSec, setRemainingSec] = useState<number | null>(null);
 
-  const { setScenarios } = usePracticeSession();
+  const { setScenarios, setRandomAnswers } = usePracticeSession();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -113,26 +113,36 @@ const PracticePageGrammar = () => {
     }
 
     try {
-      const res = await fetch('http://localhost:8000/api/jp/practice/scenarios', {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-      });
+      // Fetch scenarios và randomAnswers song song
+      const [scenariosRes, randomAnswersRes] = await Promise.all([
+        fetch('http://localhost:8000/api/jp/practice/scenarios', {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+        }),
+        fetch('http://localhost:8000/api/jp/practice/listWord', {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+        })
+      ]);
 
-      if (res.status === 401) {
+      if (scenariosRes.status === 401 || randomAnswersRes.status === 401) {
         localStorage.removeItem('token');
         window.location.replace('/login');
         return;
       }
 
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}`);
+      if (!scenariosRes.ok) {
+        throw new Error(`HTTP ${scenariosRes.status}`);
       }
 
-      const data = await res.json();
-      const scenarios: PracticeScenario[] = data.scenarios || [];
+      const scenariosData = await scenariosRes.json();
+      const scenarios: PracticeScenario[] = scenariosData.scenarios || [];
 
       if (scenarios.length === 0) {
         console.error('Không có scenarios để luyện tập');
@@ -140,7 +150,22 @@ const PracticePageGrammar = () => {
         return;
       }
 
+      // Lấy randomAnswers từ API - lấy 50 từ ngẫu nhiên
+      let randomAnswers: Array<{ meaning_vi: string }> = [];
+      if (randomAnswersRes.ok) {
+        const randomAnswersData = await randomAnswersRes.json();
+        const allWords = (randomAnswersData.allWords || []).map((w: any) => ({
+          meaning_vi: w.meaning_vi || ''
+        })).filter((w: { meaning_vi: string }) => w.meaning_vi !== '');
+        
+        // Shuffle và lấy 50 từ ngẫu nhiên
+        const shuffled = allWords.sort(() => Math.random() - 0.5);
+        randomAnswers = shuffled.slice(0, 50);
+      }
+
+      // Set scenarios và randomAnswers vào store
       setScenarios(scenarios);
+      setRandomAnswers(randomAnswers);
 
       const firstScenario = scenarios[0];
       const firstQuizType = firstScenario.quizType;

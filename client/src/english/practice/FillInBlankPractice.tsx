@@ -190,9 +190,9 @@ const FillInBlankPractice: React.FC = () => {
         transition={{ duration: 0.4 }}
         className="min-h-screen bg-gray-100 relative"
       >
-        <div className="mx-auto p-10 ">
+        <div className="flex flex-col items-center justify-center min-h-[60vh] w-full max-w-4xl mx-auto px-8 py-12">
           {/* progress bar + runner */}
-          <div className="relative w-full h-5">
+          <div className="relative w-full h-5 mb-6">
             <div className="w-full h-full bg-gray-200 rounded-full overflow-hidden">
               <div
                 className="h-full bg-white rounded-full transition-all duration-300"
@@ -207,7 +207,7 @@ const FillInBlankPractice: React.FC = () => {
             />
           </div>
 
-          <div className="flex items-center justify-between m-6">
+          <div className="flex items-center justify-between w-full mb-8">
             <button
               className="bg-yellow-400 px-3 py-1 rounded-full flex items-center justify-center h-15 w-15 text-3xl text-slate-50"
               onClick={handleToggle}
@@ -218,10 +218,10 @@ const FillInBlankPractice: React.FC = () => {
           </div>
 
           {/* Title + audio trigger */}
-          <div className="text-center mb-6">
-            <h4 className="text-gray-600 mb-4 text-xl">Điền từ còn thiếu</h4>
+          <div className="text-center mb-8 w-full">
+            <h4 className="text-gray-600 mb-6 text-3xl">Điền từ còn thiếu</h4>
             <button
-              className="bg-slate-200 hover:bg-slate-600 p-4 w-20 h-20 rounded-full text-2xl font-bold text-gray-800 transition"
+              className="bg-slate-200 hover:bg-slate-600 p-5 w-24 h-24 rounded-full text-3xl font-bold text-gray-800 transition"
               onClick={() => speak(word.word)}
               title="Phát âm từ"
             >
@@ -230,35 +230,36 @@ const FillInBlankPractice: React.FC = () => {
           </div>
 
           {/* Question sentence */}
-          <div className="bg-slate-50 rounded-2xl border border-yellow-400 shadow p-6 mx-auto max-w-3xl mb-6">
-            <p className="text-xl md:text-2xl text-center leading-relaxed">
+          <div className="bg-slate-50 rounded-2xl border border-yellow-400 shadow p-8 mx-auto w-full max-w-3xl mb-8">
+            <p className="text-2xl md:text-3xl text-center leading-relaxed mb-8">
               {sentenceMasked}
             </p>
-            <div className="mt-6 flex items-center justify-center gap-3">
+            <div className="mt-6 flex flex-col items-center justify-center gap-4">
               <input
                 ref={inputRef}
                 type="text"
                 placeholder="Nhập đáp án bằng tiếng Anh"
-                className="w-80 md:w-96 px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-slate-400 text-xl text-center"
+                className="w-full max-w-lg px-6 py-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-slate-400 text-2xl text-center"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={onKeyDown}
                 disabled={isAnswered}
               />
               <button
-                className={`btn-primary ${!inputValue || isAnswered ? "btn-primary--disabled" : "btn-primary--check"} px-6 py-2`}
+                className={`btn-primary ${!inputValue || isAnswered ? "btn-primary--disabled" : "btn-primary--check"} w-full max-w-md px-6 py-3`}
                 onClick={handleCheck}
                 disabled={!inputValue || isAnswered}
               >
                 Kiểm tra
               </button>
             </div>
-            <div className="mt-3 flex items-center justify-center">
-              <button className="btn-forget" onClick={handleForget} disabled={isAnswered}>
+            <div className="mt-4 flex items-center justify-center">
+              <button className="btn-forget text-lg" onClick={handleForget} disabled={isAnswered}>
                 Tôi ko nhớ từ này
               </button>
             </div>
           </div>
+        </div>
 
           {/* Result Panels */}
           {isResultShown && !isResultHidden && (
@@ -308,7 +309,6 @@ const FillInBlankPractice: React.FC = () => {
               </div>
             </div>
           )}
-        </div>
 
         {/* Confirm Exit Bottom Sheet */}
         {showConfirmExit && (

@@ -1,7 +1,6 @@
 // src/routes/language-routes/jpRoutes.tsx
 import { Routes, Route, Navigate } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute';
-import NotFound from '../components/NotFound';
 
 import PracticePage from '../../japanese/pages/PracticePage';
 import AddJapaneseWordForm from '../../japanese/forms/AddJapaneseWordForm';
@@ -40,7 +39,7 @@ export default function JpRoutes() {
       </Route>
 
       {/* 404 */}
-      <Route path="*" element={<NotFound />} />
+      <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
   );
 }

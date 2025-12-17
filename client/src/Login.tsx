@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Eye, EyeOff, X } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from './routes/LanguageContext';
 
@@ -111,32 +111,23 @@ const LoginPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header vàng + nút đóng */}
-      <div className="sticky top-0 z-10 bg-yellow-400 text-center font-bold text-[28px] py-3 rounded-b-2xl shadow-sm">
-        <div className="mx-auto max-w-4xl relative">
-          <button
-            type="button"
-            onClick={() => navigate('/')}
-            className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-yellow-300 hover:bg-yellow-200"
-            aria-label="Đóng"
-            title="Đóng"
-          >
-            <X className="h-5 w-5 text-gray-800" />
-          </button>
+      <div className="sticky top-0 z-10 bg-yellow-400 text-center font-bold text-xl sm:text-[28px] py-2 sm:py-3 rounded-b-2xl shadow-sm">
+        <div className="mx-auto max-w-4xl relative px-4">
           Đăng nhập
         </div>
       </div>
 
       {/* Nội dung */}
-      <div className="flex items-center justify-center min-h-[calc(100vh-60px)] w-full">
+      <div className="flex items-center justify-center min-h-[calc(100vh-60px)] w-full px-4 sm:px-6 py-6 sm:py-8">
         <div className="w-full max-w-xl">
-          <form onSubmit={onSubmit} className="space-y-5">
+          <form onSubmit={onSubmit} className="space-y-4 sm:space-y-5">
             {/* Email/Username */}
             <div>
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="thanhcongpoki@gmail.com"
-                className="w-full h-14 rounded-2xl bg-[#eaf1ff] text-gray-800 px-5 outline-none border-0 focus:ring-2 focus:ring-blue-400"
+                className="w-full h-12 sm:h-14 rounded-2xl bg-[#eaf1ff] text-gray-800 px-4 sm:px-5 text-sm sm:text-base outline-none border-0 focus:ring-2 focus:ring-blue-400"
                 autoComplete="username"
               />
             </div>
@@ -148,21 +139,21 @@ const LoginPage: React.FC = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full h-14 rounded-2xl bg-[#eaf1ff] text-gray-800 px-5 pr-24 outline-none border-0 focus:ring-2 focus:ring-blue-400"
+                className="w-full h-12 sm:h-14 rounded-2xl bg-[#eaf1ff] text-gray-800 px-4 sm:px-5 pr-20 sm:pr-24 text-sm sm:text-base outline-none border-0 focus:ring-2 focus:ring-blue-400"
                 autoComplete="current-password"
               />
               <button
                 type="button"
                 onClick={() => setShowPw((s) => !s)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-green-700 font-semibold flex items-center gap-1"
+                className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 text-green-700 font-semibold flex items-center gap-1 text-xs sm:text-sm"
               >
-                {showPw ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                <span>{showPw ? 'Ẩn' : 'Hiển thị'}</span>
+                {showPw ? <EyeOff className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> : <Eye className="h-3.5 w-3.5 sm:h-4 sm:w-4" />}
+                <span className="hidden sm:inline">{showPw ? 'Ẩn' : 'Hiển thị'}</span>
               </button>
             </div>
 
             {err && (
-              <div className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+              <div className="text-xs sm:text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3">
                 {err}
               </div>
             )}
@@ -171,7 +162,7 @@ const LoginPage: React.FC = () => {
             <button
               type="submit"
               disabled={loading}
-              className={`w-full h-12 rounded-full text-slate-50 font-bold shadow
+              className={`w-full h-11 sm:h-12 rounded-full text-slate-50 font-bold shadow text-sm sm:text-base
                 bg-gradient-to-b from-green-400 to-green-600
                 hover:from-green-500 hover:to-green-700
                 disabled:opacity-60 disabled:cursor-not-allowed`}
@@ -181,11 +172,11 @@ const LoginPage: React.FC = () => {
           </form>
 
           {/* Link phụ */}
-          <div className="text-center mt-6 text-[15px]">
+          <div className="text-center mt-5 sm:mt-6 text-sm sm:text-[15px] px-2">
             <a href="/forgot" className="text-blue-600 hover:underline">
               Quên mật khẩu?
             </a>
-            <div className="mt-3 text-gray-600">
+            <div className="mt-2 sm:mt-3 text-gray-600">
               Chưa có tài khoản?
               <a href="/register" className="text-blue-600 font-semibold hover:underline ml-1">
                 Tạo tài khoản học mới
@@ -193,7 +184,7 @@ const LoginPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="h-4" />
+          <div className="h-3 sm:h-4" />
         </div>
       </div>
     </div>

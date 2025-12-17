@@ -1,7 +1,6 @@
 // src/routes/language-routes/enRoutes.tsx
 import { Routes, Route, Navigate } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute';
-import NotFound from '../components/NotFound';
 
 import PracticePage from '../../english/pages/PracticePage';
 import PracticePageGrammar from '../../english/pages/PracticePageGrammar';
@@ -43,7 +42,7 @@ export default function EnRoutes() {
       </Route>
 
       {/* 404 */}
-      <Route path="*" element={<NotFound />} />
+      <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
   );
 }

@@ -131,55 +131,53 @@ const handleStartPractice = () => {
 
       <Header />
       <div className="bg-[url('https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbg.366f773b.webp&w=1920&q=75')] bg-cover bg-center
-      flex min-h-screen bg-gray-200 text-base md:text-lg">
+      flex min-h-screen bg-gray-200 text-sm sm:text-base md:text-lg">
 
   {/* Left Column */}
-  <div className="w-2/10 hidden xl:block hidden"></div>
+  <div className="hidden xl:block w-2/10"></div>
 
   {/* Center Column */}
-  <div className="w-6/10 flex-1 flex flex-col items-center justify-start py-12 px-4 bg-slate-50 shadow-md mx-auto ">
+  <div className="w-full xl:w-6/10 flex-1 flex flex-col items-center justify-start pt-20 sm:pt-12 md:pt-16 pb-6 sm:pb-8 md:pb-12 px-3 sm:px-4 md:px-6 bg-slate-50 shadow-md mx-auto">
     
     {/* Top summary */}
-    <div className="flex items-center space-x-3">
-<div className="w-14 h-14 rounded-full bg-slate-50 border border-gray-300 border-b-8 shadow-inner flex items-center justify-center">
-  <img
-    src="https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ficon_notebook.cd7f4676.png&w=256&q=75"
-    alt="Notebook icon"
-    className="w-8 h-8"
-  />
-</div>
-
-     
-      <p className="text-gray-700 text-lg md:text-sm">
+    <div className="flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6">
+      <div className="w-10 h-10 sm:w-12 sm:h-14 rounded-full bg-slate-50 border border-gray-300 border-b-4 sm:border-b-8 shadow-inner flex items-center justify-center">
+        <img
+          src="https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ficon_notebook.cd7f4676.png&w=256&q=75"
+          alt="Notebook icon"
+          className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8"
+        />
+      </div>
+      <p className="text-gray-700 text-sm sm:text-base md:text-lg">
         Bạn đã học được <span className="font-bold">{totalWords} từ</span>
       </p>
     </div>
 
     {/* Bar Chart */}
-    <div className="relative w-full max-w-3xl">
-      <div className="flex justify-center items-end space-x-8 h-90 pb-10">
+    <div className="relative w-full pt-5 max-w-3xl mb-4 sm:mb-6">
+      <div className="flex justify-center items-end space-x-2 sm:space-x-4 md:space-x-6 lg:space-x-8 h-60 sm:h-80 md:h-90 pb-6 sm:pb-8 md:pb-10 overflow-x-auto">
         {reviewStats.map((item) => (
-          <div key={item.level} className="flex flex-col items-center">
-            <div className="text-base font-semibold mb-1">{item.count} từ</div>
+          <div key={item.level} className="flex flex-col items-center flex-shrink-0">
+            <div className="text-xs sm:text-sm md:text-base font-semibold mb-1">{item.count} từ</div>
             <div
-              className={`${item.color} w-14 rounded-t-md`}
+              className={`${item.color} w-8 sm:w-10 md:w-12 lg:w-14 rounded-t-md`}
               style={{ height: `${Math.min(item.count / 20 + 20, 180)}px` }}
             />
-            <div className="mt-3 text-xl font-bold text-black">{item.level}</div>
+            <div className="mt-2 sm:mt-3 text-base sm:text-lg md:text-xl font-bold text-black">{item.level}</div>
           </div>
         ))}
       </div>
-      <div className="absolute left-0 right-0 bottom-20 h-[8px] bg-gray-300 rounded-full mx-auto max-w-[60%]" />
+      <div className="absolute left-0 right-0 bottom-12 sm:bottom-16 md:bottom-20 h-[6px] sm:h-[8px] bg-gray-300 rounded-full mx-auto max-w-[60%]" />
     </div>
 
     {/* Ready to review */}
-    <div className=" text-gray-800 text-xl">
+    <div className="text-gray-800 text-base sm:text-lg md:text-xl mb-4 sm:mb-6 text-center">
       Chuẩn bị ôn tập: <span className="font-bold text-red-500">{reviewWordsCount} từ</span>
     </div>
 
     <button
       onClick={handleStartPractice}
-  className="m-10 h-15 w-60  text-slate-50 font-bold text-xl font-medium px-8 py-3 rounded-full shadow-md bg-gradient-to-r from-lime-400 to-green-600 hover:brightness-110 transition"
+      className="mb-6 sm:mb-8 md:mb-10 h-12 sm:h-14 md:h-15 w-full sm:w-64 md:w-60 text-slate-50 font-bold text-base sm:text-lg md:text-xl font-medium px-6 sm:px-8 py-2.5 sm:py-3 rounded-full shadow-md bg-gradient-to-r from-lime-400 to-green-600 hover:brightness-110 transition disabled:opacity-50 disabled:cursor-not-allowed"
       disabled={reviewWordsCount === 0}
     >
       {reviewWordsCount > 0 ? 'Ôn tập ngay' : `⏳ ${nextReviewIn ?? 'Đang chờ...'}`}
@@ -187,7 +185,7 @@ const handleStartPractice = () => {
   </div>
 
   {/* Right Column */}
-  <div className="w-2/10 xl:block hidden    flex flex-col items-center px-4 space-y-4">
+  <div className="hidden xl:flex w-2/10 flex-col items-center px-4 space-y-4">
     <div className="w-full min-h-[180px] text-center 
       bg-[url('https://kanji.mochidemy.com/_next/static/media/badge_1.d5baa091.svg')] 
       bg-contain bg-center bg-no-repeat 
@@ -200,7 +198,7 @@ const handleStartPractice = () => {
       bg-[url('https://kanji.mochidemy.com/_next/static/media/badge_2.2bed5320.svg')] 
       bg-contain bg-center bg-no-repeat 
       flex flex-col justify-center items-center">
-      <p className="text-green-900 text-base font-bold">Bạn đã học liên tục</p>
+      <p className="text-green-900 text-base font-bold">Bạn đã học liên tục </p>
       <p className="text-2xl text-orange-500 font-bold">{streak} ngày</p>
     </div>
   </div>

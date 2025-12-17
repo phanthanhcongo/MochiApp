@@ -209,44 +209,48 @@ const RomajiPractice: React.FC = () => {
       onExitComplete={() => setIsExiting(false)}
       className=""
     >
-        <div className="text-center mt-[100px]">
-                <h4 className="text-gray-600 mb-4 text-2xl">Nhập cách đọc romaji của từ sau:</h4>
-                <h1 className="text-5xl font-bold text-gray-900 mb-6">{question}</h1>
-                <input
-                  type="text"
-                  className={`border rounded px-4 py-2 text-2xl text-center w-full max-w-sm ${
-                    hasAccentWarning ? 'border-red-500 bg-red-50' : 'border-gray-300'
-                  }`}
-                  placeholder="ví dụ: shiji"
-                  value={userRomajiAnswer}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    setUserRomajiAnswer(value);
-                    // Kiểm tra và cập nhật cảnh báo khi người dùng nhập
-                    if (value.trim() && hasVietnameseAccents(value)) {
-                      setHasAccentWarning(true);
-                    } else {
-                      setHasAccentWarning(false);
-                    }
-                  }}
-                  onKeyDown={(e) => e.key === 'Enter' && handleCheck()}
-                  disabled={isAnswered}
-                />
-                {hasAccentWarning && (
-                  <p className="text-red-500 text-sm mt-2">⚠️ Romaji không được chứa dấu tiếng Việt</p>
-                )}
-              </div>
+        <div className="flex flex-col items-center justify-center min-h-[60vh] w-full max-w-4xl mx-auto px-8 py-12">
+          <div className="text-center w-full">
+            <h4 className="text-gray-600 mb-6 text-3xl">Nhập cách đọc romaji của từ sau:</h4>
+            <h1 className="text-6xl font-bold text-gray-900 mb-10">{question}</h1>
+            <div className="flex justify-center mb-4">
+              <input
+                type="text"
+                className={`border rounded px-6 py-4 text-3xl text-center w-full max-w-lg ${
+                  hasAccentWarning ? 'border-red-500 bg-red-50' : 'border-gray-300'
+                }`}
+                placeholder="ví dụ: shiji"
+                value={userRomajiAnswer}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setUserRomajiAnswer(value);
+                  // Kiểm tra và cập nhật cảnh báo khi người dùng nhập
+                  if (value.trim() && hasVietnameseAccents(value)) {
+                    setHasAccentWarning(true);
+                  } else {
+                    setHasAccentWarning(false);
+                  }
+                }}
+                onKeyDown={(e) => e.key === 'Enter' && handleCheck()}
+                disabled={isAnswered}
+              />
+            </div>
+            {hasAccentWarning && (
+              <p className="text-red-500 text-lg mt-3">⚠️ Romaji không được chứa dấu tiếng Việt</p>
+            )}
+          </div>
 
-              <div className="flex flex-col items-center gap-4 p-8">
-                <button
-                  className={`btn-primary ${!userRomajiAnswer || isAnswered || hasAccentWarning ? 'btn-primary--disabled' : 'btn-primary--check'} w-80 px-6 py-2`}
-                  onClick={handleCheck}
-                  disabled={!userRomajiAnswer || isAnswered || hasAccentWarning}
-                >
-                  Kiểm tra
-                </button>
-                <button className="btn-forget" onClick={handleForget} disabled={isAnswered}>Tôi ko nhớ từ này</button>
-              </div>
+          <div className="flex flex-col items-center gap-6 p-8 w-full">
+            <button
+              className={`btn-primary ${!userRomajiAnswer || isAnswered || hasAccentWarning ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-6 py-3`}
+              onClick={handleCheck}
+              disabled={!userRomajiAnswer || isAnswered || hasAccentWarning}
+            >
+              Kiểm tra
+            </button>
+            <button className="btn-forget text-lg" onClick={handleForget} disabled={isAnswered}>Tôi ko nhớ từ này</button>
+          </div>
+        </div>
 
               {(isAnswered || isForgetClicked) && !isResultHidden && (
                 <div className={isCorrectAnswer && !isForgetClicked ? 'result-panel_true' : 'result-panel_false'}>

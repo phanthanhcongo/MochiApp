@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -22,7 +22,7 @@ const MultipleChoiceQuiz: React.FC = () => {
   const isProcessingRef = useRef(false);
   const [isExiting, setIsExiting] = useState(false);
   const exitTimeoutRef = useRef<number | null>(null);
-  const [allWords, setAllWords] = useState<any[]>([]);
+  const [answers, setAnswers] = useState<Array<{ text: string; isCorrect: boolean }>>([]);
 
   const {
     currentWord,
@@ -30,30 +30,87 @@ const MultipleChoiceQuiz: React.FC = () => {
     continueToNextQuiz,
     isNavigating: storeIsNavigating,
     previousType,
+    scenarios,
+    randomAnswers,
   } = usePracticeSession();
 
-  // Fetch all words from database
-  useEffect(() => {
-    const fetchAllWords = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        const res = await fetch('http://localhost:8000/api/jp/practice/listWord', {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Authorization': `Bearer ${token}`,
-          },
-        });
-        if (res.ok) {
-          const data = await res.json();
-          setAllWords(data.allWords || []);
-        }
-      } catch (err) {
-        console.error('Error fetching all words:', err);
-      }
+  // Function để tạo mảng 3 đáp án (1 đúng + 2 sai) chỉ từ scenarios
+  const generateAnswers = useCallback(() => {
+    if (!currentWord) {
+      setAnswers([]);
+      return;
+    }
+
+    const correctAnswer = {
+      text: currentWord.word.meaning_vi || '',
+      isCorrect: true,
     };
-    fetchAllWords();
-  }, []);
+
+    let incorrects: Array<{ text: string; isCorrect: boolean }> = [];
+
+    // Lấy từ danh sách word review (scenarios)
+    if (scenarios.length > 0) {
+      incorrects = scenarios
+        .filter(s => s.word.id !== currentWord.word.id && s.word.meaning_vi && s.word.meaning_vi !== currentWord.word.meaning_vi)
+        .map(s => ({
+          text: s.word.meaning_vi || '',
+          isCorrect: false,
+        }))
+        .filter(v => v.text !== '')
+        .filter((v, i, arr) => arr.findIndex(x => x.text === v.text) === i);
+    }
+
+    // Nếu không đủ 2 đáp án sai từ scenarios, lấy thêm từ randomAnswers
+    if (incorrects.length < 2 && randomAnswers.length > 0) {
+      const additionalIncorrects = randomAnswers
+        .filter(r => r.meaning_vi && r.meaning_vi !== currentWord.word.meaning_vi)
+        .map(r => ({
+          text: r.meaning_vi,
+          isCorrect: false,
+        }))
+        .filter(v => v.text !== '')
+        .filter((v, i, arr) => arr.findIndex(x => x.text === v.text) === i)
+        .filter(item => !incorrects.find(existing => existing.text === item.text))
+        .sort(() => Math.random() - 0.5); // Shuffle randomAnswers
+      
+      incorrects = [...incorrects, ...additionalIncorrects];
+    }
+
+    // Shuffle và lấy 2 incorrect answers
+    const shuffled = incorrects.sort(() => Math.random() - 0.5);
+    let selectedIncorrects = shuffled.slice(0, 2);
+    
+    // Nếu không đủ 2, lặp lại từ danh sách để đảm bảo có đủ (nhưng vẫn unique)
+    if (selectedIncorrects.length < 2 && shuffled.length > 0) {
+      const maxAttempts = 10;
+      let attempts = 0;
+      while (selectedIncorrects.length < 2 && attempts < maxAttempts) {
+        const randomItem = shuffled[Math.floor(Math.random() * shuffled.length)];
+        if (!selectedIncorrects.find(item => item.text === randomItem.text)) {
+          selectedIncorrects.push(randomItem);
+        }
+        attempts++;
+      }
+    }
+
+    // Đảm bảo luôn có 3 lựa chọn (1 correct + 2 incorrect)
+    // Nếu vẫn không đủ, tạo placeholder
+    if (selectedIncorrects.length < 2) {
+      const placeholders = ['...', '...'];
+      for (let i = selectedIncorrects.length; i < 2; i++) {
+        selectedIncorrects.push({ text: placeholders[i] || '...', isCorrect: false });
+      }
+    }
+
+    // Tạo mảng 3 đáp án và shuffle
+    const finalAnswers = [correctAnswer, ...selectedIncorrects].sort(() => Math.random() - 0.5);
+    setAnswers(finalAnswers);
+  }, [currentWord, scenarios, randomAnswers]);
+
+  // useEffect để tạo đáp án khi currentWord hoặc scenarios thay đổi
+  useEffect(() => {
+    generateAnswers();
+  }, [generateAnswers]);
   useEffect(() => {
     // Đợi một chút để đảm bảo location.state đã được set đúng cách sau khi navigate
     const checkState = setTimeout(() => {
@@ -131,57 +188,6 @@ const MultipleChoiceQuiz: React.FC = () => {
     }
   };
 
-  // Sử dụng useMemo để đảm bảo thứ tự đáp án cố định cho mỗi từ
-  // Chỉ shuffle một lần khi currentWord thay đổi
-  const answers = useMemo(() => {
-    if (!currentWord) return [];
-
-    const correctAnswer = {
-      text: currentWord.word.meaning_vi,
-      isCorrect: true,
-    };
-
-    let incorrects: Array<{ text: string; isCorrect: boolean }> = [];
-
-    // Lấy từ tất cả words trong database
-    incorrects = allWords
-      .filter(w => w.id !== currentWord.word.id && w.meaning_vi && w.meaning_vi !== currentWord.word.meaning_vi)
-      .map(w => ({
-        text: w.meaning_vi,
-        isCorrect: false,
-      }))
-      .filter((v, i, arr) => arr.findIndex(x => x.text === v.text) === i);
-
-    // Shuffle và lấy 2 incorrect answers
-    const shuffled = incorrects.sort(() => Math.random() - 0.5);
-    let selectedIncorrects = shuffled.slice(0, 2);
-    
-    // Nếu không đủ 2, lặp lại từ danh sách để đảm bảo có đủ (nhưng vẫn unique)
-    if (selectedIncorrects.length < 2 && shuffled.length > 0) {
-      // Lặp lại từ danh sách có sẵn nhưng đảm bảo unique
-      const maxAttempts = 10; // Tránh infinite loop
-      let attempts = 0;
-      while (selectedIncorrects.length < 2 && attempts < maxAttempts) {
-        const randomItem = shuffled[Math.floor(Math.random() * shuffled.length)];
-        if (!selectedIncorrects.find(item => item.text === randomItem.text)) {
-          selectedIncorrects.push(randomItem);
-        }
-        attempts++;
-      }
-    }
-
-    // Đảm bảo luôn có 3 lựa chọn (1 correct + 2 incorrect)
-    // Nếu vẫn không đủ, tạo placeholder
-    if (selectedIncorrects.length < 2) {
-      const placeholders = ['...', '...'];
-      for (let i = selectedIncorrects.length; i < 2; i++) {
-        selectedIncorrects.push({ text: placeholders[i] || '...', isCorrect: false });
-      }
-    }
-
-    // Shuffle một lần và giữ nguyên thứ tự
-    return [correctAnswer, ...selectedIncorrects].sort(() => Math.random() - 0.5);
-  }, [currentWord?.word.id, allWords]); // Chỉ re-shuffle khi word.id thay đổi
 
   // Ẩn component ngay khi đang navigate hoặc không phải quiz type hiện tại
   // Điều này ngăn component cũ render trong nháy mắt khi chuyển quiz type
@@ -216,6 +222,18 @@ const MultipleChoiceQuiz: React.FC = () => {
   
   if (!currentWord || shouldHide || !isCorrectRoute) {
     return null;
+  }
+
+  // Chỉ render khi đã có đủ 3 đáp án sẵn sàng
+  if (answers.length !== 3) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto mb-4"></div>
+          <p className="text-gray-600">Đang tải đáp án...</p>
+        </div>
+      </div>
+    );
   }
 
   const word = currentWord.word;
@@ -273,56 +291,58 @@ const MultipleChoiceQuiz: React.FC = () => {
       keyValue={`${word.id}-${previousType || 'none'}`}
       isExiting={isExiting}
       onExitComplete={() => setIsExiting(false)}
-      className="w-full"
+      className="w-full flex items-center justify-center max-h-screen overflow-y-auto"
     >
-        <div className="text-center pb-8">
-          <h4 className="text-gray-600 mb-1">Chọn đúng nghĩa của từ</h4>
-          <h1 className="text-5xl font-bold text-gray-900">{word.kanji}</h1>
-        </div>
-        <div className="flex flex-col  ">
-          {answers.map((ans, idx) => {
-            const isSelected = selectedIndex === idx;
-            let statusClass = 'answer-option--default';
-            if (isAnswered || isForgetClicked) {
-              if (ans.isCorrect) {
-                statusClass = 'answer-option--correct';
-              } else if (selectedIndex === idx) {
-                statusClass = 'answer-option--wrong';
+        <div className="flex flex-col items-center justify-center w-full mx-auto px-8 py-12">
+          <div className="text-center pb-10 w-full">
+            <h4 className="text-gray-600 mb-4 text-3xl">Chọn đúng nghĩa của từ</h4>
+            <h1 className="text-7xl font-bold text-gray-900">{word.kanji}</h1>
+          </div>
+          <div className="flex flex-col gap-4 mb-8 w-full ">
+            {answers.map((ans, idx) => {
+              const isSelected = selectedIndex === idx;
+              let statusClass = 'answer-option--default';
+              if (isAnswered || isForgetClicked) {
+                if (ans.isCorrect) {
+                  statusClass = 'answer-option--correct';
+                } else if (selectedIndex === idx) {
+                  statusClass = 'answer-option--wrong';
+                }
+              } else if (isSelected) {
+                statusClass = 'answer-option--selected';
               }
-            } else if (isSelected) {
-              statusClass = 'answer-option--selected';
-            }
 
-            return (
-              <button
-                key={idx}
-                className={`answer-option ${statusClass}`}
-                onClick={() => handleSelect(idx)}
-                disabled={isAnswered}
-              >
-                <div className="flex items-center gap-4 h-full">
-                  <div className="flex-shrink-0 flex justify-center">
-                    <span className="inline-flex items-center justify-center h-8 w-8 border-2 border-gray-300 rounded-full text-sm font-medium">
-                      {idx + 1}
-                    </span>
+              return (
+                <button
+                  key={idx}
+                  className={`answer-option ${statusClass}`}
+                  onClick={() => handleSelect(idx)}
+                  disabled={isAnswered}
+                >
+                  <div className="flex items-center gap-4 h-full">
+                    <div className="flex-shrink-0 flex justify-center">
+                      <span className="inline-flex items-center justify-center h-10 w-10 border-2 border-gray-300 rounded-full text-lg font-medium">
+                        {idx + 1}
+                      </span>
+                    </div>
+                    <div className="flex-1 text-center break-words text-xl">{ans.text}</div>
                   </div>
-                  <div className="flex-1 text-center break-words">{ans.text}</div>
-                </div>
-              </button>
-            );
+                </button>
+              );
 
-          })}
-        </div>
-        <div className="flex flex-col items-center gap-4 p-8 ">
-          <button
-            className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-80 px-6 py-2`}
-            onClick={handleCheck}
-            disabled={selectedIndex === null || isAnswered}>
-            Kiểm tra
-          </button>
-          <button className="btn-forget" onClick={handleForget} disabled={isAnswered}>
-            Tôi ko nhớ từ này
-          </button>
+            })}
+          </div>
+          <div className="flex flex-col items-center gap-6 p-8 w-full">
+            <button
+              className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-6 py-3`}
+              onClick={handleCheck}
+              disabled={selectedIndex === null || isAnswered}>
+              Kiểm tra
+            </button>
+            <button className="btn-forget text-lg" onClick={handleForget} disabled={isAnswered}>
+              Tôi ko nhớ từ này
+            </button>
+          </div>
         </div>
 
         {(isAnswered || isForgetClicked) && !isResultHidden && (
