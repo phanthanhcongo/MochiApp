@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { useLocation, useNavigate } from 'react-router-dom';
-import PracticeAnimationWrapper from '../components/PracticeAnimationWrapper';
+import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
 import { usePracticeSession } from '../utils/practiceStore';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 interface AnswerOption {

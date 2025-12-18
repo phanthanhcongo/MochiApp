@@ -46,60 +46,68 @@ const ResultProgress: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen bg-[url('https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbg.366f773b.webp&w=1920&q=75')] bg-cover bg-center bg-gray-50/80">
-      <div className="xl:w-[60%] min-h-screen mx-auto pt-6 relative bg-slate-50 min-h-[700px]">
-        <div className="flex flex-col items-center justify-center gap-4 text-center p-6">
-          <h2 className="text-yellow-500 font-semibold text-xl">
+    <div className="min-h-screen bg-[url('https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbg.366f773b.webp&w=1920&q=75')] bg-cover bg-center bg-gray-50 flex items-center justify-center p-4">
+      <div className="w-full max-w-2xl bg-slate-50 rounded-3xl shadow-2xl overflow-hidden flex flex-col">
+        <div className="flex flex-col items-center justify-center gap-2 text-center pt-8 pb-4 px-6">
+          <h2 className="text-yellow-500 font-bold text-2xl uppercase tracking-wider">
             {percent === 100 ? 'Tuyệt vời!' : 'Kết quả của bạn'}
           </h2>
 
-          <div className="relative w-40 h-40">
-            <svg className="w-full h-full" viewBox="0 0 36 36">
-              <path
+          <div className="relative w-32 h-32 my-2">
+            <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+              <circle
                 className="text-gray-200"
-                d="M18 2.5 a 15.5 15.5 0 0 1 0 31 a 15.5 15.5 0 0 1 0 -31"
+                cx="18"
+                cy="18"
+                r="16"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="5"
+                strokeWidth="3"
               />
-              <path
-                className="text-yellow-400"
-                d="M18 2.5 a 15.5 15.5 0 0 1 0 31"
+              <circle
+                className="text-yellow-400 transition-all duration-1000 ease-out"
+                cx="18"
+                cy="18"
+                r="16"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="5"
-                strokeDasharray={`${percent}, 100`}
+                strokeWidth="3"
+                strokeDasharray="100.5"
+                strokeDashoffset={100.5 - percent}
+                strokeLinecap="round"
               />
             </svg>
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-orange-500 text-3xl font-bold">{percent}%</span>
+              <span className="text-orange-500 text-3xl font-extrabold">{percent}%</span>
             </div>
           </div>
 
-          <p className="text-yellow-500 text-xl font-semibold">
-            Bạn đã trả lời đúng {correctCount}/{total} câu
+          <p className="text-gray-600 text-lg font-medium">
+            Bạn đã trả lời đúng <span className="text-green-600 font-bold">{correctCount}</span> / <span className="font-bold">{total}</span> câu
           </p>
         </div>
 
-        <div className="bg-gray-100 rounded-lg shadow-md p-6 m-4 max-h-70 overflow-y-auto">
-          {results.map((item, index) => (
-            <div key={index} className="flex items-center justify-between border-b last:border-b-0 py-2">
-              <div className="flex items-center gap-2">
-                <FontAwesomeIcon
-                  icon={item.isCorrect ? faCheckCircle : faTimesCircle}
-                  className={`text-xl ${item.isCorrect ? 'text-green-500' : 'text-red-500'}`}
-                />
-                <span className="text-lg font-medium">{item.word}</span>
+        <div className="flex-1 px-6 py-2 overflow-hidden">
+          <div className="bg-white rounded-2xl border border-gray-100 shadow-inner p-4 max-h-[45vh] overflow-y-auto custom-scrollbar">
+            {results.map((item, index) => (
+              <div key={index} className="flex items-center justify-between border-b border-gray-50 last:border-b-0 py-3 hover:bg-gray-50 transition-colors px-2">
+                <div className="flex items-center gap-3">
+                  <FontAwesomeIcon
+                    icon={item.isCorrect ? faCheckCircle : faTimesCircle}
+                    className={`text-xl ${item.isCorrect ? 'text-green-500' : 'text-red-500'}`}
+                  />
+                  <span className="text-lg font-semibold text-gray-800">{item.word}</span>
+                </div>
+                <span className="text-sm text-gray-500 text-right max-w-[60%] italic">{item.meaning}</span>
               </div>
-              <span className="text-sm text-gray-700 text-right max-w-[50%]">{item.meaning}</span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        <div className="flex justify-center mt-6">
+        <div className="p-8 flex justify-center">
           <button
             onClick={async () => {
-              setIsLoading(true); // ✅ Hiển thị loading
+              setIsLoading(true);
               try {
                 await submitReviewedWords();
                 navigate('/en/home');
@@ -110,7 +118,7 @@ const ResultProgress: React.FC = () => {
                 setIsLoading(false);
               }
             }}
-            className="px-6 py-2 bg-yellow-400 text-white font-semibold rounded hover:bg-yellow-500 transition"
+            className="w-full max-w-xs py-3.5 bg-yellow-400 hover:bg-yellow-500 text-white font-bold text-lg rounded-2xl shadow-lg shadow-yellow-200 transition-all active:scale-95 flex items-center justify-center gap-2"
           >
             Về trang chủ
           </button>

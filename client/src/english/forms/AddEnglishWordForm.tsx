@@ -1,617 +1,423 @@
-import { useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
-import { BiLogOutCircle, BiCodeBlock } from 'react-icons/bi';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { BiLogOutCircle, BiCodeBlock } from "react-icons/bi";
+import { Sparkles } from "lucide-react";
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
+const CEFR_OPTIONS = ["A1", "A2", "B1", "B2", "C1", "C2"] as const;
+const IS_GRAMMAR_OPTIONS = [
+  { value: '0', label: 'Từ vựng thường' },
+  { value: '1', label: 'Mục ngữ pháp' },
+];
+const IS_ACTIVE_OPTIONS = [
+  { value: '1', label: 'Đang sử dụng (active)' },
+  { value: '0', label: 'Tạm ẩn / không dùng' },
+];
 
 export interface ReviewWord {
   word: string;
-  ipa?: string;
+  ipa: string;
   meaning_vi: string;
-  cefr_level?: "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
+  cefr_level: string;
   context_vi: string;
   exampleEn: string;
   exampleVi: string;
   examples: {
-    sentence_en: string; // sync with question_text
+    sentence_en: string;
     sentence_vi: string;
     exercises: {
-      question_text: string; // synced from sentence_en
-      answer_explanation?: string;
+      question_text: string;
+      answer_explanation: string;
       choices: {
         content: string;
-        is_correct: 1; // only 1 correct answer
+        is_correct: number;
       }[];
     }[];
   }[];
-   is_active: "1" | "0";
-   is_grammar?: boolean;
+  is_active: string;
+  is_grammar: string;
 }
 
-type ErrorMap = Record<string, string>;
-type TouchedMap = Record<string, boolean>;
+const INITIAL_FORM: ReviewWord = {
+  word: "",
+  ipa: "",
+  meaning_vi: "",
+  cefr_level: "A1",
+  context_vi: "",
+  exampleEn: "",
+  exampleVi: "",
+  examples: [
+    {
+      sentence_en: "",
+      sentence_vi: "",
+      exercises: [
+        {
+          question_text: "",
+          answer_explanation: "",
+          choices: [
+            {
+              content: "",
+              is_correct: 1,
+            },
+          ],
+        },
+      ],
+    },
+  ],
+  is_active: "1",
+  is_grammar: "0",
+};
 
-export default function AddEnglishWord() {
+type Errors = Partial<Record<string, string>>;
+
+interface FieldProps {
+  label: string;
+  name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
+  error?: string;
+  placeholder?: string;
+}
+
+const InputField: React.FC<FieldProps> = ({ label, name, value, onChange, error, placeholder }) => (
+  <div className="mb-3">
+    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1 ml-1">{label}</label>
+    <input
+      name={name}
+      value={value}
+      onChange={onChange}
+      className={`w-full border rounded-xl px-3 py-2 text-sm transition-all duration-200 ${
+        error 
+          ? 'border-red-400 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200' 
+          : 'border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 shadow-sm'
+      } outline-none`}
+      aria-invalid={!!error}
+      placeholder={placeholder}
+    />
+    {error && <p className="mt-1 text-[10px] font-bold text-red-500 uppercase ml-1 tracking-tight">{error}</p>}
+  </div>
+);
+
+const SelectField: React.FC<FieldProps & { options: { value: string; label: string }[] }> = ({ label, name, value, onChange, options, error, placeholder }) => (
+  <div className="mb-3">
+    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1 ml-1">{label}</label>
+    <select
+      name={name}
+      value={value}
+      onChange={onChange}
+      className={`w-full border rounded-lg px-3 py-2 text-sm transition-all duration-200 ${
+        error 
+          ? 'border-red-400 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200' 
+          : 'border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 shadow-sm'
+      } outline-none cursor-pointer appearance-none bg-no-repeat bg-right`}
+      style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'%239CA3AF\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\'%3E%3C/path%3E%3C/svg%3E")', backgroundSize: '1.5em', backgroundPosition: 'right 0.5rem center' }}
+      aria-invalid={!!error}
+    >
+      <option value="">{placeholder || 'Chọn...'}</option>
+      {options.map(opt => (
+        <option key={opt.value} value={opt.value}>{opt.label}</option>
+      ))}
+    </select>
+    {error && <p className="mt-1 text-[10px] font-bold text-red-500 uppercase ml-1 tracking-tight">{error}</p>}
+  </div>
+);
+
+const AddEnglishWordForm = () => {
   const navigate = useNavigate();
-  const [word, setWord] = useState<ReviewWord>({
-    word: "",
-    ipa: "",
-    meaning_vi: "",
-    cefr_level: "A1",
-    context_vi: "",
-    exampleEn: "",
-    exampleVi: "",
-    examples: [
-      {
-        sentence_en: "",
-        sentence_vi: "",
-        exercises: [
-          {
-            question_text: "",
-            answer_explanation: "",
-            choices: [
-              {
-                content: "",
-                is_correct: 1,
-              },
-            ],
-          },
-        ],
-      },
-    ],
-    is_active: "1",
-    is_grammar: false,
-  });
+  const [form, setForm] = useState<ReviewWord>(INITIAL_FORM);
+  const [errors, setErrors] = useState<Errors>({});
+  const [loading, setLoading] = useState(false);
+  const [geminiLoading, setGeminiLoading] = useState(false);
+  const [notice, setNotice] = useState<{ type: 'success' | 'error'; msg: string } | null>(null);
 
-  const [submitting, setSubmitting] = useState(false);
-  const [serverResult, setServerResult] = useState<any>(null);
+  const handleGeminiCall = async () => {
+    if (!form.word || geminiLoading) return;
 
-  // Inline field errors + touched
-  const [errors, setErrors] = useState<ErrorMap>({});
-  const [touched, setTouched] = useState<TouchedMap>({});
-
-  // ------- helpers to set nested fields (kept from your structure) -------
-  const setField = (field: keyof ReviewWord, value: any) =>
-    setWord((prev) => ({ ...prev, [field]: value }));
-
-  const setExampleField = (
-    exIdx: number,
-    field: keyof ReviewWord["examples"][number],
-    value: any
-  ) => {
-    setWord((prev) => {
-      const examples = [...(prev.examples || [])];
-      (examples[exIdx] as any)[field] = value;
-      return { ...prev, examples };
-    });
-  };
-
-  const setExerciseField = (
-    exIdx: number,
-    exrIdx: number,
-    field: keyof NonNullable<ReviewWord["examples"]>[number]["exercises"][number],
-    value: any
-  ) => {
-    setWord((prev) => {
-      const examples = [...(prev.examples || [])];
-      const exercises = [...(examples[exIdx].exercises || [])];
-      (exercises[exrIdx] as any)[field] = value;
-      examples[exIdx].exercises = exercises;
-      return { ...prev, examples };
-    });
-  };
-
-  const setChoiceField = (
-    exIdx: number,
-    exrIdx: number,
-    chIdx: number,
-    field: keyof NonNullable<
-      ReviewWord["examples"]
-    >[number]["exercises"][number]["choices"][number],
-    value: any
-  ) => {
-    setWord((prev) => {
-      const examples = [...(prev.examples || [])];
-      const exercises = [...(examples[exIdx].exercises || [])];
-      const choices = [...(exercises[exrIdx].choices || [])];
-      (choices[chIdx] as any)[field] = value;
-      exercises[exrIdx].choices = choices;
-      examples[exIdx].exercises = exercises;
-      return { ...prev, examples };
-    });
-  };
-
-  // ------- validation -------
-  const validateAll = useCallback((w: ReviewWord): ErrorMap => {
-    const errs: ErrorMap = {};
-    const ex0 = w.examples?.[0];
-    const exr0 = ex0?.exercises?.[0];
-    const ch0 = exr0?.choices?.[0];
-
-    if (!w.word?.trim()) errs["word"] = "Required";
-    if (!w.meaning_vi?.trim()) errs["meaning_vi"] = "Required";
-    if (!ex0?.sentence_en?.trim()) errs["examples.0.sentence_en"] = "Required";
-    if (!ch0?.content?.trim()) errs["examples.0.exercises.0.choices.0.content"] = "Required";
-
-    return errs;
-  }, []);
-
-  const setFieldTouched = (key: string) =>
-    setTouched((t) => ({ ...t, [key]: true }));
-
-  const hasError = (key: string) => !!errors[key] && touched[key];
-
-  const inputClass = (key: string) =>
-    `block w-full rounded-xl border px-3 py-2 text-sm shadow-sm placeholder:text-neutral-400 focus-visible:outline-none focus:ring-4 transition ${hasError(key)
-      ? "border-red-500 ring-red-200"
-      : "border-neutral-300 bg-slate-50 focus:ring-black/10 focus:border-neutral-800"
-    }`;
-
-  const helpId = (key: string) => `${key.replace(/\./g, "-")}-error`;
-
-  // Revalidate a single field on change if it already has an error or is touched
-  const revalidateOnChange = (key: string, next: ReviewWord) => {
-    if (touched[key] || errors[key]) {
-      const all = validateAll(next);
-      setErrors((prev) => ({ ...prev, [key]: all[key] }));
-    }
-  };
-
-  // ------- submit -------
-  async function addEnglishWord() {
-    setSubmitting(true);
-    setServerResult(null);
-
-    const allErrors = validateAll(word);
-    if (Object.keys(allErrors).length > 0) {
-      setErrors(allErrors);
-      // mark all these fields as touched so messages show up
-      const touchedAll: TouchedMap = { ...touched };
-      Object.keys(allErrors).forEach((k) => (touchedAll[k] = true));
-      console.log("Validation errors:", allErrors);
-      setTouched(touchedAll);
-
-      // scroll to first error field if possible
-      const firstKey = Object.keys(allErrors)[0];
-      if (typeof window !== "undefined") {
-        const el = document.querySelector(`[data-field="${firstKey}"]`);
-        if (el && "scrollIntoView" in el) (el as HTMLElement).scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-
-      setSubmitting(false);
+    const cacheKey = `gemini_en_${form.word.trim().toLowerCase()}`;
+    const savedData = localStorage.getItem(cacheKey);
+    if (savedData) {
+      applyGeminiData(JSON.parse(savedData));
+      setNotice({ type: 'success', msg: 'Lấy dữ liệu từ bộ nhớ đệm thành công!' });
       return;
     }
 
-    // sync question_text = sentence_en
-    const ex0 = word.examples?.[0];
-    const syncedQuestion = ex0.sentence_en.trim();
+    setGeminiLoading(true);
+    const availableModels = ["gemini-2.5-flash-lite", "gemini-2.5-flash", "gemini-3-flash"];
+    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+    const genAI = new GoogleGenerativeAI(apiKey);
 
-    const payload = {
-      words: [
-        {
-          word: word.word.trim(),
-          ipa: word.ipa?.trim() || "",
-          meaning_vi: word.meaning_vi.trim(),
-          cefr_level: word.cefr_level || null,
-          level: 1,
-          context_vi: word.context_vi?.trim() || "",
-          exampleEn: word.exampleEn?.trim() || "",
-          exampleVi: word.exampleVi?.trim() || "",
-          examples: [
-            {
-              sentence_en: ex0.sentence_en.trim(),
-              sentence_vi: ex0.sentence_vi?.trim() || "",
-              exercises: [
-                {
-                  question_text: syncedQuestion,
-                  answer_explanation: ex0.exercises?.[0]?.answer_explanation?.trim() || "",
-                  choices: [
-                    {
-                      content: ex0.exercises?.[0]?.choices?.[0]?.content?.trim() || "",
-                      is_correct: 1,
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-          is_active: word.is_active,
-          is_grammar: word.is_grammar ?? false,
-        },
-      ],
+    const fetchWithFallback = async (modelIndex = 0): Promise<any> => {
+      if (modelIndex >= availableModels.length) {
+        throw new Error("Tất cả các model đều đã hết hạn mức hôm nay.");
+      }
+      const modelName = availableModels[modelIndex];
+      try {
+        const model = genAI.getGenerativeModel({
+          model: modelName,
+          generationConfig: { responseMimeType: "application/json" }
+        });
+
+        const prompt = `Bạn là từ điển Anh-Việt. Phân tích từ: ${form.word}. 
+        Trả về JSON bao gồm các trường: 
+        ipa (phiên âm), meaning_vi (nghĩa), cefr_level (A1, A2, B1, B2, C1, C2), context_vi (ngữ cảnh tiếng Việt), 
+        exampleEn (ví dụ ngắn tiếng Anh), exampleVi (dịch ví dụ ngắn),
+        sentence_en (câu ví dụ dài có một chỗ trống ____), sentence_vi (dịch câu dài),
+        answer_explanation (giải thích cho bài tập), correct_answer (từ đúng để điền vào chỗ trống).`;
+
+        const result = await model.generateContent(prompt);
+        return JSON.parse(result.response.text());
+      } catch (err: any) {
+        if (err.message.includes('429') || err.message.includes('quota')) {
+          return fetchWithFallback(modelIndex + 1);
+        }
+        throw err;
+      }
     };
-    // Log dữ liệu trước khi gửi xuống backend
-    console.log("Payload to send:", payload);
 
     try {
+      const data = await fetchWithFallback();
+      localStorage.setItem(cacheKey, JSON.stringify(data));
+      applyGeminiData(data);
+      setNotice({ type: 'success', msg: 'Gemini đã gợi ý thành công!' });
+    } catch (err: any) {
+      setNotice({ type: 'error', msg: err.message });
+    } finally {
+      setGeminiLoading(false);
+    }
+  };
+
+  const applyGeminiData = (data: any) => {
+    setForm(prev => {
+      const newForm = { ...prev, ...data };
+      newForm.examples = [{
+        sentence_en: data.sentence_en || prev.examples[0].sentence_en,
+        sentence_vi: data.sentence_vi || prev.examples[0].sentence_vi,
+        exercises: [{
+          question_text: data.sentence_en || prev.examples[0].exercises[0].question_text,
+          answer_explanation: data.answer_explanation || prev.examples[0].exercises[0].answer_explanation,
+          choices: [{
+            content: data.correct_answer || prev.examples[0].exercises[0].choices[0].content,
+            is_correct: 1
+          }]
+        }]
+      }];
+      return newForm;
+    });
+
+    setErrors(prev => {
+      const newErrors = { ...prev };
+      const fields = ["word", "ipa", "meaning_vi", "cefr_level", "context_vi", "examples.0.sentence_en", "examples.0.exercises.0.choices.0.content"];
+      fields.forEach(f => delete newErrors[f]);
+      return newErrors;
+    });
+  };
+
+  const setField = (name: string, value: any) => {
+    if (name.includes('.')) {
+      const parts = name.split('.');
+      setForm(prev => {
+        const next = JSON.parse(JSON.stringify(prev)); // Deep clone for safety
+        if (parts[0] === 'examples') {
+          const exIdx = parseInt(parts[1]);
+          if (parts[2] === 'exercises') {
+            const exrIdx = parseInt(parts[3]);
+            if (parts[4] === 'choices') {
+              const chIdx = parseInt(parts[5]);
+              next.examples[exIdx].exercises[exrIdx].choices[chIdx].content = value;
+            } else {
+              next.examples[exIdx].exercises[exrIdx][parts[4]] = value;
+            }
+          } else {
+            next.examples[exIdx][parts[2]] = value;
+            if (parts[2] === 'sentence_en') {
+               next.examples[exIdx].exercises[0].question_text = value;
+            }
+          }
+        }
+        return next;
+      });
+    } else {
+      setForm(prev => ({ ...prev, [name]: value }));
+    }
+    if (errors[name]) setErrors(prev => {
+      const next = { ...prev };
+      delete next[name];
+      return next;
+    });
+  };
+
+  const validate = (f: ReviewWord): Errors => {
+    const e: Errors = {};
+    if (!f.word.trim()) e.word = 'Bắt buộc';
+    if (!f.meaning_vi.trim()) e.meaning_vi = 'Bắt buộc';
+    if (!f.examples[0].sentence_en.trim()) e["examples.0.sentence_en"] = 'Bắt buộc';
+    if (!f.examples[0].exercises[0].choices[0].content.trim()) e["examples.0.exercises.0.choices.0.content"] = 'Bắt buộc';
+    return e;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setNotice(null);
+
+    const vErrors = validate(form);
+    if (Object.keys(vErrors).length > 0) {
+      setErrors(vErrors);
+      setNotice({ type: 'error', msg: 'Vui lòng điền đầy đủ các trường bắt buộc.' });
+      return;
+    }
+
+    setLoading(true);
+    try {
       const token = localStorage.getItem('token');
+      const userId = parseInt(localStorage.getItem('user_id') || '0', 10);
+      
+      const payload = {
+        words: [{
+          ...form,
+          level: 1,
+          is_grammar: form.is_grammar === "1",
+          user_id: userId
+        }]
+      };
 
       const res = await fetch('http://localhost:8000/api/en/practice/addWord', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}` // nếu gọi từ client cần auth
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error(await res.text());
-      const data = await res.json();
-      setServerResult(data);
-    } catch (e: any) {
-      // show a small toast-like banner; inline errors already handled above
-      setErrors((prev) => ({ ...prev, _form: e.message || "Submit error" }));
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.message || 'Lỗi khi lưu từ vựng');
+
+      setForm(INITIAL_FORM);
+      setErrors({});
+      setNotice({ type: 'success', msg: 'Đã thêm từ vựng thành công!' });
+    } catch (err: any) {
+      setNotice({ type: 'error', msg: err.message });
     } finally {
-      setSubmitting(false);
+      setLoading(false);
     }
-  }
+  };
 
-  // ===================== UI =====================
   return (
-    <div>
-      <div className="mx-auto w-full  px-4 py-8">
-        <header className="mb-6 relative">
-          <div className="flex items-center  space-x-4">
-            {/* Nút Quay lại */}
-            <button
-              type="button"
-              onClick={() => navigate('/en/home')}
-              className="flex items-center text-gray-700 hover:text-gray-900 cursor-pointer"
-            >
-              <BiLogOutCircle className="text-gray-700 text-3xl" />
-              <span className="ml-2 text-sm">Quay lại</span>
-            </button>
+    <div className="bg-[#f8faff] min-h-screen py-8 text-neutral-800">
+      <form onSubmit={handleSubmit} className="max-w-5xl mx-auto px-6 pb-12">
+        <div className='text-center w-full text-5xl font-black mb-10 text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-gray-700 to-gray-400 uppercase tracking-tighter pt-4'>
+          Add New English Word
+        </div>
 
-            {/* Nút Coder Mode */}
-            <button
-              type="button"
-              onClick={() => navigate('/en/import')}
-              className="flex items-center text-blue-600 hover:text-blue-800 cursor-pointer"
-            >
-              <BiCodeBlock className="text-blue-600 text-3xl" />
-              <span className="ml-2 text-sm">Coder Mode</span>
-            </button>
-          </div>
-          <h2 className="text-2xl font-semibold tracking-tight text-center">
-            Add New English Word
-          </h2>
-          <p className="mt-1 text-sm text-neutral-600 text-center">
-            Fields marked with <span className="text-red-600">*</span> are required.
-          </p>
-        </header>
+        <div className="flex items-center justify-between mb-6">
+          <button
+            type="button"
+            onClick={() => navigate('/en/home')}
+            className="flex items-center text-gray-500 hover:text-gray-800 transition-all bg-white px-4 py-2 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-x-1"
+          >
+            <BiLogOutCircle className="text-xl" />
+            <span className="ml-2 text-xs font-bold uppercase tracking-wider">Quay lại</span>
+          </button>
 
+          <button
+            type="button"
+            onClick={() => navigate('/en/import')}
+            className="flex items-center text-blue-500 hover:text-blue-700 transition-all bg-white px-4 py-2 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:translate-x-1"
+          >
+            <BiCodeBlock className="text-xl" />
+            <span className="ml-2 text-xs font-bold uppercase tracking-wider">Coder Mode</span>
+          </button>
+        </div>
 
-        {errors._form && (
-          <div role="alert" className="mb-4 rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
-            {errors._form}
-          </div>
-        )}
+        <div className="bg-white border border-gray-100 rounded-[2rem] p-8 shadow-2xl shadow-gray-200/50 space-y-8 relative overflow-hidden">
+          <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 via-purple-500 to-fuchsia-500"></div>
 
-        <section className="rounded-2xl bg-slate-50 shadow-sm ring-1 ring-neutral-200">
-          <div className="p-6 space-y-8">
-            {/* Basic fields */}
-            <div>
-              <h3 className="text-base font-medium">Basic Info</h3>
-              <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-                {/* Word */}
-                <label className="flex flex-col gap-1" data-field="word">
-                  <span className="text-sm font-medium">Word <span className="text-red-600">*</span></span>
-                  <input
-                    className={inputClass("word")}
-                    value={word.word}
-                    onChange={(e) => {
-                      const v = e.target.value;
-                      setField("word", v);
-                      revalidateOnChange("word", { ...word, word: v });
-                    }}
-                    onBlur={() => setFieldTouched("word")}
-                    placeholder="e.g. adapt"
-                    aria-invalid={hasError("word")}
-                    aria-describedby={hasError("word") ? helpId("word") : undefined}
-                  />
-                  {hasError("word") && (
-                    <span id={helpId("word")} className="text-xs text-red-600">{errors.word}</span>
-                  )}
-                </label>
-
-                {/* IPA */}
-                <label className="flex flex-col gap-1">
-                  <span className="text-sm font-medium">IPA</span>
-                  <input
-                    className={inputClass("ipa")}
-                    value={word.ipa}
-                    onChange={(e) => {
-                      const v = e.target.value;
-                      setField("ipa", v);
-                      revalidateOnChange("ipa", { ...word, ipa: v });
-                    }}
-                    onBlur={() => setFieldTouched("ipa")}
-                    placeholder="/əˈdæpt/"
-                  />
-                </label>
-
-                {/* CEFR */}
-                <label className="flex flex-col gap-1">
-                  <span className="text-sm font-medium">CEFR level</span>
-                  <select
-                    className={inputClass("cefr_level")}
-                    value={word.cefr_level}
-                    onChange={(e) => {
-                      const v = e.target.value as ReviewWord["cefr_level"];
-                      setField("cefr_level", v);
-                      revalidateOnChange("cefr_level", { ...word, cefr_level: v });
-                    }}
-                    onBlur={() => setFieldTouched("cefr_level")}
-                  >
-                    <option value="">-- Select level --</option>
-                    <option value="A1">A1</option>
-                    <option value="A2">A2</option>
-                    <option value="B1">B1</option>
-                    <option value="B2">B2</option>
-                    <option value="C1">C1</option>
-                    <option value="C2">C2</option>
-                  </select>
-                </label>
-
-                <div className="hidden md:block" />
-
-                {/* Meaning VI */}
-                <label className="md:col-span-2 flex flex-col gap-1" data-field="meaning_vi">
-                  <span className="text-sm font-medium">Meaning VI <span className="text-red-600">*</span></span>
-                  <input
-                    className={inputClass("meaning_vi")}
-                    value={word.meaning_vi}
-                    onChange={(e) => {
-                      const v = e.target.value;
-                      setField("meaning_vi", v);
-                      revalidateOnChange("meaning_vi", { ...word, meaning_vi: v });
-                    }}
-                    onBlur={() => setFieldTouched("meaning_vi")}
-                    placeholder="thích nghi"
-                    aria-invalid={hasError("meaning_vi")}
-                    aria-describedby={hasError("meaning_vi") ? helpId("meaning_vi") : undefined}
-                  />
-                  {hasError("meaning_vi") && (
-                    <span id={helpId("meaning_vi")} className="text-xs text-red-600">{errors["meaning_vi"]}</span>
-                  )}
-                </label>
-
-                {/* Context VI */}
-                <label className="md:col-span-2 flex flex-col gap-1">
-                  <span className="text-sm font-medium">Context VI</span>
-                  <textarea
-                    className={inputClass("context_vi") + " min-h-24 resize-y"}
-                    value={word.context_vi}
-                    onChange={(e) => {
-                      const v = e.target.value;
-                      setField("context_vi", v);
-                      revalidateOnChange("context_vi", { ...word, context_vi: v });
-                    }}
-                    onBlur={() => setFieldTouched("context_vi")}
-                    placeholder="Ví dụ sử dụng trong giao tiếp hằng ngày..."
-                  />
-                </label>
-
-               {/* Status: is_active */}
-<label className="flex flex-col gap-1">
-  <span className="text-sm font-medium">Status</span>
-  <select
-    className={inputClass("is_active")}
-    value={word.is_active}
-    onChange={(e) => {
-      const v = e.target.value as "1" | "0";
-      setField("is_active", v);
-      revalidateOnChange("is_active", { ...word, is_active: v });
-    }}
-    onBlur={() => setFieldTouched("is_active")}
-  >
-    <option value="1">Active (đang sử dụng)</option>
-    <option value="0">Inactive (ẩn)</option>
-  </select>
-</label>
-
-                {/* Is Grammar */}
-                <label className="flex flex-col gap-1">
-                  <span className="text-sm font-medium">Loại</span>
-                  <select
-                    className={inputClass("is_grammar")}
-                    value={word.is_grammar ? "1" : "0"}
-                    onChange={(e) => {
-                      const v = e.target.value === "1";
-                      setField("is_grammar", v);
-                      revalidateOnChange("is_grammar", { ...word, is_grammar: v });
-                    }}
-                    onBlur={() => setFieldTouched("is_grammar")}
-                  >
-                    <option value="0">Từ vựng</option>
-                    <option value="1">Mẫu ngữ pháp</option>
-                  </select>
-                </label>
-
-                {/* Quick Example EN */}
-                <label className="flex flex-col gap-1">
-                  <span className="text-sm font-medium">Quick Example EN</span>
-                  <input
-                    className={inputClass("exampleEn")}
-                    value={word.exampleEn}
-                    onChange={(e) => {
-                      const v = e.target.value;
-                      setField("exampleEn", v);
-                      revalidateOnChange("exampleEn", { ...word, exampleEn: v });
-                    }}
-                    onBlur={() => setFieldTouched("exampleEn")}
-                    placeholder="They need to adapt to the situation."
-                  />
-                </label>
-
-                {/* Quick Example VI */}
-                <label className="flex flex-col gap-1">
-                  <span className="text-sm font-medium">Quick Example VI</span>
-                  <input
-                    className={inputClass("exampleVi")}
-                    value={word.exampleVi}
-                    onChange={(e) => {
-                      const v = e.target.value;
-                      setField("exampleVi", v);
-                      revalidateOnChange("exampleVi", { ...word, exampleVi: v });
-                    }}
-                    onBlur={() => setFieldTouched("exampleVi")}
-                    placeholder="Họ cần thích nghi với tình huống."
-                  />
-                </label>
-              </div>
-            </div>
-
-            <div className="h-px bg-neutral-200" />
-
-            {/* Example (only one) */}
-            <div className="space-y-4">
-              <h3 className="text-base font-medium">Example</h3>
-
-              <div className="rounded-xl border border-neutral-200 p-4">
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                  {/* sentence_en */}
-                  <label className="flex flex-col gap-1" data-field="examples.0.sentence_en">
-                    <span className="text-sm font-medium">Sentence EN <span className="text-red-600">*</span></span>
-                    <input
-                      className={inputClass("examples.0.sentence_en")}
-                      value={word.examples?.[0]?.sentence_en || ""}
-                      onChange={(e) => {
-                        const val = e.target.value;
-                        setExampleField(0, "sentence_en", val);
-                        setExerciseField(0, 0, "question_text", val); // sync
-                        const next = { ...word } as ReviewWord;
-                        next.examples = [...word.examples];
-                        next.examples[0] = { ...word.examples[0], sentence_en: val } as any;
-                        revalidateOnChange("examples.0.sentence_en", next);
-                      }}
-                      onBlur={() => setFieldTouched("examples.0.sentence_en")}
-                      placeholder="They need to ____ to the situation carefully."
-                      aria-invalid={hasError("examples.0.sentence_en")}
-                      aria-describedby={hasError("examples.0.sentence_en") ? helpId("examples.0.sentence_en") : undefined}
-                    />
-                    {hasError("examples.0.sentence_en") && (
-                      <span id={helpId("examples.0.sentence_en")} className="text-xs text-red-600">{errors["examples.0.sentence_en"]}</span>
-                    )}
-                  </label>
-
-                  {/* sentence_vi */}
-                  <label className="flex flex-col gap-1">
-                    <span className="text-sm font-medium">Sentence VI</span>
-                    <input
-                      className={inputClass("examples.0.sentence_vi")}
-                      value={word.examples?.[0]?.sentence_vi || ""}
-                      onChange={(e) => {
-                        const v = e.target.value;
-                        setExampleField(0, "sentence_vi", v);
-                        const next = { ...word } as ReviewWord;
-                        next.examples = [...word.examples];
-                        next.examples[0] = { ...word.examples[0], sentence_vi: v } as any;
-                        revalidateOnChange("examples.0.sentence_vi", next);
-                      }}
-                      onBlur={() => setFieldTouched("examples.0.sentence_vi")}
-                      placeholder="Họ cần thích nghi với tình huống một cách cẩn thận."
-                    />
-                  </label>
-                </div>
-
-                {/* Exercise (only one) */}
-                <div className="mt-4 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <h4 className="text-sm font-medium">Exercise</h4>
-                    <span className="text-xs text-neutral-500">1 question</span>
-                  </div>
-
-                  <div className="rounded-xl border border-neutral-200 p-4">
-                    <label className="flex flex-col gap-1">
-                      <span className="text-sm font-medium">Answer explanation</span>
-                      <textarea
-                        className={inputClass("examples.0.exercises.0.answer_explanation") + " min-h-24 resize-y"}
-                        value={word.examples?.[0]?.exercises?.[0]?.answer_explanation || ""}
-                        onChange={(e) => {
-                          const v = e.target.value;
-                          setExerciseField(0, 0, "answer_explanation", v);
-                          const next = { ...word } as ReviewWord;
-                          next.examples = [...word.examples];
-                          next.examples[0] = { ...word.examples[0] } as any;
-                          next.examples[0].exercises = [...word.examples[0].exercises];
-                          next.examples[0].exercises[0] = { ...word.examples[0].exercises[0], answer_explanation: v } as any;
-                          revalidateOnChange("examples.0.exercises.0.answer_explanation", next);
-                        }}
-                        onBlur={() => setFieldTouched("examples.0.exercises.0.answer_explanation")}
-                        placeholder="'Adapt' means thích nghi in English."
-                      />
-                    </label>
-
-                    {/* Choice (only one correct) */}
-                    <div className="mt-4 space-y-2">
-                      <h5 className="text-sm font-medium">Choice (Correct Answer)</h5>
-                      <div className="flex items-center gap-2" data-field="examples.0.exercises.0.choices.0.content">
-                        <input
-                          className={inputClass("examples.0.exercises.0.choices.0.content")}
-                          placeholder="Correct answer"
-                          value={word.examples?.[0]?.exercises?.[0]?.choices?.[0]?.content || ""}
-                          onChange={(e) => {
-                            const v = e.target.value;
-                            setChoiceField(0, 0, 0, "content", v);
-                            const next = { ...word } as ReviewWord;
-                            next.examples = [...word.examples];
-                            next.examples[0] = { ...word.examples[0] } as any;
-                            next.examples[0].exercises = [...word.examples[0].exercises];
-                            next.examples[0].exercises[0] = { ...word.examples[0].exercises[0] } as any;
-                            next.examples[0].exercises[0].choices = [...word.examples[0].exercises[0].choices];
-                            next.examples[0].exercises[0].choices[0] = { ...word.examples[0].exercises[0].choices[0], content: v } as any;
-                            revalidateOnChange("examples.0.exercises.0.choices.0.content", next);
-                          }}
-                          onBlur={() => setFieldTouched("examples.0.exercises.0.choices.0.content")}
-                          aria-invalid={hasError("examples.0.exercises.0.choices.0.content")}
-                          aria-describedby={hasError("examples.0.exercises.0.choices.0.content") ? helpId("examples.0.exercises.0.choices.0.content") : undefined}
-                        />
-                        <label className="flex items-center gap-2 text-xs text-neutral-600 select-none">
-                          <input type="checkbox" checked readOnly className="h-4 w-4 rounded border-neutral-300 text-neutral-800 focus:ring-0" />
-                          correct
-                        </label>
-                      </div>
-                      {hasError("examples.0.exercises.0.choices.0.content") && (
-                        <span id={helpId("examples.0.exercises.0.choices.0.content")} className="text-xs text-red-600">{errors["examples.0.exercises.0.choices.0.content"]}</span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Submit */}
-            <div className="text-center">
+          <div className="border-b border-gray-100 pb-6">
+            <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 ml-1">Word</label>
+            <div className="flex space-x-3">
+              <input
+                value={form.word}
+                onChange={(e) => setField("word", e.target.value)}
+                className={`flex-1 border rounded-xl px-4 py-3 text-sm transition-all duration-200 ${
+                  errors.word 
+                    ? 'border-red-400 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200' 
+                    : 'border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 shadow-sm'
+                } outline-none`}
+                placeholder="Enter English word to get AI suggestions..."
+              />
               <button
-                disabled={submitting}
-                onClick={addEnglishWord}
-                className="inline-flex h-12 w-50 items-center justify-center gap-2 rounded-xl border border-black bg-black px-4 py-2 text-sm font-medium text-white shadow-sm transition active:scale-[.99] disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-black/20 hover:bg-white hover:text-black"
+                type="button"
+                onClick={handleGeminiCall}
+                disabled={geminiLoading}
+                className={`flex items-center px-6 py-2 rounded-lg shadow-sm text-white text-xs font-black uppercase tracking-widest transition-all duration-300
+                  ${geminiLoading 
+                    ? 'bg-purple-300 cursor-not-allowed shadow-none' 
+                    : 'bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-700 hover:to-fuchsia-700 hover:shadow-purple-200 hover:-translate-y-0.5 active:scale-95'}`}
               >
-                {submitting ? (
-                  <>
-                    <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden>
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
-                    </svg>
-                    Submitting...
-                  </>
-                ) : (
-                  "Submit"
-                )}
+                {geminiLoading ? 'Calling...' : <><Sparkles className="mr-2 h-4 w-4" /> Gemini AI</>}
               </button>
-
-              {/* global, non-field error echo (optional) */}
-              {errors._form && (
-                <span className="text-sm text-red-600">Error: {errors._form}</span>
-              )}
             </div>
-
-            {serverResult && (
-              <div className="rounded-xl bg-neutral-50 p-3 ring-1 ring-neutral-200">
-                <pre className="max-h-64 overflow-auto text-xs leading-relaxed">{JSON.stringify(serverResult, null, 2)}</pre>
-              </div>
-            )}
+            {errors.word && <p className="mt-1 text-[10px] font-bold text-red-500 uppercase ml-1 tracking-tight">{errors.word}</p>}
           </div>
-        </section>
-      </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <InputField label="IPA (Pronunciation)" name="ipa" value={form.ipa} onChange={(e) => setField("ipa", e.target.value)} error={errors.ipa} />
+            <InputField label="Meaning (VI)" name="meaning_vi" value={form.meaning_vi} onChange={(e) => setField("meaning_vi", e.target.value)} error={errors.meaning_vi} />
+            <SelectField label="CEFR Level" name="cefr_level" value={form.cefr_level} onChange={(e) => setField("cefr_level", e.target.value)} options={CEFR_OPTIONS.map(o => ({ value: o, label: o }))} error={errors.cefr_level} />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 border-b border-gray-100 pb-2">
+            <SelectField label="Loại mục" name="is_grammar" value={form.is_grammar} onChange={(e) => setField("is_grammar", e.target.value)} options={IS_GRAMMAR_OPTIONS} error={errors.is_grammar} />
+            <SelectField label="Trạng thái" name="is_active" value={form.is_active} onChange={(e) => setField("is_active", e.target.value)} options={IS_ACTIVE_OPTIONS} error={errors.is_active} />
+            <div className="md:col-span-2">
+              <InputField label="Context (VI)" name="context_vi" value={form.context_vi} onChange={(e) => setField("context_vi", e.target.value)} error={errors.context_vi} />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <InputField label="Quick Example (EN)" name="exampleEn" value={form.exampleEn} onChange={(e) => setField("exampleEn", e.target.value)} error={errors.exampleEn} />
+            <InputField label="Quick Example (VI)" name="exampleVi" value={form.exampleVi} onChange={(e) => setField("exampleVi", e.target.value)} error={errors.exampleVi} />
+          </div>
+
+          <div className="bg-gray-50/50 p-6 rounded-2xl border border-gray-100 space-y-4">
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <InputField label="Exercise Sentence (EN)" name="examples.0.sentence_en" value={form.examples[0].sentence_en} onChange={(e) => setField("examples.0.sentence_en", e.target.value)} error={errors["examples.0.sentence_en"]} placeholder="Use ____ for blank" />
+                <InputField label="Exercise Sentence (VI)" name="examples.0.sentence_vi" value={form.examples[0].sentence_vi} onChange={(e) => setField("examples.0.sentence_vi", e.target.value)} error={errors["examples.0.sentence_vi"]} />
+             </div>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <InputField label="Correct Answer" name="examples.0.exercises.0.choices.0.content" value={form.examples[0].exercises[0].choices[0].content} onChange={(e) => setField("examples.0.exercises.0.choices.0.content", e.target.value)} error={errors["examples.0.exercises.0.choices.0.content"]} />
+                <InputField label="Explanation" name="examples.0.exercises.0.answer_explanation" value={form.examples[0].exercises[0].answer_explanation} onChange={(e) => setField("examples.0.exercises.0.answer_explanation", e.target.value)} error={errors["examples.0.exercises.0.answer_explanation"]} />
+             </div>
+          </div>
+
+          {notice && (
+            <div className={`mt-4 rounded-lg px-4 py-3 text-sm font-bold flex items-center shadow-sm border animate-in fade-in slide-in-from-top-2 duration-300 ${
+              notice.type === 'success' 
+                ? 'bg-green-50 text-green-700 border-green-200' 
+                : 'bg-red-50 text-red-700 border-red-200'
+            }`}>
+              <div className={`mr-3 w-2 h-2 rounded-full ${notice.type === 'success' ? 'bg-green-500' : 'bg-red-500'}`}></div>
+              {notice.msg}
+            </div>
+          )}
+        </div>
+
+        <div className="flex justify-end mt-6 pb-8">
+          <button
+            type="submit"
+            disabled={loading}
+            className={`px-10 py-3 rounded-xl shadow-lg text-white font-black uppercase tracking-widest transition-all duration-300 transform active:scale-95
+              ${loading 
+                ? 'bg-gray-300 cursor-not-allowed shadow-none' 
+                : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 hover:shadow-blue-200 hover:-translate-y-0.5'
+              }`}
+          >
+            {loading ? 'Saving...' : 'Save Word'}
+          </button>
+        </div>
+      </form>
     </div>
   );
-}
+};
+
+export default AddEnglishWordForm;

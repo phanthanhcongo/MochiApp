@@ -190,7 +190,7 @@ const FillInBlankPractice: React.FC = () => {
         transition={{ duration: 0.4 }}
         className="min-h-screen bg-gray-100 relative"
       >
-        <div className="flex flex-col items-center justify-center min-h-[60vh] w-full max-w-4xl mx-auto px-8 py-12">
+        <div className="flex flex-col items-center justify-center min-h-[60vh] w-full  mx-auto px-8 py-12">
           {/* progress bar + runner */}
           <div className="relative w-full h-5 mb-6">
             <div className="w-full h-full bg-gray-200 rounded-full overflow-hidden">

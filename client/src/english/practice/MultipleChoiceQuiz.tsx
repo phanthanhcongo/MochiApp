@@ -213,8 +213,8 @@ const MultipleChoiceQuiz: React.FC = () => {
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -100 }}
         transition={{ duration: 0.4 }}
-        className="min-h-screen bg-gray-100 relative flex items-center justify-center"  >
-        <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto px-8 py-12">
+        className="min-h-screen bg-gray-100 relative"  >
+        <div className="flex flex-col items-center justify-center w-full  mx-auto px-8 py-12">
           <div className="relative w-full h-5 mb-6"> {/* wrapper chứa thanh tiến độ + runner */}
             {/* Thanh tiến độ nền */}
             <div className="w-full h-full bg-gray-200 rounded-full overflow-hidden">
@@ -243,9 +243,9 @@ const MultipleChoiceQuiz: React.FC = () => {
           </div>
           <div className="text-center pb-10 w-full">
             <h4 className="text-gray-600 mb-4 text-3xl">Chọn đúng nghĩa của từ</h4>
-            <h1 className="text-7xl font-bold text-gray-900">{word.word}</h1>
+            <h1 className="text-6xl font-bold text-gray-900">{word.word}</h1>
           </div>
-          <div className="flex flex-col gap-4 mb-8 w-full max-w-2xl">
+          <div className="flex flex-col gap-4 mb-8 w-full ">
             {answers.map((ans, idx) => {
               const isSelected = selectedIndex === idx;
               let statusClass = 'answer-option--default';
