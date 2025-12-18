@@ -275,17 +275,17 @@ const MultipleChoiceQuiz: React.FC = () => {
               return (
                 <button
                   key={idx}
-                  className={`answer-option ${statusClass}`}
+                  className={`answer-option group ${statusClass}`}
                   onClick={() => handleSelect(idx)}
                   disabled={isAnswered}
                 >
-                  <div className="flex items-center gap-4 h-full">
-                    <div className="flex-shrink-0 flex justify-center">
-                      <span className="inline-flex items-center justify-center h-10 w-10 border-2 border-gray-300 rounded-full text-lg font-medium">
-                        {idx + 1}
-                      </span>
+                  <div className="flex items-center gap-6 w-full">
+                    <span className="option-index">
+                      {idx + 1}
+                    </span>
+                    <div className="flex-1 text-center font-bold text-2xl pr-10">
+                      {ans.text}
                     </div>
-                    <div className="flex-1 text-center break-words text-xl">{ans.text}</div>
                   </div>
                 </button>
               );

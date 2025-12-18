@@ -217,10 +217,10 @@ const ProfileSettings: React.FC = () => {
     <div className="w-full min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50">
       {/* Header */}
       <div className="bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 shadow-lg">
-        <div className="h-20 flex items-center justify-between px-6 max-w-4xl mx-auto">
+        <div className="h-20 flex items-center justify-center px-6 relative">
           <button
             onClick={() => navigateWithLang('/home')}
-            className="text-white text-2xl font-bold hover:bg-white/20  w-10 h-10 flex items-center justify-center transition-all duration-200 active:scale-95"
+            className="absolute left-6 top-1/2 -translate-y-1/2 text-white text-6xl font-bold hover:bg-white/20 w-12 h-12 flex items-center justify-center transition-all duration-200 active:scale-95"
             aria-label="Back"
           >
             ←
@@ -228,7 +228,6 @@ const ProfileSettings: React.FC = () => {
           <h1 className="text-white font-bold text-xl md:text-2xl tracking-tight drop-shadow-sm">
             Cài đặt tài khoản
           </h1>
-          <div className="w-10" />
         </div>
       </div>
 

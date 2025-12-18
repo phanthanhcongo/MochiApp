@@ -329,95 +329,99 @@ const ReviewWordList: React.FC = () => {
   return (
     <div className="min-h-screen mx-auto px-4">
       {/* Header + Search */}
-      <div className="bg-gray-100 fixed top-0 left-1/2 -translate-x-1/2 w-full xl:w-[70%]  z-10 shadow-md">
-        <div className="max-w-6xl mx-auto px-4 py-3">
-          <div className="flex items-center mb-3 relative">
+      <div className="bg-white/95 backdrop-blur-sm fixed top-0 left-1/2 -translate-x-1/2 w-full xl:w-[70%] z-30 shadow-sm border-b border-gray-100">
+        <div className="max-w-6xl mx-auto px-6 py-2">
+          <div className="flex items-center justify-between mb-2 relative">
             <button
               onClick={() => navigate("/jp/home")}
-              className="flex items-center text-gray-700 hover:text-gray-900 mr-2 absolute cursor-pointer"
+              className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-50 text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition-all cursor-pointer"
+              title="Quay lại"
             >
-              <BiLogOutCircle className="text-gray-700 text-3xl" />
+              <BiLogOutCircle className="text-xl" />
             </button>
 
-            <h2 className="text-2xl font-bold text-gray-800 text-center flex-1">
-              Danh sách từ cần ôn
+            <h2 className="text-xl font-black text-gray-800 tracking-tight">
+              Japanese Word List
             </h2>
+
+            <div className="w-8"></div>
           </div>
 
           {/* Search Bar and Filters Row */}
-          <div className="flex flex-col sm:flex-row gap-2 mb-2">
-            {/* Search Bar - Chiếm nhiều không gian nhất */}
-            <input
-              type="text"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="🔍 Tìm kiếm từ vựng..."
-              className="flex-1 w-full px-3 py-1.5 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent shadow-sm text-sm min-w-[200px]"
-            />
-            
-            {/* Filters Container */}
-            <div className="flex flex-wrap gap-2 flex-shrink-0">
-            <select
-              value={levelFilter}
-              onChange={(e) => setLevelFilter(e.target.value === 'all' ? 'all' : Number(e.target.value))}
-              className="px-2 py-1.5 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-sm text-sm w-auto min-w-fit"
-            >
-              <option value="all">📊 Tất cả cấp độ</option>
-              {levels.map((lv) => (
-                <option key={lv} value={lv}>
-                  Cấp {lv}
-                </option>
-              ))}
-            </select>
-
-            <select
-              value={jlptFilter}
-              onChange={(e) => setJlptFilter(e.target.value as any)}
-              className="px-2 py-1.5 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-sm text-sm w-auto min-w-fit"
-            >
-              <option value="all">📚 Tất cả JLPT</option>
-              <option value="N1">N1</option>
-              <option value="N2">N2</option>
-              <option value="N3">N3</option>
-              <option value="N4">N4</option>
-              <option value="N5">N5</option>
-            </select>
-
-            <select
-              value={typeFilter}
-              onChange={(e) => setTypeFilter(e.target.value as 'all' | 'word' | 'grammar')}
-              className="px-2 py-1.5 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-sm text-sm w-auto min-w-fit"
-            >
-              <option value="all">📝 Tất cả loại</option>
-              <option value="word">Từ vựng</option>
-              <option value="grammar">Ngữ pháp</option>
-            </select>
-
-            <select
-              value={activeFilter}
-              onChange={(e) => setActiveFilter(e.target.value as 'all' | 'active' | 'inactive')}
-              className="px-2 py-1.5 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-sm text-sm w-auto min-w-fit"
-            >
-              <option value="all">⚡ Tất cả trạng thái</option>
-              <option value="active">Đang dùng</option>
-              <option value="inactive">Đang ẩn</option>
-            </select>
-
-            <select
-              value={limitFilter}
-              onChange={(e) => setLimitFilter(e.target.value === 'all' ? 'all' : Number(e.target.value) as 10 | 20)}
-              className="px-2 py-1.5 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-sm text-sm w-auto min-w-fit"
-            >
-              <option value="all">📄 Tất cả</option>
-              <option value="10">10 từ</option>
-              <option value="20">20 từ</option>
-            </select>
-
-            <div className="flex items-center justify-center px-2 py-1.5 rounded-lg bg-blue-50 border border-blue-200 whitespace-nowrap">
-              <span className="text-xs font-semibold text-blue-700">
-                {displayedWords.length} / {filteredWords.length} kết quả
+          <div className="flex flex-col gap-2">
+            <div className="relative">
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Tìm kiếm từ vựng, nghĩa, hán việt..."
+                className="w-full pl-10 pr-4 py-1.5 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all shadow-sm text-sm"
+              />
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
               </span>
             </div>
+            
+            <div className="flex flex-wrap items-center gap-2 pb-1">
+              <select
+                value={levelFilter}
+                onChange={(e) => setLevelFilter(e.target.value === 'all' ? 'all' : Number(e.target.value))}
+                className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
+              >
+                <option value="all">Cấp độ: Tất cả</option>
+                {levels.map((lv) => (
+                  <option key={lv} value={lv}>Cấp {lv}</option>
+                ))}
+              </select>
+
+              <select
+                value={jlptFilter}
+                onChange={(e) => setJlptFilter(e.target.value as any)}
+                className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
+              >
+                <option value="all">JLPT: Tất cả</option>
+                <option value="N1">N1</option>
+                <option value="N2">N2</option>
+                <option value="N3">N3</option>
+                <option value="N4">N4</option>
+                <option value="N5">N5</option>
+              </select>
+
+              <select
+                value={typeFilter}
+                onChange={(e) => setTypeFilter(e.target.value as 'all' | 'word' | 'grammar')}
+                className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
+              >
+                <option value="all">Loại: Tất cả</option>
+                <option value="word">Từ vựng</option>
+                <option value="grammar">Ngữ pháp</option>
+              </select>
+
+              <select
+                value={activeFilter}
+                onChange={(e) => setActiveFilter(e.target.value as 'all' | 'active' | 'inactive')}
+                className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
+              >
+                <option value="all">Trạng thái: Tất cả</option>
+                <option value="active">Đang dùng</option>
+                <option value="inactive">Đang ẩn</option>
+              </select>
+
+              <select
+                value={limitFilter}
+                onChange={(e) => setLimitFilter(e.target.value === 'all' ? 'all' : Number(e.target.value) as 10 | 20)}
+                className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
+              >
+                <option value="all">Hiển thị: Tất cả</option>
+                <option value="10">10 từ</option>
+                <option value="20">20 từ</option>
+              </select>
+
+              <div className="ml-auto bg-blue-100 text-blue-700 px-2 py-1 rounded-md text-[10px] font-bold">
+                {displayedWords.length} / {filteredWords.length} kết quả
+              </div>
             </div>
           </div>
 
@@ -496,127 +500,157 @@ const ReviewWordList: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-h-[70vh] min-h-screen overflow-y-auto pt-44 scrollbar-hide">
+      <div className="pt-44 pb-10 max-w-6xl mx-auto">
         {displayedWords.map((word, index) => {
           const wid = String(word.id ?? word._id);
           return (
-            <div key={index} className="bg-slate-50 border rounded-lg mb-4 border-l-4 border-yellow-400">
-              {/* Header với checkbox ở góc phải */}
-              <div className="flex justify-end p-2">
-                <input
-                  type="checkbox"
-                  checked={selectedIds.has(wid)}
-                  onChange={(e) => {
-                    if (e.target.checked) {
-                      setSelectedIds(prev => new Set(prev).add(wid));
-                    } else {
-                      setSelectedIds(prev => {
-                        const newSet = new Set(prev);
-                        newSet.delete(wid);
-                        return newSet;
-                      });
-                    }
-                  }}
-                  className="w-5 h-5 cursor-pointer"
-                  onClick={(e) => e.stopPropagation()}
-                />
+            <div key={index} className="bg-white border rounded-xl mb-4 border-l-8 border-yellow-400 shadow-sm hover:shadow-md transition-shadow duration-200">
+              {/* Header với checkbox và actions */}
+              <div className="flex justify-between items-start p-3 border-b border-gray-50">
+                <div className="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    checked={selectedIds.has(wid)}
+                    onChange={(e) => {
+                      if (e.target.checked) {
+                        setSelectedIds(prev => new Set(prev).add(wid));
+                      } else {
+                        setSelectedIds(prev => {
+                          const newSet = new Set(prev);
+                          newSet.delete(wid);
+                          return newSet;
+                        });
+                      }
+                    }}
+                    className="w-5 h-5 rounded border-gray-300 text-yellow-500 focus:ring-yellow-400 cursor-pointer"
+                    onClick={(e) => e.stopPropagation()}
+                  />
+                  <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${
+                    isActiveWord(word)
+                      ? "bg-green-100 text-green-700"
+                      : "bg-gray-100 text-gray-500"
+                  }`}>
+                    {isActiveWord(word) ? "Đang dùng" : "Đang ẩn"}
+                  </span>
+                  {isGrammarWord(word) && (
+                    <span className="bg-purple-100 text-purple-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">
+                      Ngữ pháp
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => goEdit(word)}
+                    className="p-1.5 rounded-lg text-gray-400 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+                    title="Sửa từ này"
+                  >
+                    <BiEdit className="w-5 h-5" />
+                  </button>
+                  <div className="relative">
+                    <button
+                      onClick={() => setConfirmingId(wid)}
+                      disabled={deletingId === wid}
+                      className="p-1.5 rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors disabled:opacity-60"
+                      title="Xoá từ này"
+                    >
+                      <BiTrash className="w-5 h-5" />
+                    </button>
+
+                    {confirmingId === wid && (
+                      <div className="absolute top-full right-0 mt-2 w-48 bg-white border border-gray-200 rounded-xl shadow-xl p-4 z-20">
+                        <p className="text-xs font-medium text-gray-800 mb-3">Xác nhận xoá?</p>
+                        <div className="flex gap-2 justify-end">
+                          <button
+                            onClick={() => handleDelete(wid)}
+                            className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-red-500 text-white hover:bg-red-600"
+                          >
+                            Có
+                          </button>
+                          <button
+                            onClick={() => setConfirmingId(null)}
+                            className="px-3 py-1.5 text-xs font-semibold rounded-lg text-gray-600 hover:bg-gray-100"
+                          >
+                            Huỷ
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
               
               {/* Nội dung word */}
-              <div className="p-4 pt-0">
-              
-              <div className="grid grid-cols-12 gap-4 items-start">
-                <div className="col-span-3 h-full flex items-center justify-center">
-                  <h3 className="text-5xl font-bold text-gray-800">{word.kanji}</h3>
-                </div>
-
-                <div className="col-span-9">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm text-gray-600">Cấp độ: {word.level}</span>
-
-                    <div className="flex items-center gap-2 relative">
-                      <span className="text-sm text-gray-600">{word.jlpt_level}</span>
-
-                      {/* Nút Sửa */}
-                      <button
-                        onClick={() => goEdit(word)}
-                        className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-100"
-                        title="Sửa từ này"
-                      >
-                        <BiEdit className="w-4 h-4" /> Sửa
-                      </button>
-
-                      {/* Nút Xoá */}
-                      <button
-                        onClick={() => setConfirmingId(wid)}
-                        disabled={deletingId === wid}
-                        className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md border border-red-300 text-red-600 hover:bg-red-50 disabled:opacity-60"
-                        title="Xoá từ này"
-                      >
-                        <BiTrash className="w-4 h-4" />
-                        {deletingId === wid ? 'Đang xoá...' : 'Xoá'}
-                      </button>
-
-                      {/* Cửa sổ xác nhận nhỏ */}
-                      {confirmingId === wid && (
-                        <div className="absolute top-full right-0 mt-1  border rounded shadow-md p-2 z-20">
-                          <p className="text-xs text-gray-600 mb-2">Bạn chắc chắn muốn xoá?</p>
-                          <div className="flex gap-2">
-                            <button
-                              onClick={() => handleDelete(wid)}
-                              className="px-2 py-1 text-xs rounded bg-red-600 text-stone-50 hover:bg-red-700"
-                            >
-                              Có
-                            </button>
-                            <button
-                              onClick={() => setConfirmingId(null)}
-                              className="px-2 py-1 text-xs rounded border hover:bg-gray-100"
-                            >
-                              Huỷ
-                            </button>
-                          </div>
-                        </div>
+              <div className="p-5">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+                  {/* Cột trái: Kanji + Romaji */}
+                  <div className="md:col-span-4 flex flex-col justify-center border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 text-center">
+                    <h3 className="text-5xl font-black text-gray-900 mb-2">{word.kanji}</h3>
+                    <div className="text-lg text-blue-600 font-medium bg-blue-50 px-3 py-1 rounded-lg w-fit mx-auto">
+                      {word.reading_hiragana}
+                    </div>
+                    {word.reading_romaji && (
+                      <p className="text-sm text-gray-500 mt-2 font-mono">{word.reading_romaji}</p>
+                    )}
+                    <div className="mt-4 flex flex-wrap justify-center gap-2">
+                      <span className="px-2 py-1 bg-gray-100 rounded text-xs font-bold text-gray-600">Level {word.level}</span>
+                      {word.jlpt_level && (
+                        <span className="px-2 py-1 bg-yellow-100 rounded text-xs font-bold text-yellow-700">{word.jlpt_level}</span>
                       )}
                     </div>
                   </div>
 
-                  <div className="text-gray-700 mb-2">
-                    <strong>Romaji:</strong> {word.reading_romaji} <br />
-                    <strong>Nghĩa:</strong> {word.meaning_vi}
-                  </div>
-
-                  {word.hanviet && (
-                    <div className="text-gray-700 mb-2">
-                      <strong>Hán Việt:</strong> {word.hanviet.han_viet} <br />
-                      <strong>Giải thích:</strong> {word.hanviet.explanation}
-                    </div>
-                  )}
-
-                  {word.contexts?.length > 0 && (
-                    <div className="mt-3">
-                      <strong>Ngữ cảnh:</strong>
-                      <ul className="list-disc list-inside text-gray-600">
-                        {word.contexts.map((ctx: any, idx: number) => (
-                          <li key={idx}>{ctx.context_vi}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {word.examples?.length > 0 && (
-                    <div className="mt-3">
-                      <strong>Ví dụ:</strong>
-                      {word.examples.map((ex: any, idx: number) => (
-                        <div key={idx} className="mb-2 text-gray-700">
-                          <div><strong>JP:</strong> {ex.sentence_jp}</div>
-                          <div><strong>Romaji:</strong> {ex.sentence_romaji}</div>
-                          <div><strong>VI:</strong> {ex.sentence_vi}</div>
+                  {/* Cột phải: Nghĩa + Ví dụ */}
+                  <div className="md:col-span-8 space-y-4">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-1">Nghĩa tiếng Việt</span>
+                        <p className="text-xl font-bold text-gray-800">{word.meaning_vi}</p>
+                      </div>
+                      {word.hanviet && (
+                        <div className="text-right">
+                          <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-1">Hán Việt</span>
+                          <p className="text-lg font-bold text-red-600">{word.hanviet.han_viet}</p>
                         </div>
-                      ))}
+                      )}
                     </div>
-                  )}
+
+                    {word.hanviet?.explanation && (
+                      <div className="bg-red-50/50 p-3 rounded-lg border-l-4 border-red-200">
+                        <span className="text-xs font-bold text-red-400 uppercase tracking-widest block mb-1">Giải thích hán việt</span>
+                        <p className="text-sm text-gray-700">{word.hanviet.explanation}</p>
+                      </div>
+                    )}
+
+                    {word.contexts?.length > 0 && (
+                      <div>
+                        <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-2">Ngữ cảnh sử dụng</span>
+                        <div className="flex flex-wrap gap-2">
+                          {word.contexts.map((ctx: any, idx: number) => (
+                            <span key={idx} className="bg-white border border-gray-200 px-3 py-1.5 rounded-lg text-sm text-gray-700 shadow-sm">
+                              {ctx.context_vi}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {word.examples?.length > 0 && (
+                      <div className="mt-4 pt-4 border-t border-gray-100">
+                        <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-3">Câu ví dụ chi tiết</span>
+                        <div className="space-y-4">
+                          {word.examples.map((ex: any, idx: number) => (
+                            <div key={idx} className="bg-blue-50/50 p-3 rounded-lg border-l-4 border-blue-400">
+                              <p className="text-gray-900 font-medium mb-1">{ex.sentence_jp}</p>
+                              {ex.sentence_romaji && <p className="text-xs text-gray-500 mb-1 font-mono">{ex.sentence_romaji}</p>}
+                              <p className="text-gray-600 text-sm">{ex.sentence_vi}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
               </div>
             </div>
           );
