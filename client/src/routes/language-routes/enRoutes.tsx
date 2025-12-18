@@ -5,6 +5,7 @@ import ProtectedRoute from '../ProtectedRoute';
 import PracticePage from '../../english/pages/PracticePage';
 import PracticePageGrammar from '../../english/pages/PracticePageGrammar';
 import LoginPage from '../../Login';
+import RegisterPage from '../../Register';
 
 import ImportVocabularyButton from '../../english/forms/ImportVocabularyButton';
 import MultipleChoiceQuiz from '../../english/practice/MultipleChoiceQuiz';
@@ -24,6 +25,7 @@ export default function EnRoutes() {
       <Route path="/" element={<Navigate to="/login" replace />} />
       {/* Public */}
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
 
       {/* Protected */}
       <Route element={<ProtectedRoute />}>

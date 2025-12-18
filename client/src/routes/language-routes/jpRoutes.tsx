@@ -11,6 +11,7 @@ import PracticeWrapper from '../../japanese/components/PracticeWrapper';
 import PracticePageGrammar from '../../japanese/pages/PracticePageGrammar';
 
 import LoginPage from '../../Login';
+import RegisterPage from '../../Register';
 import ProfileSettings from '../../ProfileSettings';
 import EditJapaneseWordForm from '../../japanese/forms/EditWord';
 
@@ -19,6 +20,7 @@ export default function JpRoutes() {
     <Routes>
       {/* Public */}
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
       <Route path="/" element={<Navigate to="/login" replace />} />
 
       {/* Protected */}

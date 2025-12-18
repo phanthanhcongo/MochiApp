@@ -216,14 +216,20 @@ const LoginPage: React.FC = () => {
           {/* Link phụ */}
           <div className="mt-10 pt-8 border-t border-gray-100">
             <div className="flex flex-col items-center gap-5">
-              <a href="/forgot" className="text-base text-gray-500 font-medium hover:text-yellow-600 transition-colors">
+              <button 
+                onClick={() => navigate('/forgot')}
+                className="text-base text-gray-500 font-medium hover:text-yellow-600 transition-colors"
+              >
                 Bạn quên mật khẩu?
-              </a>
+              </button>
               <p className="text-gray-600 text-base font-medium">
                 Chưa có tài khoản?{' '}
-                <a href="/register" className="text-yellow-600 font-extrabold text-lg hover:text-yellow-700 transition-colors ml-1">
+                <button
+                  onClick={() => navigate('/register')}
+                  className="text-yellow-600 font-extrabold text-lg hover:text-yellow-700 transition-colors ml-1"
+                >
                   Tạo tài khoản mới
-                </a>
+                </button>
               </p>
             </div>
           </div>

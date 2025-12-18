@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { usePracticeSession } from '../utils/practiceStore';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
+import { motion } from 'framer-motion';
+
 function hmsToSeconds(hms: string): number {
   const [h, m, s] = hms.split(':').map(Number);
   return (h || 0) * 3600 + (m || 0) * 60 + (s || 0);
@@ -204,60 +206,87 @@ const PracticePage = () => {
 
       <Header />
       <div className="bg-[url('https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbg.366f773b.webp&w=1920&q=75')] bg-cover bg-center
-      flex min-h-screen bg-gray-200 text-sm sm:text-base md:text-lg">
+      flex min-h-screen pt-[72px] md:pt-[88px] text-sm sm:text-base md:text-lg">
 
         {/* Left Column */}
         <div className="hidden xl:block w-2/10"></div>
 
         {/* Center Column */}
-        <div className="w-full xl:w-6/10 flex-1 flex flex-col items-center justify-start pt-20 sm:pt-12 md:pt-16 pb-6 sm:pb-8 md:pb-12 px-3 sm:px-4 md:px-6 bg-slate-50 shadow-md mx-auto">
-
+        <div className="w-full xl:w-6/10 flex-1 flex flex-col items-center justify-start pt-16 sm:pt-12 md:pt-16   px-4 sm:px-8 md:px-12 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)]  mx-auto relative">
+          
           {/* Top summary */}
-          <div className="flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6">
-            <div className="w-10 h-10 sm:w-12 sm:h-14 rounded-full bg-slate-50 border border-gray-300 border-b-4 sm:border-b-8 shadow-inner flex items-center justify-center">
+          <motion.div 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center space-x-3 mb-10 bg-slate-50/80 px-6 py-3 rounded-2xl border border-slate-100 shadow-sm"
+          >
+            <div className="w-12 h-12 rounded-xl bg-white shadow-inner flex items-center justify-center border border-slate-100">
               <img
                 src="https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ficon_notebook.cd7f4676.png&w=256&q=75"
                 alt="Notebook icon"
-                className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8"
+                className="w-7 h-7"
               />
             </div>
-            <p className="text-gray-700 text-sm sm:text-base md:text-lg">
-              Bạn đã học được <span className="font-bold">{totalWords} từ</span>
+            <p className="text-slate-600 font-medium">
+              Bạn đã học được <span className="font-black text-slate-800 text-lg">{totalWords} từ</span>
             </p>
-          </div>
+          </motion.div>
 
           {/* Bar Chart */}
-          <div className="relative w-full max-w-3xl pt-5 mb-4 sm:mb-6">
-            <div className="flex justify-center items-end space-x-2 sm:space-x-4 md:space-x-6 lg:space-x-8 h-60 sm:h-80 md:h-90 pb-6 sm:pb-8 md:pb-10 overflow-x-auto">
-              {reviewStats.map((item) => (
-                <div key={item.level} className="flex flex-col items-center flex-shrink-0">
-                  <div className="text-xs sm:text-sm md:text-base font-semibold mb-1">{item.count} từ</div>
-                  <div
-                    className={`${item.color} w-8 sm:w-10 md:w-12 lg:w-14 rounded-t-md`}
-                    style={{ height: `${Math.min(item.count / 20 + 20, 180)}px` }}
+          <div className="relative w-full max-w-2xl mb-12 px-2">
+            <div className="flex justify-between items-end space-x-2 sm:space-x-4 md:space-x-6 h-64 sm:h-72 pb-8">
+              {reviewStats.map((item, index) => (
+                <div key={item.level} className="flex flex-col items-center flex-1 group">
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.4 + index * 0.1 }}
+                    className="text-xs font-bold text-slate-400 mb-3 opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0"
+                  >
+                    {item.count}
+                  </motion.div>
+                  <motion.div
+                    initial={{ height: 0 }}
+                    animate={{ height: `${Math.min(item.count / 2 + 40, 220)}px` }}
+                    transition={{ type: "spring", damping: 15, stiffness: 100, delay: index * 0.1 }}
+                    className={`${item.color} w-full max-w-[56px] rounded-2xl shadow-[0_4px_0_rgba(0,0,0,0.1)] group-hover:shadow-[0_6px_0_rgba(0,0,0,0.1)] group-hover:-translate-y-1 transition-all cursor-pointer relative`}
                   />
-                  <div className="mt-2 sm:mt-3 text-base sm:text-lg md:text-xl font-bold text-black">{item.level}</div>
+                  <div className="mt-5 text-xl font-black text-slate-200 group-hover:text-slate-400 transition-colors">
+                    {item.level}
+                  </div>
                 </div>
               ))}
             </div>
-            <div className="absolute left-0 right-0 bottom-12 sm:bottom-16 md:bottom-20 h-[6px] sm:h-[8px] bg-gray-300 rounded-full mx-auto max-w-[60%]" />
+            <div className="w-full h-2 bg-slate-50 rounded-full" />
           </div>
 
-          {/* Ready to review */}
-          <div className="text-gray-800 text-base sm:text-lg md:text-xl mb-4 sm:mb-6 text-center">
-            Chuẩn bị ôn tập: <span className="font-bold text-red-500">{reviewWordsCount} từ</span>
+          {/* Action Section */}
+          <div className="flex flex-col items-center w-full max-w-md bg-slate-50/50 rounded-[32px] p-8 border border-slate-100/50">
+            <div className="text-slate-500 text-sm font-bold uppercase tracking-widest mb-2">Chuẩn bị ôn tập</div>
+            <div className="text-4xl font-black text-red-500 mb-8 flex items-baseline gap-2">
+              {reviewWordsCount} <span className="text-xl text-red-400/80">từ</span>
+            </div>
+
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleStartPractice}
+              disabled={reviewWordsCount === 0}
+              className={`relative h-16 w-full sm:w-72 rounded-2xl font-black text-xl transition-all duration-200 ${
+                reviewWordsCount > 0
+                  ? 'bg-lime-500 text-white shadow-[0_6px_0_rgb(101,163,13)] hover:shadow-[0_8px_0_rgb(101,163,13)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none'
+                  : 'bg-slate-200 text-slate-400 shadow-[0_4px_0_rgb(203,213,225)] cursor-not-allowed'
+              }`}
+            >
+              <span className="flex items-center justify-center gap-2">
+                {reviewWordsCount > 0 ? (
+                  <>Ôn tập ngay <span className="text-2xl">🔥</span></>
+                ) : (
+                  <>⏳ {remainingSec !== null ? formatHMS(remainingSec) : 'Đang chờ...'}</>
+                )}
+              </span>
+            </motion.button>
           </div>
-
-          <button
-            onClick={handleStartPractice}
-            className="mb-6 sm:mb-8 md:mb-10 h-12 sm:h-14 md:h-15 w-full sm:w-64 md:w-60 text-slate-50 font-bold text-base sm:text-lg md:text-xl font-medium px-6 sm:px-8 py-2.5 sm:py-3 rounded-full shadow-md bg-gradient-to-r from-lime-400 to-green-600 hover:brightness-110 transition disabled:opacity-50 disabled:cursor-not-allowed"
-            disabled={reviewWordsCount === 0}
-          >
-            {reviewWordsCount > 0
-              ? 'Ôn tập ngay'
-              : `⏳ ${remainingSec !== null ? formatHMS(remainingSec) : 'Đang chờ...'}`}
-          </button>
-
         </div>
 
         {/* Right Column */}

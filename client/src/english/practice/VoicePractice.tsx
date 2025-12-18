@@ -117,26 +117,56 @@ const VoicePractice: React.FC = () => {
   const [answers, setAnswers] = useState<AnswerOption[]>([]);
 
   useEffect(() => {
-    // console.log("✅ reviewedWords sau khi xoá current:", reviewedWords);
-    speak(currentWord?.word.word || '');
-    if (currentWord && allWords.length > 0) {
+    if (!currentWord) return;
+    
+    speak(currentWord.word.word || '');
+    
+    if (allWords.length > 0) {
+      const correctAnswerText = currentWord.word.meaning_vi || '';
       const correctAnswer = {
-        text: currentWord.word.meaning_vi,
+        text: correctAnswerText,
         isCorrect: true,
       };
+
+      const isOverlapping = (t1: string, t2: string) => {
+        const s1 = t1.toLowerCase().trim();
+        const s2 = t2.toLowerCase().trim();
+        if (!s1 || !s2) return false;
+        return s1.includes(s2) || s2.includes(s1);
+      };
+
       const incorrects = allWords
-        .filter(w => w.id !== currentWord.word.id && w.meaning_vi && w.meaning_vi !== currentWord.word.meaning_vi)
+        .filter(w => {
+          const m = w.meaning_vi;
+          return w.id !== currentWord.word.id && m && !isOverlapping(m, correctAnswerText);
+        })
         .map(w => ({
           text: w.meaning_vi,
           isCorrect: false,
         }))
         .filter((v, i, arr) => arr.findIndex(x => x.text === v.text) === i)
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 2);
+        .sort(() => Math.random() - 0.5);
 
-      setAnswers([correctAnswer, ...incorrects].sort(() => Math.random() - 0.5));
+      const finalIncorrects: AnswerOption[] = [];
+      for (const item of incorrects) {
+        if (finalIncorrects.length >= 2) break;
+        if (!finalIncorrects.some(existing => isOverlapping(item.text, existing.text))) {
+          finalIncorrects.push(item);
+        }
+      }
+
+      if (finalIncorrects.length < 2) {
+        for (const item of incorrects) {
+          if (finalIncorrects.length >= 2) break;
+          if (!finalIncorrects.some(existing => existing.text === item.text)) {
+            finalIncorrects.push(item);
+          }
+        }
+      }
+
+      setAnswers([correctAnswer, ...finalIncorrects].sort(() => Math.random() - 0.5));
     }
-  }, [currentWord, allWords]);
+  }, [currentWord?.word.id, allWords.length > 0]); // Chỉ chạy khi ID từ thay đổi hoặc khi listWord tải xong
 
 
   const handleSelect = (index: number) => {
@@ -178,7 +208,7 @@ const VoicePractice: React.FC = () => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Enter') {
+      if (e.key === 'Enter' || e.key.toLowerCase() === 'f') {
         if (isAnswered || isForgetClicked) {
           handleContinue();
         } else if (selectedIndex !== null) {

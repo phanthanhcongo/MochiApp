@@ -155,7 +155,7 @@ const FillInBlankPractice: React.FC = () => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Enter') {
+      if (e.key === 'Enter' || (e.key.toLowerCase() === 'f' && (isAnswered || isForgetClicked))) {
         if (isAnswered || isForgetClicked) {
           handleContinue();
         } else if (inputValue.trim() !== '') {

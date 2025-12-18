@@ -112,7 +112,7 @@ const Header = () => {
   // };
 
   return (
-    <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-gradient-to-r from-white/95 via-blue-50/95 to-purple-50/95 border-b border-gray-200/50 shadow-lg shadow-gray-200/20">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-md bg-gradient-to-r from-white/95 via-blue-50/95 to-purple-50/95 border-b border-gray-200/50 shadow-lg shadow-gray-200/20">
       <div className="flex items-center justify-between px-4 md:px-8 lg:px-16 py-3 md:py-4">
         {/* Logo */}
         <div className="flex items-center space-x-2 min-w-0 flex-shrink-0">

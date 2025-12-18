@@ -144,18 +144,45 @@ const MultipleSentence: React.FC = () => {
     if (!currentWord?.word?.word || allWords.length === 0) return [];
     const correctText = currentWord.word.word;
 
+    const isOverlapping = (t1: string, t2: string) => {
+      const s1 = t1.toLowerCase().trim();
+      const s2 = t2.toLowerCase().trim();
+      if (!s1 || !s2) return false;
+      return s1.includes(s2) || s2.includes(s1);
+    };
+
     const distractPool = uniq(
       allWords
-        .filter(w => w.id !== currentWord.word.id && w.word)
+        .filter(w => {
+          const m = w.word;
+          return w.id !== currentWord.word.id && m && !isOverlapping(m, correctText);
+        })
         .map(w => w.word)
         .filter(Boolean) as string[]
-    ).filter(w => w.toLowerCase() !== correctText.toLowerCase());
+    );
 
-    const distracts = shuffle(distractPool).slice(0, 2);
+    const shuffledDistracts = shuffle(distractPool);
+    const finalDistracts: string[] = [];
+    
+    for (const item of shuffledDistracts) {
+      if (finalDistracts.length >= 2) break;
+      if (!finalDistracts.some(existing => isOverlapping(item, existing))) {
+        finalDistracts.push(item);
+      }
+    }
+
+    if (finalDistracts.length < 2) {
+      for (const item of shuffledDistracts) {
+        if (finalDistracts.length >= 2) break;
+        if (!finalDistracts.some(existing => existing === item)) {
+          finalDistracts.push(item);
+        }
+      }
+    }
 
     const base: Choice[] = [
       { text: correctText, isCorrect: true },
-      ...distracts.map(d => ({ text: d, isCorrect: false })),
+      ...finalDistracts.map(d => ({ text: d, isCorrect: false })),
     ];
 
     return shuffle(base);
@@ -217,7 +244,7 @@ const MultipleSentence: React.FC = () => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Enter') {
+      if (e.key === 'Enter' || e.key.toLowerCase() === 'f') {
         if (isAnswered || isForgetClicked) {
           handleContinue();
         } else if (selectedIndex !== null) {

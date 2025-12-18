@@ -201,7 +201,7 @@ const PracticePageGrammar = () => {
 
       <Header />
       <div className="bg-[url('https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbg.366f773b.webp&w=1920&q=75')] bg-cover bg-center
-      flex min-h-screen bg-gray-200 text-base md:text-lg">
+      flex min-h-screen pt-[72px] md:pt-[88px] bg-gray-200 text-base md:text-lg">
 
         <div className="w-2/10 hidden xl:block hidden"></div>
 

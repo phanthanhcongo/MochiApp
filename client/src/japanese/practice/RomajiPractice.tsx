@@ -1,15 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { usePracticeSession } from '../utils/practiceStore';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
+import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
 const RomajiPractice: React.FC = () => {
   const [userRomajiAnswer, setUserRomajiAnswer] = useState('');
   const [isAnswered, setIsAnswered] = useState(false);
   const [isResultHidden, setIsResultHidden] = useState(false);
-  const [isTranslationHidden, setIsTranslationHidden] = useState(false);
   const [isForgetClicked, setIsForgetClicked] = useState(false);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [hasAccentWarning, setHasAccentWarning] = useState(false);
@@ -146,7 +144,6 @@ const RomajiPractice: React.FC = () => {
     setIsCorrectAnswer(null);
     setIsResultHidden(false);
     setIsForgetClicked(false);
-    setIsTranslationHidden(false);
     setHasAccentWarning(false);
     sessionStorage.setItem('reload_count', '0'); // Reset về 0 trước
 
@@ -160,7 +157,7 @@ const RomajiPractice: React.FC = () => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Enter') {
+      if (e.key === 'Enter' || (e.key.toLowerCase() === 'f' && (isAnswered || isForgetClicked))) {
         if (isAnswered || isForgetClicked) {
           handleContinue();
         } else if (userRomajiAnswer.trim() !== '') {
@@ -265,64 +262,17 @@ const RomajiPractice: React.FC = () => {
           </div>
         </div>
 
-              {(isAnswered || isForgetClicked) && !isResultHidden && (
-                <div className={isCorrectAnswer && !isForgetClicked ? 'result-panel_true' : 'result-panel_false'}>
-                  <div className="flex items-start justify-end mb-4 w-[90%] mx-auto">
-                    <button className={`btn-toggle ${isCorrectAnswer ? 'btn-toggle--green' : 'btn-toggle--red'} displayBtn`} onClick={() => setIsResultHidden(true)}>
-                      <FontAwesomeIcon icon={faChevronDown} />
-                    </button>
-                  </div>
-                  <div className="flex items-start gap-4 mb-4 w-[90%] mx-auto">
-                    <div className="btn-audio text-2xl" onClick={() => speak(word.reading_hiragana)} title="Phát âm">🔊</div>
-                    <div>
-                      <p className="text-xl text-stone-50/90">{word.reading_hiragana} • {word.hanviet}</p>
-                      <p className="text-4xl font-bold">{word.kanji}</p>
-                      <p className="text-2xl text-stone-50/100 my-5">{word.meaning_vi}</p>
-                      <p className="text-xl text-stone-50/90 mt-1 italic">{word.hanviet_explanation}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4 mb-1 w-[90%] mx-auto">
-                    <button className="btn-audio text-2xl" onClick={() => speak(word.example || '')} title="Phát âm ví dụ">🔊</button>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between gap-2">
-                        <p className="text-stone-50 text-2xl">{word.example}
-                          <button className="btn-eye" onClick={() => setIsTranslationHidden(!isTranslationHidden)}>
-                            {isTranslationHidden ? '🙈' : '👁'}
-                          </button>
-                        </p>
-                      </div>
-                      <p className={`text-stone-50/90 text-xl mt-1 italic ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.example_romaji}</p>
-                      <p className={`text-stone-50/90 text-xl ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.example_vi}</p>
-                    </div>
-                  </div>
-                  <div className="w-80 mx-auto mt-6">
-                    <button 
-                      className="btn-primary btn-primary--active w-full" 
-                      onClick={handleContinue}
-                      disabled={isNavigating}
-                    >
-                      {isNavigating ? 'Đang tải...' : 'Tiếp tục'}
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {(isAnswered || isForgetClicked) && isResultHidden && (
-                <div className={isCorrectAnswer && !isForgetClicked ? 'result-panel_true' : 'result-panel_false'}>
-                  <button className={`btn-toggle ${isCorrectAnswer ? 'btn-toggle--green ' : 'btn-toggle--red'} hiddenBtn`} onClick={() => setIsResultHidden(false)}>
-                    <FontAwesomeIcon icon={faChevronUp} />
-                  </button>
-                  <div className="w-full text-center p-10">
-                    <button 
-                      className="btn-primary btn-primary--active w-full" 
-                      onClick={handleContinue}
-                      disabled={isNavigating}
-                    >
-                      {isNavigating ? 'Đang tải...' : 'Tiếp tục'}
-                    </button>
-                  </div>
-                </div>
-              )}
+        <JpPracticeResultPanel
+          isAnswered={isAnswered}
+          isForgetClicked={isForgetClicked}
+          isCorrectAnswer={isCorrectAnswer}
+          isResultHidden={isResultHidden}
+          setIsResultHidden={setIsResultHidden}
+          onContinue={handleContinue}
+          isNavigating={isNavigating}
+          word={currentWord.word}
+          speak={speak}
+        />
     </PracticeAnimationWrapper>
   );
 };

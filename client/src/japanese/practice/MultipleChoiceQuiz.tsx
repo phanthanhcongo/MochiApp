@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { usePracticeSession } from '../utils/practiceStore';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
+import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
 
 
 
@@ -15,7 +14,6 @@ const MultipleChoiceQuiz: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
   const [isResultHidden, setIsResultHidden] = useState(false);
-  const [isTranslationHidden, setIsTranslationHidden] = useState(false);
   const [isForgetClicked, setIsForgetClicked] = useState(false);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [isNavigating, setIsNavigating] = useState(false);
@@ -41,9 +39,17 @@ const MultipleChoiceQuiz: React.FC = () => {
       return;
     }
 
+    const correctAnswerText = currentWord.word.meaning_vi || '';
     const correctAnswer = {
-      text: currentWord.word.meaning_vi || '',
+      text: correctAnswerText,
       isCorrect: true,
+    };
+
+    const isOverlapping = (t1: string, t2: string) => {
+      const s1 = t1.toLowerCase().trim();
+      const s2 = t2.toLowerCase().trim();
+      if (!s1 || !s2) return false;
+      return s1.includes(s2) || s2.includes(s1);
     };
 
     let incorrects: Array<{ text: string; isCorrect: boolean }> = [];
@@ -51,7 +57,10 @@ const MultipleChoiceQuiz: React.FC = () => {
     // Lấy từ danh sách word review (scenarios)
     if (scenarios.length > 0) {
       incorrects = scenarios
-        .filter(s => s.word.id !== currentWord.word.id && s.word.meaning_vi && s.word.meaning_vi !== currentWord.word.meaning_vi)
+        .filter(s => {
+          const m = s.word.meaning_vi;
+          return s.word.id !== currentWord.word.id && m && !isOverlapping(m, correctAnswerText);
+        })
         .map(s => ({
           text: s.word.meaning_vi || '',
           isCorrect: false,
@@ -63,7 +72,10 @@ const MultipleChoiceQuiz: React.FC = () => {
     // Nếu không đủ 2 đáp án sai từ scenarios, lấy thêm từ randomAnswers
     if (incorrects.length < 2 && randomAnswers.length > 0) {
       const additionalIncorrects = randomAnswers
-        .filter(r => r.meaning_vi && r.meaning_vi !== currentWord.word.meaning_vi)
+        .filter(r => {
+          const m = r.meaning_vi;
+          return m && !isOverlapping(m, correctAnswerText) && !incorrects.some(inc => isOverlapping(m, inc.text));
+        })
         .map(r => ({
           text: r.meaning_vi,
           isCorrect: false,
@@ -77,40 +89,46 @@ const MultipleChoiceQuiz: React.FC = () => {
     }
 
     // Shuffle và lấy 2 incorrect answers
+    // Đảm bảo các incorrect answers cũng không overlap lẫn nhau
+    const finalIncorrects: Array<{ text: string; isCorrect: boolean }> = [];
     const shuffled = incorrects.sort(() => Math.random() - 0.5);
-    let selectedIncorrects = shuffled.slice(0, 2);
     
-    // Nếu không đủ 2, lặp lại từ danh sách để đảm bảo có đủ (nhưng vẫn unique)
-    if (selectedIncorrects.length < 2 && shuffled.length > 0) {
-      const maxAttempts = 10;
-      let attempts = 0;
-      while (selectedIncorrects.length < 2 && attempts < maxAttempts) {
-        const randomItem = shuffled[Math.floor(Math.random() * shuffled.length)];
-        if (!selectedIncorrects.find(item => item.text === randomItem.text)) {
-          selectedIncorrects.push(randomItem);
-        }
-        attempts++;
+    for (const item of shuffled) {
+      if (finalIncorrects.length >= 2) break;
+      if (!finalIncorrects.some(existing => isOverlapping(item.text, existing.text))) {
+        finalIncorrects.push(item);
       }
     }
 
+    // Nếu vẫn không đủ 2, lấy bất kỳ ai chưa có (nới lỏng điều kiện nếu quá ít data)
+    if (finalIncorrects.length < 2) {
+        for (const item of shuffled) {
+            if (finalIncorrects.length >= 2) break;
+            if (!finalIncorrects.some(existing => existing.text === item.text)) {
+                finalIncorrects.push(item);
+            }
+        }
+    }
+
     // Đảm bảo luôn có 3 lựa chọn (1 correct + 2 incorrect)
-    // Nếu vẫn không đủ, tạo placeholder
-    if (selectedIncorrects.length < 2) {
+    if (finalIncorrects.length < 2) {
       const placeholders = ['...', '...'];
-      for (let i = selectedIncorrects.length; i < 2; i++) {
-        selectedIncorrects.push({ text: placeholders[i] || '...', isCorrect: false });
+      for (let i = finalIncorrects.length; i < 2; i++) {
+        finalIncorrects.push({ text: placeholders[i] || '...', isCorrect: false });
       }
     }
 
     // Tạo mảng 3 đáp án và shuffle
-    const finalAnswers = [correctAnswer, ...selectedIncorrects].sort(() => Math.random() - 0.5);
+    const finalAnswers = [correctAnswer, ...finalIncorrects].sort(() => Math.random() - 0.5);
     setAnswers(finalAnswers);
   }, [currentWord, scenarios, randomAnswers]);
 
-  // useEffect để tạo đáp án khi currentWord hoặc scenarios thay đổi
+  // useEffect để tạo đáp án khi currentWord ID thay đổi
   useEffect(() => {
-    generateAnswers();
-  }, [generateAnswers]);
+    if (currentWord) {
+      generateAnswers();
+    }
+  }, [currentWord?.word.id]); // Chụp dependency theo ID để tránh render lại vô ích
   useEffect(() => {
     // Đợi một chút để đảm bảo location.state đã được set đúng cách sau khi navigate
     const checkState = setTimeout(() => {
@@ -197,7 +215,6 @@ const MultipleChoiceQuiz: React.FC = () => {
     setSelectedIndex(null);
     setIsAnswered(false);
     setIsResultHidden(false);
-    setIsTranslationHidden(false);
     setIsForgetClicked(false);
     setIsCorrectAnswer(null);
     sessionStorage.setItem('reload_count', '0'); // Reset về 0 trước
@@ -223,7 +240,7 @@ const MultipleChoiceQuiz: React.FC = () => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Enter') {
+      if (e.key === 'Enter' || e.key.toLowerCase() === 'f') {
         if (isAnswered || isForgetClicked) {
           handleContinue();
         } else if (selectedIndex !== null) {
@@ -359,71 +376,17 @@ const MultipleChoiceQuiz: React.FC = () => {
           </div>
         </div>
 
-        {(isAnswered || isForgetClicked) && !isResultHidden && (
-          <div className={isCorrectAnswer && !isForgetClicked ? 'result-panel_true' : 'result-panel_false'}>
-            <div className="flex items-start justify-end mb-4 w-[90%] mx-auto">
-              <button
-                className={`btn-toggle ${isCorrectAnswer ? 'btn-toggle--green' : 'btn-toggle--red'} displayBtn`}
-                onClick={() => setIsResultHidden(true)}
-              >
-                <FontAwesomeIcon icon={faChevronDown} />
-              </button>
-            </div>
-            <div className="flex items-start gap-4 mb-4 w-[90%] mx-auto">
-              <div className="btn-audio text-2xl" onClick={() => speak(word.reading_hiragana)} title="Phát âm">🔊</div>
-              <div>
-                <p className="text-xl text-stone-50/90">{word.reading_hiragana} • {word.hanviet}</p>
-                <p className="text-4xl font-bold">{word.kanji}</p>
-                <p className="text-2xl text-stone-50/100 my-5">{word.meaning_vi}</p>
-                <p className="text-xl text-stone-50/90 mt-1 italic">{word.hanviet_explanation}</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4 mb-1 w-[90%] mx-auto">
-              <button className="btn-audio text-2xl" onClick={() => speak(word.example || '')} title="Phát âm ví dụ">🔊</button>
-              <div className="flex-1">
-                <div className="flex items-center justify-between gap-2">
-                  <p className="text-stone-50 text-2xl">
-                    {word.example}
-                    <button className="btn-eye" onClick={() => setIsTranslationHidden(!isTranslationHidden)}>
-                      {isTranslationHidden ? '🙈' : '👁'}
-                    </button>
-                  </p>
-                </div>
-                <p className={`text-stone-50/90 text-xl mt-1 italic ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.example_romaji}</p>
-                <p className={`text-stone-50/90 text-xl ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.example_vi}</p>
-              </div>
-            </div>
-            <div className="w-80 mx-auto mt-6">
-              <button 
-                className="btn-primary btn-primary--active w-full" 
-                onClick={handleContinue}
-                disabled={isNavigating}
-              >
-                {isNavigating ? 'Đang tải...' : 'Tiếp tục'}
-              </button>
-            </div>
-          </div>
-        )}
-
-        {(isAnswered || isForgetClicked) && isResultHidden && (
-          <div className={isCorrectAnswer && !isForgetClicked ? 'result-panel_true' : 'result-panel_false'}>
-            <button
-              className={`btn-toggle ${isCorrectAnswer ? 'btn-toggle--green ' : 'btn-toggle--red'} hiddenBtn`}
-              onClick={() => setIsResultHidden(false)}
-            >
-              <FontAwesomeIcon icon={faChevronUp} />
-            </button>
-            <div className="w-full text-center p-10">
-              <button 
-                className="btn-primary btn-primary--active w-full" 
-                onClick={handleContinue}
-                disabled={isNavigating}
-              >
-                {isNavigating ? 'Đang tải...' : 'Tiếp tục'}
-              </button>
-            </div>
-          </div>
-        )}
+        <JpPracticeResultPanel
+          isAnswered={isAnswered}
+          isForgetClicked={isForgetClicked}
+          isCorrectAnswer={isCorrectAnswer}
+          isResultHidden={isResultHidden}
+          setIsResultHidden={setIsResultHidden}
+          onContinue={handleContinue}
+          isNavigating={isNavigating}
+          word={currentWord.word}
+          speak={speak}
+        />
     </PracticeAnimationWrapper>
   );
 };
