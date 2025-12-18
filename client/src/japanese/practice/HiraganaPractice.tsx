@@ -141,6 +141,53 @@ const HiraganaPractice: React.FC = () => {
     setIsTranslationHidden(false);
   }, [reading]);
 
+  const handleContinue = async () => {
+    if (isNavigating || isProcessingRef.current) return;
+    
+    isProcessingRef.current = true;
+    setIsNavigating(true);
+    setSelectedChars([]);
+    setIsAnswered(false);
+    setIsCorrectAnswer(null);
+    setIsResultHidden(false);
+    setIsForgetClicked(false);
+    setIsTranslationHidden(false);
+    sessionStorage.setItem('reload_count', '0');
+
+    // Sử dụng method mới từ store để xử lý toàn bộ logic
+    console.log('📞 [HiraganaPractice] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
+    await continueToNextQuiz(navigate, () => {
+      setIsNavigating(false);
+      isProcessingRef.current = false;
+    });
+  };
+
+  const handleForget = () => {
+    if (!isAnswered) {
+      setIsAnswered(false);
+      setIsCorrectAnswer(false);
+      setIsForgetClicked(true);
+      setIsResultHidden(false);
+      setSelectedChars([]);
+      speak(reading);
+      markAnswer(false);
+    }
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        if (isAnswered || isForgetClicked) {
+          handleContinue();
+        } else if (selectedChars.length > 0) {
+          handleCheck();
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isAnswered, isForgetClicked, selectedChars]);
+
   // Ẩn component ngay khi đang navigate hoặc không phải quiz type hiện tại
   const currentPath = location.pathname;
   const isCorrectRoute = currentPath.includes('hiraganaPractice');
@@ -216,40 +263,6 @@ const HiraganaPractice: React.FC = () => {
       markAnswer(isCorrect);
     }
   };
-
-  const handleForget = () => {
-    if (!isAnswered) {
-      setIsAnswered(false);
-      setIsCorrectAnswer(false);
-      setIsForgetClicked(true);
-      setIsResultHidden(false);
-      setSelectedChars([]);
-      speak(reading);
-      markAnswer(false);
-    }
-  };
-
-  const handleContinue = async () => {
-    if (isNavigating || isProcessingRef.current) return;
-    
-    isProcessingRef.current = true;
-    setIsNavigating(true);
-    setSelectedChars([]);
-    setIsAnswered(false);
-    setIsCorrectAnswer(null);
-    setIsResultHidden(false);
-    setIsForgetClicked(false);
-    setIsTranslationHidden(false);
-    sessionStorage.setItem('reload_count', '0');
-
-    // Sử dụng method mới từ store để xử lý toàn bộ logic
-    console.log('📞 [HiraganaPractice] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
-    await continueToNextQuiz(navigate, () => {
-      setIsNavigating(false);
-      isProcessingRef.current = false;
-    });
-  };
-
 
   return (
     <PracticeAnimationWrapper

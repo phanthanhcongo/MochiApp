@@ -199,6 +199,41 @@ useEffect(() => {
     }
   };
 
+  const handleContinue = async () => {
+    if (isNavigating || isProcessingRef.current) return;
+    
+    isProcessingRef.current = true;
+    setIsNavigating(true);
+    setSelectedIndex(null);
+    setIsAnswered(false);
+    setIsResultHidden(false);
+    setIsTranslationHidden(false);
+    setIsForgetClicked(false);
+    setIsCorrectAnswer(null);
+    sessionStorage.setItem('reload_count', '0'); // Reset về 0 trước
+
+    // Sử dụng method mới từ store để xử lý toàn bộ logic
+    console.log('📞 [VoicePractice] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
+    await continueToNextQuiz(navigate, () => {
+      setIsNavigating(false);
+      isProcessingRef.current = false;
+    });
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        if (isAnswered || isForgetClicked) {
+          handleContinue();
+        } else if (selectedIndex !== null) {
+          handleCheck();
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isAnswered, isForgetClicked, selectedIndex]);
+
   // Ẩn component ngay khi đang navigate hoặc không phải quiz type hiện tại
   const currentPath = location.pathname;
   const isCorrectRoute = currentPath.includes('voicePractice');
@@ -269,27 +304,6 @@ useEffect(() => {
       markAnswer(false);
       speak(reading);
     }
-  };
-
-  const handleContinue = async () => {
-    if (isNavigating || isProcessingRef.current) return;
-    
-    isProcessingRef.current = true;
-    setIsNavigating(true);
-    setSelectedIndex(null);
-    setIsAnswered(false);
-    setIsResultHidden(false);
-    setIsTranslationHidden(false);
-    setIsForgetClicked(false);
-    setIsCorrectAnswer(null);
-    sessionStorage.setItem('reload_count', '0'); // Reset về 0 trước
-
-    // Sử dụng method mới từ store để xử lý toàn bộ logic
-    console.log('📞 [VoicePractice] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
-    await continueToNextQuiz(navigate, () => {
-      setIsNavigating(false);
-      isProcessingRef.current = false;
-    });
   };
 
   return (

@@ -194,6 +194,42 @@ const MultiCharStrokePractice: React.FC = () => {
     }
   }, [kanjiStatus]);
 
+  const handleContinue = async () => {
+    if (isNavigating || isProcessingRef.current) return;
+    
+    isProcessingRef.current = true;
+    setIsNavigating(true);
+    setIsCorrectAnswer(null);
+    setIsForgetClicked(false);
+    setIsResultHidden(false);
+    setIsTranslationHidden(false);
+    sessionStorage.setItem('reload_count', '0');
+
+    // Đợi animation exit hoàn thành trước khi chuyển bài (400ms để khớp với animation duration)
+    await new Promise(resolve => setTimeout(resolve, 400));
+
+    // Xóa từ khỏi pool khi trả lời đúng (kể cả stroke practice)
+    console.log('📞 [MultiCharStrokePractice.handleContinue] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
+    await continueToNextQuiz(navigate, () => {
+      setIsNavigating(false);
+      isProcessingRef.current = false;
+    });
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        if (isResultShown) {
+          handleContinue();
+        } else {
+          handleForget();
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isResultShown]);
+
   // Ẩn component ngay khi đang navigate hoặc không phải quiz type hiện tại
   const currentPath = location.pathname;
   const isCorrectRoute = currentPath.includes('multiCharStrokePractice');
@@ -235,28 +271,6 @@ const MultiCharStrokePractice: React.FC = () => {
         if (writer) writer.cancelQuiz();
       });
     }
-  };
-
-  const handleContinue = async () => {
-    if (isNavigating || isProcessingRef.current) return;
-    
-    isProcessingRef.current = true;
-    setIsNavigating(true);
-    setIsCorrectAnswer(null);
-    setIsForgetClicked(false);
-    setIsResultHidden(false);
-    setIsTranslationHidden(false);
-    sessionStorage.setItem('reload_count', '0');
-
-    // Đợi animation exit hoàn thành trước khi chuyển bài (400ms để khớp với animation duration)
-    await new Promise(resolve => setTimeout(resolve, 400));
-
-    // Xóa từ khỏi pool khi trả lời đúng (kể cả stroke practice)
-    console.log('📞 [MultiCharStrokePractice.handleContinue] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
-    await continueToNextQuiz(navigate, () => {
-      setIsNavigating(false);
-      isProcessingRef.current = false;
-    });
   };
 
   return (

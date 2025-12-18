@@ -136,18 +136,6 @@ const RomajiPractice: React.FC = () => {
     }
   };
 
-  const handleForget = () => {
-    if (!isAnswered) {
-      setIsAnswered(false);
-      setIsCorrectAnswer(false);
-      setIsForgetClicked(true);
-      setIsResultHidden(false);
-      setUserRomajiAnswer('');
-      speak(reading);
-      markAnswer(false);
-    }
-  };
-
   const handleContinue = async () => {
     if (isNavigating || isProcessingRef.current) return; // Ngăn chặn gọi nhiều lần
     
@@ -168,6 +156,32 @@ const RomajiPractice: React.FC = () => {
       setIsNavigating(false);
       isProcessingRef.current = false;
     });
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        if (isAnswered || isForgetClicked) {
+          handleContinue();
+        } else if (userRomajiAnswer.trim() !== '') {
+          handleCheck();
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isAnswered, isForgetClicked, userRomajiAnswer]);
+
+  const handleForget = () => {
+    if (!isAnswered) {
+      setIsAnswered(false);
+      setIsCorrectAnswer(false);
+      setIsForgetClicked(true);
+      setIsResultHidden(false);
+      setUserRomajiAnswer('');
+      speak(reading);
+      markAnswer(false);
+    }
   };
   // Ẩn component ngay khi đang navigate hoặc không phải quiz type hiện tại
   const currentPath = location.pathname;
@@ -231,7 +245,6 @@ const RomajiPractice: React.FC = () => {
                     setHasAccentWarning(false);
                   }
                 }}
-                onKeyDown={(e) => e.key === 'Enter' && handleCheck()}
                 disabled={isAnswered}
               />
             </div>

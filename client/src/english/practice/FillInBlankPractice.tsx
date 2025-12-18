@@ -46,9 +46,6 @@ const FillInBlankPractice: React.FC = () => {
   const [showConfirmExit, setShowConfirmExit] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
-  const { totalCount, completedCount } = usePracticeSession();
-  const progress = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
-
   const {
     currentWord,
     words,
@@ -56,7 +53,10 @@ const FillInBlankPractice: React.FC = () => {
     getNextQuizType,
     removeCurrentWord,
     reviewedWords,
+    totalCount,
+    completedCount
   } = usePracticeSession();
+  const progress = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
 
   useEffect(() => {
     const allowedSources = ["multiple", "voicePractice", "fillInBlank"]; // giữ giống VoicePractice
@@ -153,6 +153,20 @@ const FillInBlankPractice: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        if (isAnswered || isForgetClicked) {
+          handleContinue();
+        } else if (inputValue.trim() !== '') {
+          handleCheck();
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isAnswered, isForgetClicked, inputValue]);
+
   const handleForget = () => {
     if (isAnswered) return;
     setIsAnswered(false);
@@ -166,13 +180,6 @@ const FillInBlankPractice: React.FC = () => {
   const handleToggle = () => {
     setIsPlaying((prev) => !prev);
     setShowConfirmExit(true);
-  };
-
-  const onKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      handleCheck();
-    }
   };
 
   if (!currentWord) return null;
@@ -242,7 +249,6 @@ const FillInBlankPractice: React.FC = () => {
                 className="w-full max-w-lg px-6 py-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-slate-400 text-2xl text-center"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                onKeyDown={onKeyDown}
                 disabled={isAnswered}
               />
               <button

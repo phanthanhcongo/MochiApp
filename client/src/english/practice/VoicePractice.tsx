@@ -27,12 +27,6 @@ const VoicePractice: React.FC = () => {
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [showConfirmExit, setShowConfirmExit] = useState(false);
   const [allWords, setAllWords] = useState<any[]>([]);
-  const { totalCount, completedCount } = usePracticeSession();
-
-  const isResultShown = isAnswered || isForgetClicked;
-  const progress = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
-
-
   const {
     currentWord,
     words,
@@ -40,7 +34,12 @@ const VoicePractice: React.FC = () => {
     getNextQuizType,
     removeCurrentWord,
     reviewedWords,
+    totalCount,
+    completedCount
   } = usePracticeSession();
+
+  const isResultShown = isAnswered || isForgetClicked;
+  const progress = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
 
   // Fetch all words from database
   useEffect(() => {
@@ -164,7 +163,6 @@ const VoicePractice: React.FC = () => {
     setIsForgetClicked(false);
     setIsCorrectAnswer(null);
     setShowConfirmExit(false);
-  sessionStorage.setItem('reload_count', '0'); // Reset về 0 trước
 
     removeCurrentWord();
     if (words.length === 0) {
@@ -177,6 +175,20 @@ const VoicePractice: React.FC = () => {
       });
     }
   };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        if (isAnswered || isForgetClicked) {
+          handleContinue();
+        } else if (selectedIndex !== null) {
+          handleCheck();
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isAnswered, isForgetClicked, selectedIndex]);
 
   const handleForget = () => {
     if (!isAnswered) {

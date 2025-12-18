@@ -52,9 +52,6 @@ const MultipleSentence: React.FC = () => {
   const [canContinue, setCanContinue] = useState(false);
   const [allWords, setAllWords] = useState<any[]>([]);
 
-  const { totalCount, completedCount } = usePracticeSession();
-  const progress = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
-
   const {
     currentWord,
     words,
@@ -62,7 +59,10 @@ const MultipleSentence: React.FC = () => {
     getNextQuizType,
     removeCurrentWord,
     reviewedWords,
+    totalCount,
+    completedCount
   } = usePracticeSession();
+  const progress = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
 
   // Fetch all words from database
   useEffect(() => {
@@ -214,6 +214,20 @@ const MultipleSentence: React.FC = () => {
       navigate(`/en/quiz/${nextType}`, { state: { from: nextType } });
     }
   };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        if (isAnswered || isForgetClicked) {
+          handleContinue();
+        } else if (selectedIndex !== null) {
+          handleCheck();
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isAnswered, isForgetClicked, selectedIndex]);
 
   const handleForget = () => {
     if (isAnswered) return;

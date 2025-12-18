@@ -63,6 +63,14 @@ const PracticePageGrammar = () => {
     const token = localStorage.getItem('token');
     if (!token) return;
 
+    // Kiểm tra nếu có phiên ôn tập chưa hoàn thành
+    const storedRaw = localStorage.getItem('reviewed_words');
+    const reviewedWords = storedRaw ? JSON.parse(storedRaw) : [];
+    if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
+      navigate('/jp/summary');
+      return;
+    }
+
     fetch('http://localhost:8000/api/jp/practice/stats-grammar', {
       method: 'GET',
       headers: {
