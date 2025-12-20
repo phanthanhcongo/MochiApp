@@ -23,7 +23,6 @@ const VoicePractice: React.FC = () => {
   const exitTimeoutRef = useRef<number | null>(null);
   const [answers, setAnswers] = useState<AnswerOption[]>([]);
 
-  const isResultShown = isAnswered || isForgetClicked;
   const navigate = useNavigate();
   const location = useLocation();
 
