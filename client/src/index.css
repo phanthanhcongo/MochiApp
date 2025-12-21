@@ -9,7 +9,6 @@
     /* Ẩn thanh address bar trên iPhone */
     height: 100%;
     height: -webkit-fill-available;
-    overflow: hidden;
   }
   
   /* Ẩn thanh address bar trên Safari iPhone */
@@ -199,6 +198,25 @@
   .result-panel_false {
     padding-bottom: calc(1rem + env(safe-area-inset-bottom) + 1.5rem) !important;
   }
+  
+  /* Điều chỉnh nút thu gọn cho iPhone 12 */
+  .displayBtn {
+    right: 1rem !important;
+    bottom: calc(24rem + env(safe-area-inset-bottom)) !important;
+    z-index: 10;
+  }
+  
+  .displayBtnEnglish {
+    right: 1rem !important;
+    bottom: calc(22rem + env(safe-area-inset-bottom)) !important;
+    z-index: 10;
+  }
+  
+  .hiddenBtn {
+    right: 1rem !important;
+    bottom: calc(8.5rem + env(safe-area-inset-bottom)) !important;
+    z-index: 10;
+  }
 }
 
 /* Tăng padding-bottom cho iPhone 12 Pro Max */
@@ -210,12 +228,39 @@
   .result-panel_false {
     padding-bottom: calc(1rem + env(safe-area-inset-bottom) + 2rem) !important;
   }
+  
+  /* Điều chỉnh nút thu gọn cho iPhone 12 Pro Max */
+  .displayBtn {
+    right: 1rem !important;
+    bottom: calc(24rem + env(safe-area-inset-bottom)) !important;
+    z-index: 999    
+  
+  }
+  
+  .displayBtnEnglish {
+    right: 1rem !important;
+    bottom: calc(22rem + env(safe-area-inset-bottom)) !important;
+    z-index: 10;
+  }
+  
+  .hiddenBtn {
+    right: 1rem !important;
+    bottom: calc(8.5rem + env(safe-area-inset-bottom)) !important;
+    z-index: 10;
+  }
+  
 }
+
+
 .panel-collapsed_false {
   @apply relative w-full bg-red-600 min-h-[100px] flex items-center justify-center;
 }
 .btn-toggle {
   @apply rounded-full border border-stone-50 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 lg:w-15 lg:h-15 transition hover:opacity-[90%];
+  /* Tăng kích thước và touch target cho iPhone */
+  min-width: 44px;
+  min-height: 44px;
+  touch-action: manipulation;
 }
 .btn-toggle--green {
   @apply bg-green-600 text-stone-50 ;

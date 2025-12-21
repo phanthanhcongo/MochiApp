@@ -19,7 +19,7 @@ const PracticePage = () => {
   const [totalWords, setTotalWords] = useState<number>(0);
   const [streak, setStreak] = useState<number>(0);
   const [reviewWordsCount, setReviewWordsCount] = useState<number>(0);
-  const [wordsToReview, setWordsToReview] = useState<ReviewWord[]>([]);
+  const [preparedWords, setPreparedWords] = useState<ReviewWord[]>([]);
   const [nextReviewIn, setNextReviewIn] = useState<string | null>(null);
   const { setWords, getNextQuizType } = usePracticeSession();
   const navigate = useNavigate();
@@ -67,8 +67,45 @@ useEffect(() => {
       setTotalWords(data.totalWords || 0);
       setReviewWordsCount(data.wordsToReview || 0);
       setStreak(data.streak || 0);
-      setWordsToReview(data.reviewWords || []);
       setNextReviewIn(data.nextReviewIn || null);
+
+      // Chuẩn bị sẵn 100 từ ngay từ đây để khi bấm nút không cần xử lý
+      const prepared: ReviewWord[] = (data.reviewWords || []).map((w: any): ReviewWord => {
+        return {
+          id: w.id,
+          user_id: w.user_id,
+          word: w.word,
+          ipa: w.ipa ?? undefined,
+          meaning_vi: w.meaning_vi ?? '',
+          cefr_level: w.cefr_level ?? undefined,
+          level: w.level ?? undefined,
+          last_reviewed_at: w.last_reviewed_at ?? undefined,
+          next_review_at: w.next_review_at ?? undefined,
+          context_vi: w.contexts?.[0]?.context_vi ?? '',
+          exampleEn: w.exampleEn ?? '',
+          exampleVi: w.exampleVn ?? '',
+          examples: (w.examples ?? []).map((ex: any) => ({
+            id: ex.id,
+            en_word_id: ex.en_word_id,
+            sentence_en: ex.sentence_en,
+            sentence_vi: ex.sentence_vi ?? '',
+            exercises: (ex.exercises ?? []).map((exer: any) => ({
+              id: exer.id,
+              example_id: exer.example_id,
+              question_text: exer.question_text ?? '',
+              blank_position:
+                typeof exer.blank_position === 'number' ? exer.blank_position : 0,
+              answer_explanation: exer.answer_explanation ?? undefined,
+              choices: (exer.choices ?? []).map((ch: any) => ({
+                id: ch.id,
+                content: ch.content,
+                is_correct: Number(ch.is_correct) as 0 | 1,
+              })),
+            })),
+          })),
+        };
+      });
+      setPreparedWords(prepared);
     })
     .catch((err) => console.error('Fetch stats error:', err));
 
@@ -80,55 +117,13 @@ useEffect(() => {
 
 
 const handleStartPractice = () => {
-  const preparedWords: ReviewWord[] = wordsToReview.map((w: any): ReviewWord => {
-
-    return {
-      id: w.id,
-      user_id: w.user_id,
-      word: w.word,
-      ipa: w.ipa ?? undefined,
-      meaning_vi: w.meaning_vi ?? '',
-      cefr_level: w.cefr_level ?? undefined,
-      level: w.level ?? undefined,
-      last_reviewed_at: w.last_reviewed_at ?? undefined,
-      next_review_at: w.next_review_at ?? undefined,
-
-      // 1 ngữ cảnh đầu tiên nếu có, else rỗng
-      context_vi: w.contexts?.[0]?.context_vi ?? '',
-
-      // ví dụ hiển thị nhanh ở cấp word
-      exampleEn: w.exampleEn ?? '',
-      exampleVi: w.exampleVn ?? '',
-
-      // danh sách examples + exercises cho fill-in-blank
-      examples: (w.examples ?? []).map((ex: any) => ({
-        id: ex.id,
-        en_word_id: ex.en_word_id,
-        sentence_en: ex.sentence_en,
-        sentence_vi: ex.sentence_vi ?? '',
-        exercises: (ex.exercises ?? []).map((exer: any) => ({
-          id: exer.id,
-          example_id: exer.example_id,
-          question_text: exer.question_text ?? '',
-          blank_position:
-            typeof exer.blank_position === 'number' ? exer.blank_position : 0,
-          answer_explanation: exer.answer_explanation ?? undefined,
-          choices: (exer.choices ?? []).map((ch: any) => ({
-            id: ch.id,
-            content: ch.content,
-            is_correct: Number(ch.is_correct) as 0 | 1,
-          })),
-        })),
-      })),
-    };
-  });
+  // Dùng preparedWords đã được chuẩn bị sẵn từ lúc fetch stats
+  if (preparedWords.length === 0) {
+    console.warn('Chưa có từ để ôn tập');
+    return;
+  }
 
   setWords(preparedWords);
-
-  setTimeout(() => {
-    const storedWords = usePracticeSession.getState().words;
-    console.log('📦 Dữ liệu đã lưu trong store:', storedWords);
-  }, 0);
 
   const firstQuizType = getNextQuizType();
   console.log('🚀 Bắt đầu với quiz type:', firstQuizType);

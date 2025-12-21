@@ -36,19 +36,19 @@ const EnglishPracticeResultPanel: React.FC<EnglishPracticeResultPanelProps> = ({
 
   if (isResultHidden) {
     return (
-      <div className={panelClass}>
-        <button
-          className={`btn-toggle ${toggleBtnColorClass} hiddenBtn`}
-          onClick={() => setIsResultHidden(false)}
-        >
-          <FontAwesomeIcon icon={faChevronUp} />
-        </button>
-        <div className="w-full text-center p-4 sm:p-6 md:p-8 lg:p-10">
+      <div className={`${panelClass} relative pt-6`}>
+        {/* Nút UP bám đỉnh */}
+        <div className="absolute -top-5 md:-top-8  right-[5%] z-20">
           <button
-            className="btn-primary btn-primary--active w-full"
-            onClick={onContinue}
-            disabled={isNavigating}
+            className={`btn-toggle ${toggleBtnColorClass} shadow-lg`}
+            onClick={() => setIsResultHidden(false)}
           >
+            <FontAwesomeIcon icon={faChevronUp} />
+          </button>
+        </div>
+
+        <div className="w-full text-center px-4 pb-[env(safe-area-inset-bottom)] py-4">
+          <button className="btn-primary btn-primary--active w-full shadow-md" onClick={onContinue} disabled={isNavigating}>
             {isNavigating ? 'Đang tải...' : 'Tiếp tục'}
           </button>
         </div>
@@ -57,50 +57,73 @@ const EnglishPracticeResultPanel: React.FC<EnglishPracticeResultPanelProps> = ({
   }
 
   return (
-    <div className={panelClass}>
-      <div className="flex items-start justify-end mb-2 sm:mb-3 md:mb-4 w-[95%] sm:w-[92%] md:w-[90%] mx-auto">
+    <div className={`${panelClass} relative  rounded-t-3xl shadow-2xl pt-10`}>
+      {/* - w-[90%] cho mobile để không quá hẹp, md:w-[70%] cho màn hình lớn.
+         - pt-10 để tạo khoảng cách cho nút Chevron bám đỉnh.
+      */}
+
+      {/* NHÓM ĐIỀU KHIỂN - Bám sát mép phải của container 70% */}
+      <div className="absolute -top-6 right-4 sm:right-6 flex flex-col gap-2 z-30">
         <button
-          className={`btn-toggle ${toggleBtnColorClass} displayBtnEnglish`}
+          className={`btn-toggle ${toggleBtnColorClass} shadow-xl border-2 border-white/20`}
           onClick={() => setIsResultHidden(true)}
         >
-          <FontAwesomeIcon icon={faChevronDown} />
+          <FontAwesomeIcon icon={faChevronDown} size="sm" />
         </button>
       </div>
 
-      <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 overflow-y-auto max-h-[50vh] sm:max-h-[55vh] md:max-h-[60vh] scrollbar-hide">
-        <div className="flex items-start gap-2 sm:gap-3 md:gap-4 mb-2 sm:mb-3 md:mb-4 w-[95%] sm:w-[92%] md:w-[90%] mx-auto">
-          <div className="btn-audio text-xl sm:text-2xl md:text-3xl flex-shrink-0" onClick={() => speak(word.word)} title="Phát âm">🔊</div>
-          <div className="flex-1 min-w-0">
-            <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold break-words">{word.word}</p>
+      {/* NỘI DUNG CHÍNH */}
+      <div className="px-6 sm:px-10 overflow-y-auto max-h-[50vh] scrollbar-hide w-[90%]  mx-auto">
+        {/* Header: Word & IPA */}
+        <div className="flex items-center gap-4 mb-4">
+          <div className="btn-audio scale-110 flex-shrink-0" onClick={() => speak(word.word)}>🔊</div>
+          <div className="min-w-0">
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight break-words">
+              {word.word}
+            </h2>
             {word.ipa && (
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-stone-50/90 break-words">{word.ipa}</p>
+              <span className="text-base sm:text-xl font-medium text-stone-200/80 font-mono">
+                {word.ipa}
+              </span>
             )}
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-stone-50/100 my-2 sm:my-3 md:my-4 lg:my-5 break-words">{word.meaning_vi}</p>
           </div>
         </div>
 
+        {/* Meaning */}
+        <div className="mb-6">
+          <p className="text-xl sm:text-3xl text-white font-medium leading-relaxed">
+            {word.meaning_vi}
+          </p>
+        </div>
+
+        {/* Example Box */}
         {(word.exampleEn || word.exampleVi) && (
-          <div className="flex items-start gap-2 sm:gap-3 md:gap-4 mb-1 w-[95%] sm:w-[92%] md:w-[90%] mx-auto">
-            <button className="btn-audio text-xl sm:text-2xl md:text-3xl flex-shrink-0" onClick={() => speak(word.exampleEn || '')} title="Phát âm ví dụ">🔊</button>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center justify-between gap-2">
-                <div className="text-stone-50 text-base sm:text-lg md:text-xl lg:text-2xl break-words">
+          <div className="bg-white/10 rounded-2xl p-4 sm:p-6 mb-4 border border-white/5">
+            <div className="flex gap-3">
+              <button className="text-xl opacity-80 hover:opacity-100 transition" onClick={() => speak(word.exampleEn || '')}>🔊</button>
+              <div className="flex-1">
+                <p className="text-lg sm:text-2xl text-stone-50 leading-snug">
                   {word.exampleEn}
-                  <button className="btn-eye ml-1 sm:ml-2" onClick={() => setIsTranslationHidden(!isTranslationHidden)}>
+                  <button className="btn-eye inline-flex ml-3 align-middle" onClick={() => setIsTranslationHidden(!isTranslationHidden)}>
                     {isTranslationHidden ? '🙈' : '👁'}
                   </button>
+                </p>
+
+                <div className={`mt-3 transition-all duration-300 overflow-hidden ${isTranslationHidden ? 'max-h-0 opacity-0' : 'max-h-20 opacity-100'}`}>
+                  <p className="text-base sm:text-xl text-stone-200 italic border-l-2 border-white/30 pl-3">
+                    {word.exampleVi}
+                  </p>
                 </div>
               </div>
-              <p className={`text-stone-50/90 text-sm sm:text-base md:text-lg lg:text-xl mt-1 italic break-words ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.exampleEn}</p>
-              <p className={`text-stone-50/90 text-sm sm:text-base md:text-lg lg:text-xl break-words ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.exampleVi}</p>
             </div>
           </div>
         )}
       </div>
 
-      <div className="w-full sm:w-80 mx-auto mt-3 sm:mt-4 md:mt-5 lg:mt-6 text-center px-4 sm:px-0">
+      {/* NÚT TIẾP TỤC */}
+      <div className="flex justify-center px-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] pt-4">
         <button
-          className="btn-primary btn-primary--active w-full"
+          className="btn-primary btn-primary--active w-full sm:w-72 md:w-80 py-4 text-xl font-bold shadow-2xl transform active:scale-[0.96] transition-all duration-200"
           onClick={onContinue}
           disabled={isNavigating}
         >

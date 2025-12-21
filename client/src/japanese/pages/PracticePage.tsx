@@ -55,6 +55,8 @@ const PracticePage = () => {
   const [streak, setStreak] = useState<number>(0);
   const [reviewWordsCount, setReviewWordsCount] = useState<number>(0);
   const [_wordsToReview, setWordsToReview] = useState<JpReviewWord[]>([]);
+  const [preparedScenarios, setPreparedScenarios] = useState<PracticeScenario[]>([]);
+  const [preparedRandomAnswers, setPreparedRandomAnswers] = useState<Array<{ meaning_vi: string }>>([]);
   const [nextReviewIn, setNextReviewIn] = useState<string | null>(null);
   const [remainingSec, setRemainingSec] = useState<number | null>(null);
 
@@ -110,6 +112,64 @@ const PracticePage = () => {
     sessionStorage.setItem('reload_count', '0');
   }, []);
 
+  // Fetch scenarios và randomAnswers ngay sau khi component mount để chuẩn bị sẵn
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) return;
+
+    // Chỉ fetch nếu có từ cần ôn
+    const fetchPreparedData = async () => {
+      try {
+        const [scenariosRes, randomAnswersRes] = await Promise.all([
+          fetch(`${API_URL}/jp/practice/scenarios`, {
+            method: 'GET',
+            headers: {
+              'Accept': 'application/json',
+              'Authorization': `Bearer ${token}`,
+            },
+          }),
+          fetch(`${API_URL}/jp/practice/listWord`, {
+            method: 'GET',
+            headers: {
+              'Accept': 'application/json',
+              'Authorization': `Bearer ${token}`,
+            },
+          })
+        ]);
+
+        if (scenariosRes.status === 401 || randomAnswersRes.status === 401) {
+          localStorage.removeItem('token');
+          window.location.replace('/login');
+          return;
+        }
+
+        if (scenariosRes.ok) {
+          const scenariosData = await scenariosRes.json();
+          const scenarios: PracticeScenario[] = scenariosData.scenarios || [];
+          setPreparedScenarios(scenarios);
+        }
+
+        if (randomAnswersRes.ok) {
+          const randomAnswersData = await randomAnswersRes.json();
+          const allWords = (randomAnswersData.allWords || []).map((w: any) => ({
+            meaning_vi: w.meaning_vi || ''
+          })).filter((w: { meaning_vi: string }) => w.meaning_vi !== '');
+          
+          // Shuffle và lấy 50 từ ngẫu nhiên
+          const shuffled = allWords.sort(() => Math.random() - 0.5);
+          const randomAnswers = shuffled.slice(0, 50);
+          setPreparedRandomAnswers(randomAnswers);
+        }
+      } catch (err) {
+        console.error('Lỗi khi fetch prepared data:', err);
+      }
+    };
+
+    // Chỉ fetch khi có từ cần ôn (có thể check sau khi stats load xong)
+    // Hoặc fetch luôn, sẽ được update khi stats load xong
+    fetchPreparedData();
+  }, []);
+
 
   sessionStorage.setItem('reload_count', '0'); // Reset về 0 trước
   useEffect(() => {
@@ -123,85 +183,30 @@ const PracticePage = () => {
     }, 1000);
     return () => clearInterval(id);
   }, [remainingSec]);
-  const handleStartPractice = async () => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      window.location.replace('/login');
+  const handleStartPractice = () => {
+    // Dùng preparedScenarios và preparedRandomAnswers đã được chuẩn bị sẵn
+    if (preparedScenarios.length === 0) {
+      console.warn('Chưa có scenarios để ôn tập');
       return;
     }
 
-    try {
-      // Fetch scenarios và randomAnswers song song
-      const [scenariosRes, randomAnswersRes] = await Promise.all([
-        fetch(`${API_URL}/jp/practice/scenarios`, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Authorization': `Bearer ${token}`,
-          },
-        }),
-        fetch(`${API_URL}/jp/practice/listWord`, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Authorization': `Bearer ${token}`,
-          },
-        })
-      ]);
+    // Set scenarios và randomAnswers vào store
+    setScenarios(preparedScenarios);
+    setRandomAnswers(preparedRandomAnswers);
 
-      if (scenariosRes.status === 401 || randomAnswersRes.status === 401) {
-        localStorage.removeItem('token');
-        window.location.replace('/login');
-        return;
-      }
+    // Lấy quizType từ scenario đầu tiên
+    const firstScenario = preparedScenarios[0];
+    const firstQuizType = firstScenario.quizType;
 
-      if (!scenariosRes.ok) {
-        throw new Error(`HTTP ${scenariosRes.status}`);
-      }
-
-      const scenariosData = await scenariosRes.json();
-      const scenarios: PracticeScenario[] = scenariosData.scenarios || [];
-
-      if (scenarios.length === 0) {
-        console.error('Không có scenarios để luyện tập');
-        navigate('/jp/summary');
-        return;
-      }
-
-      // Lấy randomAnswers từ API - lấy 50 từ ngẫu nhiên
-      let randomAnswers: Array<{ meaning_vi: string }> = [];
-      if (randomAnswersRes.ok) {
-        const randomAnswersData = await randomAnswersRes.json();
-        const allWords = (randomAnswersData.allWords || []).map((w: any) => ({
-          meaning_vi: w.meaning_vi || ''
-        })).filter((w: { meaning_vi: string }) => w.meaning_vi !== '');
-        
-        // Shuffle và lấy 50 từ ngẫu nhiên
-        const shuffled = allWords.sort(() => Math.random() - 0.5);
-        randomAnswers = shuffled.slice(0, 50);
-      }
-
-      // Set scenarios và randomAnswers vào store
-      setScenarios(scenarios);
-      setRandomAnswers(randomAnswers);
-
-      // Lấy quizType từ scenario đầu tiên
-      const firstScenario = scenarios[0];
-      const firstQuizType = firstScenario.quizType;
-
-      if (!firstQuizType) {
-        console.error('Không có quiz type cho scenario đầu tiên');
-        navigate('/jp/summary');
-        return;
-      }
-
-      navigate(`/jp/quiz/${firstQuizType}`, {
-        state: { from: firstQuizType }
-      });
-    } catch (err) {
-      console.error('Lỗi khi fetch scenarios:', err);
+    if (!firstQuizType) {
+      console.error('Không có quiz type cho scenario đầu tiên');
       navigate('/jp/summary');
+      return;
     }
+
+    navigate(`/jp/quiz/${firstQuizType}`, {
+      state: { from: firstQuizType }
+    });
   };
 
   return (

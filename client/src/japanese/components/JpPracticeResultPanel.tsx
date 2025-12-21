@@ -36,20 +36,20 @@ const JpPracticeResultPanel: React.FC<JpPracticeResultPanelProps> = ({
 
   if (isResultHidden) {
     return (
-      <div className={panelClass}>
-        <button
-          className={`btn-toggle ${toggleBtnColorClass} hiddenBtn`}
-          onClick={() => setIsResultHidden(false)}
-        >
-          <FontAwesomeIcon icon={faChevronUp} />
-        </button>
-        <div className="w-full text-center p-4 sm:p-6 md:p-8 lg:p-10">
+      <div className={`${panelClass} relative`}> {/* Thêm relative ở đây */}
+        {/* Nút Up - Bây giờ cũng dùng absolute top để bám vào mép bảng */}
+        <div className="absolute -top-5 md:-top-8 right-[5%] z-20">
           <button
-            className="btn-primary btn-primary--active w-full"
-            onClick={onContinue}
-            disabled={isNavigating}
+            className={`btn-toggle ${toggleBtnColorClass} shadow-lg`}
+            onClick={() => setIsResultHidden(false)}
           >
-            {isNavigating ? 'Đang tải...' : 'Tiếp tục'}
+            <FontAwesomeIcon icon={faChevronUp} />
+          </button>
+        </div>
+  
+        <div className="w-full text-center p-4 pb-[env(safe-area-inset-bottom)]">
+          <button className="btn-primary btn-primary--active w-full" onClick={onContinue}>
+            Tiếp tục
           </button>
         </div>
       </div>
@@ -57,58 +57,68 @@ const JpPracticeResultPanel: React.FC<JpPracticeResultPanelProps> = ({
   }
 
   return (
-    <div className={panelClass}>
-      <div className="flex items-start justify-end mb-2 sm:mb-3 md:mb-4 w-[95%] sm:w-[92%] md:w-[90%] mx-auto">
-        <button
-          className={`btn-toggle ${toggleBtnColorClass} displayBtn`}
-          onClick={() => setIsResultHidden(true)}
-        >
-          <FontAwesomeIcon icon={faChevronDown} />
-        </button>
-      </div>
+    <div className={`${panelClass} relative`}> {/* Thêm relative ở đây */}
+  
+  {/* NHÓM ĐIỀU KHIỂN (Floating Actions) */}
+  <div className="absolute -top-5 md:-top-8 right-[5%] flex flex-col gap-2 z-20">
+    <button
+      className={`btn-toggle ${toggleBtnColorClass} shadow-lg`}
+      onClick={() => setIsResultHidden(true)}
+    >
+      <FontAwesomeIcon icon={faChevronDown} />
+    </button>
+    
+    {/* Nếu có nút English, nó sẽ tự nằm dưới nút trên nhờ flex-col */}
+    {/* <button className="btn-toggle ...">EN</button> */}
+  </div>
 
-      <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 overflow-y-auto max-h-[50vh] sm:max-h-[55vh] md:max-h-[60vh] scrollbar-hide">
-        <div className="flex items-start gap-2 sm:gap-3 md:gap-4 mb-2 sm:mb-3 md:mb-4 w-[95%] sm:w-[92%] md:w-[90%] mx-auto">
-          <div className="btn-audio text-xl sm:text-2xl md:text-3xl flex-shrink-0" onClick={() => speak(word.reading_hiragana)} title="Phát âm">🔊</div>
-          <div className="flex-1 min-w-0">
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-stone-50/90 break-words">{word.reading_hiragana} {word.hanviet ? `• ${word.hanviet}` : ''}</p>
-            <p className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-bold break-words">{word.kanji}</p>
-            <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-stone-50/100 my-2 sm:my-3 md:my-4 lg:my-5 break-words">{word.meaning_vi}</p>
-            {word.hanviet_explanation && (
-              <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-stone-50/90 mt-1 italic break-words">{word.hanviet_explanation}</p>
-            )}
-          </div>
-        </div>
-
-        {(word.example || word.example_romaji || word.example_vi) && (
-          <div className="flex items-start gap-2 sm:gap-3 md:gap-4 mb-1 w-[95%] sm:w-[92%] md:w-[90%] mx-auto">
-            <button className="btn-audio text-xl sm:text-2xl md:text-3xl flex-shrink-0" onClick={() => speak(word.example || '')} title="Phát âm ví dụ">🔊</button>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center justify-between gap-2">
-                <div className="text-stone-50 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl break-words">
-                  {word.example}
-                  <button className="btn-eye ml-1 sm:ml-2" onClick={() => setIsTranslationHidden(!isTranslationHidden)}>
-                    {isTranslationHidden ? '🙈' : '👁'}
-                  </button>
-                </div>
-              </div>
-              <p className={`text-stone-50/90 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mt-1 italic break-words ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.example_romaji}</p>
-              <p className={`text-stone-50/90 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl break-words ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.example_vi}</p>
-            </div>
-          </div>
+  {/* NỘI DUNG CHÍNH */}
+  <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 overflow-y-auto max-h-[55vh] scrollbar-hide pt-4">
+    
+    {/* Phần từ vựng */}
+    <div className="flex items-start gap-2 sm:gap-4 w-[95%] sm:w-[92%] md:w-[90%] mx-auto">
+      <div className="btn-audio text-xl sm:text-3xl flex-shrink-0" onClick={() => speak(word.reading_hiragana)}>🔊</div>
+      <div className="flex-1 min-w-0">
+        <p className="text-xl sm:text-2xl text-stone-50/90">{word.reading_hiragana} {word.hanviet ? `• ${word.hanviet}` : ''}</p>
+        <p className="text-5xl sm:text-6xl font-bold">{word.kanji}</p>
+        <p className="text-3xl sm:text-5xl text-stone-50 my-2">{word.meaning_vi}</p>
+        {word.hanviet_explanation && (
+          <p className="text-xl sm:text-2xl text-stone-50/90 italic">{word.hanviet_explanation}</p>
         )}
       </div>
-
-      <div className="w-full sm:w-80 mx-auto mt-3 sm:mt-4 md:mt-5 lg:mt-6 text-center px-4 sm:px-0">
-        <button
-          className="btn-primary btn-primary--active w-full"
-          onClick={onContinue}
-          disabled={isNavigating}
-        >
-          {isNavigating ? 'Đang tải...' : 'Tiếp tục'}
-        </button>
-      </div>
     </div>
+
+    {/* Ví dụ */}
+    {(word.example || word.example_vi) && (
+      <div className="flex items-start gap-2 sm:gap-4 w-[95%] sm:w-[92%] md:w-[90%] mx-auto mt-2 border-t border-stone-50/20 pt-4">
+        <button className="btn-audio text-xl sm:text-3xl flex-shrink-0" onClick={() => speak(word.example || '')}>🔊</button>
+        <div className="flex-1 min-w-0">
+          <div className="text-stone-50 text-2xl sm:text-4xl break-words">
+            {word.example}
+            <button className="btn-eye ml-2" onClick={() => setIsTranslationHidden(!isTranslationHidden)}>
+              {isTranslationHidden ? '🙈' : '👁'}
+            </button>
+          </div>
+          <div className={`${isTranslationHidden ? 'opacity-0 h-0' : 'opacity-100'} transition-all duration-300`}>
+            <p className="text-stone-50/90 text-lg italic mt-1">{word.example_romaji}</p>
+            <p className="text-stone-50/90 text-lg">{word.example_vi}</p>
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
+
+  {/* NÚT TIẾP TỤC */}
+  <div className="w-full sm:w-80 mx-auto py-4 text-center px-4 pb-[env(safe-area-inset-bottom)]">
+    <button
+      className="btn-primary btn-primary--active w-full shadow-xl"
+      onClick={onContinue}
+      disabled={isNavigating}
+    >
+      {isNavigating ? 'Đang tải...' : 'Tiếp tục'}
+    </button>
+  </div>
+</div>
   );
 };
 
