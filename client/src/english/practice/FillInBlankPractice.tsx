@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faChevronUp, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { useLocation, useNavigate } from "react-router-dom";
 import { usePracticeSession } from "../utils/practiceStore";
 import { motion, AnimatePresence } from "framer-motion";
@@ -183,7 +183,7 @@ const FillInBlankPractice: React.FC = () => {
   if (!currentWord) return null;
   const word = currentWord.word;
 
-  const isResultShown = isAnswered || isForgetClicked;
+  // const isResultShown = isAnswered || isForgetClicked; // Unused variable
 
   return (
     <AnimatePresence mode="wait">

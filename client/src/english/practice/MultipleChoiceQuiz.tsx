@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { usePracticeSession } from '../utils/practiceStore';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -39,7 +39,7 @@ const MultipleChoiceQuiz: React.FC = () => {
     completedCount
   } = usePracticeSession();
 
-  const isResultShown = isAnswered || isForgetClicked;
+  // const isResultShown = isAnswered || isForgetClicked; // Unused variable
   const progress = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
 
   // Fetch all words from database

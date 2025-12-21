@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faChevronUp, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { useLocation, useNavigate } from "react-router-dom";
 import { usePracticeSession } from "../utils/practiceStore";
 import { motion, AnimatePresence } from "framer-motion";
@@ -124,7 +124,6 @@ const MultipleSentence: React.FC = () => {
   useEffect(() => {
     setIsAnswered(false);
     setIsResultHidden(false);
-    setIsTranslationHidden(false);
     setIsForgetClicked(false);
     setIsCorrectAnswer(null);
     setSelectedIndex(null);
@@ -226,7 +225,6 @@ const MultipleSentence: React.FC = () => {
   const handleContinue = () => {
     setIsAnswered(false);
     setIsResultHidden(false);
-    setIsTranslationHidden(false);
     setIsForgetClicked(false);
     setIsCorrectAnswer(null);
     setShowConfirmExit(false);
