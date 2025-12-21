@@ -7,6 +7,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaPlay, FaPause } from "react-icons/fa";
 import { BiLogOutCircle } from "react-icons/bi";
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
+import { API_URL } from '../../apiClient';
+import EnglishPracticeResultPanel from '../components/EnglishPracticeResultPanel';
 
 interface AnswerOption {
   text: string;
@@ -22,7 +24,6 @@ const VoicePractice: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
   const [isResultHidden, setIsResultHidden] = useState(false);
-  const [isTranslationHidden, setIsTranslationHidden] = useState(false);
   const [isForgetClicked, setIsForgetClicked] = useState(false);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [showConfirmExit, setShowConfirmExit] = useState(false);
@@ -46,7 +47,7 @@ const VoicePractice: React.FC = () => {
     const fetchAllWords = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch('http://localhost:8000/api/en/practice/listWord', {
+        const res = await fetch(`${API_URL}/en/practice/listWord`, {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
@@ -189,7 +190,6 @@ const VoicePractice: React.FC = () => {
     setSelectedIndex(null);
     setIsAnswered(false);
     setIsResultHidden(false);
-    setIsTranslationHidden(false);
     setIsForgetClicked(false);
     setIsCorrectAnswer(null);
     setShowConfirmExit(false);
@@ -339,51 +339,17 @@ const VoicePractice: React.FC = () => {
             </button>
           </div>
 
-          {isResultShown && !isResultHidden && (
-            <div className={isCorrectAnswer && !isForgetClicked ? 'result-panel_true' : 'result-panel_false'}>
-              <div className="flex items-start justify-end mb-4 w-[90%] mx-auto">
-                <button className={`btn-toggle ${isCorrectAnswer ? 'btn-toggle--green' : 'btn-toggle--red'} displayBtnEnglish `} onClick={() => setIsResultHidden(true)}>
-                  <FontAwesomeIcon icon={faChevronDown} />
-                </button>
-              </div>
-              <div className="flex items-start gap-4 mb-4 w-[90%] mx-auto">
-                <div className="btn-audio text-2xl" onClick={() => speak(word.word)} title="Phát âm">🔊</div>
-                <div>
-                  <p className="text-4xl font-bold">{word.word}</p>
-                   <p className="text-xl text-stone-50/90">{word.ipa} </p>
-                  <p className="text-2xl text-stone-50/100 my-5">{word.meaning_vi}</p>
-                  {/* <p className="text-xl text-stone-50/90 mt-1 italic">{word.word}</p> */}
-                </div>
-              </div>
-              <div className="flex items-start gap-4 mb-1 w-[90%] mx-auto">
-                <button className="btn-audio text-2xl" onClick={() => speak(word.exampleEn || '')} title="Phát âm ví dụ">🔊</button>
-                <div className="flex-1">
-                  <div className="flex items-center justify-between gap-2">
-                    <p className="text-stone-50 text-2xl">{word.exampleEn}
-                      <button className="btn-eye" onClick={() => setIsTranslationHidden(!isTranslationHidden)}>
-                        {isTranslationHidden ? '🙈' : '👁'}
-                      </button>
-                    </p>
-                  </div>
-                  <p className={`text-stone-50/90 mt-6 text-xl ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.exampleVi}</p>
-                </div>
-              </div>
-              <div className="w-80 mx-auto mt-6">
-                <button className="btn-primary btn-primary--active w-full" onClick={handleContinue}>Tiếp tục</button>
-              </div>
-            </div>
-          )}
-
-          {isResultShown && isResultHidden && (
-            <div className={isCorrectAnswer && !isForgetClicked ? 'result-panel_true' : 'result-panel_false'}>
-              <button className={`btn-toggle ${isCorrectAnswer ? 'btn-toggle--green' : 'btn-toggle--red'} hiddenBtn`} onClick={() => setIsResultHidden(false)}>
-                <FontAwesomeIcon icon={faChevronUp} />
-              </button>
-              <div className=" text-center  p-10">
-                <button className="btn-primary btn-primary--active w-full" onClick={handleContinue}>Tiếp tục</button>
-              </div>
-            </div>
-          )}
+          <EnglishPracticeResultPanel
+            isAnswered={isAnswered}
+            isForgetClicked={isForgetClicked}
+            isCorrectAnswer={isCorrectAnswer}
+            isResultHidden={isResultHidden}
+            setIsResultHidden={setIsResultHidden}
+            onContinue={handleContinue}
+            isNavigating={false}
+            word={currentWord.word}
+            speak={speak}
+          />
         </div>
         {showConfirmExit && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">

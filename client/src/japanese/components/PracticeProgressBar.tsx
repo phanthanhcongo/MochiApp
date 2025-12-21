@@ -14,7 +14,7 @@ const PracticeProgressBar: React.FC<PracticeProgressBarProps> = ({
   }, [completedCount, totalCount]);
 
   return (
-    <div className="relative w-full mb-2">
+    <div className="relative w-full mb-2  pl-5 pt-5 ">
       {/* Wrapper chứa thanh tiến độ + runner */}
       <div className="relative w-full h-5">
         {/* Thanh tiến độ nền */}

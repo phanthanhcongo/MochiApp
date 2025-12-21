@@ -267,30 +267,30 @@ const HiraganaPractice: React.FC = () => {
       onExitComplete={() => setIsExiting(false)}
       className="w-full"
     >
-        <div className="flex flex-col items-center justify-center min-h-[60vh] w-full max-w-4xl mx-auto px-8 py-12">
+        <div className="flex flex-col items-center justify-center min-h-[60vh] w-full max-w-4xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-12">
           <div className="text-center w-full">
-            <h4 className="text-gray-600 mb-6 text-3xl">Chọn các ký tự hiragana để ghép cách đọc:</h4>
-            <h1 className="text-6xl font-bold text-gray-900 mb-10">{question}</h1>
-            <div className="mb-8 h-20 w-full max-w-2xl mx-auto border border-gray-400 rounded-2xl px-6 text-4xl font-semibold tracking-widest text-gray-800 bg-slate-50 flex items-center justify-center text-center">
+            <h4 className="text-gray-600 mb-3 sm:mb-4 md:mb-6 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn các ký tự hiragana để ghép cách đọc:</h4>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 md:mb-8 lg:mb-10">{question}</h1>
+            <div className="mb-4 sm:mb-6 md:mb-8 h-14 sm:h-16 md:h-18 lg:h-20 w-full max-w-2xl mx-auto border border-gray-400 rounded-xl sm:rounded-2xl px-3 sm:px-4 md:px-6 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-widest text-gray-800 bg-slate-50 flex items-center justify-center text-center">
               {selectedChars.join('')}
             </div>
-            <div className="flex flex-wrap gap-3 justify-center mb-6">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3 justify-center mb-4 sm:mb-5 md:mb-6">
               {hiraganaPool.map(({ id, char }) => (
                 <button
                   key={id}
                   id={id}
-                  className="bg-slate-50 px-6 py-3 rounded-xl text-4xl hover:bg-slate-400 border-b-4 border border-slate-400 disabled:opacity-50"
+                  className="bg-slate-50 px-2.5 sm:px-3 md:px-4 lg:px-6 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg sm:rounded-xl text-xl sm:text-2xl md:text-3xl lg:text-4xl hover:bg-slate-400 border-b-2 sm:border-b-3 md:border-b-4 border border-slate-400 disabled:opacity-50"
                   onClick={() => handleCharClick(id)}
                   disabled={usedCharIds.includes(id)}
                 >
                   {char}
                 </button>
               ))}
-              <button className="bg-red-400 px-6 py-3 rounded-xl text-2xl hover:bg-red-600" onClick={handleRemoveLast}>⌫</button>
+              <button className="bg-red-400 px-2.5 sm:px-3 md:px-4 lg:px-6 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg sm:rounded-xl text-lg sm:text-xl md:text-2xl hover:bg-red-600" onClick={handleRemoveLast}>⌫</button>
             </div>
           </div>
 
-          <div className="flex flex-col items-center gap-6 p-8 w-full">
+          <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-6 p-4 sm:p-6 md:p-8 w-full">
             <button
               className={`btn-primary ${selectedChars.length === 0 || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-6 py-3`}
               onClick={handleCheck}

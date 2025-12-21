@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { BiLogOutCircle } from 'react-icons/bi';
+import { API_URL } from '../../apiClient';
 
 const JLPT_OPTIONS = ['N1', 'N2', 'N3', 'N4', 'N5'] as const;
 const LEVEL_OPTIONS = ['1', '2', '3', '4', '5', '6', '7'] as const;
@@ -239,7 +240,7 @@ const EditJapaneseWordForm: React.FC = () => {
 
     setSaving(true);
     try {
-      const res = await fetch(`http://localhost:8000/api/jp/practice/updateWord/${wordId}`, {
+      const res = await fetch(`${API_URL}/jp/practice/updateWord/${wordId}`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',

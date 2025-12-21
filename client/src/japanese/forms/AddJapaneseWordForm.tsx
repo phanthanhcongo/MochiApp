@@ -4,6 +4,7 @@ import { BiLogOutCircle, BiCodeBlock } from "react-icons/bi";
 import { Sparkles } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { API_URL } from '../../apiClient';
 const JLPT_OPTIONS = ['N1', 'N2', 'N3', 'N4', 'N5'] as const;
 const IS_GRAMMAR_OPTIONS: { value: string; label: string }[] = [
   { value: '0', label: 'Từ vựng thường' },
@@ -243,7 +244,7 @@ const AddJapaneseWordForm = () => {
       const userId = parseInt(localStorage.getItem('user_id') || '0', 10);
       const payload = { ...trimmed, user_id: userId };
 
-      const res = await fetch('http://localhost:8000/api/jp/practice/add-word', {
+      const res = await fetch(`${API_URL}/jp/practice/add-word`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -325,7 +326,7 @@ const AddJapaneseWordForm = () => {
                 type="button"
                 onClick={handleGeminiCall}
                 disabled={geminiLoading}
-                className={`flex items-center px-6 py-2 rounded-lg shadow-sm text-white text-xs font-black uppercase tracking-widest transition-all duration-300
+                className={`flex items-center px-4   py-2 rounded-lg shadow-sm text-white text-xs font-black uppercase tracking-widest transition-all duration-300
                   ${geminiLoading 
                     ? 'bg-purple-300 cursor-not-allowed shadow-none' 
                     : 'bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-700 hover:to-fuchsia-700 hover:shadow-purple-200 hover:-translate-y-0.5 active:scale-95'}`}

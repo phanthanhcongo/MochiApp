@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from '../../apiClient';
 
 type CEFR = "A1" | "A2" | "B1" | "B2" | "C1" | "C2" | "";
 
@@ -197,7 +198,7 @@ export default function EditEnglishWordForm() {
       setLoading(true);
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch(`http://localhost:8000/api/en/practice/${id}`, {
+        const res = await fetch(`${API_URL}/en/practice/${id}`, {
           method: "GET",
           headers: {
             Accept: "application/json",
@@ -292,7 +293,7 @@ export default function EditEnglishWordForm() {
 
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`http://localhost:8000/api/en/practice/update/${id}`, {
+      const res = await fetch(`${API_URL}/en/practice/update/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

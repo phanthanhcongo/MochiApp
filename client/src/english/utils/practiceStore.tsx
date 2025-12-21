@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { API_URL } from '../../apiClient';
 
 export type QuizType = 'multiple' | 'fillInBlank' |  'voicePractice'|'multipleSentence' ;
 
@@ -179,7 +180,7 @@ submitReviewedWords: async () => {
   try {
     const token = localStorage.getItem('token');
 
-    const res = await fetch('http://localhost:8000/api/en/practice/reviewed-words', {
+    const res = await fetch(`${API_URL}/en/practice/reviewed-words`, {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',

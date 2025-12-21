@@ -7,6 +7,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { BiLogOutCircle } from "react-icons/bi";
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
+import { API_URL } from '../../apiClient';
+import EnglishPracticeResultPanel from '../components/EnglishPracticeResultPanel';
 
 interface Choice {
   text: string;
@@ -42,7 +44,6 @@ const MultipleSentence: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
   const [isResultHidden, setIsResultHidden] = useState(false);
-  const [isTranslationHidden, setIsTranslationHidden] = useState(false);
   const [isForgetClicked, setIsForgetClicked] = useState(false);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [showConfirmExit, setShowConfirmExit] = useState(false);
@@ -69,7 +70,7 @@ const MultipleSentence: React.FC = () => {
     const fetchAllWords = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch('http://localhost:8000/api/en/practice/listWord', {
+        const res = await fetch(`${API_URL}/en/practice/listWord`, {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
@@ -369,87 +370,19 @@ const MultipleSentence: React.FC = () => {
             </button>
           </div>
 
-          {/* Result panel (expanded) */}
-          {(isAnswered || isForgetClicked) && !isResultHidden && (
-            <div className={isCorrectAnswer && !isForgetClicked ? "result-panel_true" : "result-panel_false"}>
-              <div className="flex items-start justify-end mb-4 w-[90%] mx-auto">
-                <button
-                  className={`btn-toggle ${isCorrectAnswer ? "btn-toggle--green" : "btn-toggle--red"} displayBtnEnglish`}
-                  onClick={() => setIsResultHidden(true)}
-                >
-                  <FontAwesomeIcon icon={faChevronDown} />
-                </button>
-              </div>
-
-              <div className="flex items-start gap-4 mb-4 w-[90%] mx-auto">
-                <div
-                  className="btn-audio text-2xl"
-                  onClick={() => speak(renderWord?.word || "")}
-                  title="Phát âm"
-                >
-                  🔊
-                </div>
-                <div>
-                  <p className="text-4xl font-bold">{renderWord?.word}</p>
-                  <p className="text-xl text-stone-50/90">{renderWord?.ipa}</p>
-                  <p className="text-2xl text-stone-50/100 my-5">{renderWord?.meaning_vi}</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 mb-1 w-[90%] mx-auto">
-                <button
-                  className="btn-audio text-2xl"
-                  onClick={() => speak(renderWord?.exampleEn || "")}
-                  title="Phát âm ví dụ"
-                >
-                  🔊
-                </button>
-                <div className="flex-1">
-                  <div className="flex items-center justify-between gap-2">
-                    <p className="text-stone-50 text-2xl">
-                      {renderWord?.exampleEn}
-                      <button className="btn-eye" onClick={() => setIsTranslationHidden(!isTranslationHidden)}>
-                        {isTranslationHidden ? "🙈" : "👁"}
-                      </button>
-                    </p>
-                  </div>
-                  <p
-                    className={`text-stone-50/90 mt-6 text-xl ${isTranslationHidden ? "opacity-100 visible" : "opacity-0 invisible"}`}
-                  >
-                    {renderWord?.exampleVi}
-                  </p>
-                </div>
-              </div>
-
-              <div className="w-80 mx-auto mt-6">
-                <button
-                  className={`btn-primary btn-primary--active w-full `}
-                  onClick={handleContinue} >
-                  tiếp tục
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* Result panel (collapsed) */}
-          {(isAnswered || isForgetClicked) && isResultHidden && (
-            <div className={isCorrectAnswer && !isForgetClicked ? "result-panel_true" : "result-panel_false"}>
-              <button
-                className={`btn-toggle ${isCorrectAnswer ? "btn-toggle--green" : "btn-toggle--red"} hiddenBtn`}
-                onClick={() => setIsResultHidden(false)}
-              >
-                <FontAwesomeIcon icon={faChevronUp} />
-              </button>
-              <div className="text-center p-10">
-                <button
-                  className={`btn-primary btn-primary--active w-full ${!canContinue ? "opacity-70 cursor-not-allowed" : ""}`}
-                  onClick={handleContinue}
-                  disabled={!canContinue}
-                >
-                  {canContinue ? "Tiếp tục" : "Đang hiển thị..."}
-                </button>
-              </div>
-            </div>
+          {/* Result Panel */}
+          {currentWord && (
+            <EnglishPracticeResultPanel
+              isAnswered={isAnswered}
+              isForgetClicked={isForgetClicked}
+              isCorrectAnswer={isCorrectAnswer}
+              isResultHidden={isResultHidden}
+              setIsResultHidden={setIsResultHidden}
+              onContinue={handleContinue}
+              isNavigating={!canContinue}
+              word={renderWord || currentWord.word}
+              speak={speak}
+            />
           )}
         </div>
 

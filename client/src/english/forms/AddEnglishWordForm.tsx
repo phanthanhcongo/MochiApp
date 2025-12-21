@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { BiLogOutCircle, BiCodeBlock } from "react-icons/bi";
 import { Sparkles } from "lucide-react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { API_URL } from '../../apiClient';
 
 const CEFR_OPTIONS = ["A1", "A2", "B1", "B2", "C1", "C2"] as const;
 const IS_GRAMMAR_OPTIONS = [
@@ -280,7 +281,7 @@ const AddEnglishWordForm = () => {
         }]
       };
 
-      const res = await fetch('http://localhost:8000/api/en/practice/addWord', {
+      const res = await fetch(`${API_URL}/en/practice/addWord`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

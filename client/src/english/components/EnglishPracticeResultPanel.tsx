@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import type { ReviewWord } from '../utils/practiceStore';
 
-interface JpPracticeResultPanelProps {
+interface EnglishPracticeResultPanelProps {
   isAnswered: boolean;
   isForgetClicked: boolean;
   isCorrectAnswer: boolean | null;
@@ -15,7 +15,7 @@ interface JpPracticeResultPanelProps {
   speak: (text: string) => void;
 }
 
-const JpPracticeResultPanel: React.FC<JpPracticeResultPanelProps> = ({
+const EnglishPracticeResultPanel: React.FC<EnglishPracticeResultPanelProps> = ({
   isAnswered,
   isForgetClicked,
   isCorrectAnswer,
@@ -60,7 +60,7 @@ const JpPracticeResultPanel: React.FC<JpPracticeResultPanelProps> = ({
     <div className={panelClass}>
       <div className="flex items-start justify-end mb-2 sm:mb-3 md:mb-4 w-[95%] sm:w-[92%] md:w-[90%] mx-auto">
         <button
-          className={`btn-toggle ${toggleBtnColorClass} displayBtn`}
+          className={`btn-toggle ${toggleBtnColorClass} displayBtnEnglish`}
           onClick={() => setIsResultHidden(true)}
         >
           <FontAwesomeIcon icon={faChevronDown} />
@@ -69,31 +69,30 @@ const JpPracticeResultPanel: React.FC<JpPracticeResultPanelProps> = ({
 
       <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 overflow-y-auto max-h-[50vh] sm:max-h-[55vh] md:max-h-[60vh] scrollbar-hide">
         <div className="flex items-start gap-2 sm:gap-3 md:gap-4 mb-2 sm:mb-3 md:mb-4 w-[95%] sm:w-[92%] md:w-[90%] mx-auto">
-          <div className="btn-audio text-xl sm:text-2xl md:text-3xl flex-shrink-0" onClick={() => speak(word.reading_hiragana)} title="Phát âm">🔊</div>
+          <div className="btn-audio text-xl sm:text-2xl md:text-3xl flex-shrink-0" onClick={() => speak(word.word)} title="Phát âm">🔊</div>
           <div className="flex-1 min-w-0">
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-stone-50/90 break-words">{word.reading_hiragana} {word.hanviet ? `• ${word.hanviet}` : ''}</p>
-            <p className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-bold break-words">{word.kanji}</p>
-            <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-stone-50/100 my-2 sm:my-3 md:my-4 lg:my-5 break-words">{word.meaning_vi}</p>
-            {word.hanviet_explanation && (
-              <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-stone-50/90 mt-1 italic break-words">{word.hanviet_explanation}</p>
+            <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold break-words">{word.word}</p>
+            {word.ipa && (
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-stone-50/90 break-words">{word.ipa}</p>
             )}
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-stone-50/100 my-2 sm:my-3 md:my-4 lg:my-5 break-words">{word.meaning_vi}</p>
           </div>
         </div>
 
-        {(word.example || word.example_romaji || word.example_vi) && (
+        {(word.exampleEn || word.exampleVi) && (
           <div className="flex items-start gap-2 sm:gap-3 md:gap-4 mb-1 w-[95%] sm:w-[92%] md:w-[90%] mx-auto">
-            <button className="btn-audio text-xl sm:text-2xl md:text-3xl flex-shrink-0" onClick={() => speak(word.example || '')} title="Phát âm ví dụ">🔊</button>
+            <button className="btn-audio text-xl sm:text-2xl md:text-3xl flex-shrink-0" onClick={() => speak(word.exampleEn || '')} title="Phát âm ví dụ">🔊</button>
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between gap-2">
-                <div className="text-stone-50 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl break-words">
-                  {word.example}
+                <div className="text-stone-50 text-base sm:text-lg md:text-xl lg:text-2xl break-words">
+                  {word.exampleEn}
                   <button className="btn-eye ml-1 sm:ml-2" onClick={() => setIsTranslationHidden(!isTranslationHidden)}>
                     {isTranslationHidden ? '🙈' : '👁'}
                   </button>
                 </div>
               </div>
-              <p className={`text-stone-50/90 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mt-1 italic break-words ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.example_romaji}</p>
-              <p className={`text-stone-50/90 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl break-words ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.example_vi}</p>
+              <p className={`text-stone-50/90 text-sm sm:text-base md:text-lg lg:text-xl mt-1 italic break-words ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.exampleEn}</p>
+              <p className={`text-stone-50/90 text-sm sm:text-base md:text-lg lg:text-xl break-words ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.exampleVi}</p>
             </div>
           </div>
         )}
@@ -112,5 +111,5 @@ const JpPracticeResultPanel: React.FC<JpPracticeResultPanelProps> = ({
   );
 };
 
-export default JpPracticeResultPanel;
+export default EnglishPracticeResultPanel;
 

@@ -44,6 +44,26 @@ class Handler extends ExceptionHandler
                     'errors' => $exception->errors()
                 ], 422);
             }
+
+            // Handle database connection errors
+            if ($exception instanceof \Illuminate\Database\QueryException || 
+                $exception instanceof \PDOException) {
+                $message = $exception->getMessage();
+                $isConnectionError = 
+                    str_contains($message, 'SQLSTATE') ||
+                    str_contains($message, 'Connection') ||
+                    str_contains($message, 'could not find driver') ||
+                    str_contains($message, 'Access denied') ||
+                    str_contains($message, 'Unknown database');
+                
+                if ($isConnectionError) {
+                    return response()->json([
+                        'message' => 'Không thể kết nối đến database. Vui lòng kiểm tra database server có đang chạy không.',
+                        'error' => config('app.debug') ? $message : 'Database connection error',
+                        'type' => 'database_connection'
+                    ], 500);
+                }
+            }
         }
 
         return parent::render($request, $exception);

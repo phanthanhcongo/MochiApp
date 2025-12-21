@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { API_URL } from '../../apiClient';
 
 export type QuizType = 'multiple' | 'hiraganaPractice' | 'romajiPractice' | 'voicePractice' | 'multiCharStrokePractice';
 export type QuizType_withoutStroke = 'multiple' | 'hiraganaPractice' | 'romajiPractice' | 'voicePractice' ;
@@ -541,7 +542,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
     try {
       const token = localStorage.getItem('token');
 
-      const res = await fetch('http://localhost:8000/api/jp/practice/reviewed-words', {
+      const res = await fetch(`${API_URL}/jp/practice/reviewed-words`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',

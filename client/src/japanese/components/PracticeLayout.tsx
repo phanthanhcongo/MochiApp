@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaPlay, FaPause } from "react-icons/fa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
@@ -28,11 +28,48 @@ const PracticeLayout: React.FC<PracticeLayoutProps> = React.memo(({
   onExitPractice,
   children,
 }) => {
+  // Auto request fullscreen on mobile when entering practice
+  useEffect(() => {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      // Try to enter fullscreen mode
+      const requestFullscreen = async () => {
+        try {
+          const doc = document.documentElement as any;
+          
+          if (doc.requestFullscreen) {
+            await doc.requestFullscreen();
+          } else if (doc.webkitRequestFullscreen) {
+            // Safari
+            await doc.webkitRequestFullscreen();
+          } else if (doc.mozRequestFullScreen) {
+            // Firefox
+            await doc.mozRequestFullScreen();
+          } else if (doc.msRequestFullscreen) {
+            // IE/Edge
+            await doc.msRequestFullscreen();
+          }
+        } catch (error) {
+          // Fullscreen request failed (user interaction required on some browsers)
+          console.log('Fullscreen request failed:', error);
+        }
+      };
+
+      // Request fullscreen after a short delay to ensure component is mounted
+      const timer = setTimeout(() => {
+        requestFullscreen();
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-100 mx-auto ">
-      <div className="w-full min-h-screen mx-auto pt-6 relative bg-slate-50 ">
+      <div className="w-full min-h-screen mx-auto pt-3 sm:pt-4 md:pt-6 relative bg-slate-50 ">
         {/* Header with padding */}
-        <div className="mx-auto px-8">
+        <div className="mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           <PracticeProgressBar 
             completedCount={completedCount}
             totalCount={totalCount}
@@ -41,7 +78,7 @@ const PracticeLayout: React.FC<PracticeLayoutProps> = React.memo(({
           {/* Pause and progress text */}
           <div className="flex items-center justify-between mt-2">
             <button
-              className="bg-yellow-400 px-3 py-1 rounded-full flex items-center justify-center h-15 w-15 text-3xl text-slate-50"
+              className="bg-yellow-400 px-2 sm:px-2.5 md:px-3 py-1 rounded-full flex items-center justify-center h-12 w-12 sm:h-13 sm:w-13 md:h-15 md:w-15 text-xl sm:text-2xl md:text-3xl text-slate-50"
               onClick={onTogglePlay}
             >
               {isPlaying ? <FaPause /> : <FaPlay />}

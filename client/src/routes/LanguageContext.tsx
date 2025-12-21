@@ -1,9 +1,7 @@
 import React, { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { getApiUrl } from '../apiClient';
 
 export type Lang = 'jp' | 'en';
-
-// Gọi API trực tiếp đến cổng 8000
-const API_BASE = 'http://localhost:8000';
 
 type Ctx = {
   lang: Lang | null;              // null khi đang tải
@@ -23,7 +21,7 @@ export function useLanguage(): Ctx {
 async function fetchUserLanguage(signal?: AbortSignal): Promise<Lang> {
   const token = localStorage.getItem('token');
 
-  const res = await fetch(`${API_BASE}/api/me/language`, {
+  const res = await fetch(`${getApiUrl()}/me/language`, {
     credentials: 'include',
     method: 'GET',
     headers: {

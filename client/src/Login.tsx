@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from './routes/LanguageContext';
+import { apiGet, apiPost, ApiError, getErrorMessage, logError } from './apiClient';
+import { ErrorDisplay } from './components/ErrorDisplay';
 
 type Lang = 'jp' | 'en';
 
@@ -17,22 +19,19 @@ const LoginPage: React.FC = () => {
 
   const fetchLangPrefix = async (token: string): Promise<Lang | null> => {
     try {
-      const res = await fetch('http://localhost:8000/api/me/language', {
-        method: 'GET',
+      const data = await apiGet<{ language?: string }>('/me/language', {
         headers: {
-          Accept: 'application/json',
           Authorization: `Bearer ${token}`,
         },
-        credentials: 'include',
       });
-      if (!res.ok) return null;
-      const data = await res.json().catch(() => ({}));
       // FIX: server trả "language", không phải "target_language"
       const raw = String(data?.language ?? '').toLowerCase();
       if (raw.startsWith('en')) return 'en';
       if (raw.startsWith('ja') || raw.startsWith('jp')) return 'jp';
       return null;
-    } catch {
+    } catch (error) {
+      // Log nhưng không hiển thị lỗi cho user ở đây (đang check token)
+      logError(error, 'fetchLangPrefix');
       return null;
     }
   };
@@ -72,15 +71,10 @@ const LoginPage: React.FC = () => {
 
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:8000/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify({ name: email, password }),
+      const data = await apiPost<{ token: string; message: string }>('/auth/login', {
+        name: email,
+        password,
       });
-
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(data?.message || 'Đăng nhập thất bại');
 
       const token: string = data.token;
       localStorage.setItem('token', token);
@@ -92,8 +86,37 @@ const LoginPage: React.FC = () => {
       } else {
         setErr('Không lấy được ngôn ngữ người dùng.');
       }
-    } catch (e: any) {
-      setErr(e?.message || 'Đăng nhập thất bại');
+    } catch (error: unknown) {
+      logError(error, 'Login');
+      const errorMessage = getErrorMessage(error);
+      
+      // Kiểm tra nếu là lỗi database connection
+      if (error instanceof ApiError) {
+        // Lỗi database thường có message chứa "SQLSTATE" hoặc "Connection"
+        const isDbError = 
+          error.status === 500 && 
+          (error.message.includes('SQLSTATE') || 
+           error.message.includes('Connection') ||
+           error.message.includes('database') ||
+           error.message.includes('PDO') ||
+           error.responseBody?.error?.includes('SQLSTATE') ||
+           error.responseBody?.error?.includes('Connection'));
+        
+        if (isDbError) {
+          setErr(
+            'Không thể kết nối đến database.\n\n' +
+            'Vui lòng kiểm tra:\n' +
+            '• Database server có đang chạy không?\n' +
+            '• Docker container có đang chạy không? (nếu dùng Docker)\n' +
+            '• Cấu hình database trong .env có đúng không?\n\n' +
+            `Chi tiết: ${errorMessage}`
+          );
+        } else {
+          setErr(errorMessage);
+        }
+      } else {
+        setErr(errorMessage);
+      }
     } finally {
       setLoading(false);
     }
@@ -181,11 +204,8 @@ const LoginPage: React.FC = () => {
             </div>
 
             {err && (
-              <div className="flex items-center gap-4 p-5 bg-red-50 border-2 border-red-100 rounded-2xl text-red-700 animate-in fade-in slide-in-from-top-2 duration-300">
-                <svg className="h-6 w-6 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                </svg>
-                <p className="text-base font-bold">{err}</p>
+              <div className="space-y-2">
+                <ErrorDisplay error={err} showDetails={true} />
               </div>
             )}
 

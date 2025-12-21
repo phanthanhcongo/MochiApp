@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BiLogOutCircle, BiEdit, BiTrash } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from '../../apiClient';
 
 type FormState = {
   id: string;
@@ -141,7 +142,7 @@ const ReviewWordList: React.FC = () => {
     const token = localStorage.getItem('token');
     if (!token) return;
 
-    fetch('http://localhost:8000/api/jp/practice/listWord', {
+    fetch(`${API_URL}/jp/practice/listWord`, {
       headers: {
         'Accept': 'application/json',
         'Authorization': `Bearer ${token}`,
@@ -175,7 +176,7 @@ const ReviewWordList: React.FC = () => {
     try {
       const token = localStorage.getItem('token');
       const promises = Array.from(selectedIds).map(id =>
-        fetch(`http://localhost:8000/api/jp/practice/updateWord/${id}`, {
+        fetch(`${API_URL}/jp/practice/updateWord/${id}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -220,7 +221,7 @@ const ReviewWordList: React.FC = () => {
     try {
       const token = localStorage.getItem('token');
       const promises = Array.from(selectedIds).map(id =>
-        fetch(`http://localhost:8000/api/jp/practice/updateWord/${id}`, {
+        fetch(`${API_URL}/jp/practice/updateWord/${id}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -267,7 +268,7 @@ const ReviewWordList: React.FC = () => {
     try {
       const token = localStorage.getItem('token');
       const promises = Array.from(selectedIds).map(id =>
-        fetch(`http://localhost:8000/api/jp/practice/delete/${id}`, {
+        fetch(`${API_URL}/jp/practice/delete/${id}`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -303,7 +304,7 @@ const ReviewWordList: React.FC = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:8000/api/jp/practice/delete/${id}`, {
+      const res = await fetch(`${API_URL}/jp/practice/delete/${id}`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',

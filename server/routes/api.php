@@ -12,11 +12,44 @@ Route::options('/test-cors', function () {
 });
 
 Route::get('/test-cors', function () {
-    return response()->json([
+    $origin = request()->header('Origin');
+    $referer = request()->header('Referer');
+    $host = request()->header('Host');
+    $ip = request()->ip();
+    $method = request()->method();
+    
+    // Kiểm tra CORS headers
+    $corsHeaders = [
+        'Access-Control-Allow-Origin' => response()->headers->get('Access-Control-Allow-Origin'),
+        'Access-Control-Allow-Methods' => response()->headers->get('Access-Control-Allow-Methods'),
+        'Access-Control-Allow-Headers' => response()->headers->get('Access-Control-Allow-Headers'),
+        'Access-Control-Allow-Credentials' => response()->headers->get('Access-Control-Allow-Credentials'),
+    ];
+    
+    $response = response()->json([
         'message' => 'CORS is working!',
         'timestamp' => now()->toDateTimeString(),
-        'headers' => request()->headers->all(),
+        'origin' => $origin,
+        'referer' => $referer,
+        'host' => $host,
+        'client_ip' => $ip,
+        'method' => $method,
+        'cors_headers_in_response' => $corsHeaders,
+        'all_headers' => request()->headers->all(),
     ], 200);
+    
+    // Thêm CORS headers manually nếu cần
+    if ($origin) {
+        $response->header('Access-Control-Allow-Origin', $origin);
+    } else {
+        // Nếu origin null, cho phép tất cả (chỉ trong dev)
+        $response->header('Access-Control-Allow-Origin', '*');
+    }
+    $response->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    $response->header('Access-Control-Allow-Headers', '*');
+    $response->header('Access-Control-Allow-Credentials', 'true');
+    
+    return $response;
 });
 
 Route::post('/test-cors', function () {

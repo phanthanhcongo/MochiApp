@@ -7,6 +7,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaPlay, FaPause } from "react-icons/fa";
 import { BiLogOutCircle } from "react-icons/bi";
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
+import { API_URL } from '../../apiClient';
+import EnglishPracticeResultPanel from '../components/EnglishPracticeResultPanel';
 
 interface AnswerOption {
   text: string;
@@ -22,7 +24,6 @@ const MultipleChoiceQuiz: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
   const [isResultHidden, setIsResultHidden] = useState(false);
-  const [isTranslationHidden, setIsTranslationHidden] = useState(false);
   const [isForgetClicked, setIsForgetClicked] = useState(false);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [showConfirmExit, setShowConfirmExit] = useState(false);
@@ -46,7 +47,7 @@ const MultipleChoiceQuiz: React.FC = () => {
     const fetchAllWords = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch('http://localhost:8000/api/en/practice/listWord', {
+        const res = await fetch(`${API_URL}/en/practice/listWord`, {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
@@ -190,7 +191,6 @@ const MultipleChoiceQuiz: React.FC = () => {
     setSelectedIndex(null);
     setIsAnswered(false);
     setIsResultHidden(false);
-    setIsTranslationHidden(false);
     setIsForgetClicked(false);
     setIsCorrectAnswer(null);
     setShowConfirmExit(false);
@@ -257,7 +257,7 @@ const MultipleChoiceQuiz: React.FC = () => {
         exit={{ opacity: 0, x: -100 }}
         transition={{ duration: 0.4 }}
         className="min-h-screen bg-gray-100 relative"  >
-        <div className="flex flex-col items-center justify-center w-full  mx-auto px-8 py-12">
+        <div className="flex flex-col items-center justify-center w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-12">
           <div className="relative w-full h-5 mb-6"> {/* wrapper chứa thanh tiến độ + runner */}
             {/* Thanh tiến độ nền */}
             <div className="w-full h-full bg-gray-200 rounded-full overflow-hidden">
@@ -284,11 +284,11 @@ const MultipleChoiceQuiz: React.FC = () => {
             </button>
             <div className="text-xs">1 / {totalWords}</div>
           </div>
-          <div className="text-center pb-10 w-full">
-            <h4 className="text-gray-600 mb-4 text-3xl">Chọn đúng nghĩa của từ</h4>
-            <h1 className="text-6xl font-bold text-gray-900">{word.word}</h1>
+          <div className="text-center pb-4 sm:pb-6 md:pb-8 lg:pb-10 w-full">
+            <h4 className="text-gray-600 mb-2 sm:mb-3 md:mb-4 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn đúng nghĩa của từ</h4>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900">{word.word}</h1>
           </div>
-          <div className="flex flex-col gap-4 mb-8 w-full ">
+          <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8 w-full ">
             {answers.map((ans, idx) => {
               const isSelected = selectedIndex === idx;
               let statusClass = 'answer-option--default';
@@ -310,11 +310,11 @@ const MultipleChoiceQuiz: React.FC = () => {
                   onClick={() => handleSelect(idx)}
                   disabled={isAnswered}
                 >
-                  <div className="flex items-center gap-6 w-full">
+                  <div className="flex items-center gap-3 sm:gap-4 md:gap-6 w-full">
                     <span className="option-index">
                       {idx + 1}
                     </span>
-                    <div className="flex-1 text-center font-bold text-2xl pr-10">
+                    <div className="flex-1 text-center font-bold text-base sm:text-lg md:text-xl lg:text-2xl pr-4 sm:pr-6 md:pr-8 lg:pr-10">
                       {ans.text}
                     </div>
                   </div>
@@ -322,7 +322,7 @@ const MultipleChoiceQuiz: React.FC = () => {
               );
             })}
           </div>
-          <div className="flex flex-col items-center gap-6 p-8 w-full">
+          <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-6 p-4 sm:p-6 md:p-8 w-full">
             <button
               className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-6 py-3`}
               onClick={handleCheck}
@@ -334,52 +334,17 @@ const MultipleChoiceQuiz: React.FC = () => {
             </button>
           </div>
 
-          {isResultShown && !isResultHidden && (
-            <div className={isCorrectAnswer && !isForgetClicked ? 'result-panel_true' : 'result-panel_false'}>
-              <div className="flex items-start justify-end mb-4 w-[90%] mx-auto">
-                <button className={`btn-toggle ${isCorrectAnswer ? 'btn-toggle--green' : 'btn-toggle--red'} displayBtnEnglish `} onClick={() => setIsResultHidden(true)}>
-                  <FontAwesomeIcon icon={faChevronDown} />
-                </button>
-              </div>
-              <div className="flex items-start gap-4 mb-4 w-[90%] mx-auto">
-                <div className="btn-audio text-2xl" onClick={() => speak(word.word)} title="Phát âm">🔊</div>
-                <div>
-                  <p className="text-4xl font-bold">{word.word}</p>
-                   <p className="text-xl text-stone-50/90">{word.ipa} </p>
-                  <p className="text-2xl text-stone-50/100 my-5">{word.meaning_vi}</p>
-                  {/* <p className="text-xl text-stone-50/90 mt-1 italic">{word.word}</p> */}
-                </div>
-              </div>
-              <div className="flex items-start gap-4 mb-1 w-[90%] mx-auto">
-                <button className="btn-audio text-2xl" onClick={() => speak(word.exampleEn || '')} title="Phát âm ví dụ">🔊</button>
-                <div className="flex-1">
-                  <div className="flex items-center justify-between gap-2">
-                    <p className="text-stone-50 text-2xl">{word.exampleEn}
-                      <button className="btn-eye" onClick={() => setIsTranslationHidden(!isTranslationHidden)}>
-                        {isTranslationHidden ? '🙈' : '👁'}
-                      </button>
-                    </p>
-                  </div>
-                  <p className={`text-stone-50/90 text-lg mt-1 italic ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.exampleEn}</p>
-                  <p className={`text-stone-50/90 text-lg ${isTranslationHidden ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>{word.exampleVi}</p>
-                </div>
-              </div>
-              <div className="w-80 mx-auto mt-6">
-                <button className="btn-primary btn-primary--active w-full" onClick={handleContinue}>Tiếp tục</button>
-              </div>
-            </div>
-          )}
-
-          {isResultShown && isResultHidden && (
-            <div className={isCorrectAnswer && !isForgetClicked ? 'result-panel_true' : 'result-panel_false'}>
-              <button className={`btn-toggle ${isCorrectAnswer ? 'btn-toggle--green' : 'btn-toggle--red'} hiddenBtn`} onClick={() => setIsResultHidden(false)}>
-                <FontAwesomeIcon icon={faChevronUp} />
-              </button>
-              <div className=" text-center  p-10">
-                <button className="btn-primary btn-primary--active w-full" onClick={handleContinue}>Tiếp tục</button>
-              </div>
-            </div>
-          )}
+          <EnglishPracticeResultPanel
+            isAnswered={isAnswered}
+            isForgetClicked={isForgetClicked}
+            isCorrectAnswer={isCorrectAnswer}
+            isResultHidden={isResultHidden}
+            setIsResultHidden={setIsResultHidden}
+            onContinue={handleContinue}
+            isNavigating={false}
+            word={currentWord.word}
+            speak={speak}
+          />
         </div>
         {showConfirmExit && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">

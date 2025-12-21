@@ -1,6 +1,7 @@
 import { useRef, useState, type ChangeEvent } from 'react';
 import { BiLogOutCircle, BiCodeBlock } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../apiClient';
 
 const ImportVocabularyButton = () => {
   const [jsonText, setJsonText] = useState<string>('');
@@ -56,7 +57,7 @@ const handleImport = async () => {
   try {
     const token = localStorage.getItem('token');
 
-    const res = await fetch('http://localhost:8000/api/en/vocabulary/import', {
+    const res = await fetch(`${API_URL}/en/vocabulary/import`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',

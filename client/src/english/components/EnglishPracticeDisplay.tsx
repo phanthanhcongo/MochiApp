@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { BiLogOutCircle, BiEdit } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+import { getApiUrl } from '../../apiClient';
 
 // ----- Types (linh hoạt, khớp với API hiện có) -----
 type Choice = { id: number; exercise_id: number; content: string; is_correct: number };
@@ -63,7 +64,7 @@ export default function EnglishPracticeDisplay() {
         const token = localStorage.getItem("token");
         const requestBody = {}; // nếu API yêu cầu tham số (ví dụ page, limit, filter) thì đặt ở đây
 
-        const res = await fetch("http://localhost:8000/api/en/practice/display", {
+        const res = await fetch(`${getApiUrl()}/en/practice/display`, {
           method: "POST",
           headers: {
             "Accept": "application/json",
@@ -173,7 +174,7 @@ export default function EnglishPracticeDisplay() {
     if (deleteId === null) return;
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`http://localhost:8000/api/en/practice/delete/${deleteId}`, {
+      const res = await fetch(`${getApiUrl()}/en/practice/delete/${deleteId}`, {
         method: "DELETE",
         headers: {
           "Accept": "application/json",
@@ -213,7 +214,7 @@ export default function EnglishPracticeDisplay() {
         const word = words.find(w => w.id === id);
         if (!word) return Promise.resolve(null);
         
-        return fetch(`http://localhost:8000/api/en/practice/update/${id}`, {
+        return fetch(`${getApiUrl()}/en/practice/update/${id}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -269,7 +270,7 @@ export default function EnglishPracticeDisplay() {
         const word = words.find(w => w.id === id);
         if (!word) return Promise.resolve(null);
         
-        return fetch(`http://localhost:8000/api/en/practice/update/${id}`, {
+        return fetch(`${getApiUrl()}/en/practice/update/${id}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -324,7 +325,7 @@ export default function EnglishPracticeDisplay() {
     try {
       const token = localStorage.getItem("token");
       const promises = Array.from(selectedIds).map(id =>
-        fetch(`http://localhost:8000/api/en/practice/delete/${id}`, {
+        fetch(`${getApiUrl()}/en/practice/delete/${id}`, {
           method: "DELETE",
           headers: {
             "Accept": "application/json",

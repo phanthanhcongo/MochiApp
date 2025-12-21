@@ -327,12 +327,12 @@ useEffect(() => {
       onExitComplete={() => setIsExiting(false)}
       className=""
     >
-      <div className="flex flex-col items-center justify-center min-h-[60vh] w-full  mx-auto px-8 py-12">
+      <div className="flex flex-col items-center justify-center min-h-[60vh] w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-12">
         {/* Question (Phát âm thay vì hiển thị chữ) */}
-        <div className="text-center mb-8 w-full">
-          <h4 className="text-gray-600 mb-6 text-3xl">Chọn đáp án đúng</h4>
+        <div className="text-center mb-4 sm:mb-6 md:mb-8 w-full">
+          <h4 className="text-gray-600 mb-3 sm:mb-4 md:mb-6 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn đáp án đúng</h4>
           <button
-            className="bg-slate-200 hover:bg-slate-600 p-5 w-24 h-24 rounded-full text-3xl font-bold text-gray-800 transition"
+            className="bg-slate-200 hover:bg-slate-600 p-3 sm:p-4 md:p-5 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 transition"
             onClick={() => speak(reading)}
             title="Phát âm từ"
           >
@@ -340,7 +340,7 @@ useEffect(() => {
           </button>
         </div>
         {/* Answers */}
-        <div className="flex flex-col gap-4 mb-8 w-full ">
+        <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8 w-full ">
           {answers.map((ans, idx) => {
             const isSelected = selectedIndex === idx;
             let statusClass = 'answer-option--default';
@@ -362,11 +362,11 @@ useEffect(() => {
                 onClick={() => handleSelect(idx)}
                 disabled={isAnswered}
               >
-                <div className="flex items-center gap-6 w-full">
+                <div className="flex items-center gap-3 sm:gap-4 md:gap-6 w-full">
                   <span className="option-index">
                     {idx + 1}
                   </span>
-                  <div className="flex-1 text-center font-bold text-2xl pr-10">
+                  <div className="flex-1 text-center font-bold text-base sm:text-lg md:text-xl lg:text-2xl pr-4 sm:pr-6 md:pr-8 lg:pr-10">
                     {ans.text}
                   </div>
                 </div>
@@ -376,7 +376,7 @@ useEffect(() => {
         </div>
 
         {/* Check & Forget */}
-        <div className="flex flex-col items-center gap-6 p-8 w-full">
+        <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-6 p-4 sm:p-6 md:p-8 w-full">
           <button
             className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-6 py-3`}
             onClick={handleCheck}
