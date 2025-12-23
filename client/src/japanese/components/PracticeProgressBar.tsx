@@ -20,7 +20,7 @@ const PracticeProgressBar: React.FC<PracticeProgressBarProps> = ({
         {/* Thanh tiến độ nền */}
         <div className="w-full h-full bg-gray-200 rounded-full overflow-hidden">
           <div
-            className="h-full bg-white rounded-full transition-all duration-500 ease-out will-change-[width]"
+            className="h-full bg-yellow-400 rounded-full transition-all duration-500 ease-out will-change-[width]"
             style={{ width: `${progress}%` }}
           />
         </div>
