@@ -7,7 +7,7 @@ import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
 
 
 
-const MultipleChoiceQuiz: React.FC = () => {
+const MultipleChoiceQuiz: React.FC = React.memo(() => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -18,8 +18,7 @@ const MultipleChoiceQuiz: React.FC = () => {
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [isNavigating, setIsNavigating] = useState(false);
   const isProcessingRef = useRef(false);
-  const [isExiting, setIsExiting] = useState(false);
-  const exitTimeoutRef = useRef<number | null>(null);
+  const [isExiting] = useState(false);
   const [answers, setAnswers] = useState<Array<{ text: string; isCorrect: boolean }>>([]);
 
   const {
@@ -252,45 +251,18 @@ const MultipleChoiceQuiz: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isAnswered, isForgetClicked, selectedIndex]);
 
-  // Ẩn component ngay khi đang navigate hoặc không phải quiz type hiện tại
-  // Điều này ngăn component cũ render trong nháy mắt khi chuyển quiz type
+  // Component is always mounted, visibility handled by PracticeWrapper
   const currentPath = location.pathname;
   const isCorrectRoute = currentPath.includes('multiple');
   
-  // Nếu đang navigate hoặc previousType đã được set thành type khác → ẩn component
-  // previousType được set ngay lập tức trong navigateToQuiz để chặn render của type cũ
-  const shouldHide = storeIsNavigating || (previousType && previousType !== 'multiple');
-  
-  // Đồng bộ exit animation với state updates
-  useEffect(() => {
-    if (shouldHide && !isExiting) {
-      setIsExiting(true);
-      exitTimeoutRef.current = setTimeout(() => {
-        // Component sẽ được unmount bởi shouldHide check
-      }, 400);
-    } else if (!shouldHide && isExiting) {
-      setIsExiting(false);
-      if (exitTimeoutRef.current) {
-        clearTimeout(exitTimeoutRef.current);
-        exitTimeoutRef.current = null;
-      }
-    }
-    
-    return () => {
-      if (exitTimeoutRef.current) {
-        clearTimeout(exitTimeoutRef.current);
-      }
-    };
-  }, [shouldHide, isExiting]);
-  
-  if (!currentWord || shouldHide || !isCorrectRoute) {
+  if (!currentWord || !isCorrectRoute) {
     return null;
   }
 
   // Chỉ render khi đã có đủ 3 đáp án sẵn sàng
   if (answers.length !== 3) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex items-center justify-center h-full">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto mb-4"></div>
           <p className="text-gray-600">Đang tải đáp án...</p>
@@ -322,12 +294,17 @@ const MultipleChoiceQuiz: React.FC = () => {
       keyValue={`${word.id}-${previousType || 'none'}`}
       isExiting={isExiting}
       onExitComplete={() => setIsExiting(false)}
-      className="w-full flex items-center justify-center max-h-screen overflow-y-auto"
+      className="w-full h-full flex items-center justify-center"
     >
-        <div className="flex flex-col items-center justify-center w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-12">
+        <div 
+          className="flex flex-col items-center justify-center h-full w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 pt-35"
+          style={{
+            willChange: 'transform, opacity',
+          }}
+        >
           <div className="text-center pb-4 sm:pb-6 md:pb-8 lg:pb-10 w-full">
             <h4 className="text-gray-600 mb-2 sm:mb-3 md:mb-4 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn đúng nghĩa của từ</h4>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900">{word.kanji}</h1>
+            <h1 className="text-6xl lg:text-7xl font-bold text-gray-900">{word.kanji}</h1>
           </div>
           <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8 w-full ">
             {answers.map((ans, idx) => {
@@ -389,6 +366,8 @@ const MultipleChoiceQuiz: React.FC = () => {
         />
     </PracticeAnimationWrapper>
   );
-};
+});
+
+MultipleChoiceQuiz.displayName = 'MultipleChoiceQuiz';
 
 export default MultipleChoiceQuiz;

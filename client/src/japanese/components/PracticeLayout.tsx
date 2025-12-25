@@ -66,8 +66,8 @@ const PracticeLayout: React.FC<PracticeLayoutProps> = React.memo(({
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 mx-auto ">
-      <div className="w-full min-h-screen mx-auto pt-3 sm:pt-4 md:pt-6 relative bg-slate-50 ">
+    <div className="flex flex-col h-full bg-gray-100">
+      <div className="w-full mx-auto pt-3 sm:pt-4 md:pt-6 relative bg-slate-50 shrink-0">
         {/* Header with padding */}
         <div className="mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           <PracticeProgressBar 
@@ -85,9 +85,11 @@ const PracticeLayout: React.FC<PracticeLayoutProps> = React.memo(({
             </button>
           </div>
         </div>
+      </div>
 
-        {/* Practice content without padding */}
-        <div className="mx-auto w-full max-w-6xl ">
+      {/* Practice content wrapper - takes remaining space */}
+      <div className="flex-1 overflow-hidden bg-slate-50">
+        <div className="mx-auto w-full  h-full overflow-y-auto cong_1">
           {children}
         </div>
       </div>
@@ -95,7 +97,7 @@ const PracticeLayout: React.FC<PracticeLayoutProps> = React.memo(({
       {/* Confirm Exit Modal */}
       {showConfirmExit && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="relative bg-slate-50 p-6 rounded-t-2xl shadow-xl w-full text-center animate-slideUp space-y-4">
+          <div className="relative bg-slate-50 p-6 rounded-t-2xl shadow-md w-full text-center animate-slideUp space-y-4">
             {/* Nút đóng */}
             <button
               className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-full transition"

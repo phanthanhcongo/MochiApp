@@ -173,7 +173,7 @@ const AddEnglishWordForm = () => {
         }
         throw err;
       }
-    };AIzaSyCJz5jXTFueLrfGiscD-G4EAHgzP_NB5B0
+    };
 
     try {
       const data = await fetchWithFallback();

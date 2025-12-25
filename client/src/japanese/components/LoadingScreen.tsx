@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const LoadingScreen: React.FC = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-slate-50">
+    <div className="flex items-center justify-center h-full bg-slate-50">
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}

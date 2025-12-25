@@ -141,7 +141,7 @@ const handleStartPractice = () => {
 </div>
 
       <Header />
-      <div className="practice-page-container bg-[url('https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbg.366f773b.webp&w=1920&q=75')] bg-cover bg-center
+      <div className="practice-page-container bg-[url('/103372501_p0.png')] bg-cover bg-center
       flex h-screen bg-gray-200 text-xs sm:text-sm md:text-base lg:text-lg overflow-hidden">
 
   {/* Left Column */}

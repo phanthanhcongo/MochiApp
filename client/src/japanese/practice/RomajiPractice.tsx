@@ -4,7 +4,7 @@ import { usePracticeSession } from '../utils/practiceStore';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
-const RomajiPractice: React.FC = () => {
+const RomajiPractice: React.FC = React.memo(() => {
   const [userRomajiAnswer, setUserRomajiAnswer] = useState('');
   const [isAnswered, setIsAnswered] = useState(false);
   const [isResultHidden, setIsResultHidden] = useState(false);
@@ -13,8 +13,7 @@ const RomajiPractice: React.FC = () => {
   const [hasAccentWarning, setHasAccentWarning] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
   const isProcessingRef = useRef(false);
-  const [isExiting, setIsExiting] = useState(false);
-  const exitTimeoutRef = useRef<number | null>(null);
+  const [isExiting] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -180,34 +179,11 @@ const RomajiPractice: React.FC = () => {
       markAnswer(false);
     }
   };
-  // Ẩn component ngay khi đang navigate hoặc không phải quiz type hiện tại
+  // Component is always mounted, visibility handled by PracticeWrapper
   const currentPath = location.pathname;
   const isCorrectRoute = currentPath.includes('romajiPractice');
-  const shouldHide = storeIsNavigating || (previousType && previousType !== 'romajiPractice');
   
-  // Đồng bộ exit animation với state updates
-  useEffect(() => {
-    if (shouldHide && !isExiting) {
-      setIsExiting(true);
-      exitTimeoutRef.current = setTimeout(() => {
-        // Component sẽ được unmount bởi shouldHide check
-      }, 400);
-    } else if (!shouldHide && isExiting) {
-      setIsExiting(false);
-      if (exitTimeoutRef.current) {
-        clearTimeout(exitTimeoutRef.current);
-        exitTimeoutRef.current = null;
-      }
-    }
-    
-    return () => {
-      if (exitTimeoutRef.current) {
-        clearTimeout(exitTimeoutRef.current);
-      }
-    };
-  }, [shouldHide, isExiting]);
-  
-  if (!currentWord || shouldHide || !isCorrectRoute) {
+  if (!currentWord || !isCorrectRoute) {
     return null;
   }
   
@@ -218,9 +194,14 @@ const RomajiPractice: React.FC = () => {
       keyValue={`${word.id}-${previousType || 'none'}`}
       isExiting={isExiting}
       onExitComplete={() => setIsExiting(false)}
-      className=""
+      className="h-full"
     >
-        <div className="flex flex-col items-center justify-center min-h-[60vh] w-full max-w-4xl mx-auto px-8 py-12">
+        <div 
+          className="flex flex-col items-center justify-center h-full w-full"
+          style={{
+            willChange: 'transform, opacity',
+          }}
+        >
           <div className="text-center w-full">
             <h4 className="text-gray-600 mb-6 text-3xl">Nhập cách đọc romaji của từ sau:</h4>
             <h1 className="text-6xl font-bold text-gray-900 mb-10">{question}</h1>
@@ -275,6 +256,8 @@ const RomajiPractice: React.FC = () => {
         />
     </PracticeAnimationWrapper>
   );
-};
+});
+
+RomajiPractice.displayName = 'RomajiPractice';
 
 export default RomajiPractice;

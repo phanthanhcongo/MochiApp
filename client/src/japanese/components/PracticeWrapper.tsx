@@ -17,6 +17,7 @@ const PracticeWrapper: React.FC = () => {
   const [showConfirmExit, setShowConfirmExit] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [displayQuizType, setDisplayQuizType] = useState<QuizType | null>(null);
+  const [exitingQuizType, setExitingQuizType] = useState<QuizType | null>(null);
   const prevQuizTypeRef = useRef<QuizType | null>(null);
 
   // Lấy quizType từ pathname
@@ -27,25 +28,14 @@ const PracticeWrapper: React.FC = () => {
     return validTypes.includes(quizTypeFromPath) ? quizTypeFromPath : null;
   }, [location.pathname]);
 
-  // Render component quiz tương ứng
-  const quizComponent = useMemo(() => {
-    if (!displayQuizType) return null;
-    
-    switch (displayQuizType) {
-      case 'multiple':
-        return <MultipleChoiceQuiz />;
-      case 'hiraganaPractice':
-        return <HiraganaPractice />;
-      case 'romajiPractice':
-        return <RomajiPractice />;
-      case 'voicePractice':
-        return <VoicePractice />;
-      case 'multiCharStrokePractice':
-        return <MultiCharStrokePractice />;
-      default:
-        return null;
-    }
-  }, [displayQuizType]);
+  // Render all quiz components, keep them mounted
+  const quizComponents = useMemo(() => ({
+    multiple: <MultipleChoiceQuiz />,
+    hiraganaPractice: <HiraganaPractice />,
+    romajiPractice: <RomajiPractice />,
+    voicePractice: <VoicePractice />,
+    multiCharStrokePractice: <MultiCharStrokePractice />,
+  }), []);
 
   // Xử lý animation khi quizType thay đổi
   useEffect(() => {
@@ -57,6 +47,8 @@ const PracticeWrapper: React.FC = () => {
 
     // Nếu quizType thay đổi, bắt đầu animation
     if (prevQuizTypeRef.current !== quizType && prevQuizTypeRef.current !== null) {
+      // Track the exiting type
+      setExitingQuizType(prevQuizTypeRef.current);
       // Bắt đầu fade out
       setIsAnimating(true);
       
@@ -69,9 +61,10 @@ const PracticeWrapper: React.FC = () => {
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             setIsAnimating(false);
+            setExitingQuizType(null);
           });
         });
-      }, 250); // Thời gian fade out (một nửa của tổng thời gian animation)
+      }, 125); // Half of 250ms animation
 
       return () => clearTimeout(timeoutId);
     } else if (prevQuizTypeRef.current === null) {
@@ -79,6 +72,7 @@ const PracticeWrapper: React.FC = () => {
       setDisplayQuizType(quizType);
       prevQuizTypeRef.current = quizType;
       setIsAnimating(false);
+      setExitingQuizType(null);
     }
   }, [quizType]);
 
@@ -101,10 +95,12 @@ const PracticeWrapper: React.FC = () => {
     navigate('/jp/summary');
   };
 
-  // Nếu không có quizType hoặc quizComponent, không render gì
-  if (!quizType || !quizComponent) {
+  // Nếu không có quizType, không render gì
+  if (!quizType) {
     return null;
   }
+
+  const validTypes: QuizType[] = ['multiple', 'hiraganaPractice', 'romajiPractice', 'voicePractice', 'multiCharStrokePractice'];
 
   return (
     <PracticeLayout 
@@ -118,15 +114,47 @@ const PracticeWrapper: React.FC = () => {
       onExitPractice={handleExitPractice}
     >
       <div
-        className={`transition-opacity duration-500 ease-in-out w-full ${
-          isAnimating ? 'opacity-0' : 'opacity-100'
-        }`}
+        className="relative w-full flex-1 h-full"
         style={{
-          willChange: 'opacity',
-          minHeight: '100%',
+          willChange: 'transform, opacity',
         }}
       >
-        {quizComponent}
+        {validTypes.map((type) => {
+          const Component = quizComponents[type];
+          if (!Component) return null;
+          
+          const isCurrent = displayQuizType === type;
+          const isExiting = exitingQuizType === type;
+          
+          // Show if current, or if exiting and animating (for exit animation)
+          const shouldShow = isCurrent || (isExiting && isAnimating);
+          
+          // Determine transform based on state
+          let transform = 'translateX(-100px)'; // Default: hidden left
+          if (isCurrent && !isAnimating) {
+            transform = 'translateX(0)'; // Active: center
+          } else if (isCurrent && isAnimating) {
+            transform = 'translateX(0)'; // Entering: from left to center
+          } else if (isExiting && isAnimating) {
+            transform = 'translateX(100px)'; // Exiting: to right
+          }
+          
+          return (
+            <div
+              key={type}
+              className="absolute inset-0 w-full"
+              style={{
+                opacity: shouldShow ? (isCurrent ? 1 : 0) : 0,
+                pointerEvents: isCurrent && !isAnimating ? 'auto' : 'none',
+                transform,
+                transition: 'opacity 0.25s ease-out, transform 0.25s ease-out',
+                willChange: 'transform, opacity',
+              }}
+            >
+              {Component}
+            </div>
+          );
+        })}
       </div>
     </PracticeLayout>
   );

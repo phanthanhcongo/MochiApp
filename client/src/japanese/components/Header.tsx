@@ -122,15 +122,15 @@ const Header = () => {
   // };
 
   return (
-    <header className="relative w-full backdrop-blur-md bg-gradient-to-r from-white/95 via-blue-50/95 to-purple-50/95 border-b border-gray-200/50 shadow-lg shadow-gray-200/20 z-40">
-      <div className="flex items-center justify-between px-3 sm:px-4 md:px-6 lg:px-12 xl:px-16 py-1.5 sm:py-2 md:py-2.5">
+    <header className="relative w-full backdrop-blur-md bg-gradient-to-r from-white/95 via-blue-50/95 to-purple-50/95 border-b border-gray-200/50 shadow-lg shadow-gray-200/20 z-40">                                           
+      <div className="flex items-center justify-between px-4  md:px-6 lg:px-12 xl:px-16 py-1.5 sm:py-2 md:py-2.5">
         {/* Logo */}
         <div className="flex items-center min-w-0 flex-shrink-0">
           <Link 
             to={buildTo("/home")}
             className="relative block overflow-visible"
           >
-            <h1 className="relative text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-500 bg-clip-text text-transparent drop-shadow-sm overflow-visible whitespace-nowrap" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundImage: 'linear-gradient(to right, #eab308, #f59e0b, #f97316)' }}>
+            <h1 className="relative text-3xl font-extrabold bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-500 bg-clip-text text-transparent drop-shadow-sm overflow-visible whitespace-nowrap" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundImage: 'linear-gradient(to right, #eab308, #f59e0b, #f97316)' }}>
               成功
             </h1>
           </Link>
@@ -169,11 +169,11 @@ const Header = () => {
           >
             <div className="relative">
               <img
-                src={avatarUrl || "https://st.quantrimang.com/photos/image/2022/11/21/tai-sao-gojo-lai-deo-bit-mat-3.jpg"}
+                src={avatarUrl || ""}
                 alt="User"
-                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-yellow-400 shadow-lg object-cover"
+                className="w-10 h-10 rounded-full border-2 border-yellow-400 shadow-lg object-cover"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = "https://st.quantrimang.com/photos/image/2022/11/21/tai-sao-gojo-lai-deo-bit-mat-3.jpg";
+                  (e.target as HTMLImageElement).src = "";
                 }}
               />
               {mobileMenuOpen && (

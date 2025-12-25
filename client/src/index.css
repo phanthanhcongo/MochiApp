@@ -2,6 +2,7 @@
 
 @layer base {
   html, body {
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
     /* Giúp tính toán kích thước chuẩn hơn */
@@ -111,6 +112,22 @@
     }
   }
 }
+/* Media query dành riêng cho iPhone 12/13/14 Pro Max */
+@media only screen 
+  and (device-width: 428px) 
+  and (device-height: 926px) 
+  and (-webkit-device-pixel-ratio: 3) {
+    
+  html, body {
+    overflow: hidden;
+    height: 100%;
+    /* iOS Safari đôi khi cần thêm các thuộc tính này để khóa triệt để */
+    position: fixed; 
+    width: 100%;
+    touch-action: none; /* Chặn mọi tương tác chạm gây cuộn */
+  }
+}
+
 .falseAnswer {
   @apply bg-red-500 text-stone-50;
 }

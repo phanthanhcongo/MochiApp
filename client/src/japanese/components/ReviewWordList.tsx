@@ -328,9 +328,9 @@ const ReviewWordList: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen mx-auto px-4">
+    <div className="flex flex-col h-full mx-auto px-4">
       {/* Header + Search */}
-      <div className="bg-white/95 backdrop-blur-sm fixed top-0 left-1/2 -translate-x-1/2 w-full xl:w-[70%] z-30 shadow-sm border-b border-gray-100">
+      <div className="bg-white/95 backdrop-blur-sm shrink-0 w-full xl:w-[70%] mx-auto z-30 shadow-sm border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6 py-2">
           <div className="flex items-center justify-between mb-2 relative">
             <button
@@ -501,7 +501,7 @@ const ReviewWordList: React.FC = () => {
         </div>
       </div>
 
-      <div className="pt-44 pb-10 max-w-6xl mx-auto">
+      <div className="flex-1 overflow-y-auto pb-10 max-w-6xl mx-auto">
         {displayedWords.map((word, index) => {
           const wid = String(word.id ?? word._id);
           return (

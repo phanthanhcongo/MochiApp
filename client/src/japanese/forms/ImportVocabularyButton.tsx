@@ -106,7 +106,7 @@ const handleImport = async () => {
   };
 
   return (
-    <div className="p-4 min-h-screen mx-auto">
+    <div className="flex flex-col h-full p-4 mx-auto overflow-y-auto">
        {/* Tiêu đề + nút Back Home + User Mode */}
       <div className="flex items-center justify-between mb-3">
 

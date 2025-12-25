@@ -4,23 +4,24 @@ import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper'
 import { usePracticeSession } from '../utils/practiceStore';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
+import { HiSpeakerWave } from "react-icons/hi2";
+
 interface AnswerOption {
   text: string;
   isCorrect: boolean;
 }
 
 
-const VoicePractice: React.FC = () => {
-  
-   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+const VoicePractice: React.FC = React.memo(() => {
+
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
   const [isResultHidden, setIsResultHidden] = useState(false);
   const [isForgetClicked, setIsForgetClicked] = useState(false);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [isNavigating, setIsNavigating] = useState(false);
   const isProcessingRef = useRef(false);
-  const [isExiting, setIsExiting] = useState(false);
-  const exitTimeoutRef = useRef<number | null>(null);
+  const [isExiting] = useState(false);
   const [answers, setAnswers] = useState<AnswerOption[]>([]);
 
   const navigate = useNavigate();
@@ -85,14 +86,14 @@ const VoicePractice: React.FC = () => {
         .filter((v, i, arr) => arr.findIndex(x => x.text === v.text) === i)
         .filter(item => !incorrects.find(existing => existing.text === item.text))
         .sort(() => 0.5 - Math.random()); // Shuffle randomAnswers
-      
+
       incorrects = [...incorrects, ...additionalIncorrects];
     }
 
     // Shuffle và lấy 2 incorrect answers
     const finalIncorrects: AnswerOption[] = [];
     const shuffled = incorrects.sort(() => 0.5 - Math.random());
-    
+
     for (const item of shuffled) {
       if (finalIncorrects.length >= 2) break;
       if (!finalIncorrects.some(existing => isOverlapping(item.text, existing.text))) {
@@ -131,74 +132,74 @@ const VoicePractice: React.FC = () => {
   }, [currentWord?.word.id]); // Chụp dependency theo ID để tránh render lại vô ích
 
 
-useEffect(() => {
-  // Đợi một chút để đảm bảo location.state đã được set đúng cách sau khi navigate
-  const checkState = setTimeout(() => {
-    const allowedSources = ['multiple', 'hiraganaPractice', 'romajiPractice', 'voicePractice'];
-    const state = location.state;
+  useEffect(() => {
+    // Đợi một chút để đảm bảo location.state đã được set đúng cách sau khi navigate
+    const checkState = setTimeout(() => {
+      const allowedSources = ['multiple', 'hiraganaPractice', 'romajiPractice', 'voicePractice'];
+      const state = location.state;
 
-    // Kiểm tra xem có đang ở đúng route không
-    const currentPath = location.pathname;
-    const isCorrectRoute = currentPath.includes('voicePractice');
-    
-    // Nếu không ở đúng route, không làm gì cả (có thể đang navigate đi)
-    if (!isCorrectRoute) {
-      return;
-    }
+      // Kiểm tra xem có đang ở đúng route không
+      const currentPath = location.pathname;
+      const isCorrectRoute = currentPath.includes('voicePractice');
 
-    // Đọc dữ liệu từ localStorage
-    const storedRaw = localStorage.getItem('reviewed_words');
-    const reviewedWords = storedRaw ? JSON.parse(storedRaw) : [];
-
-    // --- Reset rồi đếm reload ---
-    const reloadCountRaw = sessionStorage.getItem('reload_count');
-    const reloadCount = reloadCountRaw ? parseInt(reloadCountRaw) : 0;
-    const newReloadCount = reloadCount + 1;
-    sessionStorage.setItem('reload_count', newReloadCount.toString());
-    console.log(`Reload count: ${newReloadCount}`);
-
-    // -------------------------
-
-    // ✅ Nếu không có state (truy cập trực tiếp hoặc reload)
-    if (!state) {
-      console.log('No state provided, redirecting to summary or home');
-      if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
-        navigate('/jp/summary'); 
-      } else {
-        navigate('/jp/home');
+      // Nếu không ở đúng route, không làm gì cả (có thể đang navigate đi)
+      if (!isCorrectRoute) {
+        return;
       }
-      return;
-    }
 
-    // ✅ Nếu có state nhưng không đến từ nguồn hợp lệ
-    // Kiểm tra xem state.from có khớp với route hiện tại không
-    const stateFromMatchesRoute = state.from === 'voicePractice';
-    
-    if (!allowedSources.includes(state.from)) {
-      // Chỉ navigate nếu state.from không khớp với route hiện tại
-      if (!stateFromMatchesRoute) {
-        console.log(`Invalid source: ${state.from}, redirecting to summary or home`);
+      // Đọc dữ liệu từ localStorage
+      const storedRaw = localStorage.getItem('reviewed_words');
+      const reviewedWords = storedRaw ? JSON.parse(storedRaw) : [];
+
+      // --- Reset rồi đếm reload ---
+      const reloadCountRaw = sessionStorage.getItem('reload_count');
+      const reloadCount = reloadCountRaw ? parseInt(reloadCountRaw) : 0;
+      const newReloadCount = reloadCount + 1;
+      sessionStorage.setItem('reload_count', newReloadCount.toString());
+      console.log(`Reload count: ${newReloadCount}`);
+
+      // -------------------------
+
+      // ✅ Nếu không có state (truy cập trực tiếp hoặc reload)
+      if (!state) {
+        console.log('No state provided, redirecting to summary or home');
         if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
           navigate('/jp/summary');
         } else {
           navigate('/jp/home');
         }
+        return;
       }
-      return;
-    }
-    
-    if(newReloadCount >= RELOAD_COUNT_THRESHOLD){
-       if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
-        console.log(newReloadCount);
-        navigate('/jp/summary');
-      } else {
-        navigate('/jp/home');
-      }
-    }
-  }, 100);
 
-  return () => clearTimeout(checkState);
-}, [location.state, location.pathname, navigate]);
+      // ✅ Nếu có state nhưng không đến từ nguồn hợp lệ
+      // Kiểm tra xem state.from có khớp với route hiện tại không
+      const stateFromMatchesRoute = state.from === 'voicePractice';
+
+      if (!allowedSources.includes(state.from)) {
+        // Chỉ navigate nếu state.from không khớp với route hiện tại
+        if (!stateFromMatchesRoute) {
+          console.log(`Invalid source: ${state.from}, redirecting to summary or home`);
+          if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
+            navigate('/jp/summary');
+          } else {
+            navigate('/jp/home');
+          }
+        }
+        return;
+      }
+
+      if (newReloadCount >= RELOAD_COUNT_THRESHOLD) {
+        if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
+          console.log(newReloadCount);
+          navigate('/jp/summary');
+        } else {
+          navigate('/jp/home');
+        }
+      }
+    }, 100);
+
+    return () => clearTimeout(checkState);
+  }, [location.state, location.pathname, navigate]);
 
 
 
@@ -216,7 +217,7 @@ useEffect(() => {
 
   const handleContinue = async () => {
     if (isNavigating || isProcessingRef.current) return;
-    
+
     isProcessingRef.current = true;
     setIsNavigating(true);
     setSelectedIndex(null);
@@ -248,41 +249,18 @@ useEffect(() => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isAnswered, isForgetClicked, selectedIndex]);
 
-  // Ẩn component ngay khi đang navigate hoặc không phải quiz type hiện tại
+  // Component is always mounted, visibility handled by PracticeWrapper
   const currentPath = location.pathname;
   const isCorrectRoute = currentPath.includes('voicePractice');
-  const shouldHide = storeIsNavigating || (previousType && previousType !== 'voicePractice');
-  
-  // Đồng bộ exit animation với state updates
-  useEffect(() => {
-    if (shouldHide && !isExiting) {
-      setIsExiting(true);
-      exitTimeoutRef.current = setTimeout(() => {
-        // Component sẽ được unmount bởi shouldHide check
-      }, 400);
-    } else if (!shouldHide && isExiting) {
-      setIsExiting(false);
-      if (exitTimeoutRef.current) {
-        clearTimeout(exitTimeoutRef.current);
-        exitTimeoutRef.current = null;
-      }
-    }
-    
-    return () => {
-      if (exitTimeoutRef.current) {
-        clearTimeout(exitTimeoutRef.current);
-      }
-    };
-  }, [shouldHide, isExiting]);
-  
-  if (!currentWord || shouldHide || !isCorrectRoute) {
+
+  if (!currentWord || !isCorrectRoute) {
     return null;
   }
 
   // Chỉ render khi đã có đủ 3 đáp án sẵn sàng
   if (answers.length !== 3) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex items-center justify-center h-full">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto mb-4"></div>
           <p className="text-gray-600">Đang tải đáp án...</p>
@@ -325,19 +303,27 @@ useEffect(() => {
       keyValue={`${word.id}-${previousType || 'none'}`}
       isExiting={isExiting}
       onExitComplete={() => setIsExiting(false)}
-      className=""
+      className="h-full"
     >
-      <div className="flex flex-col items-center justify-center min-h-[60vh] w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-12">
+      <div 
+        className="flex flex-col items-center justify-center h-full w-full"
+        style={{
+          willChange: 'transform, opacity',
+        }}
+      >
         {/* Question (Phát âm thay vì hiển thị chữ) */}
         <div className="text-center mb-4 sm:mb-6 md:mb-8 w-full">
-          <h4 className="text-gray-600 mb-3 sm:mb-4 md:mb-6 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn đáp án đúng</h4>
-          <button
-            className="bg-slate-200 hover:bg-slate-600 p-3 sm:p-4 md:p-5 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 transition"
-            onClick={() => speak(reading)}
-            title="Phát âm từ"
-          >
-            🔊
-          </button>
+          <h4 className="text-gray-600 m-5 sm:mb-4 md:mb-6 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn đáp án đúng</h4>
+          <div className="flex justify-center w-full"> {/* Thêm div này để căn giữa */}
+            <button
+              className="bg-slate-200 hover:bg-slate-600 p-8 w-28 h-28 rounded-full text-gray-800 hover:text-white transition duration-200 hover:scale-105 active:scale-95 flex items-center justify-center"
+              onClick={() => speak(reading)}
+              title="Phát âm từ"
+            >
+              <HiSpeakerWave className="text-5xl" />
+            </button>
+          </div>
+
         </div>
         {/* Answers */}
         <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8 w-full ">
@@ -354,7 +340,7 @@ useEffect(() => {
               statusClass = 'answer-option--selected';
             }
 
-         
+
             return (
               <button
                 key={idx}
@@ -403,6 +389,8 @@ useEffect(() => {
       />
     </PracticeAnimationWrapper>
   );
-};
+});
+
+VoicePractice.displayName = 'VoicePractice';
 
 export default VoicePractice;

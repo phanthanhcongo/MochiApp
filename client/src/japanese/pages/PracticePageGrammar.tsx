@@ -203,20 +203,22 @@ const PracticePageGrammar = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col h-full">
       <div className="hidden">
         bg-red-400 bg-fuchsia-300 bg-yellow-400 bg-green-400 bg-sky-400 bg-indigo-500 bg-purple-600 bg-gray-400
       </div>
 
-      <Header />
+      <div className="shrink-0">
+        <Header />
+      </div>
       <div className="practice-page-container bg-[url('https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbg.366f773b.webp&w=1920&q=75')] bg-cover bg-center
-      flex h-screen text-xs sm:text-sm md:text-base lg:text-lg overflow-hidden">
+      flex flex-1 overflow-y-auto text-xs sm:text-sm md:text-base lg:text-lg">
 
         {/* Left Column */}
         <div className="hidden xl:block w-2/10"></div>
 
         {/* Center Column */}
-        <div className="w-full xl:w-6/10 flex-1 flex flex-col items-center justify-start pt-[100px] sm:pt-10 md:pt-12 lg:pt-16 pb-8 sm:pb-12 md:pb-16 lg:pb-20 px-3 sm:px-6 md:px-8 lg:px-12 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] mx-auto relative">
+        <div className="w-full xl:w-6/10 flex-1 flex flex-col items-center justify-start py-8 sm:py-12 md:py-16 lg:py-20 px-3 sm:px-6 md:px-8 lg:px-12 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] mx-auto relative">
           
           {/* Top summary */}
           <motion.div 

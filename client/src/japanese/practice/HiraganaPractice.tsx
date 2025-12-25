@@ -5,7 +5,7 @@ import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper'
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
 
-const HiraganaPractice: React.FC = () => {
+const HiraganaPractice: React.FC = React.memo(() => {
   const [selectedChars, setSelectedChars] = useState<string[]>([]);
   const [isAnswered, setIsAnswered] = useState(false);
   const [isResultHidden, setIsResultHidden] = useState(false);
@@ -14,7 +14,6 @@ const HiraganaPractice: React.FC = () => {
   const [isNavigating, setIsNavigating] = useState(false);
   const isProcessingRef = useRef(false);
   const [isExiting, setIsExiting] = useState(false);
-  const exitTimeoutRef = useRef<number | null>(null);
 
   const [hiraganaPool, setHiraganaPool] = useState<{ id: string; char: string }[]>([]);
   const [usedCharIds, setUsedCharIds] = useState<string[]>([]);
@@ -184,35 +183,11 @@ const HiraganaPractice: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isAnswered, isForgetClicked, selectedChars]);
 
-  // Ẩn component ngay khi đang navigate hoặc không phải quiz type hiện tại
+  // Component is always mounted, visibility handled by PracticeWrapper
   const currentPath = location.pathname;
   const isCorrectRoute = currentPath.includes('hiraganaPractice');
-  const shouldHide = storeIsNavigating || (previousType && previousType !== 'hiraganaPractice');
   
-  // Đồng bộ exit animation với state updates
-  useEffect(() => {
-    if (shouldHide && !isExiting) {
-      setIsExiting(true);
-      // Đợi exit animation hoàn thành (400ms) trước khi unmount
-      exitTimeoutRef.current = setTimeout(() => {
-        // Component sẽ được unmount bởi shouldHide check
-      }, 400);
-    } else if (!shouldHide && isExiting) {
-      setIsExiting(false);
-      if (exitTimeoutRef.current) {
-        clearTimeout(exitTimeoutRef.current);
-        exitTimeoutRef.current = null;
-      }
-    }
-    
-    return () => {
-      if (exitTimeoutRef.current) {
-        clearTimeout(exitTimeoutRef.current);
-      }
-    };
-  }, [shouldHide, isExiting]);
-  
-  if (!currentWord || shouldHide || !isCorrectRoute) {
+  if (!currentWord || !isCorrectRoute) {
     return null;
   }
 
@@ -265,13 +240,18 @@ const HiraganaPractice: React.FC = () => {
       keyValue={`${word.id}-${previousType || 'none'}`}
       isExiting={isExiting}
       onExitComplete={() => setIsExiting(false)}
-      className="w-full"
+      className="w-full h-full"
     >
-        <div className="flex flex-col items-center justify-center min-h-[60vh] w-full max-w-4xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-12">
+        <div 
+          className="flex flex-col items-center justify-center h-full w-full "
+          style={{
+            willChange: 'transform, opacity',
+          }}
+        >
           <div className="text-center w-full">
             <h4 className="text-gray-600 mb-3 sm:mb-4 md:mb-6 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn các ký tự hiragana để ghép cách đọc:</h4>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 md:mb-8 lg:mb-10">{question}</h1>
-            <div className="mb-4 sm:mb-6 md:mb-8 h-14 sm:h-16 md:h-18 lg:h-20 w-full max-w-2xl mx-auto border border-gray-400 rounded-xl sm:rounded-2xl px-3 sm:px-4 md:px-6 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-widest text-gray-800 bg-slate-50 flex items-center justify-center text-center">
+            <h1 className="text-6xl font-bold text-gray-900 mb-4 sm:mb-6 md:mb-8 lg:mb-10">{question}</h1>
+            <div className="mb-4 sm:mb-6 md:mb-8 h-18 lg:h-20 w-full max-w-2xl mx-auto border border-gray-400 rounded-xl sm:rounded-2xl px-3 sm:px-4 md:px-6 text-4xl font-semibold tracking-widest text-gray-800 bg-slate-50 flex items-center justify-center text-center">
               {selectedChars.join('')}
             </div>
             <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3 justify-center mb-4 sm:mb-5 md:mb-6">
@@ -279,7 +259,7 @@ const HiraganaPractice: React.FC = () => {
                 <button
                   key={id}
                   id={id}
-                  className="bg-slate-50 px-2.5 sm:px-3 md:px-4 lg:px-6 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg sm:rounded-xl text-xl sm:text-2xl md:text-3xl lg:text-4xl hover:bg-slate-400 border-b-2 sm:border-b-3 md:border-b-4 border border-slate-400 disabled:opacity-50"
+                  className="bg-slate-50 px-2.5 sm:px-3 md:px-4 lg:px-6 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg sm:rounded-xl text-4xl hover:bg-slate-400 border-b-2 sm:border-b-3 md:border-b-4 border border-slate-400 disabled:opacity-50"
                   onClick={() => handleCharClick(id)}
                   disabled={usedCharIds.includes(id)}
                 >
@@ -315,6 +295,8 @@ const HiraganaPractice: React.FC = () => {
         />
     </PracticeAnimationWrapper>
   );
-};
+});
+
+HiraganaPractice.displayName = 'HiraganaPractice';
 
 export default HiraganaPractice;

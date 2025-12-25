@@ -275,8 +275,8 @@ const AddJapaneseWordForm = () => {
   };
 
   return (
-    <div className="bg-[#f8faff] min-h-screen py-8">
-      <form onSubmit={handleSubmit} className="max-w-5xl mx-auto px-6 pb-12">
+    <div className="flex flex-col h-full bg-[#f8faff] overflow-y-auto">
+      <form onSubmit={handleSubmit} className="max-w-5xl mx-auto px-6 py-8 pb-12">
         <div className='text-center w-full text-5xl font-black mb-10 text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-gray-700 to-gray-400 uppercase tracking-tighter pt-4'>
           Add New Word
         </div>

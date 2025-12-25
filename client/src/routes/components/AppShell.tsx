@@ -15,12 +15,12 @@ export default function AppShell({ children }: AppShellProps) {
   );
 
   return (
-    <div className="min-h-screen">
+    <div className="h-dvh">
       {isPracticePage ? (
         children
       ) : (
-        <div className="bg-[url('C:\Users\thanh\Desktop\ProjectWEb\client\public\103372501_p0.png')] bg-cover bg-center bg-gray-50/80 min-h-screen">
-          <div className="w-full lg:w-[70%] min-h-screen mx-auto bg-slate-50">
+        <div className="bg-[url('/103372501_p0.png')] bg-cover bg-center bg-gray-50/80 h-full">
+          <div className="w-full lg:w-[70%]  mx-auto bg-slate-50 h-full">
             {children}
           </div>
         </div>

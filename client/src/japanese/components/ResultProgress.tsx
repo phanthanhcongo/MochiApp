@@ -55,7 +55,7 @@ const ResultProgress: React.FC = () => {
   const percent = total > 0 ? Math.round((correctCount / total) * 100) : 0;
 
   return (
-    <div className="min-h-screen bg-[url('https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbg.366f773b.webp&w=1920&q=75')] bg-cover bg-center bg-gray-50 flex items-center justify-center p-4">
+    <div className="flex flex-col h-full bg-[url('https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbg.366f773b.webp&w=1920&q=75')] bg-cover bg-center bg-gray-50 items-center justify-center p-4">
       <div className="w-full max-w-2xl bg-slate-50 rounded-3xl shadow-2xl overflow-hidden flex flex-col">
         <div className="flex flex-col items-center justify-center gap-2 text-center pt-8 pb-4 px-6">
           <h2 className="text-yellow-500 font-bold text-2xl uppercase tracking-wider">

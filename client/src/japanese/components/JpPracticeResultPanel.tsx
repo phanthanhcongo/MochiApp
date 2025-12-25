@@ -36,11 +36,11 @@ const JpPracticeResultPanel: React.FC<JpPracticeResultPanelProps> = ({
 
   if (isResultHidden) {
     return (
-      <div className={`${panelClass} relative`}> {/* Thêm relative ở đây */}
+      <div className={`${panelClass} fixed bottom-0  w-full z-50`}>
         {/* Nút Up - Bây giờ cũng dùng absolute top để bám vào mép bảng */}
         <div className="absolute -top-5 md:-top-8 right-[5%] z-20">
           <button
-            className={`btn-toggle ${toggleBtnColorClass} shadow-lg`}
+            className={`btn-toggle ${toggleBtnColorClass} shadow-sm`}
             onClick={() => setIsResultHidden(false)}
           >
             <FontAwesomeIcon icon={faChevronUp} />
@@ -57,7 +57,7 @@ const JpPracticeResultPanel: React.FC<JpPracticeResultPanelProps> = ({
   }
 
   return (
-    <div className={`${panelClass} relative`}> {/* Thêm relative ở đây */}
+    <div className={`${panelClass} fixed bottom-0  w-full z-50`}>
   
   {/* NHÓM ĐIỀU KHIỂN (Floating Actions) */}
   <div className="absolute -top-5 md:-top-8 right-[5%] flex flex-col gap-2 z-20">
@@ -81,9 +81,9 @@ const JpPracticeResultPanel: React.FC<JpPracticeResultPanelProps> = ({
       <div className="flex-1 min-w-0">
         <p className="text-xl sm:text-2xl text-stone-50/90">{word.reading_hiragana} {word.hanviet ? `• ${word.hanviet}` : ''}</p>
         <p className="text-5xl sm:text-6xl font-bold">{word.kanji}</p>
-        <p className="text-3xl sm:text-5xl text-stone-50 my-2">{word.meaning_vi}</p>
+        <p className="text-3xl sm:text-xl text-stone-50 my-2">{word.meaning_vi}</p>
         {word.hanviet_explanation && (
-          <p className="text-xl sm:text-2xl text-stone-50/90 italic">{word.hanviet_explanation}</p>
+          <p className="text-xl sm:text-xl text-stone-50/90 italic">{word.hanviet_explanation}</p>
         )}
       </div>
     </div>
@@ -93,15 +93,15 @@ const JpPracticeResultPanel: React.FC<JpPracticeResultPanelProps> = ({
       <div className="flex items-start gap-2 sm:gap-4 w-[95%] sm:w-[92%] md:w-[90%] mx-auto mt-2 border-t border-stone-50/20 pt-4">
         <button className="btn-audio text-xl sm:text-3xl flex-shrink-0" onClick={() => speak(word.example || '')}>🔊</button>
         <div className="flex-1 min-w-0">
-          <div className="text-stone-50 text-2xl sm:text-4xl break-words">
+          <div className="text-stone-50 text-3xl sm:text-4xl break-words">
             {word.example}
             <button className="btn-eye ml-2" onClick={() => setIsTranslationHidden(!isTranslationHidden)}>
               {isTranslationHidden ? '🙈' : '👁'}
             </button>
           </div>
           <div className={`${isTranslationHidden ? 'opacity-0 h-0' : 'opacity-100'} transition-all duration-300`}>
-            <p className="text-stone-50/90 text-lg italic mt-1">{word.example_romaji}</p>
-            <p className="text-stone-50/90 text-lg">{word.example_vi}</p>
+            <p className="text-stone-50/90 text-xl italic mt-1">{word.example_romaji}</p>
+            <p className="text-stone-50/90 text-xl">{word.example_vi}</p>
           </div>
         </div>
       </div>
@@ -111,7 +111,7 @@ const JpPracticeResultPanel: React.FC<JpPracticeResultPanelProps> = ({
   {/* NÚT TIẾP TỤC */}
   <div className="w-full sm:w-80 mx-auto py-4 text-center px-4 pb-[env(safe-area-inset-bottom)]">
     <button
-      className="btn-primary btn-primary--active w-full shadow-xl"
+      className="btn-primary btn-primary--active w-full shadow-md"
       onClick={onContinue}
       disabled={isNavigating}
     >
