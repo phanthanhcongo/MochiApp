@@ -18,7 +18,8 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [isNavigating, setIsNavigating] = useState(false);
   const isProcessingRef = useRef(false);
-  const [isExiting] = useState(false);
+  const lastKeyPressRef = useRef<number>(0);
+  const [isExiting, setIsExiting] = useState(false);
   const [answers, setAnswers] = useState<Array<{ text: string; isCorrect: boolean }>>([]);
 
   const {
@@ -219,7 +220,7 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
     sessionStorage.setItem('reload_count', '0'); // Reset về 0 trước
 
     // Sử dụng method mới từ store để xử lý toàn bộ logic
-    console.log('📞 [MultipleChoiceQuiz] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
+    // console.log('📞 [MultipleChoiceQuiz] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
     await continueToNextQuiz(navigate, () => {
       setIsNavigating(false);
       isProcessingRef.current = false;
@@ -240,6 +241,13 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Enter' || e.key.toLowerCase() === 'f') {
+        const now = Date.now();
+        // Prevent double-trigger: only process if at least 300ms has passed since last key press
+        if (now - lastKeyPressRef.current < 300) {
+          return;
+        }
+        lastKeyPressRef.current = now;
+
         if (isAnswered || isForgetClicked) {
           handleContinue();
         } else if (selectedIndex !== null) {
@@ -297,7 +305,7 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
       className="w-full h-full flex items-center justify-center"
     >
         <div 
-          className="flex flex-col items-center justify-center h-full w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 pt-35"
+          className="flex flex-col items-center justify-center h-full w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 pt-35 overflow-x-hidden"
           style={{
             willChange: 'transform, opacity',
           }}

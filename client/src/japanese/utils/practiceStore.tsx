@@ -216,17 +216,17 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
         
         // Console log list còn lại
         const remainingScenarios = scenarios.filter(s => !newCompletedIds.has(s.word.id));
-        console.log('📋 [markAnswer] LIST SCENARIOS CÒN LẠI (sau khi trả lời đúng):', {
-          total: scenarios.length,
-          completed: newCompletedIds.size,
-          remaining: remainingScenarios.length,
-          remainingList: remainingScenarios.map(s => ({
-            order: s.order,
-            wordId: s.word.id,
-            kanji: s.word.kanji,
-            quizType: s.quizType
-          }))
-        });
+        // console.log('📋 [markAnswer] LIST SCENARIOS CÒN LẠI (sau khi trả lời đúng):', {
+        //   total: scenarios.length,
+        //   completed: newCompletedIds.size,
+        //   remaining: remainingScenarios.length,
+        //   remainingList: remainingScenarios.map(s => ({
+        //     order: s.order,
+        //     wordId: s.word.id,
+        //     kanji: s.word.kanji,
+        //     quizType: s.quizType
+        //   }))
+        // });
       } else {
         // Trả lời sai: đẩy xuống cuối và đổi quizType
         const currentWordId = currentWord.word.id;
@@ -268,17 +268,17 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
           
           // Console log list còn lại
           const remainingScenarios = updatedScenarios.filter(s => !completedWordIds.has(s.word.id));
-          console.log('📋 [markAnswer] LIST SCENARIOS CÒN LẠI (sau khi trả lời sai):', {
-            total: updatedScenarios.length,
-            completed: completedWordIds.size,
-            remaining: remainingScenarios.length,
-            remainingList: remainingScenarios.map(s => ({
-              order: s.order,
-              wordId: s.word.id,
-              kanji: s.word.kanji,
-              quizType: s.quizType
-            }))
-          });
+          // console.log('📋 [markAnswer] LIST SCENARIOS CÒN LẠI (sau khi trả lời sai):', {
+          //   total: updatedScenarios.length,
+          //   completed: completedWordIds.size,
+          //   remaining: remainingScenarios.length,
+          //   remainingList: remainingScenarios.map(s => ({
+          //     order: s.order,
+          //     wordId: s.word.id,
+          //     kanji: s.word.kanji,
+          //     quizType: s.quizType
+          //   }))
+          // });
         }
       }
       return;
@@ -387,17 +387,17 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
         const remainingScenarios = scenarios.filter(s => !completedWordIds.has(s.word.id));
         
         // Console log list còn lại
-        console.log('📋 [continueToNextQuiz] LIST SCENARIOS CÒN LẠI:', {
-          total: scenarios.length,
-          completed: completedWordIds.size,
-          remaining: remainingScenarios.length,
-          remainingList: remainingScenarios.map(s => ({
-            order: s.order,
-            wordId: s.word.id,
-            kanji: s.word.kanji,
-            quizType: s.quizType
-          }))
-        });
+        // console.log('📋 [continueToNextQuiz] LIST SCENARIOS CÒN LẠI:', {
+        //   total: scenarios.length,
+        //   completed: completedWordIds.size,
+        //   remaining: remainingScenarios.length,
+        //   remainingList: remainingScenarios.map(s => ({
+        //     order: s.order,
+        //     wordId: s.word.id,
+        //     kanji: s.word.kanji,
+        //     quizType: s.quizType
+        //   }))
+        // });
         
         // Nếu không còn từ nào, navigate đến summary
         if (remainingScenarios.length === 0) {

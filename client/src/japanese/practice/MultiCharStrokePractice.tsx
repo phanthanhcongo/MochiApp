@@ -206,7 +206,7 @@ const MultiCharStrokePractice: React.FC = () => {
     await new Promise(resolve => setTimeout(resolve, 400));
 
     // Xóa từ khỏi pool khi trả lời đúng (kể cả stroke practice)
-    console.log('📞 [MultiCharStrokePractice.handleContinue] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
+    // console.log('📞 [MultiCharStrokePractice.handleContinue] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
     await continueToNextQuiz(navigate, () => {
       setIsNavigating(false);
       isProcessingRef.current = false;
@@ -277,7 +277,7 @@ const MultiCharStrokePractice: React.FC = () => {
       onExitComplete={() => setIsExiting(false)}
       className="w-full"
     >
-        <div className="text-center ">
+        <div className="text-center overflow-x-hidden">
                 <h4 className="text-gray-600 mb-4">Vẽ từng nét đúng theo thứ tự</h4>
                 <div className="flex gap-4 flex-wrap justify-center">
                   {word.kanji.split('').map((char, idx) => (

@@ -121,6 +121,8 @@
   html, body {
     overflow: hidden;
     height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
     /* iOS Safari đôi khi cần thêm các thuộc tính này để khóa triệt để */
     position: fixed; 
     width: 100%;

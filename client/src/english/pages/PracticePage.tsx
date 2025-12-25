@@ -126,7 +126,7 @@ const handleStartPractice = () => {
   setWords(preparedWords);
 
   const firstQuizType = getNextQuizType();
-  console.log('🚀 Bắt đầu với quiz type:', firstQuizType);
+  // console.log('🚀 Bắt đầu với quiz type:', firstQuizType);
   navigate(`/en/quiz/${firstQuizType}`, { state: { from: firstQuizType } });
 };
 

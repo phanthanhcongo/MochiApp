@@ -220,7 +220,7 @@ const PracticePage = () => {
         <Header />
       </div>
       <div className="practice-page-container bg-[url('/103372501_p0.png')] bg-cover bg-center
-      flex flex-1 overflow-y-auto text-xs sm:text-sm md:text-base lg:text-lg">
+      flex flex-1 overflow-y-auto overflow-x-hidden text-xs sm:text-sm md:text-base lg:text-lg">
 
         {/* Left Column */}
         <div className="hidden xl:block w-2/10"></div>

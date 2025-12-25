@@ -13,6 +13,7 @@ const HiraganaPractice: React.FC = React.memo(() => {
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [isNavigating, setIsNavigating] = useState(false);
   const isProcessingRef = useRef(false);
+  const lastKeyPressRef = useRef<number>(0);
   const [isExiting, setIsExiting] = useState(false);
 
   const [hiraganaPool, setHiraganaPool] = useState<{ id: string; char: string }[]>([]);
@@ -150,7 +151,7 @@ const HiraganaPractice: React.FC = React.memo(() => {
     sessionStorage.setItem('reload_count', '0');
 
     // Sử dụng method mới từ store để xử lý toàn bộ logic
-    console.log('📞 [HiraganaPractice] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
+    // console.log('📞 [HiraganaPractice] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
     await continueToNextQuiz(navigate, () => {
       setIsNavigating(false);
       isProcessingRef.current = false;
@@ -172,6 +173,13 @@ const HiraganaPractice: React.FC = React.memo(() => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Enter' || e.key.toLowerCase() === 'f') {
+        const now = Date.now();
+        // Prevent double-trigger: only process if at least 300ms has passed since last key press
+        if (now - lastKeyPressRef.current < 300) {
+          return;
+        }
+        lastKeyPressRef.current = now;
+
         if (isAnswered || isForgetClicked) {
           handleContinue();
         } else if (selectedChars.length > 0) {
@@ -243,7 +251,7 @@ const HiraganaPractice: React.FC = React.memo(() => {
       className="w-full h-full"
     >
         <div 
-          className="flex flex-col items-center justify-center h-full w-full "
+          className="flex flex-col items-center justify-center h-full w-full overflow-x-hidden"
           style={{
             willChange: 'transform, opacity',
           }}
