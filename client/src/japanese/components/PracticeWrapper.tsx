@@ -64,7 +64,7 @@ const PracticeWrapper: React.FC = () => {
             setExitingQuizType(null);
           });
         });
-      }, 125); // Half of 250ms animation
+      }, 200); // Half of 500ms animation
 
       return () => clearTimeout(timeoutId);
     } else if (prevQuizTypeRef.current === null) {
@@ -147,7 +147,7 @@ const PracticeWrapper: React.FC = () => {
                 opacity: shouldShow ? (isCurrent ? 1 : 0) : 0,
                 pointerEvents: isCurrent && !isAnimating ? 'auto' : 'none',
                 transform,
-                transition: 'opacity 0.25s ease-out, transform 0.25s ease-out',
+                transition: 'opacity 0.75s ease-out, transform 0.75s ease-out',
                 willChange: 'transform, opacity',
               }}
             >
