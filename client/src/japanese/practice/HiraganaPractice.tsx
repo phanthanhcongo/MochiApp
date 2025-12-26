@@ -89,7 +89,6 @@ const HiraganaPractice: React.FC = React.memo(() => {
     currentWord,
     markAnswer,
     continueToNextQuiz,
-    isNavigating: storeIsNavigating,
     previousType,
   } = usePracticeSession();
 
@@ -251,7 +250,7 @@ const HiraganaPractice: React.FC = React.memo(() => {
       className="w-full h-full"
     >
         <div 
-          className="flex flex-col items-center justify-center h-full w-full overflow-x-hidden"
+          className="flex flex-col items-center justify-center h-full w-full overflow-x-hidden overflow-y-hidden"
           style={{
             willChange: 'transform, opacity',
           }}

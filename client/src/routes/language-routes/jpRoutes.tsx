@@ -9,6 +9,7 @@ import ResultProgress from '../../japanese/components/ResultProgress';
 import ReviewWordList from '../../japanese/components/ReviewWordList';
 import PracticeWrapper from '../../japanese/components/PracticeWrapper';
 import PracticePageGrammar from '../../japanese/pages/PracticePageGrammar';
+import ChatPage from '../../components/Chat/ChatPage';
 
 import LoginPage from '../../Login';
 import RegisterPage from '../../Register';
@@ -27,6 +28,7 @@ export default function JpRoutes() {
       <Route element={<ProtectedRoute />}>
         <Route path="/jp/home-grammar" element={<PracticePageGrammar />} />
         <Route path="/jp/home" element={<PracticePage />} />
+        <Route path="/jp/chat" element={<ChatPage />} />
         <Route path="/jp/add" element={<AddJapaneseWordForm />} />
         <Route path="/jp/import" element={<ImportVocabularyButton />} />
         <Route path="/jp/quiz/multiple" element={<PracticeWrapper />} />

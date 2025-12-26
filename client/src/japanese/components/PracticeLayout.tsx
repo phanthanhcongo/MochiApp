@@ -89,7 +89,7 @@ const PracticeLayout: React.FC<PracticeLayoutProps> = React.memo(({
 
       {/* Practice content wrapper - takes remaining space */}
       <div className="flex-1 overflow-hidden bg-slate-50">
-        <div className="mx-auto w-full  h-full overflow-y-auto overflow-x-hidden cong_1">
+        <div className="mx-auto w-full  h-full overflow-y-hidden overflow-x-hidden cong_1">
           {children}
         </div>
       </div>

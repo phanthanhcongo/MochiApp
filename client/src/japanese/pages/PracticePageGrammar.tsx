@@ -212,7 +212,7 @@ const PracticePageGrammar = () => {
         <Header />
       </div>
       <div className="practice-page-container bg-[url('https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbg.366f773b.webp&w=1920&q=75')] bg-cover bg-center
-      flex flex-1 overflow-y-auto overflow-x-hidden text-xs sm:text-sm md:text-base lg:text-lg">
+      flex flex-1 overflow-y-hidden overflow-x-hidden text-xs sm:text-sm md:text-base lg:text-lg">
 
         {/* Left Column */}
         <div className="hidden xl:block w-2/10"></div>

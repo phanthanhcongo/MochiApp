@@ -32,7 +32,6 @@ const VoicePractice: React.FC = React.memo(() => {
     currentWord,
     markAnswer,
     continueToNextQuiz,
-    isNavigating: storeIsNavigating,
     previousType,
     scenarios,
     randomAnswers,
@@ -314,7 +313,7 @@ const VoicePractice: React.FC = React.memo(() => {
       className="h-full"
     >
       <div 
-        className="flex flex-col items-center justify-center h-full w-full overflow-x-hidden"
+        className="flex flex-col items-center justify-center h-full w-full overflow-x-hidden overflow-y-hidden"
         style={{
           willChange: 'transform, opacity',
         }}

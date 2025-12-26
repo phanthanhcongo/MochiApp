@@ -277,7 +277,7 @@ const MultiCharStrokePractice: React.FC = () => {
       onExitComplete={() => setIsExiting(false)}
       className="w-full"
     >
-        <div className="text-center overflow-x-hidden">
+        <div className="text-center overflow-x-hidden overflow-y-hidden">
                 <h4 className="text-gray-600 mb-4">Vẽ từng nét đúng theo thứ tự</h4>
                 <div className="flex gap-4 flex-wrap justify-center">
                   {word.kanji.split('').map((char, idx) => (

@@ -215,7 +215,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
         });
         
         // Console log list còn lại
-        const remainingScenarios = scenarios.filter(s => !newCompletedIds.has(s.word.id));
+        // const remainingScenarios = scenarios.filter(s => !newCompletedIds.has(s.word.id));
         // console.log('📋 [markAnswer] LIST SCENARIOS CÒN LẠI (sau khi trả lời đúng):', {
         //   total: scenarios.length,
         //   completed: newCompletedIds.size,
@@ -267,7 +267,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
           });
           
           // Console log list còn lại
-          const remainingScenarios = updatedScenarios.filter(s => !completedWordIds.has(s.word.id));
+          // const remainingScenarios = updatedScenarios.filter(s => !completedWordIds.has(s.word.id));
           // console.log('📋 [markAnswer] LIST SCENARIOS CÒN LẠI (sau khi trả lời sai):', {
           //   total: updatedScenarios.length,
           //   completed: completedWordIds.size,

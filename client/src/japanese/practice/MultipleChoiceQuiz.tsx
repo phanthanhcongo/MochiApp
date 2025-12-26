@@ -26,7 +26,6 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
     currentWord,
     markAnswer,
     continueToNextQuiz,
-    isNavigating: storeIsNavigating,
     previousType,
     scenarios,
     randomAnswers,
@@ -305,7 +304,7 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
       className="w-full h-full flex items-center justify-center"
     >
         <div 
-          className="flex flex-col items-center justify-center h-full w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 pt-35 overflow-x-hidden"
+          className="flex flex-col items-center justify-center h-full w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 pt-35 overflow-x-hidden overflow-y-hidden"
           style={{
             willChange: 'transform, opacity',
           }}

@@ -15,6 +15,7 @@ import VoicePractice from '../../english/practice/VoicePractice';
 import MultipleSentence from '../../english/practice/MultipleSentence';
 import AddEnglishWord from '../../english/forms/AddEnglishWordForm';
 import EnglishPracticeDisplay from '../../english/components/EnglishPracticeDisplay';
+import ChatPage from '../../components/Chat/ChatPage';
 
 import ProfileSettings from '../../ProfileSettings';
 import EditEnglishWordForm from '../../english/forms/EditEnglishWordForm';
@@ -31,6 +32,7 @@ export default function EnRoutes() {
       <Route element={<ProtectedRoute />}>
         <Route path="/en/home-grammar" element={<PracticePageGrammar />} />
         <Route path="/en/home" element={<PracticePage />} />
+        <Route path="/en/chat" element={<ChatPage />} />
         <Route path="/en/import" element={<ImportVocabularyButton />} />
         <Route path="/en/quiz/multiple" element={<MultipleChoiceQuiz />} />
         <Route path="/en/summary" element={<ResultProgress />} />
