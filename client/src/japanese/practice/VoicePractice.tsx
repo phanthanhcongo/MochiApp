@@ -5,6 +5,7 @@ import { usePracticeSession } from '../utils/practiceStore';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
 import { HiSpeakerWave } from "react-icons/hi2";
+import { showToast } from '../../components/Toast';
 
 interface AnswerOption {
   text: string;
@@ -237,6 +238,14 @@ const VoicePractice: React.FC = React.memo(() => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // CHỈ xử lý nếu đang ở đúng route
+      const currentPath = window.location.pathname;
+      const isCorrectRoute = currentPath.includes('voicePractice');
+      if (!isCorrectRoute) return;
+
+      // Ignore auto-repeat events when key is held down
+      if (e.repeat) return;
+
       if (e.key === 'Enter' || e.key.toLowerCase() === 'f') {
         const now = Date.now();
         // Prevent double-trigger: only process if at least 300ms has passed since last key press
@@ -245,10 +254,17 @@ const VoicePractice: React.FC = React.memo(() => {
         }
         lastKeyPressRef.current = now;
 
+        // CHỈ continue nếu đã answer/forget
         if (isAnswered || isForgetClicked) {
           handleContinue();
-        } else if (selectedIndex !== null) {
+        }
+        // CHỈ check nếu đã chọn đáp án VÀ chưa answer
+        else if (selectedIndex !== null && !isAnswered) {
           handleCheck();
+        }
+        // Nếu chưa chọn gì → Thông báo
+        else {
+          showToast('Vui lòng chọn đáp án trước khi kiểm tra');
         }
       }
     };
@@ -312,7 +328,7 @@ const VoicePractice: React.FC = React.memo(() => {
       onExitComplete={() => setIsExiting(false)}
       className="h-full"
     >
-      <div 
+      <div
         className="flex flex-col items-center justify-center h-full w-full overflow-x-hidden overflow-y-hidden"
         style={{
           willChange: 'transform, opacity',

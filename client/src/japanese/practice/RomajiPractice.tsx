@@ -4,6 +4,7 @@ import { usePracticeSession } from '../utils/practiceStore';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
+import { showToast } from '../../components/Toast';
 const RomajiPractice: React.FC = React.memo(() => {
   const [userRomajiAnswer, setUserRomajiAnswer] = useState('');
   const [isAnswered, setIsAnswered] = useState(false);
@@ -39,7 +40,7 @@ const RomajiPractice: React.FC = React.memo(() => {
       // Kiểm tra xem có đang ở đúng route không
       const currentPath = location.pathname;
       const isCorrectRoute = currentPath.includes('romajiPractice');
-      
+
       // Nếu không ở đúng route, không làm gì cả (có thể đang navigate đi)
       if (!isCorrectRoute) {
         return;
@@ -72,7 +73,7 @@ const RomajiPractice: React.FC = React.memo(() => {
       // ✅ Nếu có state nhưng không đến từ nguồn hợp lệ
       // Kiểm tra xem state.from có khớp với route hiện tại không
       const stateFromMatchesRoute = state.from === 'romajiPractice';
-      
+
       if (!allowedSources.includes(state.from)) {
         // Chỉ navigate nếu state.from không khớp với route hiện tại
         if (!stateFromMatchesRoute) {
@@ -85,7 +86,7 @@ const RomajiPractice: React.FC = React.memo(() => {
         }
         return;
       }
-      
+
       if (newReloadCount >= RELOAD_COUNT_THRESHOLD) {
         if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
           navigate('/jp/summary');
@@ -120,7 +121,7 @@ const RomajiPractice: React.FC = React.memo(() => {
         setHasAccentWarning(true);
         return;
       }
-      
+
       const cleaned = userRomajiAnswer.trim().toLowerCase();
       const isCorrect = cleaned === correctRomaji;
 
@@ -135,7 +136,7 @@ const RomajiPractice: React.FC = React.memo(() => {
 
   const handleContinue = async () => {
     if (isNavigating || isProcessingRef.current) return; // Ngăn chặn gọi nhiều lần
-    
+
     isProcessingRef.current = true;
     setIsNavigating(true);
     setUserRomajiAnswer('');
@@ -156,6 +157,16 @@ const RomajiPractice: React.FC = React.memo(() => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // CHỈ xử lý nếu đang ở đúng route
+      const currentPath = window.location.pathname;
+      const isCorrectRoute = currentPath.includes('romajiPractice');
+      if (!isCorrectRoute) return;
+
+      // Ignore auto-repeat events when key is held down
+      if (e.repeat) return;
+
+      // F chỉ work khi đã answer/forget - để continue
+      // Enter work khi: (1) đã answer/forget → continue, (2) có text → check
       if (e.key === 'Enter' || (e.key.toLowerCase() === 'f' && (isAnswered || isForgetClicked))) {
         console.log('handleKeyDown', e.key);
         const now = Date.now();
@@ -165,10 +176,17 @@ const RomajiPractice: React.FC = React.memo(() => {
         }
         lastKeyPressRef.current = now;
 
+        // CHỈ continue nếu đã answer/forget
         if (isAnswered || isForgetClicked) {
           handleContinue();
-        } else if (userRomajiAnswer.trim() !== '') {
+        }
+        // CHỈ check nếu có text VÀ chưa answer
+        else if (userRomajiAnswer.trim() !== '' && !isAnswered) {
           handleCheck();
+        }
+        // Nếu chưa nhập gì → Thông báo
+        else if (e.key === 'Enter') {
+          showToast('Vui lòng nhập cách đọc romaji trước khi kiểm tra');
         }
       }
     };
@@ -190,11 +208,11 @@ const RomajiPractice: React.FC = React.memo(() => {
   // Component is always mounted, visibility handled by PracticeWrapper
   const currentPath = location.pathname;
   const isCorrectRoute = currentPath.includes('romajiPractice');
-  
+
   if (!currentWord || !isCorrectRoute) {
     return null;
   }
-  
+
   const word = currentWord.word;
 
   return (
@@ -204,64 +222,63 @@ const RomajiPractice: React.FC = React.memo(() => {
       onExitComplete={() => setIsExiting(false)}
       className="h-full"
     >
-        <div 
-          className="flex flex-col items-center justify-center h-full w-full overflow-x-hidden overflow-y-hidden"
-          style={{
-            willChange: 'transform, opacity',
-          }}
-        >
-          <div className="text-center w-full">
-            <h4 className="text-gray-600 mb-6 text-3xl">Nhập cách đọc romaji của từ sau:</h4>
-            <h1 className="text-6xl font-bold text-gray-900 mb-10">{question}</h1>
-            <div className="flex justify-center mb-4">
-              <input
-                type="text"
-                className={`border rounded px-6 py-4 text-3xl text-center w-full max-w-lg ${
-                  hasAccentWarning ? 'border-red-500 bg-red-50' : 'border-gray-300'
+      <div
+        className="flex flex-col items-center justify-center h-full w-full overflow-x-hidden overflow-y-hidden"
+        style={{
+          willChange: 'transform, opacity',
+        }}
+      >
+        <div className="text-center w-full">
+          <h4 className="text-gray-600 mb-6 text-3xl">Nhập cách đọc romaji của từ sau:</h4>
+          <h1 className="text-6xl font-bold text-gray-900 mb-10">{question}</h1>
+          <div className="flex justify-center mb-4">
+            <input
+              type="text"
+              className={`border rounded px-6 h-15 py-4 text-3xl text-center w-full max-w-lg ${hasAccentWarning ? 'border-red-500 bg-red-50' : 'border-gray-300'
                 }`}
-                placeholder="ví dụ: shiji"
-                value={userRomajiAnswer}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  setUserRomajiAnswer(value);
-                  // Kiểm tra và cập nhật cảnh báo khi người dùng nhập
-                  if (value.trim() && hasVietnameseAccents(value)) {
-                    setHasAccentWarning(true);
-                  } else {
-                    setHasAccentWarning(false);
-                  }
-                }}
-                disabled={isAnswered}
-              />
-            </div>
-            {hasAccentWarning && (
-              <p className="text-red-500 text-lg mt-3">⚠️ Romaji không được chứa dấu tiếng Việt</p>
-            )}
+              placeholder="ví dụ: shiji"
+              value={userRomajiAnswer}
+              onChange={(e) => {
+                const value = e.target.value;
+                setUserRomajiAnswer(value);
+                // Kiểm tra và cập nhật cảnh báo khi người dùng nhập
+                if (value.trim() && hasVietnameseAccents(value)) {
+                  setHasAccentWarning(true);
+                } else {
+                  setHasAccentWarning(false);
+                }
+              }}
+              disabled={isAnswered}
+            />
           </div>
-
-          <div className="flex flex-col items-center gap-6 p-8 w-full">
-            <button
-              className={`btn-primary ${!userRomajiAnswer || isAnswered || hasAccentWarning ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-6 py-3`}
-              onClick={handleCheck}
-              disabled={!userRomajiAnswer || isAnswered || hasAccentWarning}
-            >
-              Kiểm tra
-            </button>
-            <button className="btn-forget text-lg" onClick={handleForget} disabled={isAnswered}>Tôi ko nhớ từ này</button>
-          </div>
+          {hasAccentWarning && (
+            <p className="text-red-500 text-lg mt-3">⚠️ Romaji không được chứa dấu tiếng Việt</p>
+          )}
         </div>
 
-        <JpPracticeResultPanel
-          isAnswered={isAnswered}
-          isForgetClicked={isForgetClicked}
-          isCorrectAnswer={isCorrectAnswer}
-          isResultHidden={isResultHidden}
-          setIsResultHidden={setIsResultHidden}
-          onContinue={handleContinue}
-          isNavigating={isNavigating}
-          word={currentWord.word}
-          speak={speak}
-        />
+        <div className="flex flex-col items-center gap-6 p-8 w-full">
+          <button
+            className={`btn-primary ${!userRomajiAnswer || isAnswered || hasAccentWarning ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-6 py-3`}
+            onClick={handleCheck}
+            disabled={!userRomajiAnswer || isAnswered || hasAccentWarning}
+          >
+            Kiểm tra
+          </button>
+          <button className="btn-forget text-lg" onClick={handleForget} disabled={isAnswered}>Tôi ko nhớ từ này</button>
+        </div>
+      </div>
+
+      <JpPracticeResultPanel
+        isAnswered={isAnswered}
+        isForgetClicked={isForgetClicked}
+        isCorrectAnswer={isCorrectAnswer}
+        isResultHidden={isResultHidden}
+        setIsResultHidden={setIsResultHidden}
+        onContinue={handleContinue}
+        isNavigating={isNavigating}
+        word={currentWord.word}
+        speak={speak}
+      />
     </PracticeAnimationWrapper>
   );
 });

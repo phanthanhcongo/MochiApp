@@ -4,6 +4,7 @@ import { usePracticeSession } from '../utils/practiceStore';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
+import { showToast } from '../../components/Toast';
 
 
 
@@ -83,7 +84,7 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
         .filter((v, i, arr) => arr.findIndex(x => x.text === v.text) === i)
         .filter(item => !incorrects.find(existing => existing.text === item.text))
         .sort(() => Math.random() - 0.5); // Shuffle randomAnswers
-      
+
       incorrects = [...incorrects, ...additionalIncorrects];
     }
 
@@ -91,7 +92,7 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
     // Đảm bảo các incorrect answers cũng không overlap lẫn nhau
     const finalIncorrects: Array<{ text: string; isCorrect: boolean }> = [];
     const shuffled = incorrects.sort(() => Math.random() - 0.5);
-    
+
     for (const item of shuffled) {
       if (finalIncorrects.length >= 2) break;
       if (!finalIncorrects.some(existing => isOverlapping(item.text, existing.text))) {
@@ -101,12 +102,12 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
 
     // Nếu vẫn không đủ 2, lấy bất kỳ ai chưa có (nới lỏng điều kiện nếu quá ít data)
     if (finalIncorrects.length < 2) {
-        for (const item of shuffled) {
-            if (finalIncorrects.length >= 2) break;
-            if (!finalIncorrects.some(existing => existing.text === item.text)) {
-                finalIncorrects.push(item);
-            }
+      for (const item of shuffled) {
+        if (finalIncorrects.length >= 2) break;
+        if (!finalIncorrects.some(existing => existing.text === item.text)) {
+          finalIncorrects.push(item);
         }
+      }
     }
 
     // Đảm bảo luôn có 3 lựa chọn (1 correct + 2 incorrect)
@@ -206,7 +207,7 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
   };
 
 
-  const handleContinue = async () => {
+  const handleContinue = useCallback(async () => {
     if (isNavigating || isProcessingRef.current) return;
 
     isProcessingRef.current = true;
@@ -224,9 +225,9 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
       setIsNavigating(false);
       isProcessingRef.current = false;
     });
-  };
+  }, [isNavigating, continueToNextQuiz, navigate]);
 
-  const handleForget = () => {
+  const handleForget = useCallback(() => {
     if (!isAnswered) {
       setIsAnswered(false);
       setIsCorrectAnswer(false);
@@ -235,10 +236,29 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
       setSelectedIndex(null);
       speak(currentWord?.word.reading_hiragana || ""); // Phát âm khi chọn "Tôi không nhớ từ này"
     }
-  };
+  }, [isAnswered, currentWord]);
+
+  const handleCheck = useCallback(() => {
+    if (selectedIndex !== null && !isAnswered) {
+      const isCorrect = answers[selectedIndex].isCorrect;
+      setIsAnswered(true);
+      setIsCorrectAnswer(isCorrect);
+      setIsForgetClicked(false);
+      markAnswer(isCorrect);
+      speak(currentWord?.word.reading_hiragana || '');
+    }
+  }, [selectedIndex, isAnswered, answers, markAnswer, currentWord]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // CHỈ xử lý nếu đang ở đúng route
+      const currentPath = window.location.pathname;
+      const isCorrectRoute = currentPath.includes('multiple');
+      if (!isCorrectRoute) return;
+
+      // Ignore auto-repeat events when key is held down
+      if (e.repeat) return;
+
       if (e.key === 'Enter' || e.key.toLowerCase() === 'f') {
         const now = Date.now();
         // Prevent double-trigger: only process if at least 300ms has passed since last key press
@@ -247,21 +267,28 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
         }
         lastKeyPressRef.current = now;
 
+        // CHỈ cho phép continue nếu đã answer/forget
         if (isAnswered || isForgetClicked) {
           handleContinue();
-        } else if (selectedIndex !== null) {
+        }
+        // CHỈ cho phép check nếu đã chọn đáp án VÀ chưa answer
+        else if (selectedIndex !== null && !isAnswered) {
           handleCheck();
+        }
+        // Nếu chưa chọn gì → Thông báo
+        else {
+          showToast('Vui lòng chọn đáp án trước khi kiểm tra');
         }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isAnswered, isForgetClicked, selectedIndex]);
+  }, [isAnswered, isForgetClicked, selectedIndex, handleContinue, handleCheck]);
 
   // Component is always mounted, visibility handled by PracticeWrapper
   const currentPath = location.pathname;
   const isCorrectRoute = currentPath.includes('multiple');
-  
+
   if (!currentWord || !isCorrectRoute) {
     return null;
   }
@@ -284,18 +311,6 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
     if (!isAnswered) setSelectedIndex(index);
   };
 
-  const handleCheck = () => {
-    if (selectedIndex !== null && !isAnswered) {
-      const isCorrect = answers[selectedIndex].isCorrect;
-      setIsAnswered(true);
-      setIsCorrectAnswer(isCorrect);
-      setIsForgetClicked(false);
-      markAnswer(isCorrect);
-      speak(currentWord?.word.reading_hiragana || '');
-
-    }
-  };
-
   return (
     <PracticeAnimationWrapper
       keyValue={`${word.id}-${previousType || 'none'}`}
@@ -303,74 +318,74 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
       onExitComplete={() => setIsExiting(false)}
       className="w-full h-full flex items-center justify-center"
     >
-        <div 
-          className="flex flex-col items-center justify-center h-full w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 pt-35 overflow-x-hidden overflow-y-hidden"
-          style={{
-            willChange: 'transform, opacity',
-          }}
-        >
-          <div className="text-center pb-4 sm:pb-6 md:pb-8 lg:pb-10 w-full">
-            <h4 className="text-gray-600 mb-2 sm:mb-3 md:mb-4 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn đúng nghĩa của từ</h4>
-            <h1 className="text-6xl lg:text-7xl font-bold text-gray-900">{word.kanji}</h1>
-          </div>
-          <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8 w-full ">
-            {answers.map((ans, idx) => {
-              const isSelected = selectedIndex === idx;
-              let statusClass = 'answer-option--default';
-              if (isAnswered || isForgetClicked) {
-                if (ans.isCorrect) {
-                  statusClass = 'answer-option--correct';
-                } else if (selectedIndex === idx) {
-                  statusClass = 'answer-option--wrong';
-                }
-              } else if (isSelected) {
-                statusClass = 'answer-option--selected';
-              }
-
-              return (
-                <button
-                  key={idx}
-                  className={`answer-option group ${statusClass}`}
-                  onClick={() => handleSelect(idx)}
-                  disabled={isAnswered}
-                >
-                  <div className="flex items-center gap-6 w-full">
-                    <span className="option-index">
-                      {idx + 1}
-                    </span>
-                    <div className="flex-1 text-center font-bold text-base sm:text-lg md:text-xl lg:text-2xl pr-4 sm:pr-6 md:pr-8 lg:pr-10">
-                      {ans.text}
-                    </div>
-                  </div>
-                </button>
-              );
-
-            })}
-          </div>
-          <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-6 p-4 sm:p-6 md:p-8 w-full">
-            <button
-              className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3`}
-              onClick={handleCheck}
-              disabled={selectedIndex === null || isAnswered}>
-              Kiểm tra
-            </button>
-            <button className="btn-forget text-sm sm:text-base md:text-lg" onClick={handleForget} disabled={isAnswered}>
-              Tôi ko nhớ từ này
-            </button>
-          </div>
+      <div
+        className="flex flex-col items-center justify-center h-full w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 pt-35 overflow-x-hidden overflow-y-hidden"
+        style={{
+          willChange: 'transform, opacity',
+        }}
+      >
+        <div className="text-center pb-4 sm:pb-6 md:pb-8 lg:pb-10 w-full">
+          <h4 className="text-gray-600 mb-2 sm:mb-3 md:mb-4 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn đúng nghĩa của từ</h4>
+          <h1 className="text-6xl lg:text-7xl font-bold text-gray-900">{word.kanji}</h1>
         </div>
+        <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8 w-full ">
+          {answers.map((ans, idx) => {
+            const isSelected = selectedIndex === idx;
+            let statusClass = 'answer-option--default';
+            if (isAnswered || isForgetClicked) {
+              if (ans.isCorrect) {
+                statusClass = 'answer-option--correct';
+              } else if (selectedIndex === idx) {
+                statusClass = 'answer-option--wrong';
+              }
+            } else if (isSelected) {
+              statusClass = 'answer-option--selected';
+            }
 
-        <JpPracticeResultPanel
-          isAnswered={isAnswered}
-          isForgetClicked={isForgetClicked}
-          isCorrectAnswer={isCorrectAnswer}
-          isResultHidden={isResultHidden}
-          setIsResultHidden={setIsResultHidden}
-          onContinue={handleContinue}
-          isNavigating={isNavigating}
-          word={currentWord.word}
-          speak={speak}
-        />
+            return (
+              <button
+                key={idx}
+                className={`answer-option group ${statusClass}`}
+                onClick={() => handleSelect(idx)}
+                disabled={isAnswered}
+              >
+                <div className="flex items-center gap-6 w-full">
+                  <span className="option-index">
+                    {idx + 1}
+                  </span>
+                  <div className="flex-1 text-center font-bold text-base sm:text-lg md:text-xl lg:text-2xl pr-4 sm:pr-6 md:pr-8 lg:pr-10">
+                    {ans.text}
+                  </div>
+                </div>
+              </button>
+            );
+
+          })}
+        </div>
+        <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-6 p-4 sm:p-6 md:p-8 w-full">
+          <button
+            className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3`}
+            onClick={handleCheck}
+            disabled={selectedIndex === null || isAnswered}>
+            Kiểm tra
+          </button>
+          <button className="btn-forget text-sm sm:text-base md:text-lg" onClick={handleForget} disabled={isAnswered}>
+            Tôi ko nhớ từ này
+          </button>
+        </div>
+      </div>
+
+      <JpPracticeResultPanel
+        isAnswered={isAnswered}
+        isForgetClicked={isForgetClicked}
+        isCorrectAnswer={isCorrectAnswer}
+        isResultHidden={isResultHidden}
+        setIsResultHidden={setIsResultHidden}
+        onContinue={handleContinue}
+        isNavigating={isNavigating}
+        word={currentWord.word}
+        speak={speak}
+      />
     </PracticeAnimationWrapper>
   );
 });

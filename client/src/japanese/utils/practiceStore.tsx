@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { API_URL } from '../../apiClient';
 
 export type QuizType = 'multiple' | 'hiraganaPractice' | 'romajiPractice' | 'voicePractice' | 'multiCharStrokePractice';
-export type QuizType_withoutStroke = 'multiple' | 'hiraganaPractice' | 'romajiPractice' | 'voicePractice' ;
+export type QuizType_withoutStroke = 'multiple' | 'hiraganaPractice' | 'romajiPractice' | 'voicePractice';
 
 // Có ÍT NHẤT 1 ký tự Kanji (mọi extension, mọi mặt phẳng)
 export const containsKanjiStrict = (s: string): boolean =>
@@ -70,11 +70,13 @@ interface PracticeSessionStore {
   completedCount: number;
   isGettingNextType: boolean; // Lock để tránh gọi đồng thời
   isNavigating: boolean; // Lock để đảm bảo chỉ một navigation được thực hiện
-  
+
   // Scenarios từ API
   scenarios: PracticeScenario[];
   currentScenarioIndex: number;
-  completedWordIds: Set<number>; // Track những từ đã trả lời đúng
+  currentScenarioOrder: number | null; // Track current scenario's order
+  pendingWrongAnswerReorder: boolean; // Flag to delay scenario reordering until continue
+  pendingCorrectAnswerRemoval: boolean; // Flag to delay scenario removal until continue
   randomAnswers: Array<{ meaning_vi: string }>; // Mảng 50 từ ngẫu nhiên để làm đáp án sai
 
   setWords: (words: ReviewWord[]) => void;
@@ -109,7 +111,9 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
   isNavigating: false,
   scenarios: [],
   currentScenarioIndex: 0,
-  completedWordIds: new Set<number>(),
+  currentScenarioOrder: null,
+  pendingWrongAnswerReorder: false,
+  pendingCorrectAnswerRemoval: false,
   randomAnswers: [],
 
   setWords: (words) => {
@@ -167,7 +171,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       totalCount: scenarios.length,
       completedCount: 0,
       previousType: null,
-      completedWordIds: new Set<number>(),
+      currentScenarioOrder: firstScenario.order,
     });
   },
 
@@ -176,7 +180,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
   },
 
   markAnswer: (isCorrect) => {
-    const { currentWord, words, reviewedWords, completedCount, scenarios, completedWordIds } = get();
+    const { currentWord, words, reviewedWords, completedCount, scenarios, currentScenarioOrder } = get();
     if (!currentWord) return;
 
     const updatedCurrent = { ...currentWord };
@@ -205,81 +209,20 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
     // Nếu có scenarios, xử lý theo logic mới
     if (scenarios.length > 0) {
       if (isCorrect) {
-        // Trả lời đúng: đánh dấu từ đã hoàn thành
-        const newCompletedIds = new Set(completedWordIds);
-        newCompletedIds.add(currentWord.word.id);
-        set({ 
-          completedWordIds: newCompletedIds,
+        // Trả lời đúng: CHỈ CẬP NHẬT completedCount, chưa xóa khỏi scenarios
+        // Việc remove sẽ được làm trong continueToNextQuiz
+        set({
           completedCount: completedCount + 1,
-          currentWord: updatedCurrent 
+          currentWord: updatedCurrent,
+          pendingCorrectAnswerRemoval: true // Đánh dấu cần xóa khi continue
         });
-        
-        // Console log list còn lại
-        // const remainingScenarios = scenarios.filter(s => !newCompletedIds.has(s.word.id));
-        // console.log('📋 [markAnswer] LIST SCENARIOS CÒN LẠI (sau khi trả lời đúng):', {
-        //   total: scenarios.length,
-        //   completed: newCompletedIds.size,
-        //   remaining: remainingScenarios.length,
-        //   remainingList: remainingScenarios.map(s => ({
-        //     order: s.order,
-        //     wordId: s.word.id,
-        //     kanji: s.word.kanji,
-        //     quizType: s.quizType
-        //   }))
-        // });
       } else {
-        // Trả lời sai: đẩy xuống cuối và đổi quizType
-        const currentWordId = currentWord.word.id;
-        const scenarioIndex = scenarios.findIndex(s => s.word.id === currentWordId);
-        
-        if (scenarioIndex !== -1) {
-          const updatedScenarios = [...scenarios];
-          const currentScenario = updatedScenarios[scenarioIndex];
-          
-          // Đổi quizType thành một trong: multiple, romajiPractice, voicePractice
-          // Đảm bảo không trùng với quizType cũ
-          const availableQuizTypes: QuizType[] = ['multiple', 'romajiPractice', 'voicePractice'];
-          const oldQuizType = currentScenario.quizType;
-          const filteredQuizTypes = availableQuizTypes.filter(type => type !== oldQuizType);
-          
-          // Nếu tất cả 3 loại đều trùng (không xảy ra), fallback về danh sách gốc
-          const newQuizTypes = filteredQuizTypes.length > 0 ? filteredQuizTypes : availableQuizTypes;
-          const randomQuizType = newQuizTypes[Math.floor(Math.random() * newQuizTypes.length)];
-          
-          // Xóa scenario hiện tại
-          updatedScenarios.splice(scenarioIndex, 1);
-          
-          // Tìm order lớn nhất hiện tại
-          const maxOrder = updatedScenarios.length > 0 
-            ? Math.max(...updatedScenarios.map(s => s.order))
-            : 0;
-          
-          // Thêm vào cuối với quizType mới và order mới
-          updatedScenarios.push({
-            ...currentScenario,
-            order: maxOrder + 1,
-            quizType: randomQuizType,
-          });
-          
-          set({ 
-            scenarios: updatedScenarios,
-            currentWord: updatedCurrent 
-          });
-          
-          // Console log list còn lại
-          // const remainingScenarios = updatedScenarios.filter(s => !completedWordIds.has(s.word.id));
-          // console.log('📋 [markAnswer] LIST SCENARIOS CÒN LẠI (sau khi trả lời sai):', {
-          //   total: updatedScenarios.length,
-          //   completed: completedWordIds.size,
-          //   remaining: remainingScenarios.length,
-          //   remainingList: remainingScenarios.map(s => ({
-          //     order: s.order,
-          //     wordId: s.word.id,
-          //     kanji: s.word.kanji,
-          //     quizType: s.quizType
-          //   }))
-          // });
-        }
+        // Trả lời sai: CHỈ SET FLAG, chưa xóa/thêm lại
+        // Việc reorder sẽ được làm trong continueToNextQuiz
+        set({
+          currentWord: updatedCurrent,
+          pendingWrongAnswerReorder: true // Đánh dấu cần reorder khi continue
+        });
       }
       return;
     }
@@ -302,14 +245,14 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
 
   removeCurrentWord: () => {
     const { words } = get();
-    
+
     // Xóa từ hiện tại khỏi pool (không giữ lại)
     // Nếu hết từ, set currentWord = null
     if (words.length === 0) {
       set({ currentWord: null });
       return;
     }
-    
+
     // Chọn từ tiếp theo ngẫu nhiên từ words (đã không bao gồm từ vừa trả lời đúng)
     const randomIndex = Math.floor(Math.random() * words.length);
     const nextWord = words[randomIndex];
@@ -319,8 +262,8 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
 
   navigateToQuiz: async (navigate, newQuizType, oldQuizType, onComplete) => {
     const { isNavigating } = get();
-    console.log("oldQuizType", oldQuizType , "and newQuizType", newQuizType);
-    
+    console.log("oldQuizType", oldQuizType, "and newQuizType", newQuizType);
+
     if (isNavigating) {
       console.warn('⚠️ [navigateToQuiz] ĐÃ ĐƯỢC GỌI KHI ĐANG NAVIGATING, BỎ QUA', {
         newQuizType,
@@ -329,32 +272,32 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       if (onComplete) onComplete();
       return;
     }
-  
+
     // Set previousType NGAY LẬP TỨC để vô hiệu hóa các navigation khác
     // Điều này đảm bảo quiz type mới chiếm quyền navigate trước
     set({ isNavigating: true, previousType: newQuizType });
-  
+
     // console.log('🚀 [navigateToQuiz] BẮT ĐẦU', {
     //   oldQuizType: currentOldType,
     //   newQuizType,
     //   timestamp: new Date().toISOString()
     // });
-  
+
     try {
       // Sử dụng requestAnimationFrame để đảm bảo DOM đã update và navigate mượt mà
       await new Promise(resolve => requestAnimationFrame(resolve));
-      
+
       // Navigate ngay lập tức sau khi DOM đã sẵn sàng
       navigate(`/jp/quiz/${newQuizType}`, {
         state: { from: newQuizType },
         replace: true
       });
-  
+
       // Reset lock sau khi navigate để không block các lần gọi tiếp theo
       // Sử dụng requestAnimationFrame để đảm bảo navigate đã được xử lý
       await new Promise(resolve => requestAnimationFrame(resolve));
       set({ isNavigating: false, isGettingNextType: false });
-  
+
       // console.log('✅ [navigateToQuiz] HOÀN THÀNH', { newQuizType, timestamp: new Date().toISOString() });
     } catch (error) {
       console.error('❌ [navigateToQuiz] LỖI', { error, newQuizType, timestamp: new Date().toISOString() });
@@ -363,11 +306,11 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       if (onComplete) onComplete();
     }
   },
-  
+
 
   continueToNextQuiz: async (navigate, onComplete) => {
     const { scenarios, currentScenarioIndex, isGettingNextType, isNavigating, navigateToQuiz, previousType } = get();
-    
+
     // Nếu đang trong quá trình xử lý hoặc đang navigate, bỏ qua
     if (isGettingNextType || isNavigating) {
       if (onComplete) onComplete();
@@ -381,26 +324,8 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       await new Promise(resolve => setTimeout(resolve, 0));
 
       try {
-        const { completedWordIds } = get();
-        
-        // Lọc ra những scenarios chưa trả lời đúng
-        const remainingScenarios = scenarios.filter(s => !completedWordIds.has(s.word.id));
-        
-        // Console log list còn lại
-        // console.log('📋 [continueToNextQuiz] LIST SCENARIOS CÒN LẠI:', {
-        //   total: scenarios.length,
-        //   completed: completedWordIds.size,
-        //   remaining: remainingScenarios.length,
-        //   remainingList: remainingScenarios.map(s => ({
-        //     order: s.order,
-        //     wordId: s.word.id,
-        //     kanji: s.word.kanji,
-        //     quizType: s.quizType
-        //   }))
-        // });
-        
-        // Nếu không còn từ nào, navigate đến summary
-        if (remainingScenarios.length === 0) {
+        // If no more scenarios, go to summary
+        if (scenarios.length === 0) {
           await new Promise(resolve => requestAnimationFrame(resolve));
           await new Promise(resolve => setTimeout(resolve, 50));
           set({ isGettingNextType: false, isNavigating: false });
@@ -410,29 +335,68 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
           return;
         }
 
-        // Tìm scenario tiếp theo (bỏ qua những từ đã trả lời đúng)
+        // Nếu có pending operations, xử lý trước khi lấy từ tiếp theo
+        const { pendingWrongAnswerReorder, pendingCorrectAnswerRemoval, currentScenarioOrder: currentOrder } = get();
+        let updatedScenarios = [...scenarios];
+
+        // Xử lý trả lời đúng: Xóa scenario khỏi mảng
+        if (pendingCorrectAnswerRemoval && currentOrder !== null) {
+          const scenarioIndex = updatedScenarios.findIndex(s => s.order === currentOrder);
+
+          if (scenarioIndex !== -1) {
+            updatedScenarios.splice(scenarioIndex, 1); // Remove completely
+
+            set({
+              scenarios: updatedScenarios,
+              pendingCorrectAnswerRemoval: false
+            });
+          }
+        }
+
+        // Xử lý trả lời sai: Reorder scenario
+        if (pendingWrongAnswerReorder && currentOrder !== null) {
+          const scenarioIndex = updatedScenarios.findIndex(s => s.order === currentOrder);
+
+          if (scenarioIndex !== -1) {
+            const currentScenario = updatedScenarios[scenarioIndex];
+
+            // FIRST: Delete from current position
+            updatedScenarios.splice(scenarioIndex, 1);
+
+            // Đổi quizType thành một trong: multiple, romajiPractice, voicePractice
+            const availableQuizTypes: QuizType[] = ['multiple', 'romajiPractice', 'voicePractice'];
+            const oldQuizType = currentScenario.quizType;
+            const filteredQuizTypes = availableQuizTypes.filter(type => type !== oldQuizType);
+            const newQuizTypes = filteredQuizTypes.length > 0 ? filteredQuizTypes : availableQuizTypes;
+            const randomQuizType = newQuizTypes[Math.floor(Math.random() * newQuizTypes.length)];
+
+            // Tìm order lớn nhất hiện tại
+            const maxOrder = updatedScenarios.length > 0
+              ? Math.max(...updatedScenarios.map(s => s.order))
+              : 0;
+
+            // THEN: Add to end with new quiz type and new order
+            updatedScenarios.push({
+              ...currentScenario,
+              order: maxOrder + 1,
+              quizType: randomQuizType,
+            });
+
+            // Update scenarios và reset flag
+            set({
+              scenarios: updatedScenarios,
+              pendingWrongAnswerReorder: false
+            });
+          }
+        }
+
+        // Just take the next index (or wrap to 0)
         let nextIndex = currentScenarioIndex + 1;
-        while (nextIndex < scenarios.length && completedWordIds.has(scenarios[nextIndex].word.id)) {
-          nextIndex++;
-        }
-        
-        // Nếu không tìm thấy từ tiếp theo trong phần còn lại, tìm từ đầu
-        if (nextIndex >= scenarios.length) {
-          nextIndex = scenarios.findIndex(s => !completedWordIds.has(s.word.id));
-        }
-        
-        // Nếu vẫn không tìm thấy, navigate đến summary
-        if (nextIndex === -1 || nextIndex >= scenarios.length) {
-          await new Promise(resolve => requestAnimationFrame(resolve));
-          await new Promise(resolve => setTimeout(resolve, 50));
-          set({ isGettingNextType: false, isNavigating: false });
-          await new Promise(resolve => requestAnimationFrame(resolve));
-          navigate('/jp/summary');
-          if (onComplete) onComplete();
-          return;
+        if (nextIndex >= updatedScenarios.length) {
+          nextIndex = 0;  // Start from beginning if at end
         }
 
-        const nextScenario = scenarios[nextIndex];
+        const nextScenario = updatedScenarios[nextIndex];
         const nextQuizType = nextScenario.quizType as QuizType | null;
         const oldQuizType = previousType;
 
@@ -450,14 +414,11 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
           example_vi: nextScenario.word.examples?.[0]?.sentence_vi,
         };
 
-        // Cập nhật currentWord và index
-        // completedCount chỉ tăng khi trả lời đúng, không cập nhật khi chuyển từ
-        // Đảm bảo completedCount không bao giờ giảm
+        // Cập nhật currentWord, index và currentScenarioOrder
         set({
           currentWord: { word: nextWord, hasFailed: false },
           currentScenarioIndex: nextIndex,
-          // Giữ nguyên completedCount, không cập nhật dựa trên index
-          // completedCount chỉ tăng trong markAnswer khi trả lời đúng
+          currentScenarioOrder: nextScenario.order,
         });
 
         await new Promise(resolve => requestAnimationFrame(resolve));
@@ -525,7 +486,9 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       isNavigating: false,
       scenarios: [],
       currentScenarioIndex: 0,
-      completedWordIds: new Set<number>(),
+      currentScenarioOrder: null,
+      pendingWrongAnswerReorder: false,
+      pendingCorrectAnswerRemoval: false,
       randomAnswers: [],
     });
     localStorage.removeItem('practice_active');

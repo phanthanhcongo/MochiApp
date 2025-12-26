@@ -4,6 +4,7 @@ import { usePracticeSession } from '../utils/practiceStore';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
+import { showToast } from '../../components/Toast';
 
 const HiraganaPractice: React.FC = React.memo(() => {
   const [selectedChars, setSelectedChars] = useState<string[]>([]);
@@ -32,7 +33,7 @@ const HiraganaPractice: React.FC = React.memo(() => {
       // Kiểm tra xem có đang ở đúng route không
       const currentPath = location.pathname;
       const isCorrectRoute = currentPath.includes('hiraganaPractice');
-      
+
       // Nếu không ở đúng route, không làm gì cả (có thể đang navigate đi)
       if (!isCorrectRoute) {
         return;
@@ -59,7 +60,7 @@ const HiraganaPractice: React.FC = React.memo(() => {
 
       // Kiểm tra xem state.from có khớp với route hiện tại không
       const stateFromMatchesRoute = state.from === 'hiraganaPractice';
-      
+
       if (!allowedSources.includes(state.from)) {
         // Chỉ navigate nếu state.from không khớp với route hiện tại
         if (!stateFromMatchesRoute) {
@@ -100,7 +101,7 @@ const HiraganaPractice: React.FC = React.memo(() => {
     if ('speechSynthesis' in window) {
       try {
         window.speechSynthesis.cancel(); // stop any ongoing speech
-      } catch {}
+      } catch { }
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'ja-JP';
       window.speechSynthesis.speak(utterance);
@@ -139,7 +140,7 @@ const HiraganaPractice: React.FC = React.memo(() => {
 
   const handleContinue = async () => {
     if (isNavigating || isProcessingRef.current) return;
-    
+
     isProcessingRef.current = true;
     setIsNavigating(true);
     setSelectedChars([]);
@@ -171,6 +172,14 @@ const HiraganaPractice: React.FC = React.memo(() => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // CHỈ xử lý nếu đang ở đúng route
+      const currentPath = window.location.pathname;
+      const isCorrectRoute = currentPath.includes('hiraganaPractice');
+      if (!isCorrectRoute) return;
+
+      // Ignore auto-repeat events when key is held down
+      if (e.repeat) return;
+
       if (e.key === 'Enter' || e.key.toLowerCase() === 'f') {
         const now = Date.now();
         // Prevent double-trigger: only process if at least 300ms has passed since last key press
@@ -179,10 +188,17 @@ const HiraganaPractice: React.FC = React.memo(() => {
         }
         lastKeyPressRef.current = now;
 
+        // CHỈ continue nếu đã answer/forget
         if (isAnswered || isForgetClicked) {
           handleContinue();
-        } else if (selectedChars.length > 0) {
+        }
+        // CHỈ check nếu đã chọn ký tự VÀ chưa answer
+        else if (selectedChars.length > 0 && !isAnswered) {
           handleCheck();
+        }
+        // Nếu chưa chọn gì → Thông báo
+        else {
+          showToast('Vui lòng chọn các ký tự hiragana trước khi kiểm tra');
         }
       }
     };
@@ -193,7 +209,7 @@ const HiraganaPractice: React.FC = React.memo(() => {
   // Component is always mounted, visibility handled by PracticeWrapper
   const currentPath = location.pathname;
   const isCorrectRoute = currentPath.includes('hiraganaPractice');
-  
+
   if (!currentWord || !isCorrectRoute) {
     return null;
   }
@@ -249,57 +265,57 @@ const HiraganaPractice: React.FC = React.memo(() => {
       onExitComplete={() => setIsExiting(false)}
       className="w-full h-full"
     >
-        <div 
-          className="flex flex-col items-center justify-center h-full w-full overflow-x-hidden overflow-y-hidden"
-          style={{
-            willChange: 'transform, opacity',
-          }}
-        >
-          <div className="text-center w-full">
-            <h4 className="text-gray-600 mb-3 sm:mb-4 md:mb-6 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn các ký tự hiragana để ghép cách đọc:</h4>
-            <h1 className="text-6xl font-bold text-gray-900 mb-4 sm:mb-6 md:mb-8 lg:mb-10">{question}</h1>
-            <div className="mb-4 sm:mb-6 md:mb-8 h-18 lg:h-20 w-full max-w-2xl mx-auto border border-gray-400 rounded-xl sm:rounded-2xl px-3 sm:px-4 md:px-6 text-4xl font-semibold tracking-widest text-gray-800 bg-slate-50 flex items-center justify-center text-center">
-              {selectedChars.join('')}
-            </div>
-            <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3 justify-center mb-4 sm:mb-5 md:mb-6">
-              {hiraganaPool.map(({ id, char }) => (
-                <button
-                  key={id}
-                  id={id}
-                  className="bg-slate-50 px-2.5 sm:px-3 md:px-4 lg:px-6 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg sm:rounded-xl text-4xl hover:bg-slate-400 border-b-2 sm:border-b-3 md:border-b-4 border border-slate-400 disabled:opacity-50"
-                  onClick={() => handleCharClick(id)}
-                  disabled={usedCharIds.includes(id)}
-                >
-                  {char}
-                </button>
-              ))}
-              <button className="bg-red-400 px-2.5 sm:px-3 md:px-4 lg:px-6 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg sm:rounded-xl text-lg sm:text-xl md:text-2xl hover:bg-red-600" onClick={handleRemoveLast}>⌫</button>
-            </div>
+      <div
+        className="flex flex-col items-center justify-center h-full w-full overflow-x-hidden overflow-y-hidden"
+        style={{
+          willChange: 'transform, opacity',
+        }}
+      >
+        <div className="text-center w-full">
+          <h4 className="text-gray-600 mb-3 sm:mb-4 md:mb-6 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn các ký tự hiragana để ghép cách đọc:</h4>
+          <h1 className="text-6xl font-bold text-gray-900 mb-4 sm:mb-6 md:mb-8 lg:mb-10">{question}</h1>
+          <div className="mb-4 sm:mb-6 md:mb-8 h-18 lg:h-20 w-full max-w-2xl mx-auto border border-gray-400 rounded-xl sm:rounded-2xl px-3 sm:px-4 md:px-6 text-4xl font-semibold tracking-widest text-gray-800 bg-slate-50 flex items-center justify-center text-center">
+            {selectedChars.join('')}
           </div>
-
-          <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-6 p-4 sm:p-6 md:p-8 w-full">
-            <button
-              className={`btn-primary ${selectedChars.length === 0 || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-6 py-3`}
-              onClick={handleCheck}
-              disabled={selectedChars.length === 0 || isAnswered}
-            >
-              Kiểm tra
-            </button>
-            <button className="btn-forget text-lg" onClick={handleForget} disabled={isAnswered}>Tôi ko nhớ từ này</button>
+          <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3 justify-center mb-4 sm:mb-5 md:mb-6">
+            {hiraganaPool.map(({ id, char }) => (
+              <button
+                key={id}
+                id={id}
+                className="bg-slate-50 px-2.5 sm:px-3 md:px-4 lg:px-6 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg sm:rounded-xl text-4xl hover:bg-slate-400 border-b-2 sm:border-b-3 md:border-b-4 border border-slate-400 disabled:opacity-50"
+                onClick={() => handleCharClick(id)}
+                disabled={usedCharIds.includes(id)}
+              >
+                {char}
+              </button>
+            ))}
+            <button className="bg-red-400 px-2.5 sm:px-3 md:px-4 lg:px-6 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg sm:rounded-xl text-lg sm:text-xl md:text-2xl hover:bg-red-600" onClick={handleRemoveLast}>⌫</button>
           </div>
         </div>
 
-        <JpPracticeResultPanel
-          isAnswered={isAnswered}
-          isForgetClicked={isForgetClicked}
-          isCorrectAnswer={isCorrectAnswer}
-          isResultHidden={isResultHidden}
-          setIsResultHidden={setIsResultHidden}
-          onContinue={handleContinue}
-          isNavigating={isNavigating}
-          word={currentWord.word}
-          speak={speak}
-        />
+        <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-6 p-4 sm:p-6 md:p-8 w-full">
+          <button
+            className={`btn-primary ${selectedChars.length === 0 || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-6 py-3`}
+            onClick={handleCheck}
+            disabled={selectedChars.length === 0 || isAnswered}
+          >
+            Kiểm tra
+          </button>
+          <button className="btn-forget text-lg" onClick={handleForget} disabled={isAnswered}>Tôi ko nhớ từ này</button>
+        </div>
+      </div>
+
+      <JpPracticeResultPanel
+        isAnswered={isAnswered}
+        isForgetClicked={isForgetClicked}
+        isCorrectAnswer={isCorrectAnswer}
+        isResultHidden={isResultHidden}
+        setIsResultHidden={setIsResultHidden}
+        onContinue={handleContinue}
+        isNavigating={isNavigating}
+        word={currentWord.word}
+        speak={speak}
+      />
     </PracticeAnimationWrapper>
   );
 });

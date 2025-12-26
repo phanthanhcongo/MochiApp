@@ -41,7 +41,7 @@ const MultiCharStrokePractice: React.FC = () => {
       // Kiểm tra xem có đang ở đúng route không
       const currentPath = location.pathname;
       const isCorrectRoute = currentPath.includes('multiCharStrokePractice');
-      
+
       // Nếu không ở đúng route, không làm gì cả (có thể đang navigate đi)
       if (!isCorrectRoute) {
         return;
@@ -74,7 +74,7 @@ const MultiCharStrokePractice: React.FC = () => {
       // Kiểm tra xem state.from có khớp với route hiện tại không
       // Nếu khớp, không cần navigate (đang ở đúng route)
       const stateFromMatchesRoute = state.from === 'multiCharStrokePractice';
-      
+
       if (!allowedSources.includes(state.from)) {
         // Chỉ navigate nếu state.from không khớp với route hiện tại
         // Điều này tránh navigate khi đang transition giữa các quiz
@@ -88,7 +88,7 @@ const MultiCharStrokePractice: React.FC = () => {
         }
         return;
       }
-      
+
       if (newReloadCount >= RELOAD_COUNT_THRESHOLD) {
         if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
           navigate('/jp/summary');
@@ -120,12 +120,12 @@ const MultiCharStrokePractice: React.FC = () => {
     const chars = Array.from(word.kanji ?? '');
     // initStatus: non-Kanji -> true, Kanji -> false
     const initStatus = chars.map(ch => !isKanji(ch));
-    
+
     // Set trạng thái ban đầu
     setKanjiStatus(initStatus);
 
     // Dọn cũ trước khi vẽ mới
-    writersRef.current.forEach(w => { try { w?.cancelQuiz?.(); } catch {} });
+    writersRef.current.forEach(w => { try { w?.cancelQuiz?.(); } catch { } });
     writersRef.current = [];
 
     const timer = setTimeout(async () => {
@@ -180,7 +180,7 @@ const MultiCharStrokePractice: React.FC = () => {
     return () => {
       cancelled = true;
       clearTimeout(timer);
-      writersRef.current.forEach(w => { try { w?.cancelQuiz?.(); } catch {} });
+      writersRef.current.forEach(w => { try { w?.cancelQuiz?.(); } catch { } });
       writersRef.current = [];
     };
   }, [word, isForgetClicked]);
@@ -192,9 +192,21 @@ const MultiCharStrokePractice: React.FC = () => {
     }
   }, [kanjiStatus]);
 
-  const handleContinue = async () => {
+  const handleForget = React.useCallback(() => {
+    if (!isCorrectAnswer) {
+      setIsForgetClicked(true);
+      setIsCorrectAnswer(false);
+      markAnswer(false);
+      speak(word?.reading_hiragana || '');
+      writersRef.current.forEach((writer) => {
+        if (writer) writer.cancelQuiz();
+      });
+    }
+  }, [isCorrectAnswer, word, markAnswer]);
+
+  const handleContinue = React.useCallback(async () => {
     if (isNavigating || isProcessingRef.current) return;
-    
+
     isProcessingRef.current = true;
     setIsNavigating(true);
     setIsCorrectAnswer(null);
@@ -211,27 +223,37 @@ const MultiCharStrokePractice: React.FC = () => {
       setIsNavigating(false);
       isProcessingRef.current = false;
     });
-  };
+  }, [isNavigating, continueToNextQuiz, navigate]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // CHỈ xử lý nếu đang ở đúng route
+      const currentPath = window.location.pathname;
+      const isCorrectRoute = currentPath.includes('multiCharStrokePractice');
+      if (!isCorrectRoute) return;
+
+      // Ignore auto-repeat events when key is held down
+      if (e.repeat) return;
+
       if (e.key === 'Enter' || e.key.toLowerCase() === 'f') {
+        // CHỈ cho phép continue khi đã hoàn thành (isResultShown = true)
+        // KHÔNG tự động gọi handleForget nữa
         if (isResultShown) {
           handleContinue();
-        } else {
-          handleForget();
         }
+        // Khi chưa hoàn thành → KHÔNG làm gì cả
+        // User phải tự bấm nút "Tôi ko nhớ từ này" nếu muốn forget
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isResultShown]);
+  }, [isResultShown, handleContinue, handleForget]);
 
   // Ẩn component ngay khi đang navigate hoặc không phải quiz type hiện tại
   const currentPath = location.pathname;
   const isCorrectRoute = currentPath.includes('multiCharStrokePractice');
   const shouldHide = storeIsNavigating || (previousType && previousType !== 'multiCharStrokePractice');
-  
+
   // Đồng bộ exit animation với state updates
   useEffect(() => {
     if (shouldHide && !isExiting) {
@@ -246,29 +268,19 @@ const MultiCharStrokePractice: React.FC = () => {
         exitTimeoutRef.current = null;
       }
     }
-    
+
     return () => {
       if (exitTimeoutRef.current) {
         clearTimeout(exitTimeoutRef.current);
       }
     };
   }, [shouldHide, isExiting]);
-  
+
   if (!word || shouldHide || !isCorrectRoute) {
     return null;
   }
 
-  const handleForget = () => {
-    if (!isCorrectAnswer) {
-      setIsForgetClicked(true);
-      setIsCorrectAnswer(false);
-      markAnswer(false);
-      speak(word?.reading_hiragana || '');
-      writersRef.current.forEach((writer) => {
-        if (writer) writer.cancelQuiz();
-      });
-    }
-  };
+
 
   return (
     <PracticeAnimationWrapper
@@ -277,53 +289,53 @@ const MultiCharStrokePractice: React.FC = () => {
       onExitComplete={() => setIsExiting(false)}
       className="w-full"
     >
-        <div className="text-center overflow-x-hidden overflow-y-hidden">
-                <h4 className="text-gray-600 mb-4">Vẽ từng nét đúng theo thứ tự</h4>
-                <div className="flex gap-4 flex-wrap justify-center">
-                  {word.kanji.split('').map((char, idx) => (
-                    <div
-                      key={`${word.id}-${idx}`} // ✅ Quan trọng: đảm bảo mỗi ô là duy nhất khi từ thay đổi
-                      ref={(el) => {
-                        containerRefs.current[idx] = el;
-                      }}
-                      className="relative w-[200px] h-[200px] flex items-center justify-center text-9xl font-bold border border-gray-400 rounded-lg shadow bg-stone-100"
-                      style={{
-                        backgroundImage: `
+      <div className="text-center overflow-x-hidden overflow-y-hidden">
+        <h4 className="text-gray-600 mb-4">Vẽ từng nét đúng theo thứ tự</h4>
+        <div className="flex gap-4 flex-wrap justify-center">
+          {word.kanji.split('').map((char, idx) => (
+            <div
+              key={`${word.id}-${idx}`} // ✅ Quan trọng: đảm bảo mỗi ô là duy nhất khi từ thay đổi
+              ref={(el) => {
+                containerRefs.current[idx] = el;
+              }}
+              className="relative w-[200px] h-[200px] flex items-center justify-center text-9xl font-bold border border-gray-400 rounded-lg shadow bg-stone-100"
+              style={{
+                backgroundImage: `
           linear-gradient(to right, #b4b7bdff 1px, transparent 1px),
           linear-gradient(to bottom, #c6c7c9ff 1px, transparent 1px),
           linear-gradient(to top left, #f3f4f6 1px, transparent 1px),
           linear-gradient(to top right, #f3f4f6 1px, transparent 1px)
         `,
-                        backgroundSize: '25% 25%',
-                        backgroundPosition: 'center',
-                      }}
-                    >
-                      {!isKanji(char) && <span>{char}</span>}
-                    </div>
-                  ))}
-                </div>
+                backgroundSize: '25% 25%',
+                backgroundPosition: 'center',
+              }}
+            >
+              {!isKanji(char) && <span>{char}</span>}
+            </div>
+          ))}
+        </div>
 
-              </div>
+      </div>
 
-              <div className="flex flex-col items-center gap-4 p-8">
-                <button
-                  className="btn-forget"
-                  onClick={handleForget}
-                  disabled={!!isCorrectAnswer}
-                >Tôi ko nhớ từ này</button>
-              </div>
+      <div className="flex flex-col items-center gap-4 p-8">
+        <button
+          className="btn-forget"
+          onClick={handleForget}
+          disabled={!!isCorrectAnswer}
+        >Tôi ko nhớ từ này</button>
+      </div>
 
-              <JpPracticeResultPanel
-                isAnswered={isResultShown}
-                isForgetClicked={isForgetClicked}
-                isCorrectAnswer={isCorrectAnswer}
-                isResultHidden={isResultHidden}
-                setIsResultHidden={setIsResultHidden}
-                onContinue={handleContinue}
-                isNavigating={isNavigating}
-                word={currentWord.word}
-                speak={speak}
-              />
+      <JpPracticeResultPanel
+        isAnswered={isResultShown}
+        isForgetClicked={isForgetClicked}
+        isCorrectAnswer={isCorrectAnswer}
+        isResultHidden={isResultHidden}
+        setIsResultHidden={setIsResultHidden}
+        onContinue={handleContinue}
+        isNavigating={isNavigating}
+        word={currentWord.word}
+        speak={speak}
+      />
     </PracticeAnimationWrapper>
   );
 };

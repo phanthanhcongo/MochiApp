@@ -45,7 +45,7 @@ const ResultProgress: React.FC = () => {
   }, []);
 
   const results = reviewedWords.map(entry => ({
-    word: entry.word.kanji,
+    word: entry.word.kanji, // Changed from entry.kanji to entry.word.kanji
     meaning: entry.word.meaning_vi,
     isCorrect: !entry.firstFailed,
   }));
