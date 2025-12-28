@@ -1,173 +1,173 @@
-import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
 import { usePracticeSession } from '../utils/practiceStore';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaPlay, FaPause } from "react-icons/fa";
-import { BiLogOutCircle } from "react-icons/bi";
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
-import { API_URL } from '../../apiClient';
 import EnglishPracticeResultPanel from '../components/EnglishPracticeResultPanel';
+import { HiSpeakerWave } from "react-icons/hi2";
+import { showToast } from '../../components/Toast';
 
 interface AnswerOption {
   text: string;
   isCorrect: boolean;
 }
 
-const VoicePractice: React.FC = () => {
+const VoicePractice: React.FC = React.memo(() => {
   const location = useLocation();
   const navigate = useNavigate();
-
-  const [isPlaying, setIsPlaying] = useState(false);
 
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
   const [isResultHidden, setIsResultHidden] = useState(false);
   const [isForgetClicked, setIsForgetClicked] = useState(false);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
-  const [showConfirmExit, setShowConfirmExit] = useState(false);
-  const [allWords, setAllWords] = useState<any[]>([]);
+  const isProcessingRef = useRef(false);
+  const lastKeyPressRef = useRef<number>(0);
+  const [isExiting, setIsExiting] = useState(false);
   const {
     currentWord,
     words,
     markAnswer,
-    getNextQuizType,
-    removeCurrentWord,
-    reviewedWords,
-    totalCount,
-    completedCount
+    continueToNextQuiz,
+    previousType,
+    isNavigating
   } = usePracticeSession();
 
-  // const isResultShown = isAnswered || isForgetClicked; // Unused variable
-  const progress = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
 
-  // Fetch all words from database
+
   useEffect(() => {
-    const fetchAllWords = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        const res = await fetch(`${API_URL}/en/practice/listWord`, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Authorization': `Bearer ${token}`,
-          },
-        });
-        if (res.ok) {
-          const data = await res.json();
-          setAllWords(data.allWords || []);
+    const checkState = setTimeout(() => {
+      const allowedSources = ['multiple', 'voicePractice', 'FillInBlankPractice'];
+      const state = location.state;
+      const currentPath = location.pathname;
+      const isCorrectRoute = currentPath.includes('voicePractice');
+
+      if (!isCorrectRoute) return;
+
+      const storedRaw = localStorage.getItem('reviewed_words_english');
+      const reviewedWords = storedRaw ? JSON.parse(storedRaw) : [];
+
+      const reloadCountRaw = sessionStorage.getItem('reload_count');
+      const reloadCount = reloadCountRaw ? parseInt(reloadCountRaw) : 0;
+      const newReloadCount = reloadCount + 1;
+      sessionStorage.setItem('reload_count', newReloadCount.toString());
+      // console.log(`Reload count: ${newReloadCount}`);
+
+      if (!state) {
+        // console.log('No state provided, redirecting to summary or home');
+        if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
+          navigate('/en/summary');
+        } else {
+          navigate('/en/home');
         }
-      } catch (err) {
-        console.error('Error fetching all words:', err);
+        return;
       }
-    };
-    fetchAllWords();
-  }, []);
-  useEffect(() => {
-    const allowedSources = ['multiple', 'voicePractice','FillInBlankPractice'];
-    const state = location.state;
 
-    // Đọc dữ liệu từ localStorage
-    const storedRaw = localStorage.getItem('reviewed_words_english');
-    const reviewedWords = storedRaw ? JSON.parse(storedRaw) : [];
-
-    // --- Reset rồi đếm reload ---
-    const reloadCountRaw = sessionStorage.getItem('reload_count');
-    const reloadCount = reloadCountRaw ? parseInt(reloadCountRaw) : 0;
-    const newReloadCount = reloadCount + 1;
-    sessionStorage.setItem('reload_count', newReloadCount.toString());
-    console.log(`Reload count: ${newReloadCount}`);
-
-    // -------------------------
-
-    // ✅ Nếu không có state (truy cập trực tiếp hoặc reload)
-    if (!state) {
-      console.log('No state provided, redirecting to summary or home');
-      if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
-        navigate('/en/summary');
-      } else {
-        navigate('/en/home');
+      if (!allowedSources.includes(state.from)) {
+        // console.log(`Invalid source: ${state.from}, redirecting to summary or home`);
+        if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
+          navigate('/en/summary');
+        } else {
+          navigate('/en/home');
+        }
+        return;
       }
+
+      if (newReloadCount >= RELOAD_COUNT_THRESHOLD) {
+        if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
+          navigate('/en/summary');
+        } else {
+          navigate('/en/home');
+        }
+      }
+    }, 100);
+
+    return () => clearTimeout(checkState);
+  }, [location.state, location.pathname, navigate]);
+
+
+
+
+
+  const [answers, setAnswers] = useState<AnswerOption[]>([]);
+
+  // Generate answer choices (1 correct + 2 incorrect) from scenarios
+  const generateAnswers = useCallback(() => {
+    if (!currentWord) {
+      setAnswers([]);
       return;
     }
 
-    // ✅ Nếu có state nhưng không đến từ nguồn hợp lệ
-    if (!allowedSources.includes(state.from)) {
-      console.log(`Invalid source: ${state.from}, redirecting to summary or home`);
-      if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
-        navigate('/en/summary');
-      } else {
-        navigate('/en/home');
-      }
-    }
-    if (newReloadCount >= RELOAD_COUNT_THRESHOLD) {
-      if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
-        navigate('/en/summary');
-      } else {
-        navigate('/en/home');
-      }
-    }
-  }, []);
+    const correctAnswerText = currentWord.word.meaning_vi || '';
+    const correctAnswer = {
+      text: correctAnswerText,
+      isCorrect: true,
+    };
 
+    const isOverlapping = (t1: string, t2: string) => {
+      const s1 = t1.toLowerCase().trim();
+      const s2 = t2.toLowerCase().trim();
+      if (!s1 || !s2) return false;
+      return s1.includes(s2) || s2.includes(s1);
+    };
 
+    let incorrects: AnswerOption[] = [];
 
-
-
-  const totalWords = words.length + (currentWord ? 1 : 0);
-  const [answers, setAnswers] = useState<AnswerOption[]>([]);
-
-  useEffect(() => {
-    if (!currentWord) return;
-    
-    speak(currentWord.word.word || '');
-    
-    if (allWords.length > 0) {
-      const correctAnswerText = currentWord.word.meaning_vi || '';
-      const correctAnswer = {
-        text: correctAnswerText,
-        isCorrect: true,
-      };
-
-      const isOverlapping = (t1: string, t2: string) => {
-        const s1 = t1.toLowerCase().trim();
-        const s2 = t2.toLowerCase().trim();
-        if (!s1 || !s2) return false;
-        return s1.includes(s2) || s2.includes(s1);
-      };
-
-      const incorrects = allWords
+    // First, try to get incorrect answers from current practice words
+    if (words.length > 0) {
+      incorrects = words
         .filter(w => {
-          const m = w.meaning_vi;
-          return w.id !== currentWord.word.id && m && !isOverlapping(m, correctAnswerText);
+          const m = w.word.meaning_vi;
+          return w.word.id !== currentWord.word.id && m && !isOverlapping(m, correctAnswerText);
         })
         .map(w => ({
-          text: w.meaning_vi,
+          text: w.word.meaning_vi || '',
           isCorrect: false,
         }))
-        .filter((v, i, arr) => arr.findIndex(x => x.text === v.text) === i)
-        .sort(() => Math.random() - 0.5);
+        .filter(v => v.text !== '')
+        .filter((v, i, arr) => arr.findIndex(x => x.text === v.text) === i);
+    }
 
-      const finalIncorrects: AnswerOption[] = [];
-      for (const item of incorrects) {
+    // Shuffle and select 2 incorrect answers
+    const finalIncorrects: AnswerOption[] = [];
+    const shuffled = incorrects.sort(() => 0.5 - Math.random());
+
+    for (const item of shuffled) {
+      if (finalIncorrects.length >= 2) break;
+      if (!finalIncorrects.some(existing => isOverlapping(item.text, existing.text))) {
+        finalIncorrects.push(item);
+      }
+    }
+
+    // If still not enough, relax constraints
+    if (finalIncorrects.length < 2) {
+      for (const item of shuffled) {
         if (finalIncorrects.length >= 2) break;
-        if (!finalIncorrects.some(existing => isOverlapping(item.text, existing.text))) {
+        if (!finalIncorrects.some(existing => existing.text === item.text)) {
           finalIncorrects.push(item);
         }
       }
-
-      if (finalIncorrects.length < 2) {
-        for (const item of incorrects) {
-          if (finalIncorrects.length >= 2) break;
-          if (!finalIncorrects.some(existing => existing.text === item.text)) {
-            finalIncorrects.push(item);
-          }
-        }
-      }
-
-      setAnswers([correctAnswer, ...finalIncorrects].sort(() => Math.random() - 0.5));
     }
-  }, [currentWord?.word.id, allWords.length > 0]); // Chỉ chạy khi ID từ thay đổi hoặc khi listWord tải xong
+
+    // Ensure we always have 3 choices (1 correct + 2 incorrect)
+    if (finalIncorrects.length < 2) {
+      const placeholders = ['...', '...'];
+      for (let i = finalIncorrects.length; i < 2; i++) {
+        finalIncorrects.push({ text: placeholders[i] || '...', isCorrect: false });
+      }
+    }
+
+    // Create array of 3 answers and shuffle
+    const finalAnswers = [...finalIncorrects, correctAnswer].sort(() => 0.5 - Math.random());
+    setAnswers(finalAnswers);
+  }, [currentWord, words]);
+
+  // useEffect to generate answers when currentWord ID changes
+  useEffect(() => {
+    if (currentWord) {
+      generateAnswers();
+    }
+  }, [currentWord?.word.id]); // Only depend on ID to avoid unnecessary re-renders
 
 
   const handleSelect = (index: number) => {
@@ -180,39 +180,71 @@ const VoicePractice: React.FC = () => {
       setIsAnswered(true);
       setIsCorrectAnswer(isCorrect);
       setIsForgetClicked(false);
+      speak(reading);
       markAnswer(isCorrect);
-      speak(currentWord?.word.word || '');
-
     }
   };
 
-  const handleContinue = () => {
+  const handleContinue = async () => {
+    if (isNavigating || isProcessingRef.current) return;
+
+    isProcessingRef.current = true;
     setSelectedIndex(null);
     setIsAnswered(false);
     setIsResultHidden(false);
     setIsForgetClicked(false);
     setIsCorrectAnswer(null);
-    setShowConfirmExit(false);
 
-    removeCurrentWord();
-    if (words.length === 0) {
-      // Nếu hết từ để ôn → chuyển sang trang summary
-      navigate('/en/summary', { state: { reviewedWords } });
-    } else {
-      const firstQuizType = getNextQuizType();
-      navigate(`/en/quiz/${firstQuizType}`, {
-        state: { from: firstQuizType }
+    // Timeout protection - reset after 5 seconds max
+    const timeoutId = setTimeout(() => {
+      isProcessingRef.current = false;
+      // console.warn('Navigation timeout - forcing reset');
+    }, 5000);
+    sessionStorage.setItem('reload_count', '0'); // Reset to 0 before
+
+    try {
+      // Use new method from store to handle all logic
+      await continueToNextQuiz(navigate, () => {
+        clearTimeout(timeoutId);
+        isProcessingRef.current = false;
       });
+    } catch (error) {
+      clearTimeout(timeoutId);
+      // console.error('Error in handleContinue:', error);
+      isProcessingRef.current = false;
+      showToast('Có lỗi xảy ra. Vui lòng thử lại!');
     }
   };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // ONLY process if on correct route
+      const currentPath = window.location.pathname;
+      const isCorrectRoute = currentPath.includes('voicePractice');
+      if (!isCorrectRoute) return;
+
+      // Ignore auto-repeat events when key is held down
+      if (e.repeat) return;
+
       if (e.key === 'Enter' || e.key.toLowerCase() === 'f') {
+        const now = Date.now();
+        // Prevent double-trigger: only process if at least 300ms has passed since last key press
+        if (now - lastKeyPressRef.current < 300) {
+          return;
+        }
+        lastKeyPressRef.current = now;
+
+        // ONLY continue if already answered/forget
         if (isAnswered || isForgetClicked) {
           handleContinue();
-        } else if (selectedIndex !== null) {
+        }
+        // ONLY check if selected answer AND not answered
+        else if (selectedIndex !== null && !isAnswered) {
           handleCheck();
+        }
+        // If nothing selected → Notify
+        else {
+          showToast('Vui lòng chọn đáp án trước khi kiểm tra');
         }
       }
     };
@@ -220,16 +252,28 @@ const VoicePractice: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isAnswered, isForgetClicked, selectedIndex]);
 
-  const handleForget = () => {
-    if (!isAnswered) {
-      setIsAnswered(false);
-      setIsCorrectAnswer(false);
-      setIsForgetClicked(true);
-      setIsResultHidden(false);
-      setSelectedIndex(null);
-      speak(currentWord?.word.word || ""); // Phát âm khi chọn "Tôi không nhớ từ này"
-    }
-  };
+  // Component is always mounted, visibility handled by PracticeWrapper
+  const currentPath = location.pathname;
+  const isCorrectRoute = currentPath.includes('voicePractice');
+
+  if (!currentWord || !isCorrectRoute) {
+    return null;
+  }
+
+  // Only render when we have 3 answers ready
+  if (answers.length !== 3) {
+    return (
+      <div className="flex items-center justify-center h-full">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto mb-4"></div>
+          <p className="text-gray-600">Đang tải đáp án...</p>
+        </div>
+      </div>
+    );
+  }
+
+  const word = currentWord.word;
+  const reading = currentWord?.word.word || '';
 
   const speak = (text: string) => {
     if ('speechSynthesis' in window && text) {
@@ -239,160 +283,112 @@ const VoicePractice: React.FC = () => {
       speechSynthesis.speak(utterance);
     }
   };
-  const handleToggle = () => {
-    setIsPlaying(prev => !prev);
-    setShowConfirmExit(true); // nếu vẫn muốn gọi logic này
-  };
-  if (!currentWord) return null;
 
-  const word = currentWord.word;
+  const handleForget = () => {
+    if (!isAnswered) {
+      setIsAnswered(false);
+      setIsCorrectAnswer(false);
+      setIsForgetClicked(true);
+      setIsResultHidden(false);
+      setSelectedIndex(null);
+      markAnswer(false);
+      speak(reading);
+    }
+  };
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={word.id}
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.4 }}
-        className="min-h-screen bg-gray-100 relative"  >
-        <div className="mx-auto p-10 ">
-          <div className="relative w-full h-5"> {/* wrapper chứa thanh tiến độ + runner */}
-            {/* Thanh tiến độ nền */}
-            <div className="w-full h-full bg-gray-200 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-white rounded-full transition-all duration-300"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-
-            {/* Ảnh nổi phía trên */}
-            <img
-              src="https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmichi.308739ad.png&w=96&q=75" // 👈 ảnh bạn đã gửi
-              alt="Runner"
-              className="absolute -top-6 w-12 h-12 transition-all duration-300"
-              style={{ left: `calc(${progress}% - 24px)` }} // dịch trái = nửa ảnh
-            />
-          </div>
-          <div className="flex items-center justify-between m-6">
+    <PracticeAnimationWrapper
+      keyValue={`${word.id}-${previousType || 'none'}`}
+      isExiting={isExiting}
+      onExitComplete={() => setIsExiting(false)}
+      className="h-full"
+    >
+      <div
+        className="flex flex-col items-center justify-center h-full w-full overflow-x-hidden overflow-y-hidden"
+        style={{
+          willChange: 'transform, opacity',
+        }}
+      >
+        {/* Question (Play sound instead of showing text) */}
+        <div className="text-center mb-4 sm:mb-6 md:mb-8 w-full">
+          <h4 className="text-gray-600 m-5 sm:mb-4 md:mb-6 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn đáp án đúng</h4>
+          <div className="flex justify-center w-full"> {/* Add this div to center */}
             <button
-              className="bg-yellow-400 px-3 py-1 rounded-full flex items-center justify-center h-15 w-15 text-3xl text-slate-50"
-              onClick={handleToggle}
+              className="bg-slate-200 hover:bg-slate-600 p-8 w-28 h-28 rounded-full text-gray-800 hover:text-white transition duration-200 hover:scale-105 active:scale-95 flex items-center justify-center"
+              onClick={() => speak(reading)}
+              title="Phát âm từ"
             >
-              {isPlaying ? <FaPause /> : <FaPlay />}
-            </button>
-            <div className="text-xs">1 / {totalWords}</div>
-          </div>
-          <div className="text-center mb-6">
-  <h4 className="text-gray-600 mb-4">Chọn đáp án đúng</h4>
-  <button
-    className="bg-slate-200 hover:bg-slate-600 p-4 rounded-full text-2xl font-bold text-gray-800 transition"
-    onClick={() => speak(word.word)}
-    title="Phát âm từ"
-  >
-    🔊
-  </button>
-</div>
-          <div className="flex flex-col gap-3 mb-6">
-            {answers.map((ans, idx) => {
-              const isSelected = selectedIndex === idx;
-              let statusClass = 'answer-option--default';
-              if (isAnswered || isForgetClicked) {
-                if (ans.isCorrect) {
-                  statusClass = 'answer-option--correct';
-                } else if (selectedIndex === idx) {
-                  statusClass = 'answer-option--wrong';
-                }
-              } else if (isSelected) {
-                statusClass = 'answer-option--selected';
-              }
-
-            
-              return (
-                <button
-                  key={idx}
-                  className={`answer-option ${statusClass}`}
-                  onClick={() => handleSelect(idx)}
-                  disabled={isAnswered}
-                >
-                  <div className="flex items-center gap-4 h-full">
-                    <div className="flex-shrink-0 flex justify-center">
-                      <span className="inline-flex items-center justify-center h-8 w-8 border-2 border-gray-300 rounded-full text-sm font-medium">
-                        {idx + 1}
-                      </span>
-                    </div>
-                    <div className="flex-1 text-center break-words">{ans.text}</div>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-          <div className="flex flex-col items-center gap-4 p-8 ">
-            <button
-              className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-80 px-6 py-2`}
-              onClick={handleCheck}
-              disabled={selectedIndex === null || isAnswered}>
-              Kiểm tra
-            </button>
-            <button className="btn-forget" onClick={handleForget} disabled={isAnswered}>
-              Tôi ko nhớ từ này
+              <HiSpeakerWave className="text-5xl" />
             </button>
           </div>
 
-          <EnglishPracticeResultPanel
-            isAnswered={isAnswered}
-            isForgetClicked={isForgetClicked}
-            isCorrectAnswer={isCorrectAnswer}
-            isResultHidden={isResultHidden}
-            setIsResultHidden={setIsResultHidden}
-            onContinue={handleContinue}
-            isNavigating={false}
-            word={currentWord.word}
-            speak={speak}
-          />
         </div>
-        {showConfirmExit && (
-          <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-            <div className="relative bg-slate-50 p-6 rounded-t-2xl shadow-xl w-full text-center animate-slideUp space-y-4">
-              {/* Nút đóng */}
+        {/* Answers */}
+        <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8 w-full ">
+          {answers.map((ans, idx) => {
+            const isSelected = selectedIndex === idx;
+            let statusClass = 'answer-option--default';
+            if (isAnswered || isForgetClicked) {
+              if (ans.isCorrect) {
+                statusClass = 'answer-option--correct';
+              } else if (selectedIndex === idx) {
+                statusClass = 'answer-option--wrong';
+              }
+            } else if (isSelected) {
+              statusClass = 'answer-option--selected';
+            }
+
+
+            return (
               <button
-                className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-full transition"
-                onClick={() => setShowConfirmExit(false)}
-                title="Đóng"
+                key={idx}
+                className={`answer-option group ${statusClass}`}
+                onClick={() => handleSelect(idx)}
+                disabled={isAnswered}
               >
-                <FontAwesomeIcon icon={faCircleXmark} className="text-gray-700 text-4xl" />
+                <div className="flex items-center gap-3 sm:gap-4 md:gap-6 w-full">
+                  <span className="option-index">
+                    {idx + 1}
+                  </span>
+                  <div className="flex-1 text-center font-bold text-base sm:text-lg md:text-xl lg:text-2xl pr-4 sm:pr-6 md:pr-8 lg:pr-10">
+                    {ans.text}
+                  </div>
+                </div>
               </button>
+            );
+          })}
+        </div>
 
-              {/* Nội dung */}
-              <p className="text-2xl font-semibold text-gray-800 mb-10 mt-5">Bạn muốn ngừng ôn tập à?</p>
+        {/* Check & Forget */}
+        <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-6 p-4 sm:p-6 md:p-8 w-full">
+          <button
+            className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-6 py-3`}
+            onClick={handleCheck}
+            disabled={selectedIndex === null || isAnswered}
+          >
+            Kiểm tra
+          </button>
+          <button className="btn-forget text-lg" onClick={handleForget} disabled={isAnswered}>
+            Tôi ko nhớ từ này
+          </button>
+        </div>
+      </div>
 
-              {/* Nút: Tiếp tục */}
-              <button
-                onClick={() => {
-                  console.log("Tiếp tục ôn tập");
-                  setShowConfirmExit(false);
-                }}
-                className="w-full flex items-center  justify-center gap-2 px-6 py-3 rounded-full bg-green-600 hover:brightness-110 text-stone-50 font-semibold transition"
-              >
-                <FaPlay className=" text-3xl" />
-                Tiếp tục
-              </button>
-
-              {/* Nút: Quay lại */}
-              <button
-                onClick={() => navigate('/en/summary')}
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-full  hover:brightness-110 text-gray-800 font-semibold transition border border-gray-300 border-b-10"
-              >
-                <BiLogOutCircle className="text-gray-700 text-3xl" />
-                Quay lại
-              </button>
-            </div>
-          </div>
-        )}
-
-      </motion.div>
-    </AnimatePresence>
+      <EnglishPracticeResultPanel
+        isAnswered={isAnswered}
+        isForgetClicked={isForgetClicked}
+        isCorrectAnswer={isCorrectAnswer}
+        isResultHidden={isResultHidden}
+        setIsResultHidden={setIsResultHidden}
+        onContinue={handleContinue}
+        isNavigating={isNavigating}
+        word={currentWord.word}
+        speak={speak}
+      />
+    </PracticeAnimationWrapper>
   );
-};
+});
+
+VoicePractice.displayName = 'VoicePractice';
 
 export default VoicePractice;

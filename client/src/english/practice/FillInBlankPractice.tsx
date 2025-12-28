@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -34,7 +34,7 @@ const maskWordInSentence = (sentence: string, target: string) => {
   return sentence.slice(0, idx) + ` ${BLANK} ` + sentence.slice(idx);
 };
 
-const FillInBlankPractice: React.FC = () => {
+const FillInBlankPractice: React.FC = React.memo(() => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -45,48 +45,58 @@ const FillInBlankPractice: React.FC = () => {
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [showConfirmExit, setShowConfirmExit] = useState(false);
   const [inputValue, setInputValue] = useState("");
+  const isProcessingRef = useRef(false);
+  const lastKeyPressRef = useRef<number>(0);
 
   const {
     currentWord,
     words,
     markAnswer,
-    getNextQuizType,
-    removeCurrentWord,
-    reviewedWords,
+    continueToNextQuiz,
     totalCount,
-    completedCount
+    completedCount,
+    isNavigating
   } = usePracticeSession();
   const progress = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
 
   useEffect(() => {
-    const allowedSources = ["multiple", "voicePractice", "fillInBlank"]; // giữ giống VoicePractice
-    const state = location.state as any;
+    const checkState = setTimeout(() => {
+      const allowedSources = ["multiple", "voicePractice", "fillInBlank"];
+      const state = location.state as any;
+      const currentPath = location.pathname;
+      const isCorrectRoute = currentPath.includes('fillInBlank');
 
-    const storedRaw = localStorage.getItem("reviewed_words_english");
-    const reviewed = storedRaw ? JSON.parse(storedRaw) : [];
+      if (!isCorrectRoute) return;
 
-    const reloadCountRaw = sessionStorage.getItem("reload_count");
-    const reloadCount = reloadCountRaw ? parseInt(reloadCountRaw) : 0;
-    const newReloadCount = reloadCount + 1;
-    sessionStorage.setItem("reload_count", newReloadCount.toString());
+      const storedRaw = localStorage.getItem("reviewed_words_english");
+      const reviewed = storedRaw ? JSON.parse(storedRaw) : [];
 
-    if (!state) {
-      if (Array.isArray(reviewed) && reviewed.length > 0) navigate("/en/summary");
-      else navigate("/en/home");
-      return;
-    }
+      const reloadCountRaw = sessionStorage.getItem("reload_count");
+      const reloadCount = reloadCountRaw ? parseInt(reloadCountRaw) : 0;
+      const newReloadCount = reloadCount + 1;
+      sessionStorage.setItem("reload_count", newReloadCount.toString());
+      console.log(`Reload count: ${newReloadCount}`);
 
-    if (!allowedSources.includes(state.from)) {
-      if (Array.isArray(reviewed) && reviewed.length > 0) navigate("/en/summary");
-      else navigate("/en/home");
-      return;
-    }
+      if (!state) {
+        if (Array.isArray(reviewed) && reviewed.length > 0) navigate("/en/summary");
+        else navigate("/en/home");
+        return;
+      }
 
-    if (newReloadCount >= RELOAD_COUNT_THRESHOLD) {
-      if (Array.isArray(reviewed) && reviewed.length > 0) navigate("/en/summary");
-      else navigate("/en/home");
-    }
-  }, []);
+      if (!allowedSources.includes(state.from)) {
+        if (Array.isArray(reviewed) && reviewed.length > 0) navigate("/en/summary");
+        else navigate("/en/home");
+        return;
+      }
+
+      if (newReloadCount >= RELOAD_COUNT_THRESHOLD) {
+        if (Array.isArray(reviewed) && reviewed.length > 0) navigate("/en/summary");
+        else navigate("/en/home");
+      }
+    }, 100);
+
+    return () => clearTimeout(checkState);
+  }, [location.state, location.pathname, navigate]);
 
   const totalWords = words.length + (currentWord ? 1 : 0);
 
@@ -120,7 +130,7 @@ const FillInBlankPractice: React.FC = () => {
     }
   };
 
-  const handleCheck = () => {
+  const handleCheck = useCallback(() => {
     if (isAnswered) return;
     const expected = normalize(currentWord?.word?.word || "");
     const actual = normalize(inputValue);
@@ -131,9 +141,12 @@ const FillInBlankPractice: React.FC = () => {
     setIsForgetClicked(false);
     markAnswer(!!ok);
     if (currentWord?.word?.word) speak(currentWord.word.word);
-  };
+  }, [isAnswered, currentWord, inputValue, markAnswer]);
 
-  const handleContinue = () => {
+  const handleContinue = useCallback(async () => {
+    if (isNavigating || isProcessingRef.current) return;
+
+    isProcessingRef.current = true;
     setIsAnswered(false);
     setIsResultHidden(false);
     setIsForgetClicked(false);
@@ -142,18 +155,37 @@ const FillInBlankPractice: React.FC = () => {
     setInputValue("");
     sessionStorage.setItem("reload_count", "0");
 
-    removeCurrentWord();
-    if (words.length === 0) {
-      navigate("/en/summary", { state: { reviewedWords } });
-    } else {
-      const nextType = getNextQuizType();
-      navigate(`/en/quiz/${nextType}`, { state: { from: nextType } });
+    // Timeout protection
+    const timeoutId = setTimeout(() => {
+      isProcessingRef.current = false;
+      console.warn('Navigation timeout - forcing reset');
+    }, 5000);
+
+    try {
+      await continueToNextQuiz(navigate, () => {
+        clearTimeout(timeoutId);
+        isProcessingRef.current = false;
+      });
+    } catch (error) {
+      clearTimeout(timeoutId);
+      console.error('Error in handleContinue:', error);
+      isProcessingRef.current = false;
+      // Note: showToast not imported in this file, so just log
     }
-  };
+  }, [isNavigating, continueToNextQuiz, navigate]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      const currentPath = window.location.pathname;
+      const isCorrectRoute = currentPath.includes('fillInBlank');
+      if (!isCorrectRoute) return;
+      if (e.repeat) return;
+
       if (e.key === 'Enter' || (e.key.toLowerCase() === 'f' && (isAnswered || isForgetClicked))) {
+        const now = Date.now();
+        if (now - lastKeyPressRef.current < 300) return;
+        lastKeyPressRef.current = now;
+
         if (isAnswered || isForgetClicked) {
           handleContinue();
         } else if (inputValue.trim() !== '') {
@@ -163,7 +195,7 @@ const FillInBlankPractice: React.FC = () => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isAnswered, isForgetClicked, inputValue]);
+  }, [isAnswered, isForgetClicked, inputValue, handleContinue, handleCheck]);
 
   const handleForget = () => {
     if (isAnswered) return;
@@ -172,6 +204,7 @@ const FillInBlankPractice: React.FC = () => {
     setIsForgetClicked(true);
     setIsResultHidden(false);
     setInputValue("");
+    markAnswer(false); // Log as incorrect attempt
     if (currentWord?.word?.word) speak(currentWord.word.word);
   };
 
@@ -265,18 +298,18 @@ const FillInBlankPractice: React.FC = () => {
           </div>
         </div>
 
-          {/* Result Panel */}
-          <EnglishPracticeResultPanel
-            isAnswered={isAnswered}
-            isForgetClicked={isForgetClicked}
-            isCorrectAnswer={isCorrectAnswer}
-            isResultHidden={isResultHidden}
-            setIsResultHidden={setIsResultHidden}
-            onContinue={handleContinue}
-            isNavigating={false}
-            word={currentWord.word}
-            speak={speak}
-          />
+        {/* Result Panel */}
+        <EnglishPracticeResultPanel
+          isAnswered={isAnswered}
+          isForgetClicked={isForgetClicked}
+          isCorrectAnswer={isCorrectAnswer}
+          isResultHidden={isResultHidden}
+          setIsResultHidden={setIsResultHidden}
+          onContinue={handleContinue}
+          isNavigating={isNavigating}
+          word={currentWord.word}
+          speak={speak}
+        />
 
         {/* Confirm Exit Bottom Sheet */}
         {showConfirmExit && (
@@ -315,6 +348,8 @@ const FillInBlankPractice: React.FC = () => {
       </motion.div>
     </AnimatePresence>
   );
-};
+});
+
+FillInBlankPractice.displayName = 'FillInBlankPractice';
 
 export default FillInBlankPractice;

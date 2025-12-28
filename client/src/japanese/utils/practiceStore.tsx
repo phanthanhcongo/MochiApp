@@ -147,6 +147,13 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
 
     // Convert scenario đầu tiên thành ReviewWordState
     const firstScenario = scenarios[0];
+    // console.log('🎯 [QUIZ TYPE] First scenario quiz type:', firstScenario.quizType);
+    // console.log('📋 [QUIZ TYPE] All scenarios:', scenarios.map(s => ({
+    //   order: s.order,
+    //   kanji: s.word.kanji,
+    //   quizType: s.quizType
+    // })));
+
     const firstWord: ReviewWord = {
       id: firstScenario.word.id,
       kanji: firstScenario.word.kanji,
@@ -180,7 +187,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
   },
 
   markAnswer: (isCorrect) => {
-    const { currentWord, words, reviewedWords, completedCount, scenarios, currentScenarioOrder } = get();
+    const { currentWord, words, reviewedWords, completedCount, scenarios } = get();
     if (!currentWord) return;
 
     const updatedCurrent = { ...currentWord };
@@ -260,15 +267,15 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
     set({ words: updated, currentWord: nextWord });
   },
 
-  navigateToQuiz: async (navigate, newQuizType, oldQuizType, onComplete) => {
+  navigateToQuiz: async (navigate, newQuizType, _oldQuizType, onComplete) => {
     const { isNavigating } = get();
-    console.log("oldQuizType", oldQuizType, "and newQuizType", newQuizType);
+    // console.log("🔄 [QUIZ TYPE TRANSITION] oldQuizType:", oldQuizType, "→ newQuizType:", newQuizType);
 
     if (isNavigating) {
-      console.warn('⚠️ [navigateToQuiz] ĐÃ ĐƯỢC GỌI KHI ĐANG NAVIGATING, BỎ QUA', {
-        newQuizType,
-        timestamp: new Date().toISOString()
-      });
+      // console.warn('⚠️ [navigateToQuiz] ĐÃ ĐƯỢC GỌI KHI ĐANG NAVIGATING, BỎ QUA', {
+      //   newQuizType,
+      //   timestamp: new Date().toISOString()
+      // });
       if (onComplete) onComplete();
       return;
     }
@@ -300,7 +307,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
 
       // console.log('✅ [navigateToQuiz] HOÀN THÀNH', { newQuizType, timestamp: new Date().toISOString() });
     } catch (error) {
-      console.error('❌ [navigateToQuiz] LỖI', { error, newQuizType, timestamp: new Date().toISOString() });
+      // console.error('❌ [navigateToQuiz] LỖI', { error, newQuizType, timestamp: new Date().toISOString() });
       set({ isNavigating: false, isGettingNextType: false });
     } finally {
       if (onComplete) onComplete();
@@ -364,11 +371,19 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
             updatedScenarios.splice(scenarioIndex, 1);
 
             // Đổi quizType thành một trong: multiple, romajiPractice, voicePractice
-            const availableQuizTypes: QuizType[] = ['multiple', 'romajiPractice', 'voicePractice'];
+            const availableQuizTypes: QuizType[] = ['multiple', 'romajiPractice', 'voicePractice', 'multiCharStrokePractice', 'hiraganaPractice'];
             const oldQuizType = currentScenario.quizType;
             const filteredQuizTypes = availableQuizTypes.filter(type => type !== oldQuizType);
             const newQuizTypes = filteredQuizTypes.length > 0 ? filteredQuizTypes : availableQuizTypes;
             const randomQuizType = newQuizTypes[Math.floor(Math.random() * newQuizTypes.length)];
+
+            // console.log('❌ [WRONG ANSWER - QUIZ TYPE CHANGE]', {
+            //   word: currentScenario.word.kanji,
+            //   oldQuizType,
+            //   newQuizType: randomQuizType,
+            //   availableTypes: availableQuizTypes,
+            //   filteredTypes: filteredQuizTypes
+            // });
 
             // Tìm order lớn nhất hiện tại
             const maxOrder = updatedScenarios.length > 0
@@ -400,6 +415,14 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
         const nextQuizType = nextScenario.quizType as QuizType | null;
         const oldQuizType = previousType;
 
+        // console.log('➡️ [NEXT SCENARIO]', {
+        //   word: nextScenario.word.kanji,
+        //   order: nextScenario.order,
+        //   quizType: nextQuizType,
+        //   scenarioIndex: nextIndex,
+        //   totalRemaining: updatedScenarios.length
+        // });
+
         // Convert scenario word thành ReviewWord
         const nextWord: ReviewWord = {
           id: nextScenario.word.id,
@@ -426,10 +449,10 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
 
         // Nếu không có quiz type hợp lệ, navigate đến summary
         if (!nextQuizType) {
-          console.log('📊 [continueToNextQuiz] KHÔNG CÓ QUIZ TYPE - navigate to summary', {
-            nextWord: nextWord.kanji,
-            timestamp: new Date().toISOString()
-          });
+          // console.log('📊 [continueToNextQuiz] KHÔNG CÓ QUIZ TYPE - navigate to summary', {
+          //   nextWord: nextWord.kanji,
+          //   timestamp: new Date().toISOString()
+          // });
           set({ previousType: null, isGettingNextType: false, isNavigating: false });
           await new Promise(resolve => requestAnimationFrame(resolve));
           await new Promise(resolve => setTimeout(resolve, 50));
@@ -456,7 +479,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
           if (onComplete) onComplete();
         });
       } catch (error) {
-        console.error('❌ [continueToNextQuiz] LỖI', { error, timestamp: new Date().toISOString() });
+        // console.error('❌ [continueToNextQuiz] LỖI', { error, timestamp: new Date().toISOString() });
         set({ isGettingNextType: false, isNavigating: false });
         await new Promise(resolve => requestAnimationFrame(resolve));
         if (onComplete) onComplete();
@@ -498,7 +521,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
   submitReviewedWords: async () => {
     const { reviewedWords, resetSession } = get();
     if (reviewedWords.length === 0) {
-      console.warn('Không có từ đã luyện để gửi.');
+      // console.warn('Không có từ đã luyện để gửi.');
       return;
     }
 
@@ -520,11 +543,12 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
         throw new Error(`Lỗi khi gửi: ${err}`);
       }
 
-      const data = await res.json();
-      console.log('Đã cập nhật lịch sử ôn tập:', data);
+      // const data = await res.json();
+      // console.log('Đã cập nhật lịch sử ôn tập:', data);
+      await res.json();
       resetSession();
     } catch (err) {
-      console.error('Lỗi khi gọi API reviewed-words:', err);
+      // console.error('Lỗi khi gọi API reviewed-words:', err);
     }
   },
 }));

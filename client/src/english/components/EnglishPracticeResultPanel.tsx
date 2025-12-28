@@ -26,7 +26,7 @@ const EnglishPracticeResultPanel: React.FC<EnglishPracticeResultPanelProps> = ({
   word,
   speak,
 }) => {
-  const [isTranslationHidden, setIsTranslationHidden] = useState(false);
+  const [isTranslationHidden, setIsTranslationHidden] = useState(true);
 
   if (!isAnswered && !isForgetClicked) return null;
 

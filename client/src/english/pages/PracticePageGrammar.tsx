@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../japanese/components/Header';
 import { motion } from 'framer-motion';
 import { API_URL } from '../../apiClient';
+import { showToast } from '../../components/Toast';
 
 function hmsToSeconds(hms: string): number {
   const [h, m, s] = hms.split(':').map(Number);
@@ -116,7 +117,10 @@ const PracticePageGrammar = () => {
         });
         setPreparedWords(prepared);
       })
-      .catch((err) => console.error('Fetch stats error:', err));
+      .catch((err) => {
+        console.error('Fetch stats error:', err);
+        showToast('Không thể tải dữ liệu thống kê ngữ pháp. Vui lòng thử lại!');
+      });
 
     sessionStorage.setItem('reload_count', '0');
   }, []);
@@ -138,7 +142,7 @@ const PracticePageGrammar = () => {
   const handleStartPractice = () => {
     // Dùng preparedWords đã được chuẩn bị sẵn từ lúc fetch stats
     if (preparedWords.length === 0) {
-      console.warn('Chưa có từ để ôn tập');
+      showToast('Chưa có ngữ pháp để ôn tập. Vui lòng thử lại sau!');
       return;
     }
 
@@ -160,7 +164,7 @@ const PracticePageGrammar = () => {
       </div>
 
       <Header />
-      <div className="practice-page-container bg-[url('https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbg.366f773b.webp&w=1920&q=75')] bg-cover bg-center
+      <div className="practice-page-container bg-[url('/103372501_p0.png')] bg-cover bg-center
       flex h-screen text-xs sm:text-sm md:text-base lg:text-lg overflow-hidden">
 
         {/* Left Column */}
@@ -168,9 +172,9 @@ const PracticePageGrammar = () => {
 
         {/* Center Column */}
         <div className="w-full xl:w-6/10 flex-1 flex flex-col items-center justify-start pt-[100px] sm:pt-10 md:pt-12 lg:pt-16 pb-8 sm:pb-12 md:pb-16 lg:pb-20 px-3 sm:px-6 md:px-8 lg:px-12 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] mx-auto relative">
-          
+
           {/* Top summary */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center space-x-2 sm:space-x-3 mb-[176px] sm:mb-[232px] md:mb-[288px] lg:mb-8 xl:mb-10 bg-slate-50/50 px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-xl sm:rounded-2xl border border-slate-100/50 shadow-sm"
@@ -192,7 +196,7 @@ const PracticePageGrammar = () => {
             <div className="flex justify-between items-end space-x-1 sm:space-x-2 md:space-x-4 lg:space-x-6 h-40 sm:h-52 md:h-64 lg:h-72 pb-4 sm:pb-6 md:pb-8">
               {reviewStats.map((item, index) => (
                 <div key={item.level} className="flex flex-col items-center flex-1 group">
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.4 + index * 0.1 }}
@@ -227,11 +231,10 @@ const PracticePageGrammar = () => {
               whileTap={{ scale: 0.95 }}
               onClick={handleStartPractice}
               disabled={reviewWordsCount === 0}
-              className={`relative h-12 sm:h-14 md:h-16 w-full sm:w-64 md:w-72 rounded-xl sm:rounded-2xl font-black text-sm sm:text-base md:text-lg lg:text-xl transition-all duration-200 ${
-                reviewWordsCount > 0
+              className={`relative h-12 sm:h-14 md:h-16 w-full sm:w-64 md:w-72 rounded-xl sm:rounded-2xl font-black text-sm sm:text-base md:text-lg lg:text-xl transition-all duration-200 ${reviewWordsCount > 0
                   ? 'bg-lime-500 text-white shadow-[0_4px_0_rgb(101,163,13)] sm:shadow-[0_6px_0_rgb(101,163,13)] hover:shadow-[0_8px_0_rgb(101,163,13)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none'
                   : 'bg-slate-200 text-slate-400 shadow-[0_3px_0_rgb(203,213,225)] sm:shadow-[0_4px_0_rgb(203,213,225)] cursor-not-allowed'
-              }`}
+                }`}
             >
               <span className="flex items-center justify-center gap-1 sm:gap-2">
                 {reviewWordsCount > 0 ? (

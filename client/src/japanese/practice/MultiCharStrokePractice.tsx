@@ -7,7 +7,7 @@ import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
 import { cnCharDataLoader } from '../utils/strokeData';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 
-const isKanji = (char: string): boolean => /[\u4E00-\u9FFF]/.test(char);
+const isKanji = (char: string): boolean => /[\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]/.test(char);
 
 const MultiCharStrokePractice: React.FC = () => {
   const navigate = useNavigate();
@@ -59,10 +59,10 @@ const MultiCharStrokePractice: React.FC = () => {
       const reloadCount = reloadCountRaw ? parseInt(reloadCountRaw) : 0;
       const newReloadCount = reloadCount + 1;
       sessionStorage.setItem('reload_count', newReloadCount.toString());
-      console.log(`Reload count: ${newReloadCount}`);
+      // console.log(`Reload count: ${newReloadCount}`);
 
       if (!state) {
-        console.log('No state provided, redirecting to summary or home');
+        // console.log('No state provided, redirecting to summary or home');
         if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
           navigate('/jp/summary');
         } else {
@@ -79,7 +79,7 @@ const MultiCharStrokePractice: React.FC = () => {
         // Chỉ navigate nếu state.from không khớp với route hiện tại
         // Điều này tránh navigate khi đang transition giữa các quiz
         if (!stateFromMatchesRoute) {
-          console.log(`Invalid source: ${state.from}, redirecting to summary or home`);
+          // console.log(`Invalid source: ${state.from}, redirecting to summary or home`);
           if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
             navigate('/jp/summary');
           } else {
@@ -112,6 +112,8 @@ const MultiCharStrokePractice: React.FC = () => {
     }
   };
 
+  const processedWordIdRef = useRef<number | null>(null);
+
   useEffect(() => {
     if (!word) return;
 
@@ -123,6 +125,7 @@ const MultiCharStrokePractice: React.FC = () => {
 
     // Set trạng thái ban đầu
     setKanjiStatus(initStatus);
+    processedWordIdRef.current = word.id;
 
     // Dọn cũ trước khi vẽ mới
     writersRef.current.forEach(w => { try { w?.cancelQuiz?.(); } catch { } });
@@ -186,11 +189,16 @@ const MultiCharStrokePractice: React.FC = () => {
   }, [word, isForgetClicked]);
 
   useEffect(() => {
-    if (kanjiStatus.length > 0 && kanjiStatus.every((status) => status === true)) {
+    // Chỉ mark done nếu status khớp với word hiện tại
+    if (
+      processedWordIdRef.current === word?.id &&
+      kanjiStatus.length > 0 &&
+      kanjiStatus.every((status) => status === true)
+    ) {
       setIsCorrectAnswer(true);
       markAnswer(true);
     }
-  }, [kanjiStatus]);
+  }, [kanjiStatus, word]);
 
   const handleForget = React.useCallback(() => {
     if (!isCorrectAnswer) {
@@ -287,9 +295,9 @@ const MultiCharStrokePractice: React.FC = () => {
       keyValue={`${word.id}-${previousType || 'none'}`}
       isExiting={isExiting}
       onExitComplete={() => setIsExiting(false)}
-      className="w-full"
+      className="w-full h-full"
     >
-      <div className="text-center overflow-x-hidden overflow-y-hidden">
+      <div className="text-center overflow-x-hidden overflow-y-hidden h-full">
         <h4 className="text-gray-600 mb-4">Vẽ từng nét đúng theo thứ tự</h4>
         <div className="flex gap-4 flex-wrap justify-center">
           {word.kanji.split('').map((char, idx) => (
@@ -317,7 +325,7 @@ const MultiCharStrokePractice: React.FC = () => {
 
       </div>
 
-      <div className="flex flex-col items-center gap-4 p-8">
+      <div className="flex flex-col items-center gap-4 p-8 h-full">
         <button
           className="btn-forget"
           onClick={handleForget}

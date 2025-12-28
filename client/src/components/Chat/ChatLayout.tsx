@@ -1,5 +1,5 @@
-import { ReactNode, useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { type ReactNode, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../routes/LanguageContext';
 
 interface ChatLayoutProps {
@@ -10,7 +10,6 @@ export default function ChatLayout({ children }: ChatLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [overlayOpen, setOverlayOpen] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
   const { lang } = useLanguage();
 
   const handleLogout = () => {
@@ -41,10 +40,9 @@ export default function ChatLayout({ children }: ChatLayoutProps) {
   return (
     <div className="flex h-[100dvh] w-full bg-[#F7F7F5] text-[#37352F]">
       {/* Overlay for mobile */}
-      <div 
-        className={`fixed inset-0 bg-black/40 z-[200] md:hidden backdrop-blur-sm transition-opacity duration-300 ${
-          overlayOpen ? 'opacity-100' : 'opacity-0 hidden'
-        }`}
+      <div
+        className={`fixed inset-0 bg-black/40 z-[200] md:hidden backdrop-blur-sm transition-opacity duration-300 ${overlayOpen ? 'opacity-100' : 'opacity-0 hidden'
+          }`}
         onClick={closeSidebar}
       />
 
@@ -73,7 +71,7 @@ export default function ChatLayout({ children }: ChatLayoutProps) {
           {/* Tab Navigation */}
           <div className="px-1 mb-4">
             <div className="grid grid-cols-3 gap-1.5 p-1.5 bg-[#EFEFED]/80 rounded-2xl">
-              <button 
+              <button
                 onClick={() => navigate(buildTo('home-grammar'))}
                 className="flex flex-col items-center justify-center gap-1.5 py-2 px-1 rounded-xl transition-all duration-200 text-gray-400 hover:bg-gray-100 hover:text-gray-600"
               >
@@ -84,7 +82,7 @@ export default function ChatLayout({ children }: ChatLayoutProps) {
                 </svg>
                 <span className="text-[10px] font-bold leading-none font-medium">Ngữ pháp</span>
               </button>
-              <button 
+              <button
                 onClick={() => navigate(buildTo('home'))}
                 className="flex flex-col items-center justify-center gap-1.5 py-2 px-1 rounded-xl transition-all duration-200 text-gray-400 hover:bg-gray-100 hover:text-gray-600"
               >
@@ -112,7 +110,7 @@ export default function ChatLayout({ children }: ChatLayoutProps) {
             <div className="px-2 py-2 text-xs font-bold text-gray-400 uppercase tracking-wider">
               Khu vực luyện tập
             </div>
-            <button 
+            <button
               className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all bg-white text-indigo-600 shadow-sm"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -125,8 +123,8 @@ export default function ChatLayout({ children }: ChatLayoutProps) {
               </svg>
               Trò chuyện AI
             </button>
-            <button 
-              disabled 
+            <button
+              disabled
               className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-300 cursor-not-allowed"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -175,8 +173,8 @@ export default function ChatLayout({ children }: ChatLayoutProps) {
                 </div>
               </div>
             </div>
-            <button 
-              className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-gray-200 rounded transition-colors flex-shrink-0" 
+            <button
+              className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-gray-200 rounded transition-colors flex-shrink-0"
               title="Đăng xuất"
               onClick={handleLogout}
             >

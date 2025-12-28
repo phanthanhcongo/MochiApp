@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -9,18 +9,18 @@ import { BiLogOutCircle } from "react-icons/bi";
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 import { API_URL } from '../../apiClient';
 import EnglishPracticeResultPanel from '../components/EnglishPracticeResultPanel';
+import { showToast } from '../../components/Toast';
 
 interface AnswerOption {
   text: string;
   isCorrect: boolean;
 }
 
-const MultipleChoiceQuiz: React.FC = () => {
+const MultipleChoiceQuiz: React.FC = React.memo(() => {
   const location = useLocation();
   const navigate = useNavigate();
 
   const [isPlaying, setIsPlaying] = useState(false);
-
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
   const [isResultHidden, setIsResultHidden] = useState(false);
@@ -28,15 +28,17 @@ const MultipleChoiceQuiz: React.FC = () => {
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [showConfirmExit, setShowConfirmExit] = useState(false);
   const [allWords, setAllWords] = useState<any[]>([]);
+  const isProcessingRef = useRef(false);
+  const lastKeyPressRef = useRef<number>(0);
+
   const {
     currentWord,
     words,
     markAnswer,
-    getNextQuizType,
-    removeCurrentWord,
-    reviewedWords,
+    continueToNextQuiz,
     totalCount,
-    completedCount
+    completedCount,
+    isNavigating
   } = usePracticeSession();
 
   // const isResultShown = isAnswered || isForgetClicked; // Unused variable
@@ -65,50 +67,65 @@ const MultipleChoiceQuiz: React.FC = () => {
     fetchAllWords();
   }, []);
   useEffect(() => {
-    const allowedSources = ['multiple', 'voicePractice','FillInBlankPractice'];
-    const state = location.state;
+    // Delay để tránh race condition khi navigate
+    const checkState = setTimeout(() => {
+      const allowedSources = ['multiple', 'voicePractice', 'FillInBlankPractice'];
+      const state = location.state;
 
-    // Đọc dữ liệu từ localStorage
-    const storedRaw = localStorage.getItem('reviewed_words_english');
-    const reviewedWords = storedRaw ? JSON.parse(storedRaw) : [];
+      // Kiểm tra route hiện tại
+      const currentPath = location.pathname;
+      const isCorrectRoute = currentPath.includes('multiple');
 
-    // --- Reset rồi đếm reload ---
-    const reloadCountRaw = sessionStorage.getItem('reload_count');
-    const reloadCount = reloadCountRaw ? parseInt(reloadCountRaw) : 0;
-    const newReloadCount = reloadCount + 1;
-    sessionStorage.setItem('reload_count', newReloadCount.toString());
-    console.log(`Reload count: ${newReloadCount}`);
-
-    // -------------------------
-
-    // ✅ Nếu không có state (truy cập trực tiếp hoặc reload)
-    if (!state) {
-      console.log('No state provided, redirecting to summary or home');
-      if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
-        navigate('/en/summary');
-      } else {
-        navigate('/en/home');
+      if (!isCorrectRoute) {
+        return;
       }
-      return;
-    }
 
-    // ✅ Nếu có state nhưng không đến từ nguồn hợp lệ
-    if (!allowedSources.includes(state.from)) {
-      console.log(`Invalid source: ${state.from}, redirecting to summary or home`);
-      if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
-        navigate('/en/summary');
-      } else {
-        navigate('/en/home');
+      // Đọc dữ liệu từ localStorage
+      const storedRaw = localStorage.getItem('reviewed_words_english');
+      const reviewedWords = storedRaw ? JSON.parse(storedRaw) : [];
+
+      // --- Reset rồi đếm reload ---
+      const reloadCountRaw = sessionStorage.getItem('reload_count');
+      const reloadCount = reloadCountRaw ? parseInt(reloadCountRaw) : 0;
+      const newReloadCount = reloadCount + 1;
+      sessionStorage.setItem('reload_count', newReloadCount.toString());
+      console.log(`Reload count: ${newReloadCount}`);
+
+      // -------------------------
+
+      // ✅ Nếu không có state (truy cập trực tiếp hoặc reload)
+      if (!state) {
+        console.log('No state provided, redirecting to summary or home');
+        if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
+          navigate('/en/summary');
+        } else {
+          navigate('/en/home');
+        }
+        return;
       }
-    }
-    if (newReloadCount >= RELOAD_COUNT_THRESHOLD) {
-      if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
-        navigate('/en/summary');
-      } else {
-        navigate('/en/home');
+
+      // ✅ Nếu có state nhưng không đến từ nguồn hợp lệ
+      if (!allowedSources.includes(state.from)) {
+        console.log(`Invalid source: ${state.from}, redirecting to summary or home`);
+        if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
+          navigate('/en/summary');
+        } else {
+          navigate('/en/home');
+        }
+        return;
       }
-    }
-  }, []);
+
+      if (newReloadCount >= RELOAD_COUNT_THRESHOLD) {
+        if (Array.isArray(reviewedWords) && reviewedWords.length > 0) {
+          navigate('/en/summary');
+        } else {
+          navigate('/en/home');
+        }
+      }
+    }, 100);
+
+    return () => clearTimeout(checkState);
+  }, [location.state, location.pathname, navigate]);
 
 
 
@@ -117,65 +134,109 @@ const MultipleChoiceQuiz: React.FC = () => {
   const totalWords = words.length + (currentWord ? 1 : 0);
   const [answers, setAnswers] = useState<AnswerOption[]>([]);
 
-  useEffect(() => {
-    if (!currentWord) return;
-    
-    speak(currentWord.word.word || '');
-    
-    if (allWords.length > 0) {
-      const correctAnswerText = currentWord.word.meaning_vi || '';
-      const correctAnswer = {
-        text: correctAnswerText,
-        isCorrect: true,
-      };
+  // Generate answer choices (1 correct + 2 incorrect)
+  const generateAnswers = useCallback(() => {
+    if (!currentWord) {
+      setAnswers([]);
+      return;
+    }
 
-      const isOverlapping = (t1: string, t2: string) => {
-        const s1 = t1.toLowerCase().trim();
-        const s2 = t2.toLowerCase().trim();
-        if (!s1 || !s2) return false;
-        return s1.includes(s2) || s2.includes(s1);
-      };
+    const correctAnswerText = currentWord.word.meaning_vi || '';
+    const correctAnswer = {
+      text: correctAnswerText,
+      isCorrect: true,
+    };
 
-      const incorrects = allWords
+    const isOverlapping = (t1: string, t2: string) => {
+      const s1 = t1.toLowerCase().trim();
+      const s2 = t2.toLowerCase().trim();
+      if (!s1 || !s2) return false;
+      return s1.includes(s2) || s2.includes(s1);
+    };
+
+    let incorrects: AnswerOption[] = [];
+
+    // First, try to get incorrect answers from current practice words
+    if (words.length > 0) {
+      incorrects = words
+        .filter(w => {
+          const m = w.word.meaning_vi;
+          return w.word.id !== currentWord.word.id && m && !isOverlapping(m, correctAnswerText);
+        })
+        .map(w => ({
+          text: w.word.meaning_vi || '',
+          isCorrect: false,
+        }))
+        .filter(v => v.text !== '')
+        .filter((v, i, arr) => arr.findIndex(x => x.text === v.text) === i);
+    }
+
+    // If not enough from practice words, use allWords as fallback
+    if (incorrects.length < 2 && allWords.length > 0) {
+      const additionalIncorrects = allWords
         .filter(w => {
           const m = w.meaning_vi;
-          return w.id !== currentWord.word.id && m && !isOverlapping(m, correctAnswerText);
+          return w.id !== currentWord.word.id && m && !isOverlapping(m, correctAnswerText) && !incorrects.some(inc => isOverlapping(m, inc.text));
         })
         .map(w => ({
           text: w.meaning_vi,
           isCorrect: false,
         }))
+        .filter(v => v.text !== '')
         .filter((v, i, arr) => arr.findIndex(x => x.text === v.text) === i)
+        .filter(item => !incorrects.find(existing => existing.text === item.text))
         .sort(() => Math.random() - 0.5);
 
-      const finalIncorrects: AnswerOption[] = [];
-      for (const item of incorrects) {
+      incorrects = [...incorrects, ...additionalIncorrects];
+    }
+
+    // Select 2 non-overlapping incorrect answers
+    const finalIncorrects: AnswerOption[] = [];
+    const shuffled = incorrects.sort(() => Math.random() - 0.5);
+
+    for (const item of shuffled) {
+      if (finalIncorrects.length >= 2) break;
+      if (!finalIncorrects.some(existing => isOverlapping(item.text, existing.text))) {
+        finalIncorrects.push(item);
+      }
+    }
+
+    // Relax overlap check if still not enough
+    if (finalIncorrects.length < 2) {
+      for (const item of shuffled) {
         if (finalIncorrects.length >= 2) break;
-        if (!finalIncorrects.some(existing => isOverlapping(item.text, existing.text))) {
+        if (!finalIncorrects.some(existing => existing.text === item.text)) {
           finalIncorrects.push(item);
         }
       }
-
-      // Nới lỏng nếu thiếu
-      if (finalIncorrects.length < 2) {
-        for (const item of incorrects) {
-          if (finalIncorrects.length >= 2) break;
-          if (!finalIncorrects.some(existing => existing.text === item.text)) {
-            finalIncorrects.push(item);
-          }
-        }
-      }
-
-      setAnswers([correctAnswer, ...finalIncorrects].sort(() => Math.random() - 0.5));
     }
-  }, [currentWord?.word.id, allWords.length > 0]); // Chỉ chạy khi ID từ thay đổi hoặc khi listWord tải xong
+
+    // Add placeholders if still not enough (edge case)
+    if (finalIncorrects.length < 2) {
+      const placeholders = ['...', '...'];
+      for (let i = finalIncorrects.length; i < 2; i++) {
+        finalIncorrects.push({ text: placeholders[i] || '...', isCorrect: false });
+      }
+    }
+
+    // Shuffle all 3 answers and set state
+    const finalAnswers = [correctAnswer, ...finalIncorrects].sort(() => Math.random() - 0.5);
+    setAnswers(finalAnswers);
+  }, [currentWord, words, allWords]);
+
+  useEffect(() => {
+    if (currentWord) {
+      speak(currentWord.word.word || '');
+      generateAnswers();
+    }
+  }, [currentWord?.word.id]); // ✅ CHỈ phụ thuộc vào ID - stable dependency
 
 
   const handleSelect = (index: number) => {
     if (!isAnswered) setSelectedIndex(index);
   };
 
-  const handleCheck = () => {
+  const handleCheck = useCallback(() => {
     if (selectedIndex !== null && !isAnswered) {
       const isCorrect = answers[selectedIndex].isCorrect;
       setIsAnswered(true);
@@ -183,43 +244,75 @@ const MultipleChoiceQuiz: React.FC = () => {
       setIsForgetClicked(false);
       markAnswer(isCorrect);
       speak(currentWord?.word.word || '');
-
     }
-  };
+  }, [selectedIndex, isAnswered, answers, markAnswer, currentWord]);
 
-  const handleContinue = () => {
+  const handleContinue = useCallback(async () => {
+    if (isNavigating || isProcessingRef.current) return;
+
+    isProcessingRef.current = true;
     setSelectedIndex(null);
     setIsAnswered(false);
     setIsResultHidden(false);
     setIsForgetClicked(false);
     setIsCorrectAnswer(null);
     setShowConfirmExit(false);
+    sessionStorage.setItem('reload_count', '0');
 
-    removeCurrentWord();
-    if (words.length === 0) {
-      // Nếu hết từ để ôn → chuyển sang trang summary
-      navigate('/en/summary', { state: { reviewedWords } });
-    } else {
-      const firstQuizType = getNextQuizType();
-      navigate(`/en/quiz/${firstQuizType}`, {
-        state: { from: firstQuizType }
+    // Timeout protection
+    const timeoutId = setTimeout(() => {
+      isProcessingRef.current = false;
+      console.warn('Navigation timeout - forcing reset');
+    }, 5000);
+
+    try {
+      await continueToNextQuiz(navigate, () => {
+        clearTimeout(timeoutId);
+        isProcessingRef.current = false;
       });
+    } catch (error) {
+      clearTimeout(timeoutId);
+      console.error('Error in handleContinue:', error);
+      isProcessingRef.current = false;
+      showToast('Có lỗi xảy ra. Vui lòng thử lại!');
     }
-  };
+  }, [isNavigating, continueToNextQuiz, navigate]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // CHỈ xử lý nếu đang ở đúng route
+      const currentPath = window.location.pathname;
+      const isCorrectRoute = currentPath.includes('multiple');
+      if (!isCorrectRoute) return;
+
+      // Ignore auto-repeat events
+      if (e.repeat) return;
+
       if (e.key === 'Enter' || e.key.toLowerCase() === 'f') {
+        const now = Date.now();
+        // Prevent double-trigger: debounce 300ms
+        if (now - lastKeyPressRef.current < 300) {
+          return;
+        }
+        lastKeyPressRef.current = now;
+
+        // CHỈ cho phép continue nếu đã answer/forget
         if (isAnswered || isForgetClicked) {
           handleContinue();
-        } else if (selectedIndex !== null) {
+        }
+        // CHỈ cho phép check nếu đã chọn đáp án VÀ chưa answer
+        else if (selectedIndex !== null && !isAnswered) {
           handleCheck();
+        }
+        // Nếu chưa chọn gì → Thông báo
+        else {
+          showToast('Vui lòng chọn đáp án trước khi kiểm tra');
         }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isAnswered, isForgetClicked, selectedIndex]);
+  }, [isAnswered, isForgetClicked, selectedIndex, handleContinue, handleCheck]);
 
   const handleForget = () => {
     if (!isAnswered) {
@@ -228,6 +321,7 @@ const MultipleChoiceQuiz: React.FC = () => {
       setIsForgetClicked(true);
       setIsResultHidden(false);
       setSelectedIndex(null);
+      markAnswer(false); // Log as incorrect attempt
       speak(currentWord?.word.word || ""); // Phát âm khi chọn "Tôi không nhớ từ này"
     }
   };
@@ -302,7 +396,7 @@ const MultipleChoiceQuiz: React.FC = () => {
                 statusClass = 'answer-option--selected';
               }
 
-             
+
               return (
                 <button
                   key={idx}
@@ -341,7 +435,7 @@ const MultipleChoiceQuiz: React.FC = () => {
             isResultHidden={isResultHidden}
             setIsResultHidden={setIsResultHidden}
             onContinue={handleContinue}
-            isNavigating={false}
+            isNavigating={isNavigating}
             word={currentWord.word}
             speak={speak}
           />
@@ -388,6 +482,8 @@ const MultipleChoiceQuiz: React.FC = () => {
       </motion.div>
     </AnimatePresence>
   );
-};
+});
+
+MultipleChoiceQuiz.displayName = 'MultipleChoiceQuiz';
 
 export default MultipleChoiceQuiz;

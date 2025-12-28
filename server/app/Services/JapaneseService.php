@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 
 class JapaneseService
 {
@@ -872,23 +873,16 @@ class JapaneseService
      */
     private function hasStrokeDataForChar(string $char): bool
     {
-        static $cache = [];
+        return Cache::rememberForever('stroke_data_' . urlencode($char), function () use ($char) {
+            $url = 'https://cdn.jsdelivr.net/npm/hanzi-writer-data@latest/' . urlencode($char) . '.json';
 
-        if (isset($cache[$char])) {
-            return $cache[$char];
-        }
-
-        $url = 'https://cdn.jsdelivr.net/npm/hanzi-writer-data@latest/' . urlencode($char) . '.json';
-
-        try {
-            $response = Http::timeout(3)->get($url);
-            $hasData = $response->successful() && $response->json() !== null;
-            $cache[$char] = $hasData;
-            return $hasData;
-        } catch (\Exception $e) {
-            $cache[$char] = false;
-            return false;
-        }
+            try {
+                $response = Http::timeout(3)->get($url);
+                return $response->successful() && $response->json() !== null;
+            } catch (\Exception $e) {
+                return false;
+            }
+        });
     }
 
     /**

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useRef, useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -16,7 +16,6 @@ interface Choice {
 }
 
 const BLANK = "(   )";
-const MIN_REVEAL_MS = 900; // đảm bảo người dùng kịp thấy panel kết quả
 
 const shuffle = <T,>(arr: T[]) => [...arr].sort(() => Math.random() - 0.5);
 const uniq = (arr: string[]) => Array.from(new Set(arr));
@@ -47,21 +46,19 @@ const MultipleSentence: React.FC = () => {
   const [isForgetClicked, setIsForgetClicked] = useState(false);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [showConfirmExit, setShowConfirmExit] = useState(false);
+  const isProcessingRef = useRef(false);
 
   // Freeze từ hiện tại khi đã chấm điểm để UI không bị "nhảy"
   const [frozenWord, setFrozenWord] = useState<any>(null);
-  const [canContinue, setCanContinue] = useState(false);
   const [allWords, setAllWords] = useState<any[]>([]);
 
   const {
     currentWord,
-    words,
     markAnswer,
-    getNextQuizType,
-    removeCurrentWord,
-    reviewedWords,
+    continueToNextQuiz,
     totalCount,
-    completedCount
+    completedCount,
+    isNavigating
   } = usePracticeSession();
   const progress = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
 
@@ -82,7 +79,7 @@ const MultipleSentence: React.FC = () => {
           setAllWords(data.allWords || []);
         }
       } catch (err) {
-        console.error('Error fetching all words:', err);
+        // console.error('Error fetching all words:', err);
       }
     };
     fetchAllWords();
@@ -90,7 +87,7 @@ const MultipleSentence: React.FC = () => {
 
   // Route guard tương tự các màn khác
   useEffect(() => {
-    const allowedSources = ["multiple", "voicePractice", "fillInBlank",  "multipleSentence"];
+    const allowedSources = ["multiple", "voicePractice", "fillInBlank", "multipleSentence"];
     const state = location.state as any;
 
     const storedRaw = localStorage.getItem("reviewed_words_english");
@@ -127,7 +124,7 @@ const MultipleSentence: React.FC = () => {
     setIsForgetClicked(false);
     setIsCorrectAnswer(null);
     setSelectedIndex(null);
-    setCanContinue(false);
+    setSelectedIndex(null);
     setFrozenWord(currentWord?.word || null);
     if (currentWord?.word?.word) speak(currentWord.word.word);
   }, [currentWord?.word?.id]);
@@ -163,7 +160,7 @@ const MultipleSentence: React.FC = () => {
 
     const shuffledDistracts = shuffle(distractPool);
     const finalDistracts: string[] = [];
-    
+
     for (const item of shuffledDistracts) {
       if (finalDistracts.length >= 2) break;
       if (!finalDistracts.some(existing => isOverlapping(item, existing))) {
@@ -215,31 +212,44 @@ const MultipleSentence: React.FC = () => {
       try {
         markAnswer(!!ok);
       } finally {
-        setTimeout(() => setCanContinue(true), MIN_REVEAL_MS);
+        // Removed setCanContinue usage
       }
     });
 
     if (currentWord?.word?.word) speak(currentWord.word.word);
   };
 
-  const handleContinue = () => {
+  const handleContinue = useCallback(async () => {
+    if (isNavigating || isProcessingRef.current) return;
+
+    isProcessingRef.current = true;
     setIsAnswered(false);
     setIsResultHidden(false);
     setIsForgetClicked(false);
     setIsCorrectAnswer(null);
     setShowConfirmExit(false);
     setSelectedIndex(null);
-    setCanContinue(false);
+    setSelectedIndex(null);
     sessionStorage.setItem("reload_count", "0");
 
-    removeCurrentWord();
-    if (words.length === 0) {
-      navigate("/en/summary", { state: { reviewedWords } });
-    } else {
-      const nextType = getNextQuizType();
-      navigate(`/en/quiz/${nextType}`, { state: { from: nextType } });
+    // Timeout protection
+    const timeoutId = setTimeout(() => {
+      isProcessingRef.current = false;
+      // console.warn('Navigation timeout - forcing reset');
+    }, 5000);
+
+    try {
+      await continueToNextQuiz(navigate, () => {
+        clearTimeout(timeoutId);
+        isProcessingRef.current = false;
+      });
+    } catch (error) {
+      clearTimeout(timeoutId);
+      // console.error('Error in handleContinue:', error);
+      isProcessingRef.current = false;
+      // Note: showToast not imported in this file
     }
-  };
+  }, [isNavigating, continueToNextQuiz, navigate]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -262,6 +272,7 @@ const MultipleSentence: React.FC = () => {
     setIsForgetClicked(true);
     setIsResultHidden(false);
     setSelectedIndex(null);
+    markAnswer(false); // Log as incorrect attempt
     if (currentWord?.word?.word) speak(currentWord.word.word);
   };
 
@@ -312,7 +323,7 @@ const MultipleSentence: React.FC = () => {
           </div>
 
           {/* Title + audio */}
-     
+
           {/* Sentence card */}
           <div className="bg-slate-50 rounded-2xl border border-yellow-400 shadow p-6 mx-auto max-w-3xl mb-6">
             <p className="text-xl md:text-2xl text-center leading-relaxed">
@@ -333,7 +344,7 @@ const MultipleSentence: React.FC = () => {
                 statusClass = "answer-option--selected";
               }
 
-              
+
               return (
                 <button
                   key={idx}
@@ -377,7 +388,7 @@ const MultipleSentence: React.FC = () => {
               isResultHidden={isResultHidden}
               setIsResultHidden={setIsResultHidden}
               onContinue={handleContinue}
-              isNavigating={!canContinue}
+              isNavigating={isNavigating}
               word={renderWord || currentWord.word}
               speak={speak}
             />
@@ -422,3 +433,7 @@ const MultipleSentence: React.FC = () => {
 };
 
 export default MultipleSentence;
+function setCanContinue(_arg0: boolean) {
+  throw new Error("Function not implemented.");
+}
+
