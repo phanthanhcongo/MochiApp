@@ -88,7 +88,7 @@ const JpPracticeResultPanel: React.FC<JpPracticeResultPanelProps> = ({
           </div>
         </div>
 
-        {/* Ví dụ */}
+        {/* Ví dụ Detail */}
         {(word.example || word.example_vi) && (
           <div className="flex items-start gap-2 sm:gap-4 w-[95%] sm:w-[92%] md:w-[90%] mx-auto mt-2 border-t border-stone-50/20 pt-4">
             <button className="btn-audio text-xl sm:text-3xl flex-shrink-0" onClick={() => speak(word.example || '')}>🔊</button>

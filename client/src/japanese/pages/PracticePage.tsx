@@ -146,6 +146,7 @@ const PracticePage = () => {
         if (scenariosRes.ok) {
           const scenariosData = await scenariosRes.json();
           const scenarios: PracticeScenario[] = scenariosData.scenarios || [];
+          console.log('Fetched scenarios:', scenarios);
           setPreparedScenarios(scenarios);
         }
 

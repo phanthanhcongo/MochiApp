@@ -21,6 +21,7 @@ const MultiCharStrokePractice: React.FC = () => {
     previousType,
   } = usePracticeSession();
   const [kanjiStatus, setKanjiStatus] = useState<boolean[]>([]);
+  const [statusWordId, setStatusWordId] = useState<number | null>(null);
   const containerRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [isResultHidden, setIsResultHidden] = useState(false);
   const [isForgetClicked, setIsForgetClicked] = useState(false);
@@ -112,6 +113,12 @@ const MultiCharStrokePractice: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    if (word?.reading_hiragana) {
+      speak(word.reading_hiragana);
+    }
+  }, [word?.id]);
+
   const processedWordIdRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -125,6 +132,7 @@ const MultiCharStrokePractice: React.FC = () => {
 
     // Set trạng thái ban đầu
     setKanjiStatus(initStatus);
+    setStatusWordId(word.id);
     processedWordIdRef.current = word.id;
 
     // Dọn cũ trước khi vẽ mới
@@ -175,6 +183,8 @@ const MultiCharStrokePractice: React.FC = () => {
             },
             onMistake: () => speak(word.reading_hiragana),
           });
+        } else {
+          writer.animateCharacter();
         }
       }));
     }, 1000);
@@ -182,6 +192,7 @@ const MultiCharStrokePractice: React.FC = () => {
     // Cleanup
     return () => {
       cancelled = true;
+      processedWordIdRef.current = null;
       clearTimeout(timer);
       writersRef.current.forEach(w => { try { w?.cancelQuiz?.(); } catch { } });
       writersRef.current = [];
@@ -190,15 +201,18 @@ const MultiCharStrokePractice: React.FC = () => {
 
   useEffect(() => {
     // Chỉ mark done nếu status khớp với word hiện tại
+    // CRITICAL FIX: Check statusWordId to ensure kanjiStatus belongs to current word
     if (
-      processedWordIdRef.current === word?.id &&
+      word?.id &&
+      statusWordId === word.id &&
+      processedWordIdRef.current === word.id &&
       kanjiStatus.length > 0 &&
       kanjiStatus.every((status) => status === true)
     ) {
       setIsCorrectAnswer(true);
       markAnswer(true);
     }
-  }, [kanjiStatus, word]);
+  }, [kanjiStatus, word, statusWordId]);
 
   const handleForget = React.useCallback(() => {
     if (!isCorrectAnswer) {
@@ -297,9 +311,9 @@ const MultiCharStrokePractice: React.FC = () => {
       onExitComplete={() => setIsExiting(false)}
       className="w-full h-full"
     >
-      <div className="text-center overflow-x-hidden overflow-y-hidden h-full">
-        <h4 className="text-gray-600 mb-4">Vẽ từng nét đúng theo thứ tự</h4>
-        <div className="flex gap-4 flex-wrap justify-center">
+      <div className="flex flex-col items-center h-full overflow-y-auto pb-24 pt-8">
+        <h4 className="text-gray-600 mb-4 shrink-0">Vẽ từng nét đúng theo thứ tự</h4>
+        <div className="flex gap-4 flex-wrap justify-center shrink-0 mb-8">
           {word.kanji.split('').map((char, idx) => (
             <div
               key={`${word.id}-${idx}`} // ✅ Quan trọng: đảm bảo mỗi ô là duy nhất khi từ thay đổi
@@ -323,14 +337,13 @@ const MultiCharStrokePractice: React.FC = () => {
           ))}
         </div>
 
-      </div>
-
-      <div className="flex flex-col items-center gap-4 p-8 h-full">
-        <button
-          className="btn-forget"
-          onClick={handleForget}
-          disabled={!!isCorrectAnswer}
-        >Tôi ko nhớ từ này</button>
+        <div className="flex flex-col items-center gap-4 shrink-0">
+          <button
+            className="btn-forget"
+            onClick={handleForget}
+            disabled={!!isCorrectAnswer}
+          >Tôi ko nhớ từ này</button>
+        </div>
       </div>
 
       <JpPracticeResultPanel

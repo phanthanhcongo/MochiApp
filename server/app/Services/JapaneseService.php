@@ -527,7 +527,8 @@ class JapaneseService
 
             if ($firstFailed) {
                 // When wrong: increase lapses, reset streak to 0
-                $newLevel = max(1, $currentLevel - 1);
+                // Logic: Level >= 5 drops to 4, else drops by 1 (min 1)
+                $newLevel = ($currentLevel >= 5) ? 4 : max(1, $currentLevel - 1);
                 $newStreak = 0;
                 $newLapses = $currentLapses + 1;
             } else {
@@ -605,10 +606,31 @@ class JapaneseService
 
         $scenarios = [];
         $previousQuizType = null;
+        
+        $totalWords = $words->count();
+        $desiredStrokeCount = floor($totalWords * 0.2); // Target ~20% stroke practice
+        $currentStrokeCount = 0;
 
         foreach ($words as $index => $word) {
             try {
-                $quizType = $this->determineQuizType($word, false, $previousQuizType);
+                $quizType = null;
+                $supportsStroke = false;
+
+                // Check if word supports stroke practice
+                try {
+                    $supportsStroke = $this->canStrokeWordCN($word->kanji);
+                } catch (\Exception $e) {
+                     $supportsStroke = false;
+                }
+
+                // If under quota and word supports stroke, force it
+                // BUT only if previous quiz type was NOT stroke practice (avoid consecutive duplicates)
+                if ($supportsStroke && $currentStrokeCount < $desiredStrokeCount && $previousQuizType !== 'multiCharStrokePractice') {
+                    $quizType = 'multiCharStrokePractice';
+                    $currentStrokeCount++;
+                } else {
+                     $quizType = $this->determineQuizType($word, false, $previousQuizType);
+                }
 
                 $scenarios[] = [
                     'order' => $index + 1,
@@ -794,6 +816,8 @@ class JapaneseService
                 $hasStrokeData = false;
             }
         }
+        
+
 
         $availableTypes = $allQuizTypes;
 
@@ -843,10 +867,15 @@ class JapaneseService
             }
 
             if ($previousQuizType !== null) {
-                $availableTypes = array_filter($availableTypes, function ($type) use ($previousQuizType) {
+                // Try to find ANY other type first
+                $nonDuplicateTypes = array_filter($availableTypes, function ($type) use ($previousQuizType) {
                     return $type !== $previousQuizType;
                 });
-                $availableTypes = array_values($availableTypes);
+                
+                if (!empty($nonDuplicateTypes)) {
+                    $availableTypes = array_values($nonDuplicateTypes);
+                }
+                // Only if NO other types exist do we allow the duplicate (fallback)
             }
         }
 
