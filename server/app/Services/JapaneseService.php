@@ -525,27 +525,43 @@ class JapaneseService
             $currentStreak = max(0, (int) ($jpWord->streak ?? 0));
             $currentLapses = max(0, (int) ($jpWord->lapses ?? 0));
 
-            if ($firstFailed) {
-                // When wrong: increase lapses, reset streak to 0
-                // Logic: Level >= 5 drops to 4, else drops by 1 (min 1)
-                $newLevel = ($currentLevel >= 5) ? 4 : max(1, $currentLevel - 1);
-                $newStreak = 0;
-                $newLapses = $currentLapses + 1;
-            } else {
-                // When correct: increase streak, check for lapses decay
-                $newLevel = min(7, $currentLevel + 1);
-                $newStreak = $currentStreak + 1;
-                $newLapses = $currentLapses;
+            $quizType = data_get($log, 'quizType');
 
-                // Decay lapses when streak reaches 3, 6, 9, 12... (divisible by 3)
-                if ($newStreak > 0 && $newStreak % 3 == 0) {
-                    $newLapses = max(0, $newLapses - 1);
+            if ($quizType === 'multiCharStrokePractice') {
+                // Special case for Stroke Practice:
+                // No level/streak/lapses change.
+                // Just set next review to 1 hour later.
+                $newLevel = $currentLevel;
+                $newStreak = $currentStreak;
+                $newLapses = $currentLapses;
+                
+                // Interval fixed at 1 hour (3600 seconds)
+                $intervalSeconds = 3600;
+                $nextReviewAt = $reviewedAt->copy()->addSeconds($intervalSeconds);
+            } else {
+                if ($firstFailed) {
+                    // When wrong: increase lapses, reset streak to 0
+                    // Logic: Level >= 5 drops to 4, else drops by 1 (min 1)
+                    $newLevel = ($currentLevel >= 5) ? 4 : max(1, $currentLevel - 1);
+                    $newStreak = 0;
+                    $newLapses = $currentLapses + 1;
+                } else {
+                    // When correct: increase streak, check for lapses decay
+                    $newLevel = min(7, $currentLevel + 1);
+                    $newStreak = $currentStreak + 1;
+                    $newLapses = $currentLapses;
+    
+                    // Decay lapses when streak reaches 3, 6, 9, 12... (divisible by 3)
+                    if ($newStreak > 0 && $newStreak % 3 == 0) {
+                        $newLapses = max(0, $newLapses - 1);
+                    }
                 }
+
+                // Calculate interval based on new values
+                $intervalSeconds = $this->calculateInterval($newLevel, $newStreak, $newLapses);
+                $nextReviewAt = $reviewedAt->copy()->addSeconds($intervalSeconds);
             }
 
-            // Calculate interval based on new values
-            $intervalSeconds = $this->calculateInterval($newLevel, $newStreak, $newLapses);
-            $nextReviewAt = $reviewedAt->copy()->addSeconds($intervalSeconds);
 
             $jpWord->update([
                 'level' => $newLevel,
@@ -630,6 +646,21 @@ class JapaneseService
                     $currentStrokeCount++;
                 } else {
                      $quizType = $this->determineQuizType($word, false, $previousQuizType);
+
+                    // Ensure strictly no consecutive duplicates (retry once if needed)
+                    if ($quizType === $previousQuizType && $quizType !== null) {
+                         // Try one more time with explicit exclusion
+                         $quizType = $this->determineQuizType($word, false, $previousQuizType);
+                         
+                         // If still duplicate, force a different basic type
+                         if ($quizType === $previousQuizType) {
+                            $basics = ['multiple', 'romajiPractice', 'voicePractice'];
+                            $basics = array_diff($basics, [$quizType]);
+                            if (!empty($basics)) {
+                                $quizType = $basics[array_rand($basics)];
+                            }
+                         }
+                    }
                 }
 
                 $scenarios[] = [

@@ -54,6 +54,7 @@ interface ReviewedWordLog {
   word: ReviewWord;
   firstFailed: boolean;
   reviewedAt: string;
+  quizType?: string;
 }
 
 interface ReviewWordState {
@@ -201,6 +202,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
         word: updatedCurrent.word,
         firstFailed: !isCorrect,
         reviewedAt: new Date().toISOString(),
+        quizType: get().previousType || undefined,
       };
 
       const updatedLogs = [...reviewedWords, newLog];
@@ -406,9 +408,18 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
         }
 
         // Just take the next index (or wrap to 0)
-        let nextIndex = currentScenarioIndex + 1;
+        // Nếu đã xóa phần tử hiện tại (trả lời đúng), index hiện tại sẽ trỏ đến phần tử kế tiếp -> KHÔNG CỘNG 1
+        // Nếu không xóa (trả lời sai -> chuyển xuống cuối), hoặc traverse bình thường -> CỘNG 1?
+        // Wait, if answer wrong, we REMOVE it from current pos and PUSH to end. So current pos is now the next item.
+        // So in BOTH cases (Correct Remove, Wrong Reorder), the current index now points to the "Next" item (originally at index+1).
+
+        // TUY NHIÊN, ta cần cẩn thận vì logic reorder:
+        // splice(index, 1) -> phần tử sau nó dồn lên.
+        // Vậy nextIndex chính là currentScenarioIndex (kẹp giới hạn).
+
+        let nextIndex = currentScenarioIndex;
         if (nextIndex >= updatedScenarios.length) {
-          nextIndex = 0;  // Start from beginning if at end
+          nextIndex = 0;  // Wrap around if we were at the end
         }
 
         const nextScenario = updatedScenarios[nextIndex];

@@ -10,7 +10,8 @@ const PracticeProgressBar: React.FC<PracticeProgressBarProps> = ({
   totalCount,
 }) => {
   const progress = useMemo(() => {
-    return totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
+    const rawProgress = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
+    return Math.min(100, Math.max(0, rawProgress));
   }, [completedCount, totalCount]);
 
   return (
