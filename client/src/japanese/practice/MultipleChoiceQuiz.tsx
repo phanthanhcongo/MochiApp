@@ -319,59 +319,62 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
       className="w-full h-full flex items-center justify-center"
     >
       <div
-        className="flex flex-col items-center justify-center h-full w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 pt-35 overflow-x-hidden overflow-y-hidden"
+        className="flex flex-col items-center h-full w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 overflow-x-hidden overflow-y-hidden"
         style={{
           willChange: 'transform, opacity',
         }}
       >
-        <div className="text-center pb-4 sm:pb-6 md:pb-8 lg:pb-10 w-full">
-          <h4 className="text-gray-600 mb-2 sm:mb-3 md:mb-4 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn đúng nghĩa của từ</h4>
-          <h1 className="text-6xl lg:text-7xl font-bold text-gray-900">{word.kanji}</h1>
-        </div>
-        <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8 w-full ">
-          {answers.map((ans, idx) => {
-            const isSelected = selectedIndex === idx;
-            let statusClass = 'answer-option--default';
-            if (isAnswered || isForgetClicked) {
-              if (ans.isCorrect) {
-                statusClass = 'answer-option--correct';
-              } else if (selectedIndex === idx) {
-                statusClass = 'answer-option--wrong';
+        <div className="flex-1 flex flex-col justify-center w-full max-w-4xl">
+          <div className="text-center pb-4 sm:pb-6 md:pb-8 lg:pb-10 w-full">
+            <h4 className="text-gray-600 mb-2 sm:mb-3 md:mb-4 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn đúng nghĩa của từ</h4>
+            <h1 className="text-6xl lg:text-7xl font-bold text-gray-900">{word.kanji}</h1>
+          </div>
+          <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8 w-full ">
+            {answers.map((ans, idx) => {
+              const isSelected = selectedIndex === idx;
+              let statusClass = 'answer-option--default';
+              if (isAnswered || isForgetClicked) {
+                if (ans.isCorrect) {
+                  statusClass = 'answer-option--correct';
+                } else if (selectedIndex === idx) {
+                  statusClass = 'answer-option--wrong';
+                }
+              } else if (isSelected) {
+                statusClass = 'answer-option--selected';
               }
-            } else if (isSelected) {
-              statusClass = 'answer-option--selected';
-            }
 
-            return (
-              <button
-                key={idx}
-                className={`answer-option group ${statusClass}`}
-                onClick={() => handleSelect(idx)}
-                disabled={isAnswered}
-              >
-                <div className="flex items-center gap-6 w-full">
-                  <span className="option-index">
-                    {idx + 1}
-                  </span>
-                  <div className="flex-1 text-center font-bold text-base sm:text-lg md:text-xl lg:text-2xl pr-4 sm:pr-6 md:pr-8 lg:pr-10">
-                    {ans.text}
+              return (
+                <button
+                  key={idx}
+                  className={`answer-option group ${statusClass}`}
+                  onClick={() => handleSelect(idx)}
+                  disabled={isAnswered}
+                >
+                  <div className="flex items-center gap-6 w-full">
+                    <span className="option-index">
+                      {idx + 1}
+                    </span>
+                    <div className="flex-1 text-center font-bold text-base sm:text-lg md:text-xl lg:text-2xl pr-4 sm:pr-6 md:pr-8 lg:pr-10">
+                      {ans.text}
+                    </div>
                   </div>
-                </div>
-              </button>
-            );
+                </button>
+              );
 
-          })}
-        </div>
-        <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-6 p-4 sm:p-6 md:p-8 w-full">
-          <button
-            className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3`}
-            onClick={handleCheck}
-            disabled={selectedIndex === null || isAnswered}>
-            Kiểm tra
-          </button>
-          <button className="btn-forget text-sm sm:text-base md:text-lg" onClick={handleForget} disabled={isAnswered}>
-            Tôi ko nhớ từ này
-          </button>
+            })}
+          </div>
+
+          <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-6 mt-6 w-full">
+            <button
+              className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3`}
+              onClick={handleCheck}
+              disabled={selectedIndex === null || isAnswered}>
+              Kiểm tra
+            </button>
+            <button className="btn-forget text-sm sm:text-base md:text-lg" onClick={handleForget} disabled={isAnswered}>
+              Tôi ko nhớ từ này
+            </button>
+          </div>
         </div>
       </div>
 

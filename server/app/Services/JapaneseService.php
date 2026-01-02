@@ -569,6 +569,7 @@ class JapaneseService
                 'lapses' => $newLapses,
                 'last_reviewed_at' => $reviewedAt,
                 'next_review_at' => $nextReviewAt,
+                'last_quiz_type' => $quizType, // Use variable $quizType
             ]);
 
             $anyUpdated = true;
@@ -640,11 +641,20 @@ class JapaneseService
                 }
 
                 // If under quota and word supports stroke, force it
-                // BUT only if previous quiz type was NOT stroke practice (avoid consecutive duplicates)
-                if ($supportsStroke && $currentStrokeCount < $desiredStrokeCount && $previousQuizType !== 'multiCharStrokePractice') {
-                    $quizType = 'multiCharStrokePractice';
-                    $currentStrokeCount++;
-                } else {
+                // BUT only if previous quiz type was NOT stroke practice (avoid consecutive duplicates in session)
+                // AND last_quiz_type in DB is NOT stroke practice (avoid consecutive duplicates across sessions)
+                $dbLastQuiz = $word->last_quiz_type;
+                
+                // TEMPORARY DISABLE: Do not generate stroke practice
+                // if ($supportsStroke 
+                //     && $currentStrokeCount < $desiredStrokeCount 
+                //     && $previousQuizType !== 'multiCharStrokePractice'
+                //     && $dbLastQuiz !== 'multiCharStrokePractice'
+                // ) {
+                //     $quizType = 'multiCharStrokePractice';
+                //     $currentStrokeCount++;
+                // } else {
+                if (true) {
                      $quizType = $this->determineQuizType($word, false, $previousQuizType);
 
                     // Ensure strictly no consecutive duplicates (retry once if needed)
@@ -830,7 +840,7 @@ class JapaneseService
             'hiraganaPractice',
             'romajiPractice',
             'voicePractice',
-            'multiCharStrokePractice',
+            // 'multiCharStrokePractice', // TEMPORARY DISABLE
         ];
 
         $hasKanji = $this->containsKanji($word->kanji);

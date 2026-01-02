@@ -30,6 +30,7 @@ protected $casts = [
         'is_active',
         'streak',
         'lapses',
+        'last_quiz_type',
     ];
 
     public function user()

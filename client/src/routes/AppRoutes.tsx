@@ -3,7 +3,6 @@ import JpRoutes from './language-routes/jpRoutes';
 import EnRoutes from './language-routes/enRoutes';
 import { useLanguage } from './LanguageContext';
 import AppShell from './components/AppShell';
-import LoadingScreen from './components/LoadingScreen';
 
 export default function AppRoutes() {
   const { lang } = useLanguage();
@@ -13,9 +12,7 @@ export default function AppRoutes() {
     return lang === 'jp' ? <JpRoutes /> : <EnRoutes />;
   }, [lang]);
 
-  if (!group) {
-    return <LoadingScreen message="Đang tải ngôn ngữ..." />;
-  }
+ 
 
   return (
     <Suspense>

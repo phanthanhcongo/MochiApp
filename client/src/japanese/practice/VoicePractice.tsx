@@ -329,73 +329,74 @@ const VoicePractice: React.FC = React.memo(() => {
       className="h-full"
     >
       <div
-        className="flex flex-col items-center justify-center h-full w-full overflow-x-hidden overflow-y-hidden"
+        className="flex flex-col items-center h-full w-full overflow-x-hidden overflow-y-hidden"
         style={{
           willChange: 'transform, opacity',
         }}
       >
-        {/* Question (Phát âm thay vì hiển thị chữ) */}
-        <div className="text-center mb-4 sm:mb-6 md:mb-8 w-full">
-          <h4 className="text-gray-600 m-5 sm:mb-4 md:mb-6 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn đáp án đúng</h4>
-          <div className="flex justify-center w-full"> {/* Thêm div này để căn giữa */}
-            <button
-              className="bg-slate-200 hover:bg-slate-600 p-8 w-28 h-28 rounded-full text-gray-800 hover:text-white transition duration-200 hover:scale-105 active:scale-95 flex items-center justify-center"
-              onClick={() => speak(reading)}
-              title="Phát âm từ"
-            >
-              <HiSpeakerWave className="text-5xl" />
-            </button>
+        <div className="flex-1 flex flex-col justify-center w-full max-w-4xl">
+          {/* Question (Phát âm thay vì hiển thị chữ) */}
+          <div className="text-center mb-4 sm:mb-6 md:mb-8 w-full">
+            <h4 className="text-gray-600 m-5 sm:mb-4 md:mb-6 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn đáp án đúng</h4>
+            <div className="flex justify-center w-full"> {/* Thêm div này để căn giữa */}
+              <button
+                className="bg-slate-200 hover:bg-slate-600 p-8 w-28 h-28 rounded-full text-gray-800 hover:text-white transition duration-200 hover:scale-105 active:scale-95 flex items-center justify-center"
+                onClick={() => speak(reading)}
+                title="Phát âm từ"
+              >
+                <HiSpeakerWave className="text-5xl" />
+              </button>
+            </div>
+
+          </div>
+          {/* Answers */}
+          <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8 w-full ">
+            {answers.map((ans, idx) => {
+              const isSelected = selectedIndex === idx;
+              let statusClass = 'answer-option--default';
+              if (isAnswered || isForgetClicked) {
+                if (ans.isCorrect) {
+                  statusClass = 'answer-option--correct';
+                } else if (selectedIndex === idx) {
+                  statusClass = 'answer-option--wrong';
+                }
+              } else if (isSelected) {
+                statusClass = 'answer-option--selected';
+              }
+
+
+              return (
+                <button
+                  key={idx}
+                  className={`answer-option group ${statusClass}`}
+                  onClick={() => handleSelect(idx)}
+                  disabled={isAnswered}
+                >
+                  <div className="flex items-center gap-3 sm:gap-4 md:gap-6 w-full">
+                    <span className="option-index">
+                      {idx + 1}
+                    </span>
+                    <div className="flex-1 text-center font-bold text-base sm:text-lg md:text-xl lg:text-2xl pr-4 sm:pr-6 md:pr-8 lg:pr-10">
+                      {ans.text}
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
           </div>
 
-        </div>
-        {/* Answers */}
-        <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8 w-full ">
-          {answers.map((ans, idx) => {
-            const isSelected = selectedIndex === idx;
-            let statusClass = 'answer-option--default';
-            if (isAnswered || isForgetClicked) {
-              if (ans.isCorrect) {
-                statusClass = 'answer-option--correct';
-              } else if (selectedIndex === idx) {
-                statusClass = 'answer-option--wrong';
-              }
-            } else if (isSelected) {
-              statusClass = 'answer-option--selected';
-            }
-
-
-            return (
-              <button
-                key={idx}
-                className={`answer-option group ${statusClass}`}
-                onClick={() => handleSelect(idx)}
-                disabled={isAnswered}
-              >
-                <div className="flex items-center gap-3 sm:gap-4 md:gap-6 w-full">
-                  <span className="option-index">
-                    {idx + 1}
-                  </span>
-                  <div className="flex-1 text-center font-bold text-base sm:text-lg md:text-xl lg:text-2xl pr-4 sm:pr-6 md:pr-8 lg:pr-10">
-                    {ans.text}
-                  </div>
-                </div>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Check & Forget */}
-        <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-6 p-4 sm:p-6 md:p-8 w-full">
-          <button
-            className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-6 py-3`}
-            onClick={handleCheck}
-            disabled={selectedIndex === null || isAnswered}
-          >
-            Kiểm tra
-          </button>
-          <button className="btn-forget text-lg" onClick={handleForget} disabled={isAnswered}>
-            Tôi ko nhớ từ này
-          </button>
+          <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-6 mt-6 w-full">
+            <button
+              className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-6 py-3`}
+              onClick={handleCheck}
+              disabled={selectedIndex === null || isAnswered}
+            >
+              Kiểm tra
+            </button>
+            <button className="btn-forget text-lg" onClick={handleForget} disabled={isAnswered}>
+              Tôi ko nhớ từ này
+            </button>
+          </div>
         </div>
       </div>
 

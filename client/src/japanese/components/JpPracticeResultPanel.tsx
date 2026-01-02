@@ -109,7 +109,7 @@ const JpPracticeResultPanel: React.FC<JpPracticeResultPanelProps> = ({
       </div>
 
       {/* NÚT TIẾP TỤC */}
-      <div className="w-full sm:w-80 mx-auto py-4 text-center px-4 pb-[env(safe-area-inset-bottom)]">
+      <div className="w-full sm:w-80 mx-auto p-10 text-center">
         <button
           className="btn-primary btn-primary--active w-full shadow-md"
           onClick={onContinue}

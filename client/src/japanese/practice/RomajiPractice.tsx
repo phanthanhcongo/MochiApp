@@ -223,15 +223,15 @@ const RomajiPractice: React.FC = React.memo(() => {
       className="h-full"
     >
       <div
-        className="flex flex-col items-center justify-center h-full w-full overflow-x-hidden overflow-y-hidden"
+        className="flex flex-col items-center h-full w-full overflow-x-hidden overflow-y-hidden"
         style={{
           willChange: 'transform, opacity',
         }}
       >
-        <div className="text-center w-full">
+        <div className="flex-1 flex flex-col justify-center w-full text-center">
           <h4 className="text-gray-600 mb-6 text-3xl">Nhập cách đọc romaji của từ sau:</h4>
           <h1 className="text-6xl font-bold text-gray-900 mb-10">{question}</h1>
-          <div className="flex justify-center mb-4">
+          <div className="flex justify-center mb-4 w-[90%] mx-auto">
             <input
               type="text"
               className={`border rounded px-6 h-15 py-4 text-3xl text-center w-full max-w-lg ${hasAccentWarning ? 'border-red-500 bg-red-50' : 'border-gray-300'
@@ -254,17 +254,17 @@ const RomajiPractice: React.FC = React.memo(() => {
           {hasAccentWarning && (
             <p className="text-red-500 text-lg mt-3">⚠️ Romaji không được chứa dấu tiếng Việt</p>
           )}
-        </div>
 
-        <div className="flex flex-col items-center gap-6 p-8 w-full">
-          <button
-            className={`btn-primary ${!userRomajiAnswer || isAnswered || hasAccentWarning ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-6 py-3`}
-            onClick={handleCheck}
-            disabled={!userRomajiAnswer || isAnswered || hasAccentWarning}
-          >
-            Kiểm tra
-          </button>
-          <button className="btn-forget text-lg" onClick={handleForget} disabled={isAnswered}>Tôi ko nhớ từ này</button>
+          <div className="flex flex-col items-center gap-6 mt-10 w-full">
+            <button
+              className={`btn-primary ${!userRomajiAnswer || isAnswered || hasAccentWarning ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-6 py-3`}
+              onClick={handleCheck}
+              disabled={!userRomajiAnswer || isAnswered || hasAccentWarning}
+            >
+              Kiểm tra
+            </button>
+            <button className="btn-forget text-lg" onClick={handleForget} disabled={isAnswered}>Tôi ko nhớ từ này</button>
+          </div>
         </div>
       </div>
 

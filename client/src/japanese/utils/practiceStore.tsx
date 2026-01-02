@@ -83,7 +83,7 @@ interface PracticeSessionStore {
   setWords: (words: ReviewWord[]) => void;
   setScenarios: (scenarios: PracticeScenario[]) => void;
   setRandomAnswers: (randomAnswers: Array<{ meaning_vi: string }>) => void;
-  markAnswer: (isCorrect: boolean) => void;
+  markAnswer: (isCorrect: boolean, quizType?: QuizType) => void;
   removeCurrentWord: () => void;
   navigateToQuiz: (navigate: (path: string, state?: any) => void, newQuizType: QuizType, oldQuizType?: QuizType | null, onComplete?: () => void) => Promise<void>;
   continueToNextQuiz: (navigate: (path: string, state?: any) => void, onComplete?: () => void) => Promise<void>;
@@ -187,7 +187,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
     set({ randomAnswers });
   },
 
-  markAnswer: (isCorrect) => {
+  markAnswer: (isCorrect, quizType) => {
     const { currentWord, words, reviewedWords, completedCount, scenarios } = get();
     if (!currentWord) return;
 
@@ -202,7 +202,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
         word: updatedCurrent.word,
         firstFailed: !isCorrect,
         reviewedAt: new Date().toISOString(),
-        quizType: get().previousType || undefined,
+        quizType: quizType || get().previousType || undefined,
       };
 
       const updatedLogs = [...reviewedWords, newLog];
@@ -354,6 +354,23 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
 
           if (scenarioIndex !== -1) {
             updatedScenarios.splice(scenarioIndex, 1); // Remove completely
+
+            // START FIX: Check if empty after removal to redirect immediately
+            if (updatedScenarios.length === 0) {
+              set({
+                scenarios: [],
+                pendingCorrectAnswerRemoval: false,
+                isGettingNextType: false,
+                isNavigating: false
+              });
+
+              await new Promise(resolve => requestAnimationFrame(resolve));
+              await new Promise(resolve => setTimeout(resolve, 50));
+              navigate('/jp/summary');
+              if (onComplete) onComplete();
+              return;
+            }
+            // END FIX
 
             set({
               scenarios: updatedScenarios,

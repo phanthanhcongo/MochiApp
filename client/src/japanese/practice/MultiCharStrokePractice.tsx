@@ -199,6 +199,11 @@ const MultiCharStrokePractice: React.FC = () => {
     };
   }, [word, isForgetClicked]);
 
+  const hasKanjiChars = React.useMemo(() => {
+    if (!word?.kanji) return false;
+    return Array.from(word.kanji).some(ch => isKanji(ch));
+  }, [word]);
+
   useEffect(() => {
     // Chỉ mark done nếu status khớp với word hiện tại
     // CRITICAL FIX: Check statusWordId to ensure kanjiStatus belongs to current word
@@ -207,21 +212,29 @@ const MultiCharStrokePractice: React.FC = () => {
       statusWordId === word.id &&
       processedWordIdRef.current === word.id &&
       kanjiStatus.length > 0 &&
-      kanjiStatus.every((status) => status === true)
+      kanjiStatus.every((status) => status === true) &&
+      hasKanjiChars // Only auto-complete if there were actual Kanji to practice
     ) {
-      setIsCorrectAnswer(true);
-      markAnswer(true);
-    }
-  }, [kanjiStatus, word, statusWordId]);
+      // Add delay before showing result to allow user to see the last stroke
+      const timer = setTimeout(() => {
+        setIsCorrectAnswer(true);
+        markAnswer(true, 'multiCharStrokePractice');
+      }, 1000);
 
-  const handleForget = React.useCallback(() => {
+      return () => clearTimeout(timer);
+    }
+  }, [kanjiStatus, word, statusWordId, markAnswer, hasKanjiChars]);
+
+  const handleSkip = React.useCallback(() => {
     if (!isCorrectAnswer) {
-      setIsForgetClicked(true);
-      setIsCorrectAnswer(false);
-      markAnswer(false);
+      setIsCorrectAnswer(true);
+      markAnswer(true, 'multiCharStrokePractice');
       speak(word?.reading_hiragana || '');
       writersRef.current.forEach((writer) => {
-        if (writer) writer.cancelQuiz();
+        if (writer) {
+          writer.cancelQuiz();
+          writer.showCharacter();
+        }
       });
     }
   }, [isCorrectAnswer, word, markAnswer]);
@@ -269,7 +282,7 @@ const MultiCharStrokePractice: React.FC = () => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isResultShown, handleContinue, handleForget]);
+  }, [isResultShown, handleContinue, handleSkip]);
 
   // Ẩn component ngay khi đang navigate hoặc không phải quiz type hiện tại
   const currentPath = location.pathname;
@@ -311,38 +324,40 @@ const MultiCharStrokePractice: React.FC = () => {
       onExitComplete={() => setIsExiting(false)}
       className="w-full h-full"
     >
-      <div className="flex flex-col items-center h-full overflow-y-auto pb-24 pt-8">
-        <h4 className="text-gray-600 mb-4 shrink-0">Vẽ từng nét đúng theo thứ tự</h4>
-        <div className="flex gap-4 flex-wrap justify-center shrink-0 mb-8">
-          {word.kanji.split('').map((char, idx) => (
-            <div
-              key={`${word.id}-${idx}`} // ✅ Quan trọng: đảm bảo mỗi ô là duy nhất khi từ thay đổi
-              ref={(el) => {
-                containerRefs.current[idx] = el;
-              }}
-              className="relative w-[200px] h-[200px] flex items-center justify-center text-9xl font-bold border border-gray-400 rounded-lg shadow bg-stone-100"
-              style={{
-                backgroundImage: `
-          linear-gradient(to right, #b4b7bdff 1px, transparent 1px),
-          linear-gradient(to bottom, #c6c7c9ff 1px, transparent 1px),
-          linear-gradient(to top left, #f3f4f6 1px, transparent 1px),
-          linear-gradient(to top right, #f3f4f6 1px, transparent 1px)
-        `,
-                backgroundSize: '25% 25%',
-                backgroundPosition: 'center',
-              }}
-            >
-              {!isKanji(char) && <span>{char}</span>}
-            </div>
-          ))}
-        </div>
+      <div className="flex flex-col items-center h-full overflow-y-hidden">
+        <div className="flex-1 flex flex-col justify-center items-center w-full">
+          <h4 className="text-gray-600 mb-4 shrink-0">Vẽ từng nét đúng theo thứ tự</h4>
+          <div className="flex gap-4 flex-wrap justify-center shrink-0 mb-8">
+            {word.kanji.split('').map((char, idx) => (
+              <div
+                key={`${word.id}-${idx}`} // ✅ Quan trọng: đảm bảo mỗi ô là duy nhất khi từ thay đổi
+                ref={(el) => {
+                  containerRefs.current[idx] = el;
+                }}
+                className="relative w-[200px] h-[200px] flex items-center justify-center text-9xl font-bold border border-gray-400 rounded-lg shadow bg-stone-100"
+                style={{
+                  backgroundImage: `
+            linear-gradient(to right, #b4b7bdff 1px, transparent 1px),
+            linear-gradient(to bottom, #c6c7c9ff 1px, transparent 1px),
+            linear-gradient(to top left, #f3f4f6 1px, transparent 1px),
+            linear-gradient(to top right, #f3f4f6 1px, transparent 1px)
+          `,
+                  backgroundSize: '25% 25%',
+                  backgroundPosition: 'center',
+                }}
+              >
+                {!isKanji(char) && <span>{char}</span>}
+              </div>
+            ))}
+          </div>
 
-        <div className="flex flex-col items-center gap-4 shrink-0">
-          <button
-            className="btn-forget"
-            onClick={handleForget}
-            disabled={!!isCorrectAnswer}
-          >Tôi ko nhớ từ này</button>
+          <div className="flex flex-col items-center gap-4 shrink-0 pb-8 w-full">
+            <button
+              className="btn-forget"
+              onClick={handleSkip}
+              disabled={!!isCorrectAnswer}
+            >Bỏ qua</button>
+          </div>
         </div>
       </div>
 
