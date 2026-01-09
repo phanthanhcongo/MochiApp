@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { usePracticeSession } from '../utils/practiceStore';
+import { usePracticeSession, speak } from '../utils/practiceStore';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
@@ -197,14 +197,7 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
     return () => clearTimeout(checkState);
   }, [location.state, location.pathname, navigate]);
 
-  const speak = (text: string) => {
-    if ('speechSynthesis' in window && text) {
-      if (speechSynthesis.speaking) return;
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ja-JP';
-      speechSynthesis.speak(utterance);
-    }
-  };
+
 
 
   const handleContinue = useCallback(async () => {

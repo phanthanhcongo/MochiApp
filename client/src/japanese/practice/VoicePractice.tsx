@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
-import { usePracticeSession } from '../utils/practiceStore';
+import { usePracticeSession, speak } from '../utils/practiceStore';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
 import { HiSpeakerWave } from "react-icons/hi2";
@@ -28,6 +28,8 @@ const VoicePractice: React.FC = React.memo(() => {
 
   const navigate = useNavigate();
   const location = useLocation();
+  const currentPath = location.pathname;
+  const isCorrectRoute = currentPath.includes('voicePractice');
 
   const {
     currentWord,
@@ -36,6 +38,7 @@ const VoicePractice: React.FC = React.memo(() => {
     previousType,
     scenarios,
     randomAnswers,
+    isGettingNextType: storeIsGettingNextType,
   } = usePracticeSession();
 
   // Function để tạo mảng 3 đáp án (1 đúng + 2 sai) chỉ từ scenarios
@@ -207,14 +210,15 @@ const VoicePractice: React.FC = React.memo(() => {
 
   const reading = currentWord?.word.reading_hiragana || '';
 
-  const speak = (text: string) => {
-    if ('speechSynthesis' in window && text) {
-      if (speechSynthesis.speaking) return;
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ja-JP';
-      speechSynthesis.speak(utterance);
+  useEffect(() => {
+    // Chỉ speak khi đang ở đúng route VoicePractice
+    // Và KHÔNG đang trong quá trình lấy từ mới (để tránh speak từ tiếp theo trước khi chuyển cảnh)
+    if (reading && currentPath.includes('voicePractice') && !storeIsGettingNextType) {
+      speak(reading);
     }
-  };
+  }, [reading, currentPath, storeIsGettingNextType]);
+
+
 
   const handleContinue = async () => {
     if (isNavigating || isProcessingRef.current) return;
@@ -273,8 +277,7 @@ const VoicePractice: React.FC = React.memo(() => {
   }, [isAnswered, isForgetClicked, selectedIndex]);
 
   // Component is always mounted, visibility handled by PracticeWrapper
-  const currentPath = location.pathname;
-  const isCorrectRoute = currentPath.includes('voicePractice');
+
 
   if (!currentWord || !isCorrectRoute) {
     return null;

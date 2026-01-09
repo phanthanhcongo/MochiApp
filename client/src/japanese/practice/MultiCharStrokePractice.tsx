@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import HanziWriter from 'hanzi-writer';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { usePracticeSession } from '../utils/practiceStore';
+import { usePracticeSession, speak } from '../utils/practiceStore';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
 import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
 import { cnCharDataLoader } from '../utils/strokeData';
@@ -104,20 +104,9 @@ const MultiCharStrokePractice: React.FC = () => {
 
   const isResultShown = isCorrectAnswer !== null || isForgetClicked;
 
-  const speak = (text: string) => {
-    if ('speechSynthesis' in window && text) {
-      if (speechSynthesis.speaking) return;
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ja-JP';
-      speechSynthesis.speak(utterance);
-    }
-  };
 
-  useEffect(() => {
-    if (word?.reading_hiragana) {
-      speak(word.reading_hiragana);
-    }
-  }, [word?.id]);
+
+
 
   const processedWordIdRef = useRef<number | null>(null);
 

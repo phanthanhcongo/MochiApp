@@ -60,9 +60,8 @@ const PracticePage = () => {
   const [nextReviewIn, setNextReviewIn] = useState<string | null>(null);
   const [remainingSec, setRemainingSec] = useState<number | null>(null);
 
-  const { setScenarios, setRandomAnswers } = usePracticeSession();
+  const { setScenarios, setRandomAnswers, preparedScenarios: storePreparedScenarios, preparedRandomAnswers: storePreparedRandomAnswers, fetchPreparedData } = usePracticeSession();
   const navigate = useNavigate();
-  // localStorage.setItem('user_id', '2');
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -112,64 +111,38 @@ const PracticePage = () => {
     sessionStorage.setItem('reload_count', '0');
   }, []);
 
+  const [isLoadingScenarios, setIsLoadingScenarios] = useState<boolean>(true);
+
+
   // Fetch scenarios và randomAnswers ngay sau khi component mount để chuẩn bị sẵn
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) return;
 
-    // Chỉ fetch nếu có từ cần ôn
-    const fetchPreparedData = async () => {
-      try {
-        const [scenariosRes, randomAnswersRes] = await Promise.all([
-          fetch(`${API_URL}/jp/practice/scenarios`, {
-            method: 'GET',
-            headers: {
-              'Accept': 'application/json',
-              'Authorization': `Bearer ${token}`,
-            },
-          }),
-          fetch(`${API_URL}/jp/practice/listWord`, {
-            method: 'GET',
-            headers: {
-              'Accept': 'application/json',
-              'Authorization': `Bearer ${token}`,
-            },
-          })
-        ]);
+    // Use data from store if available
+    if (storePreparedScenarios.length > 0) {
+      console.log('Using prepared scenarios from store:', storePreparedScenarios);
+      setPreparedScenarios(storePreparedScenarios);
+      setPreparedRandomAnswers(storePreparedRandomAnswers);
+      setIsLoadingScenarios(false);
+      return;
+    }
 
-        if (scenariosRes.status === 401 || randomAnswersRes.status === 401) {
-          localStorage.removeItem('token');
-          window.location.replace('/login');
-          return;
-        }
-
-        if (scenariosRes.ok) {
-          const scenariosData = await scenariosRes.json();
-          const scenarios: PracticeScenario[] = scenariosData.scenarios || [];
-          console.log('Fetched scenarios:', scenarios);
-          setPreparedScenarios(scenarios);
-        }
-
-        if (randomAnswersRes.ok) {
-          const randomAnswersData = await randomAnswersRes.json();
-          const allWords = (randomAnswersData.allWords || []).map((w: any) => ({
-            meaning_vi: w.meaning_vi || ''
-          })).filter((w: { meaning_vi: string }) => w.meaning_vi !== '');
-
-          // Shuffle và lấy 50 từ ngẫu nhiên
-          const shuffled = allWords.sort(() => Math.random() - 0.5);
-          const randomAnswers = shuffled.slice(0, 50);
-          setPreparedRandomAnswers(randomAnswers);
-        }
-      } catch (err) {
-        console.error('Lỗi khi fetch prepared data:', err);
-      }
+    // Otherwise fetch
+    const fetchData = async () => {
+      setIsLoadingScenarios(true);
+      await fetchPreparedData();
+      // Data will be in store now, but we need to update local state or just use store directly?
+      // Better to check store again or use the usePracticeSession hook's generic state?
+      // Actually, since we just called fetchPreparedData which updates the store,
+      // and we are accessing storePreparedScenarios from the hook, it should update automatically if we depend on it?
+      // But useEffect closure might be tricky.
+      // Let's just trust the hook updates.
+      setIsLoadingScenarios(false);
     };
 
-    // Chỉ fetch khi có từ cần ôn (có thể check sau khi stats load xong)
-    // Hoặc fetch luôn, sẽ được update khi stats load xong
-    fetchPreparedData();
-  }, []);
+    fetchData();
+  }, [storePreparedScenarios]); // Add dependency to update when store updates
 
 
   sessionStorage.setItem('reload_count', '0'); // Reset về 0 trước
@@ -185,6 +158,8 @@ const PracticePage = () => {
     return () => clearInterval(id);
   }, [remainingSec]);
   const handleStartPractice = () => {
+    if (isLoadingScenarios) return;
+
     // Dùng preparedScenarios và preparedRandomAnswers đã được chuẩn bị sẵn
     if (preparedScenarios.length === 0) {
       console.warn('Chưa có scenarios để ôn tập');
@@ -287,15 +262,19 @@ const PracticePage = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleStartPractice}
-              disabled={reviewWordsCount === 0}
-              className={`relative h-12 sm:h-14 md:h-16 w-full sm:w-64 md:w-72 rounded-xl sm:rounded-2xl font-black text-sm sm:text-base md:text-lg lg:text-xl transition-all duration-200 ${reviewWordsCount > 0
+              disabled={reviewWordsCount === 0 || (reviewWordsCount > 0 && isLoadingScenarios)}
+              className={`relative h-12 sm:h-14 md:h-16 w-full sm:w-64 md:w-72 rounded-xl sm:rounded-2xl font-black text-sm sm:text-base md:text-lg lg:text-xl transition-all duration-200 ${reviewWordsCount > 0 && !isLoadingScenarios
                 ? 'bg-lime-500 text-white shadow-[0_4px_0_rgb(101,163,13)] sm:shadow-[0_6px_0_rgb(101,163,13)] hover:shadow-[0_8px_0_rgb(101,163,13)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none'
                 : 'bg-slate-200 text-slate-400 shadow-[0_3px_0_rgb(203,213,225)] sm:shadow-[0_4px_0_rgb(203,213,225)] cursor-not-allowed'
                 }`}
             >
               <span className="flex items-center justify-center gap-1 sm:gap-2">
                 {reviewWordsCount > 0 ? (
-                  <>Ôn tập ngay <span className="text-lg sm:text-xl md:text-2xl">🔥</span></>
+                  isLoadingScenarios ? (
+                    <>Đang chuẩn bị... <span className="text-lg sm:text-xl md:text-2xl animate-spin">⏳</span></>
+                  ) : (
+                    <>Ôn tập ngay <span className="text-lg sm:text-xl md:text-2xl">🔥</span></>
+                  )
                 ) : (
                   <>⏳ {remainingSec !== null ? formatHMS(remainingSec) : 'Đang chờ...'}</>
                 )}

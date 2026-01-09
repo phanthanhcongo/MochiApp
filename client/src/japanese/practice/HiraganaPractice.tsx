@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { usePracticeSession } from '../utils/practiceStore';
+import { usePracticeSession, speak } from '../utils/practiceStore';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
@@ -97,16 +97,7 @@ const HiraganaPractice: React.FC = React.memo(() => {
   const reading = currentWord?.word.reading_hiragana || '';
 
   // ---------- Speech synthesis (robust) ----------
-  const speak = (text: string) => {
-    if ('speechSynthesis' in window) {
-      try {
-        window.speechSynthesis.cancel(); // stop any ongoing speech
-      } catch { }
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ja-JP';
-      window.speechSynthesis.speak(utterance);
-    }
-  };
+
 
   // ---------- Build choice pool directly from kana (fixes っ, ゃ/ゅ/ょ, etc.) ----------
   useEffect(() => {

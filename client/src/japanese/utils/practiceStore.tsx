@@ -16,6 +16,32 @@ export const allKanjiStrict = (s: string): boolean => {
   return [...t].every(ch => /\p{Script=Han}/u.test(ch));
 };
 
+export const speak = (text: string) => {
+  if ('speechSynthesis' in window && text) {
+    // Cancel any ongoing speech for responsiveness
+    window.speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ja-JP';
+
+    // Attempt to select a more natural voice
+    const voices = window.speechSynthesis.getVoices();
+    const japaneseVoice = voices.find(voice => voice.lang === 'ja-JP' && voice.name.includes('Google')) // Google's voices are usually good
+      || voices.find(voice => voice.lang === 'ja-JP' && voice.name.includes('Microsoft')) // Microsoft's are also decent
+      || voices.find(voice => voice.lang === 'ja-JP');
+
+    if (japaneseVoice) {
+      utterance.voice = japaneseVoice;
+    }
+
+    // Optional: Adjust rate/pitch slightly if needed
+    // utterance.rate = 0.9; // Slightly slower can be clearer
+    // utterance.pitch = 1;
+
+    window.speechSynthesis.speak(utterance);
+  }
+};
+
 export interface ReviewWord {
   id: number;
   kanji: string;
@@ -80,6 +106,11 @@ interface PracticeSessionStore {
   pendingCorrectAnswerRemoval: boolean; // Flag to delay scenario removal until continue
   randomAnswers: Array<{ meaning_vi: string }>; // Mảng 50 từ ngẫu nhiên để làm đáp án sai
 
+  // Data đã prepare (cho session tiếp theo)
+  preparedScenarios: PracticeScenario[];
+  preparedRandomAnswers: Array<{ meaning_vi: string }>;
+  fetchPreparedData: () => Promise<void>;
+
   setWords: (words: ReviewWord[]) => void;
   setScenarios: (scenarios: PracticeScenario[]) => void;
   setRandomAnswers: (randomAnswers: Array<{ meaning_vi: string }>) => void;
@@ -116,6 +147,8 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
   pendingWrongAnswerReorder: false,
   pendingCorrectAnswerRemoval: false,
   randomAnswers: [],
+  preparedScenarios: [],
+  preparedRandomAnswers: [],
 
   setWords: (words) => {
     // Shuffle toàn bộ danh sách trước khi chọn từ đầu tiên
@@ -390,7 +423,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
             updatedScenarios.splice(scenarioIndex, 1);
 
             // Đổi quizType thành một trong: multiple, romajiPractice, voicePractice
-            const availableQuizTypes: QuizType[] = ['multiple', 'romajiPractice', 'voicePractice', 'multiCharStrokePractice', 'hiraganaPractice'];
+            const availableQuizTypes: QuizType[] = ['multiple', 'romajiPractice', 'voicePractice', 'hiraganaPractice'];
             const oldQuizType = currentScenario.quizType;
             const filteredQuizTypes = availableQuizTypes.filter(type => type !== oldQuizType);
             const newQuizTypes = filteredQuizTypes.length > 0 ? filteredQuizTypes : availableQuizTypes;
@@ -575,8 +608,59 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       // console.log('Đã cập nhật lịch sử ôn tập:', data);
       await res.json();
       resetSession();
+      // Ngay sau khi reset session, fetch data mới ngay
+      await get().fetchPreparedData();
     } catch (err) {
       // console.error('Lỗi khi gọi API reviewed-words:', err);
+    }
+  },
+
+  fetchPreparedData: async () => {
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) return;
+
+      const [scenariosRes, randomAnswersRes] = await Promise.all([
+        fetch(`${API_URL}/jp/practice/scenarios`, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+        }),
+        fetch(`${API_URL}/jp/practice/listWord`, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+        })
+      ]);
+
+      if (scenariosRes.status === 401 || randomAnswersRes.status === 401) {
+        // localStorage.removeItem('token');
+        // Let other components handle auth redirect
+        return;
+      }
+
+      if (scenariosRes.ok) {
+        const scenariosData = await scenariosRes.json();
+        const scenarios: PracticeScenario[] = scenariosData.scenarios || [];
+        set({ preparedScenarios: scenarios });
+      }
+
+      if (randomAnswersRes.ok) {
+        const randomAnswersData = await randomAnswersRes.json();
+        const allWords = (randomAnswersData.allWords || []).map((w: any) => ({
+          meaning_vi: w.meaning_vi || ''
+        })).filter((w: { meaning_vi: string }) => w.meaning_vi !== '');
+
+        const shuffled = allWords.sort(() => Math.random() - 0.5);
+        const randomAnswers = shuffled.slice(0, 50);
+        set({ preparedRandomAnswers: randomAnswers });
+      }
+    } catch (err) {
+      console.error('Lỗi khi fetch prepared data:', err);
     }
   },
 }));

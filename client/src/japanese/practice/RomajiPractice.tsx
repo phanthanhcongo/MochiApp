@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { usePracticeSession } from '../utils/practiceStore';
+import { usePracticeSession, speak } from '../utils/practiceStore';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
@@ -99,14 +99,7 @@ const RomajiPractice: React.FC = React.memo(() => {
     return () => clearTimeout(checkState);
   }, [location.state, location.pathname, navigate]);
 
-  const speak = (text: string) => {
-    if ('speechSynthesis' in window && text) {
-      if (speechSynthesis.speaking) return;
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ja-JP';
-      speechSynthesis.speak(utterance);
-    }
-  };
+
 
   const hasVietnameseAccents = (text: string): boolean => {
     // Regex để kiểm tra ký tự có dấu tiếng Việt
@@ -122,8 +115,9 @@ const RomajiPractice: React.FC = React.memo(() => {
         return;
       }
 
-      const cleaned = userRomajiAnswer.trim().toLowerCase();
-      const isCorrect = cleaned === correctRomaji;
+      const cleaned = userRomajiAnswer.trim().toLowerCase().replace(/\s+/g, '');
+      const correctCleaned = correctRomaji.toLowerCase().replace(/\s+/g, '');
+      const isCorrect = cleaned === correctCleaned;
 
       setIsAnswered(true);
       setIsCorrectAnswer(isCorrect);
