@@ -696,6 +696,58 @@ class JapaneseService
     }
 
     /**
+     * Get grammar practice scenarios
+     */
+    public function getGrammarPracticeScenarios(int $userId, Carbon $now): array
+    {
+        // Same as getPracticeScenarios but filter for is_grammar = true
+        $words = JpWord::with(['hanviet', 'examples'])
+            ->where('user_id', $userId)
+            ->where('is_active', true)
+            ->where('is_grammar', true)  // ✅ Filter grammar instead of vocabulary
+            ->where('next_review_at', '<=', $now)
+            ->orderBy('next_review_at')
+            ->limit(100)
+            ->get();
+
+        if ($words->isEmpty()) {
+            return [
+                'totalWords' => 0,
+                'scenarios' => [],
+            ];
+        }
+
+        $scenarios = [];
+        $previousQuizType = null;
+
+        foreach ($words as $index => $word) {
+            try {
+                // Use grammar-specific quiz type determination
+                $quizType = $this->determineGrammarQuizType($previousQuizType);
+
+                $scenarios[] = [
+                    'order' => $index + 1,
+                    'word' => $this->formatWord($word),
+                    'quizType' => $quizType,
+                ];
+
+                $previousQuizType = $quizType;
+            } catch (\Exception $e) {
+                Log::error('Error processing grammar word', [
+                    'word_id' => $word->id,
+                    'error' => $e->getMessage(),
+                ]);
+                continue;
+            }
+        }
+
+        return [
+            'totalWords' => $words->count(),
+            'scenarios' => $scenarios,
+        ];
+    }
+
+    /**
      * Get streak factor based on streak value
      */
     private function getStreakFactor(int $streak): float
@@ -858,8 +910,6 @@ class JapaneseService
             }
         }
         
-
-
         $availableTypes = $allQuizTypes;
 
         if (!$hasStrokeData) {
@@ -908,23 +958,47 @@ class JapaneseService
             }
 
             if ($previousQuizType !== null) {
-                // Try to find ANY other type first
                 $nonDuplicateTypes = array_filter($availableTypes, function ($type) use ($previousQuizType) {
                     return $type !== $previousQuizType;
                 });
-                
+
                 if (!empty($nonDuplicateTypes)) {
                     $availableTypes = array_values($nonDuplicateTypes);
                 }
-                // Only if NO other types exist do we allow the duplicate (fallback)
             }
-        }
 
-        if (empty($availableTypes)) {
-            return null;
+            return $availableTypes[array_rand($availableTypes)];
         }
 
         return $availableTypes[array_rand($availableTypes)];
+    }
+
+    /**
+     * Determine quiz type for grammar patterns
+     * Returns only 'multiple' or 'voicePractice'
+     */
+    private function determineGrammarQuizType(?string $previousQuizType = null): string
+    {
+        // Only these 2 types for grammar
+        $grammarQuizTypes = [
+            'multiple',
+            'voicePractice',
+        ];
+
+        // Filter out previous type to avoid consecutive duplicates
+        if ($previousQuizType !== null) {
+            $availableTypes = array_filter($grammarQuizTypes, function($type) use ($previousQuizType) {
+                return $type !== $previousQuizType;
+            });
+            $availableTypes = array_values($availableTypes);
+        } else {
+            $availableTypes = $grammarQuizTypes;
+        }
+
+        // Return random type from available
+        return !empty($availableTypes) 
+            ? $availableTypes[array_rand($availableTypes)] 
+            : $grammarQuizTypes[0]; // Fallback to 'multiple'
     }
 
     /**

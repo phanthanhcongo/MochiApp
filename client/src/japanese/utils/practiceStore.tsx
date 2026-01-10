@@ -422,8 +422,16 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
             // FIRST: Delete from current position
             updatedScenarios.splice(scenarioIndex, 1);
 
-            // Đổi quizType thành một trong: multiple, romajiPractice, voicePractice
-            const availableQuizTypes: QuizType[] = ['multiple', 'romajiPractice', 'voicePractice', 'hiraganaPractice'];
+            // Check if current word is grammar (has is_grammar field or inferred from practice type)
+            // For grammar patterns, only use 'multiple' and 'voicePractice'
+            const isGrammar = (currentScenario.word as any).is_grammar === true ||
+              (currentScenario.word as any).is_grammar === 1 ||
+              (currentScenario.word as any).is_grammar === '1';
+
+            const availableQuizTypes: QuizType[] = isGrammar
+              ? ['multiple', 'voicePractice']  // Grammar: only these 2
+              : ['multiple', 'romajiPractice', 'voicePractice', 'hiraganaPractice'];  // Vocabulary: all 4
+
             const oldQuizType = currentScenario.quizType;
             const filteredQuizTypes = availableQuizTypes.filter(type => type !== oldQuizType);
             const newQuizTypes = filteredQuizTypes.length > 0 ? filteredQuizTypes : availableQuizTypes;
@@ -431,6 +439,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
 
             // console.log('❌ [WRONG ANSWER - QUIZ TYPE CHANGE]', {
             //   word: currentScenario.word.kanji,
+            //   isGrammar,
             //   oldQuizType,
             //   newQuizType: randomQuizType,
             //   availableTypes: availableQuizTypes,

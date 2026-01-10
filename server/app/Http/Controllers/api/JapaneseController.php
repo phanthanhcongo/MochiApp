@@ -328,4 +328,45 @@ class JapaneseController extends Controller
             ], 500);
         }
     }
+
+    /**
+     * Get grammar practice scenarios
+     */
+    public function getGrammarPracticeScenarios(Request $request)
+    {
+        $user = $request->user();
+        if (!$user) {
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
+
+        $userId = $user->id;
+        $now = Carbon::now();
+
+        try {
+            $result = $this->japaneseService->getGrammarPracticeScenarios($userId, $now);
+
+            if ($result['totalWords'] === 0) {
+                return response()->json([
+                    'message' => 'Không có ngữ pháp nào cần ôn tập',
+                    'scenarios' => []
+                ], 200);
+            }
+
+            return response()->json([
+                'message' => 'Lấy danh sách kịch bản luyện ngữ pháp thành công',
+                'totalWords' => $result['totalWords'],
+                'scenarios' => $result['scenarios'],
+            ], 200);
+        } catch (\Exception $e) {
+            \Log::error('getGrammarPracticeScenarios error', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
+
+            return response()->json([
+                'message' => 'Lỗi khi lấy danh sách ngữ pháp',
+                'error' => config('app.debug') ? $e->getMessage() : 'Internal server error'
+            ], 500);
+        }
+    }
 }

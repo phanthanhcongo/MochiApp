@@ -328,17 +328,17 @@ const ReviewWordList: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-full mx-auto px-4">
+    <div className="flex flex-col h-full">
       {/* Header + Search */}
-      <div className="bg-white/95 backdrop-blur-sm shrink-0 w-full xl:w-[70%] mx-auto z-30 shadow-sm border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-6 py-2">
+      <div className="bg-white/95 backdrop-blur-sm shrink-0 w-full  mx-auto z-30 shadow-sm border-b border-gray-100">
+        <div className=" mx-auto px-6 py-2">
           <div className="flex items-center justify-between mb-2 relative">
             <button
               onClick={() => navigate("/jp/home")}
               className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-50 text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition-all cursor-pointer"
               title="Quay lại"
             >
-              <BiLogOutCircle className="text-xl" />
+              <BiLogOutCircle className="text-3xl" />
             </button>
 
             <h2 className="text-xl font-black text-gray-800 tracking-tight">

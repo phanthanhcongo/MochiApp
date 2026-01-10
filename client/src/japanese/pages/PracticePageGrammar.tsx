@@ -63,6 +63,7 @@ const PracticePageGrammar = () => {
 
   // Scroll to top when component mounts
   useEffect(() => {
+    console.log('Grammar practice page mounted');
     window.scrollTo(0, 0);
     document.documentElement.scrollTo(0, 0);
     document.body.scrollTo(0, 0);
@@ -132,7 +133,7 @@ const PracticePageGrammar = () => {
     try {
       // Fetch scenarios và randomAnswers song song
       const [scenariosRes, randomAnswersRes] = await Promise.all([
-        fetch(`${API_URL}/jp/practice/scenarios`, {
+        fetch(`${API_URL}/jp/practice/scenarios-grammar`, {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
@@ -160,7 +161,7 @@ const PracticePageGrammar = () => {
 
       const scenariosData = await scenariosRes.json();
       const scenarios: PracticeScenario[] = scenariosData.scenarios || [];
-
+      console.log('scenarios: ', scenarios);
       if (scenarios.length === 0) {
         console.error('Không có scenarios để luyện tập');
         navigate('/jp/summary');
@@ -174,13 +175,14 @@ const PracticePageGrammar = () => {
         const allWords = (randomAnswersData.allWords || []).map((w: any) => ({
           meaning_vi: w.meaning_vi || ''
         })).filter((w: { meaning_vi: string }) => w.meaning_vi !== '');
-        
+
         // Shuffle và lấy 50 từ ngẫu nhiên
         const shuffled = allWords.sort(() => Math.random() - 0.5);
         randomAnswers = shuffled.slice(0, 50);
       }
 
       // Set scenarios và randomAnswers vào store
+
       setScenarios(scenarios);
       setRandomAnswers(randomAnswers);
 
@@ -200,6 +202,7 @@ const PracticePageGrammar = () => {
       console.error('Lỗi khi fetch scenarios:', err);
       navigate('/jp/summary');
     }
+
   };
 
   return (
@@ -219,9 +222,9 @@ const PracticePageGrammar = () => {
 
         {/* Center Column */}
         <div className="w-full xl:w-6/10 flex-1 flex flex-col items-center justify-start py-8 sm:py-12 md:py-16 lg:py-20 px-3 sm:px-6 md:px-8 lg:px-12 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] mx-auto relative">
-          
+
           {/* Top summary */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center space-x-2 sm:space-x-3 mb-[176px] sm:mb-[232px] md:mb-[288px] lg:mb-8 xl:mb-10 bg-slate-50/50 px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-xl sm:rounded-2xl border border-slate-100/50 shadow-sm"
@@ -243,7 +246,7 @@ const PracticePageGrammar = () => {
             <div className="flex justify-between items-end space-x-1 sm:space-x-2 md:space-x-4 lg:space-x-6 h-40 sm:h-52 md:h-64 lg:h-72 pb-4 sm:pb-6 md:pb-8">
               {reviewStats.map((item, index) => (
                 <div key={item.level} className="flex flex-col items-center flex-1 group">
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.4 + index * 0.1 }}
@@ -278,11 +281,10 @@ const PracticePageGrammar = () => {
               whileTap={{ scale: 0.95 }}
               onClick={handleStartPractice}
               disabled={reviewWordsCount === 0}
-              className={`relative h-12 sm:h-14 md:h-16 w-full sm:w-64 md:w-72 rounded-xl sm:rounded-2xl font-black text-sm sm:text-base md:text-lg lg:text-xl transition-all duration-200 ${
-                reviewWordsCount > 0
+              className={`relative h-12 sm:h-14 md:h-16 w-full sm:w-64 md:w-72 rounded-xl sm:rounded-2xl font-black text-sm sm:text-base md:text-lg lg:text-xl transition-all duration-200 ${reviewWordsCount > 0
                   ? 'bg-lime-500 text-white shadow-[0_4px_0_rgb(101,163,13)] sm:shadow-[0_6px_0_rgb(101,163,13)] hover:shadow-[0_8px_0_rgb(101,163,13)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none'
                   : 'bg-slate-200 text-slate-400 shadow-[0_3px_0_rgb(203,213,225)] sm:shadow-[0_4px_0_rgb(203,213,225)] cursor-not-allowed'
-              }`}
+                }`}
             >
               <span className="flex items-center justify-center gap-1 sm:gap-2">
                 {reviewWordsCount > 0 ? (
