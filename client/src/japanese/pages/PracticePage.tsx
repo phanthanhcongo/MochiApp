@@ -157,6 +157,52 @@ const PracticePage = () => {
     }, 1000);
     return () => clearInterval(id);
   }, [remainingSec]);
+
+  // Auto-refresh when countdown reaches zero
+  useEffect(() => {
+    if (remainingSec === 0) {
+      console.log('⏰ Countdown reached zero - refreshing practice data...');
+
+      const token = localStorage.getItem('token');
+      if (!token) return;
+
+      // Refresh stats
+      fetch(`${API_URL}/jp/practice/stats`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      })
+        .then(async (res) => {
+          if (res.status === 401) {
+            localStorage.removeItem('token');
+            window.location.replace('/login');
+            return Promise.reject(new Error('Unauthorized'));
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setReviewStats(data.reviewStats || []);
+          setTotalWords(data.totalWords || 0);
+          setReviewWordsCount(data.wordsToReview || 0);
+          setStreak(data.streak || 0);
+          setWordsToReview(data.reviewWords || []);
+          setNextReviewIn(data.nextReviewIn || null);
+          console.log('✅ Stats refreshed - New words available:', data.wordsToReview);
+        })
+        .catch((err) => console.error('Refresh stats error:', err));
+
+      // Refresh prepared scenarios
+      if (reviewWordsCount > 0) {
+        setIsLoadingScenarios(true);
+        fetchPreparedData().finally(() => {
+          setIsLoadingScenarios(false);
+          console.log('✅ Scenarios refreshed');
+        });
+      }
+    }
+  }, [remainingSec, reviewWordsCount, fetchPreparedData]);
   const handleStartPractice = () => {
     if (isLoadingScenarios) return;
 

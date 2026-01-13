@@ -128,12 +128,12 @@ const VoicePractice: React.FC = React.memo(() => {
     setAnswers(finalAnswers);
   }, [currentWord, scenarios, randomAnswers]);
 
-  // useEffect để tạo đáp án khi currentWord ID thay đổi
+  // useEffect để tạo đáp án khi currentWord ID thay đổi hoặc khi scenarios/randomAnswers thay đổi
   useEffect(() => {
     if (currentWord) {
       generateAnswers();
     }
-  }, [currentWord?.word.id]); // Chụp dependency theo ID để tránh render lại vô ích
+  }, [currentWord?.word.id, scenarios.length, randomAnswers.length, generateAnswers]);
 
 
   useEffect(() => {

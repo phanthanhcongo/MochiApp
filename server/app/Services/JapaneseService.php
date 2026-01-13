@@ -924,6 +924,16 @@ class JapaneseService
             });
         }
 
+        // Additional strict check: explicitly exclude pure katakana or pure hiragana words
+        $isPureKatakana = $this->isPureKatakana($word->kanji);
+        $isPureHiragana = $this->isPureHiragana($word->kanji);
+        
+        if ($isPureKatakana || $isPureHiragana) {
+            $availableTypes = array_filter($availableTypes, function ($type) {
+                return $type !== 'hiraganaPractice';
+            });
+        }
+
         if ($previousQuizType !== null) {
             $availableTypes = array_filter($availableTypes, function ($type) use ($previousQuizType) {
                 return $type !== $previousQuizType;
@@ -941,7 +951,7 @@ class JapaneseService
                 });
             }
 
-            if (!$hasKanji) {
+            if (!$hasKanji || $isPureKatakana || $isPureHiragana) {
                 $availableTypes = array_filter($availableTypes, function ($type) {
                     return $type !== 'hiraganaPractice';
                 });
@@ -1010,6 +1020,40 @@ class JapaneseService
             return false;
         }
         return preg_match('/\p{Han}/u', $text) === 1;
+    }
+
+    /**
+     * Check if text is pure katakana (only katakana characters, no kanji or hiragana)
+     */
+    private function isPureKatakana(?string $text): bool
+    {
+        if (empty($text)) {
+            return false;
+        }
+        // Remove common non-character symbols (spaces, punctuation, etc.)
+        $cleaned = preg_replace('/[\s\p{P}ー]/u', '', $text);
+        if (empty($cleaned)) {
+            return false;
+        }
+        // Check if ALL remaining characters are katakana
+        return preg_match('/^[\p{Katakana}ー]+$/u', $cleaned) === 1;
+    }
+
+    /**
+     * Check if text is pure hiragana (only hiragana characters, no kanji or katakana)
+     */
+    private function isPureHiragana(?string $text): bool
+    {
+        if (empty($text)) {
+            return false;
+        }
+        // Remove common non-character symbols (spaces, punctuation, etc.)
+        $cleaned = preg_replace('/[\s\p{P}]/u', '', $text);
+        if (empty($cleaned)) {
+            return false;
+        }
+        // Check if ALL remaining characters are hiragana
+        return preg_match('/^[\p{Hiragana}]+$/u', $cleaned) === 1;
     }
 
     /**

@@ -123,6 +123,43 @@ const PracticePageGrammar = () => {
     return () => clearInterval(id);
   }, [remainingSec]);
 
+  // Auto-refresh when countdown reaches zero
+  useEffect(() => {
+    if (remainingSec === 0) {
+      console.log('⏰ Countdown reached zero - refreshing grammar practice data...');
+
+      const token = localStorage.getItem('token');
+      if (!token) return;
+
+      // Refresh stats
+      fetch(`${API_URL}/jp/practice/stats-grammar`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      })
+        .then(async (res) => {
+          if (res.status === 401) {
+            localStorage.removeItem('token');
+            window.location.replace('/login');
+            return Promise.reject(new Error('Unauthorized'));
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setReviewStats(data.reviewStats || []);
+          setTotalWords(data.totalGrammar || 0);
+          setReviewWordsCount(data.grammarToReview || 0);
+          setStreak(data.streak || 0);
+          setWordsToReview(data.reviewGrammar || []);
+          setNextReviewIn(data.nextReviewIn || null);
+          console.log('✅ Grammar stats refreshed - New patterns available:', data.grammarToReview);
+        })
+        .catch((err) => console.error('Refresh grammar stats error:', err));
+    }
+  }, [remainingSec]);
+
   const handleStartPractice = async () => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -282,8 +319,8 @@ const PracticePageGrammar = () => {
               onClick={handleStartPractice}
               disabled={reviewWordsCount === 0}
               className={`relative h-12 sm:h-14 md:h-16 w-full sm:w-64 md:w-72 rounded-xl sm:rounded-2xl font-black text-sm sm:text-base md:text-lg lg:text-xl transition-all duration-200 ${reviewWordsCount > 0
-                  ? 'bg-lime-500 text-white shadow-[0_4px_0_rgb(101,163,13)] sm:shadow-[0_6px_0_rgb(101,163,13)] hover:shadow-[0_8px_0_rgb(101,163,13)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none'
-                  : 'bg-slate-200 text-slate-400 shadow-[0_3px_0_rgb(203,213,225)] sm:shadow-[0_4px_0_rgb(203,213,225)] cursor-not-allowed'
+                ? 'bg-lime-500 text-white shadow-[0_4px_0_rgb(101,163,13)] sm:shadow-[0_6px_0_rgb(101,163,13)] hover:shadow-[0_8px_0_rgb(101,163,13)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none'
+                : 'bg-slate-200 text-slate-400 shadow-[0_3px_0_rgb(203,213,225)] sm:shadow-[0_4px_0_rgb(203,213,225)] cursor-not-allowed'
                 }`}
             >
               <span className="flex items-center justify-center gap-1 sm:gap-2">
