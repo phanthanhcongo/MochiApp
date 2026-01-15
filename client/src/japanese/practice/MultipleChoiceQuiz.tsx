@@ -22,6 +22,7 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
   const lastKeyPressRef = useRef<number>(0);
   const [isExiting, setIsExiting] = useState(false);
   const [answers, setAnswers] = useState<Array<{ text: string; isCorrect: boolean }>>([]);
+  const lastProcessedWordIdRef = useRef<number | null>(null);
 
   const {
     currentWord,
@@ -32,12 +33,14 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
     randomAnswers,
   } = usePracticeSession();
 
-  // Function để tạo mảng 3 đáp án (1 đúng + 2 sai) chỉ từ scenarios
-  const generateAnswers = useCallback(() => {
-    if (!currentWord) {
-      setAnswers([]);
+  // useEffect để tạo đáp án CHỈ MỘT LẦN khi currentWord ID thay đổi
+  useEffect(() => {
+    if (!currentWord || currentWord.word.id === lastProcessedWordIdRef.current) {
       return;
     }
+
+    // Đánh dấu word này đã được xử lý
+    lastProcessedWordIdRef.current = currentWord.word.id;
 
     const correctAnswerText = currentWord.word.meaning_vi || '';
     const correctAnswer = {
@@ -82,18 +85,16 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
         }))
         .filter(v => v.text !== '')
         .filter((v, i, arr) => arr.findIndex(x => x.text === v.text) === i)
-        .filter(item => !incorrects.find(existing => existing.text === item.text))
-        .sort(() => Math.random() - 0.5); // Shuffle randomAnswers
+        .filter(item => !incorrects.find(existing => existing.text === item.text));
 
       incorrects = [...incorrects, ...additionalIncorrects];
     }
 
-    // Shuffle và lấy 2 incorrect answers
+    // Chọn 2 incorrect answers THEO THỨ TỰ - KHÔNG SHUFFLE
     // Đảm bảo các incorrect answers cũng không overlap lẫn nhau
     const finalIncorrects: Array<{ text: string; isCorrect: boolean }> = [];
-    const shuffled = incorrects.sort(() => Math.random() - 0.5);
 
-    for (const item of shuffled) {
+    for (const item of incorrects) {
       if (finalIncorrects.length >= 2) break;
       if (!finalIncorrects.some(existing => isOverlapping(item.text, existing.text))) {
         finalIncorrects.push(item);
@@ -102,7 +103,7 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
 
     // Nếu vẫn không đủ 2, lấy bất kỳ ai chưa có (nới lỏng điều kiện nếu quá ít data)
     if (finalIncorrects.length < 2) {
-      for (const item of shuffled) {
+      for (const item of incorrects) {
         if (finalIncorrects.length >= 2) break;
         if (!finalIncorrects.some(existing => existing.text === item.text)) {
           finalIncorrects.push(item);
@@ -118,17 +119,10 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
       }
     }
 
-    // Tạo mảng 3 đáp án và shuffle
-    const finalAnswers = [correctAnswer, ...finalIncorrects].sort(() => Math.random() - 0.5);
+    // Tạo mảng 3 đáp án - GIỮ NGUYÊN THỨ TỰ (đáp án đúng luôn ở đầu, 2 sai theo sau)
+    const finalAnswers = [correctAnswer, ...finalIncorrects];
     setAnswers(finalAnswers);
   }, [currentWord, scenarios, randomAnswers]);
-
-  // useEffect để tạo đáp án khi currentWord ID thay đổi hoặc khi scenarios/randomAnswers thay đổi
-  useEffect(() => {
-    if (currentWord) {
-      generateAnswers();
-    }
-  }, [currentWord?.word.id, scenarios.length, randomAnswers.length, generateAnswers]);
   useEffect(() => {
     // Đợi một chút để đảm bảo location.state đã được set đúng cách sau khi navigate
     const checkState = setTimeout(() => {
