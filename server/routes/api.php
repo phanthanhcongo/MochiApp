@@ -74,6 +74,7 @@ Route::middleware('auth:sanctum')->get('/test-auth', function (\Illuminate\Http\
 
 // Public
 Route::post('/auth/login', [AuthController::class, 'login']);
+Route::post('/auth/register', [AuthController::class, 'register']);
 
 // Protected
 Route::middleware('auth:sanctum')->group(function () {

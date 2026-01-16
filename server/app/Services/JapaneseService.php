@@ -985,30 +985,12 @@ class JapaneseService
 
     /**
      * Determine quiz type for grammar patterns
-     * Returns only 'multiple' or 'voicePractice'
+     * Returns only 'multiple' choice
      */
     private function determineGrammarQuizType(?string $previousQuizType = null): string
     {
-        // Only these 2 types for grammar
-        $grammarQuizTypes = [
-            'multiple',
-            'voicePractice',
-        ];
-
-        // Filter out previous type to avoid consecutive duplicates
-        if ($previousQuizType !== null) {
-            $availableTypes = array_filter($grammarQuizTypes, function($type) use ($previousQuizType) {
-                return $type !== $previousQuizType;
-            });
-            $availableTypes = array_values($availableTypes);
-        } else {
-            $availableTypes = $grammarQuizTypes;
-        }
-
-        // Return random type from available
-        return !empty($availableTypes) 
-            ? $availableTypes[array_rand($availableTypes)] 
-            : $grammarQuizTypes[0]; // Fallback to 'multiple'
+        // Only multiple choice for grammar
+        return 'multiple';
     }
 
     /**

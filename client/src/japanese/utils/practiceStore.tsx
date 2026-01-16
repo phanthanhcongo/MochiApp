@@ -423,13 +423,13 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
             updatedScenarios.splice(scenarioIndex, 1);
 
             // Check if current word is grammar (has is_grammar field or inferred from practice type)
-            // For grammar patterns, only use 'multiple' and 'voicePractice'
+            // For grammar patterns, only use 'multiple' choice
             const isGrammar = (currentScenario.word as any).is_grammar === true ||
               (currentScenario.word as any).is_grammar === 1 ||
               (currentScenario.word as any).is_grammar === '1';
 
             const availableQuizTypes: QuizType[] = isGrammar
-              ? ['multiple', 'voicePractice']  // Grammar: only these 2
+              ? ['multiple']  // Grammar: only multiple choice
               : ['multiple', 'romajiPractice', 'voicePractice', 'hiraganaPractice'];  // Vocabulary: all 4
 
             const oldQuizType = currentScenario.quizType;
