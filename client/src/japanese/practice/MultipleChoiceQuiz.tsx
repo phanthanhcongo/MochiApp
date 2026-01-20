@@ -85,16 +85,18 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
         }))
         .filter(v => v.text !== '')
         .filter((v, i, arr) => arr.findIndex(x => x.text === v.text) === i)
-        .filter(item => !incorrects.find(existing => existing.text === item.text));
+        .filter(item => !incorrects.find(existing => existing.text === item.text))
+        .sort(() => Math.random() - 0.5); // Shuffle để đảm bảo đáp án ngẫu nhiên
 
       incorrects = [...incorrects, ...additionalIncorrects];
     }
 
-    // Chọn 2 incorrect answers THEO THỨ TỰ - KHÔNG SHUFFLE
+    // Chọn 2 incorrect answers - shuffle trước để ngẫu nhiên
     // Đảm bảo các incorrect answers cũng không overlap lẫn nhau
+    const shuffledIncorrects = incorrects.sort(() => Math.random() - 0.5);
     const finalIncorrects: Array<{ text: string; isCorrect: boolean }> = [];
 
-    for (const item of incorrects) {
+    for (const item of shuffledIncorrects) {
       if (finalIncorrects.length >= 2) break;
       if (!finalIncorrects.some(existing => isOverlapping(item.text, existing.text))) {
         finalIncorrects.push(item);
@@ -103,7 +105,7 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
 
     // Nếu vẫn không đủ 2, lấy bất kỳ ai chưa có (nới lỏng điều kiện nếu quá ít data)
     if (finalIncorrects.length < 2) {
-      for (const item of incorrects) {
+      for (const item of shuffledIncorrects) {
         if (finalIncorrects.length >= 2) break;
         if (!finalIncorrects.some(existing => existing.text === item.text)) {
           finalIncorrects.push(item);
@@ -111,16 +113,21 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
       }
     }
 
-    // Đảm bảo luôn có 3 lựa chọn (1 correct + 2 incorrect)
+    // Đảm bảo luôn có 3 lựa chọn (1 correct + 2 incorrect) với placeholder có nghĩa
     if (finalIncorrects.length < 2) {
-      const placeholders = ['...', '...'];
+      const fallbackAnswers = [
+        'Không nhớ', 'Chưa học', 'Không biết', 'Quên rồi', 'Bỏ qua',
+        'Không rõ', 'Chưa rõ', 'Không chắc', 'Cần xem lại', 'Khác'
+      ].filter(p => !isOverlapping(p, correctAnswerText) && !finalIncorrects.some(inc => inc.text === p));
+
+      const shuffledFallbacks = fallbackAnswers.sort(() => Math.random() - 0.5);
       for (let i = finalIncorrects.length; i < 2; i++) {
-        finalIncorrects.push({ text: placeholders[i] || '...', isCorrect: false });
+        finalIncorrects.push({ text: shuffledFallbacks[i - finalIncorrects.length] || '...', isCorrect: false });
       }
     }
 
-    // Tạo mảng 3 đáp án - GIỮ NGUYÊN THỨ TỰ (đáp án đúng luôn ở đầu, 2 sai theo sau)
-    const finalAnswers = [correctAnswer, ...finalIncorrects];
+    // Tạo mảng 3 đáp án và shuffle 1 lần khi render
+    const finalAnswers = [correctAnswer, ...finalIncorrects].sort(() => Math.random() - 0.5);
     setAnswers(finalAnswers);
   }, [currentWord, scenarios, randomAnswers]);
   useEffect(() => {

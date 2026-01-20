@@ -428,14 +428,22 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
               (currentScenario.word as any).is_grammar === 1 ||
               (currentScenario.word as any).is_grammar === '1';
 
-            const availableQuizTypes: QuizType[] = isGrammar
-              ? ['multiple']  // Grammar: only multiple choice
-              : ['multiple', 'romajiPractice', 'voicePractice', 'hiraganaPractice'];  // Vocabulary: all 4
+            let newQuizType: QuizType;
 
-            const oldQuizType = currentScenario.quizType;
-            const filteredQuizTypes = availableQuizTypes.filter(type => type !== oldQuizType);
-            const newQuizTypes = filteredQuizTypes.length > 0 ? filteredQuizTypes : availableQuizTypes;
-            const randomQuizType = newQuizTypes[Math.floor(Math.random() * newQuizTypes.length)];
+            if (isGrammar) {
+              // Grammar ALWAYS uses 'multiple' choice - no random selection needed
+              newQuizType = 'multiple';
+              console.log('📚 [GRAMMAR WRONG ANSWER] Forcing multiple choice quiz type');
+            } else {
+              // Vocabulary: pick random from all 4 types, preferably different from old type
+              const availableQuizTypes: QuizType[] = ['multiple', 'romajiPractice', 'voicePractice', 'hiraganaPractice'];
+              const oldQuizType = currentScenario.quizType;
+              const filteredQuizTypes = availableQuizTypes.filter(type => type !== oldQuizType);
+              const newQuizTypes = filteredQuizTypes.length > 0 ? filteredQuizTypes : availableQuizTypes;
+              newQuizType = newQuizTypes[Math.floor(Math.random() * newQuizTypes.length)];
+
+              console.log('📖 [VOCABULARY WRONG ANSWER] Selected quiz type:', newQuizType);
+            }
 
             // console.log('❌ [WRONG ANSWER - QUIZ TYPE CHANGE]', {
             //   word: currentScenario.word.kanji,
@@ -455,7 +463,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
             updatedScenarios.push({
               ...currentScenario,
               order: maxOrder + 1,
-              quizType: randomQuizType,
+              quizType: newQuizType,
             });
 
             // Update scenarios và reset flag
@@ -664,9 +672,20 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
           meaning_vi: w.meaning_vi || ''
         })).filter((w: { meaning_vi: string }) => w.meaning_vi !== '');
 
+        console.log(`📊 Fetched ${allWords.length} words for randomAnswers from API`);
+
+        if (allWords.length === 0) {
+          console.error('⚠️ API returned 0 words for randomAnswers! Check database or API endpoint.');
+        }
+
         const shuffled = allWords.sort(() => Math.random() - 0.5);
-        const randomAnswers = shuffled.slice(0, 50);
+        // Take up to 50 words, or all if less than 50
+        const randomAnswers = shuffled.slice(0, Math.min(50, allWords.length));
+
+        console.log(`✅ Set ${randomAnswers.length} randomAnswers in preparedRandomAnswers`);
         set({ preparedRandomAnswers: randomAnswers });
+      } else {
+        console.error('❌ Failed to fetch randomAnswers from API:', randomAnswersRes.status);
       }
     } catch (err) {
       console.error('Lỗi khi fetch prepared data:', err);

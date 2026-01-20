@@ -13,48 +13,137 @@ const RegisterPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 
+  // Validation helpers
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validateName = (name: string): { valid: boolean; error?: string } => {
+    const trimmedName = name.trim();
+    
+    if (!trimmedName) {
+      return { valid: false, error: 'Tên đăng nhập không được để trống.' };
+    }
+    
+    if (trimmedName.length < 3) {
+      return { valid: false, error: 'Tên đăng nhập phải có ít nhất 3 ký tự.' };
+    }
+    
+    if (trimmedName.length > 50) {
+      return { valid: false, error: 'Tên đăng nhập không được vượt quá 50 ký tự.' };
+    }
+    
+    // Allow alphanumeric, underscores, and hyphens
+    const nameRegex = /^[a-zA-Z0-9_-]+$/;
+    if (!nameRegex.test(trimmedName)) {
+      return { valid: false, error: 'Tên đăng nhập chỉ được chứa chữ cái, số, dấu gạch dưới và dấu gạch ngang.' };
+    }
+    
+    return { valid: true };
+  };
+
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErr(null);
 
-    if (!name || !password || !confirmPassword) {
+    // Trim all inputs
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
+    const trimmedPassword = password.trim();
+    const trimmedConfirmPassword = confirmPassword.trim();
+
+    // Validate required fields
+    if (!trimmedName || !trimmedPassword || !trimmedConfirmPassword) {
       setErr('Vui lòng nhập đầy đủ các trường bắt buộc.');
       return;
     }
 
-    if (password.length < 6) {
+    // Validate name format and length
+    const nameValidation = validateName(trimmedName);
+    if (!nameValidation.valid) {
+      setErr(nameValidation.error || 'Tên đăng nhập không hợp lệ.');
+      return;
+    }
+
+    // Validate email format if provided
+    if (trimmedEmail && !validateEmail(trimmedEmail)) {
+      setErr('Email không đúng định dạng.');
+      return;
+    }
+
+    // Validate password length
+    if (trimmedPassword.length < 6) {
       setErr('Mật khẩu phải có ít nhất 6 ký tự.');
       return;
     }
 
-    if (password !== confirmPassword) {
+    // Validate password match
+    if (trimmedPassword !== trimmedConfirmPassword) {
       setErr('Mật khẩu xác nhận không khớp.');
       return;
     }
 
     setLoading(true);
     try {
+      // Prepare request body - only include email if it's valid
+      const requestBody: { name: string; password: string; email?: string } = {
+        name: trimmedName,
+        password: trimmedPassword,
+      };
+      
+      // Only include email if it has a value and is valid
+      if (trimmedEmail && validateEmail(trimmedEmail)) {
+        requestBody.email = trimmedEmail;
+      }
+
       const res = await fetch(`${API_URL}/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ name, email: email || undefined, password }),
+        body: JSON.stringify(requestBody),
       });
 
-      const data = await res.json().catch(() => ({}));
+      let data: any = {};
+      try {
+        data = await res.json();
+      } catch (parseError) {
+        // If response is not JSON, handle as network/parse error
+        if (!res.ok) {
+          throw new Error('Không thể kết nối đến server. Vui lòng thử lại sau.');
+        }
+      }
+
       if (!res.ok) {
+        // Handle Laravel validation errors (422 status)
+        if (res.status === 422 && data.errors) {
+          // Extract first error message from each field
+          const errorMessages: string[] = [];
+          Object.keys(data.errors).forEach((field) => {
+            if (Array.isArray(data.errors[field]) && data.errors[field].length > 0) {
+              errorMessages.push(data.errors[field][0]);
+            }
+          });
+          throw new Error(errorMessages.join(' ') || data.message || 'Dữ liệu không hợp lệ.');
+        }
+        
+        // Handle other error responses
         throw new Error(data?.message || 'Đăng ký thất bại');
       }
 
       // Đăng ký thành công, lưu token và chuyển đến trang chọn ngôn ngữ hoặc home
       const token: string = data.token;
-      localStorage.setItem('token', token);
+      if (token) {
+        localStorage.setItem('token', token);
+      }
       
-      // Mặc định sau khi đăng ký có thể chuyển về trang login hoặc tự động vào home 
-      // Ở đây ta chuyển về login để người dùng đăng nhập lại hoặc có thể tự động vào home nếu server trả về lang
-      // Tuy nhiên user mới chưa có language preference, nên có thể chuyển về profile settings
       navigate('/login'); 
     } catch (e: any) {
-      setErr(e?.message || 'Đăng ký thất bại');
+      // Handle network errors
+      if (e instanceof TypeError && e.message.includes('fetch')) {
+        setErr('Không thể kết nối đến server. Vui lòng kiểm tra kết nối mạng và thử lại.');
+      } else {
+        setErr(e?.message || 'Đăng ký thất bại. Vui lòng thử lại.');
+      }
     } finally {
       setLoading(false);
     }

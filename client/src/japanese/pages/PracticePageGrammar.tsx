@@ -213,12 +213,30 @@ const PracticePageGrammar = () => {
           meaning_vi: w.meaning_vi || ''
         })).filter((w: { meaning_vi: string }) => w.meaning_vi !== '');
 
+        console.log(`📊 Grammar: Fetched ${allWords.length} words for randomAnswers from API`);
+
+        if (allWords.length === 0) {
+          console.error('⚠️ Grammar: API returned 0 words for randomAnswers!');
+        }
+
         // Shuffle và lấy 50 từ ngẫu nhiên
         const shuffled = allWords.sort(() => Math.random() - 0.5);
-        randomAnswers = shuffled.slice(0, 50);
+        randomAnswers = shuffled.slice(0, Math.min(50, allWords.length));
+
+        console.log(`✅ Grammar: Set ${randomAnswers.length} randomAnswers`);
+      } else {
+        console.error('❌ Grammar: Failed to fetch randomAnswers from API:', randomAnswersRes.status);
+      }
+
+      // Validate randomAnswers trước khi start practice
+      if (randomAnswers.length === 0) {
+        console.error('⚠️ Grammar: randomAnswers rỗng - không thể bắt đầu practice');
+        alert('Lỗi: Không thể tải dữ liệu ôn tập. Vui lòng tải lại trang.');
+        return;
       }
 
       // Set scenarios và randomAnswers vào store
+      console.log(`✅ Grammar: Starting practice with ${scenarios.length} scenarios and ${randomAnswers.length} randomAnswers`);
 
       setScenarios(scenarios);
       setRandomAnswers(randomAnswers);

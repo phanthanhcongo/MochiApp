@@ -692,11 +692,6 @@ class EnglishService
                 try {
                     $reviewedAt = $reviewedAtStr ? Carbon::parse($reviewedAtStr) : now();
                 } catch (\Throwable $pe) {
-                    Log::warning('Invalid reviewedAt, fallback to now()', [
-                        'user_id' => $userId,
-                        'value'   => $reviewedAtStr,
-                        'err'     => $pe->getMessage(),
-                    ]);
                     $reviewedAt = now();
                 }
 

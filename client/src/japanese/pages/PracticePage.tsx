@@ -119,30 +119,44 @@ const PracticePage = () => {
     const token = localStorage.getItem('token');
     if (!token) return;
 
-    // Use data from store if available
-    if (storePreparedScenarios.length > 0) {
-      console.log('Using prepared scenarios from store:', storePreparedScenarios);
+    // Use data from store if available and valid
+    if (storePreparedScenarios.length > 0 && storePreparedRandomAnswers.length > 0) {
+      console.log('✅ Using prepared data from store:', {
+        scenarios: storePreparedScenarios.length,
+        randomAnswers: storePreparedRandomAnswers.length
+      });
       setPreparedScenarios(storePreparedScenarios);
       setPreparedRandomAnswers(storePreparedRandomAnswers);
       setIsLoadingScenarios(false);
       return;
     }
 
-    // Otherwise fetch
+    // Otherwise fetch new data
     const fetchData = async () => {
       setIsLoadingScenarios(true);
+      console.log('📡 Fetching prepared data from API...');
+
       await fetchPreparedData();
-      // Data will be in store now, but we need to update local state or just use store directly?
-      // Better to check store again or use the usePracticeSession hook's generic state?
-      // Actually, since we just called fetchPreparedData which updates the store,
-      // and we are accessing storePreparedScenarios from the hook, it should update automatically if we depend on it?
-      // But useEffect closure might be tricky.
-      // Let's just trust the hook updates.
+
+      // Update local state from store after fetch
+      const state = usePracticeSession.getState();
+      console.log('📊 Fetched data:', {
+        scenarios: state.preparedScenarios.length,
+        randomAnswers: state.preparedRandomAnswers.length
+      });
+
+      setPreparedScenarios(state.preparedScenarios);
+      setPreparedRandomAnswers(state.preparedRandomAnswers);
+
+      if (state.preparedRandomAnswers.length === 0) {
+        console.error('⚠️ WARNING: randomAnswers is empty after fetch!');
+      }
+
       setIsLoadingScenarios(false);
     };
 
     fetchData();
-  }, [storePreparedScenarios]); // Add dependency to update when store updates
+  }, [fetchPreparedData]); // Depend on fetchPreparedData function
 
 
   sessionStorage.setItem('reload_count', '0'); // Reset về 0 trước
@@ -211,6 +225,15 @@ const PracticePage = () => {
       console.warn('Chưa có scenarios để ôn tập');
       return;
     }
+
+    // Validate randomAnswers - đảm bảo có dữ liệu để tạo đáp án sai
+    if (preparedRandomAnswers.length === 0) {
+      console.error('⚠️ randomAnswers rỗng - không thể bắt đầu practice');
+      alert('Lỗi: Không thể tải dữ liệu ôn tập. Vui lòng tải lại trang.');
+      return;
+    }
+
+    console.log(`✅ Starting practice with ${preparedScenarios.length} scenarios and ${preparedRandomAnswers.length} randomAnswers`);
 
     // Set scenarios và randomAnswers vào store
     setScenarios(preparedScenarios);

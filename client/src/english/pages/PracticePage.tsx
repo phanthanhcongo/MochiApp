@@ -7,6 +7,19 @@ import { motion } from 'framer-motion';
 import { getApiUrl } from '../../apiClient';
 import { showToast } from '../../components/Toast';
 
+function hmsToSeconds(hms: string): number {
+  const [h, m, s] = hms.split(':').map(Number);
+  return (h || 0) * 3600 + (m || 0) * 60 + (s || 0);
+}
+
+function formatHMS(totalSec: number): string {
+  const sec = Math.max(0, totalSec);
+  const h = Math.floor(sec / 3600).toString().padStart(2, '0');
+  const m = Math.floor((sec % 3600) / 60).toString().padStart(2, '0');
+  const s = Math.floor(sec % 60).toString().padStart(2, '0');
+  return `${h}:${m}:${s}`;
+}
+
 interface ReviewStat {
   level: number;
   count: number;
@@ -22,6 +35,7 @@ const PracticePage = () => {
   const [reviewWordsCount, setReviewWordsCount] = useState<number>(0);
   const [preparedWords, setPreparedWords] = useState<ReviewWord[]>([]);
   const [nextReviewIn, setNextReviewIn] = useState<string | null>(null);
+  const [remainingSec, setRemainingSec] = useState<number | null>(null);
   const { setWords, getNextQuizType } = usePracticeSession();
   const navigate = useNavigate();
   // localStorage.setItem('user_id', '2');
@@ -119,6 +133,94 @@ const PracticePage = () => {
 
   sessionStorage.setItem('reload_count', '0'); // Reset về 0 trước
 
+  // Convert nextReviewIn to seconds when it changes
+  useEffect(() => {
+    if (!nextReviewIn) { setRemainingSec(null); return; }
+    setRemainingSec(hmsToSeconds(nextReviewIn));
+  }, [nextReviewIn]);
+
+  // Countdown timer
+  useEffect(() => {
+    if (remainingSec === null) return;
+    const id = setInterval(() => {
+      setRemainingSec((prev) => (prev !== null ? Math.max(prev - 1, 0) : null));
+    }, 1000);
+    return () => clearInterval(id);
+  }, [remainingSec]);
+
+  // Auto-refresh when countdown reaches zero
+  useEffect(() => {
+    if (remainingSec === 0) {
+      console.log('⏰ Countdown reached zero - refreshing practice data...');
+
+      const token = localStorage.getItem('token');
+      if (!token) return;
+
+      fetch(`${getApiUrl()}/en/practice/stats`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      })
+        .then(async (res) => {
+          if (res.status === 401) {
+            localStorage.removeItem('token');
+            window.location.replace('/login');
+            return Promise.reject(new Error('Unauthorized'));
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setReviewStats(data.reviewStats || []);
+          setTotalWords(data.totalWords || 0);
+          setReviewWordsCount(data.wordsToReview || 0);
+          setStreak(data.streak || 0);
+          setNextReviewIn(data.nextReviewIn || null);
+
+          // Chuẩn bị lại preparedWords
+          const prepared: ReviewWord[] = (data.reviewWords || []).map((w: any): ReviewWord => {
+            return {
+              id: w.id,
+              user_id: w.user_id,
+              word: w.word,
+              ipa: w.ipa ?? undefined,
+              meaning_vi: w.meaning_vi ?? '',
+              cefr_level: w.cefr_level ?? undefined,
+              level: w.level ?? undefined,
+              last_reviewed_at: w.last_reviewed_at ?? undefined,
+              next_review_at: w.next_review_at ?? undefined,
+              context_vi: w.contexts?.[0]?.context_vi ?? '',
+              exampleEn: w.exampleEn ?? '',
+              exampleVi: w.exampleVn ?? '',
+              examples: (w.examples ?? []).map((ex: any) => ({
+                id: ex.id,
+                en_word_id: ex.en_word_id,
+                sentence_en: ex.sentence_en,
+                sentence_vi: ex.sentence_vi ?? '',
+                exercises: (ex.exercises ?? []).map((exer: any) => ({
+                  id: exer.id,
+                  example_id: exer.example_id,
+                  question_text: exer.question_text ?? '',
+                  blank_position:
+                    typeof exer.blank_position === 'number' ? exer.blank_position : 0,
+                  answer_explanation: exer.answer_explanation ?? undefined,
+                  choices: (exer.choices ?? []).map((ch: any) => ({
+                    id: ch.id,
+                    content: ch.content,
+                    is_correct: Number(ch.is_correct) as 0 | 1,
+                  })),
+                })),
+              })),
+            };
+          });
+          setPreparedWords(prepared);
+          console.log('✅ Stats refreshed - New words available:', data.wordsToReview);
+        })
+        .catch((err) => console.error('Refresh stats error:', err));
+    }
+  }, [remainingSec]);
+
 
   const handleStartPractice = () => {
     // Dùng preparedWords đã được chuẩn bị sẵn từ lúc fetch stats
@@ -154,7 +256,7 @@ const PracticePage = () => {
         {/* Center Column */}
         <div className="w-full xl:w-6/10 flex-1 flex flex-col items-center justify-start pt-[30px] 
   pb-8 sm:pb-12 md:pb-16 lg:pb-20 px-3 sm:px-6 md:px-8 lg:px-12 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)]
-   rounded-2xl sm:rounded-3xl md:rounded-[48px] border border-slate-50 mx-auto relative">
+  mx-auto relative">
 
           {/* Top summary */}
           <motion.div
@@ -215,15 +317,15 @@ const PracticePage = () => {
               onClick={handleStartPractice}
               disabled={reviewWordsCount === 0}
               className={`relative h-12 sm:h-14 md:h-16 w-full sm:w-64 md:w-72 rounded-xl sm:rounded-2xl font-black text-sm sm:text-base md:text-lg lg:text-xl transition-all duration-200 ${reviewWordsCount > 0
-                  ? 'bg-lime-500 text-white shadow-[0_4px_0_rgb(101,163,13)] sm:shadow-[0_6px_0_rgb(101,163,13)] hover:shadow-[0_8px_0_rgb(101,163,13)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none'
-                  : 'bg-slate-200 text-slate-400 shadow-[0_3px_0_rgb(203,213,225)] sm:shadow-[0_4px_0_rgb(203,213,225)] cursor-not-allowed'
+                ? 'bg-lime-500 text-white shadow-[0_4px_0_rgb(101,163,13)] sm:shadow-[0_6px_0_rgb(101,163,13)] hover:shadow-[0_8px_0_rgb(101,163,13)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none'
+                : 'bg-slate-200 text-slate-400 shadow-[0_3px_0_rgb(203,213,225)] sm:shadow-[0_4px_0_rgb(203,213,225)] cursor-not-allowed'
                 }`}
             >
               <span className="flex items-center justify-center gap-1 sm:gap-2">
                 {reviewWordsCount > 0 ? (
                   <>Ôn tập ngay <span className="text-lg sm:text-xl md:text-2xl">🔥</span></>
                 ) : (
-                  <>⏳ {nextReviewIn ?? 'Đang chờ...'}</>
+                  <>{remainingSec !== null ? formatHMS(remainingSec) : 'Đang chờ...'}</>
                 )}
               </span>
             </motion.button>

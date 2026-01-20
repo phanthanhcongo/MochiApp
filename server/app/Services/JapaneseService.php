@@ -902,10 +902,6 @@ class JapaneseService
             try {
                 $hasStrokeData = $this->canStrokeWordCN($word->kanji);
             } catch (\Exception $e) {
-                Log::warning('Error checking stroke data', [
-                    'word_id' => $word->id,
-                    'error' => $e->getMessage(),
-                ]);
                 $hasStrokeData = false;
             }
         }
@@ -1115,6 +1111,7 @@ class JapaneseService
             'reading_hiragana' => $word->reading_hiragana,
             'reading_romaji' => $word->reading_romaji,
             'meaning_vi' => $word->meaning_vi,
+            'is_grammar' => (bool) $word->is_grammar, // ✅ Include is_grammar for frontend quiz type handling
             'examples' => $examples,
             'hanviet' => $word->hanviet ? [
                 'han_viet' => $word->hanviet->han_viet ?? '',
