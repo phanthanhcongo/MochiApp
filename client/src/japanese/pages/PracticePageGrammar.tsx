@@ -241,6 +241,9 @@ const PracticePageGrammar = () => {
       setScenarios(scenarios);
       setRandomAnswers(randomAnswers);
 
+      // 🔥 Track that user is practicing GRAMMAR
+      localStorage.setItem('practice_type', 'grammar');
+
       const firstScenario = scenarios[0];
       const firstQuizType = firstScenario.quizType;
 

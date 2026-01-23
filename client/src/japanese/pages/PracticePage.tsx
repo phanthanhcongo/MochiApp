@@ -239,6 +239,9 @@ const PracticePage = () => {
     setScenarios(preparedScenarios);
     setRandomAnswers(preparedRandomAnswers);
 
+    // 🔥 Track that user is practicing WORDS
+    localStorage.setItem('practice_type', 'word');
+
     // Lấy quizType từ scenario đầu tiên
     const firstScenario = preparedScenarios[0];
     const firstQuizType = firstScenario.quizType;

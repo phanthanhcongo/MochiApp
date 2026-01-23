@@ -231,6 +231,9 @@ const PracticePage = () => {
 
     setWords(preparedWords);
 
+    // 🔥 Track that user is practicing WORDS
+    localStorage.setItem('practice_type', 'word');
+
     const firstQuizType = getNextQuizType();
     // console.log('🚀 Bắt đầu với quiz type:', firstQuizType);
     navigate(`/en/quiz/${firstQuizType}`, { state: { from: firstQuizType } });

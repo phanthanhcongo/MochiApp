@@ -221,6 +221,9 @@ const PracticePageGrammar = () => {
 
     setWords(preparedWords);
 
+    // 🔥 Track that user is practicing GRAMMAR
+    localStorage.setItem('practice_type', 'grammar');
+
     const firstQuizType = getNextQuizType();
     console.log('🚀 Bắt đầu với quiz type:', firstQuizType);
     if (firstQuizType) {

@@ -110,7 +110,16 @@ const ResultProgress: React.FC = () => {
               setIsLoading(true);
               try {
                 await submitReviewedWords();
-                navigate('/en/home');
+
+                // 🔥 Check practice type and redirect accordingly
+                const practiceType = localStorage.getItem('practice_type');
+                localStorage.removeItem('practice_type'); // Clean up
+
+                if (practiceType === 'grammar') {
+                  navigate('/en/home-grammar');
+                } else {
+                  navigate('/en/home');
+                }
               } catch (err) {
                 console.error('❌ Gửi dữ liệu thất bại:', err);
                 alert('Có lỗi khi gửi kết quả, thử lại sau.');
