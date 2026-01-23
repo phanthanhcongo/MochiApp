@@ -8,8 +8,8 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 3005,
     proxy: {
-      '/api':     { target: 'http://127.0.0.1:8000', changeOrigin: true },
-      '/storage': { target: 'http://127.0.0.1:8000', changeOrigin: true }
+      '/api': { target: 'http://127.0.0.1:8005', changeOrigin: true },
+      '/storage': { target: 'http://127.0.0.1:8005', changeOrigin: true }
     }
   },
   build: { outDir: 'build', assetsDir: 'assets' }

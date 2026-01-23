@@ -2,9 +2,9 @@
 // Fix cứng API URL để đảm bảo luôn dùng IP Tailscale
 function computeApiUrl(): string {
   // IP Tailscale mặc định
-  const TAILSCALE_IP = '100.87.242.47:8000';
+  const TAILSCALE_IP = '100.87.242.47:8005';
   const DEFAULT_API_URL = `http://${TAILSCALE_IP}/api`;
-  
+
   // Nếu có env variable, kiểm tra xem có phải localhost không
   if (import.meta.env.VITE_API_URL) {
     const envUrl = import.meta.env.VITE_API_URL;
@@ -15,7 +15,7 @@ function computeApiUrl(): string {
     }
     return envUrl;
   }
-  
+
   // Fix cứng IP Tailscale
   return DEFAULT_API_URL;
 }
@@ -23,13 +23,13 @@ function computeApiUrl(): string {
 // Tính toán API_URL mỗi lần gọi để đảm bảo không bị cache localhost
 function getApiUrlRuntime(): string {
   const url = computeApiUrl();
-  
+
   // Runtime check: nếu URL chứa localhost/127.0.0.1, force dùng IP Tailscale
   if (url.includes('localhost') || url.includes('127.0.0.1')) {
     console.warn('[API Client] Runtime check: Phát hiện localhost, force dùng IP Tailscale');
-    return 'http://100.87.242.47:8000/api';
+    return 'http://100.87.242.47:8005/api';
   }
-  
+
   return url;
 }
 
@@ -57,7 +57,7 @@ if (typeof window !== 'undefined') {
   console.log('[API Client] Hostname:', window.location.hostname);
   console.log('[API Client] Port:', window.location.port);
   console.log('[API Client] User Agent:', navigator.userAgent);
-  
+
   // Warning nếu phát hiện localhost
   if (runtimeUrl.includes('localhost') || runtimeUrl.includes('127.0.0.1')) {
     console.error('[API Client] ⚠️ CẢNH BÁO: API URL vẫn chứa localhost! Điều này sẽ không hoạt động trên iPhone.');
@@ -67,7 +67,7 @@ if (typeof window !== 'undefined') {
 // Custom error class với thông tin chi tiết
 export class ApiError extends Error {
   status: number;
-  statusText: string; 
+  statusText: string;
   url: string;
   responseBody?: any;
 
@@ -88,10 +88,10 @@ export class ApiError extends Error {
 
   getDetails(): string {
     const parts: string[] = [];
-    
+
     parts.push(`Status: ${this.status} ${this.statusText}`);
     parts.push(`URL: ${this.url}`);
-    
+
     if (this.responseBody) {
       if (typeof this.responseBody === 'string') {
         parts.push(`Response: ${this.responseBody}`);
@@ -109,7 +109,7 @@ export class ApiError extends Error {
         }
       }
     }
-    
+
     return parts.join('\n');
   }
 }
@@ -118,7 +118,7 @@ export class ApiError extends Error {
 export async function apiGet<T>(path: string, init?: RequestInit): Promise<T> {
   const baseUrl = getApiBaseUrl();
   const url = `${baseUrl}${path}`;
-  
+
   try {
     const res = await fetch(url, {
       credentials: 'include',
@@ -143,7 +143,7 @@ export async function apiGet<T>(path: string, init?: RequestInit): Promise<T> {
     if (!res.ok) {
       // Tạo error message chi tiết
       let errorMessage = `HTTP ${res.status} ${res.statusText}`;
-      
+
       if (responseBody) {
         if (typeof responseBody === 'string') {
           errorMessage = responseBody;
@@ -191,7 +191,7 @@ export async function apiGet<T>(path: string, init?: RequestInit): Promise<T> {
     if (responseBody !== null) {
       return responseBody as T;
     }
-    
+
     // Nếu không có body, thử parse lại
     try {
       return await res.json() as T;
@@ -208,7 +208,7 @@ export async function apiGet<T>(path: string, init?: RequestInit): Promise<T> {
     if (error.name === 'TypeError' || error.message?.includes('fetch') || error.message?.includes('Load failed')) {
       const currentOrigin = typeof window !== 'undefined' ? window.location.origin : 'N/A';
       throw new ApiError(
-        `Không thể kết nối đến server123.\n\nĐang truy cập từ: ${currentOrigin}\nAPI URL: ${url}\n\nKiểm tra:\n- Server có đang chạy không?\n- Firewall đã mở port 8000 chưa?\n- Địa chỉ API đúng không?\n- CORS đã được cấu hình chưa?\n- iPhone đã kết nối Tailscale VPN chưa?\n\nChi tiết: ${error.message}`,
+        `Không thể kết nối đến server123.\n\nĐang truy cập từ: ${currentOrigin}\nAPI URL: ${url}\n\nKiểm tra:\n- Server có đang chạy không?\n- Firewall đã mở port 8005 chưa?\n- Địa chỉ API đúng không?\n- CORS đã được cấu hình chưa?\n- iPhone đã kết nối Tailscale VPN chưa?\n\nChi tiết: ${error.message}`,
         0,
         'Network Error',
         url
