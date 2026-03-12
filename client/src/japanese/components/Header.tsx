@@ -1,4 +1,4 @@
-import  { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useLanguage } from "../../routes/LanguageContext";
 import { API_URL } from "../../apiClient";
@@ -122,15 +122,15 @@ const Header = () => {
   // };
 
   return (
-    <header className="relative w-full backdrop-blur-md bg-gradient-to-r from-white/95 via-blue-50/95 to-purple-50/95 border-b border-gray-200/50 shadow-lg shadow-gray-200/20 z-40">                                           
-      <div className="flex items-center justify-between px-4  md:px-6 lg:px-12 xl:px-16 py-1.5 sm:py-2 md:py-2.5">
+    <header className="relative w-full backdrop-blur-md bg-gradient-to-r from-white/95 via-blue-50/95 to-purple-50/95 border-b border-gray-200/50 shadow-lg shadow-gray-200/20 z-40 mt-10 md:mt-0">
+      <div className="flex items-center justify-between px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-3 sm:py-4 md:py-5">
         {/* Logo */}
         <div className="flex items-center min-w-0 flex-shrink-0">
-          <Link 
+          <Link
             to={buildTo("/home")}
             className="relative block overflow-visible"
           >
-            <h1 className="relative text-3xl font-extrabold bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-500 bg-clip-text text-transparent drop-shadow-sm overflow-visible whitespace-nowrap" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundImage: 'linear-gradient(to right, #eab308, #f59e0b, #f97316)' }}>
+            <h1 className="relative text-5xl font-extrabold bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-500 bg-clip-text text-transparent drop-shadow-sm overflow-visible whitespace-nowrap" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundImage: 'linear-gradient(to right, #eab308, #f59e0b, #f97316)' }}>
               成功
             </h1>
           </Link>
@@ -217,9 +217,9 @@ const Header = () => {
                   to={buildTo("listWord")}
                   onClick={() => setMobileMenuOpen(false)}
                 />
-                
+
                 <div className="my-1 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
-                
+
                 {/* Profile Options */}
                 <button
                   onClick={handleGoProfile}
@@ -353,10 +353,10 @@ const MenuItem = ({ iconSrc, label, to }: MenuItemProps) => (
     <div className="flex flex-col items-center justify-center px-2 py-1.5 lg:px-3 lg:py-2 rounded-lg lg:rounded-xl cursor-pointer transition-all duration-300 hover:bg-white/60 hover:shadow-md hover:scale-105 min-w-[60px]">
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-lg blur-md opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
-        <img 
-          src={iconSrc} 
-          alt={label} 
-          className="relative w-5 h-5 md:w-5 md:h-5 lg:w-6 lg:h-6 group-hover:scale-110 transition-transform duration-300 filter drop-shadow-sm" 
+        <img
+          src={iconSrc}
+          alt={label}
+          className="relative w-5 h-5 md:w-5 md:h-5 lg:w-6 lg:h-6 group-hover:scale-110 transition-transform duration-300 filter drop-shadow-sm"
         />
       </div>
       <span className="mt-1 text-[10px] md:text-xs font-semibold text-gray-700 group-hover:text-blue-600 transition-colors duration-300 whitespace-nowrap text-center">
@@ -375,16 +375,16 @@ type MobileMenuItemProps = {
 };
 
 const MobileMenuItem = ({ iconSrc, label, to, onClick }: MobileMenuItemProps) => (
-  <Link 
-    to={to} 
+  <Link
+    to={to}
     onClick={onClick}
     className="w-full text-left px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200 flex items-center space-x-3 group"
     role="menuitem"
   >
-    <img 
-      src={iconSrc} 
-      alt={label} 
-      className="w-5 h-5 group-hover:scale-110 transition-transform duration-300 filter drop-shadow-sm" 
+    <img
+      src={iconSrc}
+      alt={label}
+      className="w-5 h-5 group-hover:scale-110 transition-transform duration-300 filter drop-shadow-sm"
     />
     <span>{label}</span>
   </Link>

@@ -1,0 +1,470 @@
+[
+  {
+    "kanji": "一家",
+    "reading_hiragana": "いっか",
+    "reading_romaji": "ikka",
+    "meaning_vi": "Cả gia đình, toàn gia đình",
+    "jlpt_level": "N2",
+    "level": 3,
+    "han_viet": "NHẤT GIA",
+    "explanation": "Toàn bộ thành viên trong một gia đình, coi như một đơn vị duy nhất.",
+    "examples": [
+      {
+        "sentence_jp": "兄が私たち一家を支えてくれている。",
+        "sentence_hira": "あにがわたしたちいっかをささえてくれている。",
+        "sentence_romaji": "Ani ga watashitachi ikka o sasaete kurete iru.",
+        "sentence_vi": "Anh trai đang gánh vác/nuôi cả gia đình chúng tôi."
+      }
+    ]
+  },
+  {
+    "kanji": "ありがたい",
+    "reading_hiragana": "ありがたい",
+    "reading_romaji": "arigatai",
+    "meaning_vi": "Biết ơn, đáng quý, trân trọng",
+    "jlpt_level": "N3",
+    "level": 3,
+    "han_viet": "HỮU NAN",
+    "explanation": "Cảm giác biết ơn sâu sắc hoặc đánh giá điều gì đó là cực kỳ quý giá, khó mà có được.",
+    "examples": [
+      {
+        "sentence_jp": "家族は本当にありがたい存在だ。",
+        "sentence_hira": "かぞくはほんとうにありがたいそんざいだ。",
+        "sentence_romaji": "Kazoku wa hontou ni arigatai sonzai da.",
+        "sentence_vi": "Gia đình thực sự là một sự tồn tại đáng trân quý."
+      }
+    ]
+  },
+  {
+    "kanji": "向き合う",
+    "reading_hiragana": "むきあう",
+    "reading_romaji": "mukiau",
+    "meaning_vi": "Đối diện, đối mặt trực diện",
+    "jlpt_level": "N2",
+    "level": 3,
+    "han_viet": "HƯỚNG HỢP",
+    "explanation": "Đối diện trực tiếp về mặt vị trí, hoặc thẳng thắn nhìn nhận và giải quyết một vấn đề khó khăn.",
+    "examples": [
+      {
+        "sentence_jp": "家族みんなで問題に向き合っている。",
+        "sentence_hira": "かぞくみんなでもんだいにむきあっている。",
+        "sentence_romaji": "Kazoku minna de mondai ni mukiautte iru.",
+        "sentence_vi": "Cả nhà đang cùng nhau thẳng thắn đối mặt với vấn đề."
+      }
+    ]
+  },
+  {
+    "kanji": "つくづく",
+    "reading_hiragana": "つくづく",
+    "reading_romaji": "tsukuzuku",
+    "meaning_vi": "Sâu sắc, thấm thía, kỹ càng",
+    "jlpt_level": "N2",
+    "level": 3,
+    "han_viet": "PHÓ",
+    "explanation": "Trạng thái suy nghĩ hoặc cảm nhận một điều gì đó cực kỳ sâu sắc hoặc quan sát cực kỳ kỹ lưỡng.",
+    "examples": [
+      {
+        "sentence_jp": "最近、家族のありがたさをつくづくと感じる。",
+        "sentence_hira": "さいきん、かぞくのありがたさをつくづくとかんじる。",
+        "sentence_romaji": "Saikin, kazoku no arigatasa o tsukuzuku to kanjiru.",
+        "sentence_vi": "Dạo gần đây, tôi cảm nhận một cách thấm thía sự quý giá của gia đình."
+      }
+    ]
+  },
+  {
+    "kanji": "養う",
+    "reading_hiragana": "やしなう",
+    "reading_romaji": "yashinau",
+    "meaning_vi": "Nuôi dưỡng, chu cấp, rèn luyện",
+    "jlpt_level": "N2",
+    "level": 3,
+    "han_viet": "DƯỠNG",
+    "explanation": "Cung cấp chi phí sinh hoạt cho gia đình, hoặc bồi dưỡng năng lực, rèn luyện kỹ năng.",
+    "examples": [
+      {
+        "sentence_jp": "父は一生懸命に働いて、家族を養っている。",
+        "sentence_hira": "ちちはいっしょうけんめいにはたらいて、かぞくをやしなっている。",
+        "sentence_romaji": "Chichi wa isshoukenmei ni hataraite, kazoku o yashinatte iru.",
+        "sentence_vi": "Bố tôi làm việc hết mình để nuôi dưỡng (chu cấp cho) gia đình."
+      }
+    ]
+  },
+  {
+    "kanji": "役目",
+    "reading_hiragana": "やくめ",
+    "reading_romaji": "yakume",
+    "meaning_vi": "Trách nhiệm, nhiệm vụ, vai trò",
+    "jlpt_level": "N3",
+    "level": 3,
+    "han_viet": "DỊCH MỤC",
+    "explanation": "Phần việc hoặc trách nhiệm mà cá nhân phải thực hiện dựa trên vị thế hoặc chức vụ của mình.",
+    "examples": [
+      {
+        "sentence_jp": "子どもを育てることが親の役目だ。",
+        "sentence_hira": "こどもをそだてることがおやのやくめだ。",
+        "sentence_romaji": "Kodomo o sodateru koto ga oya no yakume da.",
+        "sentence_vi": "Nuôi dạy con cái là trách nhiệm/vai trò của cha mẹ."
+      }
+    ]
+  },
+  {
+    "kanji": "甘える",
+    "reading_hiragana": "あまえる",
+    "reading_romaji": "amaeru",
+    "meaning_vi": "Làm nũng, dựa dẫm, tận dụng lòng tốt",
+    "jlpt_level": "N3",
+    "level": 3,
+    "han_viet": "CAM",
+    "explanation": "Hành vi mong muốn được yêu chiều, dựa dẫm vào tình cảm hoặc sự khoan dung của người khác.",
+    "examples": [
+      {
+        "sentence_jp": "妹は子どもの頃から、母に甘えている。",
+        "sentence_hira": "いもうとはこどものころから、ははにあまえている。",
+        "sentence_romaji": "Imouto wa kodomo no koro kara, haha ni amaete iru.",
+        "sentence_vi": "Em gái tôi từ nhỏ đã hay làm nũng mẹ."
+      }
+    ]
+  },
+  {
+    "kanji": "世間知らず",
+    "reading_hiragana": "せけんしらず",
+    "reading_romaji": "sekenshirazu",
+    "meaning_vi": "Không hiểu sự đời, khờ khạo, thiếu kinh nghiệm xã hội",
+    "jlpt_level": "N1",
+    "level": 4,
+    "han_viet": "THẾ GIAN TRI",
+    "explanation": "Người thiếu kiến thức thông thường hoặc kinh nghiệm thực tế về cách vận hành của xã hội.",
+    "examples": [
+      {
+        "sentence_jp": "父に「おまえは世間知らずだ」と言われた。",
+        "sentence_hira": "ちちに「おまえはせけんしらずだ」といわれた。",
+        "sentence_romaji": "Chichi ni 'omae wa sekenshirazu da' to iwareta.",
+        "sentence_vi": "Tôi bị bố mắng là 'Đồ không biết sự đời'."
+      }
+    ]
+  },
+  {
+    "kanji": "しつけ",
+    "reading_hiragana": "しつけ",
+    "reading_romaji": "shitsuke",
+    "meaning_vi": "Kỷ luật, giáo dục nề nếp, gia giáo",
+    "jlpt_level": "N2",
+    "level": 3,
+    "han_viet": "THÂN",
+    "explanation": "Việc dạy dỗ trẻ em các quy tắc, lễ nghi và cách ứng xử chuẩn mực trong cuộc sống.",
+    "examples": [
+      {
+        "sentence_jp": "子どものしつけは、親の義務だ。",
+        "sentence_hira": "こどものしつけは、おやのぎむだ。",
+        "sentence_romaji": "Kodomo no shitsuke wa, oya no gimu da.",
+        "sentence_vi": "Giáo dục nề nếp cho con cái là nghĩa vụ của cha mẹ."
+      }
+    ]
+  },
+  {
+    "kanji": "言いつける",
+    "reading_hiragana": "いいつける",
+    "reading_romaji": "iitsukeru",
+    "meaning_vi": "Mách lẻo, sai bảo, ra lệnh",
+    "jlpt_level": "N2",
+    "level": 3,
+    "han_viet": "NGÔN",
+    "explanation": "Nói lỗi của người khác cho người lớn biết (mách), hoặc dùng uy quyền để sai khiến ai đó làm việc.",
+    "examples": [
+      {
+        "sentence_jp": "兄は妹のいたずらを母に言いつけた。",
+        "sentence_hira": "あにはいもうとのいたずらをははにいいつけた。",
+        "sentence_romaji": "Ani wa imouto no itazura o haha ni iitsuketa.",
+        "sentence_vi": "Anh trai đã mách mẹ về trò nghịch ngợm của em gái."
+      }
+    ]
+  },
+  {
+    "kanji": "自立",
+    "reading_hiragana": "じりつ",
+    "reading_romaji": "jiritsu",
+    "meaning_vi": "Tự lập, không dựa dẫm",
+    "jlpt_level": "N2",
+    "level": 3,
+    "han_viet": "TỰ LẬP",
+    "explanation": "Trạng thái một người tự mình đứng vững, tự quản lý cuộc sống và kinh tế của bản thân.",
+    "examples": [
+      {
+        "sentence_jp": "兄は自立して、一人暮らしをしている。",
+        "sentence_hira": "あにはじりつして、ひとりぐらしをしている。",
+        "sentence_romaji": "Ani wa jiritsu shite, hitorigurashi o shite iru.",
+        "sentence_vi": "Anh trai tôi đã tự lập và đang sống một mình."
+      }
+    ]
+  },
+  {
+    "kanji": "言い出す",
+    "reading_hiragana": "いいだす",
+    "reading_romaji": "iidasu",
+    "meaning_vi": "Bắt đầu nói, ngỏ lời, khơi mào",
+    "jlpt_level": "N3",
+    "level": 2,
+    "han_viet": "NGÔN XUẤT",
+    "explanation": "Bắt đầu mở lời về một chủ đề nào đó hoặc đưa ra một ý kiến sau khi đắn đo.",
+    "examples": [
+      {
+        "sentence_jp": "妹はアメリカに語学留学したいと言い出した。",
+        "sentence_hira": "いもうとはアメリカにごがくりゅうがくしたいといいだした。",
+        "sentence_romaji": "Imouto wa Amerika ni gogaku ryuugaku shitai to iidashita.",
+        "sentence_vi": "Em gái tôi đã ngỏ lời muốn đi du học ngôn ngữ tại Mỹ."
+      }
+    ]
+  },
+  {
+    "kanji": "意思",
+    "reading_hiragana": "いし",
+    "reading_romaji": "ishi",
+    "meaning_vi": "Ý chí, mong muốn, dự định",
+    "jlpt_level": "N3",
+    "level": 3,
+    "han_viet": "Ý TƯ",
+    "explanation": "Suy nghĩ hoặc mong muốn cá nhân về một hành động hoặc quyết định nào đó.",
+    "examples": [
+      {
+        "sentence_jp": "親に自分の意思を伝えるのは難しい。",
+        "sentence_hira": "おやにじぶんのいしをつたえるのはむずかしい。",
+        "sentence_romaji": "Oya ni jibun no ishi o tsutaeru no wa muzukashii.",
+        "sentence_vi": "Truyền đạt ý chí/mong muốn của bản thân cho bố mẹ là điều khó khăn."
+      }
+    ]
+  },
+  {
+    "kanji": "尊重",
+    "reading_hiragana": "そんちょう",
+    "reading_romaji": "sonchou",
+    "meaning_vi": "Tôn trọng, coi trọng",
+    "jlpt_level": "N2",
+    "level": 3,
+    "han_viet": "TÔN TRỌNG",
+    "explanation": "Thừa nhận giá trị và không xâm phạm đến ý kiến hoặc quyền lợi của người khác.",
+    "examples": [
+      {
+        "sentence_jp": "両親はいつも、私の意見を尊重してくれる。",
+        "sentence_hira": "りょうしんはいつも、わたしのいけんをそんちょうしてくれる。",
+        "sentence_romaji": "Ryoushin wa itsumo, watashi no iken o sonchou shite kureru.",
+        "sentence_vi": "Bố mẹ luôn tôn trọng ý kiến của tôi."
+      }
+    ]
+  },
+  {
+    "kanji": "説得",
+    "reading_hiragana": "せっとく",
+    "reading_romaji": "settoku",
+    "meaning_vi": "Thuyết phục",
+    "jlpt_level": "N2",
+    "level": 3,
+    "han_viet": "THUYẾT ĐẮC",
+    "explanation": "Sử dụng lý lẽ để làm cho đối phương hiểu và chấp nhận thay đổi suy nghĩ hoặc hành động.",
+    "examples": [
+      {
+        "sentence_jp": "父は私の留学に反対だったが、母が説得してくれた。",
+        "sentence_hira": "ちちはわたしのりゅうがくにはんたいだったが、ははがせっとくしてくれた。",
+        "sentence_romaji": "Chichi wa watashi no ryuugaku ni hantai datta ga, haha ga settoku shite kureta.",
+        "sentence_vi": "Bố đã phản đối việc tôi đi du học, nhưng mẹ đã thuyết phục giúp tôi."
+      }
+    ]
+  },
+  {
+    "kanji": "納得",
+    "reading_hiragana": "なっとく",
+    "reading_romaji": "nattoku",
+    "meaning_vi": "Thỏa mãn, chấp nhận sau khi hiểu rõ, đồng tình",
+    "jlpt_level": "N3",
+    "level": 3,
+    "han_viet": "NẠP ĐẮC",
+    "explanation": "Cảm giác hoàn toàn thấu hiểu và chấp nhận một vấn đề hoặc giải thích nào đó.",
+    "examples": [
+      {
+        "sentence_jp": "父は私の留学を、やっと納得してくれた。",
+        "sentence_hira": "ちちはわたしのりゅうがくを、やっとなっとくしてくれた。",
+        "sentence_romaji": "Chichi wa watashi no ryuugaku o, yatto nattoku shite kureta.",
+        "sentence_vi": "Cuối cùng bố cũng đã chấp thuận việc tôi đi du học."
+      }
+    ]
+  },
+  {
+    "kanji": "逆らう",
+    "reading_hiragana": "さからう",
+    "reading_romaji": "sakarau",
+    "meaning_vi": "Chống đối, ngược đãi, đi ngược lại",
+    "jlpt_level": "N2",
+    "level": 3,
+    "han_viet": "NGHỊCH",
+    "explanation": "Hành động phản kháng lại mệnh lệnh, ý chí của người trên hoặc đi ngược lại dòng chảy tự nhiên.",
+    "examples": [
+      {
+        "sentence_jp": "若いときは、よく親に逆らった。",
+        "sentence_hira": "わかいときは、よくおやにさからった。",
+        "sentence_romaji": "Wakai toki wa, yoku oya ni sakaratta.",
+        "sentence_vi": "Hồi còn trẻ, tôi thường xuyên chống đối bố mẹ."
+      }
+    ]
+  },
+  {
+    "kanji": "反省",
+    "reading_hiragana": "はんせい",
+    "reading_romaji": "hansei",
+    "meaning_vi": "Kiểm điểm, tự nhìn nhận lỗi lầm",
+    "jlpt_level": "N3",
+    "level": 3,
+    "han_viet": "PHẢN TỈNH",
+    "explanation": "Tự xem xét lại những hành động không tốt của mình để rút kinh nghiệm và sửa đổi.",
+    "examples": [
+      {
+        "sentence_jp": "昔親に逆らったことを、今は反省している。",
+        "sentence_hira": "むかしおやにさからったことを、いまははんせいしている。",
+        "sentence_romaji": "Mukashi oya ni sakaratta koto o, ima wa hansei shite iru.",
+        "sentence_vi": "Giờ đây tôi đang tự kiểm điểm lại việc đã từng chống đối bố mẹ ngày xưa."
+      }
+    ]
+  },
+  {
+    "kanji": "放っておく",
+    "reading_hiragana": "ほうっておく",
+    "reading_romaji": "houtteoku",
+    "meaning_vi": "Mặc kệ, bỏ mặc, để yên",
+    "jlpt_level": "N2",
+    "level": 3,
+    "han_viet": "PHÓ",
+    "explanation": "Cố tình không can thiệp, không quan tâm và để sự việc/người đó ở nguyên trạng thái hiện tại.",
+    "examples": [
+      {
+        "sentence_jp": "父はいちいちうるさい。放っておいてほしい。",
+        "sentence_hira": "ちちはいちいちうるさい。ほうっておいてほしい。",
+        "sentence_romaji": "Chichi wa ichiichi urusai. Houtte oite hoshii.",
+        "sentence_vi": "Bố tôi chuyện gì cũng càm ràm. Tôi muốn ông hãy mặc kệ tôi."
+      }
+    ]
+  },
+  {
+    "kanji": "介護",
+    "reading_hiragana": "かいご",
+    "reading_romaji": "kaigo",
+    "meaning_vi": "Chăm sóc, điều dưỡng (người già/người bệnh)",
+    "jlpt_level": "N2",
+    "level": 3,
+    "han_viet": "GIỚI HỘ",
+    "explanation": "Việc hỗ trợ các sinh hoạt thường ngày cho những người gặp khó khăn về thể chất.",
+    "examples": [
+      {
+        "sentence_jp": "家族みんなで祖母を介護している。",
+        "sentence_hira": "かぞくみんなでそぼをかいごしている。",
+        "sentence_romaji": "Kazoku minna de sobo o kaigo shite iru.",
+        "sentence_vi": "Cả gia đình đang cùng nhau chăm sóc cho bà."
+      }
+    ]
+  },
+  {
+    "kanji": "ホームヘルパー",
+    "reading_hiragana": "ほーむへるぱー",
+    "reading_romaji": "hoomuherupaa",
+    "meaning_vi": "Người giúp việc/nhân viên hỗ trợ tại nhà",
+    "jlpt_level": "N2",
+    "level": 3,
+    "han_viet": "NGOẠI LAI",
+    "explanation": "Nhân viên có chuyên môn đến tận nhà để hỗ trợ chăm sóc người cần điều dưỡng.",
+    "examples": [
+      {
+        "sentence_jp": "週に3回、ホームヘルパーに来てもらう。",
+        "sentence_hira": "しゅうにさんかい、ほーむへるぱーにきてもらう。",
+        "sentence_romaji": "Shuu ni sankai, hoomuherupaa ni kite morau.",
+        "sentence_vi": "Một tuần 3 lần, tôi thuê nhân viên hỗ trợ đến nhà."
+      }
+    ]
+  },
+  {
+    "kanji": "世代",
+    "reading_hiragana": "せだい",
+    "reading_romaji": "sedai",
+    "meaning_vi": "Thế hệ, thời đại",
+    "jlpt_level": "N3",
+    "level": 3,
+    "han_viet": "THẾ ĐẠI",
+    "explanation": "Một nhóm người cùng sống trong một khoảng thời gian hoặc cùng một độ tuổi nhất định.",
+    "examples": [
+      {
+        "sentence_jp": "世代が違うと、話が合わないこともある。",
+        "sentence_hira": "せだいがちがうと、はなしがあわないこともある。",
+        "sentence_romaji": "Sedai ga chigau to, hanashi ga awanai koto mo aru.",
+        "sentence_vi": "Khi khác biệt về thế hệ, cũng có lúc chuyện trò không ăn ý."
+      }
+    ]
+  },
+  {
+    "kanji": "継ぐ",
+    "reading_hiragana": "つぐ",
+    "reading_romaji": "tsugu",
+    "meaning_vi": "Kế thừa, tiếp nối, nối nghiệp",
+    "jlpt_level": "N2",
+    "level": 3,
+    "han_viet": "KẾ",
+    "explanation": "Tiếp quản tài sản, công việc hoặc truyền thống từ người đi trước.",
+    "examples": [
+      {
+        "sentence_jp": "来年、父の会社を継ぐことになった。",
+        "sentence_hira": "らいねん、ちちのかいしゃをつぐことになった。",
+        "sentence_romaji": "Rainen, chichi no kaisha o tsugu koto ni natta.",
+        "sentence_vi": "Tôi đã được quyết định sẽ nối nghiệp công ty của bố vào năm tới."
+      }
+    ]
+  },
+  {
+    "kanji": "妊娠",
+    "reading_hiragana": "にんしん",
+    "reading_romaji": "ninshin",
+    "meaning_vi": "Mang thai, thụ thai",
+    "jlpt_level": "N2",
+    "level": 3,
+    "han_viet": "NHÂM THẦN",
+    "explanation": "Trạng thái phụ nữ có em bé trong tử cung.",
+    "examples": [
+      {
+        "sentence_jp": "妹は妊娠3か月だ。",
+        "sentence_hira": "いもうとはにんしんさんかげつだ。",
+        "sentence_romaji": "Imouto wa ninshin sankagetsu da.",
+        "sentence_vi": "Em gái tôi đang mang thai tháng thứ 3."
+      }
+    ]
+  },
+  {
+    "kanji": "出産",
+    "reading_hiragana": "しゅっさん",
+    "reading_romaji": "shussan",
+    "meaning_vi": "Sinh con, sinh đẻ",
+    "jlpt_level": "N2",
+    "level": 3,
+    "han_viet": "XUẤT SẢN",
+    "explanation": "Quá trình đứa trẻ được sinh ra đời.",
+    "examples": [
+      {
+        "sentence_jp": "実家の近くの病院で出産することにした。",
+        "sentence_hira": "じっかのちかくのびょういんでしゅっさんすることにした。",
+        "sentence_romaji": "Jikka no chikaku no byouin de shussan suru koto ni shita.",
+        "sentence_vi": "Tôi đã quyết định sinh con ở bệnh viện gần nhà ngoại (nhà bố mẹ đẻ)."
+      }
+    ]
+  },
+  {
+    "kanji": "産む",
+    "reading_hiragana": "うむ",
+    "reading_romaji": "umu",
+    "meaning_vi": "Sinh, đẻ, tạo ra",
+    "jlpt_level": "N3",
+    "level": 2,
+    "han_viet": "SẢN",
+    "explanation": "Hành động sinh con (về phía người mẹ) hoặc tạo ra một kết quả mới.",
+    "examples": [
+      {
+        "sentence_jp": "姉は20歳のときに長男を産んだ。",
+        "sentence_hira": "あねははたちのときにちょうなんをうんだ。",
+        "sentence_romaji": "Ane wa hatachi no toki ni chounan o unda.",
+        "sentence_vi": "Chị gái đã sinh con trai trưởng năm 20 tuổi."
+      }
+    ]
+  }
+]

@@ -1,0 +1,963 @@
+[
+  {
+    "kanji": "下らない",
+    "reading_hiragana": "くだらない",
+    "reading_romaji": "kudaranai",
+    "meaning_vi": "Vô vị, vớ vẩn, tầm thường",
+    "jlpt_level": "N2",
+    "level": 1,
+    "han_viet": "HẠ",
+    "explanation": "Chỉ những việc hoặc ý kiến không có giá trị, không đáng để bận tâm hay thảo luận.",
+    "examples": [
+      {
+        "sentence_jp": "下らないことで友達とけんかになった。",
+        "sentence_hira": "くだらないことでともだちとけんかになった。",
+        "sentence_romaji": "Kudaranai koto de tomodachi to kenka ni natta.",
+        "sentence_vi": "Vì một lý do vớ vẩn mà tôi đã cãi nhau với bạn bè."
+      }
+    ]
+  },
+  {
+    "kanji": "避ける",
+    "reading_hiragana": "さける",
+    "reading_romaji": "sakeru",
+    "meaning_vi": "Lảng tránh, né tránh (người hoặc tình huống)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TỴ",
+    "explanation": "Cố ý không gặp mặt ai đó hoặc tránh một tình huống khó khăn, phiền toái.",
+    "examples": [
+      {
+        "sentence_jp": "彼は私を避けているような気がする。",
+        "sentence_hira": "かれはわたしをさけているようなきがする。",
+        "sentence_romaji": "Kare wa watashi o sakete iru you na ki ga suru.",
+        "sentence_vi": "Tôi có cảm giác như anh ấy đang cố tình lảng tránh mình."
+      }
+    ]
+  },
+  {
+    "kanji": "誤解",
+    "reading_hiragana": "ごかい",
+    "reading_romaji": "gokai",
+    "meaning_vi": "Hiểu lầm, ngộ nhận",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "NGỘ GIẢI",
+    "explanation": "Hiểu sai ý nghĩa của lời nói hoặc hành động của người khác.",
+    "examples": [
+      {
+        "sentence_jp": "小さなことが誤解を招いてしまった。",
+        "sentence_hira": "ちいさなことがごかいをまねいてしまった。",
+        "sentence_romaji": "Chiisana koto ga gokai o maneite shimatta.",
+        "sentence_vi": "Một việc nhỏ nhặt đã dẫn đến sự hiểu lầm không đáng có."
+      }
+    ]
+  },
+  {
+    "kanji": "勘違い",
+    "reading_hiragana": "かんちがい",
+    "reading_romaji": "kanchigai",
+    "meaning_vi": "Hiểu nhầm, phán đoán sai lầm",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "KHÁM VI",
+    "explanation": "Việc tin vào một điều gì đó không đúng sự thật do nhầm lẫn hoặc suy đoán chủ quan.",
+    "examples": [
+      {
+        "sentence_jp": "私の勘違いで、親友とけんかになった。",
+        "sentence_hira": "わたしのかんちがいで、しんゆうとけんかになった。",
+        "sentence_romaji": "Watashi no kanchigai de, shinyuu to kenka ni natta.",
+        "sentence_vi": "Do tôi hiểu nhầm nên đã xảy ra cãi vã với người bạn thân nhất."
+      }
+    ]
+  },
+  {
+    "kanji": "言い訳",
+    "reading_hiragana": "いいわけ",
+    "reading_romaji": "iiwake",
+    "meaning_vi": "Phân trần, biện bạch, lý do lý trấu",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "NGÔN DỊCH",
+    "explanation": "Đưa ra các lý do để bào chữa cho lỗi lầm hoặc sự chậm trễ của bản thân.",
+    "examples": [
+      {
+        "sentence_jp": "彼女はいつも言い訳をする。",
+        "sentence_hira": "かのじょはいつもいいわけをする。",
+        "sentence_romaji": "Kanojo wa itsumo iiwake o suru.",
+        "sentence_vi": "Cô ấy lúc nào cũng đưa ra đủ thứ lý do để biện bạch."
+      }
+    ]
+  },
+  {
+    "kanji": "きっぱり",
+    "reading_hiragana": "きっぱり",
+    "reading_romaji": "kippari",
+    "meaning_vi": "Dứt khoát, thẳng thừng",
+    "jlpt_level": "N2",
+    "level": 1,
+    "han_viet": "TRẠNG TỪ",
+    "explanation": "Thái độ rõ ràng, không do dự, đặc biệt là khi từ chối hoặc quyết định điều gì đó.",
+    "examples": [
+      {
+        "sentence_jp": "彼に食事に誘われたが、きっぱり断った。",
+        "sentence_hira": "かれにしょくじにさそわれたが、きっぱりことわった。",
+        "sentence_romaji": "Kare ni shokuji ni sasowareta ga, kippari kotowatta.",
+        "sentence_vi": "Tôi được anh ấy mời đi ăn nhưng đã thẳng thừng từ chối."
+      }
+    ]
+  },
+  {
+    "kanji": "ばかにする",
+    "reading_hiragana": "ばかにする",
+    "reading_romaji": "baka ni suru",
+    "meaning_vi": "Coi thường, xem nhẹ, chế giễu",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "MÃ LỘC",
+    "explanation": "Thái độ khinh miệt hoặc coi ai đó là kẻ ngốc.",
+    "examples": [
+      {
+        "sentence_jp": "彼は人をばかにしている。",
+        "sentence_hira": "かれはひとをばかにしている。",
+        "sentence_romaji": "Kare wa hito o baka ni shite iru.",
+        "sentence_vi": "Anh ta lúc nào cũng có thái độ coi thường người khác."
+      }
+    ]
+  },
+  {
+    "kanji": "けなす",
+    "reading_hiragana": "けなす",
+    "reading_romaji": "kenasu",
+    "meaning_vi": "Chê bai, dìm hàng, nói xấu",
+    "jlpt_level": "N2",
+    "level": 1,
+    "han_viet": "貶",
+    "explanation": "Cố tình tìm ra những điểm xấu để hạ thấp giá trị của một người hoặc một việc.",
+    "examples": [
+      {
+        "sentence_jp": "人をけなすのはよくない。",
+        "sentence_hira": "ひとをけなすのはよくない。",
+        "sentence_romaji": "Hito o kenasu no wa yokunai.",
+        "sentence_vi": "Việc dìm hàng hay chê bai người khác là điều không tốt."
+      }
+    ]
+  },
+  {
+    "kanji": "責める",
+    "reading_hiragana": "せめる",
+    "reading_romaji": "semeru",
+    "meaning_vi": "Đổ lỗi, trách móc, chỉ trích",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TRÁCH",
+    "explanation": "Quy kết trách nhiệm về một lỗi lầm hoặc thất bại cho ai đó.",
+    "examples": [
+      {
+        "sentence_jp": "一方的に人を責めるのはよくない。",
+        "sentence_hira": "いっぽうてきにひとをせめるのはよくない。",
+        "sentence_romaji": "Ippouteki ni hito o semeru no wa yokunai.",
+        "sentence_vi": "Việc đổ lỗi cho người khác một cách phiến diện là không tốt."
+      }
+    ]
+  },
+  {
+    "kanji": "だます",
+    "reading_hiragana": "だます",
+    "reading_romaji": "damasu",
+    "meaning_vi": "Lừa gạt, lừa đảo",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "PHIẾN",
+    "explanation": "Sử dụng những lời nói hoặc hành động sai sự thật để khiến người khác tin theo nhằm trục lợi.",
+    "examples": [
+      {
+        "sentence_jp": "信頼していた人にだまされてしまった。",
+        "sentence_hira": "しんらいしていたひとにだまされてしまった。",
+        "sentence_romaji": "Shinrai shite ita hito ni damasarete shimatta.",
+        "sentence_vi": "Tôi đã bị chính người mình tin tưởng lừa gạt."
+      }
+    ]
+  },
+  {
+    "kanji": "にらむ",
+    "reading_hiragana": "にらむ",
+    "reading_romaji": "niramu",
+    "meaning_vi": "Lườm, liếc, nhìn chằm chằm (giận dữ)",
+    "jlpt_level": "N2",
+    "level": 1,
+    "han_viet": "NGHỄ",
+    "explanation": "Nhìn thẳng vào ai đó với vẻ mặt sắc lạnh hoặc giận dữ.",
+    "examples": [
+      {
+        "sentence_jp": "彼女は私のことを、じっとにらんでいた。",
+        "sentence_hira": "かのじょはわたしのことを、じっとにらんでいた。",
+        "sentence_romaji": "Kanojo wa watashi no koto o, jitto nirande ita.",
+        "sentence_vi": "Cô ấy cứ lườm tôi một cách chằm chằm."
+      }
+    ]
+  },
+  {
+    "kanji": "裏切る",
+    "reading_hiragana": "うらぎる",
+    "reading_romaji": "uragiru",
+    "meaning_vi": "Phản bội",
+    "jlpt_level": "N2",
+    "level": 1,
+    "han_viet": "LÝ THIẾT",
+    "explanation": "Hành động đi ngược lại niềm tin hoặc sự kỳ vọng mà người khác dành cho mình.",
+    "examples": [
+      {
+        "sentence_jp": "信じていた人に裏切られてしまった。",
+        "sentence_hira": "しんじていたひとにうらぎられてしまった。",
+        "sentence_romaji": "Shinjite ita hito ni uragirarete shimatta.",
+        "sentence_vi": "Tôi đã bị người mình tin tưởng phản bội."
+      }
+    ]
+  },
+  {
+    "kanji": "せい",
+    "reading_hiragana": "せい",
+    "reading_romaji": "sei",
+    "meaning_vi": "Tại vì, do... (nguyên nhân gây ra kết quả xấu)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THẾ",
+    "explanation": "Dùng để chỉ ra nguyên nhân hoặc người phải chịu trách nhiệm cho một sự việc không hay.",
+    "examples": [
+      {
+        "sentence_jp": "彼女のせいで、二人はけんかになった。",
+        "sentence_hira": "かのじょのせいで、ふたりはけんかになった。",
+        "sentence_romaji": "Kanojo no sei de, futari wa kenka ni natta.",
+        "sentence_vi": "Tại cô ấy mà hai người đó mới cãi nhau."
+      }
+    ]
+  },
+  {
+    "kanji": "行為",
+    "reading_hiragana": "こうい",
+    "reading_romaji": "koui",
+    "meaning_vi": "Hành vi, hành động",
+    "jlpt_level": "N2",
+    "level": 1,
+    "han_viet": "HÀNH VI",
+    "explanation": "Chỉ những việc làm cụ thể của một người, thường dùng trong văn cảnh đánh giá đạo đức.",
+    "examples": [
+      {
+        "sentence_jp": "彼女の行為は、どうしても許せない。",
+        "sentence_hira": "かのじょのこういは、どうしてもゆるせない。",
+        "sentence_romaji": "Kanojo no koui wa, doushitemo yurusenai.",
+        "sentence_vi": "Hành vi của cô ấy là điều mà tôi không tài nào tha thứ được."
+      }
+    ]
+  },
+  {
+    "kanji": "口論",
+    "reading_hiragana": "こうろん",
+    "reading_romaji": "kouron",
+    "meaning_vi": "Cãi vã, khẩu chiến",
+    "jlpt_level": "N2",
+    "level": 1,
+    "han_viet": "KHẨU LUẬN",
+    "explanation": "Tranh cãi bằng lời nói một cách gay gắt.",
+    "examples": [
+      {
+        "sentence_jp": "こんなことで口論したくない。",
+        "sentence_hira": "こんなことでこうろんしたくない。",
+        "sentence_romaji": "Konna koto de kouron shitakunai.",
+        "sentence_vi": "Tôi không muốn đôi co cãi vã vì những chuyện như thế này."
+      }
+    ]
+  },
+  {
+    "kanji": "怒鳴る",
+    "reading_hiragana": "どなる",
+    "reading_romaji": "donaru",
+    "meaning_vi": "Quát tháo, gào lên (vì giận dữ)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "NỘ MINH",
+    "explanation": "Phát ra âm thanh cực lớn bằng giọng nói khi đang trong trạng thái kích động hoặc giận dữ.",
+    "examples": [
+      {
+        "sentence_jp": "父が大きな声で怒鳴るのを初めて聞いた。",
+        "sentence_hira": "ちちがおおきなこえでどなるのをはじめてきいた。",
+        "sentence_romaji": "Chichi ga ookina koe de donaru no o hajimete kiita.",
+        "sentence_vi": "Đây là lần đầu tiên tôi nghe thấy bố quát tháo lớn tiếng như vậy."
+      }
+    ]
+  },
+  {
+    "kanji": "殴る",
+    "reading_hiragana": "なぐる",
+    "reading_romaji": "naguru",
+    "meaning_vi": "Đấm, đánh",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "ẨU",
+    "explanation": "Hành động sử dụng nắm đấm hoặc bạo lực tay chân để tác động lên người khác.",
+    "examples": [
+      {
+        "sentence_jp": "友達に殴られて、大けがをした。",
+        "sentence_hira": "ともだちになぐられて、おおけがをした。",
+        "sentence_romaji": "Tomodachi ni nagurarete, ookega o shita.",
+        "sentence_vi": "Tôi bị bạn đấm dẫn đến bị thương nặng."
+      }
+    ]
+  },
+  {
+    "kanji": "貸し借り",
+    "reading_hiragana": "かしかり",
+    "reading_romaji": "kashikari",
+    "meaning_vi": "Vay mượn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THẢI TÁ",
+    "explanation": "Việc cho mượn và đi mượn đồ vật hoặc tiền bạc.",
+    "examples": [
+      {
+        "sentence_jp": "友達とは、お金の貸し借りをしない方がいい。",
+        "sentence_hira": "ともだちとは、おかねのかしかりをしないほうがいい。",
+        "sentence_romaji": "Tomodachi to wa, okane no kashikari o shinai hou ga ii.",
+        "sentence_vi": "Với bạn bè thì tốt nhất là không nên dính dáng đến chuyện vay mượn tiền bạc."
+      }
+    ]
+  },
+  {
+    "kanji": "ばらす",
+    "reading_hiragana": "ばらす",
+    "reading_romaji": "barasu",
+    "meaning_vi": "Tiết lộ (bí mật) / Tháo rời (máy móc)",
+    "jlpt_level": "N2",
+    "level": 1,
+    "han_viet": "TRẠNG TỪ",
+    "explanation": "Làm lộ ra một điều bí mật vốn đang được che giấu, hoặc tháo rời các bộ phận của một vật thể.",
+    "examples": [
+      {
+        "sentence_jp": "人の秘密をばらすなんて、最低の男だ。",
+        "sentence_hira": "ひとをひみつをばらすなんて、さいていのおとこだ。",
+        "sentence_romaji": "Hito no himitsu o barasu nante, saitei no otoko da.",
+        "sentence_vi": "Kẻ đi tiết lộ bí mật của người khác đúng là loại đàn ông tồi tệ nhất."
+      }
+    ]
+  },
+  {
+    "kanji": "気まずい",
+    "reading_hiragana": "きまずい",
+    "reading_romaji": "kimazui",
+    "meaning_vi": "Ngượng nghịu, khó xử, ngột ngạt",
+    "jlpt_level": "N2",
+    "level": 1,
+    "han_viet": "KHÍ",
+    "explanation": "Cảm giác không thoải mái, khó nói chuyện khi ở cùng người khác, thường là sau một cuộc tranh cãi.",
+    "examples": [
+      {
+        "sentence_jp": "けんかした後、二人は気まずくなった。",
+        "sentence_hira": "けんかしたあと、ふたりはきまずくなった。",
+        "sentence_romaji": "Kenka shita ato, futari wa kimazuku natta.",
+        "sentence_vi": "Sau trận cãi vã, bầu không khí giữa hai người trở nên rất khó xử."
+      }
+    ]
+  },
+  {
+    "kanji": "今さら",
+    "reading_hiragana": "いまさら",
+    "reading_romaji": "imasara",
+    "meaning_vi": "Đến giờ này (thì đã muộn/vô ích)",
+    "jlpt_level": "N2",
+    "level": 1,
+    "han_viet": "KIM",
+    "explanation": "Dùng để nhấn mạnh rằng một hành động hiện tại là quá muộn màng so với thời điểm lẽ ra nên làm.",
+    "examples": [
+      {
+        "sentence_jp": "今さら謝られても、すぐには許せない。",
+        "sentence_hira": "いまさらあやまられても, すぐにはゆるせない。",
+        "sentence_romaji": "Imasara ayamararete mo, sugu ni wa yurusenai.",
+        "sentence_vi": "Đến giờ này mới xin lỗi thì tôi cũng không thể tha thứ ngay được."
+      }
+    ]
+  },
+  {
+    "kanji": "台無し",
+    "reading_hiragana": "だいなし",
+    "reading_romaji": "dainashi",
+    "meaning_vi": "Công cốc, hỏng bét, tan thành mây khói",
+    "jlpt_level": "N2",
+    "level": 1,
+    "han_viet": "THAI VÔ",
+    "explanation": "Trạng thái một việc gì đó bị phá hỏng hoàn toàn, khiến mọi nỗ lực trước đó trở nên vô nghĩa.",
+    "examples": [
+      {
+        "sentence_jp": "親友との関係が台無しになってしまった。",
+        "sentence_hira": "しんゆうとのかんけいがだいなしになってしまった。",
+        "sentence_romaji": "Shinyuu to no kankei ga dainashi ni natte shimatta.",
+        "sentence_vi": "Mối quan hệ với người bạn thân đã hoàn toàn đổ sông đổ biển mất rồi."
+      }
+    ]
+  },
+  {
+    "kanji": "うらむ",
+    "reading_hiragana": "うらむ",
+    "reading_romaji": "uramu",
+    "meaning_vi": "Căm ghét, oán hận",
+    "jlpt_level": "N2",
+    "level": 1,
+    "han_viet": "OÁN",
+    "explanation": "Cảm xúc tiêu cực kéo dài đối với người đã gây ra đau khổ hoặc tổn hại cho mình.",
+    "examples": [
+      {
+        "sentence_jp": "彼女に裏切られたが、うらむ気にはなれない。",
+        "sentence_hira": "かのじょにうらぎられたが、うらむきにはなれない。",
+        "sentence_romaji": "Kanojo ni uragirareta ga, uramu ki ni wa narenai.",
+        "sentence_vi": "Tuy bị cô ấy phản bội nhưng tôi không thể nảy sinh cảm giác oán hận."
+      }
+    ]
+  },
+  {
+    "kanji": "追い出す",
+    "reading_hiragana": "おいだす",
+    "reading_romaji": "oidasu",
+    "meaning_vi": "Đuổi đi, xua đuổi",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "TRUY XUẤT",
+    "explanation": "Bắt ai đó phải rời khỏi một địa điểm (nhà cửa, tổ chức) bằng vũ lực hoặc quyền lực.",
+    "examples": [
+      {
+        "sentence_jp": "父とけんかして、家を追い出された。",
+        "sentence_hira": "ちちとけんかして、いえをおいだされた。",
+        "sentence_romaji": "Chichi to kenka shite, ie o oidasareta.",
+        "sentence_vi": "Tôi cãi nhau với bố và bị ông đuổi ra khỏi nhà."
+      }
+    ]
+  },
+  {
+    "kanji": "仲間外れ",
+    "reading_hiragana": "なかまはずれ",
+    "reading_romaji": "nakamahazure",
+    "meaning_vi": "Bị cô lập, bị ra rìa, không được xem là bạn",
+    "jlpt_level": "N2",
+    "level": 1,
+    "han_viet": "TRỌNG GIAN NGOẠI",
+    "explanation": "Trạng thái một người bị gạt ra khỏi nhóm hoặc không được tham gia vào các hoạt động chung của bạn bè.",
+    "examples": [
+      {
+        "sentence_jp": "私は、いつの間にか仲間外れにされてしまった。",
+        "sentence_hira": "わたしは、いつのまにかなかまはずれにされてしまった。",
+        "sentence_romaji": "Watashi wa, itsu no ma ni ka nakamahazure ni sarete shimatta.",
+        "sentence_vi": "Chẳng biết từ lúc nào mà tôi đã bị cả nhóm cho ra rìa."
+      }
+    ]
+  },
+  {
+    "kanji": "あいつ",
+    "reading_hiragana": "あいつ",
+    "reading_romaji": "aitsu",
+    "meaning_vi": "Thằng đó, gã đó, tên đó (cách gọi suồng sã/khinh miệt)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "NGOẠI LAI",
+    "explanation": "Đại từ chỉ ngôi thứ ba, dùng khi nói về người khác với thái độ không mấy tôn trọng hoặc rất thân mật.",
+    "examples": [
+      {
+        "sentence_jp": "あいつとは、もう二度と会いたくない。",
+        "sentence_hira": "あいつとは、もうにどとあいたくない。",
+        "sentence_romaji": "Aitsu to wa, mou nido to aitakunai.",
+        "sentence_vi": "Tôi không bao giờ muốn gặp lại cái tên đó lần thứ hai."
+      }
+    ]
+  },
+  {
+    "kanji": "他人",
+    "reading_hiragana": "たにん",
+    "reading_romaji": "tanin",
+    "meaning_vi": "Người dưng, người lạ, người ngoài",
+    "jlpt_level": "N3",
+    "level": 1,
+    "han_viet": "THA NHÂN",
+    "explanation": "Những người không có quan hệ huyết thống, họ hàng hay quen biết thân thiết.",
+    "examples": [
+      {
+        "sentence_jp": "兄はけんかすると、他人のような態度になる。",
+        "sentence_hira": "あにはけんかすると、たにんのようなたいどになる。",
+        "sentence_romaji": "Ani wa kenka suru to, tanin no you na taido ni naru.",
+        "sentence_vi": "Anh tôi cứ hễ cãi nhau là lại có thái độ lạnh lùng như người dưng vậy."
+      }
+    ]
+  },
+    {
+    "kanji": "初対面",
+    "reading_hiragana": "しょたいめん",
+    "reading_romaji": "shotaimen",
+    "meaning_vi": "Lần đầu gặp mặt",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "SƠ ĐỐI DIỆN",
+    "explanation": "Chỉ cuộc gặp gỡ đầu tiên giữa hai người chưa từng quen biết nhau trước đó.",
+    "examples": [
+      {
+        "sentence_jp": "山田さんとは初対面だったので、あいさつした。",
+        "sentence_hira": "やまださんとはしょたいめんだったので、あいさつした。",
+        "sentence_romaji": "Yamada-san to wa shotaimen datta node, aisatsu shita.",
+        "sentence_vi": "Vì là lần đầu tiên gặp anh Yamada nên tôi đã chủ động chào hỏi."
+      }
+    ]
+  },
+  {
+    "kanji": "自己紹介",
+    "reading_hiragana": "じこしょうかい",
+    "reading_romaji": "jikoshoukai",
+    "meaning_vi": "Tự giới thiệu bản thân",
+    "jlpt_level": "N5",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "TỰ KỶ THIỆU GIỚI",
+    "explanation": "Hành động giới thiệu tên tuổi, nghề nghiệp hoặc sở thích của mình cho người khác biết.",
+    "examples": [
+      {
+        "sentence_jp": "合コンでお互いに自己紹介をした。",
+        "sentence_hira": "ごうこんでおたがいにじこしょうかいをした。",
+        "sentence_romaji": "Goukon de otagai ni jikoshoukai o shita.",
+        "sentence_vi": "Chúng tôi đã tự giới thiệu bản thân cho nhau tại buổi tiệc làm quen."
+      }
+    ]
+  },
+  {
+    "kanji": "おじぎ",
+    "reading_hiragana": "おじぎ",
+    "reading_romaji": "ojigi",
+    "meaning_vi": "Cúi chào",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "CUNG",
+    "explanation": "Nghi thức cúi đầu hoặc gập người để thể hiện sự kính trọng hoặc chào hỏi trong văn hóa Nhật Bản.",
+    "examples": [
+      {
+        "sentence_jp": "朝、大家さんに会ったので、おじぎした。",
+        "sentence_hira": "あさ、おおやさんにあったので、おじぎした。",
+        "sentence_romaji": "Asa, ooyasan ni atta node, ojigi shita.",
+        "sentence_vi": "Sáng nay gặp chủ nhà nên tôi đã cúi người chào ông ấy."
+      }
+    ]
+  },
+  {
+    "kanji": "近所付き合い",
+    "reading_hiragana": "きんじょづきあい",
+    "reading_romaji": "kinjo-dzukiai",
+    "meaning_vi": "Mối quan hệ hàng xóm láng giềng",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "CẬN SỞ PHÓ HỢP",
+    "explanation": "Việc giao lưu, giữ mối quan hệ tốt đẹp với những người sống ở khu vực xung quanh nhà mình.",
+    "examples": [
+      {
+        "sentence_jp": "できるだけ近所付き合いを大切にしている。",
+        "sentence_hira": "できるだけきんじょづきあいをたいせつにしている。",
+        "sentence_romaji": "Dekirudake kinjo-dzukiai o taisetsu ni shite iru.",
+        "sentence_vi": "Tôi cố gắng trân trọng mối quan hệ với hàng xóm láng giềng nhiều nhất có thể."
+      }
+    ]
+  },
+  {
+    "kanji": "大家",
+    "reading_hiragana": "おおや",
+    "reading_romaji": "ooya",
+    "meaning_vi": "Chủ nhà (cho thuê nhà)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "ĐẠI GIA",
+    "explanation": "Người sở hữu và cho thuê căn hộ, phòng trọ hoặc nhà cửa.",
+    "examples": [
+      {
+        "sentence_jp": "私のアパートの大家さんは、とても親切な人だ。",
+        "sentence_hira": "わたしのあぱーとのおおやさんは、とてもしんせつなひとだ。",
+        "sentence_romaji": "Watashi no apaato no ooyasan wa, totemo shinsetsu na hito da.",
+        "sentence_vi": "Chủ căn hộ tôi đang ở là một người rất tử tế."
+      }
+    ]
+  },
+  {
+    "kanji": "飼い主",
+    "reading_hiragana": "かいぬし",
+    "reading_romaji": "kainushi",
+    "meaning_vi": "Chủ nuôi (thú cưng)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "TỰ CHỦ",
+    "explanation": "Người sở hữu và chăm sóc các loại vật nuôi như chó, mèo.",
+    "examples": [
+      {
+        "sentence_jp": "犬の飼い主同士が公園でおしゃべりをしている。",
+        "sentence_hira": "いぬのかいぬしどうしがこうえんでおしゃべりをしている。",
+        "sentence_romaji": "Inu no kainushi doushi ga kouen de oshaberi o shite iru.",
+        "sentence_vi": "Những người cùng là chủ nuôi chó đang trò chuyện cùng nhau ở công viên."
+      }
+    ]
+  },
+  {
+    "kanji": "交わす",
+    "reading_hiragana": "かわす",
+    "reading_romaji": "kawasu",
+    "meaning_vi": "Trao đổi, qua lại (lời chào, ánh mắt)",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "GIAO",
+    "explanation": "Hành động thực hiện một việc gì đó qua lại giữa hai bên.",
+    "examples": [
+      {
+        "sentence_jp": "近所の人達に会うと、笑顔であいさつを交わす。",
+        "sentence_hira": "きんじょのひとたちにあうと、えがおであいさつをかわす。",
+        "sentence_romaji": "Kinjo no hitotachi ni au to, egao de aisatsu o kawasu.",
+        "sentence_vi": "Hễ gặp hàng xóm là chúng tôi lại trao nhau những lời chào bằng nụ cười tươi."
+      }
+    ]
+  },
+  {
+    "kanji": "呼び止める",
+    "reading_hiragana": "よびとめる",
+    "reading_romaji": "yobitomeru",
+    "meaning_vi": "Gọi giật lại, gọi dừng lại",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "HÔ CHỈ",
+    "explanation": "Gọi tên hoặc lên tiếng để khiến người đang đi phải dừng lại.",
+    "examples": [
+      {
+        "sentence_jp": "アパートの前で管理人さんに呼び止められた。",
+        "sentence_hira": "あぱーとのまえでかんりにんさんによびとめられた。",
+        "sentence_romaji": "Apaato no mae de kanrininsan ni yobitomerareta.",
+        "sentence_vi": "Tôi bị bác quản lý gọi giật lại ngay trước cửa căn hộ."
+      }
+    ]
+  },
+  {
+    "kanji": "振り返る",
+    "reading_hiragana": "ふりかえる",
+    "reading_romaji": "furikaeru",
+    "meaning_vi": "Ngoảnh lại / Nhìn lại (quá khứ)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "CHẤN PHẢN",
+    "explanation": "Nghĩa đen là quay đầu lại nhìn phía sau. Nghĩa bóng là hồi tưởng về những việc đã qua.",
+    "examples": [
+      {
+        "sentence_jp": "後ろから名前を呼ばれて、振り返った。",
+        "sentence_hira": "うしろからなまえをよばれて、ふりかえった。",
+        "sentence_romaji": "Ushiro kara namae o yobarete, furikaetta.",
+        "sentence_vi": "Nghe thấy ai đó gọi tên mình từ phía sau, tôi đã ngoảnh lại nhìn."
+      }
+    ]
+  },
+  {
+    "kanji": "再会",
+    "reading_hiragana": "さいかい",
+    "reading_romaji": "saikai",
+    "meaning_vi": "Tái ngộ, gặp lại",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "TÁI HỘI",
+    "explanation": "Gặp lại một người mà đã lâu không có cơ hội tiếp xúc.",
+    "examples": [
+      {
+        "sentence_jp": "以前の担任の先生と再会した。",
+        "sentence_hira": "いぜんのたんにんのせんせいとさいかいした。",
+        "sentence_romaji": "Izen no tannin no sensei to saikai shita.",
+        "sentence_vi": "Tôi đã có dịp gặp lại người thầy giáo chủ nhiệm cũ của mình."
+      }
+    ]
+  },
+  {
+    "kanji": "心当たり",
+    "reading_hiragana": "こころあたり",
+    "reading_romaji": "kokoroatari",
+    "meaning_vi": "Sự hình dung, manh mối, biết chút ít",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "TÂM ĐƯƠNG",
+    "explanation": "Có một sự phán đoán hoặc biết thông tin gì đó liên quan đến sự việc đang nói tới.",
+    "examples": [
+      {
+        "sentence_jp": "心当たりのない番号から電話がかかってきた。",
+        "sentence_hira": "こころあたりのないばんごうからでんわがかかってきた。",
+        "sentence_romaji": "Kokoroatari no nai bangou kara denwa ga kakatte kita.",
+        "sentence_vi": "Một cuộc điện thoại từ số lạ mà tôi chẳng hề có chút ấn tượng nào đã gọi đến."
+      }
+    ]
+  },
+  {
+    "kanji": "結びつく",
+    "reading_hiragana": "むすびつく",
+    "reading_romaji": "musubitsuku",
+    "meaning_vi": "Liên kết, gắn kết, nhớ ra (sự liên quan)",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "KẾT",
+    "explanation": "Hai sự vật hoặc thông tin kết nối lại với nhau trong tâm trí hoặc thực tế.",
+    "examples": [
+      {
+        "sentence_jp": "川田さんの名前と顔が結びつかない。",
+        "sentence_hira": "かわださんのなまえとかおがむすびつかない。",
+        "sentence_romaji": "Kawada-san no namae to kao ga musubitsukanai.",
+        "sentence_vi": "Tôi không thể nhớ ra mặt anh Kawada dù biết tên (tên và mặt không khớp được với nhau)."
+      }
+    ]
+  },
+  {
+    "kanji": "とっさに",
+    "reading_hiragana": "とっさに",
+    "reading_romaji": "tossani",
+    "meaning_vi": "Ngay lập tức, tức thì (phản xạ)",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "TRẠNG TỪ",
+    "explanation": "Trạng từ chỉ một hành động xảy ra cực nhanh do phản xạ tự nhiên của cơ thể.",
+    "examples": [
+      {
+        "sentence_jp": "知り合いに会ったとき, とっさに名前が出てこなかった。",
+        "sentence_hira": "しりあいにあったとき, とっさになまえがでてこなかった。",
+        "sentence_romaji": "Shiriai ni atta toki, tossani namae ga detekonakatta.",
+        "sentence_vi": "Khi tình cờ gặp người quen, tôi đã không thể nhớ ra tên họ ngay lúc đó."
+      }
+    ]
+  },
+  {
+    "kanji": "てっきり",
+    "reading_hiragana": "てっきり",
+    "reading_romaji": "tekkiri",
+    "meaning_vi": "Cứ ngỡ là, chắc chắn là (thường dùng khi đoán sai)",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "TRẠNG TỪ",
+    "explanation": "Diễn tả một niềm tin mãnh liệt về điều gì đó, nhưng kết quả thực tế lại hoàn toàn khác.",
+    "examples": [
+      {
+        "sentence_jp": "てっきり彼らが独身だと思っていた。",
+        "sentence_hira": "てっきりかれらがどくしんだとおもっていた。",
+        "sentence_romaji": "Tekkiri karera ga dokushin da to omotte ita.",
+        "sentence_vi": "Tôi cứ đinh ninh rằng bọn họ vẫn còn độc thân (hóa ra không phải)."
+      }
+    ]
+  },
+  {
+    "kanji": "思い込む",
+    "reading_hiragana": "おもいこむ",
+    "reading_romaji": "omoikomu",
+    "meaning_vi": "Tin rằng, đinh ninh là, cho là",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "TƯ NHẬP",
+    "explanation": "Trạng thái tâm trí hoàn toàn tin tưởng vào một điều gì đó (thường là sự nhầm lẫn) mà không hề nghi ngờ.",
+    "examples": [
+      {
+        "sentence_jp": "私は木村さんが独身だと思い込んでいた。",
+        "sentence_hira": "わたしはきむらさんがどくしんだとおもいこんでいた。",
+        "sentence_romaji": "Watashi wa Kimura-san ga dokushin da to omoikonde ita.",
+        "sentence_vi": "Tôi đã luôn đinh ninh rằng cô Kimura là người độc thân."
+      }
+    ]
+  },
+  {
+    "kanji": "コミュニケーション",
+    "reading_hiragana": "こみゅにけーしょん",
+    "reading_romaji": "komyunikeeshon",
+    "meaning_vi": "Giao tiếp, truyền thông",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "NGOẠI LAI",
+    "explanation": "Việc trao đổi thông tin, cảm xúc hoặc ý kiến giữa con người với nhau.",
+    "examples": [
+      {
+        "sentence_jp": "いろいろな国の人とコミュニケーションを持ちたい。",
+        "sentence_hira": "いろいろなくにのひととこみゅにけーしょんをもちたい。",
+        "sentence_romaji": "Iroiro na kuni no hito to komyunikeeshon o mochitai.",
+        "sentence_vi": "Tôi muốn được giao lưu và kết nối với mọi người từ nhiều quốc gia khác nhau."
+      }
+    ]
+  },
+  {
+    "kanji": "ネットワーク",
+    "reading_hiragana": "ねっとわーく",
+    "reading_romaji": "nettowaaku",
+    "meaning_vi": "Mạng lưới, hệ thống kết nối",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "NGOẠI LAI",
+    "explanation": "Mạng lưới liên kết giữa các cá nhân hoặc tổ chức để chia sẻ thông tin hoặc hỗ trợ lẫn nhau.",
+    "examples": [
+      {
+        "sentence_jp": "将来のために、知り合いのネットワークを広げたい。",
+        "sentence_hira": "しょうらいのために、しりあいのねっとわーくをひろげたい。",
+        "sentence_romaji": "Shourai no tame ni, shiriai no nettowaaku o hirogetai.",
+        "sentence_vi": "Tôi muốn mở rộng mạng lưới quan hệ của mình để phục vụ cho tương lai."
+      }
+    ]
+  },
+  {
+    "kanji": "直接",
+    "reading_hiragana": "ちょくせつ",
+    "reading_romaji": "chokusetsu",
+    "meaning_vi": "Trực tiếp",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "TRỰC TIẾP",
+    "explanation": "Thực hiện hành động mà không thông qua bất kỳ trung gian hay vật cản nào.",
+    "examples": [
+      {
+        "sentence_jp": "彼とは直接の友達ではない。",
+        "sentence_hira": "かれとはちょくせつのともだちではない。",
+        "sentence_romaji": "Kare to wa chokusetsu no tomodachi de wa nai.",
+        "sentence_vi": "Tôi với anh ấy không phải là bạn bè trực tiếp (có thể là bạn của bạn)."
+      }
+    ]
+  },
+  {
+    "kanji": "接する",
+    "reading_hiragana": "せっする",
+    "reading_romaji": "sessuru",
+    "meaning_vi": "Tiếp xúc, giao tiếp / Tiếp giáp",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "TIẾP",
+    "explanation": "Gặp gỡ, nói chuyện với ai đó hoặc ở vị trí chạm sát vào một vật khác.",
+    "examples": [
+      {
+        "sentence_jp": "敬語が苦手なので、目上の人と接するのが不安だ。",
+        "sentence_hira": "けいごがにがてなので、めうえのひととせっするのがふあんだ。",
+        "sentence_romaji": "Keigo ga nigate nano de, meue no hito to sessuru no ga fuan da.",
+        "sentence_vi": "Vì không giỏi kính ngữ nên tôi thấy khá lo lắng khi phải tiếp xúc với người bề trên."
+      }
+    ]
+  },
+  {
+    "kanji": "招く",
+    "reading_hiragana": "まねく",
+    "reading_romaji": "maneku",
+    "meaning_vi": "Mời / Dẫn đến (hậu quả)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "CHIÊU",
+    "explanation": "Mời ai đó đến nhà/tiệc, hoặc có những hành động vô tình gây ra kết quả không mong muốn.",
+    "examples": [
+      {
+        "sentence_jp": "先日、部長のお宅に招かれた。",
+        "sentence_hira": "せんじつ、ぶちょうのおたくにまねかれた。",
+        "sentence_romaji": "Senjitsu, buchou no otaku ni manekareta.",
+        "sentence_vi": "Hôm trước tôi đã được mời đến thăm nhà của trưởng phòng."
+      }
+    ]
+  },
+  {
+    "kanji": "気配り",
+    "reading_hiragana": "きくばり",
+    "reading_romaji": "kikubari",
+    "meaning_vi": "Sự chu đáo, sự quan tâm tinh tế",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "KHÍ PHỐI",
+    "explanation": "Khả năng quan sát và quan tâm đến nhu cầu của người khác một cách tinh tế trước khi họ yêu cầu.",
+    "examples": [
+      {
+        "sentence_jp": "アルバイト先の先輩の気配りを見習いたい。",
+        "sentence_hira": "あるばいとさきのせんぱいのきくばりをみならいたい。",
+        "sentence_romaji": "Arubaito saki no senpai no kikubari o minaraitai.",
+        "sentence_vi": "Tôi muốn học hỏi sự chu đáo, tận tâm của người đàn anh ở chỗ làm thêm."
+      }
+    ]
+  },
+  {
+    "kanji": "込める",
+    "reading_hiragana": "こめる",
+    "reading_romaji": "komeru",
+    "meaning_vi": "Gửi gắm, dồn (tình cảm, tâm sức) vào",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "NHẬP",
+    "explanation": "Đưa hết tình cảm, suy nghĩ hoặc nỗ lực của mình vào một hành động hoặc một món quà.",
+    "examples": [
+      {
+        "sentence_jp": "感謝の気持ちを込めて、先生へのプレゼントを選んだ。",
+        "sentence_hira": "かんしゃのきもちをこめて、せんせいへのぷれぜんとをえらんだ。",
+        "sentence_romaji": "Kansha no kimochi o komete, sensei e no purezento o eranda.",
+        "sentence_vi": "Tôi đã chọn quà tặng thầy với tất cả tấm lòng biết ơn sâu sắc."
+      }
+    ]
+  },
+  {
+    "kanji": "同期",
+    "reading_hiragana": "どうき",
+    "reading_romaji": "douki",
+    "meaning_vi": "Cùng khóa, cùng đợt (nhập học, vào công ty)",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "ĐỒNG KỲ",
+    "explanation": "Những người cùng gia nhập một tổ chức hoặc trường học vào cùng một thời điểm.",
+    "examples": [
+      {
+        "sentence_jp": "彼は会社の同期で、とても仲がいい。",
+        "sentence_hira": "かれはかいしゃのどうきで、とてもなかがいい。",
+        "sentence_romaji": "Kare wa kaisha no douki de, totemo naka ga ii.",
+        "sentence_vi": "Anh ấy là bạn cùng đợt vào công ty với tôi nên chúng tôi rất thân nhau."
+      }
+    ]
+  },
+  {
+    "kanji": "ぐち",
+    "reading_hiragana": "ぐち",
+    "reading_romaji": "guchi",
+    "meaning_vi": "Sự than vãn, càm ràm (về những điều bất mãn)",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "NGU SI",
+    "explanation": "Việc lặp đi lặp lại những lời than thở về những chuyện không hài lòng trong cuộc sống hoặc công việc.",
+    "examples": [
+      {
+        "sentence_jp": "毎晩、居酒屋で同期とぐちをこぼしている。",
+        "sentence_hira": "まいばん、いざかやでどうきとぐちをこぼしている。",
+        "sentence_romaji": "Maiban, izakaya de douki to guchi o koboshite iru.",
+        "sentence_vi": "Tối nào tôi cũng ngồi ở quán nhậu càm ràm than thở với mấy đứa bạn cùng khóa."
+      }
+    ]
+  },
+  {
+    "kanji": "大いに",
+    "reading_hiragana": "おおいに",
+    "reading_romaji": "ooini",
+    "meaning_vi": "Rất nhiều, hết mình, cực kỳ",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "ĐẠI",
+    "explanation": "Trạng từ chỉ mức độ lớn hoặc cường độ mạnh mẽ của một hành động.",
+    "examples": [
+      {
+        "sentence_jp": "今日は大いに飲んで楽しもう。",
+        "sentence_hira": "きょうはおおいにのんでたのしもう。",
+        "sentence_romaji": "Kyou wa ooini nonde tanoshimou.",
+        "sentence_vi": "Hôm nay hãy cùng uống thật say và quẩy hết mình nhé."
+      }
+    ]
+  }
+]
