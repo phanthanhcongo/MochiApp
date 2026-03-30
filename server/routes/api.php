@@ -120,6 +120,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/practice/reviewed-words', [EnglishController::class, 'updateReviewedWordsEn']);
         Route::post('/practice/addWord', [EnglishController::class, 'store']);
         Route::post('/practice/display', [EnglishController::class, 'index']);
+        Route::get('/practice/scenarios', [EnglishController::class, 'getPracticeScenarios']);
+        Route::get('/practice/scenarios-grammar', [EnglishController::class, 'getGrammarPracticeScenarios']);
         Route::get('/practice/{id}', [EnglishController::class, 'getById']);
         Route::post('/practice/update/{id}', [EnglishController::class, 'update']);
         Route::delete('/practice/delete/{id}', [EnglishController::class, 'destroy']);

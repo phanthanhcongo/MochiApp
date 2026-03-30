@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
+use App\Config\LevelColorConfig;
 
 class EnglishService
 {
@@ -483,6 +484,7 @@ class EnglishService
     {
         // 1. Thống kê số từ theo level (chỉ lấy từ vựng, không lấy ngữ pháp)
         $reviewStats = EnWord::where('user_id', $userId)
+            ->where('is_active', true)
             ->where(function ($query) {
                 $query->where('is_grammar', false)
                       ->orWhereNull('is_grammar');
@@ -492,20 +494,10 @@ class EnglishService
             ->orderBy('level')
             ->get()
             ->map(function ($item) {
-                $colors = [
-                    1 => 'bg-red-400',
-                    2 => 'bg-fuchsia-300',
-                    3 => 'bg-yellow-400',
-                    4 => 'bg-green-400',
-                    5 => 'bg-sky-400',
-                    6 => 'bg-indigo-500',
-                    7 => 'bg-purple-600',
-                ];
-
                 return [
                     'level' => $item->level,
                     'count' => $item->count,
-                    'color' => $colors[$item->level] ?? 'bg-gray-400',
+                    'color' => LevelColorConfig::getColor($item->level),
                 ];
             });
 
@@ -574,20 +566,10 @@ class EnglishService
             ->orderBy('level')
             ->get()
             ->map(function ($item) {
-                $colors = [
-                    1 => 'bg-red-400',
-                    2 => 'bg-fuchsia-300',
-                    3 => 'bg-yellow-400',
-                    4 => 'bg-green-400',
-                    5 => 'bg-sky-400',
-                    6 => 'bg-indigo-500',
-                    7 => 'bg-purple-600',
-                ];
-
                 return [
                     'level' => $item->level,
                     'count' => $item->count,
-                    'color' => $colors[$item->level] ?? 'bg-gray-400',
+                    'color' => LevelColorConfig::getColor($item->level),
                 ];
             });
 
@@ -1028,6 +1010,175 @@ class EnglishService
             ];
         }
         return $updated;
+    }
+
+    /**
+     * Get practice scenarios for EN vocabulary
+     */
+    public function getPracticeScenarios(int $userId, Carbon $now): array
+    {
+        $words = EnWord::with(['contexts', 'examples.exercises.choices'])
+            ->where('user_id', $userId)
+            ->where('is_active', true)
+            ->where(function ($query) {
+                $query->where('is_grammar', false)
+                      ->orWhereNull('is_grammar');
+            })
+            ->whereNotNull('next_review_at')
+            ->where('next_review_at', '<=', $now)
+            ->orderBy('next_review_at')
+            ->limit(100)
+            ->get();
+
+        if ($words->isEmpty()) {
+            return [
+                'totalWords' => 0,
+                'scenarios' => [],
+            ];
+        }
+
+        $scenarios = [];
+        $previousQuizType = null;
+
+        foreach ($words as $index => $word) {
+            try {
+                $quizType = $this->determineEnQuizType($previousQuizType);
+
+                $scenarios[] = [
+                    'order' => $index + 1,
+                    'word' => $this->formatEnWord($word),
+                    'quizType' => $quizType,
+                ];
+
+                $previousQuizType = $quizType;
+            } catch (\Exception $e) {
+                Log::error('Error processing EN word', [
+                    'word_id' => $word->id,
+                    'error' => $e->getMessage(),
+                ]);
+                continue;
+            }
+        }
+
+        return [
+            'totalWords' => $words->count(),
+            'scenarios' => $scenarios,
+        ];
+    }
+
+    /**
+     * Get grammar practice scenarios for EN
+     */
+    public function getGrammarPracticeScenarios(int $userId, Carbon $now): array
+    {
+        $words = EnWord::with(['contexts', 'examples.exercises.choices'])
+            ->where('user_id', $userId)
+            ->where('is_active', true)
+            ->where('is_grammar', true)
+            ->whereNotNull('next_review_at')
+            ->where('next_review_at', '<=', $now)
+            ->orderBy('next_review_at')
+            ->limit(100)
+            ->get();
+
+        if ($words->isEmpty()) {
+            return [
+                'totalWords' => 0,
+                'scenarios' => [],
+            ];
+        }
+
+        $scenarios = [];
+        $previousQuizType = null;
+
+        foreach ($words as $index => $word) {
+            try {
+                // Grammar always uses multiple choice
+                $quizType = 'multiple';
+
+                $scenarios[] = [
+                    'order' => $index + 1,
+                    'word' => $this->formatEnWord($word),
+                    'quizType' => $quizType,
+                ];
+
+                $previousQuizType = $quizType;
+            } catch (\Exception $e) {
+                Log::error('Error processing EN grammar word', [
+                    'word_id' => $word->id,
+                    'error' => $e->getMessage(),
+                ]);
+                continue;
+            }
+        }
+
+        return [
+            'totalWords' => $words->count(),
+            'scenarios' => $scenarios,
+        ];
+    }
+
+    /**
+     * Determine quiz type for EN words
+     * Available types: multiple, spellingPractice, voicePractice
+     */
+    private function determineEnQuizType(?string $previousQuizType = null): string
+    {
+        $allTypes = ['multiple', 'spellingPractice', 'voicePractice'];
+
+        $availableTypes = $allTypes;
+
+        // Avoid consecutive same quiz type
+        if ($previousQuizType !== null) {
+            $availableTypes = array_filter($availableTypes, function ($type) use ($previousQuizType) {
+                return $type !== $previousQuizType;
+            });
+            $availableTypes = array_values($availableTypes);
+        }
+
+        if (empty($availableTypes)) {
+            $availableTypes = $allTypes;
+        }
+
+        return $availableTypes[array_rand($availableTypes)];
+    }
+
+    /**
+     * Format EN word for response
+     */
+    private function formatEnWord(EnWord $word): array
+    {
+        $examples = [];
+        if ($word->examples && $word->examples->isNotEmpty()) {
+            $examples = $word->examples->map(function ($example) {
+                return [
+                    'sentence_en' => $example->sentence_en ?? '',
+                    'sentence_vi' => $example->sentence_vi ?? '',
+                ];
+            })->toArray();
+        }
+
+        $contexts = [];
+        if ($word->contexts && $word->contexts->isNotEmpty()) {
+            $contexts = $word->contexts->map(function ($ctx) {
+                return [
+                    'context_vi' => $ctx->context_vi ?? '',
+                ];
+            })->toArray();
+        }
+
+        return [
+            'id' => $word->id,
+            'word' => $word->word ?? '',
+            'ipa' => $word->ipa,
+            'meaning_vi' => $word->meaning_vi,
+            'cefr_level' => $word->cefr_level,
+            'is_grammar' => (bool) $word->is_grammar,
+            'exampleEn' => $word->exampleEn,
+            'exampleVn' => $word->exampleVn,
+            'examples' => $examples,
+            'contexts' => $contexts,
+        ];
     }
 }
 

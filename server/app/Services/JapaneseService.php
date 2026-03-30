@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
+use App\Config\LevelColorConfig;
 
 class JapaneseService
 {
@@ -328,7 +329,25 @@ class JapaneseService
             ->where('user_id', $userId)
             ->firstOrFail();
 
-        return $word->delete();
+        return DB::transaction(function () use ($word) {
+            // Delete exercise choices → exercises → examples
+            $exampleIds = JpExample::where('jp_word_id', $word->id)->pluck('id')->all();
+            if (!empty($exampleIds)) {
+                $exerciseIds = JpExampleExercise::whereIn('example_id', $exampleIds)->pluck('id')->all();
+                if (!empty($exerciseIds)) {
+                    JpExerciseChoice::whereIn('exercise_id', $exerciseIds)->delete();
+                }
+                JpExampleExercise::whereIn('example_id', $exampleIds)->delete();
+            }
+
+            // Delete related records
+            JpExample::where('jp_word_id', $word->id)->delete();
+            JpContext::where('jp_word_id', $word->id)->delete();
+            JpHanviet::where('jp_word_id', $word->id)->delete();
+            JpStroke::where('jp_word_id', $word->id)->delete();
+
+            return $word->delete();
+        });
     }
 
     /**
@@ -345,20 +364,10 @@ class JapaneseService
             ->orderBy('level')
             ->get()
             ->map(function ($item) {
-                $colors = [
-                    1 => 'bg-red-400',
-                    2 => 'bg-fuchsia-300',
-                    3 => 'bg-yellow-400',
-                    4 => 'bg-green-400',
-                    5 => 'bg-sky-400',
-                    6 => 'bg-indigo-500',
-                    7 => 'bg-purple-600',
-                ];
-
                 return [
                     'level' => $item->level,
                     'count' => $item->count,
-                    'color' => $colors[$item->level] ?? 'bg-gray-400',
+                    'color' => LevelColorConfig::getColor($item->level),
                 ];
             });
 
@@ -419,20 +428,10 @@ class JapaneseService
             ->orderBy('level')
             ->get()
             ->map(function ($item) {
-                $colors = [
-                    1 => 'bg-red-400',
-                    2 => 'bg-fuchsia-300',
-                    3 => 'bg-yellow-400',
-                    4 => 'bg-green-400',
-                    5 => 'bg-sky-400',
-                    6 => 'bg-indigo-500',
-                    7 => 'bg-purple-600',
-                ];
-
                 return [
                     'level' => $item->level,
                     'count' => $item->count,
-                    'color' => $colors[$item->level] ?? 'bg-gray-400',
+                    'color' => LevelColorConfig::getColor($item->level),
                 ];
             });
 
@@ -542,7 +541,7 @@ class JapaneseService
                 if ($firstFailed) {
                     // When wrong: increase lapses, reset streak to 0
                     // Logic: Level >= 5 drops to 4, else drops by 1 (min 1)
-                    $newLevel = ($currentLevel >= 5) ? 4 : max(1, $currentLevel - 1);
+                    $newLevel = max(1, $currentLevel - 1);
                     $newStreak = 0;
                     $newLapses = $currentLapses + 1;
                 } else {

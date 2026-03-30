@@ -74,7 +74,7 @@ class JapaneseController extends Controller
             }
         }
 
-        $userId = Auth::id() ?? 2;
+        $userId = $request->user()->id;
 
         try {
             $result = $this->japaneseService->importVocabulary($items, $userId);
@@ -246,9 +246,9 @@ class JapaneseController extends Controller
     /**
      * Delete a word
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $userId = Auth::id() ?? 2;
+        $userId = $request->user()->id;
 
         try {
             $this->japaneseService->deleteWord($id, $userId);

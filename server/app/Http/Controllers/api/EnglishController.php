@@ -377,4 +377,80 @@ class EnglishController extends Controller
             ], 500, [], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         }
     }
+
+    /**
+     * Get practice scenarios for vocabulary
+     */
+    public function getPracticeScenarios(Request $request)
+    {
+        $user = $request->user();
+        if (!$user) {
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
+
+        try {
+            $result = $this->englishService->getPracticeScenarios($user->id, now());
+
+            if ($result['totalWords'] === 0) {
+                return response()->json([
+                    'message' => 'No words to review',
+                    'scenarios' => []
+                ], 200);
+            }
+
+            return response()->json([
+                'message' => 'Practice scenarios fetched successfully',
+                'totalWords' => $result['totalWords'],
+                'scenarios' => $result['scenarios'],
+            ], 200);
+        } catch (\Exception $e) {
+            \Log::error('EN getPracticeScenarios error', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
+
+            return response()->json([
+                'message' => 'Error fetching practice scenarios',
+                'error' => config('app.debug') ? $e->getMessage() : 'Internal server error'
+            ], 500);
+        }
+    }
+
+    /**
+     * Get grammar practice scenarios
+     */
+    public function getGrammarPracticeScenarios(Request $request)
+    {
+        $user = $request->user();
+        if (!$user) {
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
+
+        try {
+            $result = $this->englishService->getGrammarPracticeScenarios($user->id, now());
+
+            if ($result['totalWords'] === 0) {
+                return response()->json([
+                    'message' => 'No grammar to review',
+                    'scenarios' => []
+                ], 200);
+            }
+
+            return response()->json([
+                'message' => 'Grammar practice scenarios fetched successfully',
+                'totalWords' => $result['totalWords'],
+                'scenarios' => $result['scenarios'],
+            ], 200);
+        } catch (\Exception $e) {
+            \Log::error('EN getGrammarPracticeScenarios error', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
+
+            return response()->json([
+                'message' => 'Error fetching grammar practice scenarios',
+                'error' => config('app.debug') ? $e->getMessage() : 'Internal server error'
+            ], 500);
+        }
+    }
 }
