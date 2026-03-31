@@ -54,16 +54,16 @@ interface InputFieldProps {
 }
 
 const InputField: React.FC<InputFieldProps> = ({ label, name, value, onChange, error, placeholder }) => (
-  <div className="mb-3">
-    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1 ml-1">{label}</label>
+  <div className="mb-2">
+    <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5 ml-1">{label}</label>
     <input
       name={name}
       value={value}
       onChange={onChange}
-      className={`w-full border rounded-lg px-3 py-2 text-sm transition-all duration-200 ${
+      className={`w-full border rounded-lg px-2.5 py-1.5 text-xs transition-all duration-200 ${
         error 
           ? 'border-red-400 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200' 
-          : 'border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 shadow-sm'
+          : 'border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 shadow-sm'
       } outline-none`}
       aria-invalid={!!error}
       placeholder={placeholder}
@@ -84,16 +84,16 @@ interface SelectFieldProps {
 }
 
 const SelectField: React.FC<SelectFieldProps> = ({ label, name, value, onChange, options, error, placeholder }) => (
-  <div className="mb-3">
-    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1 ml-1">{label}</label>
+  <div className="mb-2">
+    <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5 ml-1">{label}</label>
     <select
       name={name}
       value={value}
       onChange={onChange}
-      className={`w-full border rounded-lg px-3 py-2 text-sm transition-all duration-200 ${
+      className={`w-full border rounded-lg px-2.5 py-1.5 text-xs transition-all duration-200 ${
         error 
           ? 'border-red-400 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200' 
-          : 'border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 shadow-sm'
+          : 'border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 shadow-sm'
       } outline-none cursor-pointer appearance-none`}
       aria-invalid={!!error}
     >
@@ -276,8 +276,8 @@ const AddJapaneseWordForm = () => {
 
   return (
     <div className="flex flex-col h-full bg-[#f8faff] overflow-y-auto">
-      <form onSubmit={handleSubmit} className="max-w-5xl mx-auto px-6 py-8 pb-12">
-        <div className='text-center w-full text-5xl font-black mb-10 text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-gray-700 to-gray-400 uppercase tracking-tighter pt-4'>
+      <form onSubmit={handleSubmit} className="max-w-4xl mx-auto px-4 py-4 pb-8">
+        <div className='text-center w-full text-3xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-gray-700 to-gray-400 uppercase tracking-tighter pt-2'>
           Add New Word
         </div>
 
@@ -287,51 +287,51 @@ const AddJapaneseWordForm = () => {
           <button
             type="button"
             onClick={() => navigate('/jp/home')}
-            className="flex items-center text-gray-500 hover:text-gray-800 transition-all bg-white px-4 py-2 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-x-1"
+            className="flex items-center text-gray-500 hover:text-gray-800 transition-all bg-white px-3 py-1.5 rounded-lg shadow-sm border border-gray-100 hover:shadow-md"
           >
-            <BiLogOutCircle className="text-xl" />
-            <span className="ml-2 text-xs font-bold uppercase tracking-wider">Quay lại</span>
+            <BiLogOutCircle className="text-lg" />
+            <span className="ml-1.5 text-[10px] font-bold uppercase tracking-wider">Quay lại</span>
           </button>
 
           <button
             type="button"
             onClick={() => navigate('/jp/import')}
-            className="flex items-center text-blue-500 hover:text-blue-700 transition-all bg-white px-4 py-2 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:translate-x-1"
+            className="flex items-center text-blue-500 hover:text-blue-700 transition-all bg-white px-3 py-1.5 rounded-lg shadow-sm border border-gray-100 hover:shadow-md"
           >
-            <BiCodeBlock className="text-xl" />
-            <span className="ml-2 text-xs font-bold uppercase tracking-wider">Coder Mode</span>
+            <BiCodeBlock className="text-lg" />
+            <span className="ml-1.5 text-[10px] font-bold uppercase tracking-wider">Coder Mode</span>
           </button>
         </div>
 
-        <div className="bg-white border border-gray-100 rounded-[2rem] p-8 shadow-2xl shadow-gray-200/50 space-y-8 relative overflow-hidden">
+        <div className="bg-white border border-gray-100 rounded-[1.5rem] p-5 shadow-xl shadow-gray-200/40 space-y-5 relative overflow-hidden">
           {/* Một dải màu trang trí phía trên cùng */}
-          <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 via-purple-500 to-fuchsia-500"></div>
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-fuchsia-500"></div>
 
           {/* Hàng 1: Kanji + Gemini */}
-          <div className="border-b border-gray-100 pb-6">
-            <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 ml-1">Kanji</label>
-            <div className="flex space-x-3">
+          <div className="border-b border-gray-100 pb-4">
+            <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1 ml-1">Kanji</label>
+            <div className="flex space-x-2">
               <input
                 name="kanji"
                 value={form.kanji}
                 onChange={handleChange}
-                className={`flex-1 border rounded-xl px-4 py-3 text-sm transition-all duration-200 ${
+                className={`flex-1 border rounded-lg px-3 py-2 text-xs transition-all duration-200 ${
                   errors.kanji 
                     ? 'border-red-400 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200' 
-                    : 'border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 shadow-sm'
+                    : 'border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 shadow-sm'
                 } outline-none`}
-                placeholder="Nhập Kanji để lấy gợi ý từ Gemini AI..."
+                placeholder="Nhập Kanji..."
               />
               <button
                 type="button"
                 onClick={handleGeminiCall}
                 disabled={geminiLoading}
-                className={`flex items-center px-4   py-2 rounded-lg shadow-sm text-white text-xs font-black uppercase tracking-widest transition-all duration-300
+                className={`flex items-center px-3 py-1.5 rounded-lg shadow-sm text-white text-[10px] font-black uppercase tracking-widest transition-all duration-300
                   ${geminiLoading 
                     ? 'bg-purple-300 cursor-not-allowed shadow-none' 
-                    : 'bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-700 hover:to-fuchsia-700 hover:shadow-purple-200 hover:-translate-y-0.5 active:scale-95'}`}
+                    : 'bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-700 hover:to-fuchsia-700 px-3 hover:-translate-y-0.5 active:scale-95'}`}
               >
-                {geminiLoading ? 'Đang gọi...' : <><Sparkles className="mr-2 h-4 w-4" /> Gemini AI</>}
+                {geminiLoading ? '...' : <><Sparkles className="mr-1.5 h-3.5 w-3.5" /> Gemini AI</>}
               </button>
             </div>
             {errors.kanji && <p className="mt-0.5 text-xs text-red-600">{errors.kanji}</p>}
@@ -363,7 +363,7 @@ const AddJapaneseWordForm = () => {
           </div>
 
           {/* Hàng 5: Ví dụ */}
-          <div className="bg-gray-50/50 p-6 rounded-2xl border border-gray-100 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-gray-50/50 p-4 rounded-xl border border-gray-100 grid grid-cols-1 md:grid-cols-2 gap-3">
             <InputField label="Câu tiếng Nhật" name="sentence_jp" value={form.sentence_jp} onChange={handleChange} error={errors.sentence_jp} />
             <InputField label="Câu Hiragana" name="sentence_hira" value={form.sentence_hira} onChange={handleChange} error={errors.sentence_hira} />
             <InputField label="Câu Romaji" name="sentence_romaji" value={form.sentence_romaji} onChange={handleChange} error={errors.sentence_romaji} />
@@ -383,14 +383,14 @@ const AddJapaneseWordForm = () => {
           )}
         </div>
 
-      <div className="flex justify-end mt-6 pb-8">
+      <div className="flex justify-end mt-4 pb-4">
         <button
           type="submit"
           disabled={loading}
-          className={`px-10 py-3 rounded-xl shadow-lg text-white font-black uppercase tracking-widest transition-all duration-300 transform active:scale-95
+          className={`px-6 py-2 rounded-lg shadow-md text-white font-black text-xs uppercase tracking-widest transition-all duration-300 transform active:scale-95
             ${loading 
               ? 'bg-gray-300 cursor-not-allowed shadow-none' 
-              : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 hover:shadow-blue-200 hover:-translate-y-0.5'
+              : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 hover:-translate-y-0.5'
             }`}
         >
           {loading ? 'Đang lưu...' : 'Lưu từ vựng'}

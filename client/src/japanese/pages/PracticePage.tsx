@@ -275,13 +275,13 @@ const PracticePage = () => {
         <div className="hidden xl:block w-2/10"></div>
 
         {/* Center Column */}
-        <div className="w-full xl:w-6/10 flex-1 flex flex-col items-center justify-start py-8 sm:py-12 md:py-16 lg:py-20 px-3 sm:px-6 md:px-8 lg:px-12 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] mx-auto relative">
+        <div className="w-full xl:w-6/10 flex-1 flex flex-col items-center justify-start py-2 sm:py-3 md:py-4 lg:py-6 px-2 sm:px-4 md:px-6 lg:px-8 bg-white/95 backdrop-blur-sm xl:bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] mx-auto relative min-h-full">
 
           {/* Top summary */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex items-center space-x-2 sm:space-x-3 mb-[176px] sm:mb-[232px] md:mb-[288px] lg:mb-8 xl:mb-10 bg-slate-50/80 px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-xl sm:rounded-2xl border border-slate-100 shadow-sm"
+            className="flex items-center space-x-2 mb-2 sm:mb-3 md:mb-4 bg-slate-50/80 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg border border-slate-100 shadow-sm"
           >
             <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-white shadow-inner flex items-center justify-center border border-slate-100">
               <img
@@ -290,44 +290,44 @@ const PracticePage = () => {
                 className="w-4 h-4 sm:w-5 sm:h-5 md:w-7 md:h-7"
               />
             </div>
-            <p className="text-slate-600 font-medium text-xs sm:text-sm md:text-base">
-              Bạn đã học được <span className="font-black text-slate-800 text-sm sm:text-base md:text-lg">{totalWords} từ</span>
+            <p className="text-slate-600 font-medium text-[10px] sm:text-xs">
+              Bạn đã học được <span className="font-black text-slate-800 text-xs sm:text-sm">{totalWords} từ</span>
             </p>
           </motion.div>
 
           {/* Bar Chart */}
-          <div className="relative w-full max-w-2xl mb-6 sm:mb-8 md:mb-10 lg:mb-12 px-1 sm:px-2">
-            <div className="flex justify-between items-end space-x-1 sm:space-x-2 md:space-x-4 lg:space-x-6 h-40 sm:h-52 md:h-64 lg:h-72 pb-4 sm:pb-6 md:pb-8">
+          <div className="relative w-full max-w-xl mb-6 sm:mb-8 md:mb-10 lg:mb-12 px-2 sm:px-4">
+            <div className="flex justify-between items-end gap-1 sm:gap-2 h-[220px] sm:h-[260px] md:h-[300px] lg:h-[340px] pb-4 sm:pb-6 md:pb-8 w-full">
               {reviewStats.map((item, index) => (
                 <div key={item.level} className="flex flex-col items-center flex-1 group">
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.4 + index * 0.1 }}
-                    className="text-[10px] sm:text-xs font-bold text-slate-400 mb-2 sm:mb-3 opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0"
+                    className="text-[10px] sm:text-xs font-bold text-slate-400 mb-1 sm:mb-2 opacity-0 lg:opacity-0 group-hover:opacity-100 transition-all transform translate-y-1 group-hover:translate-y-0"
                   >
                     {item.count}
                   </motion.div>
                   <motion.div
                     initial={{ height: 0 }}
-                    animate={{ height: `${Math.min(item.count / 2 + 40, 220)}px` }}
+                    animate={{ height: `${Math.min(item.count / 2 + 20, 300)}px` }}
                     transition={{ type: "spring", damping: 15, stiffness: 100, delay: index * 0.1 }}
-                    className={`${item.color} w-full max-w-[28px] sm:max-w-[36px] md:max-w-[48px] lg:max-w-[56px] rounded-xl sm:rounded-2xl shadow-[0_3px_0_rgba(0,0,0,0.1)] sm:shadow-[0_4px_0_rgba(0,0,0,0.1)] group-hover:shadow-[0_6px_0_rgba(0,0,0,0.1)] group-hover:-translate-y-1 transition-all cursor-pointer relative`}
+                    className={`${item.color} w-full max-w-[14px] sm:max-w-[20px] md:max-w-[28px] lg:max-w-[36px] rounded-t-lg sm:rounded-t-xl shadow-[0_3px_0_rgba(0,0,0,0.1)] group-hover:shadow-[0_5px_0_rgba(0,0,0,0.1)] group-hover:-translate-y-0.5 transition-all cursor-pointer relative`}
                   />
-                  <div className="mt-2 sm:mt-3 md:mt-4 lg:mt-5 text-base sm:text-lg md:text-xl font-black text-slate-200 group-hover:text-slate-400 transition-colors">
+                  <div className="mt-2 text-[10px] sm:text-xs font-black text-slate-300 group-hover:text-slate-500 transition-colors">
                     {item.level}
                   </div>
                 </div>
               ))}
             </div>
-            <div className="w-full h-1.5 sm:h-2 bg-slate-50 rounded-full" />
+            <div className="w-full h-1 bg-slate-100 rounded-full mt-1" />
           </div>
 
           {/* Action Section */}
-          <div className="flex flex-col items-center w-full max-w-md p-4 sm:p-6 md:p-8 h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] xl:h-[400px]">
-            <div className="text-slate-500 text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-wider sm:tracking-widest mb-1 sm:mb-2">Chuẩn bị ôn tập</div>
-            <div className="text-2xl sm:text-3xl md:text-4xl font-black text-red-500 mb-4 sm:mb-6 md:mb-8 flex items-baseline gap-1 sm:gap-2">
-              {reviewWordsCount} <span className="text-base sm:text-lg md:text-xl text-red-400/80">từ</span>
+          <div className="flex flex-col items-center w-full max-w-xs p-2 sm:p-4 mt-2 sm:mt-4">
+            <div className="text-slate-500 text-[8px] sm:text-[10px] font-bold uppercase tracking-wider mb-0.5">Chuẩn bị ôn tập</div>
+            <div className="text-lg sm:text-xl md:text-2xl font-black text-red-500 mb-2 sm:mb-4 flex items-baseline gap-1">
+              {reviewWordsCount} <span className="text-[10px] sm:text-xs text-red-400/80">từ</span>
             </div>
 
             <motion.button
@@ -335,17 +335,17 @@ const PracticePage = () => {
               whileTap={{ scale: 0.95 }}
               onClick={handleStartPractice}
               disabled={reviewWordsCount === 0 || (reviewWordsCount > 0 && isLoadingScenarios)}
-              className={`relative h-12 sm:h-14 md:h-16 w-full sm:w-64 md:w-72 rounded-xl sm:rounded-2xl font-black text-sm sm:text-base md:text-lg lg:text-xl transition-all duration-200 ${reviewWordsCount > 0 && !isLoadingScenarios
-                ? 'bg-lime-500 text-white shadow-[0_4px_0_rgb(101,163,13)] sm:shadow-[0_6px_0_rgb(101,163,13)] hover:shadow-[0_8px_0_rgb(101,163,13)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none'
-                : 'bg-slate-200 text-slate-400 shadow-[0_3px_0_rgb(203,213,225)] sm:shadow-[0_4px_0_rgb(203,213,225)] cursor-not-allowed'
+              className={`relative h-10 sm:h-11 md:h-12 w-full sm:w-56 md:w-60 rounded-lg sm:rounded-xl font-black text-xs sm:text-sm md:text-base transition-all duration-200 ${reviewWordsCount > 0 && !isLoadingScenarios
+                ? 'bg-lime-500 text-white shadow-[0_3px_0_rgb(101,163,13)] hover:shadow-[0_4px_0_rgb(101,163,13)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none'
+                : 'bg-slate-200 text-slate-400 shadow-[0_2px_0_rgb(203,213,225)] cursor-not-allowed'
                 }`}
             >
-              <span className="flex items-center justify-center gap-1 sm:gap-2">
+              <span className="flex items-center justify-center gap-1 sm:gap-1.5">
                 {reviewWordsCount > 0 ? (
                   isLoadingScenarios ? (
-                    <>Đang chuẩn bị... <span className="text-lg sm:text-xl md:text-2xl animate-spin">⏳</span></>
+                    <>Đang chuẩn bị... <span className="text-base sm:text-lg animate-spin">⏳</span></>
                   ) : (
-                    <>Ôn tập ngay <span className="text-lg sm:text-xl md:text-2xl">🔥</span></>
+                    <>Ôn tập ngay <span className="text-base sm:text-lg">🔥</span></>
                   )
                 ) : (
                   <>⏳ {remainingSec !== null ? formatHMS(remainingSec) : 'Đang chờ...'}</>

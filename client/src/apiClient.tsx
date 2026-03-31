@@ -1,67 +1,21 @@
 // src/apiClient.ts
-// Fix cứng API URL để đảm bảo luôn dùng IP Tailscale
-function computeApiUrl(): string {
-  // IP Tailscale mặc định
-  const TAILSCALE_IP = '100.87.242.47:8005';
-  const DEFAULT_API_URL = `http://${TAILSCALE_IP}/api`;
+// API URL được đọc hoàn toàn từ biến môi trường VITE_API_URL
+// - Production/Remote: cấu hình trong .env (ví dụ: http://100.69.116.74:8005/api)
+// - Local dev: cấu hình trong .env.local (ví dụ: http://localhost:8005/api)
 
-  // Nếu có env variable, kiểm tra xem có phải localhost không
-  if (import.meta.env.VITE_API_URL) {
-    const envUrl = import.meta.env.VITE_API_URL;
-    // Nếu env URL chứa localhost hoặc 127.0.0.1, thay thế bằng IP Tailscale
-    if (envUrl.includes('localhost') || envUrl.includes('127.0.0.1')) {
-      console.warn('[API Client] Phát hiện localhost trong VITE_API_URL, thay thế bằng IP Tailscale');
-      return DEFAULT_API_URL;
-    }
-    return envUrl;
-  }
+export const API_URL: string = import.meta.env.VITE_API_URL || '/api';
 
-  // Fix cứng IP Tailscale
-  return DEFAULT_API_URL;
-}
-
-// Tính toán API_URL mỗi lần gọi để đảm bảo không bị cache localhost
-function getApiUrlRuntime(): string {
-  const url = computeApiUrl();
-
-  // Runtime check: nếu URL chứa localhost/127.0.0.1, force dùng IP Tailscale
-  if (url.includes('localhost') || url.includes('127.0.0.1')) {
-    console.warn('[API Client] Runtime check: Phát hiện localhost, force dùng IP Tailscale');
-    return 'http://100.87.242.47:8005/api';
-  }
-
-  return url;
-}
-
-// Export constant cho backward compatibility - tính toán ngay để đảm bảo không có localhost
-const computedApiUrl = getApiUrlRuntime();
-export const API_URL = computedApiUrl;
-
-// Export function để lấy URL mới mỗi lần gọi (recommended - dùng cho API calls)
 export function getApiBaseUrl(): string {
-  return getApiUrlRuntime();
+  return API_URL;
 }
 
-// Helper để các file khác có thể dùng thay vì API_URL constant
-// Đảm bảo luôn trả về URL đúng, không bao giờ localhost
 export function getApiUrl(): string {
-  return getApiUrlRuntime();
+  return API_URL;
 }
 
-// Log API URL để debug (luôn log, không chỉ DEV)
-if (typeof window !== 'undefined') {
-  const runtimeUrl = getApiBaseUrl();
-  console.log('[API Client] API_URL (constant):', API_URL);
-  console.log('[API Client] API_URL (runtime):', runtimeUrl);
-  console.log('[API Client] Current location:', window.location.href);
-  console.log('[API Client] Hostname:', window.location.hostname);
-  console.log('[API Client] Port:', window.location.port);
-  console.log('[API Client] User Agent:', navigator.userAgent);
-
-  // Warning nếu phát hiện localhost
-  if (runtimeUrl.includes('localhost') || runtimeUrl.includes('127.0.0.1')) {
-    console.error('[API Client] ⚠️ CẢNH BÁO: API URL vẫn chứa localhost! Điều này sẽ không hoạt động trên iPhone.');
-  }
+// Log API URL để debug trong development
+if (import.meta.env.DEV && typeof window !== 'undefined') {
+  console.log('[API Client] API_URL:', API_URL);
 }
 
 // Custom error class với thông tin chi tiết

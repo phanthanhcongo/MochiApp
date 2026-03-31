@@ -66,22 +66,21 @@ const InputField: React.FC<{
   error?: string;
   placeholder?: string;
 }> = ({ label, name, value, onChange, error, placeholder }) => (
-  <div className="mb-4">
-    <label className="block font-medium text-gray-700 mb-1">{label}</label>
+  <div className="mb-2">
+    <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5 ml-1">{label}</label>
     <input
       name={name}
       value={value}
       onChange={onChange}
-      className={`w-full border rounded px-3 py-2 ${error ? 'border-red-500' : 'border-gray-300'}`}
+      className={`w-full border rounded-lg px-2.5 py-1.5 text-xs transition-all duration-200 ${
+        error 
+          ? 'border-red-400 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200' 
+          : 'border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 shadow-sm'
+      } outline-none`}
       aria-invalid={!!error}
-      aria-describedby={error ? `${name}-error` : undefined}
       placeholder={placeholder}
     />
-    {error && (
-      <p id={`${name}-error`} className="mt-1 text-sm text-red-600">
-        {error}
-      </p>
-    )}
+    {error && <p className="mt-1 text-[10px] font-bold text-red-500 uppercase ml-1 tracking-tight">{error}</p>}
   </div>
 );
 
@@ -94,34 +93,31 @@ const SelectField: React.FC<{
   error?: string;
   placeholder?: string;
 }> = ({ label, name, value, onChange, options, error, placeholder }) => (
-  <div className="mb-4">
-    <label className="block font-medium text-gray-700 mb-1">{label}</label>
+  <div className="mb-2">
+    <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5 ml-1">{label}</label>
     <select
       name={name}
       value={value}
       onChange={onChange}
-      className={`w-full border rounded px-3 py-2 ${error ? 'border-red-500' : 'border-gray-300'}`}
+      className={`w-full border rounded-lg px-2.5 py-1.5 text-xs transition-all duration-200 ${
+        error 
+          ? 'border-red-400 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200' 
+          : 'border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 shadow-sm'
+      } outline-none cursor-pointer appearance-none`}
       aria-invalid={!!error}
-      aria-describedby={error ? `${name}-error` : undefined}
     >
-      <option value="">{placeholder || 'Chọn một giá trị'}</option>
+      <option value="">{placeholder || 'Chọn...'}</option>
       {options.map(opt => (
-        <option key={opt.value} value={opt.value}>
-          {opt.label}
-        </option>
+        <option key={opt.value} value={opt.value}>{opt.label}</option>
       ))}
     </select>
-    {error && (
-      <p id={`${name}-error`} className="mt-1 text-sm text-red-600">
-        {error}
-      </p>
-    )}
+    {error && <p className="mt-1 text-[10px] font-bold text-red-500 uppercase ml-1 tracking-tight">{error}</p>}
   </div>
 );
 
 const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
-  <div className="border rounded-md p-4 mb-6">
-    <h2 className="text-lg font-bold mb-4 text-blue-600">{title}</h2>
+  <div className="bg-white border border-gray-100 rounded-xl p-4 shadow-sm mb-4">
+    <h2 className="text-xs font-black uppercase tracking-widest mb-3 text-blue-600 border-b border-blue-50 pb-1">{title}</h2>
     {children}
   </div>
 );
@@ -273,20 +269,24 @@ const EditJapaneseWordForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-4xl mx-auto p-6">
-      <div className="text-center w-full text-5xl">Edit word</div>
+    <div className="h-full flex flex-col bg-[#f8faff] overflow-hidden">
+      <div className="flex-1 overflow-y-auto px-4 py-4 pb-8">
+        <form onSubmit={handleSubmit} className="max-w-4xl mx-auto">
+          <div className='text-center w-full text-3xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-gray-700 to-gray-400 uppercase tracking-tighter pt-2'>
+            Edit Word
+          </div>
 
-      {/* Quay lại */}
-      <div className="flex items-center my-5">
-        <button
-          type="button"
-          onClick={() => navigate('/jp/listWord')}
-          className="flex items-center text-gray-700 hover:text-gray-900 cursor-pointer"
-        >
-          <BiLogOutCircle className="text-gray-700 text-3xl" />
-          <span className="ml-2 text-sm">Quay lại</span>
-        </button>
-      </div>
+          {/* Quay lại */}
+          <div className="flex items-center mb-4">
+            <button
+              type="button"
+              onClick={() => navigate('/jp/listWord')}
+              className="flex items-center text-gray-500 hover:text-gray-800 transition-all bg-white px-3 py-1.5 rounded-lg shadow-sm border border-gray-100"
+            >
+              <BiLogOutCircle className="text-lg" />
+              <span className="ml-1.5 text-[10px] font-bold uppercase tracking-wider">Quay lại</span>
+            </button>
+          </div>
 
       <Section title="1. jp_words">
         <InputField label="Kanji" name="kanji" value={form.kanji} onChange={handleChange} error={errors.kanji} />
@@ -407,26 +407,33 @@ const EditJapaneseWordForm: React.FC = () => {
         />
       </Section>
 
-      {notice && (
-        <div
-          className={`mb-4 rounded px-4 py-3 text-sm ${notice.type === 'success'
-            ? 'bg-green-50 text-green-700 border border-green-200'
-            : 'bg-red-50 text-red-700 border border-red-200'
-            }`}
-        >
-          {notice.msg}
-        </div>
-      )}
+          {notice && (
+            <div className={`mb-4 rounded-lg px-4 py-3 text-[11px] font-bold flex items-center shadow-sm border animate-in fade-in slide-in-from-top-2 duration-300 ${
+              notice.type === 'success' 
+                ? 'bg-green-50 text-green-700 border-green-200' 
+                : 'bg-red-50 text-red-700 border-red-200'
+            }`}>
+              <div className={`mr-3 w-2 h-2 rounded-full ${notice.type === 'success' ? 'bg-green-500' : 'bg-red-500'}`}></div>
+              {notice.msg}
+            </div>
+          )}
 
-      <button
-        type="submit"
-        disabled={saving}
-        className={`mt-4 px-6 py-2 rounded-md shadow text-stone-50 font-semibold ${saving ? 'bg-blue-300 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
-          }`}
-      >
-        {saving ? 'Đang lưu...' : 'Lưu thay đổi'}
-      </button>
-    </form>
+          <div className="flex justify-end mt-4">
+            <button
+              type="submit"
+              disabled={saving}
+              className={`px-8 py-2 rounded-lg shadow-md text-white font-black text-xs uppercase tracking-widest transition-all duration-300 transform active:scale-95 ${
+                saving 
+                  ? 'bg-gray-300 cursor-not-allowed shadow-none' 
+                  : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 hover:-translate-y-0.5'
+              }`}
+            >
+              {saving ? 'Đang lưu...' : 'Lưu thay đổi'}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 

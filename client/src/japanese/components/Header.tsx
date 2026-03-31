@@ -1,20 +1,97 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "../../routes/LanguageContext";
 import { API_URL } from "../../apiClient";
+import {
+  BarChart3,
+  Layers,
+  PlusCircle,
+  List,
+  MessageCircle,
+  LogOut,
+  Settings,
+  Menu,
+  X,
+} from "lucide-react";
 
+// ── Avatar Fallback ──────────────────────────────────────────
+const AvatarFallback = ({
+  name,
+  className = "",
+}: {
+  name: string;
+  className?: string;
+}) => {
+  const initials = name
+    .split(" ")
+    .map((w) => w[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+  return (
+    <div
+      className={`rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white font-bold border-2 border-yellow-400 shadow-lg select-none ${className}`}
+    >
+      {initials || "U"}
+    </div>
+  );
+};
+
+// ── Language Toggle ──────────────────────────────────────────
+const LanguageToggle = () => {
+  const { lang, setLang } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleSwitch = (target: "jp" | "en") => {
+    if (target === lang) return;
+    setLang(target);
+    // Rewrite current URL to new lang prefix
+    const newPath = location.pathname.replace(/^\/(jp|en)/, `/${target}`);
+    navigate(newPath, { replace: true });
+  };
+
+  return (
+    <div className="flex items-center bg-gray-100/80 rounded-full p-0.5 border border-gray-200/60">
+      <button
+        onClick={() => handleSwitch("jp")}
+        className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all duration-300 cursor-pointer ${
+          lang === "jp"
+            ? "bg-white shadow-sm text-amber-600 scale-105"
+            : "text-gray-400 hover:text-gray-600"
+        }`}
+      >
+        🇯🇵 JP
+      </button>
+      <button
+        onClick={() => handleSwitch("en")}
+        className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all duration-300 cursor-pointer ${
+          lang === "en"
+            ? "bg-white shadow-sm text-blue-600 scale-105"
+            : "text-gray-400 hover:text-gray-600"
+        }`}
+      >
+        🇬🇧 EN
+      </button>
+    </div>
+  );
+};
+
+// ══════════════════════════════════════════════════════════════
+// ██  HEADER
+// ══════════════════════════════════════════════════════════════
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [navLoading, setNavLoading] = useState(false); // loading khi vào profile
+  const [navLoading, setNavLoading] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [userName, setUserName] = useState<string>("User");
   const menuRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-  const { lang } = useLanguage(); // 'jp' | 'en'
+  const { lang } = useLanguage();
 
-  // Fetch user info (avatar_url và name) từ database
+  // ── Fetch user info ──
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) return;
@@ -29,15 +106,10 @@ const Header = () => {
           },
           credentials: "include",
         });
-
         if (res.ok) {
           const data = await res.json();
-          if (data.avatar_url) {
-            setAvatarUrl(data.avatar_url);
-          }
-          if (data.name) {
-            setUserName(data.name);
-          }
+          if (data.avatar_url) setAvatarUrl(data.avatar_url);
+          if (data.name) setUserName(data.name);
         }
       } catch (error) {
         console.error("Error fetching user info:", error);
@@ -46,28 +118,30 @@ const Header = () => {
 
     fetchUserInfo();
 
-    // Lắng nghe event khi avatar được cập nhật từ ProfileSettings
     const handleAvatarUpdate = (event: CustomEvent) => {
-      if (event.detail?.avatar_url) {
-        setAvatarUrl(event.detail.avatar_url);
-      }
+      if (event.detail?.avatar_url) setAvatarUrl(event.detail.avatar_url);
     };
-
-    window.addEventListener("avatar-updated" as any, handleAvatarUpdate as EventListener);
-    return () => {
-      window.removeEventListener("avatar-updated" as any, handleAvatarUpdate as EventListener);
-    };
+    window.addEventListener(
+      "avatar-updated" as any,
+      handleAvatarUpdate as EventListener
+    );
+    return () =>
+      window.removeEventListener(
+        "avatar-updated" as any,
+        handleAvatarUpdate as EventListener
+      );
   }, []);
 
-  // đóng menu khi bấm ra ngoài hoặc nhấn Escape
+  // ── Close menus on click outside / Escape ──
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node))
         setOpen(false);
-      }
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target as Node)) {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(e.target as Node)
+      )
         setMobileMenuOpen(false);
-      }
     };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -83,14 +157,20 @@ const Header = () => {
     };
   }, []);
 
-  // nếu Header không unmount sau khi điều hướng
-  // có thể tắt loading từ trang đích bằng cách dispatch sự kiện:
-  // ở trang AccountSettings: useEffect(() => window.dispatchEvent(new Event("app:navigation-idle")), [])
+  // ── Navigation idle listener ──
   useEffect(() => {
     const off = () => setNavLoading(false);
     window.addEventListener("app:navigation-idle", off);
     return () => window.removeEventListener("app:navigation-idle", off);
   }, []);
+
+  // ── Helpers ──
+  const buildTo = (to: string) => {
+    if (!to) return `/${lang}/home`;
+    if (!to.startsWith("/")) to = `/${to}`;
+    if (/^\/(jp|en)(\/|$)/.test(to)) return to;
+    return `/${lang}${to}`;
+  };
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -99,214 +179,235 @@ const Header = () => {
     navigate("/login", { replace: true });
   };
 
-  const userDisplay = userName;
-
-  // chuẩn hóa đường dẫn có tiền tố ngôn ngữ
-  const buildTo = (to: string) => {
-    if (!to) return `/${lang}/home`;
-    if (!to.startsWith("/")) to = `/${to}`;
-    if (/^\/(jp|en)(\/|$)/.test(to)) return to;
-    return `/${lang}${to}`;
-  };
-
   const handleGoProfile = () => {
     setOpen(false);
     setMobileMenuOpen(false);
     setNavLoading(true);
     navigate(buildTo("/ProfileSettings"));
   };
-  // const handleGoProfile = () => {
-  //   setOpen(false);
-  //   setNavLoading(true);
-  //   navigate("/jp/ProfileSettings");
-  // };
+
+  // ── Nav items config ──
+  const navItems = [
+    {
+      icon: BarChart3,
+      label: "Ôn tập",
+      to: buildTo("home"),
+    },
+    {
+      icon: Layers,
+      label: "Ngữ pháp",
+      to: buildTo("home-grammar"),
+    },
+    {
+      icon: PlusCircle,
+      label: "Thêm từ mới",
+      to: buildTo("add"),
+    },
+    {
+      icon: List,
+      label: "Danh sách từ",
+      to: buildTo("listWord"),
+    },
+    {
+      icon: MessageCircle,
+      label: "Chat AI",
+      to: buildTo("chat"),
+    },
+  ];
+
+  // ── Avatar renderer ──
+  const renderAvatar = (size: string) => {
+    if (avatarUrl) {
+      return (
+        <img
+          src={avatarUrl}
+          alt={userName}
+          className={`${size} rounded-full border-2 border-yellow-400 shadow-lg object-cover`}
+          onError={() => setAvatarUrl(null)}
+        />
+      );
+    }
+    return <AvatarFallback name={userName} className={size} />;
+  };
 
   return (
-    <header className="relative w-full backdrop-blur-md bg-gradient-to-r from-white/95 via-blue-50/95 to-purple-50/95 border-b border-gray-200/50 shadow-lg shadow-gray-200/20 z-40 mt-10 md:mt-0">
-      <div className="flex items-center justify-between px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-3 sm:py-4 md:py-5">
-        {/* Logo */}
+    <header className="relative w-full backdrop-blur-md bg-gradient-to-r from-white/95 via-blue-50/95 to-purple-50/95 border-b border-gray-200/50 shadow-md shadow-gray-200/10 z-40">
+      <div className="flex items-center justify-between px-2 sm:px-4 md:px-6 lg:px-8 py-0.5 sm:py-1">
+        {/* ── Logo ── */}
         <div className="flex items-center min-w-0 flex-shrink-0">
-          <Link
-            to={buildTo("/home")}
-            className="relative block overflow-visible"
-          >
-            <h1 className="relative text-5xl font-extrabold bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-500 bg-clip-text text-transparent drop-shadow-sm overflow-visible whitespace-nowrap" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundImage: 'linear-gradient(to right, #eab308, #f59e0b, #f97316)' }}>
-              成功
-            </h1>
+          <Link to={buildTo("/home")} className="relative block group">
+            <div className="flex items-center gap-1">
+              <span className="text-base sm:text-lg">🌸</span>
+              <h1
+                className="relative text-lg sm:text-xl font-extrabold bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-500 bg-clip-text text-transparent drop-shadow-sm whitespace-nowrap group-hover:from-orange-500 group-hover:via-amber-500 group-hover:to-yellow-500 transition-all duration-500"
+                style={{
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                成功
+              </h1>
+            </div>
           </Link>
         </div>
 
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center justify-center flex-1 mx-4 lg:mx-8 space-x-1 lg:space-x-2">
-          <MenuItem
-            iconSrc="https://kanji.mochidemy.com/_next/static/media/icon_graph.d55d6264.svg"
-            label="Ôn tập"
-            to={buildTo("home")}
-          />
-          <MenuItem
-            iconSrc="https://kanji.mochidemy.com/_next/static/media/icon_graph.d55d6264.svg"
-            label="Ôn tập Ngữ pháp"
-            to={buildTo("home-grammar")}
-          />
-          <MenuItem
-            iconSrc="https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ficon_vocab.1963c4d5.png&w=384&q=75"
-            label="Thêm từ mới"
-            to={buildTo("add")}
-          />
-          <MenuItem
-            iconSrc="https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsearch_icon.9524d432.png&w=256&q=75"
-            label="List từ đã thêm"
-            to={buildTo("listWord")}
-          />
+        {/* ── Desktop Navigation ── */}
+        <nav className="hidden md:flex items-center justify-center flex-1 mx-4 lg:mx-8 gap-1 lg:gap-1.5">
+          {navItems.map((item) => (
+            <MenuItem
+              key={item.to}
+              icon={item.icon}
+              label={item.label}
+              to={item.to}
+            />
+          ))}
         </nav>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center justify-end flex-shrink-0 relative z-50" ref={mobileMenuRef}>
+        {/* ── Desktop Right: Lang Toggle + User ── */}
+        <div
+          className="hidden md:flex md:items-center md:gap-3 md:flex-shrink-0 relative"
+          ref={menuRef}
+        >
+          <LanguageToggle />
+
           <button
-            onClick={() => setMobileMenuOpen((v) => !v)}
-            className="flex items-center justify-center focus:outline-none relative z-50"
-            aria-label="Menu"
+            onClick={() => setOpen((v) => !v)}
+            className="flex items-center gap-2 lg:gap-3 focus:outline-none group relative cursor-pointer"
+            aria-haspopup="menu"
+            aria-expanded={open}
           >
+            <div className="hidden lg:flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200/30">
+              <span className="text-blue-700 font-bold text-[9px]">
+                {userName}
+              </span>
+            </div>
             <div className="relative">
-              <img
-                src={avatarUrl || ""}
-                alt="User"
-                className="w-10 h-10 rounded-full border-2 border-yellow-400 shadow-lg object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = "";
-                }}
-              />
-              {mobileMenuOpen && (
-                <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full shadow-md"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 rounded-full blur-sm opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
+              {renderAvatar(
+                "relative w-5 h-5 md:w-6 md:h-6 text-[8px] md:text-[9px]"
               )}
             </div>
           </button>
 
-          {/* Mobile Dropdown Menu */}
-          {mobileMenuOpen && (
+          {/* ── Enhanced Desktop Dropdown ── */}
+          {open && (
             <div
               role="menu"
-              className="fixed right-3 top-[60px] sm:top-[64px] w-64 max-w-[calc(100vw-1.5rem)] rounded-2xl bg-white/95 backdrop-blur-xl shadow-2xl border border-gray-200/50 z-[60]"
-              style={{
-                animation: 'slideDown 0.2s ease-out'
-              }}
+              className="absolute right-0 top-full mt-2 w-60 rounded-xl bg-white/95 backdrop-blur-xl shadow-2xl border border-gray-200/50 overflow-hidden header-dropdown-enter"
             >
-              <div className="py-2">
-                {/* Navigation Items */}
-                <MobileMenuItem
-                  iconSrc="https://kanji.mochidemy.com/_next/static/media/icon_graph.d55d6264.svg"
-                  label="Ôn tập"
-                  to={buildTo("home")}
-                  onClick={() => setMobileMenuOpen(false)}
-                />
-                <MobileMenuItem
-                  iconSrc="https://kanji.mochidemy.com/_next/static/media/icon_graph.d55d6264.svg"
-                  label="Ôn tập Ngữ pháp"
-                  to={buildTo("home-grammar")}
-                  onClick={() => setMobileMenuOpen(false)}
-                />
-                <MobileMenuItem
-                  iconSrc="https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ficon_vocab.1963c4d5.png&w=384&q=75"
-                  label="Thêm từ mới"
-                  to={buildTo("add")}
-                  onClick={() => setMobileMenuOpen(false)}
-                />
-                <MobileMenuItem
-                  iconSrc="https://kanji.mochidemy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsearch_icon.9524d432.png&w=256&q=75"
-                  label="List từ đã thêm"
-                  to={buildTo("listWord")}
-                  onClick={() => setMobileMenuOpen(false)}
-                />
+              {/* User card */}
+              <div className="p-4 bg-gradient-to-r from-amber-50/80 to-orange-50/50 border-b border-gray-100">
+                <div className="flex items-center gap-3">
+                  {renderAvatar("w-12 h-12 text-base")}
+                  <div className="min-w-0">
+                    <p className="font-bold text-gray-800 truncate">
+                      {userName}
+                    </p>
+                    <p className="text-xs text-gray-500 flex items-center gap-1">
+                      <span className="w-2 h-2 bg-green-500 rounded-full inline-block" />
+                      Online
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-                <div className="my-1 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
-
-                {/* Profile Options */}
+              {/* Menu items */}
+              <div className="py-1.5">
                 <button
                   onClick={handleGoProfile}
-                  className="w-full text-left px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200 flex items-center space-x-3 group"
+                  className="w-full text-left px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200 flex items-center gap-3 group"
                   role="menuitem"
                 >
-                  <svg className="w-5 h-5 text-blue-500 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                  <span>Profile settings</span>
+                  <Settings className="w-4.5 h-4.5 text-blue-500 group-hover:text-blue-600 transition-colors group-hover:rotate-90 duration-300" />
+                  <span>Cài đặt tài khoản</span>
                 </button>
+
+                <div className="my-1 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+
                 <button
                   onClick={handleLogout}
-                  className="w-full text-left px-4 py-3 text-sm font-medium text-red-600 hover:bg-gradient-to-r hover:from-red-50 hover:to-pink-50 transition-all duration-200 flex items-center space-x-3 group"
+                  className="w-full text-left px-4 py-2.5 text-sm font-medium text-red-600 hover:bg-gradient-to-r hover:from-red-50 hover:to-pink-50 transition-all duration-200 flex items-center gap-3 group"
                   role="menuitem"
                 >
-                  <svg className="w-5 h-5 text-red-500 group-hover:text-red-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                  </svg>
-                  <span>Logout</span>
+                  <LogOut className="w-4.5 h-4.5 text-red-500 group-hover:text-red-600 transition-colors" />
+                  <span>Đăng xuất</span>
                 </button>
               </div>
             </div>
           )}
         </div>
 
-        {/* Desktop User info + dropdown */}
-        <div className="hidden md:flex md:items-center md:justify-end md:flex-shrink-0 md:relative" ref={menuRef}>
+        {/* ── Mobile: Lang Toggle + Menu Button ── */}
+        <div
+          className="md:hidden flex items-center gap-2 flex-shrink-0 relative z-50"
+          ref={mobileMenuRef}
+        >
+          <LanguageToggle />
+
           <button
-            onClick={() => setOpen((v) => !v)}
-            className="flex items-center space-x-2 lg:space-x-3 focus:outline-none group relative"
-            aria-haspopup="menu"
-            aria-expanded={open}
+            onClick={() => setMobileMenuOpen((v) => !v)}
+            className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors focus:outline-none relative z-50 cursor-pointer border border-gray-200/50"
+            aria-label="Menu"
           >
-            <div className="hidden lg:flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200/50 shadow-sm group-hover:shadow-md group-hover:scale-105 transition-all duration-300">
-              <span className="text-blue-700 font-semibold text-sm">
-                {userDisplay}
-              </span>
-            </div>
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 rounded-full blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
-              <img
-                src={avatarUrl || "https://st.quantrimang.com/photos/image/2022/11/21/tai-sao-gojo-lai-deo-bit-mat-3.jpg"}
-                alt="User"
-                className="relative w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 rounded-full border-2 border-yellow-400 shadow-lg object-cover group-hover:border-yellow-500 group-hover:scale-105 transition-all duration-300"
-                onError={(e) => {
-                  // Fallback nếu ảnh lỗi
-                  (e.target as HTMLImageElement).src = "https://st.quantrimang.com/photos/image/2022/11/21/tai-sao-gojo-lai-deo-bit-mat-3.jpg";
-                }}
-              />
-              {open && (
-                <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full shadow-md"></div>
-              )}
-            </div>
+            {mobileMenuOpen ? (
+              <X className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-gray-700" />
+            ) : (
+              <Menu className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-gray-700" />
+            )}
           </button>
 
-          {/* Dropdown menu */}
-          {open && (
+          {/* ── Mobile Dropdown ── */}
+          {mobileMenuOpen && (
             <div
               role="menu"
-              className="absolute right-0 top-full mt-3 w-56 rounded-2xl bg-white/95 backdrop-blur-xl shadow-2xl border border-gray-200/50"
-              style={{
-                animation: 'slideDown 0.2s ease-out'
-              }}
+              className="fixed right-3 top-[56px] sm:top-[60px] w-72 max-w-[calc(100vw-1.5rem)] rounded-2xl bg-white/95 backdrop-blur-xl shadow-2xl border border-gray-200/50 z-[60] overflow-hidden header-dropdown-enter"
             >
-              <div className="py-2">
-                {/* đổi Link sang button để chủ động bật loading và navigate */}
+              {/* Mobile user card */}
+              <div className="p-4 bg-gradient-to-r from-amber-50/80 to-orange-50/50 border-b border-gray-100">
+                <div className="flex items-center gap-3">
+                  {renderAvatar("w-10 h-10 text-sm")}
+                  <div className="min-w-0">
+                    <p className="font-bold text-gray-800 truncate text-sm">
+                      {userName}
+                    </p>
+                    <p className="text-xs text-gray-500 flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 bg-green-500 rounded-full inline-block" />
+                      Online
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="py-1.5">
+                {/* Navigation Items */}
+                {navItems.map((item) => (
+                  <MobileMenuItem
+                    key={item.to}
+                    icon={item.icon}
+                    label={item.label}
+                    to={item.to}
+                    onClick={() => setMobileMenuOpen(false)}
+                  />
+                ))}
+
+                <div className="my-1 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+
+                {/* Profile & Logout */}
                 <button
                   onClick={handleGoProfile}
-                  className="w-full text-left px-5 py-3 text-sm font-medium text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200 flex items-center space-x-3 group"
+                  className="w-full text-left px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200 flex items-center gap-3 group"
                   role="menuitem"
                 >
-                  <svg className="w-5 h-5 text-blue-500 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                  <span>Profile settings</span>
+                  <Settings className="w-4.5 h-4.5 text-blue-500 group-hover:text-blue-600 transition-colors" />
+                  <span>Cài đặt tài khoản</span>
                 </button>
-                <div className="my-1 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
                 <button
                   onClick={handleLogout}
-                  className="w-full text-left px-5 py-3 text-sm font-medium text-red-600 hover:bg-gradient-to-r hover:from-red-50 hover:to-pink-50 transition-all duration-200 flex items-center space-x-3 group"
+                  className="w-full text-left px-4 py-2.5 text-sm font-medium text-red-600 hover:bg-gradient-to-r hover:from-red-50 hover:to-pink-50 transition-all duration-200 flex items-center gap-3 group"
                   role="menuitem"
                 >
-                  <svg className="w-5 h-5 text-red-500 group-hover:text-red-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                  </svg>
-                  <span>Logout</span>
+                  <LogOut className="w-4.5 h-4.5 text-red-500 group-hover:text-red-600 transition-colors" />
+                  <span>Đăng xuất</span>
                 </button>
               </div>
             </div>
@@ -314,80 +415,112 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Overlay loading khi điều hướng sang profile */}
+      {/* ── Slim progress bar (replaces full-screen overlay) ── */}
       {navLoading && (
-        <div className="fixed inset-0 flex flex-col items-center justify-center bg-white/90 backdrop-blur-md z-50">
-          <div className="relative">
-            <div className="animate-spin rounded-full h-24 w-24 border-4 border-transparent border-t-yellow-400 border-r-amber-500 border-b-orange-500 border-l-yellow-400"></div>
-            <div className="absolute top-0 left-0 h-24 w-24 rounded-full border-4 border-transparent border-t-yellow-200 border-r-amber-200 border-b-orange-200 border-l-yellow-200 opacity-50 animate-spin" style={{ animationDirection: 'reverse', animationDuration: '1.5s' }}></div>
-          </div>
-          <p className="mt-8 text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Đang tải...</p>
+        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gray-100 overflow-hidden">
+          <div className="h-full bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 w-1/3 rounded-full header-progress-bar" />
         </div>
       )}
-
-      <style>{`
-        @keyframes slideDown {
-          from {
-            opacity: 0;
-            transform: translateY(-10px) scale(0.95);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-      `}</style>
     </header>
   );
 };
 
-// ---- MenuItem ----
+// ── Desktop MenuItem ─────────────────────────────────────────
 type MenuItemProps = {
-  iconSrc: string;
+  icon: React.ComponentType<{ className?: string }>;
   label: string;
   to: string;
 };
 
-const MenuItem = ({ iconSrc, label, to }: MenuItemProps) => (
-  <Link to={to} className="group relative">
-    <div className="flex flex-col items-center justify-center px-2 py-1.5 lg:px-3 lg:py-2 rounded-lg lg:rounded-xl cursor-pointer transition-all duration-300 hover:bg-white/60 hover:shadow-md hover:scale-105 min-w-[60px]">
-      <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-lg blur-md opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
-        <img
-          src={iconSrc}
-          alt={label}
-          className="relative w-5 h-5 md:w-5 md:h-5 lg:w-6 lg:h-6 group-hover:scale-110 transition-transform duration-300 filter drop-shadow-sm"
-        />
-      </div>
-      <span className="mt-1 text-[10px] md:text-xs font-semibold text-gray-700 group-hover:text-blue-600 transition-colors duration-300 whitespace-nowrap text-center">
-        {label}
-      </span>
-    </div>
-  </Link>
-);
+const MenuItem = ({ icon: Icon, label, to }: MenuItemProps) => {
+  const location = useLocation();
+  const isActive = location.pathname === to;
 
-// ---- MobileMenuItem ----
+  return (
+    <Link to={to} className="group relative">
+      <div
+        className={`flex flex-col items-center justify-center px-2 py-1 lg:px-2.5 lg:py-1.5 rounded-xl cursor-pointer transition-all duration-300 min-w-[50px] ${
+          isActive
+            ? "bg-amber-50/80 shadow-sm border border-amber-200/50"
+            : "hover:bg-white/60 hover:shadow-md hover:scale-105"
+        }`}
+      >
+        <div className="relative">
+          <div
+            className={`absolute inset-0 rounded-lg blur-md transition-opacity duration-300 ${
+              isActive
+                ? "bg-gradient-to-r from-amber-400 to-orange-400 opacity-25"
+                : "bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-30"
+            }`}
+          />
+          <Icon
+            className={`relative w-3.5 h-3.5 md:w-4 md:h-4 transition-all duration-300 ${
+              isActive
+                ? "text-amber-600 scale-110"
+                : "text-gray-500 group-hover:text-blue-600 group-hover:scale-110"
+            }`}
+          />
+        </div>
+        <span
+          className={`mt-0.5 text-[7.5px] md:text-[9px] font-semibold transition-colors duration-300 whitespace-nowrap text-center ${
+            isActive
+              ? "text-amber-700"
+              : "text-gray-600 group-hover:text-blue-600"
+          }`}
+        >
+          {label}
+        </span>
+
+        {/* Active indicator dot */}
+        {isActive && (
+          <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-5 h-1 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full" />
+        )}
+      </div>
+    </Link>
+  );
+};
+
+// ── Mobile MenuItem ──────────────────────────────────────────
 type MobileMenuItemProps = {
-  iconSrc: string;
+  icon: React.ComponentType<{ className?: string }>;
   label: string;
   to: string;
   onClick: () => void;
 };
 
-const MobileMenuItem = ({ iconSrc, label, to, onClick }: MobileMenuItemProps) => (
-  <Link
-    to={to}
-    onClick={onClick}
-    className="w-full text-left px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200 flex items-center space-x-3 group"
-    role="menuitem"
-  >
-    <img
-      src={iconSrc}
-      alt={label}
-      className="w-5 h-5 group-hover:scale-110 transition-transform duration-300 filter drop-shadow-sm"
-    />
-    <span>{label}</span>
-  </Link>
-);
+const MobileMenuItem = ({
+  icon: Icon,
+  label,
+  to,
+  onClick,
+}: MobileMenuItemProps) => {
+  const location = useLocation();
+  const isActive = location.pathname === to;
+
+  return (
+    <Link
+      to={to}
+      onClick={onClick}
+      className={`w-full text-left px-4 py-2.5 text-sm font-medium transition-all duration-200 flex items-center gap-3 group ${
+        isActive
+          ? "bg-amber-50 text-amber-700 border-l-3 border-amber-400"
+          : "text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50"
+      }`}
+      role="menuitem"
+    >
+      <Icon
+        className={`w-4.5 h-4.5 transition-all duration-300 ${
+          isActive
+            ? "text-amber-600"
+            : "text-gray-400 group-hover:text-blue-600 group-hover:scale-110"
+        }`}
+      />
+      <span>{label}</span>
+      {isActive && (
+        <span className="ml-auto w-1.5 h-1.5 bg-amber-500 rounded-full" />
+      )}
+    </Link>
+  );
+};
 
 export default Header;
