@@ -849,17 +849,29 @@ class EnglishService
         $daySet = array_fill_keys($successDaysDesc, true);
 
         if (!isset($daySet[$cursor->toDateString()])) {
-            $nearest = null;
-            foreach ($successDaysDesc as $d) {
-                if ($d <= $now->toDateString()) {
-                    $nearest = $d;
-                    break;
+            $yesterdayStr = $cursor->copy()->subDay()->toDateString();
+
+            if (isset($daySet[$yesterdayStr])) {
+                // Học ngày hôm qua, chuỗi vẫn được duy trì
+                $cursor = Carbon::parse($yesterdayStr);
+            } else {
+                // Nếu hôm qua cũng không học => mất chuỗi
+                if ($cleanup) {
+                    $nearest = null;
+                    foreach ($successDaysDesc as $d) {
+                        if ($d <= $now->toDateString()) {
+                            $nearest = $d;
+                            break;
+                        }
+                    }
+                    if ($nearest) {
+                        EnDailyLog::where('user_id', $userId)
+                            ->whereDate('reviewed_at', '<=', $nearest)
+                            ->delete();
+                    }
                 }
-            }
-            if (!$nearest) {
                 return 0;
             }
-            $cursor = Carbon::parse($nearest);
         }
 
         $streak = 0;

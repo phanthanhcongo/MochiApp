@@ -847,17 +847,29 @@ class JapaneseService
 
         // Nếu hôm nay chưa học, lùi về ngày học gần nhất
         if (!isset($daySet[$cursor->toDateString()])) {
-            $nearest = null;
-            foreach ($successDaysDesc as $d) {
-                if ($d <= $now->toDateString()) {
-                    $nearest = $d;
-                    break;
+            $yesterdayStr = $cursor->copy()->subDay()->toDateString();
+            
+            if (isset($daySet[$yesterdayStr])) {
+                // Hôm qua có học, chuỗi vẫn còn
+                $cursor = Carbon::parse($yesterdayStr);
+            } else {
+                // Hôm qua KHÔNG học -> Đứt chuỗi
+                if ($cleanup) {
+                    $nearest = null;
+                    foreach ($successDaysDesc as $d) {
+                        if ($d <= $now->toDateString()) {
+                            $nearest = $d;
+                            break;
+                        }
+                    }
+                    if ($nearest) {
+                        JpDailyLog::where('user_id', $userId)
+                            ->whereDate('reviewed_at', '<=', $nearest)
+                            ->delete();
+                    }
                 }
-            }
-            if (!$nearest) {
                 return 0;
             }
-            $cursor = Carbon::parse($nearest);
         }
 
         // Đếm streak
