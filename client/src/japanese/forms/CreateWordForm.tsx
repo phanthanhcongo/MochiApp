@@ -106,7 +106,7 @@ const SelectField: React.FC<SelectFieldProps> = ({ label, name, value, onChange,
   </div>
 );
 
-const AddJapaneseWordForm = () => {
+const CreateWordForm = () => {
   const navigate = useNavigate();
 
   const [form, setForm] = useState<FormState>(INITIAL_FORM);
@@ -401,4 +401,7 @@ const AddJapaneseWordForm = () => {
   );
 };
 
-export default AddJapaneseWordForm;
+export default CreateWordForm;
+
+
+

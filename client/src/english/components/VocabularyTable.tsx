@@ -30,7 +30,7 @@ type ApiResponse = {
   words?: EnWord[];  // fallback nếu backend trả "words"
 };
 
-export default function EnglishPracticeDisplay() {
+export default function VocabularyTable() {
   const navigate = useNavigate();
   const [deleteId, setDeleteId] = useState<number | null>(null);
   // UI state
@@ -354,10 +354,10 @@ export default function EnglishPracticeDisplay() {
   };
 
   return (
-    <div className="min-h-screen mx-auto px-4">
+    <div className="min-h-screen">
       {/* Header + Search */}
-      <div className="bg-white/95 backdrop-blur-sm fixed top-0 left-1/2 -translate-x-1/2 w-full xl:w-[70%] z-30 shadow-sm border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-6 py-2">
+      <div className="bg-white/95 backdrop-blur-sm sticky top-0 w-full z-30 shadow-sm border-b border-gray-100">
+        <div className="max-w-6xl  px-6 py-2">
           <div className="flex items-center justify-between mb-2 relative">
             <button
               onClick={() => navigate("/en/home")}
@@ -520,7 +520,7 @@ export default function EnglishPracticeDisplay() {
       </div>
 
       {/* List */}
-      <div className="pt-44 pb-10 max-w-6xl mx-auto">
+      <div className="pt-4 pb-10 max-w-6xl mx-auto px-4">
         {filteredWords.map((w) => (
           <div
             key={w.id}
@@ -602,12 +602,12 @@ export default function EnglishPracticeDisplay() {
             </div>
             
             {/* Nội dung word */}
-            <div className="p-5">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <div className="p-3 md:p-4">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
                 {/* Cột trái: Word + IPA */}
                 <div className="md:col-span-4 flex flex-col justify-center border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0">
-                  <div className="flex items-center gap-3 mb-2">
-                    <h3 className="text-4xl font-black text-gray-900 tracking-tight">{w.word}</h3>
+                  <div className="flex items-center gap-3 mb-1">
+                    <h3 className="text-2xl font-black text-gray-900 tracking-tight">{w.word}</h3>
                     <button
                       onClick={() => handleSpeak(w.word)}
                       className="w-10 h-10 flex items-center justify-center rounded-full bg-yellow-50 text-yellow-600 hover:bg-yellow-100 transition-colors shadow-sm"
@@ -620,7 +620,7 @@ export default function EnglishPracticeDisplay() {
                     </button>
                   </div>
                   {w.ipa && (
-                    <div className="text-lg text-blue-600 font-mono bg-blue-50 px-3 py-1 rounded-lg w-fit">
+                    <div className="text-sm text-blue-600 font-mono bg-blue-50 px-2 py-0.5 rounded-lg w-fit">
                       {w.ipa}
                     </div>
                   )}
@@ -636,14 +636,14 @@ export default function EnglishPracticeDisplay() {
                 <div className="md:col-span-8 space-y-4">
                   <div>
                     <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-1">Nghĩa tiếng Việt</span>
-                    <p className="text-xl font-bold text-gray-800">{w.meaning_vi}</p>
+                    <p className="text-lg font-bold text-gray-800">{w.meaning_vi}</p>
                   </div>
 
                   {(w.exampleEn || w.exampleVn) && (
-                    <div className="bg-gray-50 p-4 rounded-xl border border-gray-100">
-                      <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-2">Ví dụ nhanh</span>
-                      {w.exampleEn && <p className="text-gray-800 font-semibold mb-1">“{w.exampleEn}”</p>}
-                      {w.exampleVn && <p className="text-gray-600 text-sm italic">{w.exampleVn}</p>}
+                    <div className="bg-gray-50 p-3 rounded-lg border border-gray-100">
+                      <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-1">Ví dụ nhanh</span>
+                      {w.exampleEn && <p className="text-gray-800 font-semibold mb-0.5 text-sm">“{w.exampleEn}”</p>}
+                      {w.exampleVn && <p className="text-gray-600 text-xs italic">{w.exampleVn}</p>}
                     </div>
                   )}
 

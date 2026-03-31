@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
-import { usePracticeSession } from '../utils/practiceStore';
+import { usePracticeSession } from '../utils/usePracticeStore';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
-import EnglishPracticeResultPanel from '../components/EnglishPracticeResultPanel';
+import PracticeResultPanel from '../components/PracticeResultPanel';
 import { HiSpeakerWave } from "react-icons/hi2";
 import { showToast } from '../../components/Toast';
 
@@ -374,7 +374,7 @@ const VoicePractice: React.FC = React.memo(() => {
         </div>
       </div>
 
-      <EnglishPracticeResultPanel
+      <PracticeResultPanel
         isAnswered={isAnswered}
         isForgetClicked={isForgetClicked}
         isCorrectAnswer={isCorrectAnswer}

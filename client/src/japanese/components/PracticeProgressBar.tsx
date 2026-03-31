@@ -47,3 +47,6 @@ const PracticeProgressBar: React.FC<PracticeProgressBarProps> = ({
 
 export default React.memo(PracticeProgressBar);
 
+
+
+

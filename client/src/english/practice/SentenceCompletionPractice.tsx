@@ -2,13 +2,13 @@ import React, { useEffect, useMemo, useState, useRef, useCallback } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { useLocation, useNavigate } from "react-router-dom";
-import { usePracticeSession } from "../utils/practiceStore";
+import { usePracticeSession } from "../utils/usePracticeStore";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { BiLogOutCircle } from "react-icons/bi";
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 import { API_URL } from '../../apiClient';
-import EnglishPracticeResultPanel from '../components/EnglishPracticeResultPanel';
+import PracticeResultPanel from '../components/PracticeResultPanel';
 
 interface Choice {
   text: string;
@@ -35,7 +35,7 @@ const maskWordInSentence = (sentence: string, target: string) => {
   return sentence.slice(0, idx) + ` ${BLANK} ` + sentence.slice(idx);
 };
 
-const MultipleSentence: React.FC = () => {
+const SentenceCompletionPractice: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -381,7 +381,7 @@ const MultipleSentence: React.FC = () => {
 
           {/* Result Panel */}
           {currentWord && (
-            <EnglishPracticeResultPanel
+            <PracticeResultPanel
               isAnswered={isAnswered}
               isForgetClicked={isForgetClicked}
               isCorrectAnswer={isCorrectAnswer}
@@ -432,7 +432,7 @@ const MultipleSentence: React.FC = () => {
   );
 };
 
-export default MultipleSentence;
+export default SentenceCompletionPractice;
 function setCanContinue(_arg0: boolean) {
   throw new Error("Function not implemented.");
 }

@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { usePracticeSession, speak } from '../utils/practiceStore';
+import { usePracticeSession, speak } from '../utils/usePracticeStore';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
-import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
+import PracticeResultPanel from '../components/PracticeResultPanel';
 import { showToast } from '../../components/Toast';
 
-const HiraganaPractice: React.FC = React.memo(() => {
+const ReadingHiraganaPractice: React.FC = React.memo(() => {
   const [selectedChars, setSelectedChars] = useState<string[]>([]);
   const [isAnswered, setIsAnswered] = useState(false);
   const [isResultHidden, setIsResultHidden] = useState(false);
@@ -27,12 +27,12 @@ const HiraganaPractice: React.FC = React.memo(() => {
   useEffect(() => {
     // Đợi một chút để đảm bảo location.state đã được set đúng cách sau khi navigate
     const checkState = setTimeout(() => {
-      const allowedSources = ['multiple', 'hiraganaPractice', 'romajiPractice', 'voicePractice'];
+      const allowedSources = ['multiple', 'ReadingHiraganaPractice', 'TypingRomajiPractice', 'voicePractice'];
       const state = location.state as any;
 
       // Kiểm tra xem có đang ở đúng route không
       const currentPath = location.pathname;
-      const isCorrectRoute = currentPath.includes('hiraganaPractice');
+      const isCorrectRoute = currentPath.includes('ReadingHiraganaPractice');
 
       // Nếu không ở đúng route, không làm gì cả (có thể đang navigate đi)
       if (!isCorrectRoute) {
@@ -59,7 +59,7 @@ const HiraganaPractice: React.FC = React.memo(() => {
       }
 
       // Kiểm tra xem state.from có khớp với route hiện tại không
-      const stateFromMatchesRoute = state.from === 'hiraganaPractice';
+      const stateFromMatchesRoute = state.from === 'ReadingHiraganaPractice';
 
       if (!allowedSources.includes(state.from)) {
         // Chỉ navigate nếu state.from không khớp với route hiện tại
@@ -142,7 +142,7 @@ const HiraganaPractice: React.FC = React.memo(() => {
     sessionStorage.setItem('reload_count', '0');
 
     // Sử dụng method mới từ store để xử lý toàn bộ logic
-    // console.log('📞 [HiraganaPractice] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
+    // console.log('📞 [ReadingHiraganaPractice] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
     await continueToNextQuiz(navigate, () => {
       setIsNavigating(false);
       isProcessingRef.current = false;
@@ -165,7 +165,7 @@ const HiraganaPractice: React.FC = React.memo(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // CHỈ xử lý nếu đang ở đúng route
       const currentPath = window.location.pathname;
-      const isCorrectRoute = currentPath.includes('hiraganaPractice');
+      const isCorrectRoute = currentPath.includes('ReadingHiraganaPractice');
       if (!isCorrectRoute) return;
 
       // Ignore auto-repeat events when key is held down
@@ -199,7 +199,7 @@ const HiraganaPractice: React.FC = React.memo(() => {
 
   // Component is always mounted, visibility handled by PracticeWrapper
   const currentPath = location.pathname;
-  const isCorrectRoute = currentPath.includes('hiraganaPractice');
+  const isCorrectRoute = currentPath.includes('ReadingHiraganaPractice');
 
   if (!currentWord || !isCorrectRoute) {
     return null;
@@ -296,7 +296,7 @@ const HiraganaPractice: React.FC = React.memo(() => {
         </div>
       </div>
 
-      <JpPracticeResultPanel
+      <PracticeResultPanel
         isAnswered={isAnswered}
         isForgetClicked={isForgetClicked}
         isCorrectAnswer={isCorrectAnswer}
@@ -311,6 +311,9 @@ const HiraganaPractice: React.FC = React.memo(() => {
   );
 });
 
-HiraganaPractice.displayName = 'HiraganaPractice';
+ReadingHiraganaPractice.displayName = 'ReadingHiraganaPractice';
 
-export default HiraganaPractice;
+export default ReadingHiraganaPractice;
+
+
+

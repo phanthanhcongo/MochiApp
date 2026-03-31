@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { usePracticeSession } from '../utils/practiceStore';
+import { usePracticeSession } from '../utils/usePracticeStore';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaPlay, FaPause } from "react-icons/fa";
 import { BiLogOutCircle } from "react-icons/bi";
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 import { API_URL } from '../../apiClient';
-import EnglishPracticeResultPanel from '../components/EnglishPracticeResultPanel';
+import PracticeResultPanel from '../components/PracticeResultPanel';
 import { showToast } from '../../components/Toast';
 
 interface AnswerOption {
@@ -16,7 +16,7 @@ interface AnswerOption {
   isCorrect: boolean;
 }
 
-const MultipleChoiceQuiz: React.FC = React.memo(() => {
+const MultipleChoicePractice: React.FC = React.memo(() => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -428,7 +428,7 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
             </button>
           </div>
 
-          <EnglishPracticeResultPanel
+          <PracticeResultPanel
             isAnswered={isAnswered}
             isForgetClicked={isForgetClicked}
             isCorrectAnswer={isCorrectAnswer}
@@ -484,6 +484,6 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
   );
 });
 
-MultipleChoiceQuiz.displayName = 'MultipleChoiceQuiz';
+MultipleChoicePractice.displayName = 'MultipleChoicePractice';
 
-export default MultipleChoiceQuiz;
+export default MultipleChoicePractice;

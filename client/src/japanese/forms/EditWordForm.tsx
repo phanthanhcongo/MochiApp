@@ -122,7 +122,7 @@ const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title
   </div>
 );
 
-const EditJapaneseWordForm: React.FC = () => {
+const EditWordForm: React.FC = () => {
   const { id: idFromUrl } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const location = useLocation() as { state?: { form?: FormState } };
@@ -437,4 +437,7 @@ const EditJapaneseWordForm: React.FC = () => {
   );
 };
 
-export default EditJapaneseWordForm;
+export default EditWordForm;
+
+
+

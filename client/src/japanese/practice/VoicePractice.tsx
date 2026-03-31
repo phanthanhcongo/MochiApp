@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
-import { usePracticeSession, speak } from '../utils/practiceStore';
+import { usePracticeSession, speak } from '../utils/usePracticeStore';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
-import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
+import PracticeResultPanel from '../components/PracticeResultPanel';
 import { HiSpeakerWave } from "react-icons/hi2";
 import { showToast } from '../../components/Toast';
 
@@ -140,7 +140,7 @@ const VoicePractice: React.FC = React.memo(() => {
   useEffect(() => {
     // Đợi một chút để đảm bảo location.state đã được set đúng cách sau khi navigate
     const checkState = setTimeout(() => {
-      const allowedSources = ['multiple', 'hiraganaPractice', 'romajiPractice', 'voicePractice'];
+      const allowedSources = ['multiple', 'ReadingHiraganaPractice', 'TypingRomajiPractice', 'voicePractice'];
       const state = location.state;
 
       // Kiểm tra xem có đang ở đúng route không
@@ -404,7 +404,7 @@ const VoicePractice: React.FC = React.memo(() => {
         </div>
       </div>
 
-      <JpPracticeResultPanel
+      <PracticeResultPanel
         isAnswered={isAnswered}
         isForgetClicked={isForgetClicked}
         isCorrectAnswer={isCorrectAnswer}
@@ -422,3 +422,6 @@ const VoicePractice: React.FC = React.memo(() => {
 VoicePractice.displayName = 'VoicePractice';
 
 export default VoicePractice;
+
+
+

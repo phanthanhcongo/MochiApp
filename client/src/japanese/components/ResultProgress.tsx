@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
-import { usePracticeSession } from '../utils/practiceStore';
+import { usePracticeSession } from '../utils/usePracticeStore';
 
 interface ReviewWord {
   id: number;
@@ -155,3 +155,6 @@ const ResultProgress: React.FC = () => {
 };
 
 export default ResultProgress;
+
+
+

@@ -2,12 +2,12 @@ import React, { useEffect, useMemo, useRef, useState, useCallback } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { useLocation, useNavigate } from "react-router-dom";
-import { usePracticeSession } from "../utils/practiceStore";
+import { usePracticeSession } from "../utils/usePracticeStore";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { BiLogOutCircle } from "react-icons/bi";
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
-import EnglishPracticeResultPanel from '../components/EnglishPracticeResultPanel';
+import PracticeResultPanel from '../components/PracticeResultPanel';
 
 const BLANK = "(   )"; // dùng ký hiệu trống thống nhất
 
@@ -299,7 +299,7 @@ const FillInBlankPractice: React.FC = React.memo(() => {
         </div>
 
         {/* Result Panel */}
-        <EnglishPracticeResultPanel
+        <PracticeResultPanel
           isAnswered={isAnswered}
           isForgetClicked={isForgetClicked}
           isCorrectAnswer={isCorrectAnswer}

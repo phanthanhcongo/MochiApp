@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 import { API_URL } from '../../apiClient';
 
-export type QuizType = 'multiple' | 'hiraganaPractice' | 'romajiPractice' | 'voicePractice' | 'multiCharStrokePractice';
-export type QuizType_withoutStroke = 'multiple' | 'hiraganaPractice' | 'romajiPractice' | 'voicePractice';
+export type QuizType = 'multiple' | 'ReadingHiraganaPractice' | 'TypingRomajiPractice' | 'voicePractice' | 'WritingKanjiPractice';
+export type QuizType_withoutStroke = 'multiple' | 'ReadingHiraganaPractice' | 'TypingRomajiPractice' | 'voicePractice';
 
 // Có ÍT NHẤT 1 ký tự Kanji (mọi extension, mọi mặt phẳng)
 export const containsKanjiStrict = (s: string): boolean =>
@@ -436,7 +436,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
               console.log('📚 [GRAMMAR WRONG ANSWER] Forcing multiple choice quiz type');
             } else {
               // Vocabulary: pick random from all 4 types, preferably different from old type
-              const availableQuizTypes: QuizType[] = ['multiple', 'romajiPractice', 'voicePractice', 'hiraganaPractice'];
+              const availableQuizTypes: QuizType[] = ['multiple', 'TypingRomajiPractice', 'voicePractice', 'ReadingHiraganaPractice'];
               const oldQuizType = currentScenario.quizType;
               const filteredQuizTypes = availableQuizTypes.filter(type => type !== oldQuizType);
               const newQuizTypes = filteredQuizTypes.length > 0 ? filteredQuizTypes : availableQuizTypes;
@@ -692,3 +692,6 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
     }
   },
 }));
+
+
+

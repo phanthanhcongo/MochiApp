@@ -169,7 +169,7 @@ const ProfileSettings: React.FC = () => {
         updatedAvatarUrl = avatarData.avatar_url;
         setProfile(p => (p ? { ...p, avatar_url: updatedAvatarUrl } : p));
         setAvatarUrl('');
-        
+
         // Dispatch event để Header cập nhật avatar
         window.dispatchEvent(new CustomEvent('avatar-updated', {
           detail: { avatar_url: updatedAvatarUrl }
@@ -186,8 +186,8 @@ const ProfileSettings: React.FC = () => {
 
       setProfile(p => (p ? { ...p, target_language: resolvedLang, avatar_url: updatedAvatarUrl } : p));
       setGlobalLang(resolvedLang);
-      refresh({ silent: true }).catch(() => {});
-      
+      refresh({ silent: true }).catch(() => { });
+
       // Redirect về trang home ngay lập tức
       navigateWithLang('/home');
     } catch (e) {
@@ -218,40 +218,40 @@ const ProfileSettings: React.FC = () => {
     <div className="w-full min-h-screen max-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 flex flex-col overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 shadow-lg flex-shrink-0">
-        <div className="h-14 md:h-20 flex items-center justify-center px-3 md:px-6 relative">
+        <div className="h-10 md:h-12 flex items-center justify-center px-3 md:px-6 relative">
           <button
             onClick={() => navigateWithLang('/home')}
-            className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 text-white text-3xl md:text-6xl font-bold hover:bg-white/20 w-8 h-8 md:w-12 md:h-12 flex items-center justify-center transition-all duration-200 active:scale-95"
+            className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 text-white text-xl md:text-2xl font-bold hover:bg-white/20 w-6 h-6 md:w-8 md:h-8 flex items-center justify-center transition-all duration-200 active:scale-95 rounded-full"
             aria-label="Back"
           >
             ←
           </button>
-          <h1 className="text-white font-bold text-base md:text-xl lg:text-2xl tracking-tight drop-shadow-sm">
+          <h1 className="text-white font-bold text-xs md:text-sm tracking-tight drop-shadow-sm">
             Cài đặt tài khoản
           </h1>
         </div>
       </div>
 
       {/* Body */}
-      <div className="p-2 md:p-6 lg:p-8 flex flex-col items-center mx-auto flex-1 h-full overflow-y-auto w-full">
+      <div className="p-2 flex flex-col items-center justify-center mx-auto flex-1 h-full overflow-y-auto w-full">
         {/* Profile Card */}
-        <div className="w-full h-full bg-white rounded-2xl md:rounded-3xl shadow-xl p-3 md:p-6 lg:p-8 mb-3 md:mb-6 transform transition-all duration-300 hover:shadow-2xl flex flex-col">
+        <div className="w-full max-w-lg bg-white rounded-xl shadow-lg p-2 md:p-3 mb-2 transform transition-all duration-300 flex flex-col">
           {/* Avatar Section */}
-          <div className="flex flex-col items-center mb-6 md:mb-8">
-            <div className="relative w-60 h-80 md:w-56 md:h-72 lg:w-64 lg:h-80 xl:w-72 xl:h-96">
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-xl md:rounded-2xl blur-md opacity-50"></div>
+          <div className="flex flex-col items-center mb-3 md:mb-4">
+            <div className="relative w-32 h-44 md:w-40 md:h-56">
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-lg blur-md opacity-50"></div>
               <img
                 src={avatarUrl.trim() || profile.avatar_url || '/avatar.png'}
                 alt="avatar"
-                className="relative w-60 h-80 md:w-56 md:h-72 lg:w-64 lg:h-80 xl:w-72 xl:h-96 rounded-xl md:rounded-2xl border-2 md:border-4 border-white object-cover shadow-lg ring-2 md:ring-4 ring-yellow-400/30"
+                className="relative w-32 h-44 md:w-40 md:h-56 rounded-lg border-2 border-white object-cover shadow-md ring-2 ring-yellow-400/20"
                 onError={(e) => {
                   // Fallback nếu ảnh không load được
                   (e.target as HTMLImageElement).src = '/avatar.png';
                 }}
               />
-              <div className="absolute -bottom-1 -right-1 md:-bottom-2 md:-right-2 bg-green-500 rounded-full w-5 h-5 md:w-7 md:h-7 lg:w-8 lg:h-8 border-2 md:border-4 border-white shadow-md"></div>
+              <div className="absolute -bottom-1 -right-1 bg-green-500 rounded-full w-3 h-3 md:w-4 md:h-4 border-2 border-white shadow-sm"></div>
             </div>
-            
+
             {/* Change Avatar Button */}
             <div className="mt-3 md:mt-4 flex flex-col items-center">
               <button
@@ -259,9 +259,9 @@ const ProfileSettings: React.FC = () => {
                   setAvatarUrl(profile.avatar_url || '');
                   setShowAvatarModal(true);
                 }}
-                className="px-4 py-2.5 md:px-6 md:py-3 rounded-lg md:rounded-xl bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-white font-semibold text-sm md:text-base shadow-lg hover:shadow-xl transform transition-all duration-200 active:scale-95 cursor-pointer flex items-center gap-1 md:gap-2"
+                className="px-2 py-1.5 md:px-3 md:py-2 rounded-lg bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-white font-semibold text-[10px] md:text-xs shadow-md hover:shadow-lg transform transition-all duration-200 active:scale-95 cursor-pointer flex items-center gap-1"
               >
-                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
                 <span className="hidden sm:inline">Thay ảnh đại diện</span>
@@ -271,57 +271,55 @@ const ProfileSettings: React.FC = () => {
                 <p className="mt-2 md:mt-2 text-sm md:text-base text-green-600 font-medium text-center px-2">✓ Đã nhập URL mới, nhấn "Lưu thay đổi" để cập nhật</p>
               )}
             </div>
-            
-            <h2 className="mt-3 md:mt-4 text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800 tracking-tight">{profile.name}</h2>
-            <p className="mt-2 md:mt-2 text-sm md:text-base lg:text-lg text-gray-500">Hồ sơ của bạn</p>
+
+            <h2 className="mt-1 text-base md:text-lg font-bold text-gray-800 tracking-tight">{profile.name}</h2>
+            <p className="text-[10px] md:text-xs text-gray-500">Hồ sơ cá nhân</p>
           </div>
 
           {/* Divider */}
-          <div className="border-t border-gray-200 my-3 md:my-6"></div>
+          <div className="border-t border-gray-100 my-1.5 md:my-2"></div>
 
           {/* Language picker */}
           <div className="w-full">
-            <div className="text-gray-800 font-semibold m-2 md:m-5 text-sm md:text-lg flex items-center gap-2">
-              <svg className="w-4 h-4 md:w-5 md:h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="text-gray-800 font-semibold m-1 md:m-1.5 text-[10px] md:text-sm flex items-center gap-1">
+              <svg className="w-3 h-3 md:w-3.5 md:h-3.5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
               </svg>
-              Ngôn ngữ muốn học
+              Ngôn ngữ học tập
             </div>
 
-            <div className="flex gap-2 md:gap-3 m-2 md:m-4">
+            <div className="flex gap-1.5 md:gap-2 m-1 md:m-1.5">
               <button
                 type="button"
                 onClick={() => setLang('jp')}
-                className={`flex-1 px-3 py-2 md:px-6 md:py-4 m-2 md:m-5 rounded-xl md:rounded-2xl border-2 transition-all duration-200 transform active:scale-95 font-semibold text-xs md:text-base ${
-                  resolvedLang === 'jp'
-                    ? 'bg-gradient-to-r from-yellow-400 to-amber-500 text-white border-yellow-500 shadow-lg shadow-yellow-400/50 scale-105'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 border-gray-200 hover:border-yellow-300 hover:shadow-md'
-                }`}
+                className={`flex-1 px-2 py-1 md:px-3 md:py-1.5 rounded-lg border-2 transition-all duration-200 transform active:scale-95 font-semibold text-[10px] md:text-xs ${resolvedLang === 'jp'
+                    ? 'bg-gradient-to-r from-yellow-400 to-amber-500 text-white border-yellow-500 shadow-sm'
+                    : 'bg-white text-gray-700 hover:bg-gray-50 border-gray-200 hover:border-yellow-300'
+                  }`}
               >
-                <div className="flex items-center justify-center gap-1 md:gap-2">
-                  <span className="text-base md:text-lg">🇯🇵</span>
+                <div className="flex items-center justify-center gap-1">
+                  <span className="text-xs md:text-sm">🇯🇵</span>
                   <span>Tiếng Nhật</span>
                 </div>
               </button>
               <button
                 type="button"
                 onClick={() => setLang('en')}
-                className={`flex-1 px-3 py-2 md:px-6 md:py-4 m-2 md:m-5 rounded-xl md:rounded-2xl border-2 transition-all duration-200 transform active:scale-95 font-semibold text-xs md:text-base ${
-                  resolvedLang === 'en'
-                    ? 'bg-gradient-to-r from-yellow-400 to-amber-500 text-white border-yellow-500 shadow-lg shadow-yellow-400/50 scale-105'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 border-gray-200 hover:border-yellow-300 hover:shadow-md'
-                }`}
+                className={`flex-1 px-2 py-1 md:px-3 md:py-1.5 rounded-lg border-2 transition-all duration-200 transform active:scale-95 font-semibold text-[10px] md:text-xs ${resolvedLang === 'en'
+                    ? 'bg-gradient-to-r from-yellow-400 to-amber-500 text-white border-yellow-500 shadow-sm'
+                    : 'bg-white text-gray-700 hover:bg-gray-50 border-gray-200 hover:border-yellow-300'
+                  }`}
               >
-                <div className="flex items-center justify-center gap-1 md:gap-2">
-                  <span className="text-base md:text-lg">🇬🇧</span>
+                <div className="flex items-center justify-center gap-1">
+                  <span className="text-xs md:text-sm">🇬🇧</span>
                   <span>Tiếng Anh</span>
                 </div>
               </button>
             </div>
 
-            <div className="m-2 md:m-5 p-2 md:p-4 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-lg md:rounded-xl border border-yellow-200">
-              <div className="text-xs md:text-sm text-gray-700 flex items-center gap-2">
-                <svg className="w-3 h-3 md:w-4 md:h-4 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+            <div className="m-1 md:m-1.5 p-1 bg-gray-50 rounded border border-gray-200">
+              <div className="text-[9px] md:text-[10px] text-gray-600 flex items-center gap-1">
+                <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                 </svg>
                 <span>Đang chọn: <span className="font-bold text-yellow-700">{langLabel(resolvedLang)}</span></span>
@@ -329,11 +327,11 @@ const ProfileSettings: React.FC = () => {
             </div>
 
             {/* Save Button */}
-            <div className="m-2 md:m-5">
+            <div className="m-1 md:m-1.5">
               <button
                 onClick={saveProfile}
                 disabled={saving}
-                className="w-full px-4 py-3 md:px-6 md:py-4 rounded-full bg-gradient-to-r from-gray-900 via-gray-800 to-black hover:from-black hover:via-gray-900 hover:to-gray-800 text-white font-bold text-sm md:text-lg shadow-lg hover:shadow-xl transform transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none active:scale-95 flex items-center justify-center gap-2"
+                className="w-full px-4 py-1.5 md:px-5 md:py-2 rounded-full bg-gradient-to-r from-gray-900 via-gray-800 to-black hover:from-black hover:via-gray-900 hover:to-gray-800 text-white font-bold text-[10px] md:text-sm shadow-md transition-all duration-200 active:scale-95 flex items-center justify-center gap-1.5"
               >
                 {saving ? (
                   <>
@@ -355,11 +353,10 @@ const ProfileSettings: React.FC = () => {
 
               {message && (
                 <div
-                  className={`mt-2 md:mt-4 p-2 md:p-4 rounded-lg md:rounded-xl border-2 flex items-center gap-2 md:gap-3 animate-in slide-in-from-top-2 duration-300 ${
-                    message.type === 'success'
+                  className={`mt-2 md:mt-4 p-2 md:p-4 rounded-lg md:rounded-xl border-2 flex items-center gap-2 md:gap-3 animate-in slide-in-from-top-2 duration-300 ${message.type === 'success'
                       ? 'bg-green-50 text-green-800 border-green-200'
                       : 'bg-red-50 text-red-800 border-red-200'
-                  }`}
+                    }`}
                 >
                   {message.type === 'success' ? (
                     <svg className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -383,7 +380,7 @@ const ProfileSettings: React.FC = () => {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-3 md:p-4" onClick={() => setShowAvatarModal(false)}>
           <div className="bg-white rounded-xl md:rounded-2xl shadow-2xl max-w-md w-full p-4 md:p-6 transform transition-all" onClick={(e) => e.stopPropagation()}>
             <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-3 md:mb-4">Nhập đường dẫn ảnh đại diện</h3>
-            
+
             <div className="mb-3 md:mb-4">
               <label className="block text-xs md:text-sm font-medium text-gray-700 mb-2">
                 URL ảnh (ví dụ: https://example.com/image.jpg)

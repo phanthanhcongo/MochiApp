@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import type { ReviewWord } from '../utils/practiceStore';
+import type { ReviewWord } from '../utils/usePracticeStore';
 
-interface JpPracticeResultPanelProps {
+interface PracticeResultPanelProps {
   isAnswered: boolean;
   isForgetClicked: boolean;
   isCorrectAnswer: boolean | null;
@@ -15,7 +15,7 @@ interface JpPracticeResultPanelProps {
   speak: (text: string) => void;
 }
 
-const JpPracticeResultPanel: React.FC<JpPracticeResultPanelProps> = ({
+const PracticeResultPanel: React.FC<PracticeResultPanelProps> = ({
   isAnswered,
   isForgetClicked,
   isCorrectAnswer,
@@ -122,5 +122,8 @@ const JpPracticeResultPanel: React.FC<JpPracticeResultPanelProps> = ({
   );
 };
 
-export default JpPracticeResultPanel;
+export default PracticeResultPanel;
+
+
+
 

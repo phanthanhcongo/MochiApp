@@ -1,15 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import HanziWriter from 'hanzi-writer';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { usePracticeSession, speak } from '../utils/practiceStore';
+import { usePracticeSession, speak } from '../utils/usePracticeStore';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
-import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
-import { cnCharDataLoader } from '../utils/strokeData';
+import PracticeResultPanel from '../components/PracticeResultPanel';
+import { cnCharDataLoader } from '../utils/kanjiStrokeData';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 
 const isKanji = (char: string): boolean => /[\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]/.test(char);
 
-const MultiCharStrokePractice: React.FC = () => {
+const WritingKanjiPractice: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -36,12 +36,12 @@ const MultiCharStrokePractice: React.FC = () => {
   useEffect(() => {
     // Đợi một chút để đảm bảo location.state đã được set đúng cách sau khi navigate
     const checkState = setTimeout(() => {
-      const allowedSources = ['multiple', 'hiraganaPractice', 'romajiPractice', 'voicePractice', 'multiCharStrokePractice'];
+      const allowedSources = ['multiple', 'ReadingHiraganaPractice', 'TypingRomajiPractice', 'voicePractice', 'WritingKanjiPractice'];
       const state = location.state;
 
       // Kiểm tra xem có đang ở đúng route không
       const currentPath = location.pathname;
-      const isCorrectRoute = currentPath.includes('multiCharStrokePractice');
+      const isCorrectRoute = currentPath.includes('WritingKanjiPractice');
 
       // Nếu không ở đúng route, không làm gì cả (có thể đang navigate đi)
       if (!isCorrectRoute) {
@@ -74,7 +74,7 @@ const MultiCharStrokePractice: React.FC = () => {
 
       // Kiểm tra xem state.from có khớp với route hiện tại không
       // Nếu khớp, không cần navigate (đang ở đúng route)
-      const stateFromMatchesRoute = state.from === 'multiCharStrokePractice';
+      const stateFromMatchesRoute = state.from === 'WritingKanjiPractice';
 
       if (!allowedSources.includes(state.from)) {
         // Chỉ navigate nếu state.from không khớp với route hiện tại
@@ -207,7 +207,7 @@ const MultiCharStrokePractice: React.FC = () => {
       // Add delay before showing result to allow user to see the last stroke
       const timer = setTimeout(() => {
         setIsCorrectAnswer(true);
-        markAnswer(true, 'multiCharStrokePractice');
+        markAnswer(true, 'WritingKanjiPractice');
       }, 1000);
 
       return () => clearTimeout(timer);
@@ -217,7 +217,7 @@ const MultiCharStrokePractice: React.FC = () => {
   const handleSkip = React.useCallback(() => {
     if (!isCorrectAnswer) {
       setIsCorrectAnswer(true);
-      markAnswer(true, 'multiCharStrokePractice');
+      markAnswer(true, 'WritingKanjiPractice');
       speak(word?.reading_hiragana || '');
       writersRef.current.forEach((writer) => {
         if (writer) {
@@ -242,7 +242,7 @@ const MultiCharStrokePractice: React.FC = () => {
     await new Promise(resolve => setTimeout(resolve, 400));
 
     // Xóa từ khỏi pool khi trả lời đúng (kể cả stroke practice)
-    // console.log('📞 [MultiCharStrokePractice.handleContinue] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
+    // console.log('📞 [WritingKanjiPractice.handleContinue] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
     await continueToNextQuiz(navigate, () => {
       setIsNavigating(false);
       isProcessingRef.current = false;
@@ -253,7 +253,7 @@ const MultiCharStrokePractice: React.FC = () => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // CHỈ xử lý nếu đang ở đúng route
       const currentPath = window.location.pathname;
-      const isCorrectRoute = currentPath.includes('multiCharStrokePractice');
+      const isCorrectRoute = currentPath.includes('WritingKanjiPractice');
       if (!isCorrectRoute) return;
 
       // Ignore auto-repeat events when key is held down
@@ -275,8 +275,8 @@ const MultiCharStrokePractice: React.FC = () => {
 
   // Ẩn component ngay khi đang navigate hoặc không phải quiz type hiện tại
   const currentPath = location.pathname;
-  const isCorrectRoute = currentPath.includes('multiCharStrokePractice');
-  const shouldHide = storeIsNavigating || (previousType && previousType !== 'multiCharStrokePractice');
+  const isCorrectRoute = currentPath.includes('WritingKanjiPractice');
+  const shouldHide = storeIsNavigating || (previousType && previousType !== 'WritingKanjiPractice');
 
   // Đồng bộ exit animation với state updates
   useEffect(() => {
@@ -350,7 +350,7 @@ const MultiCharStrokePractice: React.FC = () => {
         </div>
       </div>
 
-      <JpPracticeResultPanel
+      <PracticeResultPanel
         isAnswered={isResultShown}
         isForgetClicked={isForgetClicked}
         isCorrectAnswer={isCorrectAnswer}
@@ -365,4 +365,7 @@ const MultiCharStrokePractice: React.FC = () => {
   );
 };
 
-export default MultiCharStrokePractice;
+export default WritingKanjiPractice;
+
+
+

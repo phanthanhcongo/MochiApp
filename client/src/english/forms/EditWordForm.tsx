@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from '../../apiClient';
+import { BiLogOutCircle } from "react-icons/bi";
 
 type CEFR = "A1" | "A2" | "B1" | "B2" | "C1" | "C2" | "";
 
@@ -90,7 +91,7 @@ function mapFromApi(apiWord: any): ReviewWord {
   };
 }
 
-export default function EditEnglishWordForm() {
+export default function EditWordForm() {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
 
@@ -161,10 +162,17 @@ export default function EditEnglishWordForm() {
   const hasError = (key: string) => !!errors[key] && touched[key];
   const helpId = (key: string) => `${key.replace(/\./g, "-")}-error`;
 
+const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
+  <div className="bg-white border border-gray-100 rounded-xl p-4 shadow-sm mb-4">
+    <h2 className="text-xs font-black uppercase tracking-widest mb-3 text-blue-600 border-b border-blue-50 pb-1">{title}</h2>
+    {children}
+  </div>
+);
+
   const inputClass = (key: string) =>
-    `block w-full rounded-xl border px-3 py-2 text-sm shadow-sm placeholder:text-neutral-400 focus-visible:outline-none focus:ring-4 transition ${hasError(key)
-      ? "border-red-500 ring-red-200"
-      : "border-neutral-300 bg-slate-50 focus:ring-black/10 focus:border-neutral-800"
+    `block w-full border rounded-lg px-2.5 py-1.5 text-xs transition-all duration-200 shadow-sm outline-none ${hasError(key)
+      ? "border-red-400 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200"
+      : "border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
     }`;
 
   // ====== validate ======
@@ -326,14 +334,25 @@ export default function EditEnglishWordForm() {
   if (!word) return <div>Không tìm thấy từ</div>;
 
   return (
-    <div>
-      <div className="mx-auto w-full px-4 py-8">
-        <header className="mb-6">
-          <h2 className="text-2xl font-semibold tracking-tight">Edit English Word</h2>
-          <p className="mt-1 text-sm text-neutral-600">
-            Fields marked with <span className="text-red-600">*</span> are required.
+    <div className="h-full flex flex-col bg-[#f8faff] overflow-hidden">
+      <div className="flex-1 overflow-y-auto px-4 py-4 pb-8">
+        <header className="max-w-4xl mx-auto mb-6 text-center">
+          <h2 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-gray-700 to-gray-400 uppercase tracking-tighter pt-2">Edit English Word</h2>
+          <p className="mt-1 text-[10px] font-bold text-gray-400 uppercase tracking-wider">
+            Fields marked with <span className="text-red-500">*</span> are required.
           </p>
         </header>
+
+        <div className="max-w-4xl mx-auto flex items-center mb-4">
+          <button
+            type="button"
+            onClick={() => navigate('/en/listWord')}
+            className="flex items-center text-gray-500 hover:text-gray-800 transition-all bg-white px-3 py-1.5 rounded-lg shadow-sm border border-gray-100"
+          >
+            <BiLogOutCircle className="text-lg" />
+            <span className="ml-1.5 text-[10px] font-bold uppercase tracking-wider">Quay lại</span>
+          </button>
+        </div>
 
         {errors._form && (
           <div
@@ -344,16 +363,15 @@ export default function EditEnglishWordForm() {
           </div>
         )}
 
-        <section className="rounded-2xl bg-slate-50 shadow-sm ring-1 ring-neutral-200">
-          <div className="p-6 space-y-8">
-            {/* Basic fields */}
-            <div>
-              <h3 className="text-base font-medium">Basic Info</h3>
-              <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+        <section className="max-w-4xl mx-auto bg-white border border-gray-100 rounded-[1.5rem] p-5 shadow-xl shadow-gray-200/40 relative overflow-hidden">
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-fuchsia-500"></div>
+          <div className="space-y-5">
+            <Section title="Basic Info">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 {/* Word */}
-                <label className="flex flex-col gap-1" data-field="word">
-                  <span className="text-sm font-medium">
-                    Word <span className="text-red-600">*</span>
+                <label className="flex flex-col gap-0.5" data-field="word">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">
+                    Word <span className="text-red-500">*</span>
                   </span>
                   <input
                     className={inputClass("word")}
@@ -377,8 +395,8 @@ export default function EditEnglishWordForm() {
                 </label>
 
                 {/* IPA */}
-                <label className="flex flex-col gap-1">
-                  <span className="text-sm font-medium">IPA</span>
+                <label className="flex flex-col gap-0.5">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">IPA</span>
                   <input
                     className={inputClass("ipa")}
                     value={word.ipa || ""}
@@ -394,8 +412,8 @@ export default function EditEnglishWordForm() {
                 </label>
 
                 {/* CEFR */}
-                <label className="flex flex-col gap-1">
-                  <span className="text-sm font-medium">CEFR level</span>
+                <label className="flex flex-col gap-0.5">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">CEFR level</span>
                   <select
                     className={inputClass("cefr_level")}
                     value={word.cefr_level || ""}
@@ -418,8 +436,8 @@ export default function EditEnglishWordForm() {
                 </label>
 
                 {/* Level */}
-                <label className="flex flex-col gap-1">
-                  <span className="text-sm font-medium">Level</span>
+                <label className="flex flex-col gap-0.5">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Level</span>
                   <input
                     type="number"
                     min={1}
@@ -437,9 +455,9 @@ export default function EditEnglishWordForm() {
                 </label>
 
                 {/* Meaning VI */}
-                <label className="md:col-span-2 flex flex-col gap-1" data-field="meaning_vi">
-                  <span className="text-sm font-medium">
-                    Meaning VI <span className="text-red-600">*</span>
+                <label className="md:col-span-2 flex flex-col gap-0.5" data-field="meaning_vi">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">
+                    Meaning VI <span className="text-red-500">*</span>
                   </span>
                   <input
                     className={inputClass("meaning_vi")}
@@ -462,15 +480,15 @@ export default function EditEnglishWordForm() {
                   )}
                 </label>
                 {/* Status: is_active */}
-                <label className="flex flex-col gap-1">
-                  <span className="text-sm font-medium">Status</span>
+                <label className="flex flex-col gap-0.5">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Status</span>
                   <select
                     className={inputClass("is_active")}
                     value={word.is_active}
                     onChange={(e) => {
                       const v = e.target.value as "1" | "0";
                       setField("is_active", v);
-                      revalidateOnChange("is_active", { ...word, is_active: v });
+                      revalidateOnChange("is_active", { ...(word as ReviewWord), is_active: v });
                     }}
                     onBlur={() => setFieldTouched("is_active")}
                   >
@@ -480,8 +498,8 @@ export default function EditEnglishWordForm() {
                 </label>
 
                 {/* Is Grammar */}
-                <label className="flex flex-col gap-1">
-                  <span className="text-sm font-medium">Loại</span>
+                <label className="flex flex-col gap-0.5">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Loại</span>
                   <select
                     className={inputClass("is_grammar")}
                     value={word.is_grammar ? "1" : "0"}
@@ -499,8 +517,8 @@ export default function EditEnglishWordForm() {
                 </label>
 
                 {/* Context VI */}
-                <label className="md:col-span-2 flex flex-col gap-1">
-                  <span className="text-sm font-medium">Context VI</span>
+                <label className="md:col-span-2 flex flex-col gap-0.5">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Context VI</span>
                   <textarea
                     className={inputClass("context_vi") + " min-h-24 resize-y"}
                     value={word.context_vi}
@@ -516,8 +534,8 @@ export default function EditEnglishWordForm() {
                 </label>
 
                 {/* Quick Example EN */}
-                <label className="flex flex-col gap-1">
-                  <span className="text-sm font-medium">Quick Example EN</span>
+                <label className="flex flex-col gap-0.5">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Quick Example EN</span>
                   <input
                     className={inputClass("exampleEn")}
                     value={word.exampleEn}
@@ -533,8 +551,8 @@ export default function EditEnglishWordForm() {
                 </label>
 
                 {/* Quick Example VI */}
-                <label className="flex flex-col gap-1">
-                  <span className="text-sm font-medium">Quick Example VI</span>
+                <label className="flex flex-col gap-0.5">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Quick Example VI</span>
                   <input
                     className={inputClass("exampleVi")}
                     value={word.exampleVi}
@@ -550,8 +568,8 @@ export default function EditEnglishWordForm() {
                 </label>
 
                 {/* Last/Next Reviewed (tùy chỉnh nếu muốn chỉnh tay) */}
-                <label className="flex flex-col gap-1">
-                  <span className="text-sm font-medium">Last reviewed at</span>
+                <label className="flex flex-col gap-0.5">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Last reviewed at</span>
                   <input
                     className={inputClass("last_reviewed_at")}
                     value={word.last_reviewed_at || ""}
@@ -560,8 +578,8 @@ export default function EditEnglishWordForm() {
                   />
                 </label>
 
-                <label className="flex flex-col gap-1">
-                  <span className="text-sm font-medium">Next review at</span>
+                <label className="flex flex-col gap-0.5">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Next review at</span>
                   <input
                     className={inputClass("next_review_at")}
                     value={word.next_review_at || ""}
@@ -570,20 +588,16 @@ export default function EditEnglishWordForm() {
                   />
                 </label>
               </div>
-            </div>
-
-            <div className="h-px bg-neutral-200" />
+            </Section>
 
             {/* Example (only one) */}
-            <div className="space-y-4">
-              <h3 className="text-base font-medium">Example</h3>
-
-              <div className="rounded-xl border border-neutral-200 p-4">
+            <Section title="Example">
+              <div className="rounded-xl border border-neutral-100 p-4 bg-gray-50/50">
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   {/* sentence_en */}
-                  <label className="flex flex-col gap-1" data-field="examples.0.sentence_en">
-                    <span className="text-sm font-medium">
-                      Sentence EN <span className="text-red-600">*</span>
+                  <label className="flex flex-col gap-0.5" data-field="examples.0.sentence_en">
+                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">
+                      Sentence EN <span className="text-red-500">*</span>
                     </span>
                     <input
                       className={inputClass("examples.0.sentence_en")}
@@ -593,8 +607,8 @@ export default function EditEnglishWordForm() {
                         setExampleField(0, "sentence_en", val);
                         setExerciseField(0, 0, "question_text", val); // sync
                         const next = { ...(word as ReviewWord) };
-                        next.examples = [...word.examples];
-                        next.examples[0] = { ...word.examples[0], sentence_en: val } as any;
+                        next.examples = [...word!.examples];
+                        next.examples[0] = { ...word!.examples[0], sentence_en: val } as any;
                         revalidateOnChange("examples.0.sentence_en", next);
                       }}
                       onBlur={() => setFieldTouched("examples.0.sentence_en")}
@@ -614,8 +628,8 @@ export default function EditEnglishWordForm() {
                   </label>
 
                   {/* sentence_vi */}
-                  <label className="flex flex-col gap-1">
-                    <span className="text-sm font-medium">Sentence VI</span>
+                  <label className="flex flex-col gap-0.5">
+                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Sentence VI</span>
                     <input
                       className={inputClass("examples.0.sentence_vi")}
                       value={word.examples?.[0]?.sentence_vi || ""}
@@ -623,8 +637,8 @@ export default function EditEnglishWordForm() {
                         const v = e.target.value;
                         setExampleField(0, "sentence_vi", v);
                         const next = { ...(word as ReviewWord) };
-                        next.examples = [...word.examples];
-                        next.examples[0] = { ...word.examples[0], sentence_vi: v } as any;
+                        next.examples = [...word!.examples];
+                        next.examples[0] = { ...word!.examples[0], sentence_vi: v } as any;
                         revalidateOnChange("examples.0.sentence_vi", next);
                       }}
                       onBlur={() => setFieldTouched("examples.0.sentence_vi")}
@@ -635,14 +649,14 @@ export default function EditEnglishWordForm() {
 
                 {/* Exercise (only one) */}
                 <div className="mt-4 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <h4 className="text-sm font-medium">Exercise</h4>
-                    <span className="text-xs text-neutral-500">1 question</span>
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="text-[10px] font-black uppercase text-blue-600 tracking-wider">Exercise</h4>
+                    <span className="text-[10px] text-gray-400 font-bold">1 question</span>
                   </div>
 
-                  <div className="rounded-xl border border-neutral-200 p-4">
-                    <label className="flex flex-col gap-1">
-                      <span className="text-sm font-medium">Answer explanation</span>
+                  <div className="rounded-xl border border-neutral-100 p-4 bg-white shadow-sm space-y-3">
+                    <label className="flex flex-col gap-0.5">
+                      <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Answer explanation</span>
                       <textarea
                         className={inputClass("examples.0.exercises.0.answer_explanation") + " min-h-24 resize-y"}
                         value={word.examples?.[0]?.exercises?.[0]?.answer_explanation || ""}
@@ -650,11 +664,11 @@ export default function EditEnglishWordForm() {
                           const v = e.target.value;
                           setExerciseField(0, 0, "answer_explanation", v);
                           const next = { ...(word as ReviewWord) };
-                          next.examples = [...word.examples];
-                          next.examples[0] = { ...word.examples[0] } as any;
-                          next.examples[0].exercises = [...word.examples[0].exercises];
+                          next.examples = [...word!.examples];
+                          next.examples[0] = { ...word!.examples[0] } as any;
+                          next.examples[0].exercises = [...word!.examples[0].exercises];
                           next.examples[0].exercises[0] = {
-                            ...word.examples[0].exercises[0],
+                            ...word!.examples[0].exercises[0],
                             answer_explanation: v,
                           } as any;
                           revalidateOnChange("examples.0.exercises.0.answer_explanation", next);
@@ -666,7 +680,7 @@ export default function EditEnglishWordForm() {
 
                     {/* Choice (only one correct) */}
                     <div className="mt-4 space-y-2">
-                      <h5 className="text-sm font-medium">Choice (Correct Answer)</h5>
+                      <h5 className="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1 border-t border-gray-100 pt-3">Choice (Correct Answer)</h5>
                       <div
                         className="flex items-center gap-2"
                         data-field="examples.0.exercises.0.choices.0.content"
@@ -679,19 +693,12 @@ export default function EditEnglishWordForm() {
                             const v = e.target.value;
                             setChoiceField(0, 0, 0, "content", v);
                             const next = { ...(word as ReviewWord) };
-                            next.examples = [...word.examples];
-                            next.examples[0] = { ...word.examples[0] } as any;
-                            next.examples[0].exercises = [...word.examples[0].exercises];
-                            next.examples[0].exercises[0] = {
-                              ...word.examples[0].exercises[0],
-                            } as any;
-                            next.examples[0].exercises[0].choices = [
-                              ...word.examples[0].exercises[0].choices,
-                            ];
-                            next.examples[0].exercises[0].choices[0] = {
-                              ...word.examples[0].exercises[0].choices[0],
-                              content: v,
-                            } as any;
+                            next.examples = [...word!.examples];
+                            next.examples[0] = { ...word!.examples[0] } as any;
+                            next.examples[0].exercises = [...word!.examples[0].exercises];
+                            next.examples[0].exercises[0] = { ...word!.examples[0].exercises[0], } as any;
+                            next.examples[0].exercises[0].choices = [...word!.examples[0].exercises[0].choices, ];
+                            next.examples[0].exercises[0].choices[0] = { ...word!.examples[0].exercises[0].choices[0], content: v, } as any;
                             revalidateOnChange("examples.0.exercises.0.choices.0.content", next);
                           }}
                           onBlur={() => setFieldTouched("examples.0.exercises.0.choices.0.content")}
@@ -724,26 +731,20 @@ export default function EditEnglishWordForm() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Section>
 
             {/* Submit */}
-            <div className="text-center">
+            <div className="flex justify-end mt-4">
               <button
                 disabled={submitting}
                 onClick={updateEnglishWord}
-                className="inline-flex h-12 w-50 items-center justify-center gap-2 rounded-xl border border-black bg-black px-4 py-2 text-sm font-medium text-white shadow-sm transition active:scale-[.99] disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-black/20 hover:bg-white hover:text-black"
+                className={`px-8 py-2 rounded-lg shadow-md text-white font-black text-xs uppercase tracking-widest transition-all duration-300 transform active:scale-95 ${
+                  submitting 
+                    ? 'bg-gray-300 cursor-not-allowed shadow-none' 
+                    : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 hover:-translate-y-0.5'
+                }`}
               >
-                {submitting ? (
-                  <>
-                    <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden>
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
-                    </svg>
-                    Submitting...
-                  </>
-                ) : (
-                  "Submit"
-                )}
+                {submitting ? 'Đang lưu...' : 'Lưu thay đổi'}
               </button>
 
               {errors._form && <span className="ml-3 text-sm text-red-600">Error: {errors._form}</span>}

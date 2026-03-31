@@ -2,23 +2,23 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute';
 
-import PracticePage from '../../english/pages/PracticePage';
-import PracticePageGrammar from '../../english/pages/PracticePageGrammar';
+import WordPracticePage from '../../english/pages/WordPracticePage';
+import GrammarPracticePage from '../../english/pages/GrammarPracticePage';
 import LoginPage from '../../Login';
 import RegisterPage from '../../Register';
 
-import ImportVocabularyButton from '../../english/forms/ImportVocabularyButton';
-import MultipleChoiceQuiz from '../../english/practice/MultipleChoiceQuiz';
-import ResultProgress from '../../english/components/ResultProgress';
+import ImportWordsModal from '../../english/forms/ImportWordsModal';
+import MultipleChoicePractice from '../../english/practice/MultipleChoicePractice';
+import PracticeSummary from '../../english/components/PracticeSummary';
 import FillInBlankPractice from '../../english/practice/FillInBlankPractice';
 import VoicePractice from '../../english/practice/VoicePractice';
-import MultipleSentence from '../../english/practice/MultipleSentence';
-import AddEnglishWord from '../../english/forms/AddEnglishWordForm';
-import EnglishPracticeDisplay from '../../english/components/EnglishPracticeDisplay';
+import SentenceCompletionPractice from '../../english/practice/SentenceCompletionPractice';
+import CreateWordForm from '../../english/forms/CreateWordForm';
+import VocabularyTable from '../../english/components/VocabularyTable';
 import ChatPage from '../../components/Chat/ChatPage';
 
 import ProfileSettings from '../../ProfileSettings';
-import EditEnglishWordForm from '../../english/forms/EditEnglishWordForm';
+import EditWordForm from '../../english/forms/EditWordForm';
 
 export default function EnRoutes() {
   return (
@@ -30,18 +30,18 @@ export default function EnRoutes() {
 
       {/* Protected */}
       <Route element={<ProtectedRoute />}>
-        <Route path="/en/home-grammar" element={<PracticePageGrammar />} />
-        <Route path="/en/home" element={<PracticePage />} />
+        <Route path="/en/home-grammar" element={<GrammarPracticePage />} />
+        <Route path="/en/home" element={<WordPracticePage />} />
         <Route path="/en/chat" element={<ChatPage />} />
-        <Route path="/en/import" element={<ImportVocabularyButton />} />
-        <Route path="/en/quiz/multiple" element={<MultipleChoiceQuiz />} />
-        <Route path="/en/summary" element={<ResultProgress />} />
+        <Route path="/en/import" element={<ImportWordsModal />} />
+        <Route path="/en/quiz/multiple" element={<MultipleChoicePractice />} />
+        <Route path="/en/summary" element={<PracticeSummary />} />
         <Route path="/en/quiz/voicePractice" element={<VoicePractice />} />
         <Route path="/en/quiz/fillInBlank" element={<FillInBlankPractice />} />
-        <Route path="/en/quiz/multipleSentence" element={<MultipleSentence />} />
-        <Route path="/en/add" element={<AddEnglishWord />} />
-        <Route path="/en/listWord" element={<EnglishPracticeDisplay />} />
-        <Route path="/en/editWord/:id" element={<EditEnglishWordForm />} />
+        <Route path="/en/quiz/multipleSentence" element={<SentenceCompletionPractice />} />
+        <Route path="/en/add" element={<CreateWordForm />} />
+        <Route path="/en/listWord" element={<VocabularyTable />} />
+        <Route path="/en/editWord/:id" element={<EditWordForm />} />
         <Route path="/en/ProfileSettings" element={<ProfileSettings />} />
       </Route>
 

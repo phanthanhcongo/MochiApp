@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useLanguage } from "../../routes/LanguageContext";
-import { API_URL } from "../../apiClient";
+import { useLanguage } from "../routes/LanguageContext";
+import { API_URL } from "../apiClient";
 import {
   BarChart3,
   Layers,
@@ -13,6 +13,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
+import { showToast } from "./Toast";
 
 // ── Avatar Fallback ──────────────────────────────────────────
 const AvatarFallback = ({
@@ -43,12 +44,34 @@ const LanguageToggle = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleSwitch = (target: "jp" | "en") => {
+  const handleSwitch = async (target: "jp" | "en") => {
     if (target === lang) return;
-    setLang(target);
-    // Rewrite current URL to new lang prefix
-    const newPath = location.pathname.replace(/^\/(jp|en)/, `/${target}`);
-    navigate(newPath, { replace: true });
+
+    try {
+      const token = localStorage.getItem("token");
+      if (token) {
+        const res = await fetch(`${API_URL}/me/language`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ language: target }),
+        });
+
+        if (!res.ok) {
+          throw new Error("Lưu ngôn ngữ thất bại");
+        }
+      }
+      
+      setLang(target);
+      // Rewrite current URL to new lang prefix
+      const newPath = location.pathname.replace(/^\/(jp|en)/, `/${target}`);
+      navigate(newPath, { replace: true });
+    } catch (error) {
+      console.error("Error switching language:", error);
+      showToast("Không thể cập nhật ngôn ngữ. Vui lòng thử lại!");
+    }
   };
 
   return (
@@ -524,3 +547,6 @@ const MobileMenuItem = ({
 };
 
 export default Header;
+
+
+

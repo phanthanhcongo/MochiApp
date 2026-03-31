@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useMemo, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { usePracticeSession } from '../utils/practiceStore';
-import type { QuizType } from '../utils/practiceStore';
+import { usePracticeSession } from '../utils/usePracticeStore';
+import type { QuizType } from '../utils/usePracticeStore';
 import PracticeLayout from './PracticeLayout';
-import MultipleChoiceQuiz from '../practice/MultipleChoiceQuiz';
-import HiraganaPractice from '../practice/HiraganaPractice';
-import RomajiPractice from '../practice/RomajiPractice';
+import MultipleChoicePractice from '../practice/MultipleChoicePractice';
+import ReadingHiraganaPractice from '../practice/ReadingHiraganaPractice';
+import TypingRomajiPractice from '../practice/TypingRomajiPractice';
 import VoicePractice from '../practice/VoicePractice';
-import MultiCharStrokePractice from '../practice/MultiCharStrokePractice';
+import WritingKanjiPractice from '../practice/WritingKanjiPractice';
 
 const PracticeWrapper: React.FC = () => {
   const navigate = useNavigate();
@@ -24,17 +24,17 @@ const PracticeWrapper: React.FC = () => {
   const quizType = useMemo<QuizType | null>(() => {
     const pathParts = location.pathname.split('/');
     const quizTypeFromPath = pathParts[pathParts.length - 1] as QuizType;
-    const validTypes: QuizType[] = ['multiple', 'hiraganaPractice', 'romajiPractice', 'voicePractice', 'multiCharStrokePractice'];
+    const validTypes: QuizType[] = ['multiple', 'ReadingHiraganaPractice', 'TypingRomajiPractice', 'voicePractice', 'WritingKanjiPractice'];
     return validTypes.includes(quizTypeFromPath) ? quizTypeFromPath : null;
   }, [location.pathname]);
 
   // Render all quiz components, keep them mounted
   const quizComponents = useMemo(() => ({
-    multiple: <MultipleChoiceQuiz />,
-    hiraganaPractice: <HiraganaPractice />,
-    romajiPractice: <RomajiPractice />,
+    multiple: <MultipleChoicePractice />,
+    ReadingHiraganaPractice: <ReadingHiraganaPractice />,
+    TypingRomajiPractice: <TypingRomajiPractice />,
     voicePractice: <VoicePractice />,
-    multiCharStrokePractice: <MultiCharStrokePractice />,
+    WritingKanjiPractice: <WritingKanjiPractice />,
   }), []);
 
   // Xử lý animation khi quizType thay đổi
@@ -100,7 +100,7 @@ const PracticeWrapper: React.FC = () => {
     return null;
   }
 
-  const validTypes: QuizType[] = ['multiple', 'hiraganaPractice', 'romajiPractice', 'voicePractice', 'multiCharStrokePractice'];
+  const validTypes: QuizType[] = ['multiple', 'ReadingHiraganaPractice', 'TypingRomajiPractice', 'voicePractice', 'WritingKanjiPractice'];
 
   return (
     <PracticeLayout 
@@ -161,4 +161,7 @@ const PracticeWrapper: React.FC = () => {
 };
 
 export default PracticeWrapper;
+
+
+
 

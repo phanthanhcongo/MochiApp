@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { usePracticeSession, speak } from '../utils/practiceStore';
+import { usePracticeSession, speak } from '../utils/usePracticeStore';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
-import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
+import PracticeResultPanel from '../components/PracticeResultPanel';
 import { showToast } from '../../components/Toast';
-const RomajiPractice: React.FC = React.memo(() => {
+const TypingRomajiPractice: React.FC = React.memo(() => {
   const [userRomajiAnswer, setUserRomajiAnswer] = useState('');
   const [isAnswered, setIsAnswered] = useState(false);
   const [isResultHidden, setIsResultHidden] = useState(false);
@@ -34,12 +34,12 @@ const RomajiPractice: React.FC = React.memo(() => {
   useEffect(() => {
     // Đợi một chút để đảm bảo location.state đã được set đúng cách sau khi navigate
     const checkState = setTimeout(() => {
-      const allowedSources = ['multiple', 'hiraganaPractice', 'romajiPractice', 'voicePractice'];
+      const allowedSources = ['multiple', 'ReadingHiraganaPractice', 'TypingRomajiPractice', 'voicePractice'];
       const state = location.state;
 
       // Kiểm tra xem có đang ở đúng route không
       const currentPath = location.pathname;
-      const isCorrectRoute = currentPath.includes('romajiPractice');
+      const isCorrectRoute = currentPath.includes('TypingRomajiPractice');
 
       // Nếu không ở đúng route, không làm gì cả (có thể đang navigate đi)
       if (!isCorrectRoute) {
@@ -72,7 +72,7 @@ const RomajiPractice: React.FC = React.memo(() => {
 
       // ✅ Nếu có state nhưng không đến từ nguồn hợp lệ
       // Kiểm tra xem state.from có khớp với route hiện tại không
-      const stateFromMatchesRoute = state.from === 'romajiPractice';
+      const stateFromMatchesRoute = state.from === 'TypingRomajiPractice';
 
       if (!allowedSources.includes(state.from)) {
         // Chỉ navigate nếu state.from không khớp với route hiện tại
@@ -142,7 +142,7 @@ const RomajiPractice: React.FC = React.memo(() => {
     sessionStorage.setItem('reload_count', '0'); // Reset về 0 trước
 
     // Sử dụng method mới từ store để xử lý toàn bộ logic
-    // console.log('📞 [RomajiPractice] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
+    // console.log('📞 [TypingRomajiPractice] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
     await continueToNextQuiz(navigate, () => {
       setIsNavigating(false);
       isProcessingRef.current = false;
@@ -153,7 +153,7 @@ const RomajiPractice: React.FC = React.memo(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // CHỈ xử lý nếu đang ở đúng route
       const currentPath = window.location.pathname;
-      const isCorrectRoute = currentPath.includes('romajiPractice');
+      const isCorrectRoute = currentPath.includes('TypingRomajiPractice');
       if (!isCorrectRoute) return;
 
       // Ignore auto-repeat events when key is held down
@@ -201,7 +201,7 @@ const RomajiPractice: React.FC = React.memo(() => {
   };
   // Component is always mounted, visibility handled by PracticeWrapper
   const currentPath = location.pathname;
-  const isCorrectRoute = currentPath.includes('romajiPractice');
+  const isCorrectRoute = currentPath.includes('TypingRomajiPractice');
 
   if (!currentWord || !isCorrectRoute) {
     return null;
@@ -262,7 +262,7 @@ const RomajiPractice: React.FC = React.memo(() => {
         </div>
       </div>
 
-      <JpPracticeResultPanel
+      <PracticeResultPanel
         isAnswered={isAnswered}
         isForgetClicked={isForgetClicked}
         isCorrectAnswer={isCorrectAnswer}
@@ -277,6 +277,9 @@ const RomajiPractice: React.FC = React.memo(() => {
   );
 });
 
-RomajiPractice.displayName = 'RomajiPractice';
+TypingRomajiPractice.displayName = 'TypingRomajiPractice';
 
-export default RomajiPractice;
+export default TypingRomajiPractice;
+
+
+

@@ -1,9 +1,9 @@
-import { useRef, useState, type ChangeEvent } from 'react';
-import { BiLogOutCircle, BiCodeBlock } from 'react-icons/bi';
+import { useRef, useState } from 'react';
+import { BiLogOutCircle,BiCodeBlock } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../../apiClient';
 
-const ImportVocabularyButton = () => {
+const ImportWordsModal = () => {
   const [jsonText, setJsonText] = useState<string>('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
@@ -19,7 +19,7 @@ const ImportVocabularyButton = () => {
     fileInputRef.current?.click();
   };
 
-  const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(null);
     setError(null);
     const file = e.target.files?.[0];
@@ -30,23 +30,24 @@ const ImportVocabularyButton = () => {
       // Thử parse để chắc là JSON, sau đó pretty-print vào textarea
       const pretty = JSON.stringify(JSON.parse(text), null, 2);
       setJsonText(pretty);
-    } catch {
+    } catch (err: any) {
       setError('File không phải JSON hợp lệ.');
     } finally {
       // Cho phép chọn lại cùng file nếu cần
       e.target.value = '';
     }
   };
-
 const handleImport = async () => {
   setLoading(true);
   setMessage(null);
   setError(null);
 
-  // 1) Parse JSON đầu vào
+  // Kiểm tra JSON hợp lệ
   let payload: any;
   try {
-    if (!jsonText.trim()) throw new Error('Vui lòng dán JSON vào trước khi import.');
+    if (!jsonText.trim()) {
+      throw new Error('Vui lòng dán JSON vào trước khi import.');
+    }
     payload = JSON.parse(jsonText);
   } catch (e: any) {
     setLoading(false);
@@ -57,7 +58,7 @@ const handleImport = async () => {
   try {
     const token = localStorage.getItem('token');
 
-    const res = await fetch(`${API_URL}/en/vocabulary/import`, {
+    const res = await fetch(`${API_URL}/jp/vocabulary/import`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -67,45 +68,22 @@ const handleImport = async () => {
       body: JSON.stringify(payload),
     });
 
-    // 2) Đọc raw text trước, rồi mới thử parse JSON
-    const raw = await res.text();
-    let data: any = null;
-    if (raw) {
-      try {
-        data = JSON.parse(raw);
-      } catch {
-        // không phải JSON, giữ nguyên raw
-      }
-    }
+    const data = await res.json();
 
-    // Helper: lấy danh sách duplicates (nếu có)
-    const dupList: string[] = Array.isArray(data?.duplicates) ? data.duplicates : [];
-
-    // 3) Trường hợp lỗi HTTP
     if (!res.ok) {
-      // Nếu backend trả về duplicates kèm error -> hiển thị rõ ràng
-      if (dupList.length > 0) {
-        const errMsg = `${data?.error || data?.message || `HTTP ${res.status}`}\nCác từ trùng: ${dupList.join(', ')}`;
-        throw new Error(errMsg);
+      // TH toàn bộ đều trùng → backend trả về error + duplicates
+      if (data.duplicates && Array.isArray(data.duplicates)) {
+        throw new Error(
+          `${data.error}. Các từ trùng: ${data.duplicates.join(', ')}`
+        );
       }
-      // Fallback
-      const msg = data?.message || data?.error || (raw || `HTTP ${res.status}`);
-      throw new Error(msg);
+      throw new Error(data.message || data.error || 'Đã xảy ra lỗi');
     }
 
-    // 4) Thành công: có thể có duplicates (partial success)
-    // Ưu tiên message từ server, fallback sang raw hoặc default
-    let msg = data?.message || (raw || '').trim() || 'Import thành công.';
-
-    // Nếu server trả về danh sách items đã commit, có thể thêm số lượng
-    const committedCount = Array.isArray(data?.items) ? data.items.length : undefined;
-    if (typeof committedCount === 'number') {
-      msg += `\nĐã thêm: ${committedCount} từ.`;
-    }
-
-    // Thêm thông báo các từ trùng (nếu có)
-    if (dupList.length > 0) {
-      msg += `\nCác từ trùng bị bỏ qua: ${dupList.join(', ')}`;
+    // TH có ít nhất một từ được thêm
+    let msg = data.message || 'Đã import từ vựng thành công!';
+    if (data.duplicates && data.duplicates.length > 0) {
+      msg += `\nCác từ trùng bị bỏ qua: ${data.duplicates.join(', ')}`;
     }
 
     setMessage(msg);
@@ -115,7 +93,6 @@ const handleImport = async () => {
     setLoading(false);
   }
 };
-
 
 
   const handleFormat = () => {
@@ -129,13 +106,14 @@ const handleImport = async () => {
   };
 
   return (
-    <div className="p-4 min-h-screen mx-auto">
-      {/* Tiêu đề + nút Back Home + User Mode */}
+    <div className="flex flex-col h-full p-4 mx-auto overflow-y-auto">
+       {/* Tiêu đề + nút Back Home + User Mode */}
       <div className="flex items-center justify-between mb-3">
+
         <div className="flex items-center gap-4">
           <button
             type="button"
-            onClick={() => navigate('/en/home')}
+            onClick={() => navigate('/jp/home')}
             className="flex items-center text-gray-700 hover:text-gray-900 cursor-pointer"
           >
             <BiLogOutCircle className="text-gray-700 text-3xl" />
@@ -144,7 +122,7 @@ const handleImport = async () => {
 
           <button
             type="button"
-            onClick={() => navigate('/en/add')}
+            onClick={() => navigate('/jp/add')}
             className="flex items-center text-blue-600 hover:text-blue-800 cursor-pointer"
           >
             <BiCodeBlock className="text-blue-600 text-3xl" />
@@ -152,7 +130,6 @@ const handleImport = async () => {
           </button>
         </div>
       </div>
-
       <h2 className="text-lg font-semibold mb-3">Import từ vựng bằng JSON</h2>
 
       {/* Nút chọn file JSON để dán nội dung vào textarea (UI giữ nguyên, chỉ thêm nút) */}
@@ -167,7 +144,7 @@ const handleImport = async () => {
         <button
           type="button"
           onClick={handlePickFile}
-          className="px-3 py-2 text-sm border bg-emerald-300 rounded hover:bg-emerald-500"
+          className="px-3 py-2 text-sm  border bg-emerald-300 rounded hover:bg-emerald-500 "
           disabled={loading}
         >
           Chọn file JSON và dán vào ô dưới
@@ -175,7 +152,7 @@ const handleImport = async () => {
       </div>
 
       <label className="block text-sm text-gray-600 mb-2">
-        Dán JSON của bạn vào đây chỉ nên dưới 1000 từ vựng để tránh timeout
+        Dán JSON của bạn vào đây (chỉ nên dưới 1000 từ vựng để tránh timeout):
       </label>
       <textarea
         value={jsonText}
@@ -214,4 +191,7 @@ const handleImport = async () => {
   );
 };
 
-export default ImportVocabularyButton;
+export default ImportWordsModal;
+
+
+

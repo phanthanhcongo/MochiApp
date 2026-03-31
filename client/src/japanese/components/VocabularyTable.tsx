@@ -42,7 +42,7 @@ const toFormState = (w: any): FormState => {
   };
 };
 
-const ReviewWordList: React.FC = () => {
+const VocabularyTable: React.FC = () => {
   const navigate = useNavigate();
 
   const [words, setWords] = useState<any[]>([]);
@@ -330,8 +330,8 @@ const ReviewWordList: React.FC = () => {
   return (
     <div className="flex flex-col h-full">
       {/* Header + Search */}
-      <div className="bg-white/95 backdrop-blur-sm shrink-0 w-full  mx-auto z-30 shadow-sm border-b border-gray-100">
-        <div className=" mx-auto px-6 py-2">
+      <div className="sticky top-0 bg-white/95 backdrop-blur-sm shrink-0 w-full mx-auto z-40 shadow-sm border-b border-gray-100">
+        <div className="mx-auto px-6 py-2">
           <div className="flex items-center justify-between mb-2 relative">
             <button
               onClick={() => navigate("/jp/home")}
@@ -663,4 +663,7 @@ const ReviewWordList: React.FC = () => {
   );
 };
 
-export default ReviewWordList;
+export default VocabularyTable;
+
+
+

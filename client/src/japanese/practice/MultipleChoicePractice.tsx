@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { usePracticeSession, speak } from '../utils/practiceStore';
+import { usePracticeSession, speak } from '../utils/usePracticeStore';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
-import JpPracticeResultPanel from '../components/JpPracticeResultPanel';
+import PracticeResultPanel from '../components/PracticeResultPanel';
 import { showToast } from '../../components/Toast';
 
 
 
-const MultipleChoiceQuiz: React.FC = React.memo(() => {
+const MultipleChoicePractice: React.FC = React.memo(() => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -133,7 +133,7 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
   useEffect(() => {
     // Đợi một chút để đảm bảo location.state đã được set đúng cách sau khi navigate
     const checkState = setTimeout(() => {
-      const allowedSources = ['multiple', 'hiraganaPractice', 'romajiPractice', 'voicePractice', 'multiCharStrokePractice'];
+      const allowedSources = ['multiple', 'ReadingHiraganaPractice', 'TypingRomajiPractice', 'voicePractice', 'WritingKanjiPractice'];
       const state = location.state;
 
       // Kiểm tra xem có đang ở đúng route không
@@ -214,7 +214,7 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
     sessionStorage.setItem('reload_count', '0'); // Reset về 0 trước
 
     // Sử dụng method mới từ store để xử lý toàn bộ logic
-    // console.log('📞 [MultipleChoiceQuiz] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
+    // console.log('📞 [MultipleChoicePractice] GỌI continueToNextQuiz', { timestamp: new Date().toISOString() });
     await continueToNextQuiz(navigate, () => {
       setIsNavigating(false);
       isProcessingRef.current = false;
@@ -372,7 +372,7 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
         </div>
       </div>
 
-      <JpPracticeResultPanel
+      <PracticeResultPanel
         isAnswered={isAnswered}
         isForgetClicked={isForgetClicked}
         isCorrectAnswer={isCorrectAnswer}
@@ -387,6 +387,9 @@ const MultipleChoiceQuiz: React.FC = React.memo(() => {
   );
 });
 
-MultipleChoiceQuiz.displayName = 'MultipleChoiceQuiz';
+MultipleChoicePractice.displayName = 'MultipleChoicePractice';
 
-export default MultipleChoiceQuiz;
+export default MultipleChoicePractice;
+
+
+

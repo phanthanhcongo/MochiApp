@@ -81,16 +81,16 @@ interface FieldProps {
 }
 
 const InputField: React.FC<FieldProps> = ({ label, name, value, onChange, error, placeholder }) => (
-  <div className="mb-3">
-    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1 ml-1">{label}</label>
+  <div className="mb-2">
+    <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5 ml-1">{label}</label>
     <input
       name={name}
       value={value}
       onChange={onChange}
-      className={`w-full border rounded-xl px-3 py-2 text-sm transition-all duration-200 ${
+      className={`w-full border rounded-lg px-2.5 py-1.5 text-xs transition-all duration-200 ${
         error 
           ? 'border-red-400 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200' 
-          : 'border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 shadow-sm'
+          : 'border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 shadow-sm'
       } outline-none`}
       aria-invalid={!!error}
       placeholder={placeholder}
@@ -100,18 +100,18 @@ const InputField: React.FC<FieldProps> = ({ label, name, value, onChange, error,
 );
 
 const SelectField: React.FC<FieldProps & { options: { value: string; label: string }[] }> = ({ label, name, value, onChange, options, error, placeholder }) => (
-  <div className="mb-3">
-    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1 ml-1">{label}</label>
+  <div className="mb-2">
+    <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5 ml-1">{label}</label>
     <select
       name={name}
       value={value}
       onChange={onChange}
-      className={`w-full border rounded-lg px-3 py-2 text-sm transition-all duration-200 ${
+      className={`w-full border rounded-lg px-2.5 py-1.5 text-xs transition-all duration-200 ${
         error 
           ? 'border-red-400 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200' 
-          : 'border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 shadow-sm'
+          : 'border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 shadow-sm'
       } outline-none cursor-pointer appearance-none bg-no-repeat bg-right`}
-      style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'%239CA3AF\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\'%3E%3C/path%3E%3C/svg%3E")', backgroundSize: '1.5em', backgroundPosition: 'right 0.5rem center' }}
+      style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'%239CA3AF\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\'%3E%3C/path%3E%3C/svg%3E")', backgroundSize: '1.2em', backgroundPosition: 'right 0.5rem center' }}
       aria-invalid={!!error}
     >
       <option value="">{placeholder || 'Chọn...'}</option>
@@ -123,7 +123,7 @@ const SelectField: React.FC<FieldProps & { options: { value: string; label: stri
   </div>
 );
 
-const AddEnglishWordForm = () => {
+const CreateWordForm = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState<ReviewWord>(INITIAL_FORM);
   const [errors, setErrors] = useState<Errors>({});
@@ -304,9 +304,9 @@ const AddEnglishWordForm = () => {
   };
 
   return (
-    <div className="bg-[#f8faff] min-h-screen py-8 text-neutral-800">
-      <form onSubmit={handleSubmit} className="max-w-5xl mx-auto px-6 pb-12">
-        <div className='text-center w-full text-5xl font-black mb-10 text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-gray-700 to-gray-400 uppercase tracking-tighter pt-4'>
+    <div className="flex flex-col h-full bg-[#f8faff] overflow-y-auto">
+      <form onSubmit={handleSubmit} className="max-w-4xl mx-auto px-4 py-4 pb-8">
+        <div className='text-center w-full text-3xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-gray-700 to-gray-400 uppercase tracking-tighter pt-2'>
           Add New English Word
         </div>
 
@@ -314,35 +314,35 @@ const AddEnglishWordForm = () => {
           <button
             type="button"
             onClick={() => navigate('/en/home')}
-            className="flex items-center text-gray-500 hover:text-gray-800 transition-all bg-white px-4 py-2 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-x-1"
+            className="flex items-center text-gray-500 hover:text-gray-800 transition-all bg-white px-3 py-1.5 rounded-lg shadow-sm border border-gray-100 hover:shadow-md"
           >
-            <BiLogOutCircle className="text-xl" />
-            <span className="ml-2 text-xs font-bold uppercase tracking-wider">Quay lại</span>
+            <BiLogOutCircle className="text-lg" />
+            <span className="ml-1.5 text-[10px] font-bold uppercase tracking-wider">Quay lại</span>
           </button>
 
           <button
             type="button"
             onClick={() => navigate('/en/import')}
-            className="flex items-center text-blue-500 hover:text-blue-700 transition-all bg-white px-4 py-2 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:translate-x-1"
+            className="flex items-center text-blue-500 hover:text-blue-700 transition-all bg-white px-3 py-1.5 rounded-lg shadow-sm border border-gray-100 hover:shadow-md"
           >
-            <BiCodeBlock className="text-xl" />
-            <span className="ml-2 text-xs font-bold uppercase tracking-wider">Coder Mode</span>
+            <BiCodeBlock className="text-lg" />
+            <span className="ml-1.5 text-[10px] font-bold uppercase tracking-wider">Coder Mode</span>
           </button>
         </div>
 
-        <div className="bg-white border border-gray-100 rounded-[2rem] p-8 shadow-2xl shadow-gray-200/50 space-y-8 relative overflow-hidden">
-          <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 via-purple-500 to-fuchsia-500"></div>
+        <div className="bg-white border border-gray-100 rounded-[1.5rem] p-5 shadow-xl shadow-gray-200/40 space-y-5 relative overflow-hidden">
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-fuchsia-500"></div>
 
-          <div className="border-b border-gray-100 pb-6">
-            <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 ml-1">Word</label>
-            <div className="flex space-x-3">
+          <div className="border-b border-gray-100 pb-4">
+            <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1 ml-1">Word</label>
+            <div className="flex space-x-2">
               <input
                 value={form.word}
                 onChange={(e) => setField("word", e.target.value)}
-                className={`flex-1 border rounded-xl px-4 py-3 text-sm transition-all duration-200 ${
+                className={`flex-1 border rounded-lg px-3 py-2 text-xs transition-all duration-200 ${
                   errors.word 
                     ? 'border-red-400 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200' 
-                    : 'border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 shadow-sm'
+                    : 'border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 shadow-sm'
                 } outline-none`}
                 placeholder="Enter English word to get AI suggestions..."
               />
@@ -350,15 +350,15 @@ const AddEnglishWordForm = () => {
                 type="button"
                 onClick={handleGeminiCall}
                 disabled={geminiLoading}
-                className={`flex items-center px-6 py-2 rounded-lg shadow-sm text-white text-xs font-black uppercase tracking-widest transition-all duration-300
+                className={`flex items-center px-3 py-1.5 rounded-lg shadow-sm text-white text-[10px] font-black uppercase tracking-widest transition-all duration-300
                   ${geminiLoading 
                     ? 'bg-purple-300 cursor-not-allowed shadow-none' 
-                    : 'bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-700 hover:to-fuchsia-700 hover:shadow-purple-200 hover:-translate-y-0.5 active:scale-95'}`}
+                    : 'bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-700 hover:to-fuchsia-700 px-3 hover:-translate-y-0.5 active:scale-95'}`}
               >
-                {geminiLoading ? 'Calling...' : <><Sparkles className="mr-2 h-4 w-4" /> Gemini AI</>}
+                {geminiLoading ? '...' : <><Sparkles className="mr-1.5 h-3.5 w-3.5" /> Gemini AI</>}
               </button>
             </div>
-            {errors.word && <p className="mt-1 text-[10px] font-bold text-red-500 uppercase ml-1 tracking-tight">{errors.word}</p>}
+            {errors.word && <p className="mt-0.5 text-xs text-red-600">{errors.word}</p>}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -380,12 +380,12 @@ const AddEnglishWordForm = () => {
             <InputField label="Quick Example (VI)" name="exampleVi" value={form.exampleVi} onChange={(e) => setField("exampleVi", e.target.value)} error={errors.exampleVi} />
           </div>
 
-          <div className="bg-gray-50/50 p-6 rounded-2xl border border-gray-100 space-y-4">
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-gray-50/50 p-4 rounded-xl border border-gray-100 space-y-4">
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <InputField label="Exercise Sentence (EN)" name="examples.0.sentence_en" value={form.examples[0].sentence_en} onChange={(e) => setField("examples.0.sentence_en", e.target.value)} error={errors["examples.0.sentence_en"]} placeholder="Use ____ for blank" />
                 <InputField label="Exercise Sentence (VI)" name="examples.0.sentence_vi" value={form.examples[0].sentence_vi} onChange={(e) => setField("examples.0.sentence_vi", e.target.value)} error={errors["examples.0.sentence_vi"]} />
              </div>
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <InputField label="Correct Answer" name="examples.0.exercises.0.choices.0.content" value={form.examples[0].exercises[0].choices[0].content} onChange={(e) => setField("examples.0.exercises.0.choices.0.content", e.target.value)} error={errors["examples.0.exercises.0.choices.0.content"]} />
                 <InputField label="Explanation" name="examples.0.exercises.0.answer_explanation" value={form.examples[0].exercises[0].answer_explanation} onChange={(e) => setField("examples.0.exercises.0.answer_explanation", e.target.value)} error={errors["examples.0.exercises.0.answer_explanation"]} />
              </div>
@@ -403,17 +403,17 @@ const AddEnglishWordForm = () => {
           )}
         </div>
 
-        <div className="flex justify-end mt-6 pb-8">
+        <div className="flex justify-end mt-4 pb-4">
           <button
             type="submit"
             disabled={loading}
-            className={`px-10 py-3 rounded-xl shadow-lg text-white font-black uppercase tracking-widest transition-all duration-300 transform active:scale-95
+            className={`px-6 py-2 rounded-lg shadow-md text-white font-black text-xs uppercase tracking-widest transition-all duration-300 transform active:scale-95
               ${loading 
                 ? 'bg-gray-300 cursor-not-allowed shadow-none' 
-                : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 hover:shadow-blue-200 hover:-translate-y-0.5'
+                : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 hover:-translate-y-0.5'
               }`}
           >
-            {loading ? 'Saving...' : 'Save Word'}
+            {loading ? 'Đang lưu...' : 'Lưu từ vựng'}
           </button>
         </div>
       </form>
@@ -421,4 +421,4 @@ const AddEnglishWordForm = () => {
   );
 };
 
-export default AddEnglishWordForm;
+export default CreateWordForm;

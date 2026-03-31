@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { usePracticeSession } from '../utils/practiceStore';
+import { usePracticeSession } from '../utils/usePracticeStore';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
+import Header from '../../components/Header';
 import { motion } from 'framer-motion';
 import { API_URL } from '../../apiClient';
 
@@ -49,21 +49,22 @@ interface PracticeScenario {
   quizType: string | null;
 }
 
-const PracticePageGrammar = () => {
+const WordPracticePage = () => {
   const [reviewStats, setReviewStats] = useState<ReviewStat[]>([]);
-  const [totalWords, setTotalWords] = useState<number>(0); // ở đây là tổng NGỮ PHÁP
+  const [totalWords, setTotalWords] = useState<number>(0);
   const [streak, setStreak] = useState<number>(0);
-  const [reviewWordsCount, setReviewWordsCount] = useState<number>(0); // số ngữ pháp cần ôn
+  const [reviewWordsCount, setReviewWordsCount] = useState<number>(0);
   const [_wordsToReview, setWordsToReview] = useState<JpReviewWord[]>([]);
+  const [preparedScenarios, setPreparedScenarios] = useState<PracticeScenario[]>([]);
+  const [preparedRandomAnswers, setPreparedRandomAnswers] = useState<Array<{ meaning_vi: string }>>([]);
   const [nextReviewIn, setNextReviewIn] = useState<string | null>(null);
   const [remainingSec, setRemainingSec] = useState<number | null>(null);
 
-  const { setScenarios, setRandomAnswers } = usePracticeSession();
+  const { setScenarios, setRandomAnswers, preparedScenarios: storePreparedScenarios, preparedRandomAnswers: storePreparedRandomAnswers, fetchPreparedData } = usePracticeSession();
   const navigate = useNavigate();
 
   // Scroll to top when component mounts
   useEffect(() => {
-    console.log('Grammar practice page mounted');
     window.scrollTo(0, 0);
     document.documentElement.scrollTo(0, 0);
     document.body.scrollTo(0, 0);
@@ -71,7 +72,7 @@ const PracticePageGrammar = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (!token) return;
+    if (!token) return; // hoặc điều hướng về /login
 
     // Kiểm tra nếu có phiên ôn tập chưa hoàn thành
     const storedRaw = localStorage.getItem('reviewed_words');
@@ -81,7 +82,7 @@ const PracticePageGrammar = () => {
       return;
     }
 
-    fetch(`${API_URL}/jp/practice/stats-grammar`, {
+    fetch(`${API_URL}/jp/practice/stats`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -90,6 +91,7 @@ const PracticePageGrammar = () => {
     })
       .then(async (res) => {
         if (res.status === 401) {
+          // token hết hạn/không hợp lệ
           localStorage.removeItem('token');
           window.location.replace('/login');
           return Promise.reject(new Error('Unauthorized'));
@@ -98,10 +100,10 @@ const PracticePageGrammar = () => {
       })
       .then((data) => {
         setReviewStats(data.reviewStats || []);
-        setTotalWords(data.totalGrammar || 0);          // 🔁 map từ totalGrammar
-        setReviewWordsCount(data.grammarToReview || 0); // 🔁 map từ grammarToReview
+        setTotalWords(data.totalWords || 0);
+        setReviewWordsCount(data.wordsToReview || 0);
         setStreak(data.streak || 0);
-        setWordsToReview(data.reviewGrammar || []);     // 🔁 map từ reviewGrammar
+        setWordsToReview(data.reviewWords || []);
         setNextReviewIn(data.nextReviewIn || null);
       })
       .catch((err) => console.error('Fetch stats error:', err));
@@ -109,12 +111,59 @@ const PracticePageGrammar = () => {
     sessionStorage.setItem('reload_count', '0');
   }, []);
 
-  sessionStorage.setItem('reload_count', '0');
+  const [isLoadingScenarios, setIsLoadingScenarios] = useState<boolean>(true);
+
+
+  // Fetch scenarios và randomAnswers ngay sau khi component mount để chuẩn bị sẵn
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) return;
+
+    // Use data from store if available and valid
+    if (storePreparedScenarios.length > 0 && storePreparedRandomAnswers.length > 0) {
+      console.log('✅ Using prepared data from store:', {
+        scenarios: storePreparedScenarios.length,
+        randomAnswers: storePreparedRandomAnswers.length
+      });
+      setPreparedScenarios(storePreparedScenarios);
+      setPreparedRandomAnswers(storePreparedRandomAnswers);
+      setIsLoadingScenarios(false);
+      return;
+    }
+
+    // Otherwise fetch new data
+    const fetchData = async () => {
+      setIsLoadingScenarios(true);
+      console.log('📡 Fetching prepared data from API...');
+
+      await fetchPreparedData();
+
+      // Update local state from store after fetch
+      const state = usePracticeSession.getState();
+      console.log('📊 Fetched data:', {
+        scenarios: state.preparedScenarios.length,
+        randomAnswers: state.preparedRandomAnswers.length
+      });
+
+      setPreparedScenarios(state.preparedScenarios);
+      setPreparedRandomAnswers(state.preparedRandomAnswers);
+
+      if (state.preparedRandomAnswers.length === 0) {
+        console.error('⚠️ WARNING: randomAnswers is empty after fetch!');
+      }
+
+      setIsLoadingScenarios(false);
+    };
+
+    fetchData();
+  }, [fetchPreparedData]); // Depend on fetchPreparedData function
+
+
+  sessionStorage.setItem('reload_count', '0'); // Reset về 0 trước
   useEffect(() => {
     if (!nextReviewIn) { setRemainingSec(null); return; }
     setRemainingSec(hmsToSeconds(nextReviewIn));
   }, [nextReviewIn]);
-
   useEffect(() => {
     if (remainingSec === null) return;
     const id = setInterval(() => {
@@ -126,13 +175,13 @@ const PracticePageGrammar = () => {
   // Auto-refresh when countdown reaches zero
   useEffect(() => {
     if (remainingSec === 0) {
-      console.log('⏰ Countdown reached zero - refreshing grammar practice data...');
+      console.log('⏰ Countdown reached zero - refreshing practice data...');
 
       const token = localStorage.getItem('token');
       if (!token) return;
 
       // Refresh stats
-      fetch(`${API_URL}/jp/practice/stats-grammar`, {
+      fetch(`${API_URL}/jp/practice/stats`, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -149,131 +198,78 @@ const PracticePageGrammar = () => {
         })
         .then((data) => {
           setReviewStats(data.reviewStats || []);
-          setTotalWords(data.totalGrammar || 0);
-          setReviewWordsCount(data.grammarToReview || 0);
+          setTotalWords(data.totalWords || 0);
+          setReviewWordsCount(data.wordsToReview || 0);
           setStreak(data.streak || 0);
-          setWordsToReview(data.reviewGrammar || []);
+          setWordsToReview(data.reviewWords || []);
           setNextReviewIn(data.nextReviewIn || null);
-          console.log('✅ Grammar stats refreshed - New patterns available:', data.grammarToReview);
+          console.log('✅ Stats refreshed - New words available:', data.wordsToReview);
         })
-        .catch((err) => console.error('Refresh grammar stats error:', err));
-    }
-  }, [remainingSec]);
+        .catch((err) => console.error('Refresh stats error:', err));
 
-  const handleStartPractice = async () => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      window.location.replace('/login');
+      // Refresh prepared scenarios
+      if (reviewWordsCount > 0) {
+        setIsLoadingScenarios(true);
+        fetchPreparedData().finally(() => {
+          setIsLoadingScenarios(false);
+          console.log('✅ Scenarios refreshed');
+        });
+      }
+    }
+  }, [remainingSec, reviewWordsCount, fetchPreparedData]);
+  const handleStartPractice = () => {
+    if (isLoadingScenarios) return;
+
+    // Dùng preparedScenarios và preparedRandomAnswers đã được chuẩn bị sẵn
+    if (preparedScenarios.length === 0) {
+      console.warn('Chưa có scenarios để ôn tập');
       return;
     }
 
-    try {
-      // Fetch scenarios và randomAnswers song song
-      const [scenariosRes, randomAnswersRes] = await Promise.all([
-        fetch(`${API_URL}/jp/practice/scenarios-grammar`, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Authorization': `Bearer ${token}`,
-          },
-        }),
-        fetch(`${API_URL}/jp/practice/listWord`, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Authorization': `Bearer ${token}`,
-          },
-        })
-      ]);
-
-      if (scenariosRes.status === 401 || randomAnswersRes.status === 401) {
-        localStorage.removeItem('token');
-        window.location.replace('/login');
-        return;
-      }
-
-      if (!scenariosRes.ok) {
-        throw new Error(`HTTP ${scenariosRes.status}`);
-      }
-
-      const scenariosData = await scenariosRes.json();
-      const scenarios: PracticeScenario[] = scenariosData.scenarios || [];
-      console.log('scenarios: ', scenarios);
-      if (scenarios.length === 0) {
-        console.error('Không có scenarios để luyện tập');
-        navigate('/jp/summary');
-        return;
-      }
-
-      // Lấy randomAnswers từ API - lấy 50 từ ngẫu nhiên
-      let randomAnswers: Array<{ meaning_vi: string }> = [];
-      if (randomAnswersRes.ok) {
-        const randomAnswersData = await randomAnswersRes.json();
-        const allWords = (randomAnswersData.allWords || []).map((w: any) => ({
-          meaning_vi: w.meaning_vi || ''
-        })).filter((w: { meaning_vi: string }) => w.meaning_vi !== '');
-
-        console.log(`📊 Grammar: Fetched ${allWords.length} words for randomAnswers from API`);
-
-        if (allWords.length === 0) {
-          console.error('⚠️ Grammar: API returned 0 words for randomAnswers!');
-        }
-
-        // Shuffle và lấy 50 từ ngẫu nhiên
-        const shuffled = allWords.sort(() => Math.random() - 0.5);
-        randomAnswers = shuffled.slice(0, Math.min(50, allWords.length));
-
-        console.log(`✅ Grammar: Set ${randomAnswers.length} randomAnswers`);
-      } else {
-        console.error('❌ Grammar: Failed to fetch randomAnswers from API:', randomAnswersRes.status);
-      }
-
-      // Validate randomAnswers trước khi start practice
-      if (randomAnswers.length === 0) {
-        console.error('⚠️ Grammar: randomAnswers rỗng - không thể bắt đầu practice');
-        alert('Lỗi: Không thể tải dữ liệu ôn tập. Vui lòng tải lại trang.');
-        return;
-      }
-
-      // Set scenarios và randomAnswers vào store
-      console.log(`✅ Grammar: Starting practice with ${scenarios.length} scenarios and ${randomAnswers.length} randomAnswers`);
-
-      setScenarios(scenarios);
-      setRandomAnswers(randomAnswers);
-
-      // 🔥 Track that user is practicing GRAMMAR
-      localStorage.setItem('practice_type', 'grammar');
-
-      const firstScenario = scenarios[0];
-      const firstQuizType = firstScenario.quizType;
-
-      if (!firstQuizType) {
-        console.error('Không có quiz type cho scenario đầu tiên');
-        navigate('/jp/summary');
-        return;
-      }
-
-      navigate(`/jp/quiz/${firstQuizType}`, {
-        state: { from: firstQuizType }
-      });
-    } catch (err) {
-      console.error('Lỗi khi fetch scenarios:', err);
-      navigate('/jp/summary');
+    // Validate randomAnswers - đảm bảo có dữ liệu để tạo đáp án sai
+    if (preparedRandomAnswers.length === 0) {
+      console.error('⚠️ randomAnswers rỗng - không thể bắt đầu practice');
+      alert('Lỗi: Không thể tải dữ liệu ôn tập. Vui lòng tải lại trang.');
+      return;
     }
 
+    console.log(`✅ Starting practice with ${preparedScenarios.length} scenarios and ${preparedRandomAnswers.length} randomAnswers`);
+
+    // Set scenarios và randomAnswers vào store
+    setScenarios(preparedScenarios);
+    setRandomAnswers(preparedRandomAnswers);
+
+    // 🔥 Track that user is practicing WORDS
+    localStorage.setItem('practice_type', 'word');
+
+    // Lấy quizType từ scenario đầu tiên
+    const firstScenario = preparedScenarios[0];
+    const firstQuizType = firstScenario.quizType;
+
+    if (!firstQuizType) {
+      console.error('Không có quiz type cho scenario đầu tiên');
+      navigate('/jp/summary');
+      return;
+    }
+
+    navigate(`/jp/quiz/${firstQuizType}`, {
+      state: { from: firstQuizType }
+    });
   };
 
   return (
     <div className="flex flex-col h-full">
+      {/* Invisible classes to force Tailwind build colors */}
       <div className="hidden">
         bg-red-400 bg-fuchsia-300 bg-yellow-400 bg-green-400 bg-sky-400 bg-indigo-500 bg-purple-600 bg-gray-400
       </div>
+
 
       <div className="shrink-0">
         <Header />
       </div>
       <div className="practice-page-container bg-[url('/103372501_p0.png')] bg-cover bg-center
-      flex flex-1 overflow-y-auto overflow-x-hidden text-xs sm:text-sm md:text-base lg:text-lg">
+      flex flex-1 overflow-y-hidden overflow-x-hidden text-xs sm:text-sm md:text-base lg:text-lg">
 
         {/* Left Column */}
         <div className="hidden xl:block w-2/10"></div>
@@ -285,7 +281,7 @@ const PracticePageGrammar = () => {
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex items-center space-x-2 mb-2 sm:mb-3 md:mb-4 bg-slate-50/50 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg border border-slate-100/50 shadow-sm"
+            className="flex items-center space-x-2 mb-2 sm:mb-3 md:mb-4 bg-slate-50/80 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg border border-slate-100 shadow-sm"
           >
             <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-white shadow-inner flex items-center justify-center border border-slate-100">
               <img
@@ -295,7 +291,7 @@ const PracticePageGrammar = () => {
               />
             </div>
             <p className="text-slate-600 font-medium text-[10px] sm:text-xs">
-              Bạn đã học được <span className="font-black text-slate-800 text-xs sm:text-sm">{totalWords} mẫu ngữ pháp</span>
+              Bạn đã học được <span className="font-black text-slate-800 text-xs sm:text-sm">{totalWords} từ</span>
             </p>
           </motion.div>
 
@@ -328,25 +324,29 @@ const PracticePageGrammar = () => {
           </div>
 
           {/* Action Section */}
-          <div className="flex flex-col items-center w-full max-w-xs bg-slate-50/50 rounded-xl p-2 border border-slate-100/50 mt-2 sm:mt-4">
+          <div className="flex flex-col items-center w-full max-w-xs p-2 sm:p-4 mt-2 sm:mt-4">
             <div className="text-slate-500 text-[8px] sm:text-[10px] font-bold uppercase tracking-wider mb-0.5">Chuẩn bị ôn tập</div>
             <div className="text-lg sm:text-xl md:text-2xl font-black text-red-500 mb-2 sm:mb-4 flex items-baseline gap-1">
-              {reviewWordsCount} <span className="text-[10px] sm:text-xs text-red-400/80">mẫu ngữ pháp</span>
+              {reviewWordsCount} <span className="text-[10px] sm:text-xs text-red-400/80">từ</span>
             </div>
 
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleStartPractice}
-              disabled={reviewWordsCount === 0}
-              className={`relative h-10 sm:h-11 md:h-12 w-full sm:w-56 md:w-60 rounded-lg sm:rounded-xl font-black text-xs sm:text-sm md:text-base transition-all duration-200 ${reviewWordsCount > 0
+              disabled={reviewWordsCount === 0 || (reviewWordsCount > 0 && isLoadingScenarios)}
+              className={`relative h-10 sm:h-11 md:h-12 w-full sm:w-56 md:w-60 rounded-lg sm:rounded-xl font-black text-xs sm:text-sm md:text-base transition-all duration-200 ${reviewWordsCount > 0 && !isLoadingScenarios
                 ? 'bg-lime-500 text-white shadow-[0_3px_0_rgb(101,163,13)] hover:shadow-[0_4px_0_rgb(101,163,13)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none'
                 : 'bg-slate-200 text-slate-400 shadow-[0_2px_0_rgb(203,213,225)] cursor-not-allowed'
                 }`}
             >
               <span className="flex items-center justify-center gap-1 sm:gap-1.5">
                 {reviewWordsCount > 0 ? (
-                  <>Ôn tập ngay <span className="text-base sm:text-lg">🔥</span></>
+                  isLoadingScenarios ? (
+                    <>Đang chuẩn bị... <span className="text-base sm:text-lg animate-spin">⏳</span></>
+                  ) : (
+                    <>Ôn tập ngay <span className="text-base sm:text-lg">🔥</span></>
+                  )
                 ) : (
                   <>⏳ {remainingSec !== null ? formatHMS(remainingSec) : 'Đang chờ...'}</>
                 )}
@@ -362,7 +362,7 @@ const PracticePageGrammar = () => {
       bg-contain bg-center bg-no-repeat 
       flex flex-col justify-center items-center">
             <p className="text-green-800 text-base font-bold">Bạn đã học được</p>
-            <p className="text-2xl text-yellow-600 font-bold">{totalWords} mẫu</p>
+            <p className="text-2xl text-yellow-600 font-bold">{totalWords} từ</p>
           </div>
 
           <div className="w-full min-h-[180px] text-center 
@@ -374,8 +374,13 @@ const PracticePageGrammar = () => {
           </div>
         </div>
       </div>
+
     </div>
+
   );
 };
 
-export default PracticePageGrammar;
+export default WordPracticePage;
+
+
+
