@@ -29,7 +29,7 @@ return [
         'http://192.168.1.56:8000',
         'http://100.69.116.74:3005',
         'http://100.69.116.74:8005',
-        'https://mochi-app-six.vercel.app'
+        'https://mochi-app-tan.vercel.app'
     ],
 
     'allowed_origins_patterns' => [
