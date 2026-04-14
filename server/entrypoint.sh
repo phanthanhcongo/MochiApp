@@ -40,7 +40,10 @@ if [ "$DB_AUTO_IMPORT" = "true" ]; then
           'mysql:host=' . getenv('DB_HOST') . ';port=' . (getenv('DB_PORT') ?: '3306') . ';dbname=' . getenv('DB_DATABASE'),
           getenv('DB_USERNAME'),
           getenv('DB_PASSWORD'),
-          [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+          [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false
+          ]
         );
         \$sql = file_get_contents('$IMPORT_FILE');
         \$pdo->exec(\$sql);
@@ -53,7 +56,10 @@ if [ "$DB_AUTO_IMPORT" = "true" ]; then
           'mysql:host=' . getenv('DB_HOST') . ';port=' . (getenv('DB_PORT') ?: '3306') . ';dbname=' . getenv('DB_DATABASE'),
           getenv('DB_USERNAME'),
           getenv('DB_PASSWORD'),
-          [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+          [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false
+          ]
         );
         \$tables = \$pdo->query('SHOW TABLES')->fetchAll(PDO::FETCH_COLUMN);
         echo 'Tables: ' . count(\$tables) . PHP_EOL;
