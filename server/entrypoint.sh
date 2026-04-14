@@ -47,6 +47,21 @@ if [ "$DB_AUTO_IMPORT" = "true" ]; then
         echo 'Import successful' . PHP_EOL;
       "
       echo "=== Import completed ==="
+      echo "=== Verifying imported data ==="
+      php -r "
+        \$pdo = new PDO(
+          'mysql:host=' . getenv('DB_HOST') . ';port=' . (getenv('DB_PORT') ?: '3306') . ';dbname=' . getenv('DB_DATABASE'),
+          getenv('DB_USERNAME'),
+          getenv('DB_PASSWORD'),
+          [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+        );
+        \$tables = \$pdo->query('SHOW TABLES')->fetchAll(PDO::FETCH_COLUMN);
+        echo 'Tables: ' . count(\$tables) . PHP_EOL;
+        foreach (\$tables as \$t) {
+          \$count = \$pdo->query('SELECT COUNT(*) FROM ' . \$t)->fetchColumn();
+          echo '  - ' . \$t . ': ' . \$count . ' rows' . PHP_EOL;
+        }
+      "
     else
       echo "!!! No .sql file found in data/ directory, skipping import"
     fi
