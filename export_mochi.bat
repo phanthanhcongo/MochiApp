@@ -8,7 +8,8 @@ REM ===== Set variables =====
 set DB_USER=appuser
 set DB_PASS=StrongPass!123
 set DB_NAME=mochi
-set OUT_DIR=C:\Users\thanh\Documents\dumps\BackupMochi
+set OUT_DIR=c:\Users\thanh\Desktop\ProjectWEb\data
+set OUT_DIR_2=C:\Users\thanh\Documents\dumps\BackupMochi
 
 REM ===== Create timestamp =====
 set TIMESTAMP=%DATE:~10,4%-%DATE:~4,2%-%DATE:~7,2%_%TIME:~0,2%%TIME:~3,2%
@@ -16,12 +17,17 @@ set TIMESTAMP=%TIMESTAMP: =0%
 
 echo [INFO] Database: %DB_NAME%
 echo [INFO] User: %DB_USER%
-echo [INFO] Output file: %OUT_DIR%\%DB_NAME%_%TIMESTAMP%.sql
+echo [INFO] Output file 1: %OUT_DIR%\%DB_NAME%_%TIMESTAMP%.sql
+echo [INFO] Output file 2: %OUT_DIR_2%\%DB_NAME%_%TIMESTAMP%.sql
 
 REM ===== Ensure output folder exists =====
 if not exist "%OUT_DIR%" (
-    echo [INFO] Output folder does not exist. Creating...
+    echo [INFO] Output folder 1 does not exist. Creating...
     mkdir "%OUT_DIR%"
+)
+if not exist "%OUT_DIR_2%" (
+    echo [INFO] Output folder 2 does not exist. Creating...
+    mkdir "%OUT_DIR_2%"
 )
 
 REM ===== Run mysqldump using full path =====
@@ -34,9 +40,11 @@ echo [RUN] Executing mysqldump ...
   --triggers ^
   > "%OUT_DIR%\%DB_NAME%_%TIMESTAMP%.sql"
 
-REM ===== Check result =====
+REM ===== Check result and copy to second directory =====
 if %ERRORLEVEL% EQU 0 (
     echo [OK] Backup completed successfully!
+    echo [INFO] Copying backup to second directory...
+    copy /Y "%OUT_DIR%\%DB_NAME%_%TIMESTAMP%.sql" "%OUT_DIR_2%\%DB_NAME%_%TIMESTAMP%.sql"
 ) else (
     echo [ERROR] Backup failed!
     echo Please check your user/password or mysqldump path.

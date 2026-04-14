@@ -20,6 +20,14 @@ php artisan session:table || true
 php artisan cache:table || true
 php artisan queue:table || true
 
+# Seed data from SQL dumps if available (conditional overwrite)
+if [ "$DB_AUTO_IMPORT" = "true" ]; then
+    echo "[INFO] DB_AUTO_IMPORT is true. Importing latest SQL dump..."
+    php artisan app:import-sql --force || true
+else
+    echo "[INFO] DB_AUTO_IMPORT is false. Skipping SQL import."
+fi
+
 # Migrate (có thể fail lần đầu nếu DB chưa sẵn sàng; không làm hỏng container)
 php artisan migrate --force || true
 

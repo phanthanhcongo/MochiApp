@@ -14,6 +14,7 @@ services:
       DB_DATABASE: mochi
       DB_USERNAME: appuser
       DB_PASSWORD: StrongPass!123
+      DB_AUTO_IMPORT: ${DB_AUTO_IMPORT:-false}
       TZ: Asia/Bangkok
     # thêm host.docker.internal cho chắc, dù Windows không bắt buộc
     extra_hosts:
@@ -23,6 +24,7 @@ services:
       - ./server/routes:/var/www/html/routes
       - ./server/resources:/var/www/html/resources
       - ./server/database:/var/www/html/database
+      - ./data:/var/www/html/data
       - vendor_data:/var/www/html/vendor
       - storage_data:/var/www/html/storage
     networks:

@@ -2,7 +2,7 @@
 FROM php:8.2-fpm-alpine AS php-base
 
 RUN apk add --no-cache bash git unzip icu-dev libzip-dev oniguruma-dev \
-    libpng-dev libjpeg-turbo-dev libxml2-dev \
+    libpng-dev libjpeg-turbo-dev libxml2-dev mysql-client \
  && docker-php-ext-configure gd --with-jpeg \
  && docker-php-ext-install pdo_mysql zip gd intl bcmath opcache
 
