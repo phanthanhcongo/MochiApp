@@ -35,7 +35,17 @@ if [ "$DB_AUTO_IMPORT" = "true" ]; then
     
     if [ -n "$IMPORT_FILE" ]; then
       echo "=== Importing database from $IMPORT_FILE ==="
-      mariadb -h "$DB_HOST" -u "$DB_USERNAME" -p"$DB_PASSWORD" --skip-ssl "$DB_DATABASE" < "$IMPORT_FILE"
+      php -r "
+        \$pdo = new PDO(
+          'mysql:host=' . getenv('DB_HOST') . ';port=' . (getenv('DB_PORT') ?: '3306') . ';dbname=' . getenv('DB_DATABASE'),
+          getenv('DB_USERNAME'),
+          getenv('DB_PASSWORD'),
+          [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+        );
+        \$sql = file_get_contents('$IMPORT_FILE');
+        \$pdo->exec(\$sql);
+        echo 'Import successful' . PHP_EOL;
+      "
       echo "=== Import completed ==="
     else
       echo "!!! No .sql file found in data/ directory, skipping import"
