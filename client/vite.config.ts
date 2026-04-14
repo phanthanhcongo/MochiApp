@@ -12,5 +12,5 @@ export default defineConfig({
       '/storage': { target: 'http://127.0.0.1:8005', changeOrigin: true }
     }
   },
-  build: { outDir: 'build', assetsDir: 'assets' }
+  build: { outDir: 'dist', assetsDir: 'assets' }
 })
