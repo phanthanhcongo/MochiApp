@@ -43,6 +43,9 @@ if [ "$DB_AUTO_IMPORT" = "true" ]; then
           [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
         );
         \$sql = file_get_contents('$IMPORT_FILE');
+        // Xóa lệnh CREATE DATABASE và USE database để data import vào đúng DB_DATABASE
+        \$sql = preg_replace('/^CREATE DATABASE .+;\s*$/mi', '', \$sql);
+        \$sql = preg_replace('/^USE .+;\s*$/mi', '', \$sql);
         \$pdo->exec(\$sql);
         echo 'Import successful' . PHP_EOL;
       "
