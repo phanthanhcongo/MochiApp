@@ -35,7 +35,7 @@ if [ "$DB_AUTO_IMPORT" = "true" ]; then
     
     if [ -n "$IMPORT_FILE" ]; then
       echo "=== Importing database from $IMPORT_FILE ==="
-      mysql -h "$DB_HOST" -u "$DB_USERNAME" -p"$DB_PASSWORD" --ssl-mode=DISABLED "$DB_DATABASE" < "$IMPORT_FILE"
+      mariadb -h "$DB_HOST" -u "$DB_USERNAME" -p"$DB_PASSWORD" --skip-ssl "$DB_DATABASE" < "$IMPORT_FILE"
       echo "=== Import completed ==="
     else
       echo "!!! No .sql file found in data/ directory, skipping import"
