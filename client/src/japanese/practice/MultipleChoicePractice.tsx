@@ -8,7 +8,7 @@ import { showToast } from '../../components/Toast';
 
 
 
-const MultipleChoicePractice: React.FC = React.memo(() => {
+const MultipleChoicePractice: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -243,6 +243,10 @@ const MultipleChoicePractice: React.FC = React.memo(() => {
     }
   }, [selectedIndex, isAnswered, answers, markAnswer, currentWord]);
 
+  const handleSelect = useCallback((index: number) => {
+    if (!isAnswered) setSelectedIndex(index);
+  }, [isAnswered]);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // CHỈ xử lý nếu đang ở đúng route
@@ -252,6 +256,19 @@ const MultipleChoicePractice: React.FC = React.memo(() => {
 
       // Ignore auto-repeat events when key is held down
       if (e.repeat) return;
+
+      if (['1', '2', '3'].includes(e.key)) {
+        const index = parseInt(e.key) - 1;
+        if (index < answers.length) {
+          handleSelect(index);
+        }
+        return;
+      }
+
+      if (e.key === '*' && !isAnswered) {
+        handleForget();
+        return;
+      }
 
       if (e.key === 'Enter' || e.key.toLowerCase() === 'f') {
         const now = Date.now();
@@ -277,7 +294,7 @@ const MultipleChoicePractice: React.FC = React.memo(() => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isAnswered, isForgetClicked, selectedIndex, handleContinue, handleCheck]);
+  }, [isAnswered, isForgetClicked, selectedIndex, handleContinue, handleCheck, answers.length, handleSelect]);
 
   // Component is always mounted, visibility handled by PracticeWrapper
   const currentPath = location.pathname;
@@ -301,9 +318,6 @@ const MultipleChoicePractice: React.FC = React.memo(() => {
 
   const word = currentWord.word;
 
-  const handleSelect = (index: number) => {
-    if (!isAnswered) setSelectedIndex(index);
-  };
 
   return (
     <PracticeAnimationWrapper
@@ -319,11 +333,11 @@ const MultipleChoicePractice: React.FC = React.memo(() => {
         }}
       >
         <div className="flex-1 flex flex-col justify-center w-full max-w-4xl">
-          <div className="text-center pb-4 sm:pb-6 md:pb-8 lg:pb-10 w-full">
-            <h4 className="text-gray-600 mb-2 sm:mb-3 md:mb-4 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn đúng nghĩa của từ</h4>
-            <h1 className="text-6xl lg:text-7xl font-bold text-gray-900">{word.kanji}</h1>
+          <div className="text-center pb-3 sm:pb-4 md:pb-6 w-full">
+            <h4 className="text-gray-600 mb-1 sm:mb-2 text-sm sm:text-base md:text-lg">Chọn đúng nghĩa của từ</h4>
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900">{word.kanji}</h1>
           </div>
-          <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8 w-full ">
+          <div className="flex flex-col gap-2 sm:gap-3 mb-4 sm:mb-6 w-full ">
             {answers.map((ans, idx) => {
               const isSelected = selectedIndex === idx;
               let statusClass = 'answer-option--default';
@@ -344,11 +358,11 @@ const MultipleChoicePractice: React.FC = React.memo(() => {
                   onClick={() => handleSelect(idx)}
                   disabled={isAnswered}
                 >
-                  <div className="flex items-center gap-6 w-full">
+                  <div className="flex items-center gap-4 w-full">
                     <span className="option-index">
                       {idx + 1}
                     </span>
-                    <div className="flex-1 text-center font-bold text-base sm:text-lg md:text-xl lg:text-2xl pr-4 sm:pr-6 md:pr-8 lg:pr-10">
+                    <div className="flex-1 text-center font-bold text-sm sm:text-base md:text-lg">
                       {ans.text}
                     </div>
                   </div>
@@ -358,14 +372,14 @@ const MultipleChoicePractice: React.FC = React.memo(() => {
             })}
           </div>
 
-          <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-6 mt-6 w-full">
+          <div className="flex flex-col items-center gap-2 sm:gap-3 mt-4 w-full">
             <button
-              className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3`}
+              className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-sm px-4 py-2 sm:py-2.5`}
               onClick={handleCheck}
               disabled={selectedIndex === null || isAnswered}>
               Kiểm tra
             </button>
-            <button className="btn-forget text-sm sm:text-base md:text-lg" onClick={handleForget} disabled={isAnswered}>
+            <button className="btn-forget text-xs sm:text-sm" onClick={handleForget} disabled={isAnswered}>
               Tôi ko nhớ từ này
             </button>
           </div>
@@ -385,9 +399,7 @@ const MultipleChoicePractice: React.FC = React.memo(() => {
       />
     </PracticeAnimationWrapper>
   );
-});
-
-MultipleChoicePractice.displayName = 'MultipleChoicePractice';
+};
 
 export default MultipleChoicePractice;
 

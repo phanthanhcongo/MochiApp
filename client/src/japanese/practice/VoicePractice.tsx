@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
 import { usePracticeSession, speak } from '../utils/usePracticeStore';
@@ -13,7 +13,7 @@ interface AnswerOption {
 }
 
 
-const VoicePractice: React.FC = React.memo(() => {
+const VoicePractice: React.FC = () => {
 
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
@@ -221,7 +221,7 @@ const VoicePractice: React.FC = React.memo(() => {
 
 
 
-  const handleContinue = async () => {
+  const handleContinue = useCallback(async () => {
     if (isNavigating || isProcessingRef.current) return;
 
     isProcessingRef.current = true;
@@ -239,7 +239,34 @@ const VoicePractice: React.FC = React.memo(() => {
       setIsNavigating(false);
       isProcessingRef.current = false;
     });
-  };
+  }, [isNavigating, continueToNextQuiz, navigate]);
+
+  const handleSelect = useCallback((index: number) => {
+    if (!isAnswered) setSelectedIndex(index);
+  }, [isAnswered]);
+
+  const handleCheck = useCallback(() => {
+    if (selectedIndex !== null && !isAnswered) {
+      const isCorrect = answers[selectedIndex].isCorrect;
+      setIsAnswered(true);
+      setIsCorrectAnswer(isCorrect);
+      setIsForgetClicked(false);
+      speak(reading);
+      markAnswer(isCorrect);
+    }
+  }, [selectedIndex, isAnswered, answers, reading, markAnswer]);
+
+  const handleForget = useCallback(() => {
+    if (!isAnswered) {
+      setIsAnswered(false);
+      setIsCorrectAnswer(false);
+      setIsForgetClicked(true);
+      setIsResultHidden(false);
+      setSelectedIndex(null);
+      markAnswer(false);
+      speak(reading);
+    }
+  }, [isAnswered, reading, markAnswer]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -250,6 +277,25 @@ const VoicePractice: React.FC = React.memo(() => {
 
       // Ignore auto-repeat events when key is held down
       if (e.repeat) return;
+
+      if (e.key === 'F3') {
+        e.preventDefault(); // Prevent browser's default "Find" behavior
+        speak(reading);
+        return;
+      }
+
+      if (['1', '2', '3'].includes(e.key)) {
+        const index = parseInt(e.key) - 1;
+        if (index < answers.length) {
+          handleSelect(index);
+        }
+        return;
+      }
+
+      if (e.key === '*' && !isAnswered) {
+        handleForget();
+        return;
+      }
 
       if (e.key === 'Enter' || e.key.toLowerCase() === 'f') {
         const now = Date.now();
@@ -275,7 +321,7 @@ const VoicePractice: React.FC = React.memo(() => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isAnswered, isForgetClicked, selectedIndex]);
+  }, [isAnswered, isForgetClicked, selectedIndex, handleContinue, handleCheck, answers.length, handleSelect, reading]);
 
   // Component is always mounted, visibility handled by PracticeWrapper
 
@@ -298,32 +344,6 @@ const VoicePractice: React.FC = React.memo(() => {
 
   const word = currentWord.word;
 
-  const handleSelect = (index: number) => {
-    if (!isAnswered) setSelectedIndex(index);
-  };
-
-  const handleCheck = () => {
-    if (selectedIndex !== null && !isAnswered) {
-      const isCorrect = answers[selectedIndex].isCorrect;
-      setIsAnswered(true);
-      setIsCorrectAnswer(isCorrect);
-      setIsForgetClicked(false);
-      speak(reading);
-      markAnswer(isCorrect);
-    }
-  };
-
-  const handleForget = () => {
-    if (!isAnswered) {
-      setIsAnswered(false);
-      setIsCorrectAnswer(false);
-      setIsForgetClicked(true);
-      setIsResultHidden(false);
-      setSelectedIndex(null);
-      markAnswer(false);
-      speak(reading);
-    }
-  };
 
   return (
     <PracticeAnimationWrapper
@@ -340,21 +360,21 @@ const VoicePractice: React.FC = React.memo(() => {
       >
         <div className="flex-1 flex flex-col justify-center w-full max-w-4xl">
           {/* Question (Phát âm thay vì hiển thị chữ) */}
-          <div className="text-center mb-4 sm:mb-6 md:mb-8 w-full">
-            <h4 className="text-gray-600 m-5 sm:mb-4 md:mb-6 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn đáp án đúng</h4>
+          <div className="text-center mb-3 sm:mb-4 md:mb-6 w-full">
+            <h4 className="text-gray-600 mb-2 sm:mb-3 text-sm sm:text-base md:text-lg">Chọn đáp án đúng</h4>
             <div className="flex justify-center w-full"> {/* Thêm div này để căn giữa */}
               <button
-                className="bg-slate-200 hover:bg-slate-600 p-8 w-28 h-28 rounded-full text-gray-800 hover:text-white transition duration-200 hover:scale-105 active:scale-95 flex items-center justify-center"
+                className="bg-slate-200 hover:bg-slate-600 p-4 w-20 h-20 rounded-full text-gray-800 hover:text-white transition duration-200 hover:scale-105 active:scale-95 flex items-center justify-center"
                 onClick={() => speak(reading)}
                 title="Phát âm từ"
               >
-                <HiSpeakerWave className="text-5xl" />
+                <HiSpeakerWave className="text-3xl" />
               </button>
             </div>
 
           </div>
           {/* Answers */}
-          <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8 w-full ">
+          <div className="flex flex-col gap-2 sm:gap-3 mb-4 sm:mb-6 w-full ">
             {answers.map((ans, idx) => {
               const isSelected = selectedIndex === idx;
               let statusClass = 'answer-option--default';
@@ -376,11 +396,11 @@ const VoicePractice: React.FC = React.memo(() => {
                   onClick={() => handleSelect(idx)}
                   disabled={isAnswered}
                 >
-                  <div className="flex items-center gap-3 sm:gap-4 md:gap-6 w-full">
+                  <div className="flex items-center gap-3 w-full">
                     <span className="option-index">
                       {idx + 1}
                     </span>
-                    <div className="flex-1 text-center font-bold text-base sm:text-lg md:text-xl lg:text-2xl pr-4 sm:pr-6 md:pr-8 lg:pr-10">
+                    <div className="flex-1 text-center font-bold text-sm sm:text-base md:text-lg">
                       {ans.text}
                     </div>
                   </div>
@@ -389,15 +409,15 @@ const VoicePractice: React.FC = React.memo(() => {
             })}
           </div>
 
-          <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-6 mt-6 w-full">
+          <div className="flex flex-col items-center gap-2 sm:gap-3 mt-6 w-full">
             <button
-              className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-6 py-3`}
+              className={`btn-primary ${selectedIndex === null || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-sm px-4 py-2`}
               onClick={handleCheck}
               disabled={selectedIndex === null || isAnswered}
             >
               Kiểm tra
             </button>
-            <button className="btn-forget text-lg" onClick={handleForget} disabled={isAnswered}>
+            <button className="btn-forget text-xs sm:text-sm" onClick={handleForget} disabled={isAnswered}>
               Tôi ko nhớ từ này
             </button>
           </div>
@@ -417,9 +437,7 @@ const VoicePractice: React.FC = React.memo(() => {
       />
     </PracticeAnimationWrapper>
   );
-});
-
-VoicePractice.displayName = 'VoicePractice';
+};
 
 export default VoicePractice;
 

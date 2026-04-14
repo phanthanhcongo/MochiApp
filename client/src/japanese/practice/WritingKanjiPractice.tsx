@@ -145,8 +145,8 @@ const WritingKanjiPractice: React.FC = () => {
         if (cancelled) return;
 
         const writer = HanziWriter.create(container, ch, {
-          width: 200,
-          height: 200,
+          width: 150,
+          height: 150,
           padding: 5,
           strokeColor: '#22c55e',
           radicalColor: '#0ea5e9',
@@ -259,6 +259,11 @@ const WritingKanjiPractice: React.FC = () => {
       // Ignore auto-repeat events when key is held down
       if (e.repeat) return;
 
+      if (e.key === '*' && !isResultShown) {
+        handleSkip();
+        return;
+      }
+
       if (e.key === 'Enter' || e.key.toLowerCase() === 'f') {
         // CHỈ cho phép continue khi đã hoàn thành (isResultShown = true)
         // KHÔNG tự động gọi handleForget nữa
@@ -315,15 +320,15 @@ const WritingKanjiPractice: React.FC = () => {
     >
       <div className="flex flex-col items-center h-full overflow-y-hidden">
         <div className="flex-1 flex flex-col justify-center items-center w-full">
-          <h4 className="text-gray-600 mb-4 shrink-0">Vẽ từng nét đúng theo thứ tự</h4>
-          <div className="flex gap-4 flex-wrap justify-center shrink-0 mb-8">
+          <h4 className="text-gray-600 mb-2 shrink-0 text-sm sm:text-base md:text-lg">Vẽ từng nét đúng theo thứ tự</h4>
+          <div className="flex gap-3 flex-wrap justify-center shrink-0 mb-6">
             {word.kanji.split('').map((char, idx) => (
               <div
                 key={`${word.id}-${idx}`} // ✅ Quan trọng: đảm bảo mỗi ô là duy nhất khi từ thay đổi
                 ref={(el) => {
                   containerRefs.current[idx] = el;
                 }}
-                className="relative w-[200px] h-[200px] flex items-center justify-center text-9xl font-bold border border-gray-400 rounded-lg shadow bg-stone-100"
+                className="relative w-[150px] h-[150px] flex items-center justify-center text-8xl font-bold border border-gray-400 rounded-lg shadow bg-stone-100"
                 style={{
                   backgroundImage: `
             linear-gradient(to right, #b4b7bdff 1px, transparent 1px),

@@ -5,16 +5,19 @@ import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper'
 import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 import PracticeResultPanel from '../components/PracticeResultPanel';
 import { showToast } from '../../components/Toast';
-const TypingRomajiPractice: React.FC = React.memo(() => {
+import { removeVietnameseTones } from '../utils/textUtils';
+const TypingRomajiPractice: React.FC = () => {
   const [userRomajiAnswer, setUserRomajiAnswer] = useState('');
   const [isAnswered, setIsAnswered] = useState(false);
   const [isResultHidden, setIsResultHidden] = useState(false);
   const [isForgetClicked, setIsForgetClicked] = useState(false);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
-  const [hasAccentWarning, setHasAccentWarning] = useState(false);
+  const [hasSpecialCharWarning, setHasSpecialCharWarning] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
   const isProcessingRef = useRef(false);
   const lastKeyPressRef = useRef<number>(0);
+  const isComposingRef = useRef(false);
+  const inputRef = useRef<HTMLInputElement>(null);
   const [isExiting, setIsExiting] = useState(false);
 
   const navigate = useNavigate();
@@ -30,6 +33,11 @@ const TypingRomajiPractice: React.FC = React.memo(() => {
   const question = currentWord?.word.kanji || '';
   const reading = currentWord?.word.reading_hiragana || '';
   const correctRomaji = currentWord?.word.reading_romaji || '';
+
+  useEffect(() => {
+    // Auto-focus input khi component mount
+    inputRef.current?.focus();
+  }, [currentWord]);
 
   useEffect(() => {
     // Đợi một chút để đảm bảo location.state đã được set đúng cách sau khi navigate
@@ -101,17 +109,17 @@ const TypingRomajiPractice: React.FC = React.memo(() => {
 
 
 
-  const hasVietnameseAccents = (text: string): boolean => {
-    // Regex để kiểm tra ký tự có dấu tiếng Việt
-    const vietnameseAccentRegex = /[àáảãạăắằẳẵặâấầẩẫậèéẻẽẹêếềểễệìíỉĩịòóỏõọôốồổỗộơớờởỡợùúủũụưứừửữựỳýỷỹỵđÀÁẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬÈÉẺẼẸÊẾỀỂỄỆÌÍỈĨỊÒÓỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÙÚỦŨỤƯỨỪỬỮỰỲÝỶỸỴĐ]/;
-    return vietnameseAccentRegex.test(text);
+  const hasSpecialCharacters = (text: string): boolean => {
+    // Chỉ cho phép chữ cái alphabet (a-z, A-Z) và khoảng trắng
+    return /[^a-zA-Z\s]/.test(text);
   };
 
   const handleCheck = () => {
     if (!isAnswered && userRomajiAnswer.trim()) {
-      // Kiểm tra nếu có dấu tiếng Việt thì không cho submit
-      if (hasVietnameseAccents(userRomajiAnswer)) {
-        setHasAccentWarning(true);
+      // Kiểm tra nếu có ký tự đặc biệt thì không cho submit
+      if (hasSpecialCharacters(userRomajiAnswer)) {
+        setHasSpecialCharWarning(true);
+        showToast('Romaji chỉ được chứa chữ cái alphabet (a-z)');
         return;
       }
 
@@ -122,7 +130,7 @@ const TypingRomajiPractice: React.FC = React.memo(() => {
       setIsAnswered(true);
       setIsCorrectAnswer(isCorrect);
       setIsForgetClicked(false);
-      setHasAccentWarning(false);
+      setHasSpecialCharWarning(false);
       speak(reading);
       markAnswer(isCorrect);
     }
@@ -138,7 +146,7 @@ const TypingRomajiPractice: React.FC = React.memo(() => {
     setIsCorrectAnswer(null);
     setIsResultHidden(false);
     setIsForgetClicked(false);
-    setHasAccentWarning(false);
+    setHasSpecialCharWarning(false);
     sessionStorage.setItem('reload_count', '0'); // Reset về 0 trước
 
     // Sử dụng method mới từ store để xử lý toàn bộ logic
@@ -158,6 +166,18 @@ const TypingRomajiPractice: React.FC = React.memo(() => {
 
       // Ignore auto-repeat events when key is held down
       if (e.repeat) return;
+
+      if (e.key === '*' && !isAnswered) {
+        e.preventDefault();
+        handleForget();
+        return;
+      }
+
+      if (e.key === '=' && !isAnswered) {
+        e.preventDefault();
+        inputRef.current?.focus();
+        return;
+      }
 
       // F chỉ work khi đã answer/forget - để continue
       // Enter work khi: (1) đã answer/forget → continue, (2) có text → check
@@ -223,41 +243,66 @@ const TypingRomajiPractice: React.FC = React.memo(() => {
         }}
       >
         <div className="flex-1 flex flex-col justify-center w-full text-center">
-          <h4 className="text-gray-600 mb-6 text-3xl">Nhập cách đọc romaji của từ sau:</h4>
-          <h1 className="text-6xl font-bold text-gray-900 mb-10">{question}</h1>
+          <h4 className="text-gray-600 mb-2 sm:mb-4 text-sm sm:text-base md:text-lg">Nhập cách đọc romaji của từ sau:</h4>
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 sm:mb-8">{question}</h1>
           <div className="flex justify-center mb-4 w-[90%] mx-auto">
             <input
+              ref={inputRef}
+              autoFocus
               type="text"
-              className={`border rounded px-6 h-15 py-4 text-3xl text-center w-full max-w-lg ${hasAccentWarning ? 'border-red-500 bg-red-50' : 'border-gray-300'
+              className={`border rounded px-4 h-12 py-2 text-xl text-center w-full max-w-sm ${hasSpecialCharWarning ? 'border-red-500 bg-red-50' : 'border-gray-300'
                 }`}
               placeholder="ví dụ: shiji"
               value={userRomajiAnswer}
+              onCompositionStart={() => {
+                isComposingRef.current = true;
+              }}
+              onCompositionEnd={(e) => {
+                isComposingRef.current = false;
+                const rawValue = e.currentTarget.value;
+                const normalized = removeVietnameseTones(rawValue);
+                const filtered = normalized.replace(/[^a-zA-Z\s]/g, '');
+                
+                if (filtered !== rawValue) {
+                  setHasSpecialCharWarning(true);
+                  setTimeout(() => setHasSpecialCharWarning(false), 1500);
+                }
+                setUserRomajiAnswer(filtered);
+              }}
               onChange={(e) => {
                 const value = e.target.value;
-                setUserRomajiAnswer(value);
-                // Kiểm tra và cập nhật cảnh báo khi người dùng nhập
-                if (value.trim() && hasVietnameseAccents(value)) {
-                  setHasAccentWarning(true);
-                } else {
-                  setHasAccentWarning(false);
+                // Nếu đang gõ tiếng Việt (composition), cho phép tạm thời để tránh làm vỡ IME
+                if (isComposingRef.current) {
+                  setUserRomajiAnswer(value);
+                  return;
                 }
+
+                // Nếu không trong quá trình gõ tổ hợp, tiến hành lọc và chuẩn hóa ngay
+                const normalized = removeVietnameseTones(value);
+                const filtered = normalized.replace(/[^a-zA-Z\s]/g, '');
+                
+                if (filtered !== value) {
+                  setHasSpecialCharWarning(true);
+                  setTimeout(() => setHasSpecialCharWarning(false), 1500);
+                }
+                setUserRomajiAnswer(filtered);
               }}
               disabled={isAnswered}
             />
           </div>
-          {hasAccentWarning && (
-            <p className="text-red-500 text-lg mt-3">⚠️ Romaji không được chứa dấu tiếng Việt</p>
+          {hasSpecialCharWarning && (
+            <p className="text-red-500 text-sm mt-2 font-bold animate-pulse">⚠️ Romaji không được chứa dấu tiếng Việt hoặc ký tự đặc biệt!</p>
           )}
 
-          <div className="flex flex-col items-center gap-6 mt-10 w-full">
+          <div className="flex flex-col items-center gap-2 sm:gap-3 mt-8 w-full">
             <button
-              className={`btn-primary ${!userRomajiAnswer || isAnswered || hasAccentWarning ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-6 py-3`}
+              className={`btn-primary ${!userRomajiAnswer || isAnswered || hasSpecialCharWarning ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-sm px-4 py-2`}
               onClick={handleCheck}
-              disabled={!userRomajiAnswer || isAnswered || hasAccentWarning}
+              disabled={!userRomajiAnswer || isAnswered || hasSpecialCharWarning}
             >
               Kiểm tra
             </button>
-            <button className="btn-forget text-lg" onClick={handleForget} disabled={isAnswered}>Tôi ko nhớ từ này</button>
+            <button className="btn-forget text-xs sm:text-sm" onClick={handleForget} disabled={isAnswered}>Tôi ko nhớ từ này</button>
           </div>
         </div>
       </div>
@@ -275,9 +320,7 @@ const TypingRomajiPractice: React.FC = React.memo(() => {
       />
     </PracticeAnimationWrapper>
   );
-});
-
-TypingRomajiPractice.displayName = 'TypingRomajiPractice';
+};
 
 export default TypingRomajiPractice;
 

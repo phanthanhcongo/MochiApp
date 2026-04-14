@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import type { ReviewWord } from '../utils/usePracticeStore';
@@ -27,6 +27,46 @@ const PracticeResultPanel: React.FC<PracticeResultPanelProps> = ({
   speak,
 }) => {
   const [isTranslationHidden, setIsTranslationHidden] = useState(true);
+
+  useEffect(() => {
+    // Chỉ kích hoạt phím tắt khi panel hiển thị hợp lệ
+    if (!isAnswered && !isForgetClicked) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Ignored if user is typing in input
+      if (document.activeElement?.tagName === 'INPUT' || document.activeElement?.tagName === 'TEXTAREA') {
+        return;
+      }
+
+      switch (e.key) {
+        case 's':
+        case 'S':
+          speak(word.reading_hiragana);
+          break;
+        case 'x':
+        case 'X':
+          if (word.example || word.example_vi) {
+            speak(word.example || '');
+          }
+          break;
+        case 't':
+        case 'T':
+          setIsTranslationHidden((prev) => !prev);
+          break;
+        case 'ArrowUp':
+          e.preventDefault();
+          setIsResultHidden(false); // Mở (kéo lên)
+          break;
+        case 'ArrowDown':
+          e.preventDefault();
+          setIsResultHidden(true); // Gập (kéo xuống)
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isAnswered, isForgetClicked, setIsResultHidden, speak, word]);
 
   if (!isAnswered && !isForgetClicked) return null;
 
@@ -77,31 +117,31 @@ const PracticeResultPanel: React.FC<PracticeResultPanelProps> = ({
 
         {/* Phần từ vựng */}
         <div className="flex items-start gap-2 sm:gap-4 w-[95%] sm:w-[92%] md:w-[90%] mx-auto">
-          <div className="btn-audio text-xl sm:text-3xl flex-shrink-0" onClick={() => speak(word.reading_hiragana)}>🔊</div>
+          <div className="btn-audio text-lg sm:text-xl flex-shrink-0" onClick={() => speak(word.reading_hiragana)}>🔊</div>
           <div className="flex-1 min-w-0">
-            <p className="text-xl sm:text-2xl text-stone-50/90">{word.reading_hiragana} {word.hanviet ? `• ${word.hanviet}` : ''}</p>
-            <p className="text-5xl sm:text-6xl font-bold">{word.kanji}</p>
-            <p className="text-3xl sm:text-xl text-stone-50 my-2">{word.meaning_vi}</p>
+            <p className="text-base sm:text-lg text-stone-50/90">{word.reading_hiragana} {word.hanviet ? `• ${word.hanviet}` : ''}</p>
+            <p className="text-3xl sm:text-4xl font-bold">{word.kanji}</p>
+            <p className="text-xl sm:text-lg text-stone-50 my-1">{word.meaning_vi}</p>
             {word.hanviet_explanation && (
-              <p className="text-xl sm:text-xl text-stone-50/90 italic">{word.hanviet_explanation}</p>
+              <p className="text-sm sm:text-base text-stone-50/90 italic">{word.hanviet_explanation}</p>
             )}
           </div>
         </div>
 
         {/* Ví dụ Detail */}
         {(word.example || word.example_vi) && (
-          <div className="flex items-start gap-2 sm:gap-4 w-[95%] sm:w-[92%] md:w-[90%] mx-auto mt-2 border-t border-stone-50/20 pt-4">
-            <button className="btn-audio text-xl sm:text-3xl flex-shrink-0" onClick={() => speak(word.example || '')}>🔊</button>
+          <div className="flex items-start gap-2 sm:gap-4 w-[95%] sm:w-[92%] md:w-[90%] mx-auto mt-2 border-t border-stone-50/20 pt-3">
+            <button className="btn-audio text-lg sm:text-xl flex-shrink-0" onClick={() => speak(word.example || '')}>🔊</button>
             <div className="flex-1 min-w-0">
-              <div className="text-stone-50 text-3xl sm:text-4xl break-words">
+              <div className="text-stone-50 text-xl sm:text-2xl break-words">
                 {word.example}
                 <button className="btn-eye ml-2" onClick={() => setIsTranslationHidden(!isTranslationHidden)}>
                   {isTranslationHidden ? '🙈' : '👁'}
                 </button>
               </div>
               <div className={`${isTranslationHidden ? 'opacity-0 h-0' : 'opacity-100'} transition-all duration-300`}>
-                <p className="text-stone-50/90 text-xl italic mt-1">{word.example_romaji}</p>
-                <p className="text-stone-50/90 text-xl">{word.example_vi}</p>
+                <p className="text-stone-50/90 text-sm sm:text-base italic mt-1">{word.example_romaji}</p>
+                <p className="text-stone-50/90 text-sm sm:text-base">{word.example_vi}</p>
               </div>
             </div>
           </div>
@@ -109,7 +149,7 @@ const PracticeResultPanel: React.FC<PracticeResultPanelProps> = ({
       </div>
 
       {/* NÚT TIẾP TỤC */}
-      <div className="w-full sm:w-80 mx-auto p-10 text-center">
+      <div className="w-full sm:w-80 mx-auto p-4 sm:p-6 text-center">
         <button
           className="btn-primary btn-primary--active w-full shadow-md"
           onClick={onContinue}

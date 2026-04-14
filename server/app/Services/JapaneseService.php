@@ -663,7 +663,7 @@ class JapaneseService
                          
                          // If still duplicate, force a different basic type
                          if ($quizType === $previousQuizType) {
-                            $basics = ['multiple', 'romajiPractice', 'voicePractice'];
+                            $basics = ['multiple', 'TypingRomajiPractice', 'voicePractice'];
                             $basics = array_diff($basics, [$quizType]);
                             if (!empty($basics)) {
                                 $quizType = $basics[array_rand($basics)];
@@ -900,10 +900,10 @@ class JapaneseService
     {
         $allQuizTypes = [
             'multiple',
-            'hiraganaPractice',
-            'romajiPractice',
+            'ReadingHiraganaPractice',
+            'TypingRomajiPractice',
             'voicePractice',
-            // 'multiCharStrokePractice', // TEMPORARY DISABLE
+            // 'WritingKanjiPractice', // TEMPORARY DISABLE
         ];
 
         $hasKanji = $this->containsKanji($word->kanji);
@@ -921,13 +921,13 @@ class JapaneseService
 
         if (!$hasStrokeData) {
             $availableTypes = array_filter($availableTypes, function ($type) {
-                return $type !== 'multiCharStrokePractice';
+                return $type !== 'WritingKanjiPractice';
             });
         }
 
         if (!$hasKanji) {
             $availableTypes = array_filter($availableTypes, function ($type) {
-                return $type !== 'hiraganaPractice';
+                return $type !== 'ReadingHiraganaPractice';
             });
         }
 
@@ -937,7 +937,7 @@ class JapaneseService
         
         if ($isPureKatakana || $isPureHiragana) {
             $availableTypes = array_filter($availableTypes, function ($type) {
-                return $type !== 'hiraganaPractice';
+                return $type !== 'ReadingHiraganaPractice';
             });
         }
 
@@ -954,13 +954,13 @@ class JapaneseService
 
             if (!$hasStrokeData) {
                 $availableTypes = array_filter($availableTypes, function ($type) {
-                    return $type !== 'multiCharStrokePractice';
+                    return $type !== 'WritingKanjiPractice';
                 });
             }
 
             if (!$hasKanji || $isPureKatakana || $isPureHiragana) {
                 $availableTypes = array_filter($availableTypes, function ($type) {
-                    return $type !== 'hiraganaPractice';
+                    return $type !== 'ReadingHiraganaPractice';
                 });
             }
 

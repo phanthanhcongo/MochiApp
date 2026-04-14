@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { usePracticeSession, speak } from '../utils/usePracticeStore';
 import PracticeAnimationWrapper from '../../components/PracticeAnimationWrapper';
@@ -6,7 +6,7 @@ import { RELOAD_COUNT_THRESHOLD } from '../utils/practiceConfig';
 import PracticeResultPanel from '../components/PracticeResultPanel';
 import { showToast } from '../../components/Toast';
 
-const ReadingHiraganaPractice: React.FC = React.memo(() => {
+const ReadingHiraganaPractice: React.FC = () => {
   const [selectedChars, setSelectedChars] = useState<string[]>([]);
   const [isAnswered, setIsAnswered] = useState(false);
   const [isResultHidden, setIsResultHidden] = useState(false);
@@ -19,6 +19,7 @@ const ReadingHiraganaPractice: React.FC = React.memo(() => {
 
   const [hiraganaPool, setHiraganaPool] = useState<{ id: string; char: string }[]>([]);
   const [usedCharIds, setUsedCharIds] = useState<string[]>([]);
+  const [focusedIdx, setFocusedIdx] = useState(0);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -28,7 +29,7 @@ const ReadingHiraganaPractice: React.FC = React.memo(() => {
     // Đợi một chút để đảm bảo location.state đã được set đúng cách sau khi navigate
     const checkState = setTimeout(() => {
       const allowedSources = ['multiple', 'ReadingHiraganaPractice', 'TypingRomajiPractice', 'voicePractice'];
-      const state = location.state as any;
+      const state = location.state as { from?: string } | null;
 
       // Kiểm tra xem có đang ở đúng route không
       const currentPath = location.pathname;
@@ -61,7 +62,7 @@ const ReadingHiraganaPractice: React.FC = React.memo(() => {
       // Kiểm tra xem state.from có khớp với route hiện tại không
       const stateFromMatchesRoute = state.from === 'ReadingHiraganaPractice';
 
-      if (!allowedSources.includes(state.from)) {
+      if (!state.from || !allowedSources.includes(state.from)) {
         // Chỉ navigate nếu state.from không khớp với route hiện tại
         if (!stateFromMatchesRoute) {
           console.log(`Invalid source: ${state.from}, redirecting to summary or home`);
@@ -127,6 +128,7 @@ const ReadingHiraganaPractice: React.FC = React.memo(() => {
     setIsCorrectAnswer(null);
     setIsResultHidden(false);
     setIsForgetClicked(false);
+    setFocusedIdx(0);
   }, [reading]);
 
   const handleContinue = async () => {
@@ -161,6 +163,19 @@ const ReadingHiraganaPractice: React.FC = React.memo(() => {
     }
   };
 
+  // Helper to find the next available (non-used) index in a given direction
+  const findNextAvailableIdx = useCallback((from: number, direction: 1 | -1): number => {
+    if (hiraganaPool.length === 0) return 0;
+    let idx = from;
+    for (let i = 0; i < hiraganaPool.length; i++) {
+      idx = (idx + direction + hiraganaPool.length) % hiraganaPool.length;
+      if (!usedCharIds.includes(hiraganaPool[idx].id)) {
+        return idx;
+      }
+    }
+    return from; // All used, stay put
+  }, [hiraganaPool, usedCharIds]);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // CHỈ xử lý nếu đang ở đúng route
@@ -168,8 +183,45 @@ const ReadingHiraganaPractice: React.FC = React.memo(() => {
       const isCorrectRoute = currentPath.includes('ReadingHiraganaPractice');
       if (!isCorrectRoute) return;
 
-      // Ignore auto-repeat events when key is held down
+      // --- j/l navigation (allow repeat for smooth movement) ---
+      if (e.key.toLowerCase() === 'j') {
+        e.preventDefault();
+        setFocusedIdx(prev => findNextAvailableIdx(prev, -1));
+        return;
+      }
+      if (e.key.toLowerCase() === 'l') {
+        e.preventDefault();
+        setFocusedIdx(prev => findNextAvailableIdx(prev, 1));
+        return;
+      }
+
+      // Ignore auto-repeat for all other keys
       if (e.repeat) return;
+
+      // --- "q" to pick the focused character ---
+      if (e.key.toLowerCase() === 'd' && !isAnswered && !isForgetClicked) {
+        const item = hiraganaPool[focusedIdx];
+        if (item && !usedCharIds.includes(item.id)) {
+          setSelectedChars(prev => [...prev, item.char]);
+          setUsedCharIds(prev => [...prev, item.id]);
+          // Auto-advance focus to next available
+          setFocusedIdx(prev => findNextAvailableIdx(prev, 1));
+        }
+        return;
+      }
+
+      // --- p to remove last character ---
+      if (e.key.toLowerCase() === 'i' && !isAnswered) {
+        e.preventDefault();
+        handleRemoveLast();
+        return;
+      }
+
+      // --- "*" to forget ---
+      if (e.key === '*' && !isAnswered) {
+        handleForget();
+        return;
+      }
 
       if (e.key === 'Enter' || e.key.toLowerCase() === 'f') {
         const now = Date.now();
@@ -195,7 +247,7 @@ const ReadingHiraganaPractice: React.FC = React.memo(() => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isAnswered, isForgetClicked, selectedChars]);
+  }, [isAnswered, isForgetClicked, selectedChars, hiraganaPool, usedCharIds, focusedIdx, findNextAvailableIdx]);
 
   // Component is always mounted, visibility handled by PracticeWrapper
   const currentPath = location.pathname;
@@ -263,35 +315,42 @@ const ReadingHiraganaPractice: React.FC = React.memo(() => {
         }}
       >
         <div className="flex-1 flex flex-col justify-center w-full text-center">
-          <h4 className="text-gray-600 mb-3 sm:mb-4 md:mb-6 text-lg sm:text-xl md:text-2xl lg:text-3xl">Chọn các ký tự hiragana để ghép cách đọc:</h4>
-          <h1 className="text-6xl font-bold text-gray-900 mb-4 sm:mb-6 md:mb-8 lg:mb-10">{question}</h1>
-          <div className="mb-4 sm:mb-6 md:mb-8 h-18 lg:h-20 w-[90%] mx-auto border border-gray-400 rounded-xl sm:rounded-2xl px-3 sm:px-4 md:px-6 text-4xl font-semibold tracking-widest text-gray-800 bg-slate-50 flex items-center justify-center text-center">
+          <h4 className="text-gray-600 mb-2 sm:mb-3 text-sm sm:text-base md:text-lg">Chọn các ký tự hiragana để ghép cách đọc:</h4>
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6">{question}</h1>
+          <div className="mb-4 sm:mb-6 h-12 lg:h-14 w-[90%] mx-auto border border-gray-400 rounded-lg sm:rounded-xl px-2 sm:px-3 text-2xl font-semibold tracking-widest text-gray-800 bg-slate-50 flex items-center justify-center text-center">
             {selectedChars.join('')}
           </div>
-          <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3 w-[99%] mx-auto justify-center mb-4 sm:mb-5 md:mb-6">
-            {hiraganaPool.map(({ id, char }) => (
-              <button
-                key={id}
-                id={id}
-                className="bg-slate-50 px-5  lg:px-6 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg sm:rounded-xl text-4xl hover:bg-slate-400 border-b-2 sm:border-b-3 md:border-b-4 border border-slate-400 disabled:opacity-50"
-                onClick={() => handleCharClick(id)}
-                disabled={usedCharIds.includes(id)}
-              >
-                {char}
-              </button>
-            ))}
-            <button className="bg-red-400 px-2.5 sm:px-3 md:px-4 lg:px-6 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg sm:rounded-xl text-lg sm:text-xl md:text-2xl hover:bg-red-600" onClick={handleRemoveLast}>⌫</button>
+          <div className="flex flex-wrap gap-1 sm:gap-1.5 w-[99%] mx-auto justify-center mb-3 sm:mb-4">
+            {hiraganaPool.map(({ id, char }, idx) => {
+              const isFocused = idx === focusedIdx;
+              return (
+                <button
+                  key={id}
+                  id={id}
+                  className={`bg-slate-50 px-4 py-1 sm:py-1.5 md:py-2 rounded-lg text-2xl hover:bg-slate-400 border-b-2 sm:border-b-3 border disabled:opacity-50 transition-all duration-150 ${
+                    isFocused
+                      ? 'border-blue-500 ring-2 ring-blue-400 scale-110 bg-blue-50'
+                      : 'border-slate-400'
+                  }`}
+                  onClick={() => handleCharClick(id)}
+                  disabled={usedCharIds.includes(id)}
+                >
+                  {char}
+                </button>
+              );
+            })}
+            <button className="bg-red-400 px-3 py-1 sm:py-1.5 md:py-2 rounded-lg text-lg hover:bg-red-600" onClick={handleRemoveLast}>⌫</button>
           </div>
 
-          <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-6 mt-8 w-full">
+          <div className="flex flex-col items-center gap-2 sm:gap-3 mt-6 w-full">
             <button
-              className={`btn-primary ${selectedChars.length === 0 || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-md px-6 py-3`}
+              className={`btn-primary ${selectedChars.length === 0 || isAnswered ? 'btn-primary--disabled' : 'btn-primary--check'} w-full max-w-sm px-4 py-2`}
               onClick={handleCheck}
               disabled={selectedChars.length === 0 || isAnswered}
             >
               Kiểm tra
             </button>
-            <button className="btn-forget text-lg" onClick={handleForget} disabled={isAnswered}>Tôi ko nhớ từ này</button>
+            <button className="btn-forget text-xs sm:text-sm" onClick={handleForget} disabled={isAnswered}>Tôi ko nhớ từ này</button>
           </div>
         </div>
       </div>
@@ -309,9 +368,7 @@ const ReadingHiraganaPractice: React.FC = React.memo(() => {
       />
     </PracticeAnimationWrapper>
   );
-});
-
-ReadingHiraganaPractice.displayName = 'ReadingHiraganaPractice';
+};
 
 export default ReadingHiraganaPractice;
 
