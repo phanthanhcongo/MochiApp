@@ -20,6 +20,9 @@ RUN composer install --no-dev --prefer-dist --no-interaction --no-progress --opt
 # Copy source
 COPY . ./
 
+# Rebuild autoloader with all source classes
+RUN composer dump-autoload --optimize --no-interaction
+
 # Create Laravel directories
 RUN mkdir -p storage/app/public storage/framework/{sessions,views,cache} storage/logs bootstrap/cache && \
     chmod -R 775 storage bootstrap/cache && \
