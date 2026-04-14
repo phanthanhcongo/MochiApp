@@ -11,6 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (Schema::hasColumn('jp_words', 'last_quiz_type')) {
+            return;
+        }
+
         Schema::table('jp_words', function (Blueprint $table) {
             $table->string('last_quiz_type')->nullable()->after('lapses');
         });
@@ -21,6 +25,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        if (!Schema::hasColumn('jp_words', 'last_quiz_type')) {
+            return;
+        }
+
         Schema::table('jp_words', function (Blueprint $table) {
             $table->dropColumn('last_quiz_type');
         });

@@ -1,8 +1,10 @@
-# ---- Base PHP-FPM with extensions & composer ----
-FROM php:8.2-fpm-alpine AS php-base
+# ---- Single container: Nginx + PHP-FPM ----
+FROM php:8.2-fpm-alpine
 
+# Install system deps + nginx + supervisor
 RUN apk add --no-cache bash git unzip icu-dev libzip-dev oniguruma-dev \
     libpng-dev libjpeg-turbo-dev libxml2-dev mysql-client \
+    nginx supervisor \
  && docker-php-ext-configure gd --with-jpeg \
  && docker-php-ext-install pdo_mysql zip gd intl bcmath opcache
 
@@ -15,14 +17,15 @@ WORKDIR /var/www/html
 COPY composer.json composer.lock ./
 RUN composer install --no-dev --prefer-dist --no-interaction --no-progress --optimize-autoloader || true
 
-# Copy source (sẽ bỏ qua các file trong .dockerignore như public/storage)
+# Copy source
 COPY . ./
 
-# Tạo các thư mục cần thiết cho Laravel
+# Create Laravel directories
 RUN mkdir -p storage/app/public storage/framework/{sessions,views,cache} storage/logs bootstrap/cache && \
-    chmod -R 775 storage bootstrap/cache
+    chmod -R 775 storage bootstrap/cache && \
+    chown -R www-data:www-data storage bootstrap/cache
 
-# PHP tuning for speed
+# PHP tuning
 RUN set -eux; \
   { \
     echo "opcache.enable=1"; \
@@ -33,22 +36,19 @@ RUN set -eux; \
     echo "memory_limit=512M"; \
   } > /usr/local/etc/php/conf.d/z-opcache.ini
 
-# ---- Final PHP runtime ----
-FROM php-base AS php-runtime
-WORKDIR /var/www/html
-# Tạo thư mục nếu thiếu và set quyền cho Laravel
-RUN set -eux; \
-    mkdir -p storage bootstrap/cache; \
-    chown -R www-data:www-data storage bootstrap/cache
-# Không tạo user/group mới; php-fpm đã dùng www-data sẵn
-# USER www-data  # không bắt buộc
-EXPOSE 9000
-# php-fpm sẽ được khởi chạy bởi image php-fpm mặc định
+# Nginx config — points to 127.0.0.1:9000 (same container)
+COPY nginx-api.conf /etc/nginx/http.d/default.conf
 
-# ---- Nginx runtime for API ----
-FROM nginx:1.27-alpine AS nginx-runtime
-WORKDIR /var/www/html
-COPY --from=php-base /var/www/html /var/www/html
-COPY nginx-api.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
-HEALTHCHECK --interval=30s --timeout=3s CMD wget -qO- http://localhost/ || exit 1
+# Supervisor config to run both nginx + php-fpm
+COPY supervisord.conf /etc/supervisord.conf
+
+# Default port 8080
+ENV PORT=8080
+
+EXPOSE 8080
+
+# Entrypoint: run migrations then start supervisor
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+CMD ["/entrypoint.sh"]
