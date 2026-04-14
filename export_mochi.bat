@@ -8,7 +8,7 @@ REM ===== Set variables =====
 set DB_USER=appuser
 set DB_PASS=StrongPass!123
 set DB_NAME=mochi
-set OUT_DIR=c:\Users\thanh\Desktop\ProjectWEb\data
+set OUT_DIR=c:\Users\thanh\Desktop\ProjectWEb\server\data
 set OUT_DIR_2=C:\Users\thanh\Documents\dumps\BackupMochi
 
 REM ===== Create timestamp =====

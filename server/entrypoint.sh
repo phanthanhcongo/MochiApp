@@ -22,6 +22,29 @@ mkdir -p resources/views
 echo "=== Running migrations ==="
 php artisan migrate --force --no-interaction 2>/dev/null || echo "Migration skipped (already up-to-date or error)"
 
+# Auto import data if DB_AUTO_IMPORT is true and database is empty
+if [ "$DB_AUTO_IMPORT" = "true" ]; then
+  echo "=== Checking if data import is needed ==="
+  
+  # Lấy số lượng user từ database để kiểm tra DB có trống không
+  USER_COUNT=$(php artisan tinker --execute="echo App\Models\User::count();" 2>/dev/null | grep -E '^[0-9]+$' || echo "0")
+  
+  if [ "$USER_COUNT" = "0" ]; then
+    # Tìm file .sql mới nhất trong thư mục data/
+    IMPORT_FILE=$(ls -t data/*.sql 2>/dev/null | head -n 1)
+    
+    if [ -n "$IMPORT_FILE" ]; then
+      echo "=== Importing database from $IMPORT_FILE ==="
+      mysql -h "$DB_HOST" -u "$DB_USERNAME" -p"$DB_PASSWORD" "$DB_DATABASE" < "$IMPORT_FILE"
+      echo "=== Import completed ==="
+    else
+      echo "!!! No .sql file found in data/ directory, skipping import"
+    fi
+  else
+    echo "=== Database already has data ($USER_COUNT users), skipping import ==="
+  fi
+fi
+
 # Clear and cache config
 php artisan config:clear 2>/dev/null || true
 php artisan config:cache 2>/dev/null || true
