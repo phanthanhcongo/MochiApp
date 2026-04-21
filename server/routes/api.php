@@ -82,6 +82,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/me/language', [UserLanguageController::class, 'show']);
     Route::post('/me/language', [UserLanguageController::class, 'update']);
 
+    // Gemini
+    Route::post('/gemini/chat', [\App\Http\Controllers\Api\GeminiController::class, 'chat']);
+    Route::post('/gemini/analyze', [\App\Http\Controllers\Api\GeminiController::class, 'analyzeWord']);
+
     // User avatar settings
     Route::put('/me/avatar', [UserLanguageController::class, 'updateAvatar']);
 

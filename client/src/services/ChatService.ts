@@ -1,10 +1,4 @@
-import { GoogleGenerativeAI, GenerativeModel } from '@google/generative-ai';
-
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY || '';
-
-if (!API_KEY) {
-    console.warn('[ChatService] VITE_GEMINI_API_KEY not found in environment variables');
-}
+import { apiPost } from '../apiClient';
 
 export const AVAILABLE_MODELS = [
     "gemini-2.5-flash-lite",
@@ -19,102 +13,42 @@ export interface ChatMessage {
 }
 
 class ChatService {
-    private genAI: GoogleGenerativeAI;
-    private model: GenerativeModel | null = null;
     private language: 'jp' | 'en' = 'jp';
     private currentModel: GeminiModel = 'gemini-2.5-flash';
 
-    constructor() {
-        this.genAI = new GoogleGenerativeAI(API_KEY);
-    }
+    constructor() {}
 
     setLanguage(lang: 'jp' | 'en') {
         this.language = lang;
-        this.model = null; // Reset model when language changes
     }
 
     setModel(modelName: GeminiModel) {
         this.currentModel = modelName;
-        this.model = null; // Reset model to force recreation with new model name
     }
 
     getCurrentModel(): GeminiModel {
         return this.currentModel;
     }
 
-    private getSystemPrompt(): string {
-        if (this.language === 'jp') {
-            return `You are a helpful Japanese language tutor. Your role is to:
-- Help students practice Japanese conversation
-- Correct grammar mistakes gently and explain them
-- Suggest better vocabulary or more natural expressions
-- Provide cultural context when appropriate
-- Always respond in Japanese (unless the student needs an explanation in Vietnamese for complex grammar)
-- Be encouraging and supportive
-- Keep responses concise and focused on learning
-
-When the user makes a mistake, gently correct it and explain why. Use examples to help them understand.`;
-        } else {
-            return `You are a helpful English language tutor. Your role is to:
-- Help students practice English conversation
-- Correct grammar mistakes gently and explain them
-- Suggest better vocabulary or more natural expressions
-- Provide cultural context when appropriate
-- Always respond in English (unless the student needs an explanation in Vietnamese for complex grammar)
-- Be encouraging and supportive
-- Keep responses concise and focused on learning
-
-When the user makes a mistake, gently correct it and explain why. Use examples to help them understand.`;
-        }
-    }
-
-    private getModel(): GenerativeModel {
-        if (!this.model) {
-            this.model = this.genAI.getGenerativeModel({
-                model: this.currentModel,
-                generationConfig: {
-                    temperature: 0.7,
-                    topK: 40,
-                    topP: 0.95,
-                    maxOutputTokens: 1024,
-                },
-            });
-        }
-        return this.model;
-    }
-
     async sendMessage(message: string, history: ChatMessage[] = []): Promise<string> {
-        if (!API_KEY) {
-            throw new Error('Gemini API key not configured. Please set VITE_GEMINI_API_KEY in your .env file.');
-        }
-
         try {
-            const model = this.getModel();
+            const token = localStorage.getItem('token');
+            const data = {
+                message,
+                history,
+                language: this.language,
+                modelName: this.currentModel
+            };
 
-            // Build conversation history as a single prompt
-            let conversationContext = this.getSystemPrompt() + '\n\n';
+            const response = await apiPost<string>('/gemini/chat', data, {
+                headers: {
+                    ...(token ? { Authorization: `Bearer ${token}` } : {})
+                }
+            });
 
-            if (history.length > 0) {
-                conversationContext += 'Previous conversation:\n';
-                history.forEach(msg => {
-                    const role = msg.role === 'user' ? 'Student' : 'Tutor';
-                    conversationContext += `${role}: ${msg.content}\n`;
-                });
-                conversationContext += '\n';
-            }
-
-            conversationContext += `Student: ${message}\n\nTutor:`;
-
-            const result = await model.generateContent(conversationContext);
-            const response = result.response;
-            return response.text();
+            return response;
         } catch (error: any) {
             console.error('[ChatService] Error sending message:', error);
-
-            if (error.message?.includes('API key')) {
-                throw new Error('Invalid API key. Please check your VITE_GEMINI_API_KEY configuration.');
-            }
-
             throw new Error(`Failed to get response from AI: ${error.message || 'Unknown error'}`);
         }
     }

@@ -9,7 +9,3 @@ export const RELOAD_COUNT_THRESHOLD = 2;
 export const CONTINUE_TO_NEXT_QUIZ_DELAY = 300;
 
 
-
-
-
-

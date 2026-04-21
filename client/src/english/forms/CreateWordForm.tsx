@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BiLogOutCircle, BiCodeBlock } from "react-icons/bi";
 import { Sparkles } from "lucide-react";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+
 import { API_URL } from '../../apiClient';
 
 const CEFR_OPTIONS = ["A1", "A2", "B1", "B2", "C1", "C2"] as const;
@@ -143,40 +143,28 @@ const CreateWordForm = () => {
     }
 
     setGeminiLoading(true);
-    const availableModels = ["gemini-2.5-flash-lite", "gemini-2.5-flash", "gemini-3-flash"];
-    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-    const genAI = new GoogleGenerativeAI(apiKey);
-
-    const fetchWithFallback = async (modelIndex = 0): Promise<any> => {
-      if (modelIndex >= availableModels.length) {
-        throw new Error("Tất cả các model đều đã hết hạn mức hôm nay.");
-      }
-      const modelName = availableModels[modelIndex];
-      try {
-        const model = genAI.getGenerativeModel({
-          model: modelName,
-          generationConfig: { responseMimeType: "application/json" }
-        });
-
-        const prompt = `Bạn là từ điển Anh-Việt. Phân tích từ: ${form.word}. 
-        Trả về JSON bao gồm các trường: 
-        ipa (phiên âm), meaning_vi (nghĩa), cefr_level (A1, A2, B1, B2, C1, C2), context_vi (ngữ cảnh tiếng Việt), 
-        exampleEn (ví dụ ngắn tiếng Anh), exampleVi (dịch ví dụ ngắn),
-        sentence_en (câu ví dụ dài có một chỗ trống ____), sentence_vi (dịch câu dài),
-        answer_explanation (giải thích cho bài tập), correct_answer (từ đúng để điền vào chỗ trống).`;
-
-        const result = await model.generateContent(prompt);
-        return JSON.parse(result.response.text());
-      } catch (err: any) {
-        if (err.message.includes('429') || err.message.includes('quota')) {
-          return fetchWithFallback(modelIndex + 1);
-        }
-        throw err;
-      }
-    };
 
     try {
-      const data = await fetchWithFallback();
+      const token = localStorage.getItem('token');
+      const response = await fetch(`${API_URL}/gemini/analyze`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {})
+        },
+        body: JSON.stringify({
+          word: form.word,
+          language: 'en'
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Lỗi kết nối API');
+      }
+
       localStorage.setItem(cacheKey, JSON.stringify(data));
       applyGeminiData(data);
       setNotice({ type: 'success', msg: 'Gemini đã gợi ý thành công!' });

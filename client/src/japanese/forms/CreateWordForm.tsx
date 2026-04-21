@@ -3,7 +3,7 @@ import type { ChangeEvent, FormEvent } from 'react';
 import { BiLogOutCircle, BiCodeBlock } from "react-icons/bi";
 import { Sparkles } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+
 import { API_URL } from '../../apiClient';
 const JLPT_OPTIONS = ['N1', 'N2', 'N3', 'N4', 'N5'] as const;
 const IS_GRAMMAR_OPTIONS: { value: string; label: string }[] = [
@@ -129,52 +129,26 @@ const CreateWordForm = () => {
 
     setGeminiLoading(true);
 
-    // 2. DANH SÁCH CÁC MODEL BẠN ĐANG CÓ (Dựa trên ảnh của bạn)
-    // Thứ tự ưu tiên: Lite (10 RPM) -> 2.5 Flash -> 3 Flash
-    const availableModels = [
-      "gemini-2.5-flash-lite", // Ưu tiên vì có tới 10 yêu cầu/phút
-      "gemini-2.5-flash",
-      "gemini-3-flash"
-    ];
-
-    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-    const genAI = new GoogleGenerativeAI(apiKey);
-
-    // Hàm thực hiện gọi API với cơ chế thử lại trên model khác nếu hết hạn mức (429)
-    const fetchWithFallback = async (modelIndex = 0) => {
-      if (modelIndex >= availableModels.length) {
-        throw new Error("Tất cả các model đều đã hết hạn mức hôm nay (60/60 lượt).");
-      }
-
-      const modelName = availableModels[modelIndex];
-      console.log(`Đang thử gọi model: ${modelName}`);
-
-      try {
-        const model = genAI.getGenerativeModel({
-          model: modelName,
-          generationConfig: { responseMimeType: "application/json" }
-        });
-
-        const prompt = `Bạn là từ điển Nhật-Việt. Phân tích từ: ${form.kanji}. 
-        Trả về JSON bao gồm các trường: 
-        reading_hiragana, reading_romaji, meaning_vi, han_viet, hanviet_explanation, context_vi, sentence_jp, sentence_hira, sentence_romaji, sentence_vi,
-        và jlpt_level (chọn một trong các giá trị: N1, N2, N3, N4, N5 dựa trên độ khó của từ).`;
-
-        const result = await model.generateContent(prompt);
-        console.log(result.response.text());
-        return JSON.parse(result.response.text());
-      } catch (err:any) {
-        // Nếu lỗi 429 (Hết hạn mức), tự động thử model tiếp theo trong danh sách
-        if (err.message.includes('429') || err.message.includes('quota')) {
-          console.warn(`Model ${modelName} đã hết lượt. Chuyển sang model tiếp theo...`);
-          return fetchWithFallback(modelIndex + 1);
-        }
-        throw err; // Các lỗi khác (mạng, 503...) thì báo lỗi luôn
-      }
-    };
-
     try {
-      const data = await fetchWithFallback();
+      const token = localStorage.getItem('token');
+      const response = await fetch(`${API_URL}/gemini/analyze`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {})
+        },
+        body: JSON.stringify({
+          word: form.kanji,
+          language: 'jp'
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Lỗi kết nối API');
+      }
 
       // 3. LƯU VÀO CACHE & CẬP NHẬT FORM
       localStorage.setItem(cacheKey, JSON.stringify(data));
