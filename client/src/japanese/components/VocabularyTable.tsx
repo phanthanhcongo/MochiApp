@@ -166,6 +166,109 @@ const VocabularyTable: React.FC = () => {
     navigate(`/jp/editWord/${id}`, { state: { id, form } });
   };
 
+  // ===== EXPORT SELECTED WORDS =====
+  const handleExportSelected = () => {
+    // Lấy danh sách từ đã chọn (hoặc tất cả nếu không chọn gì)
+    const wordsToExport = selectedIds.size > 0
+      ? words.filter(w => selectedIds.has(String(w.id ?? w._id)))
+      : displayedWords;
+
+    if (wordsToExport.length === 0) {
+      setError('Không có từ nào để export');
+      return;
+    }
+
+    // Map sang format import (giống data.json)
+    const exportData = wordsToExport.map((w: any) => {
+      const item: any = {
+        kanji: w.kanji || '',
+        reading_hiragana: w.reading_hiragana || '',
+        reading_romaji: w.reading_romaji || '',
+        meaning_vi: w.meaning_vi || '',
+        jlpt_level: w.jlpt_level || null,
+        level: w.level ?? 1,
+        han_viet: w.hanviet?.han_viet || '',
+        explanation: w.hanviet?.explanation || '',
+        stroke_url: w.stroke?.stroke_url || null,
+        audio_url: w.audio_url || null,
+        is_grammar: w.is_grammar ? '1' : '0',
+      };
+
+      // Contexts
+      if (Array.isArray(w.contexts) && w.contexts.length > 0) {
+        item.contexts = w.contexts.map((ctx: any) => ({
+          context_vi: ctx.context_vi || '',
+          highlight_line: ctx.highlight_line || '',
+          context_jp: ctx.context_jp || '',
+          context_hira: ctx.context_hira || '',
+          context_romaji: ctx.context_romaji || '',
+        }));
+      } else {
+        item.contexts = [];
+      }
+
+      // Examples
+      if (Array.isArray(w.examples) && w.examples.length > 0) {
+        item.examples = w.examples.map((ex: any) => ({
+          sentence_jp: ex.sentence_jp || '',
+          sentence_hira: ex.sentence_hira || '',
+          sentence_romaji: ex.sentence_romaji || '',
+          sentence_vi: ex.sentence_vi || '',
+        }));
+      } else {
+        item.examples = [];
+      }
+
+      // Quizzes (from examples -> exercises -> choices)
+      if (Array.isArray(w.examples) && w.examples.length > 0) {
+        const quizzes: any[] = [];
+        w.examples.forEach((ex: any) => {
+          if (Array.isArray(ex.exercises)) {
+            ex.exercises.forEach((q: any) => {
+              quizzes.push({
+                question_type: q.question_type || 'fill_in_blank',
+                question_text: q.question_text || '',
+                blank_position: q.blank_position ?? 1,
+                answer_explanation: q.answer_explanation || '',
+                choices: Array.isArray(q.choices)
+                  ? q.choices.map((c: any) => ({
+                      content: c.content || '',
+                      is_correct: !!c.is_correct,
+                    }))
+                  : [],
+              });
+            });
+          }
+        });
+        if (quizzes.length > 0) {
+          item.quizzes = quizzes;
+        } else {
+          item.quizzes = [];
+        }
+      } else {
+        item.quizzes = [];
+      }
+
+      return item;
+    });
+
+    // Tạo file JSON và download
+    const blob = new Blob([JSON.stringify(exportData, null, 4)], {
+      type: 'application/json',
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    const timestamp = new Date().toISOString().slice(0, 10);
+    a.download = `mochi_jp_export_${timestamp}_${exportData.length}words.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    setMessage(`Đã export ${exportData.length} từ thành công!`);
+  };
+
   // ===== BULK ACTIONS =====
   const handleBulkActivate = async () => {
     if (selectedIds.size === 0) return;
@@ -459,6 +562,12 @@ const VocabularyTable: React.FC = () => {
                     Đã chọn: {selectedIds.size}
                   </span>
                   <button
+                    onClick={() => handleExportSelected()}
+                    className="px-3 py-1 text-xs font-medium rounded-md bg-indigo-500 text-white hover:bg-indigo-600 transition-colors shadow-sm"
+                  >
+                    📥 Export JSON
+                  </button>
+                  <button
                     onClick={() => handleBulkActivate()}
                     disabled={isBulkProcessing}
                     className="px-3 py-1 text-xs font-medium rounded-md bg-green-500 text-white hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
@@ -487,7 +596,16 @@ const VocabularyTable: React.FC = () => {
                   </button>
                 </>
               ) : (
-                <span className="text-xs text-gray-400 italic">Chọn các từ để thao tác hàng loạt</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-gray-400 italic">Chọn các từ để thao tác hàng loạt</span>
+                  <button
+                    onClick={() => handleExportSelected()}
+                    className="px-3 py-1 text-xs font-medium rounded-md border border-indigo-300 bg-indigo-50 text-indigo-600 hover:bg-indigo-100 transition-colors shadow-sm"
+                    title="Export tất cả từ đang hiển thị"
+                  >
+                    📥 Export tất cả
+                  </button>
+                </div>
               )}
             </div>
           </div>

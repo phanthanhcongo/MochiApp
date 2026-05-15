@@ -31,15 +31,45 @@ const ResultProgress: React.FC = () => {
 
   useEffect(() => {
     const raw = localStorage.getItem('reviewed_words');
+    const startTimeStr = localStorage.getItem('practice_start_time');
+    const practiceType = localStorage.getItem('practice_type') || 'word';
+
     try {
       const parsed = raw ? JSON.parse(raw) : [];
       if (!Array.isArray(parsed) || parsed.length === 0) {
         navigate('/jp/home');
-      } else {
-        setReviewedWords(parsed);
+        return;
+      }
+      setReviewedWords(parsed);
+
+      // 🔥 Log history to localStorage (only once per session)
+      if (startTimeStr) {
+        const start = parseInt(startTimeStr);
+        const duration = Date.now() - start;
+        const historyRaw = localStorage.getItem('practice_history');
+        let history = historyRaw ? JSON.parse(historyRaw) : [];
+        if (!Array.isArray(history)) history = [];
+
+        // Kiểm tra xem session này đã được log chưa (dựa trên startTime)
+        const isAlreadyLogged = history.some((h: any) => h.id === start);
+        
+        if (!isAlreadyLogged) {
+          const newEntry = {
+            id: start, // Sử dụng startTime làm ID để tránh trùng lặp
+            date: new Date().toISOString(),
+            duration: duration,
+            type: practiceType,
+            count: parsed.length
+          };
+
+          // Giữ lại 7 lần gần nhất
+          history = [newEntry, ...history].slice(0, 7);
+          localStorage.setItem('practice_history', JSON.stringify(history));
+          console.log('✅ Đã lưu lịch sử ôn tập:', newEntry);
+        }
       }
     } catch (err) {
-      console.error('❌ Lỗi khi đọc reviewed_words từ localStorage:', err);
+      console.error('❌ Lỗi khi xử lý kết quả:', err);
       navigate('/jp/home');
     }
   }, []);
@@ -94,6 +124,19 @@ const ResultProgress: React.FC = () => {
           <p className="text-gray-600 text-lg font-medium">
             Bạn đã trả lời đúng <span className="text-green-600 font-bold">{correctCount}</span> / <span className="font-bold">{total}</span> câu
           </p>
+          {localStorage.getItem('practice_start_time') && (
+            <p className="text-gray-500 text-sm mt-1">
+              Thời gian luyện tập: <span className="font-semibold">{(() => {
+                const start = parseInt(localStorage.getItem('practice_start_time') || '0');
+                if (start === 0) return 'N/A';
+                const diff = Date.now() - start;
+                const seconds = Math.floor(diff / 1000);
+                const mins = Math.floor(seconds / 60);
+                const secs = seconds % 60;
+                return mins > 0 ? `${mins} phút ${secs} giây` : `${secs} giây`;
+              })()}</span>
+            </p>
+          )}
         </div>
 
         <div className="flex-1 px-6 py-2 overflow-hidden">

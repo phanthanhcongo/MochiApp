@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { BiLogOutCircle } from "react-icons/bi";
 import PracticeProgressBar from './PracticeProgressBar';
+import PracticeTimer from './PracticeTimer';
 
 interface PracticeLayoutProps {
   completedCount: number;
@@ -70,10 +71,17 @@ const PracticeLayout: React.FC<PracticeLayoutProps> = React.memo(({
       <div className="w-full mx-auto pt-3 sm:pt-4 md:pt-6 relative bg-slate-50 shrink-0">
         {/* Header with padding */}
         <div className="mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-          <PracticeProgressBar 
-            completedCount={completedCount}
-            totalCount={totalCount}
-          />
+          <div className="flex items-center gap-2 sm:gap-4">
+            <div className="flex-1">
+              <PracticeProgressBar 
+                completedCount={completedCount}
+                totalCount={totalCount}
+              />
+            </div>
+            <div className="pt-4">
+              <PracticeTimer />
+            </div>
+          </div>
 
           {/* Pause and progress text */}
           <div className="flex items-center justify-between mt-2">

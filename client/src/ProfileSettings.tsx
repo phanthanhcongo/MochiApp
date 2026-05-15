@@ -373,6 +373,59 @@ const ProfileSettings: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* History Section */}
+        <div className="w-full max-w-lg bg-white rounded-xl shadow-lg p-3 md:p-4 mb-2">
+          <div className="text-gray-800 font-bold mb-3 flex items-center gap-2">
+            <svg className="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Lịch sử ôn tập gần đây (7 lần)
+          </div>
+          <div className="space-y-2 max-h-60 overflow-y-auto custom-scrollbar">
+            {(() => {
+              try {
+                const historyRaw = localStorage.getItem('practice_history');
+                const history = historyRaw ? JSON.parse(historyRaw) : [];
+                if (!Array.isArray(history) || history.length === 0) {
+                  return <p className="text-xs text-gray-400 text-center py-4 italic">Chưa có dữ liệu ôn tập</p>;
+                }
+
+                const formatDuration = (ms: number) => {
+                  const s = Math.floor(ms / 1000);
+                  const m = Math.floor(s / 60);
+                  const rs = s % 60;
+                  return m > 0 ? `${m}m ${rs}s` : `${rs}s`;
+                };
+
+                return history.map((h: any) => (
+                  <div key={h.id} className="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-100 text-[10px] md:text-xs hover:bg-white hover:shadow-sm transition-all duration-200">
+                    <div className="flex flex-col">
+                      <span className="font-bold text-gray-700">
+                        {new Date(h.date).toLocaleDateString('vi-VN')} {new Date(h.date).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}
+                      </span>
+                      <span className="text-gray-500 uppercase tracking-tight flex items-center gap-1">
+                        <span className={h.type === 'grammar' ? 'text-purple-600' : 'text-blue-600'}>
+                          {h.type === 'grammar' ? '📓 Ngữ pháp' : '🔤 Từ vựng'}
+                        </span>
+                        <span>•</span>
+                        <span className="font-semibold text-gray-600">{h.count} câu</span>
+                      </span>
+                    </div>
+                    <div className="flex flex-col items-end gap-1">
+                      <span className="bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full font-black shadow-sm text-[9px] md:text-xs">
+                        {formatDuration(h.duration)}
+                      </span>
+                    </div>
+                  </div>
+                ));
+              } catch (e) {
+                console.error('Error rendering history:', e);
+                return <p className="text-xs text-red-400 text-center py-4 italic">Lỗi hiển thị lịch sử</p>;
+              }
+            })()}
+          </div>
+        </div>
       </div>
 
       {/* Avatar URL Modal */}

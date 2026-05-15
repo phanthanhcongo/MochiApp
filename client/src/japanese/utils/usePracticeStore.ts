@@ -97,6 +97,7 @@ interface PracticeSessionStore {
   completedCount: number;
   isGettingNextType: boolean; // Lock để tránh gọi đồng thời
   isNavigating: boolean; // Lock để đảm bảo chỉ một navigation được thực hiện
+  startTime: number | null; // Thời gian bắt đầu phiên học
 
   // Scenarios từ API
   scenarios: PracticeScenario[];
@@ -149,6 +150,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
   randomAnswers: [],
   preparedScenarios: [],
   preparedRandomAnswers: [],
+  startTime: localStorage.getItem('practice_start_time') ? parseInt(localStorage.getItem('practice_start_time')!) : null,
 
   setWords: (words) => {
     // Shuffle toàn bộ danh sách trước khi chọn từ đầu tiên
@@ -164,7 +166,9 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       reviewedWords: [],
       totalCount: words.length,
       completedCount: 0,
+      startTime: Date.now(),
     });
+    localStorage.setItem('practice_start_time', Date.now().toString());
   },
 
   setScenarios: (scenarios) => {
@@ -213,7 +217,9 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       completedCount: 0,
       previousType: null,
       currentScenarioOrder: firstScenario.order,
+      startTime: Date.now(),
     });
+    localStorage.setItem('practice_start_time', Date.now().toString());
   },
 
   setRandomAnswers: (randomAnswers) => {
@@ -591,9 +597,11 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       pendingWrongAnswerReorder: false,
       pendingCorrectAnswerRemoval: false,
       randomAnswers: [],
+      startTime: null,
     });
     localStorage.removeItem('practice_active');
     localStorage.removeItem('reviewed_words');
+    localStorage.removeItem('practice_start_time');
   },
 
   submitReviewedWords: async () => {
