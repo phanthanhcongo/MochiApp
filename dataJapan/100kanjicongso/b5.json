@@ -1,0 +1,848 @@
+[
+  {
+    "kanji": "追加",
+    "reading_hiragana": "ついか",
+    "reading_romaji": "tsuika",
+    "meaning_vi": "thêm vào",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Technology"
+    ],
+    "han_viet": "TRUY GIA",
+    "explanation": "Danh động từ. Bổ sung thêm, đưa thêm vào thứ đã có sẵn.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "新しい項目を追加しました。",
+        "sentence_hira": "あたらしいこうもくをついかしました。",
+        "sentence_romaji": "Atarashii koumoku o tsuika shimashita。",
+        "sentence_vi": "Tôi đã thêm vào mục mới."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "新しい項目を（　）しました。",
+        "blank_position": 1,
+        "answer_explanation": "‘追加’ (tsuika) là sự thêm mới, bổ sung thêm.",
+        "choices": [
+          {
+            "content": "追加",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "入力",
+    "reading_hiragana": "にゅうりょく",
+    "reading_romaji": "nyuuryoku",
+    "meaning_vi": "nhập dữ liệu",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Technology"
+    ],
+    "han_viet": "NHẬP LỰC",
+    "explanation": "Danh động từ. Điền, đánh máy thông tin, dữ liệu vào hệ thống hoặc máy tính.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "お客様情報を入力します。",
+        "sentence_hira": "おきゃくさまじょうほうをにゅうりょくします。",
+        "sentence_romaji": "Okyakusama jouhou o nyuuryoku shimasu.",
+        "sentence_vi": "Tôi sẽ nhập thông tin khách hàng."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "お客様情報を（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘入力’ (nyuuryoku) là hành động gõ phím, nhập liệu.",
+        "choices": [
+          {
+            "content": "入力",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "記入",
+    "reading_hiragana": "きにゅう",
+    "reading_romaji": "kinyuu",
+    "meaning_vi": "điền vào",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "KÝ NHẬP",
+    "explanation": "Danh động từ. Viết hoặc điền thông tin vào các mẫu giấy tờ, đơn từ.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "申込書に名前を記入します。",
+        "sentence_hira": "もうしこみしょになまえをきにゅうします。",
+        "sentence_romaji": "Moushikomisho ni namae o kinyuu shimasu.",
+        "sentence_vi": "Tôi sẽ điền tên vào đơn đăng ký."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "申込書に名前を（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘記入’ (kinyuu) là điền thông tin vào mẫu văn bản giấy tờ.",
+        "choices": [
+          {
+            "content": "記入",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "記録",
+    "reading_hiragana": "きろく",
+    "reading_romaji": "kiroku",
+    "meaning_vi": "ghi chép, lưu hồ sơ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "KÝ LỤC",
+    "explanation": "Danh động từ. Viết lại, ghi lại những sự việc hoặc dữ liệu để lưu giữ.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "作業内容を記録します。",
+        "sentence_hira": "さぎょうないようをきろくします。",
+        "sentence_romaji": "Sagyou naiyou o kiroku shimasu.",
+        "sentence_vi": "Tôi sẽ ghi chép lại nội dung công việc."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "作業内容を（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘記録’ (kiroku) mang nghĩa ghi nhận lại để lưu trữ (record).",
+        "choices": [
+          {
+            "content": "記録",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "管理",
+    "reading_hiragana": "かんり",
+    "reading_romaji": "kanri",
+    "meaning_vi": "quản lý",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "QUẢN LÝ",
+    "explanation": "Danh động từ. Theo dõi, bảo quản, điều hành người hoặc đồ vật sao cho tốt.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "在庫を毎日管理します。",
+        "sentence_hira": "ざいこをまいにちかんりします。",
+        "sentence_romaji": "Zaiko o mainichi kanri shimasu.",
+        "sentence_vi": "Tôi quản lý hàng tồn kho mỗi ngày."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "在庫を毎日（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘管理’ (kanri) nghĩa là sự quản lý, cai quản.",
+        "choices": [
+          {
+            "content": "管理",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "在庫",
+    "reading_hiragana": "ざいこ",
+    "reading_romaji": "zaiko",
+    "meaning_vi": "tồn kho",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Shopping"
+    ],
+    "han_viet": "TẠI KHỐ",
+    "explanation": "Danh từ. Hàng hóa, nguyên vật liệu còn lưu trữ trong kho chưa bán hoặc sử dụng.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "在庫数を確認します。",
+        "sentence_hira": "ざいこすうをかくにんします。",
+        "sentence_romaji": "Zaikosuu o kakunin shimasu.",
+        "sentence_vi": "Tôi sẽ kiểm tra số lượng tồn kho."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）数を確認します。",
+        "blank_position": 1,
+        "answer_explanation": "‘在庫’ (zaiko) là lượng hàng tồn trong kho (stock).",
+        "choices": [
+          {
+            "content": "在庫",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "発注",
+    "reading_hiragana": "はっちゅう",
+    "reading_romaji": "hacchuu",
+    "meaning_vi": "đặt hàng với nhà cung cấp",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "PHÁT CHÚ",
+    "explanation": "Danh động từ. Đưa ra yêu cầu cung cấp hàng hóa, nguyên vật liệu với nhà cung cấp (chuyên môn hơn 注文).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "足りない商品を発注します。",
+        "sentence_hira": "たりないしょうひんをはっちゅうします。",
+        "sentence_romaji": "Tarinai shouhin o hacchuu shimasu.",
+        "sentence_vi": "Tôi sẽ đặt hàng những sản phẩm bị thiếu."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "足りない商品を（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘発注’ (hacchuu) mang tính chuyên môn: đặt hàng, xuất đơn đặt hàng.",
+        "choices": [
+          {
+            "content": "発注",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "納品",
+    "reading_hiragana": "のうひん",
+    "reading_romaji": "nouhin",
+    "meaning_vi": "giao hàng, nhập hàng",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "NẠP PHẨM",
+    "explanation": "Danh động từ. Giao hàng hóa đã đặt cho khách hoặc nhận hàng hóa từ nhà cung cấp đưa tới.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "本日、商品が納品されます。",
+        "sentence_hira": "ほんじつ、しょうひんがのうひんされます。",
+        "sentence_romaji": "Honjitsu, shouhin ga nouhin saremasu.",
+        "sentence_vi": "Hôm nay, hàng hóa sẽ được giao đến."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "本日、商品が（　）されます。",
+        "blank_position": 1,
+        "answer_explanation": "‘納品’ (nouhin) là nộp sản phẩm, giao/nhập hàng hoá.",
+        "choices": [
+          {
+            "content": "納品",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "検品",
+    "reading_hiragana": "けんぴん",
+    "reading_romaji": "kenpin",
+    "meaning_vi": "kiểm hàng",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "KIỂM PHẨM",
+    "explanation": "Danh động từ. Kiểm tra hàng hóa xem có đủ số lượng, có bị lỗi hay hư hỏng không.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "納品後に検品を行います。",
+        "sentence_hira": "のうひんごにけんぴんをおこないます。",
+        "sentence_romaji": "Nouhingo ni kenpin o okonaimasu.",
+        "sentence_vi": "Sau khi hàng giao tới, tôi sẽ tiến hành kiểm hàng."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "納品後に（　）を行います。",
+        "blank_position": 1,
+        "answer_explanation": "‘検品’ (kenpin) là quá trình kiểm tra hàng (inspect).",
+        "choices": [
+          {
+            "content": "検品",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "品質",
+    "reading_hiragana": "ひんしつ",
+    "reading_romaji": "hinshitsu",
+    "meaning_vi": "chất lượng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "PHẨM CHẤT",
+    "explanation": "Danh từ. Mức độ tốt hay kém của sản phẩm, dịch vụ.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "品質を保つことが大切です。",
+        "sentence_hira": "ひんしつをたもつことがたいせつです。",
+        "sentence_romaji": "Hinshitsu o tamotsu koto ga taisetsu desu.",
+        "sentence_vi": "Việc duy trì chất lượng là rất quan trọng."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）を保つことが大切です。",
+        "blank_position": 1,
+        "answer_explanation": "‘品質’ (hinshitsu) là chất lượng của món đồ (quality).",
+        "choices": [
+          {
+            "content": "品質",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "安全",
+    "reading_hiragana": "あんぜん",
+    "reading_romaji": "anzen",
+    "meaning_vi": "an toàn",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Daily Life"
+    ],
+    "han_viet": "AN TOÀN",
+    "explanation": "Tính từ đuôi na / Danh từ. Trạng thái không có nguy hiểm, rủi ro.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "安全第一で作業します。",
+        "sentence_hira": "あんぜんだいいちでさぎょうします。",
+        "sentence_romaji": "Anzen daiichi de sagyou shimasu.",
+        "sentence_vi": "Sẽ làm việc với tiêu chí an toàn là trên hết."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）第一で作業します。",
+        "blank_position": 1,
+        "answer_explanation": "‘安全’ (anzen) là an toàn (safe).",
+        "choices": [
+          {
+            "content": "安全",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "衛生",
+    "reading_hiragana": "えいせい",
+    "reading_romaji": "eisei",
+    "meaning_vi": "vệ sinh",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Health"
+    ],
+    "han_viet": "VỆ SINH",
+    "explanation": "Danh từ. Việc giữ gìn sự sạch sẽ, phòng chống bệnh tật (như vệ sinh thực phẩm).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "飲食店では衛生管理が重要です。",
+        "sentence_hira": "いんしょくてんではえいせいかんりがじゅうようです。",
+        "sentence_romaji": "Inshokuten dewa eisei kanri ga juuyou desu.",
+        "sentence_vi": "Ở các nhà hàng ăn uống, việc quản lý vệ sinh là rất quan trọng."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "飲食店では（　）管理が重要です。",
+        "blank_position": 1,
+        "answer_explanation": "‘衛生’ (eisei) là giữ gìn sạch sẽ, vệ sinh an toàn.",
+        "choices": [
+          {
+            "content": "衛生",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "清掃",
+    "reading_hiragana": "せいそう",
+    "reading_romaji": "seisou",
+    "meaning_vi": "dọn dẹp, vệ sinh",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "THANH TẢO",
+    "explanation": "Danh động từ. Quét dọn, lau chùi làm sạch không gian (mang tính chất công việc hơn 掃除).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "閉店後に店内を清掃します。",
+        "sentence_hira": "へいてんごにてんないをせいそうします。",
+        "sentence_romaji": "Heitengo ni tennai o seisou shimasu.",
+        "sentence_vi": "Sau khi đóng cửa, tôi sẽ dọn dẹp trong quán."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "閉店後に店内を（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘清掃’ (seisou) là thanh trảo, quét dọn sạch sẽ (cleaning).",
+        "choices": [
+          {
+            "content": "清掃",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "整理",
+    "reading_hiragana": "せいり",
+    "reading_romaji": "seiri",
+    "meaning_vi": "sắp xếp, chỉnh lý",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "CHỈNH LÝ",
+    "explanation": "Danh động từ. Phân loại, vứt bỏ đồ thừa và sắp xếp gọn gàng những thứ cần thiết.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "書類を分かりやすく整理します。",
+        "sentence_hira": "しょるいをわかりやすくせいりします。",
+        "sentence_romaji": "Shorui o wakariyasuku seiri shimasu.",
+        "sentence_vi": "Tôi sẽ sắp xếp tài liệu một cách dễ hiểu."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "書類を分かりやすく（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘整理’ (seiri) mang nghĩa sắp xếp, chỉnh lý đồ đạc/tài liệu.",
+        "choices": [
+          {
+            "content": "整理",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "改善",
+    "reading_hiragana": "かいぜん",
+    "reading_romaji": "kaizen",
+    "meaning_vi": "cải thiện",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "CẢI THIỆN",
+    "explanation": "Danh động từ. Sửa đổi, làm cho một tình trạng, phương pháp nào đó trở nên tốt hơn.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "作業効率を改善します。",
+        "sentence_hira": "さぎょうこうりつをかいぜんします。",
+        "sentence_romaji": "Sagyou kouritsu o kaizen shimasu.",
+        "sentence_vi": "Tôi sẽ cải thiện hiệu suất công việc."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "作業効率を（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘改善’ (kaizen) là làm cho sự vật/tình huống tốt đẹp hơn (improve).",
+        "choices": [
+          {
+            "content": "改善",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "問題",
+    "reading_hiragana": "もんだい",
+    "reading_romaji": "mondai",
+    "meaning_vi": "vấn đề",
+    "jlpt_level": "N5",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Daily Life"
+    ],
+    "han_viet": "VẤN ĐỀ",
+    "explanation": "Danh từ. Sự việc rắc rối, khó khăn cần giải quyết, hoặc câu hỏi trong bài thi.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "問題があれば早めに報告します。",
+        "sentence_hira": "もんだいがあればはやめにほうこくします。",
+        "sentence_romaji": "Mondai ga areba hayame ni houkoku shimasu.",
+        "sentence_vi": "Nếu có vấn đề, tôi sẽ báo cáo sớm."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）があれば早めに報告します。",
+        "blank_position": 1,
+        "answer_explanation": "‘問題’ (mondai) là vấn đề, câu hỏi, rắc rối (problem).",
+        "choices": [
+          {
+            "content": "問題",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "原因",
+    "reading_hiragana": "げんいん",
+    "reading_romaji": "gen'in",
+    "meaning_vi": "nguyên nhân",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "NGUYÊN NHÂN",
+    "explanation": "Danh từ. Yếu tố, lý do gốc rễ dẫn đến một sự việc (thường là tiêu cực).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "ミスの原因を確認します。",
+        "sentence_hira": "ミスのげんいんをかくにんします。",
+        "sentence_romaji": "Misu no gen'in o kakunin shimasu.",
+        "sentence_vi": "Tôi sẽ xác nhận lại nguyên nhân gây ra lỗi sai."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "ミスの（　）を確認します。",
+        "blank_position": 1,
+        "answer_explanation": "‘原因’ (gen'in) là lý do, căn nguyên (cause).",
+        "choices": [
+          {
+            "content": "原因",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "対策",
+    "reading_hiragana": "たいさく",
+    "reading_romaji": "taisaku",
+    "meaning_vi": "biện pháp đối phó",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "ĐỐI SÁCH",
+    "explanation": "Danh từ. Kế hoạch, cách thức giải quyết một vấn đề để ngăn chặn hậu quả.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "再発防止の対策を考えます。",
+        "sentence_hira": "さいはつぼうしのたいさくをかんがえます。",
+        "sentence_romaji": "Saihatsu boushi no taisaku o kangaemasu.",
+        "sentence_vi": "Tôi sẽ suy nghĩ biện pháp đối phó để ngăn tái diễn."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "再発防止の（　）を考えます。",
+        "blank_position": 1,
+        "answer_explanation": "‘対策’ (taisaku) là đối sách, cách khắc phục.",
+        "choices": [
+          {
+            "content": "対策",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "共有事項",
+    "reading_hiragana": "きょうゆうじこう",
+    "reading_romaji": "kyouyuu jikou",
+    "meaning_vi": "nội dung cần chia sẻ",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "CỘNG HỮU SỰ HẠNG",
+    "explanation": "Danh từ. Những điều cần được thông báo và biết chung bởi tất cả mọi người trong đội/nhóm.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "朝礼で共有事項を確認します。",
+        "sentence_hira": "ちょうれできょうゆうじこうをかくにんします。",
+        "sentence_romaji": "Chourei de kyouyuu jikou o kakunin shimasu.",
+        "sentence_vi": "Trong buổi họp sáng sẽ xác nhận các nội dung cần chia sẻ."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "朝礼で（　）を確認します。",
+        "blank_position": 1,
+        "answer_explanation": "‘共有事項’ (kyouyuu jikou) là những vấn đề, điều khoản (事項) cần chia sẻ (共有) chung.",
+        "choices": [
+          {
+            "content": "共有事項",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "引継ぎ",
+    "reading_hiragana": "ひきつぎ",
+    "reading_romaji": "hikitsugi",
+    "meaning_vi": "bàn giao công việc",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "DẪN KẾ",
+    "explanation": "Danh từ. Việc truyền lại nội dung công việc, trách nhiệm cho người kế nhiệm hoặc người ca sau.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "退勤前に引継ぎを行います。",
+        "sentence_hira": "たいきんまえにひきつぎをおこないます。",
+        "sentence_romaji": "Taikinmae ni hikitsugi o okonaimasu.",
+        "sentence_vi": "Trước khi tan làm tôi sẽ tiến hành bàn giao công việc."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "退勤前に（　）を行います。",
+        "blank_position": 1,
+        "answer_explanation": "‘引継ぎ’ (hikitsugi) nghĩa là bàn giao lại công việc.",
+        "choices": [
+          {
+            "content": "引継ぎ",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  }
+]

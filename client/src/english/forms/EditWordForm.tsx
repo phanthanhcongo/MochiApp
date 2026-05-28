@@ -6,6 +6,14 @@ import { BiLogOutCircle } from "react-icons/bi";
 
 type CEFR = "A1" | "A2" | "B1" | "B2" | "C1" | "C2" | "";
 
+const SUGGESTED_TOPICS = [
+  'Daily Life', 'Food & Drink', 'Shopping', 'Home', 'Clothing',
+  'Business', 'Work', 'Education', 'Technology', 'Finance',
+  'Travel', 'Greeting', 'Family', 'Culture', 'Religion',
+  'Health', 'Sports', 'Emotions', 'Nature', 'Animals', 'Science',
+  'Entertainment', 'Hobbies', 'Art', 'Grammar', 'Idioms', 'Slang'
+];
+
 interface ReviewWord {
   id?: number;
   user_id: number;
@@ -31,6 +39,7 @@ interface ReviewWord {
   }[];
   is_active: "1" | "0";
   is_grammar?: boolean;
+  topic?: string[];
 }
 
 type ErrorMap = Record<string, string>;
@@ -88,6 +97,7 @@ function mapFromApi(apiWord: any): ReviewWord {
     ],
     is_active: "1",
     is_grammar: apiWord.is_grammar ?? false,
+    topic: Array.isArray(apiWord.topic) ? apiWord.topic : [],
   };
 }
 
@@ -101,6 +111,7 @@ export default function EditWordForm() {
   const [serverResult, setServerResult] = useState<any>(null);
   const [errors, setErrors] = useState<ErrorMap>({});
   const [touched, setTouched] = useState<TouchedMap>({});
+  const [topicInput, setTopicInput] = useState('');
 
   // ====== helpers (form) ======
   const setField = (field: keyof ReviewWord, value: any) =>
@@ -295,6 +306,7 @@ const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title
           ],
           is_active: word.is_active,
           is_grammar: word.is_grammar ?? false,
+          topic: (word.topic && word.topic.length > 0) ? word.topic : null,
         },
       ],
     };
@@ -515,6 +527,74 @@ const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title
                     <option value="1">Mẫu ngữ pháp</option>
                   </select>
                 </label>
+
+                {/* Topic Tags */}
+                <div className="md:col-span-2 flex flex-col gap-0.5">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Topics (Tags)</span>
+                  <div className="flex flex-wrap gap-1.5 mb-2">
+                    {(word.topic || []).map((tag, idx) => (
+                      <span key={idx} className="inline-flex items-center gap-1 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 text-blue-700 px-2.5 py-1 rounded-full text-xs font-semibold shadow-sm">
+                        {tag}
+                        <button
+                          type="button"
+                          onClick={() => setField('topic', (word.topic || []).filter((_, i) => i !== idx))}
+                          className="ml-0.5 text-blue-400 hover:text-red-500 transition-colors font-bold text-sm leading-none"
+                        >
+                          ×
+                        </button>
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex gap-2">
+                    <input
+                      value={topicInput}
+                      onChange={(e) => setTopicInput(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          e.preventDefault();
+                          const val = topicInput.trim();
+                          if (val && !(word.topic || []).includes(val)) {
+                            setField('topic', [...(word.topic || []), val]);
+                          }
+                          setTopicInput('');
+                        }
+                      }}
+                      className={inputClass('topic')}
+                      placeholder="Type a topic and press Enter..."
+                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const val = topicInput.trim();
+                        if (val && !(word.topic || []).includes(val)) {
+                          setField('topic', [...(word.topic || []), val]);
+                        }
+                        setTopicInput('');
+                      }}
+                      className="px-3 py-1.5 bg-blue-100 text-blue-700 rounded-lg text-xs font-bold hover:bg-blue-200 transition-colors shadow-sm"
+                    >
+                      + Add
+                    </button>
+                  </div>
+                  {/* Suggested Topics */}
+                  <div className="mt-1 flex flex-wrap gap-1">
+                    <span className="text-[10px] text-gray-400 mr-1 self-center">Gợi ý:</span>
+                    {SUGGESTED_TOPICS.map((topic: string) => (
+                      <button
+                        key={topic}
+                        type="button"
+                        onClick={() => {
+                          if (!(word.topic || []).includes(topic)) {
+                            setField('topic', [...(word.topic || []), topic]);
+                          }
+                        }}
+                        className="px-2 py-0.5 text-[10px] bg-gray-100 text-gray-600 hover:bg-blue-50 hover:text-blue-600 border border-gray-200 rounded-full transition-colors cursor-pointer"
+                      >
+                        + {topic}
+                      </button>
+                    ))}
+                  </div>
+                </div>
 
                 {/* Context VI */}
                 <label className="md:col-span-2 flex flex-col gap-0.5">

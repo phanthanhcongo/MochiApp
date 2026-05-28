@@ -1,0 +1,846 @@
+[
+  {
+    "kanji": "確認",
+    "reading_hiragana": "かくにん",
+    "reading_romaji": "kakunin",
+    "meaning_vi": "xác nhận, kiểm tra",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "XÁC NHẬN",
+    "explanation": "Danh động từ. Dùng khi muốn xác nhận, kiểm tra lại tính chính xác của một sự việc hay nội dung.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "提出前に内容を確認してください。",
+        "sentence_hira": "ていしゅつまえにないようをかくにんしてください。",
+        "sentence_romaji": "Teishutsu mae ni naiyou o kakunin shite kudasai.",
+        "sentence_vi": "Hãy kiểm tra lại nội dung trước khi nộp."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "提出前に内容を（　）してください。",
+        "blank_position": 1,
+        "answer_explanation": "‘確認’ nghĩa là xác nhận, kiểm tra.",
+        "choices": [
+          {
+            "content": "確認",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "報告",
+    "reading_hiragana": "ほうこく",
+    "reading_romaji": "houkoku",
+    "meaning_vi": "báo cáo",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "BÁO CÁO",
+    "explanation": "Danh động từ. Trình bày lại kết quả hoặc tình hình công việc cho cấp trên hoặc người liên quan.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "作業が終わったら、上司に報告します。",
+        "sentence_hira": "さぎょうがおわったら、じょうしにほうこくします。",
+        "sentence_romaji": "Sagyou ga owattara, joushi ni houkoku shimasu.",
+        "sentence_vi": "Sau khi xong việc, tôi sẽ báo cáo cho cấp trên."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "作業が終わったら、上司に（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘報告’ nghĩa là báo cáo kết quả hay tình hình cho cấp trên.",
+        "choices": [
+          {
+            "content": "報告",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "連絡",
+    "reading_hiragana": "れんらく",
+    "reading_romaji": "renraku",
+    "meaning_vi": "liên lạc, thông báo",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "LIÊN LẠC",
+    "explanation": "Danh động từ. Truyền đạt thông tin, thông báo sự việc cho người khác biết.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "遅れる場合は必ず連絡してください。",
+        "sentence_hira": "おくれるばあいはかならずれんらくしてください。",
+        "sentence_romaji": "Okureru baai wa kanarazu renraku shite kudasai.",
+        "sentence_vi": "Trong trường hợp đến muộn, xin nhất định phải liên lạc."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "遅れる場合は必ず（　）してください。",
+        "blank_position": 1,
+        "answer_explanation": "‘連絡’ nghĩa là liên lạc thông báo tình hình.",
+        "choices": [
+          {
+            "content": "連絡",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "相談",
+    "reading_hiragana": "そうだん",
+    "reading_romaji": "soudan",
+    "meaning_vi": "trao đổi, xin ý kiến",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "TƯƠNG ĐÀM",
+    "explanation": "Danh động từ. Thảo luận, trao đổi, xin lời khuyên hoặc ý kiến từ người khác về một vấn đề.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "判断に迷ったら、早めに相談します。",
+        "sentence_hira": "はんだんにまよったら、はやめにそうだんします。",
+        "sentence_romaji": "Handan ni mayottara, hayame ni soudan shimasu.",
+        "sentence_vi": "Nếu phân vân trong việc đưa ra quyết định, tôi sẽ xin ý kiến sớm."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "判断に迷ったら、早めに（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘相談’ là việc nhờ ai đó tư vấn, xin ý kiến.",
+        "choices": [
+          {
+            "content": "相談",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "依頼",
+    "reading_hiragana": "いらい",
+    "reading_romaji": "irai",
+    "meaning_vi": "nhờ, yêu cầu",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "Y LẠI",
+    "explanation": "Danh động từ. Nhờ vả, giao phó hoặc yêu cầu ai đó làm việc gì.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "資料の作成を依頼されました。",
+        "sentence_hira": "しりょうのさくせいをいらいされました。",
+        "sentence_romaji": "Shiryou no sakusei o irai saremashita.",
+        "sentence_vi": "Tôi đã được yêu cầu làm tài liệu."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "資料の作成を（　）されました。",
+        "blank_position": 1,
+        "answer_explanation": "‘依頼’ mang ý nghĩa nhờ cậy, giao phó việc cho người khác.",
+        "choices": [
+          {
+            "content": "依頼",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "承認",
+    "reading_hiragana": "しょうにん",
+    "reading_romaji": "shounin",
+    "meaning_vi": "phê duyệt",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "THỪA NHẬN",
+    "explanation": "Danh động từ. Đồng ý, chấp thuận hoặc phê duyệt một yêu cầu, đề xuất trong công việc.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "申請は部長の承認が必要です。",
+        "sentence_hira": "しんせいはぶちょうのしょうにんがひつようです。",
+        "sentence_romaji": "Shinsei wa buchou no shounin ga hitsuyou desu.",
+        "sentence_vi": "Yêu cầu xin phép cần có sự phê duyệt của trưởng phòng."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "申請は部長の（　）が必要です。",
+        "blank_position": 1,
+        "answer_explanation": "‘承認’ nghĩa là việc cấp trên đồng ý, phê duyệt.",
+        "choices": [
+          {
+            "content": "承認",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "申請",
+    "reading_hiragana": "しんせい",
+    "reading_romaji": "shinsei",
+    "meaning_vi": "đăng ký, xin phép",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "THÂN THỈNH",
+    "explanation": "Danh động từ. Làm thủ tục trình lên để xin cấp phép, đăng ký một nguyện vọng hay nhu cầu nào đó.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "有給休暇を申請します。",
+        "sentence_hira": "ゆうきゅうきゅうかをしんせいします。",
+        "sentence_romaji": "Yuukyuu kyuuka o shinsei shimasu.",
+        "sentence_vi": "Tôi xin phép nghỉ phép có lương."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "有給休暇を（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘申請’ nghĩa là thực hiện thủ tục xin phép (như xin nghỉ).",
+        "choices": [
+          {
+            "content": "申請",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "提出",
+    "reading_hiragana": "ていしゅつ",
+    "reading_romaji": "teishutsu",
+    "meaning_vi": "nộp, trình lên",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Education"
+    ],
+    "han_viet": "ĐỀ XUẤT",
+    "explanation": "Danh động từ. Nộp tài liệu, báo cáo hoặc giấy tờ cho cấp trên hoặc người có thẩm quyền.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "書類を金曜日までに提出してください。",
+        "sentence_hira": "しょるいをきんようびまでにていしゅつしてください。",
+        "sentence_romaji": "Shorui o kinyoubi made ni teishutsu shite kudasai.",
+        "sentence_vi": "Hãy nộp hồ sơ chậm nhất vào thứ sáu."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "書類を金曜日までに（　）してください。",
+        "blank_position": 1,
+        "answer_explanation": "‘提出’ (teishutsu) mang nghĩa nộp giấy tờ, tài liệu.",
+        "choices": [
+          {
+            "content": "提出",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "共有",
+    "reading_hiragana": "きょうゆう",
+    "reading_romaji": "kyouyuu",
+    "meaning_vi": "chia sẻ thông tin",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "CỘNG HỮU",
+    "explanation": "Danh động từ. Cùng nhau sở hữu hoặc chia sẻ thông tin, dữ liệu, nội dung cho nhiều người.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "会議の内容をチームに共有します。",
+        "sentence_hira": "かいぎのないようをチームにきょうゆうします。",
+        "sentence_romaji": "Kaigi no naiyou o chiimu ni kyouyuu shimasu.",
+        "sentence_vi": "Tôi sẽ chia sẻ nội dung cuộc họp cho nhóm."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "会議の内容をチームに（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘共有’ nghĩa là chia sẻ thông tin để mọi người cùng biết.",
+        "choices": [
+          {
+            "content": "共有",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "進捗",
+    "reading_hiragana": "しんちょく",
+    "reading_romaji": "shinchoku",
+    "meaning_vi": "tiến độ",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "TIẾN DUỆ",
+    "explanation": "Danh động từ. Tình trạng tiến triển, mức độ hoàn thành của một công việc hay dự án.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "進捗状況を毎日確認します。",
+        "sentence_hira": "しんちょくじょうきょうをまいにちかくにんします。",
+        "sentence_romaji": "Shinchoku joukyou o mainichi kakunin shimasu.",
+        "sentence_vi": "Tôi kiểm tra tình hình tiến độ mỗi ngày."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）状況を毎日確認します。",
+        "blank_position": 1,
+        "answer_explanation": "‘進捗’ đi cùng 状況 để chỉ tình hình tiến độ công việc.",
+        "choices": [
+          {
+            "content": "進捗",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "締切",
+    "reading_hiragana": "しめきり",
+    "reading_romaji": "shimekiri",
+    "meaning_vi": "hạn chót",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "ĐẾ THIẾT",
+    "explanation": "Danh từ. Thời hạn cuối cùng để nộp hoặc hoàn thành một việc gì đó.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "応募書類の締切は明日です。",
+        "sentence_hira": "おうぼしょるいのしめきりはあしたです。",
+        "sentence_romaji": "Oubo shorui no shimekiri wa ashita desu.",
+        "sentence_vi": "Hạn chót nộp hồ sơ ứng tuyển là ngày mai."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "応募書類の（　）は明日です。",
+        "blank_position": 1,
+        "answer_explanation": "‘締切’ (shimekiri) là deadline, hạn chót.",
+        "choices": [
+          {
+            "content": "締切",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "納期",
+    "reading_hiragana": "のうき",
+    "reading_romaji": "nouki",
+    "meaning_vi": "hạn giao hàng / hoàn thành",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "NẠP KỲ",
+    "explanation": "Danh từ. Thời điểm hẹn để giao nộp sản phẩm, hàng hóa hoặc kết quả công việc cho khách hàng.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "納期に間に合うように進めます。",
+        "sentence_hira": "のうきにまにあうようにすすめます。",
+        "sentence_romaji": "Nouki ni maniau you ni susumemasu.",
+        "sentence_vi": "Tôi sẽ tiến hành sao cho kịp hạn giao hàng."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）に間に合うように進めます。",
+        "blank_position": 1,
+        "answer_explanation": "‘納期’ (nouki) là hạn giao hàng hoặc bàn giao sản phẩm.",
+        "choices": [
+          {
+            "content": "納期",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "期限",
+    "reading_hiragana": "きげん",
+    "reading_romaji": "kigen",
+    "meaning_vi": "thời hạn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "KỲ HẠN",
+    "explanation": "Danh từ. Giới hạn thời gian quy định cho một việc phải hoàn thành.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "返信の期限は本日中です。",
+        "sentence_hira": "へんしんのきげんはほんじつちゅうです。",
+        "sentence_romaji": "Henshin no kigen wa honjitsuchuu desu.",
+        "sentence_vi": "Thời hạn trả lời là trong ngày hôm nay."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "返信の（　）は本日中です。",
+        "blank_position": 1,
+        "answer_explanation": "‘期限’ là thời hạn giới hạn.",
+        "choices": [
+          {
+            "content": "期限",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "会議",
+    "reading_hiragana": "かいぎ",
+    "reading_romaji": "kaigi",
+    "meaning_vi": "cuộc họp",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "HỘI NGHỊ",
+    "explanation": "Danh từ. Tập hợp nhiều người lại để bàn bạc, thảo luận công việc.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "午後3時から会議があります。",
+        "sentence_hira": "ごごさんじからかいぎがあります。",
+        "sentence_romaji": "Gogo sanji kara kaigi ga arimasu.",
+        "sentence_vi": "Có cuộc họp từ 3 giờ chiều."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "午後3時から（　）があります。",
+        "blank_position": 1,
+        "answer_explanation": "‘会議’ (kaigi) nghĩa là cuộc họp.",
+        "choices": [
+          {
+            "content": "会議",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "議事録",
+    "reading_hiragana": "ぎじろく",
+    "reading_romaji": "gijiroku",
+    "meaning_vi": "biên bản họp",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "NGHỊ SỰ LỤC",
+    "explanation": "Danh từ. Tài liệu ghi chép lại nội dung, quyết định được thống nhất trong cuộc họp.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "会議の議事録を作成します。",
+        "sentence_hira": "かいぎのぎじろくをさくせいします。",
+        "sentence_romaji": "Kaigi no gijiroku o sakusei shimasu.",
+        "sentence_vi": "Tôi sẽ lập biên bản cuộc họp."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "会議の（　）を作成します。",
+        "blank_position": 1,
+        "answer_explanation": "‘議事録’ là biên bản ghi chép cuộc họp.",
+        "choices": [
+          {
+            "content": "議事録",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "資料",
+    "reading_hiragana": "しりょう",
+    "reading_romaji": "shiryou",
+    "meaning_vi": "tài liệu",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Education"
+    ],
+    "han_viet": "TƯ LIỆU",
+    "explanation": "Danh từ. Văn bản, dữ liệu dùng làm cơ sở cho nghiên cứu, báo cáo, giải thích.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "説明資料を準備してください。",
+        "sentence_hira": "せつめいしりょうをじゅんびしてください。",
+        "sentence_romaji": "Setsumei shiryou o junbi shite kudasai.",
+        "sentence_vi": "Hãy chuẩn bị tài liệu giải thích."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "説明（　）を準備してください。",
+        "blank_position": 1,
+        "answer_explanation": "‘資料’ (shiryou) nghĩa là tài liệu.",
+        "choices": [
+          {
+            "content": "資料",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "書類",
+    "reading_hiragana": "しょるい",
+    "reading_romaji": "shorui",
+    "meaning_vi": "giấy tờ, hồ sơ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "THƯ LOẠI",
+    "explanation": "Danh từ. Các loại giấy tờ hành chính, văn bản lưu trữ chuyên dụng.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "必要書類を確認します。",
+        "sentence_hira": "ひつようしょるいをかくにんします。",
+        "sentence_romaji": "Hitsuyou shorui o kakunin shimasu.",
+        "sentence_vi": "Tôi sẽ kiểm tra các giấy tờ cần thiết."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "必要（　）を確認します。",
+        "blank_position": 1,
+        "answer_explanation": "‘書類’ (shorui) là giấy tờ, hồ sơ cần thiết.",
+        "choices": [
+          {
+            "content": "書類",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "契約",
+    "reading_hiragana": "けいやく",
+    "reading_romaji": "keiyaku",
+    "meaning_vi": "hợp đồng",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "KHẾ ƯỚC",
+    "explanation": "Danh động từ. Thỏa thuận mang tính pháp lý giữa các bên (ví dụ như hợp đồng lao động, hợp đồng mua bán).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "入社時に契約内容を確認します。",
+        "sentence_hira": "にゅうしゃじにけいやくないようをかくにんします。",
+        "sentence_romaji": "Nyuushaji ni keiyaku naiyou o kakunin shimasu.",
+        "sentence_vi": "Tôi sẽ kiểm tra nội dung hợp đồng khi vào công ty."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "入社時に（　）内容を確認します。",
+        "blank_position": 1,
+        "answer_explanation": "‘契約’ (keiyaku) là hợp đồng.",
+        "choices": [
+          {
+            "content": "契約",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "見積",
+    "reading_hiragana": "みつもり",
+    "reading_romaji": "mitsumori",
+    "meaning_vi": "báo giá, ước tính",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Finance"
+    ],
+    "han_viet": "KIẾN TÍCH",
+    "explanation": "Danh từ. Tính toán và đưa ra mức chi phí dự kiến cho một dịch vụ hoặc sản phẩm (見積書 - bảng báo giá).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "取引先に見積を依頼しました。",
+        "sentence_hira": "とりひきさきにみつもりをいらいしました。",
+        "sentence_romaji": "Torihikisaki ni mitsumori o irai shimashita.",
+        "sentence_vi": "Tôi đã yêu cầu đối tác báo giá."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "取引先に（　）を依頼しました。",
+        "blank_position": 1,
+        "answer_explanation": "‘見積’ (mitsumori) mang ý nghĩa bảng báo giá chi phí.",
+        "choices": [
+          {
+            "content": "見積",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "請求",
+    "reading_hiragana": "せいきゅう",
+    "reading_romaji": "seikyuu",
+    "meaning_vi": "yêu cầu thanh toán, hóa đơn",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Finance"
+    ],
+    "han_viet": "THỈNH CẦU",
+    "explanation": "Danh động từ. Đòi hỏi người khác thanh toán tiền hoặc thực hiện nghĩa vụ (請求書 - Hóa đơn yêu cầu thanh toán).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "請求書を月末に送ります。",
+        "sentence_hira": "せいきゅうしょをげつまつにおくります。",
+        "sentence_romaji": "Seikyuusho o getsumatsu ni okurimasu.",
+        "sentence_vi": "Tôi sẽ gửi hóa đơn yêu cầu thanh toán vào cuối tháng."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）書を月末に送ります。",
+        "blank_position": 1,
+        "answer_explanation": "‘請求’ kết hợp với 書 tạo thành hóa đơn yêu cầu thanh toán.",
+        "choices": [
+          {
+            "content": "請求",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  }
+]

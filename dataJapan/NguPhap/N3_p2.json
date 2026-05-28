@@ -1,0 +1,3262 @@
+[
+  {
+    "kanji": "～ば～ほど（動詞）",
+    "reading_hiragana": "～ば～ほど",
+    "reading_romaji": "~ba ~hodo",
+    "meaning_vi": "Càng (làm gì) ... càng ...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả mối quan hệ tỉ lệ thuận: khi mức độ của hành động phía trước tăng lên thì trạng thái phía sau cũng thay đổi tương ứng. Chia động từ ở thể điều kiện (～ば) rồi lặp lại thể từ điển (～る) trước ほど.",
+    "examples": [
+      {
+        "sentence_jp": "日本語は勉強すればするほど面白くなる。",
+        "sentence_hira": "にほんごはべんきょうすればするほどおもしろくなる。",
+        "sentence_romaji": "Nihongo wa benkyou sureba suru hodo omoshiroku naru.",
+        "sentence_vi": "Tiếng Nhật càng học thì lại càng thấy thú vị."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～ければ～いほど（い形容詞）",
+    "reading_hiragana": "～ければ～いほど",
+    "reading_romaji": "~kereba ~i hodo",
+    "meaning_vi": "Càng (tính chất) ... càng ...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng với tính từ đuôi -i. Chia tính từ sang thể điều kiện (bỏ -i thêm -kereba) và lặp lại tính từ nguyên bản trước ほど.",
+    "examples": [
+      {
+        "sentence_jp": "荷物は軽ければ軽いほどいい。",
+        "sentence_hira": "にもつはかるければかるいほどいい。",
+        "sentence_romaji": "Nimotsu wa karukereba karui hodo ii.",
+        "sentence_vi": "Hành lý thì càng nhẹ sẽ càng tốt."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～なら～なほど（な形容詞）",
+    "reading_hiragana": "～なら～なほど",
+    "reading_romaji": "~nara ~na hodo",
+    "meaning_vi": "Càng (trạng thái) ... càng ...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng với tính từ đuôi -na. Đi kèm với なら ở vế đầu và giữ nguyên -na ở vế sau trước ほど. Có thể lược bỏ なら ở vế đầu trong văn nói.",
+    "examples": [
+      {
+        "sentence_jp": "操作は簡単なら簡単なほど助かります。",
+        "sentence_hira": "そうさはかんたんならかんたんなほどたすかります。",
+        "sentence_romaji": "Sousa wa kantan nara kantan na hodo tasukarimasu.",
+        "sentence_vi": "Cách thao tác mà càng đơn giản thì càng đỡ cho tôi quá."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～なら～ほど（名詞）",
+    "reading_hiragana": "～なら～ほど",
+    "reading_romaji": "~nara ~hodo",
+    "meaning_vi": "Càng là (đối tượng) ... càng ...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng với danh từ. Cấu trúc này nhấn mạnh rằng nếu đối tượng càng đạt tiêu chuẩn của danh từ đó thì hệ quả phía sau càng cao.",
+    "examples": [
+      {
+        "sentence_jp": "いい服なら（ば）いい服なほど、値段が高い。",
+        "sentence_hira": "いいふくなら（ば）いいふくなほど、ねだんがたかい。",
+        "sentence_romaji": "Ii fuku nara (ba) ii fuku na hodo, nedan ga takai.",
+        "sentence_vi": "Đồ mà càng xịn (càng đúng chuẩn quần áo tốt) thì giá lại càng đắt."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～ようなら",
+    "reading_hiragana": "～ようなら",
+    "reading_romaji": "~you nara",
+    "meaning_vi": "Nếu như... / Trong trường hợp tình hình là...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để giả định một tình huống có khả năng xảy ra. Vế sau thường đưa ra lời khuyên, yêu cầu hoặc hướng xử lý. Sắc thái rất mềm mỏng, lịch sự vì tôn trọng quyết định của người nghe.",
+    "examples": [
+      {
+        "sentence_jp": "忙しいようなら、無理に参加しなくてもいいですよ。",
+        "sentence_hira": "いそがしいようなら、むりにさんかしなくてもいいですよ。",
+        "sentence_romaji": "Isogashii you nara, muri ni sanka shinakute mo ii desu yo.",
+        "sentence_vi": "Nếu bạn bận thì không cần phải miễn cưỡng tham gia đâu."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vる/Vない + ように",
+    "reading_hiragana": "～ように",
+    "reading_romaji": "~you ni",
+    "meaning_vi": "Để... / Để không...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Chỉ mục đích. Vế trước thường là động từ trạng thái hoặc thể khả năng (không mang ý chí) để đạt kết quả mong muốn. Khác với 'tame ni' vốn dùng cho động từ ý chí.",
+    "examples": [
+      {
+        "sentence_jp": "道を間違えないように気を付けてね。",
+        "sentence_hira": "みちをまちがえないようにきをつけてね。",
+        "sentence_romaji": "Michi o machigaenai you ni ki o tsukete ne.",
+        "sentence_vi": "Hãy cẩn thận để không bị nhầm đường nhé."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vる/Vない + ようにする",
+    "reading_hiragana": "～ようにする",
+    "reading_romaji": "~you ni suru",
+    "meaning_vi": "Cố gắng làm... / Quyết tâm sẽ không làm...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả sự nỗ lực, ý chí thực hiện một hành động nào đó thường xuyên hơn kể từ thời điểm nói để tạo thành thói quen hoặc đạt mục tiêu.",
+    "examples": [
+      {
+        "sentence_jp": "電話の前にメールをするようにします。",
+        "sentence_hira": "でんわのまえにめーるをするようにします。",
+        "sentence_romaji": "Denwa no mae ni meeru o suru you ni shimasu.",
+        "sentence_vi": "Tôi sẽ cố gắng gửi mail trước khi gọi điện."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vる/Vない + ようにしている",
+    "reading_hiragana": "～ようにしている",
+    "reading_romaji": "~you ni shite iru",
+    "meaning_vi": "Đang cố gắng (duy trì thói quen)...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Nhấn mạnh vào việc người nói đang thực hiện nỗ lực đó một cách đều đặn như một thói quen ở hiện tại.",
+    "examples": [
+      {
+        "sentence_jp": "家を買いたいから、毎月貯金するようにしています。",
+        "sentence_hira": "いえをかいたいから、まいつきちょきんするようにしています。",
+        "sentence_romaji": "Ie o kaitai kara, maitsuki chokin suru you ni shite iru.",
+        "sentence_vi": "Vì muốn mua nhà nên hàng tháng tôi đều đang cố gắng dành dụm tiền."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vる + ところだ",
+    "reading_hiragana": "～ところだ",
+    "reading_romaji": "~ru tokoro da",
+    "meaning_vi": "Sắp sửa làm V / Chuẩn bị làm V",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả thời điểm ngay trước khi một hành động bắt đầu. Thường đi kèm với các trạng từ như 「これから」「ちょうど」「今から」.",
+    "examples": [
+      {
+        "sentence_jp": "ちょうど今から出かけるところだ。",
+        "sentence_hira": "ちょうどいまからでかけるところだ。",
+        "sentence_romaji": "Choudo ima kara dekakeru tokoro da.",
+        "sentence_vi": "Vừa đúng lúc tôi chuẩn bị đi ra ngoài đây."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vている + ところだ",
+    "reading_hiragana": "～ているところだ",
+    "reading_romaji": "~te iru tokoro da",
+    "meaning_vi": "Đang đúng lúc làm V",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Nhấn mạnh vào trạng thái đang diễn ra của hành động tại một thời điểm cụ thể. Thường dùng khi giải thích tình hình hiện tại cho người khác.",
+    "examples": [
+      {
+        "sentence_jp": "今、料理を作っているところだ。",
+        "sentence_hira": "いま、りょうりをつくっているところだ。",
+        "sentence_romaji": "Ima, ryouri o tsukutte iru tokoro da.",
+        "sentence_vi": "Bây giờ tôi đang đúng lúc nấu ăn."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vた + ところだ",
+    "reading_hiragana": "～たところだ",
+    "reading_romaji": "~ta tokoro da",
+    "meaning_vi": "Vừa mới làm xong V (ngay tức thì)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả thời điểm ngay sau khi hành động hoàn thành. Khoảng cách thời gian thực tế cực kỳ ngắn (thường chỉ vài giây hoặc vài phút).",
+    "examples": [
+      {
+        "sentence_jp": "たった今、家に着いたところだ。",
+        "sentence_hira": "たったいま、いえについたところだ。",
+        "sentence_romaji": "Tatta ima, ie ni tsuita tokoro da.",
+        "sentence_vi": "Tôi vừa mới về đến nhà tức thì."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vた + ばかりだ",
+    "reading_hiragana": "～たばかりだ",
+    "reading_romaji": "~ta bakari da",
+    "meaning_vi": "Vừa mới làm V (theo cảm nhận chủ quan)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả sự việc vừa mới xảy ra theo cảm nhận chủ quan của người nói. Dù thời gian thực tế có thể đã lâu (1 năm, 1 tháng), nhưng người nói vẫn cảm thấy nó như mới xảy ra.",
+    "examples": [
+      {
+        "sentence_jp": "去年、結婚したばかりだ。",
+        "sentence_hira": "きょねん、けっこんしたばかりだ。",
+        "sentence_romaji": "Kyonen, kekkon shita bakari da.",
+        "sentence_vi": "Tôi vừa mới kết hôn vào năm ngoái thôi (cảm giác như mới đây)."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + って",
+    "reading_hiragana": "～って",
+    "reading_romaji": "~ tte",
+    "meaning_vi": "Thì... / Là... (Thay cho trợ từ 「は」)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để nêu lên chủ đề của câu chuyện trong văn nói thân mật, thay thế hoàn toàn cho trợ từ 「は」. Giúp câu văn gãy gọn và tự nhiên hơn.",
+    "examples": [
+      {
+        "sentence_jp": "日本ってどんな国？",
+        "sentence_hira": "にほんってどんなくに？",
+        "sentence_romaji": "Nihon tte donna kuni?",
+        "sentence_vi": "Nhật Bản (thì) là đất nước như thế nào?"
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～って",
+    "reading_hiragana": "～って",
+    "reading_romaji": "~ tte",
+    "meaning_vi": "Nghe nói là... / Thấy bảo là...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để trích dẫn lại thông tin nghe được từ một nguồn khác. Đây là dạng rút gọn của 「～と言っている」 hoặc 「～そうです」. Trong văn nói thân mật thường biến điệu thành 「～んだって」.",
+    "examples": [
+      {
+        "sentence_jp": "彼女はN3に合格したんだって。",
+        "sentence_hira": "かのじょはえぬさんにうかったんだって。",
+        "sentence_romaji": "Kanojo wa Enu-san ni goukaku shita n datte.",
+        "sentence_vi": "Nghe nói là cô ấy đã đỗ N3 rồi đấy."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Mệnh đề (thể ngắn) + って",
+    "reading_hiragana": "～って",
+    "reading_romaji": "~ tte",
+    "meaning_vi": "Là... / Rằng... (Thay cho trợ từ 「と」)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng thay thế cho trợ từ 「と」 khi đi kèm với các động từ trích dẫn như 「思う」(nghĩ), 「言う」(nói), 「書いてある」(viết). Lưu ý khi hỏi dùng 「なんて」 thay cho 「となんて」.",
+    "examples": [
+      {
+        "sentence_jp": "「よくできたよ」ってほめてくれた。",
+        "sentence_hira": "「よくできたよ」ってほめてくれた。",
+        "sentence_romaji": "\"Yoku dekita yo\" tte homete kureta.",
+        "sentence_vi": "Tôi đã được khen là \"Con làm tốt lắm đấy\"!"
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N1 + という / って + N2",
+    "reading_hiragana": "～という / ～って",
+    "reading_romaji": "~ to iu / ~ tte",
+    "meaning_vi": "N2 gọi là N1 / N2 mang tên là N1",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để định nghĩa hoặc gọi tên một sự vật, sự việc cụ thể (N1) nằm trong một phạm vi nghĩa rộng hơn (N2). Thường dùng khi giới thiệu một cái tên riêng hoặc một khái niệm mới cho người nghe. Trong văn nói, 'to iu' thường được chuyển thành 'tte' hoặc 'tte iu'.",
+    "examples": [
+      {
+        "sentence_jp": "ベトナムという国は食べ物がとても美味しいです。",
+        "sentence_hira": "べとなむというくにはたべものがとてもおいしいです。",
+        "sentence_romaji": "Betonamu to iu kuni wa tabemono ga totemo oishii desu.",
+        "sentence_vi": "Đất nước mang tên Việt Nam có đồ ăn rất là ngon."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + らしい",
+    "reading_hiragana": "～らしい",
+    "reading_romaji": "~ rashii",
+    "meaning_vi": "Ra dáng... / Đậm chất... / Đúng nghĩa là...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả việc một đối tượng mang những đặc điểm điển hình, ưu tú hoặc đúng bản chất vốn có của đối tượng đó. 'Nらしい' hoạt động như một tính từ đuôi -i và có thể bổ nghĩa trực tiếp cho danh từ phía sau.",
+    "examples": [
+      {
+        "sentence_jp": "花火がないと夏らしくなくなってしまう。",
+        "sentence_hira": "はなびがないとなつらしくなくなってしまう。",
+        "sentence_romaji": "Hanabi ga nai to natsu rashiku nakunatte shimau.",
+        "sentence_vi": "Nếu mà không có pháo hoa thì mùa hè sẽ không còn đúng nghĩa là mùa hè nữa."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N1 + を中心に / と(して)",
+    "reading_hiragana": "～をちゅうしんに / ～を～として",
+    "reading_romaji": "~ o chuushin ni / ~ o ~ to shite",
+    "meaning_vi": "Lấy N1 làm trọng tâm / Chủ yếu là N1",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "TRUNG TÂM",
+    "explanation": "Dùng để nhấn mạnh rằng N1 là phần quan trọng nhất, cốt lõi nhất của một hành động hay sự việc nào đó.",
+    "examples": [
+      {
+        "sentence_jp": "発音を中心として日本語について研究しています。",
+        "sentence_hira": "はつおんをちゅうしんとしてにほんごについてけんきゅうしています。",
+        "sentence_romaji": "Hatsuon o chuushin to shite nihongo ni tsuite kenkyuu shite imasu.",
+        "sentence_vi": "Tôi đang nghiên cứu về tiếng Nhật mà trọng tâm chính là phần phát âm."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N1 + について",
+    "reading_hiragana": "～について",
+    "reading_romaji": "~ ni tsuite",
+    "meaning_vi": "Về vấn đề N1 / Liên quan đến N1",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Sử dụng khi muốn trình bày nội dung chi tiết về một chủ đề nào đó thông qua các hành động như nói, nghe, suy nghĩ, tra cứu hoặc nghiên cứu.",
+    "examples": [
+      {
+        "sentence_jp": "今大学院で日本語教育について研究しています。",
+        "sentence_hira": "いまだいがくいんでにほんごきょういくについてけんきゅうしています。",
+        "sentence_romaji": "Ima daigakuin de nihongo kyouiku ni tsuite kenkyuu shite imasu.",
+        "sentence_vi": "Hiện tại ở cao học tôi đang nghiên cứu về giáo dục tiếng Nhật."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N1 + において / における",
+    "reading_hiragana": "～において / ～における",
+    "reading_romaji": "~ ni oite / ~ ni okeru",
+    "meaning_vi": "Tại / Trong / Ở (địa điểm, bối cảnh, lĩnh vực)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Chỉ địa điểm, thời gian, hoàn cảnh hoặc lĩnh vực mà một sự việc diễn ra. Đây là cách nói trang trọng (thường dùng trong văn viết), không dùng cho các hành động sinh hoạt đơn giản hàng ngày.",
+    "examples": [
+      {
+        "sentence_jp": "私の人生において、失敗したことはたくさんあります。",
+        "sentence_hira": "わたしのじんせいにおいて、しっぱいしたことはたくさんあります。",
+        "sentence_romaji": "Watashi no jinsei ni oite, shippai shita koto wa takusan arimasu.",
+        "sentence_vi": "Trong cuộc đời mình, tôi đã từng nếm trải rất nhiều thất bại."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N1 + にとって",
+    "reading_hiragana": "～にとって",
+    "reading_romaji": "~ ni totte",
+    "meaning_vi": "Đối với N1 thì... (đứng trên lập trường của N1)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng khi muốn đưa ra một đánh giá, nhận xét hoặc phán đoán từ góc độ/lập trường của đối tượng N1 (thường là người hoặc tổ chức).",
+    "examples": [
+      {
+        "sentence_jp": "国にとって若者は貴重な財産である。",
+        "sentence_hira": "くににとってわかものはきちょうなざいさんである。",
+        "sentence_romaji": "Kuni ni totte wakamono wa kichou na zaisan de aru.",
+        "sentence_vi": "Đối với một quốc gia, giới trẻ chính là nguồn tài sản vô cùng quý giá."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N1 + に対して (Đối tượng)",
+    "reading_hiragana": "～にたいして",
+    "reading_romaji": "~ ni taishite",
+    "meaning_vi": "Đối với... / Hướng về... (chỉ đối tượng tác động)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "ĐỐI",
+    "explanation": "Dùng để chỉ đối tượng mà hành động, thái độ hoặc cảm xúc hướng tới. Vế sau là hành động cụ thể tác động lên đối tượng đó.",
+    "examples": [
+      {
+        "sentence_jp": "自分の行動に対して、責任を持たなきゃいけない。",
+        "sentence_hira": "じぶんのこうどうにたいして、せきにんをもたなきゃいけない。",
+        "sentence_romaji": "Jibun no koudou ni taishite, sekinin o motanakya ikenai.",
+        "sentence_vi": "Tôi phải có trách nhiệm đối với những hành động của chính bản thân mình."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Mệnh đề + のに対し(て) (So sánh)",
+    "reading_hiragana": "～のにたいして",
+    "reading_romaji": "~ no ni taishite",
+    "meaning_vi": "Trái ngược với... / Trong khi... thì...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "ĐỐI",
+    "explanation": "Dùng để đặt hai sự vật, sự việc có tính chất trái ngược hoặc khác biệt lên bàn cân để so sánh.",
+    "examples": [
+      {
+        "sentence_jp": "発音が難しいベトナム語に対して、日本語は発音が簡単です。",
+        "sentence_hira": "はつおんがむずかしいべとなむごにたいして、にほんごははつおんがかんたんです。",
+        "sentence_romaji": "Hatsuon ga muzukashii Betonamugo ni taishite, Nihongo wa hatsuon ga kantan desu.",
+        "sentence_vi": "Trái ngược với tiếng Việt phát âm khó, tiếng Nhật có phát âm dễ hơn."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + に従って (Tuân thủ quy định)",
+    "reading_hiragana": "～にしたがって",
+    "reading_romaji": "~ ni shitagatte",
+    "meaning_vi": "Tuân theo, phục tòng (quy tắc, luật lệ)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "TÙNG",
+    "explanation": "Lớp nghĩa này nhấn mạnh việc thực hiện hành động dựa trên các tiêu chuẩn mang tính cưỡng chế hoặc bắt buộc như pháp luật, quy định, nội quy của một tổ chức.",
+    "examples": [
+      {
+        "sentence_jp": "外国に住めば、その国の法律に従って、行動しなければならない。",
+        "sentence_hira": "がいこくにすめば、そのくにのほうりつにしたがって、こうどうしなければならない。",
+        "sentence_romaji": "Gaikoku ni sumeba, sono kuni no houritsu ni shitagatte, koudou shinakereba naranai.",
+        "sentence_vi": "Nếu sống ở nước ngoài, bạn phải hành động tuân thủ theo đúng pháp luật của quốc gia đó."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + に従って (Làm theo hướng dẫn)",
+    "reading_hiragana": "～にしたがって",
+    "reading_romaji": "~ ni shitagatte",
+    "meaning_vi": "Theo như, làm theo (chỉ thị, hướng dẫn)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "TÙNG",
+    "explanation": "Lớp nghĩa này dùng khi thực hiện hành động theo các chỉ dẫn, mệnh lệnh hoặc thứ tự đã được vạch ra trước đó bởi người khác hoặc tài liệu hướng dẫn.",
+    "examples": [
+      {
+        "sentence_jp": "先生の指示に従って、練習を始めてください。",
+        "sentence_hira": "せんせいのしじにしたがって、れんしゅうをはじめてください。",
+        "sentence_romaji": "Sensei no shiji ni shitagatte, renshuu o hajimete kudasai.",
+        "sentence_vi": "Hãy làm theo chỉ thị của giáo viên và bắt đầu luyện tập."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N / Vる + に従って (Biến đổi song hành)",
+    "reading_hiragana": "～にしたがって",
+    "reading_romaji": "~ ni shitagatte",
+    "meaning_vi": "Càng... càng... / Tỉ lệ thuận với sự biến đổi...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "TÙNG",
+    "explanation": "Lớp nghĩa này diễn tả sự thay đổi đồng thời giữa hai vế. Khi một tình trạng tiến triển (vế trước) thì một kết quả khác cũng biến đổi theo (vế sau). Thường là sự thay đổi tự nhiên theo thời gian.",
+    "examples": [
+      {
+        "sentence_jp": "歳を重ねるに従って、本当に大切なものが見えてくる。",
+        "sentence_hira": "としをかさねるにしたがって、ほんとうにたいせつなものがみえてくる。",
+        "sentence_romaji": "Toshi o kasaneru ni shitagatte, hontou ni taisetsu na mono ga mietekuru.",
+        "sentence_vi": "Càng có tuổi, chúng ta lại càng nhận ra được những điều gì thực sự là quan trọng."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + によって / により (Phương thức)",
+    "reading_hiragana": "～によって / ～により",
+    "reading_romaji": "~ ni yotte / ~ ni yori",
+    "meaning_vi": "Bằng / Thông qua (phương thức, công cụ)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "DO",
+    "explanation": "Diễn tả công cụ hoặc phương thức chuyên môn để thực hiện hành động. Lưu ý không dùng cho những công cụ sinh hoạt hằng ngày như dao, kéo, bút. 'により' là biến thể trang trọng hơn dùng trong văn viết.",
+    "examples": [
+      {
+        "sentence_jp": "アンケートによる調査を行いました。",
+        "sentence_hira": "あんけーとによるちょうさをおこないました。",
+        "sentence_romaji": "Ankeeto ni yoru chousa o okonaimashita.",
+        "sentence_vi": "Chúng tôi đã tiến hành một cuộc điều tra thông qua (bằng phương thức) bảng khảo sát."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + によって / により (Nguyên nhân)",
+    "reading_hiragana": "～によって / ～により",
+    "reading_romaji": "~ ni yotte / ~ ni yori",
+    "meaning_vi": "Vì... / Do... (nguyên nhân khách quan)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "DO",
+    "explanation": "Dùng để nêu ra nguyên nhân hoặc lý do dẫn đến một sự việc, thường là những sự kiện mang tính xã hội, thiên tai hoặc kết quả khách quan. Thường xuất hiện trên báo chí và văn bản chính thống.",
+    "examples": [
+      {
+        "sentence_jp": "人口が減ったことにより、働く人が不足している。",
+        "sentence_hira": "じんこうがへったことにより、はたらくひとがふそくしている。",
+        "sentence_romaji": "Jinkou ga hetta koto ni yori, hataraku hito ga fusoku shite iru.",
+        "sentence_vi": "Do dân số giảm nên dẫn đến tình trạng thiếu hụt người lao động."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + によって (Sự khác biệt)",
+    "reading_hiragana": "～によって",
+    "reading_romaji": "~ ni yotte",
+    "meaning_vi": "Tùy vào N / Tùy theo N",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "DO",
+    "explanation": "Diễn tả việc mỗi đối tượng (N) khác nhau thì sẽ dẫn đến những kết quả hoặc trạng thái khác nhau. Vế sau thường đi kèm các từ như '違う', 'いろいろ', 'さまざま'.",
+    "examples": [
+      {
+        "sentence_jp": "この学校では、クラスによって違う活動をすることがある。",
+        "sentence_hira": "このがっこうでは、くらすによってちがうかつどうをすることがある。",
+        "sentence_romaji": "Kono gakkou de wa, kurasu ni yotte chigau katsudou o suru koto ga aru.",
+        "sentence_vi": "Ở trường này, tùy vào mỗi lớp mà đôi khi sẽ có những hoạt động khác nhau."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vる + ことで",
+    "reading_hiragana": "～ことで",
+    "reading_romaji": "~ koto de",
+    "meaning_vi": "Bằng việc... / Nhờ việc... (cách thức đạt mục đích)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Nhấn mạnh vào phương pháp hoặc hành động cụ thể để đạt được một kết quả hoặc sự thay đổi tích cực nào đó.",
+    "examples": [
+      {
+        "sentence_jp": "ゲームをすることで、クラスに活気が生まれた。",
+        "sentence_hira": "げーむをすることで、くらすにかっきがうまれた。",
+        "sentence_romaji": "Geemu o suru koto de, kurasu ni kakki ga umareta.",
+        "sentence_vi": "Bằng việc (nhờ việc) tổ chức các trò chơi mà không khí lớp học đã trở nên ná náo nhiệt hơn."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～おかげ (Tích cực)",
+    "reading_hiragana": "～おかげ",
+    "reading_romaji": "~ okage",
+    "meaning_vi": "Nhờ có... / May mà có...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả nguyên nhân dẫn đến một kết quả tốt đẹp. Thể hiện lòng biết ơn, cảm kích của người nói. Trái ngược hoàn toàn với 'sei'.",
+    "examples": [
+      {
+        "sentence_jp": "家族の協力があったおかげで、今の私があります。",
+        "sentence_hira": "かぞくのきょうりょくがあったおかげで、いまのわたしがあります。",
+        "sentence_romaji": "Kazoku no kyouryoku ga atta okage de, ima no watashi ga arimasu.",
+        "sentence_vi": "Nhờ có sự hỗ trợ từ gia đình mà tôi mới có được ngày hôm nay."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～せい (Tiêu cực)",
+    "reading_hiragana": "～せい",
+    "reading_romaji": "~ sei",
+    "meaning_vi": "Tại vì... / Chỉ tại... (đổ lỗi)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Đưa ra nguyên nhân dẫn đến một kết quả xấu hoặc tình huống không mong muốn. Thể hiện thái độ trách móc hoặc đổ lỗi.",
+    "examples": [
+      {
+        "sentence_jp": "台風のせいで飛行機がキャンセルになってしまった。",
+        "sentence_hira": "たいふうのせいでひこうきがきゃんせるになってしまった。",
+        "sentence_romaji": "Taifu no sei de hikouki ga kyanseru ni natte shimatta.",
+        "sentence_vi": "Chỉ tại (do) cơn bão mà chuyến bay đã bị hủy mất rồi."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～ことから",
+    "reading_hiragana": "～ことから",
+    "reading_romaji": "~ koto kara",
+    "meaning_vi": "Từ việc... / Bởi vì... (căn cứ/nguồn gốc)",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để giải thích nguồn gốc của một cái tên hoặc đưa ra căn cứ thực tế để dẫn đến một phán đoán, kết luận.",
+    "examples": [
+      {
+        "sentence_jp": "電気が消えていることから、彼は不在だとわかった。",
+        "sentence_hira": "でんきがきえていることから、かれはふざいだとわかった。",
+        "sentence_romaji": "Denki ga kiete iru koto kara, kare wa fuzai da to wakatta.",
+        "sentence_vi": "Từ việc đèn đang tắt, tôi biết được rằng anh ấy không có ở nhà."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vます + そうにない / そうもない",
+    "reading_hiragana": "～そうにない / ～そうもない",
+    "reading_romaji": "~ sou ni nai / ~ sou mo nai",
+    "meaning_vi": "Khó mà... / Chẳng có vẻ gì là sẽ...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dạng phủ định của cấu trúc 'sou desu' (có vẻ). Dùng để đánh giá khả năng xảy ra của một sự việc là cực kỳ thấp hoặc gần như không thể, dựa trên quan sát tại chỗ.",
+    "examples": [
+      {
+        "sentence_jp": "あと数年は、物価が下がりそうにない。",
+        "sentence_hira": "あとすうねんは、ぶっかがさがりそうにない。",
+        "sentence_romaji": "Ato suunen wa, bukka ga sagarisou ni nai.",
+        "sentence_vi": "Trong vài năm tới đây, có vẻ vật giá khó mà giảm xuống được."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～がる / ～がっている",
+    "reading_hiragana": "～がる / ～がっている",
+    "reading_romaji": "~ garu / ~ gatte iru",
+    "meaning_vi": "Cảm thấy... / Có vẻ muốn... (diễn tả cảm xúc người khác)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để miêu tả mong muốn, trạng thái cơ thể hoặc cảm xúc của người thứ ba (không dùng cho bản thân). Chuyển tính từ hoặc thể mong muốn (tai) thành động từ để diễn tả biểu hiện bên ngoài.",
+    "examples": [
+      {
+        "sentence_jp": "孫がほしがっていたゲームを買ってあげました。",
+        "sentence_hira": "まごがほしがっていたげーむをかってあげました。",
+        "sentence_romaji": "Mago ga hoshigatte ita geemu o katte agemashita.",
+        "sentence_vi": "Tôi đã mua tặng đứa cháu trai bộ trò chơi mà nó luôn ao ước (thể hiện ra ngoài)."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vます + 始める",
+    "reading_hiragana": "～はじめる",
+    "reading_romaji": "~ hajimeru",
+    "meaning_vi": "Bắt đầu làm V",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "THỦY",
+    "explanation": "Diễn tả việc bắt đầu một hành động, thói quen hoặc một hiện tượng tự nhiên có tính chất kéo dài.",
+    "examples": [
+      {
+        "sentence_jp": "この店では中国製の化粧品も売り始めたらしい。",
+        "sentence_hira": "このみせではちゅうごくせいのけしょうひんもうりはじめたらしい。",
+        "sentence_romaji": "Kono mise de wa Chuugokusei no keshouhin mo urihajimeta rashii.",
+        "sentence_vi": "Nghe nói cửa hàng này dạo gần đây đã bắt đầu bán cả mỹ phẩm của Trung Quốc rồi đấy."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vます + 終わる",
+    "reading_hiragana": "～おわる",
+    "reading_romaji": "~ owaru",
+    "meaning_vi": "Làm xong V / Kết thúc V",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "CHUNG",
+    "explanation": "Diễn tả việc hoàn thành một hành động đã được thực hiện liên tục trước đó.",
+    "examples": [
+      {
+        "sentence_jp": "客が全て乗り終わるまで待っていた。",
+        "sentence_hira": "きゃくがすべてのりおわるまでまっていた。",
+        "sentence_romaji": "Kyaku ga subete noriowaru made matte ita.",
+        "sentence_vi": "Tài xế đã đợi cho đến khi tất cả hành khách lên hết xe."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vます + 続ける",
+    "reading_hiragana": "～つづける",
+    "reading_romaji": "~ tsuzukeru",
+    "meaning_vi": "Tiếp tục V / Duy trì V",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "TỰ",
+    "explanation": "Diễn tả một hành động hoặc thói quen được duy trì liên tục không ngắt quãng.",
+    "examples": [
+      {
+        "sentence_jp": "強い意志を持って、練習し続けた。",
+        "sentence_hira": "つよいいしをもって、れんしゅうしつづけた。",
+        "sentence_romaji": "Tsuyoi ishi o motte, renshuushi tsuzuketa.",
+        "sentence_vi": "Với ý chí mạnh mẽ, tôi đã tiếp tục luyện tập không ngừng nghỉ."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vます + 直す",
+    "reading_hiragana": "～なおす",
+    "reading_romaji": "~ naosu",
+    "meaning_vi": "Làm lại V (để sửa sai hoặc cải thiện)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "TRỰC",
+    "explanation": "Diễn tả việc thực hiện lại một hành động từ đầu để điều chỉnh, sửa lỗi hoặc làm cho kết quả tốt hơn sau khi đã thất bại hoặc chưa ưng ý.",
+    "examples": [
+      {
+        "sentence_jp": "条件を考え直すことにした。",
+        "sentence_hira": "じょうけんをかんがえなおすことにした。",
+        "sentence_romaji": "Jouken o kangaenaosu koto ni shita.",
+        "sentence_vi": "Tôi đã quyết định xem xét và điều chỉnh lại các điều kiện tuyển dụng."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + として",
+    "reading_hiragana": "～として",
+    "reading_romaji": "~ to shite",
+    "meaning_vi": "Với tư cách là... / Dưới danh nghĩa là...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để nêu rõ tư cách, vai trò, chức danh hoặc vị thế của một người/vật khi thực hiện hành động.",
+    "examples": [
+      {
+        "sentence_jp": "仕方がないこととして受け入れている。",
+        "sentence_hira": "しかたがないこととしてうけいれている。",
+        "sentence_romaji": "Shikata ga nai koto to shite ukeiirete iru.",
+        "sentence_vi": "Tôi chấp nhận việc đó như là một điều hiển nhiên không thể khác được."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～てもおかしくない",
+    "reading_hiragana": "～てもおかしくない",
+    "reading_romaji": "~ te mo okashikunai",
+    "meaning_vi": "Dù có... thì cũng không lạ / Chuyện đương nhiên",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Khẳng định rằng một sự việc có khả năng cao sẽ xảy ra hoặc nếu xảy ra thì cũng là điều hợp lý, không gây bất ngờ.",
+    "examples": [
+      {
+        "sentence_jp": "通訳になってもおかしくないくらい英語が上手だ。",
+        "sentence_hira": "つうやくになってもおかしくないくらいえいごがじょうずだ。",
+        "sentence_romaji": "Tsuuyaku ni natte mo okashikunai kurai eigo ga jouzu da.",
+        "sentence_vi": "Tiếng Anh của cô ấy giỏi đến mức nếu có trở thành phiên dịch viên thì cũng không có gì lạ."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～ことか",
+    "reading_hiragana": "～ことか",
+    "reading_romaji": "~ koto ka",
+    "meaning_vi": "Biết bao / Vô cùng... (cảm thán)",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để nhấn mạnh cảm xúc hoặc mức độ không thể diễn tả bằng lời. Thường đi kèm các từ nghi vấn như 'dore hodo', 'nanto', 'donna ni'.",
+    "examples": [
+      {
+        "sentence_jp": "私がどんなに申し訳なかったことか。",
+        "sentence_hira": "わたしがどんなにもうしわけなかったことか。",
+        "sentence_romaji": "Watashi ga donna ni moushiwakenakatta koto ka.",
+        "sentence_vi": "Tôi đã cảm thấy vô cùng có lỗi, không biết phải nói thế nào cho hết."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～だろう",
+    "reading_hiragana": "～だろう",
+    "reading_romaji": "~ darou",
+    "meaning_vi": "Có lẽ... / Chắc hẳn là...",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để dự đoán hoặc suy luận về một sự việc với xác suất xảy ra khá cao. Đây là thể thông thường của 'deshou'.",
+    "examples": [
+      {
+        "sentence_jp": "プレゼントを渡したら、両親はきっと喜ぶだろう。",
+        "sentence_hira": "ぷれぜんとをわたしたら、りょうしんはきっとよろこぶだろう。",
+        "sentence_romaji": "Purezento o watashitara, ryoushin wa kitto yorokobu darou.",
+        "sentence_vi": "Nếu tặng quà thì chắc chắn bố mẹ sẽ rất vui cho mà xem."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～だろうか",
+    "reading_hiragana": "～だろうか",
+    "reading_romaji": "~ darou ka",
+    "meaning_vi": "Liệu có... không nhỉ? / Không biết là...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn đạt sự nghi hoặc, tự hỏi bản thân hoặc lo lắng về một khả năng nào đó.",
+    "examples": [
+      {
+        "sentence_jp": "何か手伝ったほうがいいだろうか。",
+        "sentence_hira": "なにかてつだったほうがいいだろうか。",
+        "sentence_romaji": "Nanika tetsudatta hou ga ii darou ka.",
+        "sentence_vi": "Không biết liệu mình có nên giúp anh ấy một tay không nhỉ?"
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vる + には",
+    "reading_hiragana": "～には",
+    "reading_romaji": "~ ni wa",
+    "meaning_vi": "Để mà... / Đối với việc V thì...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để nêu lên mục đích hoặc điều kiện cần thiết để đạt được một kết quả nào đó, thường vế sau đưa ra lời khuyên hoặc đánh giá.",
+    "examples": [
+      {
+        "sentence_jp": "ベトナム料理のような味にするには、この調味料を使うといい。",
+        "sentence_hira": "べとなむりょうりのようなあじにするには、このちょうみりょうをつかうといい。",
+        "sentence_romaji": "Betonamu ryouri no you na aji ni suru ni wa, kono choumiryou o tsukau to ii.",
+        "sentence_vi": "Để có được hương vị giống món ăn Việt Nam thì nên dùng loại gia vị này."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "V + といけない / は行けない",
+    "reading_hiragana": "～といけない / ～はいけない",
+    "reading_romaji": "~ to ikenai / ~ wa ikenai",
+    "meaning_vi": "Để tránh việc... / Vì sợ rằng... nên...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "HÀNH",
+    "explanation": "Đưa ra một tình huống xấu có thể xảy ra làm lý do để thực hiện một biện pháp phòng ngừa ở vế sau.",
+    "examples": [
+      {
+        "sentence_jp": "転ぶといけないので、ヘルメットをかぶらせている。",
+        "sentence_hira": "ころぶといけないので、へるめっとをかぶらせている。",
+        "sentence_romaji": "Korobu to ikenai node, herumetto o kaburasete iru.",
+        "sentence_vi": "Vì sợ bé bị ngã nên tôi luôn cho bé đội mũ bảo hiểm."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + など / なんか / なんて (Đề xuất)",
+    "reading_hiragana": "～など / ～なんか / ～なんて",
+    "reading_romaji": "~ nado / ~ nanka / ~ nante",
+    "meaning_vi": "Kiểu như là... / Chẳng hạn như...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để đưa ra gợi ý hoặc nêu ví dụ điển hình cho một vấn đề. 'など' dùng trong văn viết, 'なんか/なんて' phổ biến trong văn nói thân mật.",
+    "examples": [
+      {
+        "sentence_jp": "今日、ラーメンなんかが食べたいなー。",
+        "sentence_hira": "きょう、らーめんなんかがたべたいなー。",
+        "sentence_romaji": "Kyou, raamen nanka ga tabetai naa.",
+        "sentence_vi": "Hôm nay tớ muốn ăn cái gì đó kiểu như mì ramen chẳng hạn."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + など / なんか / なんて (Xem nhẹ)",
+    "reading_hiragana": "～など / ～なんか / ～なんて",
+    "reading_romaji": "~ nado / ~ nanka / ~ nante",
+    "meaning_vi": "Cái thứ như... / Mấy chuyện như... (coi thường/khiêm tốn)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Thể hiện thái độ xem nhẹ, không coi trọng hoặc khó chịu đối với đối tượng được nhắc đến. Khi nói về bản thân, cấu trúc này mang ý nghĩa khiêm tốn.",
+    "examples": [
+      {
+        "sentence_jp": "学生時代は勉強なんかしなくてもいいと思っていた。",
+        "sentence_hira": "がくせいじだいはべんきょうなんかしなくてもいいとおもっていた。",
+        "sentence_romaji": "Gakusei jidai wa benkyou nanka shinakute mo ii to omotte ita.",
+        "sentence_vi": "Thời học sinh tôi từng nghĩ rằng mấy chuyện như học hành thì không cần làm cũng được."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "普通形 + なんて (Ngạc nhiên)",
+    "reading_hiragana": "～なんて",
+    "reading_romaji": "~ nante",
+    "meaning_vi": "Không ngờ rằng... / Đến mức mà... (ngạc nhiên)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Bày tỏ cảm xúc kinh ngạc, bất ngờ trước một sự việc nằm ngoài dự tính của người nói.",
+    "examples": [
+      {
+        "sentence_jp": "自分の家が台風で壊れるなんて、想像もしませんでした。",
+        "sentence_hira": "じぶんのいえがたいふうでこわれるなんて、そうぞうもしませんでした。",
+        "sentence_romaji": "Jibun no ie ga taifu de kowareru nante, souzou mo shimasenderedo.",
+        "sentence_vi": "Tôi chưa từng tưởng tượng được rằng căn nhà của mình lại bị phá hủy bởi bão như thế."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vたらどう",
+    "reading_hiragana": "～たらどう",
+    "reading_romaji": "~ tara dou",
+    "meaning_vi": "Thử làm V xem sao? / Làm V thì thế nào?",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Lời khuyên mang tính gợi ý nhẹ nhàng cho đối phương. Dạng lịch sự là '~tara dou desu ka', dạng thân mật là '~tara?'.",
+    "examples": [
+      {
+        "sentence_jp": "花束と一緒に手紙を渡したらどうですか。",
+        "sentence_hira": "はなたばといっしょにてがみをわたしたらどうですか。",
+        "sentence_romaji": "Hanataba to issho ni tegami o watashitara dou desu ka.",
+        "sentence_vi": "Cậu thử tặng mẹ một bó hoa kèm theo một bức thư xem sao?"
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vる / Vない + ことだ",
+    "reading_hiragana": "～ことだ",
+    "reading_romaji": "~ koto da",
+    "meaning_vi": "Nên... / Không nên... (lời khuyên/cảnh báo)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để đưa ra lời khuyên, mệnh lệnh hoặc cảnh báo mang tính răn dạy. Thường dùng trong trường hợp người trên nói với người dưới.",
+    "examples": [
+      {
+        "sentence_jp": "N3に合格したいのなら、ちゃんと勉強することだ。",
+        "sentence_hira": "えぬさんにうかりたいのなら、ちゃんとべんきょうすることだ。",
+        "sentence_romaji": "Enu-san ni ukaritai no nara, chanto benkyou suru koto da.",
+        "sentence_vi": "Nếu muốn đỗ N3 thì cậu nên học hành cho cẩn thận vào."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vる / Vない + ことにする",
+    "reading_hiragana": "～ことにする",
+    "reading_romaji": "~ koto ni suru",
+    "meaning_vi": "Quyết định làm V / Quyết định không làm V",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả một quyết định dựa trên ý chí cá nhân của bản thân người nói.",
+    "examples": [
+      {
+        "sentence_jp": "毎月残ったお札を貯金することにする。",
+        "sentence_hira": "まいつきのこったおさつをちょきんすることにする。",
+        "sentence_romaji": "Maitsuki nokotta osatsu o chokin suru koto ni suru.",
+        "sentence_vi": "Tôi quyết định hàng tháng sẽ tiết kiệm số tiền còn dư lại."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "普通形 + ということだ",
+    "reading_hiragana": "～ということだ",
+    "reading_romaji": "~ to iu koto da",
+    "meaning_vi": "Có nghĩa là... / Tức là...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để giải thích, diễn giải lại ý nghĩa của một sự việc hoặc một từ ngữ đã nêu trước đó cho dễ hiểu hơn.",
+    "examples": [
+      {
+        "sentence_jp": "それって、別れるってこと？",
+        "sentence_hira": "それって、わかれるってこと？",
+        "sentence_romaji": "Sore tte, wakareru tte koto?",
+        "sentence_vi": "Nói vậy có nghĩa là chúng ta chia tay à?"
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "普通形 + という点",
+    "reading_hiragana": "～というてん",
+    "reading_romaji": "~ to iu ten",
+    "meaning_vi": "Ở điểm là... / Xét về khía cạnh...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "ĐIỂM",
+    "explanation": "Nhấn mạnh vào một đặc điểm hoặc một yếu tố cụ thể của sự vật, sự việc để đưa ra đánh giá hoặc so sánh.",
+    "examples": [
+      {
+        "sentence_jp": "悪い人が登場しないのに面白いという点が評価されている。",
+        "sentence_hira": "わるいひとがとうじょうしないのにおもしろいというてんがひょうかされている。",
+        "sentence_romaji": "Warui hito ga toujou shinai noni omoshiroi to iu ten ga hyouka sarete iru.",
+        "sentence_vi": "Bộ phim được đánh giá cao ở điểm là dù không có nhân vật phản diện nhưng vẫn rất thú vị."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "普通形 + としたら",
+    "reading_hiragana": "～としたら",
+    "reading_romaji": "~ to shitara",
+    "meaning_vi": "Giả sử nếu mà... / Giả dụ như...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Đưa ra một tình huống giả định không có thật ở hiện tại hoặc khó có khả năng xảy ra để đưa ra suy luận hoặc ý kiến ở vế sau.",
+    "examples": [
+      {
+        "sentence_jp": "9時に家を出たとしたら、彼は今ごろ電車に向かっているはずだ。",
+        "sentence_hira": "くじにいえをでたとしたら、かれはいまごろでんしゃにむかっているはずだ。",
+        "sentence_romaji": "Kuji ni ie o deta to shitara, kare wa imagoro densha ni mukatte iru hazu da.",
+        "sentence_vi": "Giả sử nếu anh ấy rời nhà lúc 9 giờ thì chắc tầm này đang trên đường ra tàu rồi."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "普通形 + としても",
+    "reading_hiragana": "～としても",
+    "reading_romaji": "~ to shite mo",
+    "meaning_vi": "Cho dù là... đi chăng nữa / Dẫu có giả sử là...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để đưa ra một trường hợp giả định mang tính nhượng bộ. Dù tình huống giả định đó có xảy ra thì ý kiến, quan điểm hoặc sự thật ở vế sau vẫn không thay đổi.",
+    "examples": [
+      {
+        "sentence_jp": "今からタクシーで向かうとしても, 間に合うかどうかわからない。",
+        "sentence_hira": "いまからたくしーでむかうとしても, まにあうかどうかわからない。",
+        "sentence_romaji": "Ima kara takushii de mukau to shite mo, maniau ka dou ka wakaranai.",
+        "sentence_vi": "Cho dù bây giờ có đi bằng taxi đi chăng nữa, cũng không biết có kịp giờ hay không."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vよう + とする",
+    "reading_hiragana": "～ようとする",
+    "reading_romaji": "~ you to suru",
+    "meaning_vi": "Định... / Cố gắng làm... / Sắp sửa...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả nỗ lực thực hiện một hành động ngay tại thời điểm đó (định làm) hoặc một sự việc, hiện tượng tự nhiên đang sắp sửa xảy ra.",
+    "examples": [
+      {
+        "sentence_jp": "合格を報告しようとしたとき、間違いだったという電話が来た。",
+        "sentence_hira": "ごうかくをほうこくしようとしたとき、まちがいだったというでんわがきた。",
+        "sentence_romaji": "Goukaku o houkoku shi you to shita toki, machigai datta to iu denwa ga kita.",
+        "sentence_vi": "Đúng lúc tôi định báo cáo việc mình thi đỗ thì lại có điện thoại báo rằng kết quả đó bị nhầm."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vよう + としない",
+    "reading_hiragana": "～ようとしない",
+    "reading_romaji": "~ you to shinai",
+    "meaning_vi": "Không chịu làm... / Quyết không có ý định làm...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để miêu tả thái độ của người khác (ngôi thứ 3) khi họ hoàn toàn không có ý chí hoặc từ chối thực hiện một hành động nào đó dù có cơ hội. Tuyệt đối không dùng cho bản thân.",
+    "examples": [
+      {
+        "sentence_jp": "彼は外で会っても、あいさつしようとしない。",
+        "sentence_hira": "かれはそとであっても、あいさつしようとしない。",
+        "sentence_romaji": "Kare wa soto de atte mo, aisatsu shi you to shinai.",
+        "sentence_vi": "Hắn ta dù có gặp nhau ở bên ngoài cũng chẳng chịu chào hỏi lấy một câu."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "普通形 / Nの + ほかに / ほかは",
+    "reading_hiragana": "～ほかに / ～ほかは",
+    "reading_romaji": "~ hokani / ~ hokawa",
+    "meaning_vi": "Ngoài... ra thì... / Ngoại trừ...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "NGOẠI",
+    "explanation": "'ほかに' dùng để bổ sung thêm các đối tượng hoặc lựa chọn khác ngoài cái đã nêu. 'ほかは' dùng để nhấn mạnh sự đối chiếu, rằng ngoại trừ cái này ra thì những cái còn lại có tính chất khác biệt.",
+    "examples": [
+      {
+        "sentence_jp": "先生のほかに、学生の家族も参加することができます。",
+        "sentence_hira": "せんせいのほかに、がくせいのかぞくもさんかすることができます。",
+        "sentence_romaji": "Sensei no hokani, gakusei no kazoku mo sanka suru koto ga dekimasu.",
+        "sentence_vi": "Ngoài giáo viên ra thì gia đình của học sinh cũng có thể tham gia được."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～一方で",
+    "reading_hiragana": "～いっぽうで",
+    "reading_romaji": "~ ippou de",
+    "meaning_vi": "Mặt khác... / Trong khi đó lại... / Ngược lại...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "NHẤT PHƯƠNG",
+    "explanation": "Dùng để so sánh hai khía cạnh trái ngược của cùng một vấn đề, hoặc diễn tả hai sự việc diễn ra song song nhưng có tính chất đối lập nhau.",
+    "examples": [
+      {
+        "sentence_jp": "一人暮らしは、気楽な一方で、病気の時はとても心細い。",
+        "sentence_hira": "ひとりぐらしは、きらくないっぽうで、びょうきのときはとてもこころぼそい。",
+        "sentence_romaji": "Hitorigurashi wa, kiraku na ippou de, byouki no toki wa totemo kokorobosoi.",
+        "sentence_vi": "Sống một mình thì thoải mái mặt này, nhưng mặt khác lúc ốm đau lại thấy rất cô đơn, tủi thân."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～だけでなく",
+    "reading_hiragana": "～だけでなく",
+    "reading_romaji": "~ dake de naku",
+    "meaning_vi": "Không chỉ... mà còn...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để bổ sung thông tin, khẳng định rằng không chỉ có sự vật/sự việc này mà còn có cả những cái khác nữa. Vế sau thường đi kèm với trợ từ 'も'.",
+    "examples": [
+      {
+        "sentence_jp": "日本だけでなく、ベトナムやフィリピンでも開催される予定だ。",
+        "sentence_hira": "にほんだけでなく、べとなむやふぃりぴんでもかいさいされるよていだ。",
+        "sentence_romaji": "Nihon dake de naku, Betonamu ya Firipin demo kaisai sareru yotei da.",
+        "sentence_vi": "Dự định là không chỉ tổ chức ở Nhật Bản mà còn cả ở Việt Nam và Philippines nữa."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～ばかりでなく",
+    "reading_hiragana": "～ばかりでなく",
+    "reading_romaji": "~ bakari de naku",
+    "meaning_vi": "Không những... mà còn... / Chẳng những...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Tương đương với 'dake de naku' nhưng mang sắc thái nhấn mạnh hơn. Vế sau thường đi với 'も', 'まで', hoặc 'さえ' để chỉ mức độ lan rộng của sự việc.",
+    "examples": [
+      {
+        "sentence_jp": "簡単なばかりでなく、何度やっても面白い。",
+        "sentence_hira": "かんたんなばかりでなく、なんどやってもおもしろい。",
+        "sentence_romaji": "Kantan na bakari de naku, nando yatte mo omoshiroi.",
+        "sentence_vi": "Không những đơn giản mà trò này dù có chơi bao nhiêu lần vẫn thấy rất thú vị."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～はずだ",
+    "reading_hiragana": "～はずだ",
+    "reading_romaji": "~ hazu da",
+    "meaning_vi": "Chắc chắn là... / Hiển nhiên là...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Đưa ra dự đoán mang tính chắc chắn dựa trên một lý do, căn cứ cụ thể hoặc một logic đương nhiên.",
+    "examples": [
+      {
+        "sentence_jp": "彼なら約束は絶対に守るはずだ。",
+        "sentence_hira": "かれならやくそくはぜったいにまもるはずだ。",
+        "sentence_romaji": "Kare nara yakusoku wa zettai ni mamoru hazu da.",
+        "sentence_vi": "Nếu là anh ấy thì chắc chắn anh ấy sẽ giữ lời hứa."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～はずがない / わけがない",
+    "reading_hiragana": "～はずがない / ～わけがない",
+    "reading_romaji": "~ hazu ga nai / ~ wake ga nai",
+    "meaning_vi": "Làm sao mà... được / Chắc chắn là không... / Không đời nào...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Phủ định hoàn toàn khả năng xảy ra của sự việc dựa trên logic hoặc ý kiến chủ quan mạnh mẽ của người nói.",
+    "examples": [
+      {
+        "sentence_jp": "全然勉強していない彼が、合格できるはずがない。",
+        "sentence_hira": "ぜんぜんべんきょうしていないかれが、ごうかくできるはずがない。",
+        "sentence_romaji": "Zenzen benkyou shite inai kare ga, goukaku dekiru hazu ga nai.",
+        "sentence_vi": "Cái người hoàn toàn chẳng học hành gì như cậu ta thì làm sao mà đỗ được cơ chứ."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + に関して / に関する",
+    "reading_hiragana": "～にかんして / ～にかんする",
+    "reading_romaji": "~ ni kanshite / ~ ni kansuru",
+    "meaning_vi": "Về... / Liên quan đến...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "QUAN HỆ",
+    "explanation": "Dùng để chỉ chủ đề, nội dung của một vấn đề. Cách dùng giống 'ni tsuite' nhưng mang tính trang trọng, khách quan và thường dùng trong văn nghị luận, báo cáo.",
+    "examples": [
+      {
+        "sentence_jp": "アルバイトに関するアンケートを頼まれた。",
+        "sentence_hira": "あるばいとにかんするあんけーとをたのまれた。",
+        "sentence_romaji": "Arubaito ni kansuru ankeeto o tanomareta.",
+        "sentence_vi": "Tôi đã được nhờ làm một bản khảo sát liên quan đến việc làm thêm."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + にわたって / にわたる",
+    "reading_hiragana": "～にわたって / ～にわたる",
+    "reading_romaji": "~ ni watatte / ~ ni wataru",
+    "meaning_vi": "Suốt... / Trên toàn bộ... (phạm vi thời gian, không gian)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả một trạng thái, hành động kéo dài hoặc bao phủ trên toàn bộ một phạm vi thời gian hoặc không gian rộng lớn.",
+    "examples": [
+      {
+        "sentence_jp": "首相は20分にわたってスピーチを行った。",
+        "sentence_hira": "しゅしょうはにじゅっぷんにわたってすぴーちをおこなった。",
+        "sentence_romaji": "Shushou wa nijuppun ni watatte supiichi o okonaotta.",
+        "sentence_vi": "Thủ tướng đã thực hiện bài diễn văn kéo dài suốt 20 phút."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + を通して / を通じて (Phương thức)",
+    "reading_hiragana": "～をとおして / ～をつうじて",
+    "reading_romaji": "~ o tooshite / ~ o tsuujite",
+    "meaning_vi": "Thông qua N / Qua cầu nối N",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "THÔNG",
+    "explanation": "Diễn tả việc thực hiện một hành động hoặc có được thông tin thông qua một trung gian, phương thức hoặc cầu nối nào đó.",
+    "examples": [
+      {
+        "sentence_jp": "マイさんを通じて、アインさんに貸していた本が返ってきた。",
+        "sentence_hira": "まいさんをつうじて、あいんさんにかしていたほんがかえってきた。",
+        "sentence_romaji": "Mai-san o tsuujite, Ain-san ni kashite ita hon ga kaettekita.",
+        "sentence_vi": "Thông qua bạn Mai mà cuốn sách tôi cho Anh mượn đã được trả lại."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + を通じて / を通して (Thời gian)",
+    "reading_hiragana": "～をつうじて / ～をとおして",
+    "reading_romaji": "~ o tsuujite / ~ o tooshite",
+    "meaning_vi": "Trong suốt khoảng thời gian N",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "THÔNG",
+    "explanation": "Diễn tả một trạng thái hoặc sự việc kéo dài liên tục trong suốt một kỳ hạn hoặc một khoảng thời gian dài.",
+    "examples": [
+      {
+        "sentence_jp": "この国は、1年を通じてずっと暖かいです。",
+        "sentence_hira": "このくにわ、いちねんをつうじてずっとあたたかいです。",
+        "sentence_romaji": "Kono kuni wa, ichinen o tsuujite zutto atatakai desu.",
+        "sentence_vi": "Đất nước này ấm áp suốt cả năm nên rất dễ sống."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + を込めて",
+    "reading_hiragana": "～をこめて",
+    "reading_romaji": "~ o komete",
+    "meaning_vi": "Với tất cả... / Gửi gắm... / Chất chứa...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng khi muốn diễn tả hành động được thực hiện với tất cả tình cảm, tâm tư, sự tập trung hoặc lời nguyện ước (thường đi với tâm hồn, tình yêu, lòng biết ơn).",
+    "examples": [
+      {
+        "sentence_jp": "感謝の気持ちを込めて返信した。",
+        "sentence_hira": "かんしゃのきもちをこめてへんしんした。",
+        "sentence_romaji": "Kansha no kimochi o komete henshin shita.",
+        "sentence_vi": "Tôi đã trả lời tin nhắn với tất cả lòng biết ơn."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vる / Vない + こと (Mệnh lệnh)",
+    "reading_hiragana": "～こと",
+    "reading_romaji": "~ koto",
+    "meaning_vi": "Hãy... / Phải... / Không được... (Quy định)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "SỰ",
+    "explanation": "Dùng trong văn viết để đưa ra các chỉ thị, quy định hoặc nội quy tại nơi công cộng, trường học, công ty.",
+    "examples": [
+      {
+        "sentence_jp": " rác cháy được phải đổ trước 8 giờ sáng các ngày thứ 2, 4, 6.",
+        "sentence_hira": "もえるごみわげつ・すい・きんのあさはちじまでだすこと。",
+        "sentence_romaji": "Moeru gomi wa getsu sui kin no asa hachiji made dasu koto.",
+        "sentence_vi": "Rác cháy được phải đổ trước 8 giờ sáng các ngày thứ 2, 4, 6."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vる / Vない + ことはない",
+    "reading_hiragana": "～することはない",
+    "reading_romaji": "~ koto wa nai",
+    "meaning_vi": "Không cần thiết phải làm V / Không việc gì phải...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "SỰ",
+    "explanation": "Dùng để đưa ra lời khuyên hoặc trấn an đối phương rằng hành động đó là không cần thiết trong tình huống hiện tại.",
+    "examples": [
+      {
+        "sentence_jp": "そんなに怒ることはないじゃん。",
+        "sentence_hira": "そんなにおこることはないじゃん。",
+        "sentence_romaji": "Sonna ni okoru koto wa nai jan.",
+        "sentence_vi": "Chuyện có gì đâu mà phải nổi giận đùng đùng như thế chứ."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vる + ほかない / しかない",
+    "reading_hiragana": "～ほかない / ～しかない",
+    "reading_romaji": "~ hokanai / ~ shikanai",
+    "meaning_vi": "Chỉ còn cách là... / Đành phải...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "NGOẠI",
+    "explanation": "Diễn tả tình trạng không còn lựa chọn nào khác, dù không muốn nhưng vẫn buộc phải thực hiện hành động đó.",
+    "examples": [
+      {
+        "sentence_jp": "閉店するほかないと、覚悟している。",
+        "sentence_hira": "へいてんするほかないと、かくごしている。",
+        "sentence_romaji": "Heiten suru hokanai to, kakugo shite iru.",
+        "sentence_vi": "Tôi đã chuẩn bị tâm lý rằng chỉ còn cách là phải đóng cửa tiệm thôi."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vた / Vない + ほうがいい",
+    "reading_hiragana": "～ほうがいい",
+    "reading_romaji": "~ hou ga ii",
+    "meaning_vi": "Nên... / Không nên... (Lời khuyên)",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "PHƯƠNG",
+    "explanation": "Dùng để đưa ra lời khuyên mạnh mẽ. Nếu không thực hiện theo có thể dẫn đến kết quả xấu.",
+    "examples": [
+      {
+        "sentence_jp": "冗談でも言わないほうがいいですよ。",
+        "sentence_hira": "じょうだんでもいわないほうがいいですよ。",
+        "sentence_romaji": "Joudan demo iwanai hou ga ii desu yo.",
+        "sentence_vi": "Dù là nói đùa thì cũng không nên nói những lời kinh khủng như vậy đâu."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vる / Nである + べきだ",
+    "reading_hiragana": "～べきだ",
+    "reading_romaji": "~ beki da",
+    "meaning_vi": "Nên làm... / Phải làm... (Đạo đức/Lẽ thường)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Đưa ra lời khuyên hoặc ý kiến cho rằng hành động đó là đúng đắn, đương nhiên phải làm theo lẽ thường hoặc đạo đức xã hội.",
+    "examples": [
+      {
+        "sentence_jp": "親は人の前で子供を叱るべきではない。",
+        "sentence_hira": "おやわひとのまえでこどもをしかるべきではない。",
+        "sentence_romaji": "Oya wa hito no mae de kodomo o shikarubeki de wa nai.",
+        "sentence_vi": "Cha mẹ thì không nên mắng nhiếc con cái trước mặt người khác."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vます + かける / かけの",
+    "reading_hiragana": "～かける / ～かけの",
+    "reading_romaji": "~ kakeru / ~ kake no",
+    "meaning_vi": "Đang làm dở... / Chưa xong...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "QUẢI",
+    "explanation": "Diễn tả hành động đã bắt đầu nhưng vẫn còn dang dở, chưa đi đến kết thúc.",
+    "examples": [
+      {
+        "sentence_jp": "誰かの使いかけだったので、交換してもらった。",
+        "sentence_hira": "だれかのつかいかけだったので、こうかんしてもらった。",
+        "sentence_romaji": "Dareka no tsukaikake datta node, koukan shite moratta.",
+        "sentence_vi": "Vì là đồ ai đó đang dùng dở nên tôi đã nhờ đổi cái khác."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vます + かける (Suýt)",
+    "reading_hiragana": "～かける",
+    "reading_romaji": "~ kakeru",
+    "meaning_vi": "Suýt nữa thì... / Sắp sửa...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "QUẢI",
+    "explanation": "Diễn tả một trạng thái hoặc hành động suýt chút nữa là xảy ra hoặc sắp sửa bùng phát.",
+    "examples": [
+      {
+        "sentence_jp": "忘れかけていた自分の夢を思い出した。",
+        "sentence_hira": "わすれかけていたじぶんのゆめをおもいだした。",
+        "sentence_romaji": "Wasurekakete ita jibun no yume o omoidashita.",
+        "sentence_vi": "Tôi đã nhớ lại giấc mơ mà mình suýt chút nữa đã lãng quên."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vます + きる (Hành động)",
+    "reading_hiragana": "～きる",
+    "reading_romaji": "~ kiru",
+    "meaning_vi": "Làm hết sạch... / Hoàn thành trọn vẹn...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "THIẾT",
+    "explanation": "Diễn tả việc thực hiện một hành động đến cùng, không còn sót lại chút gì.",
+    "examples": [
+      {
+        "sentence_jp": "自分の力を出しきったので、満足しています。",
+        "sentence_hira": "じぶんのちからをだしきったので、まんぞくしています。",
+        "sentence_romaji": "Jibun no chikara o dashikitta node, manzoku shite imasu.",
+        "sentence_vi": "Vì đã dốc hết toàn bộ sức lực rồi nên tôi thấy rất mãn nguyện."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vます + きる (Cực hạn)",
+    "reading_hiragana": "～きる",
+    "reading_romaji": "~ kiru",
+    "meaning_vi": "Rất... / Vô cùng... / Hoàn toàn...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "THIẾT",
+    "explanation": "Khi đi kèm với động từ chỉ trạng thái hoặc cảm xúc, nó nhấn mạnh mức độ cực hạn của trạng thái đó.",
+    "examples": [
+      {
+        "sentence_jp": "車が動かせなくて困りきってしまった。",
+        "sentence_hira": "くるまがうごかせなくてこまりきってしまった。",
+        "sentence_romaji": "Kuruma ga ugokasenakute komarikitte shimatta.",
+        "sentence_vi": "Tôi hoàn toàn bất lực vì không tài nào nhích cái xe đi được."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vた / Nの + まま",
+    "reading_hiragana": "～まま",
+    "reading_romaji": "~ mama",
+    "meaning_vi": "Để nguyên... / Vẫn cứ... như thế",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả một trạng thái được giữ nguyên không thay đổi, hoặc thực hiện một hành động khác trong khi vẫn giữ nguyên trạng thái cũ.",
+    "examples": [
+      {
+        "sentence_jp": "3ヵ月前に失業したまま、まだ仕事が見つからない。",
+        "sentence_hira": "さんかげつまえにしつぎょうしたまま、まだしごとがみつからない。",
+        "sentence_romaji": "Sankagetsu mae ni shitsugyou shita mama, mada shigoto ga mitsukaranai.",
+        "sentence_vi": "Kể từ khi thất nghiệp 3 tháng trước, đến giờ vẫn cứ như vậy, tôi chưa tìm được việc mới."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vます + っぱなし",
+    "reading_hiragana": "～っぱなし",
+    "reading_romaji": "~ ppanashi",
+    "meaning_vi": "Cứ để mặc... / Cứ làm V suốt (phàn nàn)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả một trạng thái bị bỏ mặc không xử lý, hoặc một hành động lặp đi lặp lại liên tục gây khó chịu (thường mang nghĩa tiêu cực).",
+    "examples": [
+      {
+        "sentence_jp": "ずっと立ちっぱなしだったので、疲れました。",
+        "sentence_hira": "ずっとたちっぱなしだったので、つかれました。",
+        "sentence_romaji": "Zutto tachippanashi datta node, tsukaremashita.",
+        "sentence_vi": "Vì cứ phải đứng suốt nên tôi mệt rã rời rồi."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vて + からでないと",
+    "reading_hiragana": "～てからでないと",
+    "reading_romaji": "~ te kara de nai to",
+    "meaning_vi": "Nếu không làm V1 thì không thể làm V2",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Nhấn mạnh rằng hành động vế đầu là điều kiện tiên quyết. Phải xong vế đầu thì vế sau mới có thể xảy ra.",
+    "examples": [
+      {
+        "sentence_jp": "借金を返してからじゃないと、結婚できない。",
+        "sentence_hira": "しゃっきんをかえしてからじゃないと、けっこんできない。",
+        "sentence_romaji": "Shakkin o kaeshite kara janai to, kekkon dekinai.",
+        "sentence_vi": "Nếu không trả hết nợ thì tôi chẳng thể nào kết hôn được."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vて + はじめて",
+    "reading_hiragana": "～てはじめて",
+    "reading_romaji": "~ te hajimete",
+    "meaning_vi": "Chỉ sau khi... mới nhận ra/làm được",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả việc sau khi trải qua một kinh nghiệm nào đó thì mới hiểu ra vấn đề hoặc có một trạng thái mới mà trước đó không có.",
+    "examples": [
+      {
+        "sentence_jp": "彼と会ってはじめて、いい先生がわかった。",
+        "sentence_hira": "かれとあってはじめて、いいせんせいがわかった。",
+        "sentence_romaji": "Kare to atte hajimete, ii sensei ga wakatta.",
+        "sentence_vi": "Chỉ sau khi gặp thầy ấy, tôi mới hiểu thế nào là một người giáo viên tốt."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vて + もらってもいいですか",
+    "reading_hiragana": "～てもらってもいいですか",
+    "reading_romaji": "~ te moratte mo ii desu ka",
+    "meaning_vi": "Bạn có thể làm giúp tôi V được không?",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Cách nhờ vả lịch sự, dùng để yêu cầu đối phương thực hiện một hành động giúp mình.",
+    "examples": [
+      {
+        "sentence_jp": "ちょっとペン貸してもらってもいい？",
+        "sentence_hira": "ちょっとぺんかしてもらってもいい？",
+        "sentence_romaji": "Chotto pen kashite moratte mo ii?",
+        "sentence_vi": "Cậu cho tớ mượn cái bút một chút được không?"
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vて + よかった",
+    "reading_hiragana": "～てよかった",
+    "reading_romaji": "~ te yokatta",
+    "meaning_vi": "May mà đã... / Thật tốt vì đã...",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "LƯƠNG",
+    "explanation": "Diễn tả cảm giác hài lòng, nhẹ nhõm hoặc biết ơn vì một sự việc đã xảy ra theo hướng tốt đẹp.",
+    "examples": [
+      {
+        "sentence_jp": "お花見をしてよかったです。",
+        "sentence_hira": "おはなみをしてよかったです。",
+        "sentence_romaji": "Ohanami o shite yokatta desu.",
+        "sentence_vi": "May mà mình đã đi ngắm hoa, thật là tốt quá."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vて + しかたがない",
+    "reading_hiragana": "～てしかたがない",
+    "reading_romaji": "~ te shikata ga nai",
+    "meaning_vi": "Rất... / Không chịu nổi / Vô cùng...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "SĨ PHƯƠNG",
+    "explanation": "Diễn tả một cảm xúc, tâm trạng hoặc trạng thái cơ thể mãnh liệt đến mức không thể kiềm chế được.",
+    "examples": [
+      {
+        "sentence_jp": "かわいくてしかたがないらしい。",
+        "sentence_hira": "かわいくてしかたがないらしい。",
+        "sentence_romaji": "Kawaikute shikata ga nai rashii.",
+        "sentence_vi": "Có vẻ như anh ta thấy cô ấy đáng yêu vô cùng tận."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vる / Vない + ことがある",
+    "reading_hiragana": "～ことがある",
+    "reading_romaji": "~ koto ga aru",
+    "meaning_vi": "Thỉnh thoảng làm V / Đôi khi có việc...",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "SỰ",
+    "explanation": "Diễn tả một sự việc hoặc hành động không diễn ra thường xuyên, chỉ thỉnh thoảng mới xảy ra.",
+    "examples": [
+      {
+        "sentence_jp": "簡単な日本語を間違えることもある。",
+        "sentence_hira": "かんたんなにほんごをまちがえることもある。",
+        "sentence_romaji": "Kantan na nihongo o machigaeru koto mo aru.",
+        "sentence_vi": "Đôi khi tôi cũng mắc những lỗi tiếng Nhật rất cơ bản."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vる / Nの + たびに",
+    "reading_hiragana": "～たびに",
+    "reading_romaji": "~ tabi ni",
+    "meaning_vi": "Cứ mỗi lần... thì lại...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "ĐỘ",
+    "explanation": "Nhấn mạnh sự lặp lại của một hành động. Cứ mỗi khi điều kiện ở vế trước xảy ra thì hành động hoặc trạng thái ở vế sau cũng diễn ra y như vậy.",
+    "examples": [
+      {
+        "sentence_jp": "本屋に行くたびに新しい絵本を欲しがる。",
+        "sentence_hira": "ほんやにいくたびにあたらしいえほんをほしがる。",
+        "sentence_romaji": "Honya ni iku tabi ni atarashii ehon o hoshigaru.",
+        "sentence_vi": "Cứ mỗi lần đi nhà sách là con bé lại đòi mua một cuốn truyện tranh mới."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vる / N + ごとに",
+    "reading_hiragana": "～ごとに",
+    "reading_romaji": "~ goto ni",
+    "meaning_vi": "Cứ mỗi (đơn vị) / Cứ mỗi lần (lặp lại)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "MỖI",
+    "explanation": "Diễn tả sự đứt quãng đều đặn theo một khoảng thời gian, không gian (cách 5 mét, mỗi 2 ngày) hoặc sự thay đổi dần dần qua mỗi lần thực hiện.",
+    "examples": [
+      {
+        "sentence_jp": "彼女は日ごとに絵が上手くなっている。",
+        "sentence_hira": "かのじょはひごとにえがうまくなっている。",
+        "sentence_romaji": "Kanojo wa hi goto ni e ga umakunatte iru.",
+        "sentence_vi": "Cô ấy ngày qua ngày (cứ mỗi ngày qua đi) lại vẽ đẹp lên."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vている / Nの + 最中(に)",
+    "reading_hiragana": "～さいちゅうに",
+    "reading_romaji": "~ saichuu ni",
+    "meaning_vi": "Đúng lúc đang... thì...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "TỐI TRUNG",
+    "explanation": "Diễn tả việc một hành động khác bất ngờ xen ngang đúng vào lúc hành động chính đang ở cao trào. Thường mang sắc thái bị cản trở, phiền toái.",
+    "examples": [
+      {
+        "sentence_jp": "会議の最中に、急にお腹が痛くなった。",
+        "sentence_hira": "かいぎのさいちゅうに、きゅうにおなかがいたくなった。",
+        "sentence_romaji": "Kaigi no saichuu ni, kyuu ni onaka ga itaku natta.",
+        "sentence_vi": "Đúng lúc đang họp thì đột nhiên tôi lại bị đau bụng."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～ところ (Thời điểm)",
+    "reading_hiragana": "～ところ",
+    "reading_romaji": "~ tokoro",
+    "meaning_vi": "Lúc / Đúng lúc / Khi...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "SỞ",
+    "explanation": "Tùy vào trợ từ đi kèm (ni, e, o, de) mà nhấn mạnh việc hành động phía sau xảy ra nhắm vào đúng thời điểm nào của hành động phía trước.",
+    "examples": [
+      {
+        "sentence_jp": "もうすぐ着くところで、お腹が痛くなった。",
+        "sentence_hira": "もうすぐつくところで、おなかがいたくなった。",
+        "sentence_romaji": "Mou sugu tsuku tokoro de, onaka ga itaku natta.",
+        "sentence_vi": "Đúng vào lúc tôi sắp đến nơi rồi thì bụng lại đau."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + というと / といえば",
+    "reading_hiragana": "～というと / ～といえば",
+    "reading_romaji": "~ to iu to / ~ to ieba",
+    "meaning_vi": "Nếu nói đến... / Nhắc tới... là nghĩ ngay tới...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để khơi gợi một hình ảnh đặc trưng, tiêu biểu nhất hoặc một ấn tượng đầu tiên nảy ra trong đầu khi nhắc đến chủ đề đó.",
+    "examples": [
+      {
+        "sentence_jp": "ベトナムといえば、アオザイのイメージがあります。",
+        "sentence_hira": "べとなむといえば、あおざいのいめーじがあります。",
+        "sentence_romaji": "Betonamu to ieba, aozai no imeeji ga arimasu.",
+        "sentence_vi": "Nếu nhắc tới Việt Nam thì sẽ nghĩ ngay đến hình ảnh tà áo dài."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～というより",
+    "reading_hiragana": "～というより",
+    "reading_romaji": "~ to iu yori",
+    "meaning_vi": "Nói đúng hơn là... / Gọi là... thì đúng hơn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Khẳng định rằng cách diễn đạt ở vế sau phù hợp và chính xác hơn để miêu tả sự việc so với cách diễn đạt ở vế trước.",
+    "examples": [
+      {
+        "sentence_jp": "微笑むというより、ニヤニヤしている。",
+        "sentence_hira": "ほほえむというより、にやにやしている。",
+        "sentence_romaji": "Hohoemu to iu yori, niyaniya shite iru.",
+        "sentence_vi": "Gọi là đang mỉm cười thì không đúng, điệu cười đó nhăn nhở thì đúng hơn."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～といっても",
+    "reading_hiragana": "～といっても",
+    "reading_romaji": "~ to itte mo",
+    "meaning_vi": "Dẫu có nói là... (nhưng thực ra thì)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Đính chính lại nhận thức của người nghe. Rằng sự việc đúng là như vậy, nhưng quy mô hoặc mức độ thực tế không to tát như ấn tượng chung của mọi người.",
+    "examples": [
+      {
+        "sentence_jp": "結婚式といっても、レストランでの小さい式です。",
+        "sentence_hira": "けっこんしきといっても、れすとらんでのちいさいしきです。",
+        "sentence_romaji": "Kekkonshiki to itte mo, resutoran de no chiisai shiki desu.",
+        "sentence_vi": "Dẫu có nói là đám cưới nhưng thực ra chỉ là một buổi lễ nhỏ ở nhà hàng thôi."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～と言われている",
+    "reading_hiragana": "～といわれている",
+    "reading_romaji": "~ to iwarete iru",
+    "meaning_vi": "Người ta cho rằng... / Người ta nói rằng...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "NGÔN",
+    "explanation": "Đưa ra một thông tin, lời đồn hoặc một giả thuyết được số đông chấp nhận, mang tính khách quan.",
+    "examples": [
+      {
+        "sentence_jp": "割り算のほうが理解しにくいと言われている。",
+        "sentence_hira": "わりざんのほうがりかいしにくいといわれている。",
+        "sentence_romaji": "Warizan no hou ga rikai shinikui to iwarete iru.",
+        "sentence_vi": "Người ta nói rằng phép chia khó để hiểu hơn là phép nhân."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～ということだ (Truyền đạt)",
+    "reading_hiragana": "～ということだ",
+    "reading_romaji": "~ to iu koto da",
+    "meaning_vi": "Nghe nói là...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Truyền đạt lại nguyên văn hoặc tóm tắt một thông tin nghe được từ bên ngoài. Mang tính lịch sự, trịnh trọng hơn so với cấu trúc '~sou da'.",
+    "examples": [
+      {
+        "sentence_jp": "山田さんはマラソンに挑戦するということです。",
+        "sentence_hira": "やまださんはまらそんにちょうせんするということです。",
+        "sentence_romaji": "Yamada-san wa marason ni chousen suru to iu koto desu.",
+        "sentence_vi": "Nghe nói là anh Yamada sẽ thử sức với việc chạy marathon."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + とは / というのは",
+    "reading_hiragana": "～とは / ～というのは",
+    "reading_romaji": "~ to wa / ~ to iu no wa",
+    "meaning_vi": "... nghĩa là / Định nghĩa của... là",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để nêu lên định nghĩa, giải thích thuật ngữ hoặc làm rõ ý nghĩa của một sự vật cho người chưa biết hiểu rõ hơn.",
+    "examples": [
+      {
+        "sentence_jp": "ダーカウとは、足でするバドミントンのようなスポーツです。",
+        "sentence_hira": "だーかうとは、あしでするばどみんとんのようなすぽーつです。",
+        "sentence_romaji": "Daakau to wa, ashi de suru badominton no you na supootsu desu.",
+        "sentence_vi": "Đá cầu là một môn thể thao giống như chơi cầu lông nhưng bằng chân."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N / Aな + でしかない",
+    "reading_hiragana": "～でしかない",
+    "reading_romaji": "~ de shika nai",
+    "meaning_vi": "Chỉ đơn thuần là... / Không hơn không kém...",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Nhấn mạnh sự vật, sự việc chỉ dừng lại ở mức độ đó, không có giá trị hay ý nghĩa nào khác cao siêu hơn (thường mang sắc thái khinh thường hoặc bất lực).",
+    "examples": [
+      {
+        "sentence_jp": "夜中に電話してくるなんて非常識でしかない。",
+        "sentence_hira": "よなかにでんわしてくるなんてひじょうしきでしかない。",
+        "sentence_romaji": "Yonaka ni denwa shite kuru nante hijoushiki de shika nai.",
+        "sentence_vi": "Cái việc gọi điện thoại vào lúc nửa đêm chỉ có thể là vô ý thức mà thôi."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + はもちろん",
+    "reading_hiragana": "～はもちろん",
+    "reading_romaji": "~ wa mochiron",
+    "meaning_vi": "N là đương nhiên rồi, mà ngay cả...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Điều được nhắc đến ở vế trước là một việc hiển nhiên ai cũng biết, nhưng người nói muốn nhấn mạnh thêm rằng vế sau cũng có tính chất tương tự (thường dùng trợ từ 'mo').",
+    "examples": [
+      {
+        "sentence_jp": "彼女は歌はもちろん、ダンスも得意だ。",
+        "sentence_hira": "かのじょはうたはもちろん、だんすもとくいだ。",
+        "sentence_romaji": "Kanojo wa uta wa mochiron, dansu mo tokui da.",
+        "sentence_vi": "Cô ấy thì hát hay là điều đương nhiên rồi, nhưng ngay cả nhảy cũng rất giỏi nữa."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～くらい～はない / ～ほど～はない",
+    "reading_hiragana": "～くらい～はない / ～ほど～はない",
+    "reading_romaji": "~ kurai ~ wa nai / ~ hodo ~ wa nai",
+    "meaning_vi": "Không có gì... bằng... / Chẳng có ai... bằng...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Cấu trúc so sánh bậc nhất mang tính cá nhân. Thể hiện đánh giá chủ quan của người nói rằng đối tượng được nhắc đến là mức độ cao nhất.",
+    "examples": [
+      {
+        "sentence_jp": "実家ほど安心できる場所はない。",
+        "sentence_hira": "じっかほどあんしんできるばしょはない。",
+        "sentence_romaji": "Jikka hodo anshin dekiru basho wa nai.",
+        "sentence_vi": "Tôi nghĩ chẳng có nơi nào mang lại cảm giác yên tâm bằng chính nhà mình."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + ほど～ない",
+    "reading_hiragana": "～ほど～ない",
+    "reading_romaji": "~ hodo ~ nai",
+    "meaning_vi": "Không... bằng N / Kém hơn N",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "So sánh kém. Khẳng định rằng đối tượng đang được xét đến không đạt được mức độ như đối tượng N đưa ra làm mốc.",
+    "examples": [
+      {
+        "sentence_jp": "次のテストは、今回のテストほど簡単ではない。",
+        "sentence_hira": "つぎのてすとは、こんかいのてすとほどかんたんでわない。",
+        "sentence_romaji": "Tsugi no tesuto wa, konkai no tesuto hodo kantan de wa nai.",
+        "sentence_vi": "Tôi cho rằng bài kiểm tra tới sẽ không dễ bằng bài kiểm tra lần này đâu."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Nの / Vる + 代わりに (Thay thế vật)",
+    "reading_hiragana": "～かわりに",
+    "reading_romaji": "~ kawari ni",
+    "meaning_vi": "Thay vì... thì... / Dùng... thay cho...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "ĐẠI",
+    "explanation": "Diễn tả việc từ bỏ dự định ban đầu để làm một việc khác, hoặc dùng một đồ vật khác để bù đắp, thay thế vào đó.",
+    "examples": [
+      {
+        "sentence_jp": "映画館へ行く代わりに、家で映画を見ます。",
+        "sentence_hira": "えいがかんへいくかわりに、いえでえいかをもます。",
+        "sentence_romaji": "Eigakan e iku kawari ni, ie de eiga o mimasu.",
+        "sentence_vi": "Thay vì đi đến rạp chiếu bóng thì tôi sẽ ở nhà xem phim."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N(người)の + 代わりに",
+    "reading_hiragana": "～かわりに",
+    "reading_romaji": "~ kawari ni",
+    "meaning_vi": "Làm thay cho (ai đó)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "ĐẠI",
+    "explanation": "Diễn tả việc một người đứng ra gánh vác vai trò hoặc thực hiện hành động đại diện cho một người khác.",
+    "examples": [
+      {
+        "sentence_jp": "私の代わりに友達が宿題をやってくれた。",
+        "sentence_hira": "わたしのかわりにともだちがしゅくだいをやってくれた。",
+        "sentence_romaji": "Watashi no kawari ni tomodachi ga shukudai o yatte kureta.",
+        "sentence_vi": "Người bạn đã làm bài tập về nhà thay cho tôi."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～わりに(は)",
+    "reading_hiragana": "～わりに(は)",
+    "reading_romaji": "~ wari ni (wa)",
+    "meaning_vi": "Mặc dù... / So với... thì (lại khá là)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "CÁT",
+    "explanation": "Diễn tả sự bất ngờ hoặc đánh giá của người nói. Kết quả thực tế trái ngược hoàn toàn với tiêu chuẩn hoặc mức độ được suy ra từ vế trước.",
+    "examples": [
+      {
+        "sentence_jp": "彼は病気のわりに、元気そうに話している。",
+        "sentence_hira": "かれはびょうきのわりに、げんきそうにはなしている。",
+        "sentence_romaji": "Kare wa byouki no wari ni, genki sou ni hanashite iru.",
+        "sentence_vi": "Mặc dù đang mắc bệnh, thế nhưng anh ấy nói chuyện có vẻ rất khỏe mạnh."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～わけだ",
+    "reading_hiragana": "～わけだ",
+    "reading_romaji": "~ wake da",
+    "meaning_vi": "Thảo nào... / Trách chi... / Thế nên là...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả cảm giác vỡ lẽ, hiểu ra lý do hoặc đưa ra một kết luận tất yếu từ một sự thật hiển nhiên vừa được nhắc tới.",
+    "examples": [
+      {
+        "sentence_jp": "家の前で工事をしている。だからうるさいわけだ。",
+        "sentence_hira": "いえのまえでこうじをしている。だからうるさいわけだ。",
+        "sentence_romaji": "Ie no mae de kouji o shite iru. Dakara urusai wake da.",
+        "sentence_vi": "Trước nhà đang có công trường thi công. Thảo nào mà từ sáng đến giờ ồn ào là phải."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～わけにはいかない",
+    "reading_hiragana": "～わけにはいかない",
+    "reading_romaji": "~ wake ni wa ikanai",
+    "meaning_vi": "Không thể nào... được / Buộc phải...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Chỉ việc không thể làm (hoặc buộc phải làm) một điều gì đó vì bị ràng buộc bởi trách nhiệm, đạo đức xã hội hoặc hoàn cảnh khách quan. (Không mang ý nghĩa thiếu năng lực).",
+    "examples": [
+      {
+        "sentence_jp": "会議があるので、休むわけにはいきません。",
+        "sentence_hira": "かいぎがあるので、やすむわけにはいきません。",
+        "sentence_romaji": "Kaigi ga aru node, yasumu wake ni wa ikimasen.",
+        "sentence_vi": "Vì ngày mai có cuộc họp quan trọng nên tôi không thể nào xin nghỉ làm được."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～とは限らない",
+    "reading_hiragana": "～とはかぎらない",
+    "reading_romaji": "~ to wa kagiranai",
+    "meaning_vi": "Không hẳn là... / Chưa chắc đã...",
+    "jlpt_level": "N3",
+    "level": "1",
+    "is_active": false,
+    "han_viet": "HẠN",
+    "explanation": "Cấu trúc phủ định một phần. Dùng để phản bác lại một định kiến chung chung, cho rằng vẫn có những trường hợp ngoại lệ xảy ra.",
+    "examples": [
+      {
+        "sentence_jp": "有名な会社が必ずしも給料がいいとは限らない。",
+        "sentence_hira": "ゆうめいなかいしゃがかならずしもきゅうりょうがいいとはかぎらない。",
+        "sentence_romaji": "Yuumei na kaisha ga kanarazushimo kyuuryou ga ii to wa kagiranai.",
+        "sentence_vi": "Không phải cứ công ty nổi tiếng thì chắc chắn mức lương sẽ cao đâu."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～わけではない",
+    "reading_hiragana": "～わけではない",
+    "reading_romaji": "~ wake de wa nai",
+    "meaning_vi": "Không có nghĩa là... / Không hẳn là...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để phủ định một phần của sự việc hoặc đính chính lại suy nghĩ/định kiến của đối phương. Tương đương với cấu trúc 'to wa kagiranai' trong văn viết.",
+    "examples": [
+      {
+        "sentence_jp": "高いものがすべて良いわけではない。",
+        "sentence_hira": "たかいものがすべてよいわけではない。",
+        "sentence_romaji": "Takai mono ga subete yoi wake de wa nai.",
+        "sentence_vi": "Đồ đắt tiền không có nghĩa là tất cả đều tốt."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + に比べて",
+    "reading_hiragana": "～にくらべて",
+    "reading_romaji": "~ ni kurabete",
+    "meaning_vi": "So với N thì...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "TỈ",
+    "explanation": "Dùng để so sánh hai sự vật, sự việc hoặc tính chất với nhau. Có thể dùng thay thế cho trợ từ 'yori'.",
+    "examples": [
+      {
+        "sentence_jp": "去年に比べて、今年は雨が多い。",
+        "sentence_hira": "きょねんにくらべて、ことしはあめがおおい。",
+        "sentence_romaji": "Kyonen ni kurabete, kotoshi wa ame ga ooi.",
+        "sentence_vi": "So với năm ngoái thì năm nay mưa nhiều hơn hẳn."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vば / Vたら / Vると + いい(のに)",
+    "reading_hiragana": "～といい(のに)",
+    "reading_romaji": "~ to ii (noni)",
+    "meaning_vi": "Ước gì... / Giá mà... (Nguyện vọng)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Thể hiện mong muốn, nguyện vọng của người nói. Nếu thêm 'noni' ở cuối câu thì nó ám chỉ một sự thật đáng tiếc là điều mong ước đó khó hoặc không thể xảy ra ở hiện tại.",
+    "examples": [
+      {
+        "sentence_jp": "もっと休みがあればいいのに。",
+        "sentence_hira": "もっとやすみがあればいいのに。",
+        "sentence_romaji": "Motto yasumi ga areba ii noni.",
+        "sentence_vi": "Giá mà được nghỉ nhiều hơn thì tốt biết mấy!"
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vば + よかった",
+    "reading_hiragana": "～ばよかった",
+    "reading_romaji": "~ ba yokatta",
+    "meaning_vi": "Biết thế thì đã... / Phải chi... (Tiếc nuối)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "LƯƠNG",
+    "explanation": "Thể hiện sự hối hận, tiếc nuối của bản thân về một việc đã làm hoặc đã không làm trong quá khứ. Nếu thêm 'noni' thì thành câu trách móc đối phương.",
+    "examples": [
+      {
+        "sentence_jp": "傘を持ってくればよかった。",
+        "sentence_hira": "かさをもってくるばよかった。",
+        "sentence_romaji": "Kasa o mottekureba yokatta.",
+        "sentence_vi": "Ôi mưa mất rồi, biết thế mình đã mang ô đi."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + さえ",
+    "reading_hiragana": "～さえ",
+    "reading_romaji": "~ sae",
+    "meaning_vi": "Ngay cả... / Thậm chí... / Đến cả...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Đưa ra một ví dụ cực đoan (thường là những điều cơ bản nhất) để nhấn mạnh sự việc. Dùng với chủ thể hành động thì biến thành dạng 'N de sae'.",
+    "examples": [
+      {
+        "sentence_jp": "悪い事をしたのに、謝りさえしない。",
+        "sentence_hira": "わるいことをしたのに、あやまりさえしない。",
+        "sentence_romaji": "Warui koto o shita noni, ayamari sae shinai.",
+        "sentence_vi": "Rõ ràng là làm chuyện xấu, vậy mà đến cả một lời xin lỗi hắn cũng không thèm nói."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～さえ～ば",
+    "reading_hiragana": "～さえ～ば",
+    "reading_romaji": "~ sae ~ ba",
+    "meaning_vi": "Chỉ cần... (điều kiện tối thiểu)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Nhấn mạnh rằng chỉ cần đáp ứng một điều kiện duy nhất hoặc tối thiểu này thôi thì kết quả vế sau chắc chắn sẽ đạt được.",
+    "examples": [
+      {
+        "sentence_jp": "私は健康でさえいられれば、幸せだ。",
+        "sentence_hira": "わたしはけんこうでさえいられれば、しあわせだ。",
+        "sentence_romaji": "Watashi wa kenkou de sae irarereba, shiawase da.",
+        "sentence_vi": "Đối với tôi thì chỉ cần có sức khỏe thôi là đã thấy hạnh phúc lắm rồi."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～たって / ～だって",
+    "reading_hiragana": "～たって / ～だって",
+    "reading_romaji": "~ tatte / ~ datte",
+    "meaning_vi": "Dù có... / Cho dù... đi chăng nữa",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Đây là cách nói suồng sã, thân mật trong văn nói của cấu trúc 'temo / demo' mang nghĩa nhượng bộ.",
+    "examples": [
+      {
+        "sentence_jp": "謝ったって、許さない。",
+        "sentence_hira": "あやまったって、ゆるさない。",
+        "sentence_romaji": "Ayamattatte, yurusanai.",
+        "sentence_vi": "Cho dù cậu có xin lỗi thì tớ cũng không tha thứ đâu."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～に決まっている",
+    "reading_hiragana": "～にきまっている",
+    "reading_romaji": "~ ni kimatte iru",
+    "meaning_vi": "Chắc chắn là... / Nhất định là...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "QUYẾT",
+    "explanation": "Đưa ra một phán đoán hoặc kết luận chủ quan mà người nói cảm thấy vô cùng tự tin, có mức độ tin cậy cực kỳ cao.",
+    "examples": [
+      {
+        "sentence_jp": "一生懸命練習したんだから、勝つに決まっている。",
+        "sentence_hira": "いっしょうけんめいれんしゅうしたんだから、かつにきまっている。",
+        "sentence_romaji": "Isshoukenmei renshuu shita n da kara, katsu ni kimatte iru.",
+        "sentence_vi": "Bởi vì đã luyện tập rất chăm chỉ nên chắc chắn là sẽ giành chiến thắng thôi."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vます / N + がち",
+    "reading_hiragana": "～がち",
+    "reading_romaji": "~ gachi",
+    "meaning_vi": "Thường hay... / Dễ bề...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả một xu hướng thường xuyên xảy ra hoặc rất dễ rơi vào một trạng thái nào đó. Thường dùng để chỉ những xu hướng tiêu cực, không tốt.",
+    "examples": [
+      {
+        "sentence_jp": "冬は風邪をひきがちです。",
+        "sentence_hira": "ふゆはかぜをひきがちです。",
+        "sentence_romaji": "Fuyu wa kaze o hikigachi desu.",
+        "sentence_vi": "Vào mùa đông thì cơ thể thường rất dễ bị cảm cúm."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～っけ",
+    "reading_hiragana": "～っけ",
+    "reading_romaji": "~ kke",
+    "meaning_vi": "... ấy nhỉ? / ... à?",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Đuôi câu dùng trong hội thoại thân mật để xác nhận lại một thông tin với đối phương hoặc tự hỏi bản thân về một chuyện mà mình chợt quên mất.",
+    "examples": [
+      {
+        "sentence_jp": "あの人の名前は何だったっけ。",
+        "sentence_hira": "あのひとのなまえはなんだったっけ。",
+        "sentence_romaji": "Ano hito no namae wa nan datta kke.",
+        "sentence_vi": "Tên của người kia là gì ấy nhỉ, tớ quên mất tiêu rồi."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～かと思った",
+    "reading_hiragana": "～かとおもった",
+    "reading_romaji": "~ ka to omotta",
+    "meaning_vi": "Cứ tưởng là... (hóa ra không phải)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả sự ngạc nhiên khi một sự việc trong thực tế diễn ra khác hẳn với suy nghĩ hoặc dự đoán ban đầu của người nói.",
+    "examples": [
+      {
+        "sentence_jp": "学生かと思ったが、先生だった。",
+        "sentence_hira": "がくせいかとおもったが、せんせいだった。",
+        "sentence_romaji": "Gakusei ka to omotta ga, sensei datta.",
+        "sentence_vi": "Tôi cứ tưởng người đó là học sinh cơ, thế mà hóa ra lại là giáo viên."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～じゃない / じゃん",
+    "reading_hiragana": "～じゃない / ～じゃん",
+    "reading_romaji": "~ janai / ~ jan",
+    "meaning_vi": "Chẳng phải là... hay sao?",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Tùy thuộc vào ngữ điệu: Nếu lên giọng cuối câu thì là tìm kiếm sự đồng tình. Nếu xuống giọng thì mang tính trách móc hoặc thể hiện sự ngạc nhiên.",
+    "examples": [
+      {
+        "sentence_jp": "あのレストラン、けっこうおいしいじゃない？",
+        "sentence_hira": "あのれすとらん、けっこうおいしいじゃない？",
+        "sentence_romaji": "Ano resutoran, kekkou oishii janai?",
+        "sentence_vi": "Nhà hàng kia ăn cũng khá là ngon đấy chứ, chẳng phải sao?"
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "お + Vます + でしょうか",
+    "reading_hiragana": "お～でしょうか",
+    "reading_romaji": "o ~ deshou ka",
+    "meaning_vi": "... ạ? (Câu hỏi lịch sự)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Là cách nói khiêm nhường và lịch sự hơn rất nhiều so với 'desu ka' hay 'masu ka', dùng để hỏi thăm cấp trên, khách hàng một cách nhẹ nhàng, không gây áp lực.",
+    "examples": [
+      {
+        "sentence_jp": "今、お忙しいでしょうか。",
+        "sentence_hira": "いま、おいそがしいでしょうか。",
+        "sentence_romaji": "Ima, oisogashii deshou ka.",
+        "sentence_vi": "Không biết bây giờ anh/chị có đang bận không ạ?"
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～のでしょうか",
+    "reading_hiragana": "～のでしょうか",
+    "reading_romaji": "~ no deshou ka",
+    "meaning_vi": "Vì sao vậy ạ? / Liệu có phải là...?",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để đặt câu hỏi về nguyên nhân một cách sâu xa hoặc đưa ra một nghi vấn, suy đoán của bản thân với thái độ lịch sự.",
+    "examples": [
+      {
+        "sentence_jp": "病気になったのでしょうか。",
+        "sentence_hira": "びょうきになったのでしょうか。",
+        "sentence_romaji": "Byouki ni natta no deshou ka.",
+        "sentence_vi": "Liệu có phải là anh ấy đã bị ốm rồi không nhỉ?"
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vた + とたん(に)",
+    "reading_hiragana": "～とたん(に)",
+    "reading_romaji": "~ totan (ni)",
+    "meaning_vi": "Vừa mới... thì ngay lập tức...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả hai hành động xảy ra nối tiếp nhau trong một khoảng thời gian cực kỳ ngắn. Vế sau thường mang tính bất ngờ, không có chủ ý của người nói.",
+    "examples": [
+      {
+        "sentence_jp": "息子はケーキを見たとたん、笑顔になった。",
+        "sentence_hira": "むすこはけーきをみたとたん、えがおになった。",
+        "sentence_romaji": "Musuko wa keeki o mita totan, egao ni natta.",
+        "sentence_vi": "Cậu con trai tôi vừa mới nhìn thấy chiếc bánh kem là nhoẻn miệng cười ngay lập tức."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～ついでに",
+    "reading_hiragana": "～ついでに",
+    "reading_romaji": "~ tsuide ni",
+    "meaning_vi": "Nhân tiện... / Tiện thể...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Nhân cơ hội đang thực hiện một hành động chính, tiện thể làm luôn một hành động phụ khác cho đỡ mất công.",
+    "examples": [
+      {
+        "sentence_jp": "会社に行くついでに、ごみを出してきた。",
+        "sentence_hira": "かいしゃにいくついでに、ごみをだしてきた。",
+        "sentence_romaji": "Kaisha ni iku tsuide ni, gomi o dashite kita.",
+        "sentence_vi": "Nhân tiện lúc đi đến công ty thì tôi mang rác đi vứt luôn."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～途中で / 途中に",
+    "reading_hiragana": "～とちゅうで / ～とちゅうに",
+    "reading_romaji": "~ tochuu de / ~ tochuu ni",
+    "meaning_vi": "Giữa chừng... / Trên đường...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "ĐỒ TRUNG",
+    "explanation": "'途中で' dùng khi một hành động khác xen ngang vào hành động chính. '途中に' thường dùng để chỉ một địa điểm tồn tại trên tuyến đường đang di chuyển.",
+    "examples": [
+      {
+        "sentence_jp": "駅に行く途中に、コンビニがある。",
+        "sentence_hira": "えきにいくとちゅうに、こんびにがある。",
+        "sentence_romaji": "Eki ni iku tochuu ni, konbini ga aru.",
+        "sentence_vi": "Trên đường đi đến nhà ga có một cửa hàng tiện lợi."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N1 から N2 にかけて",
+    "reading_hiragana": "～から～にかけて",
+    "reading_romaji": "~ kara ~ ni kakete",
+    "meaning_vi": "Từ... trải dài cho đến...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Chỉ một khoảng thời gian hoặc không gian nhưng điểm đầu và điểm cuối không xác định rõ ràng. Thường thấy trong các bản tin thời tiết.",
+    "examples": [
+      {
+        "sentence_jp": "今晩から明日の朝にかけて、激しい雨が降る。",
+        "sentence_hira": "こんばんからあしたのあさにかけて、はげしいあめがふる。",
+        "sentence_romaji": "Konban kara ashita no asa ni kakete, hageshii ame ga furu.",
+        "sentence_vi": "Dự báo từ tối nay trải dài cho đến sáng mai sẽ có mưa rất to."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "ちっとも～ない",
+    "reading_hiragana": "ちっとも～ない",
+    "reading_romaji": "chittomo ~ nai",
+    "meaning_vi": "Một chút cũng không... / Chẳng... tí nào",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Phủ định mạnh mẽ một sự vật, sự việc trong hội thoại hằng ngày. Nghĩa tương đương với 'sukoshi mo ~ nai' trong văn viết.",
+    "examples": [
+      {
+        "sentence_jp": "このカレーはちっとも辛くない。",
+        "sentence_hira": "このかれーはちっともからくない。",
+        "sentence_romaji": "Kono karee wa chittomo karakunai.",
+        "sentence_vi": "Cái đĩa cà ri này ăn chẳng thấy cay một tí nào cả."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vずにいる",
+    "reading_hiragana": "～ずにいる",
+    "reading_romaji": "~ zu ni iru",
+    "meaning_vi": "Mãi vẫn chưa... / Cứ duy trì việc không...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả việc duy trì một trạng thái 'không làm hành động V' kéo dài liên tục. Lưu ý động từ 'suru' sẽ đổi thành 'se zu ni iru'.",
+    "examples": [
+      {
+        "sentence_jp": "けんかしてから、ずっと妹と話さずにいる。",
+        "sentence_hira": "けんかしてから、ずっといもうととはなさずにいる。",
+        "sentence_romaji": "Kenka shite kara, zutto imouto to hanasazu ni iru.",
+        "sentence_vi": "Kể từ lúc cãi nhau, tôi cứ duy trì việc không nói chuyện với em gái suốt."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + だらけ",
+    "reading_hiragana": "～だらけ",
+    "reading_romaji": "~ darake",
+    "meaning_vi": "Chỉ toàn là... / Đầy rẫy...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả tình trạng có quá nhiều những thứ không mong muốn, gây khó chịu (như bùn đất, bụi bẩn, rác rưởi, hoặc lỗi sai) bám đầy trên bề mặt.",
+    "examples": [
+      {
+        "sentence_jp": "子供たちが泥だらけになって遊んでいる。",
+        "sentence_hira": "こどもたちがどろだらけになってあそんでいる。",
+        "sentence_romaji": "Kodomotachi ga dorodarake ni natte asonde iru.",
+        "sentence_vi": "Bọn trẻ đang chơi đùa mà trên người toàn bùn là bùn."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + 向き",
+    "reading_hiragana": "～むき",
+    "reading_romaji": "~ muki",
+    "meaning_vi": "Phù hợp với... / Vừa vặn với...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "HƯỚNG",
+    "explanation": "Diễn tả việc một sự vật vốn dĩ đã có tính chất, kích cỡ hoặc mức độ phù hợp với một đối tượng cụ thể một cách tự nhiên.",
+    "examples": [
+      {
+        "sentence_jp": "この映画はストーリーが簡単なので、子供向きです。",
+        "sentence_hira": "このえいがはすとーりーがかんたんなので、こどもむきです。",
+        "sentence_romaji": "Kono eiga wa sutoorii ga kantan na node, kodomomuki desu.",
+        "sentence_vi": "Bộ phim này vì có cốt truyện đơn giản nên rất phù hợp với trẻ em."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + 向け(に)",
+    "reading_hiragana": "～むけ",
+    "reading_romaji": "~ muke",
+    "meaning_vi": "Dành cho... / Hướng tới đối tượng...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "HƯỚNG",
+    "explanation": "Nhấn mạnh việc người tạo ra sản phẩm/dịch vụ đã có chủ đích nhắm thẳng tới việc phục vụ một đối tượng cụ thể ngay từ ban đầu.",
+    "examples": [
+      {
+        "sentence_jp": "この音楽はリラックスしたい人向けだ。",
+        "sentence_hira": "このおんがくはりらっくすしたいひとむけだ。",
+        "sentence_romaji": "Kono ongaku wa rirakkusu shitai hito muke da.",
+        "sentence_vi": "Bài nhạc này được sáng tác dành riêng cho những người muốn thư giãn."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N1 + をしている N2",
+    "reading_hiragana": "～をしている",
+    "reading_romaji": "~ o shite iru",
+    "meaning_vi": "Có (đặc điểm ngoại hình, trạng thái, màu sắc)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng để miêu tả đặc điểm nhận diện bề ngoài của một người, vật hoặc sự việc (như hình dáng, màu sắc, biểu cảm khuôn mặt, âm thanh).",
+    "examples": [
+      {
+        "sentence_jp": "この花はきれいな色をしていますね。",
+        "sentence_hira": "このはなはきれいないろをしていますね。",
+        "sentence_romaji": "Kono hana wa kirei na iro o shite imasu ne.",
+        "sentence_vi": "Bông hoa này có màu sắc đẹp quá nhỉ."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "普通形 / N + か何か",
+    "reading_hiragana": "～かなにか",
+    "reading_romaji": "~ ka nani ka",
+    "meaning_vi": "... hay là cái gì đó",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Dùng trong hội thoại thường ngày khi người nói đưa ra một ví dụ nhưng không muốn chỉ đích danh, hoặc đại khái là một thứ gì đó tương tự.",
+    "examples": [
+      {
+        "sentence_jp": "のどが乾いたので、ジュースか何かが飲みたい。",
+        "sentence_hira": "のどがかわいたので、じゅーすかなにかがのみたい。",
+        "sentence_romaji": "Nodo ga kawaita node, juusu ka nani ka ga nomitai.",
+        "sentence_vi": "Vì khát nước quá nên tôi muốn uống nước ép trái cây hay cái gì đó tương tự."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vさせる + ておく",
+    "reading_hiragana": "～させておく",
+    "reading_romaji": "~ sasete oku",
+    "meaning_vi": "Cứ để cho (ai đó làm V) / Cứ mặc kệ cho...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Kết hợp giữa thể Sai khiến (saseru) và 'te oku'. Diễn tả việc người nói cố ý không can thiệp, cứ để mặc cho đối phương tiếp tục hành động của họ.",
+    "examples": [
+      {
+        "sentence_jp": "しばらく彼女を一人にさせておいたほうがいい。",
+        "sentence_hira": "しばらくかのじょをひとりにさせておいたほうがいい。",
+        "sentence_romaji": "Shibaraku kanojo o hitori ni sasete oita hou ga ii.",
+        "sentence_vi": "Nên cứ để kệ cho cô ấy ở một mình một lúc thì tốt hơn."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + につき (Đơn vị)",
+    "reading_hiragana": "～につき",
+    "reading_romaji": "~ ni tsuki",
+    "meaning_vi": "Cứ mỗi (1 đơn vị số lượng) thì...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Biểu thị mức giá, hạn mức, hoặc thời gian được phân bổ đều cho một đơn vị cụ thể (như 1 người, 1 tiếng, 1 cái).",
+    "examples": [
+      {
+        "sentence_jp": "試験時間は、一科目につき60分です。",
+        "sentence_hira": "しけんじかんは、いちかもくにつきろくじゅっぷんです。",
+        "sentence_romaji": "Shiken jikan wa, ichi kamoku ni tsuki rokujuppun desu.",
+        "sentence_vi": "Thời gian làm bài thi thì cứ mỗi một môn là 60 phút."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + につき (Nguyên nhân)",
+    "reading_hiragana": "～につき",
+    "reading_romaji": "~ ni tsuki",
+    "meaning_vi": "Vì... / Do... (Thông báo)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Cách nói rất trang trọng dùng để nêu lý do, nguyên nhân. Thường chỉ xuất hiện trên các bảng thông báo, văn bản hành chính công cộng.",
+    "examples": [
+      {
+        "sentence_jp": "本日は店主の都合につき、お休みです。",
+        "sentence_hira": "ほんじつはてんしゅのつごうにつき、おやすみです。",
+        "sentence_romaji": "Honjitsu wa tenshu no tsugou ni tsuki, oyasumi desu.",
+        "sentence_vi": "Hôm nay do chủ cửa hàng có việc bận nên chúng tôi xin phép nghỉ."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～もの / ～もん",
+    "reading_hiragana": "～もの / ～もん",
+    "reading_romaji": "~ mono / ~ mon",
+    "meaning_vi": "Thì là tại vì... / Bởi vì... mà",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Đuôi câu dùng trong hội thoại rất thân mật (hoặc nũng nịu) để thanh minh hoặc đưa ra lý do. Rất hay đi kèm với từ 'Datte' ở đầu câu.",
+    "examples": [
+      {
+        "sentence_jp": "だって、おいしかったもの。",
+        "sentence_hira": "だって、おいしかったもの。",
+        "sentence_romaji": "Datte, oishikatta mono.",
+        "sentence_vi": "Thì là tại vì nó ngon quá mà!"
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～ものだから / ～もので",
+    "reading_hiragana": "～ものだから / ～もので",
+    "reading_romaji": "~ mono dakara / ~ mono de",
+    "meaning_vi": "Bởi vì cái cớ là... / Tại vì...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Đưa ra một lý do mang tính chất biện bạch cá nhân, thể hiện thái độ bao biện cho một hành động không mong muốn hoặc không kiểm soát được.",
+    "examples": [
+      {
+        "sentence_jp": "安かったものだから、たくさん買ってしまった。",
+        "sentence_hira": "やすかったものだから、たくさんかってしまった。",
+        "sentence_romaji": "Yasukatta mono dakara, takusan katte shimatta.",
+        "sentence_vi": "Bởi vì thấy rẻ quá nên tôi đã lỡ mua hơi nhiều."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + をきっかけに / がきっかけで",
+    "reading_hiragana": "～をきっかけに / ～がきっかけで",
+    "reading_romaji": "~ o kikkake ni / ~ ga kikkake de",
+    "meaning_vi": "Nhân cơ hội... / Nhờ cơ duyên...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Chỉ ra một sự kiện, sự vật đóng vai trò là điểm bùng phát, cơ duyên hoặc bước ngoặt để dẫn đến một sự thay đổi lớn ở vế sau.",
+    "examples": [
+      {
+        "sentence_jp": "友達に紹介されたのをきっかけに、ファンになった。",
+        "sentence_hira": "ともだちにしょうかいされたのをきっかけに、ふぁんになった。",
+        "sentence_romaji": "Tomodachi ni shoukai sareta no o kikkake ni, fan ni natta.",
+        "sentence_vi": "Nhờ cơ duyên được bạn bè giới thiệu mà tôi đã trở thành người hâm mộ."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vる / Vない + ことになっている",
+    "reading_hiragana": "～ことになっている",
+    "reading_romaji": "~ koto ni natte iru",
+    "meaning_vi": "Đã được quyết định là... / Theo quy định là...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả một hành động, lịch trình đã được lên kế hoạch từ trước bởi một tập thể hoặc đây là một quy tắc chung chứ không phải ý muốn cá nhân người nói.",
+    "examples": [
+      {
+        "sentence_jp": "週末は、家族で温泉に行くことになっている。",
+        "sentence_hira": "しゅうまつは、かぞくでおんせんにいくことになっている。",
+        "sentence_romaji": "Shuumatsu wa, kazoku de onsen ni iku koto ni natte iru.",
+        "sentence_vi": "Cuối tuần này, theo kế hoạch thì gia đình tôi sẽ cùng đi tắm suối nước nóng."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vます + かねる / かねない",
+    "reading_hiragana": "～かねる / ～かねない",
+    "reading_romaji": "~ kaneru / ~ kanenai",
+    "meaning_vi": "Khó có thể... / Có nguy cơ sẽ...",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Kaneru: Cách nói khéo léo để từ chối một yêu cầu vì lý do nào đó. Kanenai: Cảnh báo về khả năng có thể xảy ra một hậu quả xấu.",
+    "examples": [
+      {
+        "sentence_jp": "上司の意見には同意しかねる。",
+        "sentence_hira": "じょうしのいけんにはどういしかねる。",
+        "sentence_romaji": "Joushi no iken ni wa doui shikaneru.",
+        "sentence_vi": "Tôi khó có thể đồng ý với ý kiến của cấp trên được."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vます + がたい",
+    "reading_hiragana": "～がたい",
+    "reading_romaji": "~ gatai",
+    "meaning_vi": "Khó lòng mà... / Không thể nào...",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả sự khó khăn về mặt tâm lý, cảm xúc. Thường đi với các động từ chỉ nhận thức như tin tưởng, hiểu, tưởng tượng, thừa nhận.",
+    "examples": [
+      {
+        "sentence_jp": "自分が間違っていたと素直に認めがたい時もある。",
+        "sentence_hira": "じぶんがまちがっていたとすなおにみとめがたいときもある。",
+        "sentence_romaji": "Jibun ga machigatte ita to sunao ni mitomegatai toki mo aru.",
+        "sentence_vi": "Cũng có những lúc thật khó lòng để thừa nhận một cách thẳng thắn rằng bản thân mình đã sai."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vます + っこない",
+    "reading_hiragana": "～っこない",
+    "reading_romaji": "~ kkonai",
+    "meaning_vi": "Không thể nào mà... được",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Phủ định một cách tuyệt đối khả năng xảy ra của một sự việc. Thường dùng trong văn nói thân mật, bạn bè.",
+    "examples": [
+      {
+        "sentence_jp": "こんなに辛い料理、食べられっこないよ。",
+        "sentence_hira": "こんなにからいりょうり、たべられっこないよ。",
+        "sentence_romaji": "Konna ni karai ryouri, taberarekkonai yo.",
+        "sentence_vi": "Món ăn cay xé lưỡi như thế này thì không thể nào mà nuốt được đâu."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "A / N + っぽい (Cảm giác)",
+    "reading_hiragana": "～っぽい",
+    "reading_romaji": "~ ppoi",
+    "meaning_vi": "Có vẻ... / Cảm giác giống như...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Đưa ra đánh giá chủ quan dựa trên thị giác hoặc cảm giác: Dù thực tế không phải vậy nhưng lại mang lại cảm giác rất giống như thế (thường mang ý chê).",
+    "examples": [
+      {
+        "sentence_jp": "このかばんは安っぽい。",
+        "sentence_hira": "このかばんはやすっぽい。",
+        "sentence_romaji": "Kono kaban wa yasuppoi.",
+        "sentence_vi": "Chiếc cặp này nhìn có vẻ rẻ tiền."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + っぽい (Tính chất)",
+    "reading_hiragana": "～っぽい",
+    "reading_romaji": "~ ppoi",
+    "meaning_vi": "Nhiều... / Thiên về...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Chỉ một trạng thái chứa quá nhiều thành phần của N. Thường kết hợp cố định với các từ như Nước (loãng), Dầu (nhiều mỡ), Bột.",
+    "examples": [
+      {
+        "sentence_jp": "このカレーは水っぽくてスープみたいだ。",
+        "sentence_hira": "このかれーはみずっぽくてすーぷみたいだ。",
+        "sentence_romaji": "Kono karee wa mizuppokute suupu mitai da.",
+        "sentence_vi": "Món cà ri này nhiều nước quá, trông loãng như súp vậy."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vます + っぽい (Khuynh hướng)",
+    "reading_hiragana": "～っぽい",
+    "reading_romaji": "~ ppoi",
+    "meaning_vi": "Hay... / Dễ bề...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Diễn tả tính cách hoặc xu hướng của một người rất dễ rơi vào một trạng thái nào đó. Chỉ đi với một vài động từ như: Quên (wasure), Giận (okori), Chán (aki).",
+    "examples": [
+      {
+        "sentence_jp": "年を取ると、だんだん忘れっぽくなる。",
+        "sentence_hira": "としをとると、だんだんわすれっぽくなる。",
+        "sentence_romaji": "Toshi o toru to, dandan wasureppoku naru.",
+        "sentence_vi": "Khi lớn tuổi, người ta dần dần trở nên hay quên hơn."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vて + いく",
+    "reading_hiragana": "～ていく",
+    "reading_romaji": "~ te iku",
+    "meaning_vi": "Tiếp tục... / (Di chuyển) đi mất",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Về thời gian: Sự việc sẽ tiếp diễn từ bây giờ trở về sau. Về không gian: Hành động rời xa khỏi vị trí của người nói.",
+    "examples": [
+      {
+        "sentence_jp": "人生はこれからも続いていく。",
+        "sentence_hira": "じんせいはこれからもつづいていく。",
+        "sentence_romaji": "Jinsei wa korekara mo tsuzuite iku.",
+        "sentence_vi": "Cuộc đời này từ giờ vẫn sẽ tiếp tục trôi đi thôi."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vて + くる",
+    "reading_hiragana": "～てくる",
+    "reading_romaji": "~ te kuru",
+    "meaning_vi": "(Duy trì) cho đến nay / Đi rồi sẽ về / (Di chuyển) tiến lại gần",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Về thời gian: Sự việc kéo dài từ quá khứ cho tới hiện tại. Về không gian: Di chuyển về phía người nói hoặc đi làm gì đó rồi sẽ quay lại vị trí gốc.",
+    "examples": [
+      {
+        "sentence_jp": "ちょっとトイレに行ってくるから、待ってて。",
+        "sentence_hira": "ちょっとといれにいってくるから、まってて。",
+        "sentence_romaji": "Chotto toire ni itte kuru kara, mattete.",
+        "sentence_vi": "Tôi đi toilet một xíu rồi quay lại ngay nên hãy chờ tôi nhé!"
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + と共に (Đồng hành)",
+    "reading_hiragana": "～とともに",
+    "reading_romaji": "~ to tomo ni",
+    "meaning_vi": "Cùng với... / Đồng hành cùng...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "ĐỐI",
+    "explanation": "Diễn tả sự đồng hành giữa người với người hoặc hai sự vật luôn đi kèm với nhau trong một trạng thái. Đây là cách nói khá trang trọng.",
+    "examples": [
+      {
+        "sentence_jp": "子供達と共に、公園で遊んだ。",
+        "sentence_hira": "こどもたちとともに、こうえんであそんだ。",
+        "sentence_romaji": "Kodomotachi ga tomo ni, kouen de asonda.",
+        "sentence_vi": "Tôi đã cùng vui chơi ở công viên với bọn trẻ."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vる / N + と共に (Biến đổi)",
+    "reading_hiragana": "～とともに",
+    "reading_romaji": "~ to tomo ni",
+    "meaning_vi": "Càng... càng... / Cùng với sự thay đổi của...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "ĐỐI",
+    "explanation": "Diễn tả mối quan hệ biến đổi đồng thời: khi một sự việc thay đổi thì kéo theo một sự việc khác cũng thay đổi theo tỉ lệ thuận.",
+    "examples": [
+      {
+        "sentence_jp": "技術の進歩と共に、私達の生活は便利になった。",
+        "sentence_hira": "ぎじゅつのしんぽとともに、わたしたちのせいかつはべんりになった。",
+        "sentence_romaji": "Gijutsu no shinpo to tomo ni, watashitachi no seikatsu wa benri ni natta.",
+        "sentence_vi": "Cùng với sự tiến bộ của kỹ thuật, cuộc sống của chúng ta đã trở nên tiện lợi hơn."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～と共に (Đồng thời)",
+    "reading_hiragana": "～とともに",
+    "reading_romaji": "~ to tomo ni",
+    "meaning_vi": "Đồng thời... / Vừa là... vừa là...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "ĐỐI",
+    "explanation": "Diễn tả một chủ thể sở hữu đồng thời hai đặc điểm hoặc thực hiện hai hành động cùng một lúc.",
+    "examples": [
+      {
+        "sentence_jp": "お酒は体に悪いと共に、お金も掛かる。",
+        "sentence_hira": "おさけはからだにわるとともに、おかねもかかる。",
+        "sentence_romaji": "Osake wa karada ni warui to tomo ni, okane mo kakaru.",
+        "sentence_vi": "Rượu bia vừa không tốt cho sức khỏe, đồng thời cũng rất tốn kém."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vる / N + に連れて",
+    "reading_hiragana": "～につれて",
+    "reading_romaji": "~ ni tsurete",
+    "meaning_vi": "Cùng với... / Càng... càng...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "LIÊN",
+    "explanation": "Diễn tả một sự thay đổi mang tính tiến triển tự nhiên theo một chiều. Vế sau không dùng ý chí.",
+    "examples": [
+      {
+        "sentence_jp": "時間が経つに連れて、記憶は薄れていった。",
+        "sentence_hira": "じかんがたつにつれて、きおくはうすれていった。",
+        "sentence_romaji": "Jikan ga tatsu ni tsurete, kioku wa usurete itta.",
+        "sentence_vi": "Cùng với thời gian trôi đi, ký ức cũng dần phai nhạt mất."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N1も Vば N2も",
+    "reading_hiragana": "～も～ば～も",
+    "reading_romaji": "~ mo ~ ba ~ mo",
+    "meaning_vi": "Cả N1 lẫn N2 đều...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "N/A",
+    "explanation": "Liệt kê hai sự vật, tính chất song hành cùng chiều (tốt cùng tốt, xấu cùng xấu).",
+    "examples": [
+      {
+        "sentence_jp": "給料も良くなければ、残業 cũng多い。",
+        "sentence_hira": "きゅうりょうもよくないければ、ざんぎょうもおおい。",
+        "sentence_romaji": "Kyuuryou mo yokunakereba, zangyou mo ooi.",
+        "sentence_vi": "Lương đã không tốt mà làm thêm giờ lại còn nhiều nữa."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "Vた / Nの + 上で",
+    "reading_hiragana": "～うえで",
+    "reading_romaji": "~ ue de",
+    "meaning_vi": "Sau khi làm V thì mới...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "THƯỢNG",
+    "explanation": "Hành động vế sau được thực hiện dựa trên kết quả của hành động vế trước.",
+    "examples": [
+      {
+        "sentence_jp": "確認した上で、準備をしましょう。",
+        "sentence_hira": "かくにんしたうえで、じゅんびをしましょう。",
+        "sentence_romaji": "Kakunin shita ue de, junbi o shimashou.",
+        "sentence_vi": "Sau khi đã xác nhận kỹ càng, chúng ta hãy cùng bắt đầu chuẩn bị."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～上に",
+    "reading_hiragana": "～うえに",
+    "reading_romaji": "~ ue ni",
+    "meaning_vi": "Không chỉ... mà còn... / Hơn nữa...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "THƯỢNG",
+    "explanation": "Bổ sung thêm một thông tin cùng chiều với vế trước (tốt thêm tốt, xấu thêm xấu).",
+    "examples": [
+      {
+        "sentence_jp": "退学させられた上に、帰らされたらしい。",
+        "sentence_hira": "たいがくさせられたうえに、かえらされたらしい。",
+        "sentence_romaji": "Taigaku saserareta ue ni, kaerasareta rashii.",
+        "sentence_vi": "Nghe nói bạn ấy bị bắt nghỉ học, đã vậy còn bị bắt phải quay về nước nữa."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～無い事は無い",
+    "reading_hiragana": "～ないことはない",
+    "reading_romaji": "~ nai koto wa nai",
+    "meaning_vi": "Không phải là không... / Cũng có khả năng là...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "VÔ SỰ VÔ",
+    "explanation": "Dùng phủ định của phủ định để khẳng định một cách nhẹ nhàng hoặc khéo léo.",
+    "examples": [
+      {
+        "sentence_jp": "飲み会に合流できない事も無いですね。",
+        "sentence_hira": "のみかいにごうりゅうできないこともないですね。",
+        "sentence_romaji": "Nomikai ni gouryuu dekinai koto mo nai desu ne.",
+        "sentence_vi": "Tầm giờ này thì không phải là không thể tham gia tiệc nhậu được đâu."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～に違いない",
+    "reading_hiragana": "～にちがいない",
+    "reading_romaji": "~ ni chigai nai",
+    "meaning_vi": "Chắc chắn là... / Nhất định là...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "VI",
+    "explanation": "Đưa ra phán đoán khẳng định mạnh mẽ từ phía người nói.",
+    "examples": [
+      {
+        "sentence_jp": "何かが住んでいるに違いない。",
+        "sentence_hira": "なにかがすんでいるにちがいない。",
+        "sentence_romaji": "Nanika ga sunde iru ni chigai nai.",
+        "sentence_vi": "Chắc chắn là đang có cái gì đó sinh sống ở đó rồi."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～に相違ない",
+    "reading_hiragana": "～にそういない",
+    "reading_romaji": "~ ni soui nai",
+    "meaning_vi": "Chắc chắn là... (Văn viết trang trọng)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "TƯƠNG VI",
+    "explanation": "Tương tự ni chigai nai nhưng dùng trong văn viết hoặc báo cáo chính thức.",
+    "examples": [
+      {
+        "sentence_jp": "彼は試験に合格するに相違ない。",
+        "sentence_hira": "かれはしけんにごうかくするにそういない。",
+        "sentence_romaji": "Kare wa shiken ni goukaku suru ni soui nai.",
+        "sentence_vi": "Anh ấy chắc chắn sẽ đỗ kỳ thi này."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + 抜き",
+    "reading_hiragana": "～ぬき",
+    "reading_romaji": "~ nuki",
+    "meaning_vi": "Mà không có N / Bỏ qua N",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "BẠT",
+    "explanation": "Loại bỏ một yếu tố vốn dĩ thường có hoặc nên có.",
+    "examples": [
+      {
+        "sentence_jp": "難しい話は抜きで、楽しみましょう。",
+        "sentence_hira": "むずかしいはなしわぬきで、たのしみましょう。",
+        "sentence_romaji": "Muzukashii hanashi wa nuki de, tanoshimashou.",
+        "sentence_vi": "Bỏ qua mấy chuyện khó hiểu đi, hãy cùng tận hưởng thôi."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N + を基に (して)",
+    "reading_hiragana": "～をもとに",
+    "reading_romaji": "~ o moto ni",
+    "meaning_vi": "Dựa trên N / Căn cứ vào N",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "CƠ",
+    "explanation": "Dùng N làm nền tảng, tư liệu hoặc nguyên liệu để tạo ra cái mới.",
+    "examples": [
+      {
+        "sentence_jp": "漢字を基にして、仮名が作られました。",
+        "sentence_hira": "かんじをもとにして、かながついられました。",
+        "sentence_romaji": "Kanji o moto ni shite, Kana ga tsukuraremashita.",
+        "sentence_vi": "Bảng chữ Kana đã được tạo ra dựa trên cơ sở là chữ Hán."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～からと言って",
+    "reading_hiragana": "～からといって",
+    "reading_romaji": "~ kara to itte",
+    "meaning_vi": "Dẫu nói là... / Chỉ vì lý do là...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "NGÔN",
+    "explanation": "Bác bỏ suy luận thông thường: không phải cứ vì lý do A mà kết quả B đương nhiên xảy ra.",
+    "examples": [
+      {
+        "sentence_jp": "お金があるからと言って、無駄遣いは良くない。",
+        "sentence_hira": "おかねがあるからといって、むだづかいわよくない。",
+        "sentence_romaji": "Okane ga aru kara to itte, mudazukai wa yokunai.",
+        "sentence_vi": "Dẫu nói là có tiền đi chăng nữa thì việc tiêu xài hoang phí cũng là không tốt."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "N / Vて + 以来",
+    "reading_hiragana": "～いらい",
+    "reading_romaji": "~ irai",
+    "meaning_vi": "Kể từ khi... (cho đến nay)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "DĨ LAI",
+    "explanation": "Một trạng thái kéo dài liên tục kể từ khi một sự kiện xảy ra trong quá khứ.",
+    "examples": [
+      {
+        "sentence_jp": "会社が倒産して以来、仕事が見つからない。",
+        "sentence_hira": "かいしゃがとうさんしていらい、しごとがみつからない。",
+        "sentence_romaji": "Kaisha ga tousan shite irai, shigoto ga mitsukaranai.",
+        "sentence_vi": "Kể từ sau khi công ty phá sản, tôi vẫn chưa tìm được công việc mới."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～に限る",
+    "reading_hiragana": "～にかぎる",
+    "reading_romaji": "~ ni kagiru",
+    "meaning_vi": "Là tốt nhất / Không gì bằng...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "HẠN",
+    "explanation": "Khẳng định một lựa chọn là tối ưu nhất trong một hoàn cảnh cụ thể.",
+    "examples": [
+      {
+        "sentence_jp": "疲れている時は早く寝るに限る。",
+        "sentence_hira": "つかれているときわはやくねるにかぎる。",
+        "sentence_romaji": "Tsukarete iru toki wa hayaku neru ni kagiru.",
+        "sentence_vi": "Lúc mệt mỏi thì đi ngủ sớm là tốt nhất."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～かの様だ",
+    "reading_hiragana": "～かのようだ",
+    "reading_romaji": "~ ka no you da",
+    "meaning_vi": "Cứ như thể là...",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "DẠNG",
+    "explanation": "So sánh ví von một sự việc với một trạng thái không có thật để nhấn mạnh tính chất.",
+    "examples": [
+      {
+        "sentence_jp": "全て知っているかの様に話す。",
+        "sentence_hira": "すべてしっているかのようにはなす。",
+        "sentence_romaji": "Subete shitte iru ka no you ni hanasu.",
+        "sentence_vi": "Anh ta nói chuyện cứ như thể là biết hết mọi thứ trên đời vậy."
+      }
+    ],
+    "is_grammar": "1"
+  },
+  {
+    "kanji": "～癖に",
+    "reading_hiragana": "～くせに",
+    "reading_romaji": "~ kuse ni",
+    "meaning_vi": "Vậy mà... / Thế mà... (Mỉa mai)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_active": false,
+    "han_viet": "PHẾ",
+    "explanation": "Thể hiện sự trách móc, bất mãn khi thực tế trái ngược với vị thế của đối tượng.",
+    "examples": [
+      {
+        "sentence_jp": "歌手の癖に、歌が下手だ。",
+        "sentence_hira": "かしゅのくせに、うたがへただ。",
+        "sentence_romaji": "Kashu no kuse ni, uta ga heta da.",
+        "sentence_vi": "Mang danh ca sĩ thế mà hát dở tệ."
+      }
+    ],
+    "is_grammar": "1"
+  }
+]

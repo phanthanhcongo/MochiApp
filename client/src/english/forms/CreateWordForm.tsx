@@ -10,9 +10,17 @@ const IS_GRAMMAR_OPTIONS = [
   { value: '0', label: 'Từ vựng thường' },
   { value: '1', label: 'Mục ngữ pháp' },
 ];
-const IS_ACTIVE_OPTIONS = [
-  { value: '1', label: 'Đang sử dụng (active)' },
-  { value: '0', label: 'Tạm ẩn / không dùng' },
+const IS_ACTIVE_OPTIONS: { value: string; label: string }[] = [
+  { value: "1", label: "Đang sử dụng (active)" },
+  { value: "0", label: "Tạm ẩn / không dùng" },
+];
+
+const SUGGESTED_TOPICS = [
+  'Daily Life', 'Food & Drink', 'Shopping', 'Home', 'Clothing',
+  'Business', 'Work', 'Education', 'Technology', 'Finance',
+  'Travel', 'Greeting', 'Family', 'Culture', 'Religion',
+  'Health', 'Sports', 'Emotions', 'Nature', 'Animals', 'Science',
+  'Entertainment', 'Hobbies', 'Art', 'Grammar', 'Idioms', 'Slang'
 ];
 
 export interface ReviewWord {
@@ -37,6 +45,7 @@ export interface ReviewWord {
   }[];
   is_active: string;
   is_grammar: string;
+  topic: string[];
 }
 
 const INITIAL_FORM: ReviewWord = {
@@ -67,6 +76,7 @@ const INITIAL_FORM: ReviewWord = {
   ],
   is_active: "1",
   is_grammar: "0",
+  topic: [],
 };
 
 type Errors = Partial<Record<string, string>>;
@@ -130,6 +140,7 @@ const CreateWordForm = () => {
   const [loading, setLoading] = useState(false);
   const [geminiLoading, setGeminiLoading] = useState(false);
   const [notice, setNotice] = useState<{ type: 'success' | 'error'; msg: string } | null>(null);
+  const [topicInput, setTopicInput] = useState('');
 
   const handleGeminiCall = async () => {
     if (!form.word || geminiLoading) return;
@@ -265,6 +276,7 @@ const CreateWordForm = () => {
           ...form,
           level: 1,
           is_grammar: form.is_grammar === "1",
+          topic: form.topic.length > 0 ? form.topic : null,
           user_id: userId
         }]
       };
@@ -360,6 +372,74 @@ const CreateWordForm = () => {
             <SelectField label="Trạng thái" name="is_active" value={form.is_active} onChange={(e) => setField("is_active", e.target.value)} options={IS_ACTIVE_OPTIONS} error={errors.is_active} />
             <div className="md:col-span-2">
               <InputField label="Context (VI)" name="context_vi" value={form.context_vi} onChange={(e) => setField("context_vi", e.target.value)} error={errors.context_vi} />
+            </div>
+          </div>
+
+          {/* Topic Tags */}
+          <div className="mb-2">
+            <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5 ml-1">Topics (Tags)</label>
+            <div className="flex flex-wrap gap-1.5 mb-2">
+              {form.topic.map((tag, idx) => (
+                <span key={idx} className="inline-flex items-center gap-1 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 text-blue-700 px-2.5 py-1 rounded-full text-xs font-semibold shadow-sm">
+                  {tag}
+                  <button
+                    type="button"
+                    onClick={() => setField('topic', form.topic.filter((_, i) => i !== idx))}
+                    className="ml-0.5 text-blue-400 hover:text-red-500 transition-colors font-bold text-sm leading-none"
+                  >
+                    ×
+                  </button>
+                </span>
+              ))}
+            </div>
+            <div className="flex gap-2">
+              <input
+                value={topicInput}
+                onChange={(e) => setTopicInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const val = topicInput.trim();
+                    if (val && !form.topic.includes(val)) {
+                      setField('topic', [...form.topic, val]);
+                    }
+                    setTopicInput('');
+                  }
+                }}
+                className="flex-1 border border-gray-200 bg-gray-50 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 shadow-sm transition-all duration-200"
+                placeholder="Type a topic and press Enter (e.g. Travel, Business...)"
+              />
+              <button
+                type="button"
+                onClick={() => {
+                  const val = topicInput.trim();
+                  if (val && !form.topic.includes(val)) {
+                    setField('topic', [...form.topic, val]);
+                  }
+                  setTopicInput('');
+                }}
+                className="px-3 py-1.5 bg-blue-100 text-blue-700 rounded-lg text-xs font-bold hover:bg-blue-200 transition-colors shadow-sm"
+              >
+                + Add
+              </button>
+            </div>
+            {/* Suggested Topics */}
+            <div className="mt-2 flex flex-wrap gap-1">
+              <span className="text-[10px] text-gray-400 mr-1 self-center">Gợi ý:</span>
+              {SUGGESTED_TOPICS.map(topic => (
+                <button
+                  key={topic}
+                  type="button"
+                  onClick={() => {
+                    if (!form.topic.includes(topic)) {
+                      setField('topic', [...form.topic, topic]);
+                    }
+                  }}
+                  className="px-2 py-0.5 text-[10px] bg-gray-100 text-gray-600 hover:bg-blue-50 hover:text-blue-600 border border-gray-200 rounded-full transition-colors cursor-pointer"
+                >
+                  + {topic}
+                </button>
+              ))}
             </div>
           </div>
 

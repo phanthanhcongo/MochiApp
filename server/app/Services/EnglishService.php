@@ -61,6 +61,7 @@ class EnglishService
                     'cefr_level'       => Arr::get($w, 'cefr_level'),
                     'level'            => (int) ($w['level'] ?? 1),
                     'is_grammar'       => (bool) ($w['is_grammar'] ?? false),
+                    'topic'            => isset($w['topic']) ? json_encode($w['topic']) : null,
                     'streak'           => 0,
                     'lapses'           => 0,
                     'last_reviewed_at' => Carbon::now()->subDays(3),
@@ -153,6 +154,7 @@ class EnglishService
                 'level'            => (int) ($data['level'] ?? 1),
                 'is_active'       => (bool) ($data['is_active'] ?? true),
                 'is_grammar'       => (bool) ($data['is_grammar'] ?? false),
+                'topic'            => isset($data['topic']) ? json_encode($data['topic']) : null,
                 'streak'           => $streak,
                 'lapses'           => $lapses,
                 'last_reviewed_at' => $now,
@@ -251,6 +253,11 @@ class EnglishService
             // Update is_active if provided
             if (Arr::has($data, 'is_active')) {
                 $wordUpdate['is_active'] = (bool) $data['is_active'];
+            }
+
+            // Update topic if provided
+            if (Arr::has($data, 'topic')) {
+                $wordUpdate['topic'] = is_array($data['topic']) ? json_encode($data['topic']) : $data['topic'];
             }
 
             if (Arr::has($data, 'last_reviewed_at') && $data['last_reviewed_at'] !== null) {

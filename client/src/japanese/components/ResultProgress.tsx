@@ -54,12 +54,20 @@ const ResultProgress: React.FC = () => {
         const isAlreadyLogged = history.some((h: any) => h.id === start);
         
         if (!isAlreadyLogged) {
+          // Chỉ lưu các trường cần thiết để tối ưu hóa dung lượng localStorage
+          const optimizedWords = parsed.map((entry: any) => ({
+            kanji: entry.word?.kanji || '',
+            example: entry.word?.example || '',
+            example_vi: entry.word?.example_vi || ''
+          }));
+
           const newEntry = {
             id: start, // Sử dụng startTime làm ID để tránh trùng lặp
             date: new Date().toISOString(),
             duration: duration,
             type: practiceType,
-            count: parsed.length
+            count: parsed.length,
+            words: optimizedWords
           };
 
           // Giữ lại 7 lần gần nhất

@@ -17,6 +17,15 @@ const IS_ACTIVE_OPTIONS: { value: string; label: string }[] = [
   { value: '0', label: 'Tạm ẩn / không dùng' },
 ];
 
+const SUGGESTED_TOPICS = [
+  'Daily Life', 'Food & Drink', 'Shopping', 'Home', 'Clothing',
+  'Business', 'Work', 'Education', 'Technology', 'Finance',
+  'Travel', 'Greeting', 'Family', 'Culture', 'Religion',
+  'Health', 'Sports', 'Emotions', 'Nature', 'Animals', 'Science',
+  'Entertainment', 'Hobbies', 'Art', 'Grammar', 'Idioms', 'Slang',
+  'Keigo', 'Onomatopoeia'
+];
+
 type FormState = {
   id: string; // luôn mang ID theo form
   kanji: string;
@@ -131,6 +140,8 @@ const EditWordForm: React.FC = () => {
   const [errors, setErrors] = useState<Errors>({});
   const [saving, setSaving] = useState(false);
   const [notice, setNotice] = useState<{ type: 'success' | 'error'; msg: string } | null>(null);
+  const [topicTags, setTopicTags] = useState<string[]>([]);
+  const [topicInput, setTopicInput] = useState('');
 
   // Nạp từ state hoặc sessionStorage, không gọi GET
   useEffect(() => {
@@ -138,8 +149,15 @@ const EditWordForm: React.FC = () => {
     if (fromStateForm) {
       const normalized = { ...fromStateForm, id: String(fromStateForm.id || idFromUrl || '') };
       setForm(normalized);
+      // Load topic from state if available
+      if ((location.state as any)?.topic) {
+        setTopicTags(Array.isArray((location.state as any).topic) ? (location.state as any).topic : []);
+      }
       console.log('📌 Nhận từ state:', normalized);
       sessionStorage.setItem('editingForm', JSON.stringify(normalized));
+      if ((location.state as any)?.topic) {
+        sessionStorage.setItem('editingTopicTags', JSON.stringify((location.state as any).topic));
+      }
       return;
     }
     const cached = sessionStorage.getItem('editingForm');
@@ -148,6 +166,10 @@ const EditWordForm: React.FC = () => {
         const parsed = JSON.parse(cached) as FormState;
         const normalized = { ...parsed, id: String(parsed.id || idFromUrl || '') };
         setForm(normalized);
+        const cachedTopics = sessionStorage.getItem('editingTopicTags');
+        if (cachedTopics) {
+          try { setTopicTags(JSON.parse(cachedTopics)); } catch {}
+        }
         console.log('📌 Lấy từ sessionStorage:', normalized);
         return;
       } catch { }
@@ -231,7 +253,7 @@ const EditWordForm: React.FC = () => {
     }
 
     // Backend đang nhận phẳng → gửi nguyên trimmed kèm word_id
-    const bodyToSend = { word_id: wordId, ...trimmed };
+    const bodyToSend = { word_id: wordId, ...trimmed, topic: topicTags.length > 0 ? topicTags : null };
     console.log('🔎 Payload gửi POST /practice/updateWord:', bodyToSend);
 
     setSaving(true);
@@ -347,6 +369,76 @@ const EditWordForm: React.FC = () => {
     error={errors.is_active}
   />
 
+      </Section>
+
+      {/* Topic Tags Section */}
+      <Section title="Topics">
+        <div className="mb-2">
+          <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5 ml-1">Topics (Tags)</label>
+          <div className="flex flex-wrap gap-1.5 mb-2">
+            {topicTags.map((tag, idx) => (
+              <span key={idx} className="inline-flex items-center gap-1 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 text-blue-700 px-2.5 py-1 rounded-full text-xs font-semibold shadow-sm">
+                {tag}
+                <button
+                  type="button"
+                  onClick={() => setTopicTags(prev => prev.filter((_, i) => i !== idx))}
+                  className="ml-0.5 text-blue-400 hover:text-red-500 transition-colors font-bold text-sm leading-none"
+                >
+                  ×
+                </button>
+              </span>
+            ))}
+          </div>
+          <div className="flex gap-2">
+            <input
+              value={topicInput}
+              onChange={(e) => setTopicInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  const val = topicInput.trim();
+                  if (val && !topicTags.includes(val)) {
+                    setTopicTags(prev => [...prev, val]);
+                  }
+                  setTopicInput('');
+                }
+              }}
+              className="flex-1 border border-gray-200 bg-gray-50 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 shadow-sm transition-all duration-200"
+              placeholder="Type a topic and press Enter (e.g. Travel, Food...)"
+            />
+            <button
+              type="button"
+              onClick={() => {
+                const val = topicInput.trim();
+                if (val && !topicTags.includes(val)) {
+                  setTopicTags(prev => [...prev, val]);
+                }
+                setTopicInput('');
+              }}
+              className="px-3 py-1.5 bg-blue-100 text-blue-700 rounded-lg text-xs font-bold hover:bg-blue-200 transition-colors shadow-sm"
+            >
+              + Add
+            </button>
+          </div>
+          {/* Suggested Topics */}
+          <div className="mt-2 flex flex-wrap gap-1">
+            <span className="text-[10px] text-gray-400 mr-1 self-center">Gợi ý:</span>
+            {SUGGESTED_TOPICS.map(topic => (
+              <button
+                key={topic}
+                type="button"
+                onClick={() => {
+                  if (!topicTags.includes(topic)) {
+                    setTopicTags(prev => [...prev, topic]);
+                  }
+                }}
+                className="px-2 py-0.5 text-[10px] bg-gray-100 text-gray-600 hover:bg-blue-50 hover:text-blue-600 border border-gray-200 rounded-full transition-colors cursor-pointer"
+              >
+                + {topic}
+              </button>
+            ))}
+          </div>
+        </div>
       </Section>
 
       <Section title="2. jp_hanviet">

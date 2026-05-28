@@ -1,0 +1,852 @@
+[
+  {
+    "kanji": "準備",
+    "reading_hiragana": "じゅんび",
+    "reading_romaji": "junbi",
+    "meaning_vi": "chuẩn bị",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Daily Life"
+    ],
+    "han_viet": "CHUẨN BỊ",
+    "explanation": "Danh động từ. Sắp xếp, chuẩn bị sẵn sàng cho một việc gì đó sắp diễn ra.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "開店前に準備をします。",
+        "sentence_hira": "かいてんまえにじゅんびをします。",
+        "sentence_romaji": "Kaitenmae ni junbi o shimasu.",
+        "sentence_vi": "Tôi sẽ chuẩn bị trước khi mở cửa tiệm."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "開店前に（　）をします。",
+        "blank_position": 1,
+        "answer_explanation": "‘準備’ (junbi) nghĩa là sửa soạn, chuẩn bị.",
+        "choices": [
+          {
+            "content": "準備",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "完了",
+    "reading_hiragana": "かんりょう",
+    "reading_romaji": "kanryou",
+    "meaning_vi": "hoàn thành",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "HOÀN LIỄU",
+    "explanation": "Danh động từ. Việc kết thúc trọn vẹn, hoàn thiện một quy trình hay công việc.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "入力作業が完了しました。",
+        "sentence_hira": "にゅうりょくさぎょうがかんりょうしました。",
+        "sentence_romaji": "Nyuuryoku sagyou ga kanryou shimashita.",
+        "sentence_vi": "Công việc nhập liệu đã hoàn thành."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "入力作業が（　）しました。",
+        "blank_position": 1,
+        "answer_explanation": "‘完了’ (kanryou) dùng khi một tác vụ được làm xong, kết thúc.",
+        "choices": [
+          {
+            "content": "完了",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "未完了",
+    "reading_hiragana": "みかんりょう",
+    "reading_romaji": "mikannryou",
+    "meaning_vi": "chưa hoàn thành",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "VỊ HOÀN LIỄU",
+    "explanation": "Danh từ. Trạng thái công việc hoặc nhiệm vụ vẫn chưa được làm xong (未: Chưa).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "未完了の作業を確認します。",
+        "sentence_hira": "みかんりょうのさぎょうをかくにんします。",
+        "sentence_romaji": "Mikanryou no sagyou o kakunin shimasu.",
+        "sentence_vi": "Tôi sẽ kiểm tra những công việc chưa hoàn thành."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）の作業を確認します。",
+        "blank_position": 1,
+        "answer_explanation": "‘未完了’ (mikanryou) là chưa hoàn thành.",
+        "choices": [
+          {
+            "content": "未完了",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "保留",
+    "reading_hiragana": "ほりゅう",
+    "reading_romaji": "horyuu",
+    "meaning_vi": "tạm giữ, hoãn lại",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "BẢO LƯU",
+    "explanation": "Danh động từ. Việc tạm thời dừng lại, chưa đưa ra quyết định hay xử lý ngay lập tức.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "この件は一旦保留にします。",
+        "sentence_hira": "このけんはいったんほりゅうにします。",
+        "sentence_romaji": "Kono ken wa ittan horyuu ni shimasu.",
+        "sentence_vi": "Vấn đề này tạm thời sẽ được hoãn lại."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "この件は一旦（　）にします。",
+        "blank_position": 1,
+        "answer_explanation": "‘保留’ (horyuu) là bảo lưu, hoãn lại chờ quyết định sau.",
+        "choices": [
+          {
+            "content": "保留",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "優先",
+    "reading_hiragana": "ゆうせん",
+    "reading_romaji": "yuusen",
+    "meaning_vi": "ưu tiên",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "ƯU TIÊN",
+    "explanation": "Danh động từ. Xử lý, giải quyết việc gì đó trước những việc khác.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "緊急の案件を優先します。",
+        "sentence_hira": "きんきゅうのあんけんをゆうせんします。",
+        "sentence_romaji": "Kinkyuu no anken o yuusen shimasu.",
+        "sentence_vi": "Sẽ ưu tiên giải quyết các dự án/vụ việc khẩn cấp."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "緊急の案件を（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘優先’ (yuusen) là làm trước, đặt quyền lợi cao hơn.",
+        "choices": [
+          {
+            "content": "優先",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "重要",
+    "reading_hiragana": "じゅうよう",
+    "reading_romaji": "juuyou",
+    "meaning_vi": "quan trọng",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "TRỌNG YẾU",
+    "explanation": "Tính từ đuôi na / Danh từ. Có tầm ảnh hưởng lớn, cần đặc biệt lưu tâm.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "重要な連絡を共有します。",
+        "sentence_hira": "じゅうようなれんらくをきょうゆうします。",
+        "sentence_romaji": "Juuyou na renraku o kyouyuu shimasu.",
+        "sentence_vi": "Tôi sẽ chia sẻ thông báo quan trọng."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）な連絡を共有します。",
+        "blank_position": 1,
+        "answer_explanation": "‘重要’ (juuyou) mang nghĩa là thiết yếu, trọng yếu.",
+        "choices": [
+          {
+            "content": "重要",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "緊急",
+    "reading_hiragana": "きんきゅう",
+    "reading_romaji": "kinkyuu",
+    "meaning_vi": "khẩn cấp",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "KHẨN CẤP",
+    "explanation": "Danh từ / Tính từ. Cần được xử lý ngay lập tức, không thể chậm trễ.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "緊急の場合はすぐ電話してください。",
+        "sentence_hira": "きんきゅうのばあいはすぐでんわしてください。",
+        "sentence_romaji": "Kinkyuu no baai wa sugu denwa shite kudasai.",
+        "sentence_vi": "Trong trường hợp khẩn cấp hãy gọi điện thoại ngay."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）の場合はすぐ電話してください。",
+        "blank_position": 1,
+        "answer_explanation": "‘緊急’ (kinkyuu) là tính huống cấp bách, khẩn thiết.",
+        "choices": [
+          {
+            "content": "緊急",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "注意",
+    "reading_hiragana": "ちゅうい",
+    "reading_romaji": "chuui",
+    "meaning_vi": "chú ý, cẩn thận",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Daily Life"
+    ],
+    "han_viet": "CHÚ Ý",
+    "explanation": "Danh động từ. Việc lưu tâm, cẩn trọng để tránh xảy ra sai sót hoặc tai nạn.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "作業中は安全に注意してください。",
+        "sentence_hira": "さぎょうちゅうはあんぜんにちゅういしてください。",
+        "sentence_romaji": "Sagyou chuu wa anzen ni chuui shite kudasai.",
+        "sentence_vi": "Xin hãy chú ý an toàn trong lúc làm việc."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "作業中は安全に（　）してください。",
+        "blank_position": 1,
+        "answer_explanation": "‘注意’ (chuui) là sự nhắc nhở, cẩn thận đề phòng.",
+        "choices": [
+          {
+            "content": "注意",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "確認済",
+    "reading_hiragana": "かくにんずみ",
+    "reading_romaji": "kakunin-zumi",
+    "meaning_vi": "đã xác nhận",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "XÁC NHẬN TẾ",
+    "explanation": "Danh từ. Tình trạng đã được kiểm tra, xác nhận (済: đã hoàn tất).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "この書類は確認済です。",
+        "sentence_hira": "このしょるいはかくにんずみです。",
+        "sentence_romaji": "Kono shorui wa kakuninzumi desu.",
+        "sentence_vi": "Tài liệu này đã được xác nhận."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "この書類は（　）です。",
+        "blank_position": 1,
+        "answer_explanation": "Thêm hậu tố 済 (zumi) vào sau 確認 tạo thành ‘đã xác nhận’.",
+        "choices": [
+          {
+            "content": "確認済",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "返答",
+    "reading_hiragana": "へんとう",
+    "reading_romaji": "hentou",
+    "meaning_vi": "trả lời, phản hồi",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "PHẢN ĐÁP",
+    "explanation": "Danh động từ. Lời đáp lại cho một câu hỏi, yêu cầu hoặc lời nói.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "本日中に返答いたします。",
+        "sentence_hira": "ほんじつちゅうにへんとういたします。",
+        "sentence_romaji": "Honjitsuchuu ni hentou itashimasu.",
+        "sentence_vi": "Tôi sẽ phản hồi lại trong ngày hôm nay."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "本日中に（　）いたします。",
+        "blank_position": 1,
+        "answer_explanation": "‘返答’ (hentou) là việc trả lời cho ai đó.",
+        "choices": [
+          {
+            "content": "返答",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "返信",
+    "reading_hiragana": "へんしん",
+    "reading_romaji": "henshin",
+    "meaning_vi": "hồi âm email / tin nhắn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Technology"
+    ],
+    "han_viet": "PHẢN TÍN",
+    "explanation": "Danh động từ. Viết và gửi lại thư, email hoặc tin nhắn để phản hồi người gửi.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "メールに返信しました。",
+        "sentence_hira": "メールにへんしんしました。",
+        "sentence_romaji": "Meeru ni henshin shimashita.",
+        "sentence_vi": "Tôi đã hồi âm email."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "メールに（　）しました。",
+        "blank_position": 1,
+        "answer_explanation": "‘返信’ (henshin) chuyên dùng cho việc hồi âm tin nhắn/thư.",
+        "choices": [
+          {
+            "content": "返信",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "送信",
+    "reading_hiragana": "そうしん",
+    "reading_romaji": "soushin",
+    "meaning_vi": "gửi đi",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Technology"
+    ],
+    "han_viet": "TỐNG TÍN",
+    "explanation": "Danh động từ. Chuyển đi tín hiệu, dữ liệu hoặc tin nhắn điện tử (như email).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "資料をメールで送信します。",
+        "sentence_hira": "しりょうをメールでそうしんします。",
+        "sentence_romaji": "Shiryou o meeru de soushin shimasu.",
+        "sentence_vi": "Tôi sẽ gửi tài liệu bằng email."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "資料をメールで（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘送信’ (soushin) là nhấn nút gửi (send).",
+        "choices": [
+          {
+            "content": "送信",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "受信",
+    "reading_hiragana": "じゅしん",
+    "reading_romaji": "jushin",
+    "meaning_vi": "nhận được",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Technology"
+    ],
+    "han_viet": "THỤ TÍN",
+    "explanation": "Danh động từ. Tiếp nhận tín hiệu, tin nhắn hoặc email được gửi tới.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "取引先からメールを受信しました。",
+        "sentence_hira": "とりひきさきからメールをじゅしんしました。",
+        "sentence_romaji": "Torihikisaki kara meeru o jushin shimashita.",
+        "sentence_vi": "Tôi đã nhận được email từ đối tác."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "取引先からメールを（　）しました。",
+        "blank_position": 1,
+        "answer_explanation": "‘受信’ (jushin) là việc nhận được thư hoặc dữ liệu (receive).",
+        "choices": [
+          {
+            "content": "受信",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "添付",
+    "reading_hiragana": "てんぷ",
+    "reading_romaji": "tenpu",
+    "meaning_vi": "đính kèm",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Technology"
+    ],
+    "han_viet": "THIÊM PHÓ",
+    "explanation": "Danh động từ. Gắn kèm thêm tập tin (file) vào trong email hoặc tài liệu gốc.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "資料を添付いたします。",
+        "sentence_hira": "しりょうをてんぷいたします。",
+        "sentence_romaji": "Shiryou o tenpu itashimasu.",
+        "sentence_vi": "Tôi xin đính kèm tài liệu."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "資料を（　）いたします。",
+        "blank_position": 1,
+        "answer_explanation": "‘添付’ (tenpu) là đính kèm (attach).",
+        "choices": [
+          {
+            "content": "添付",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "署名",
+    "reading_hiragana": "しょめい",
+    "reading_romaji": "shomei",
+    "meaning_vi": "chữ ký",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "THỰ DANH",
+    "explanation": "Danh động từ. Viết tên mình vào văn bản để xác nhận, hoặc phần chữ ký điện tử ở cuối email.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "契約書に署名してください。",
+        "sentence_hira": "けいやくしょにしょめいしてください。",
+        "sentence_romaji": "Keiyakusho ni shomei shite kudasai.",
+        "sentence_vi": "Vui lòng ký tên vào hợp đồng."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "契約書に（　）してください。",
+        "blank_position": 1,
+        "answer_explanation": "‘署名’ (shomei) dùng trong văn bản trang trọng thay cho サイン (sign).",
+        "choices": [
+          {
+            "content": "署名",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "印刷",
+    "reading_hiragana": "いんさつ",
+    "reading_romaji": "insatsu",
+    "meaning_vi": "in ấn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Technology"
+    ],
+    "han_viet": "ẤN LOÁT",
+    "explanation": "Danh động từ. Xuất dữ liệu từ máy tính ra giấy bằng máy in.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "会議資料を印刷します。",
+        "sentence_hira": "かいぎしりょうをいんさつします。",
+        "sentence_romaji": "Kaigi shiryou o insatsu shimasu.",
+        "sentence_vi": "Tôi sẽ in tài liệu cuộc họp."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "会議資料を（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘印刷’ (insatsu) là in ra giấy tờ (print).",
+        "choices": [
+          {
+            "content": "印刷",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "保存",
+    "reading_hiragana": "ほぞん",
+    "reading_romaji": "hozon",
+    "meaning_vi": "lưu lại",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Technology"
+    ],
+    "han_viet": "BẢO TỒN",
+    "explanation": "Danh động từ. Lưu trữ dữ liệu, tài liệu để không bị mất.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "データを保存してください。",
+        "sentence_hira": "データをほぞんしてください。",
+        "sentence_romaji": "Deeta o hozon shite kudasai.",
+        "sentence_vi": "Hãy lưu dữ liệu lại."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "データを（　）してください。",
+        "blank_position": 1,
+        "answer_explanation": "‘保存’ (hozon) mang nghĩa là save, lưu trữ lại.",
+        "choices": [
+          {
+            "content": "保存",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "更新",
+    "reading_hiragana": "こうしん",
+    "reading_romaji": "koushin",
+    "meaning_vi": "cập nhật",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Technology"
+    ],
+    "han_viet": "CANH TÂN",
+    "explanation": "Danh động từ. Thay đổi thông tin cũ bằng thông tin mới nhất (như gia hạn hợp đồng, update dữ liệu).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "情報を最新の内容に更新します。",
+        "sentence_hira": "じょうほうをさいしんのないようにこうしんします。",
+        "sentence_romaji": "Jouhou o saishin no naiyou ni koushin shimasu.",
+        "sentence_vi": "Tôi sẽ cập nhật thông tin thành nội dung mới nhất."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "情報を最新の内容に（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘更新’ (koushin) là cập nhật hoặc gia hạn (update/renew).",
+        "choices": [
+          {
+            "content": "更新",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "修正",
+    "reading_hiragana": "しゅうせい",
+    "reading_romaji": "shuusei",
+    "meaning_vi": "sửa chỉnh",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "TU CHÍNH",
+    "explanation": "Danh động từ. Sửa lại những chỗ sai hoặc chưa phù hợp cho đúng.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "入力ミスを修正しました。",
+        "sentence_hira": "にゅうりょくミスをしゅうせいしました。",
+        "sentence_romaji": "Nyuuryoku misu o shuusei shimashita.",
+        "sentence_vi": "Tôi đã sửa lại lỗi nhập liệu sai."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "入力ミスを（　）しました。",
+        "blank_position": 1,
+        "answer_explanation": "‘修正’ (shuusei) dùng khi sửa lỗi, edit văn bản.",
+        "choices": [
+          {
+            "content": "修正",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "削除",
+    "reading_hiragana": "さくじょ",
+    "reading_romaji": "sakujo",
+    "meaning_vi": "xóa",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Technology"
+    ],
+    "han_viet": "TƯỚC TRỪ",
+    "explanation": "Danh động từ. Bỏ đi, xóa bớt những dữ liệu, tập tin không còn cần thiết.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "不要なデータを削除します。",
+        "sentence_hira": "ふようなデータをさくじょします。",
+        "sentence_romaji": "Fuyou na deeta o sakujo shimasu.",
+        "sentence_vi": "Tôi sẽ xóa các dữ liệu không cần thiết."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "不要なデータを（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘削除’ (sakujo) mang nghĩa delete, loại bỏ dữ liệu.",
+        "choices": [
+          {
+            "content": "削除",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -3,59 +3,17 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Services\GeminiService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
 class GeminiController extends Controller
 {
-    private $availableModels = [
-        "gemini-2.5-flash-lite",
-        "gemini-2.5-flash",
-        "gemini-3-flash"
-    ];
+    private GeminiService $gemini;
 
-    private function getApiKey()
+    public function __construct(GeminiService $gemini)
     {
-        $key = env('GEMINI_API_KEY');
-        if (!$key) {
-            throw new \Exception('Gemini API key not configured.');
-        }
-        return $key;
-    }
-
-    private function generateContent($modelName, $prompt, $options = [])
-    {
-        $apiKey = $this->getApiKey();
-        $url = "https://generativelanguage.googleapis.com/v1beta/models/{$modelName}:generateContent?key={$apiKey}";
-
-        $payload = [
-            'contents' => [
-                ['parts' => [['text' => $prompt]]]
-            ],
-            'generationConfig' => array_merge([
-                'temperature' => 0.7,
-                'topK' => 40,
-                'topP' => 0.95,
-                'maxOutputTokens' => 1024,
-            ], $options)
-        ];
-
-        $response = Http::withHeaders([
-            'Content-Type' => 'application/json'
-        ])->post($url, $payload);
-
-        if (!$response->successful()) {
-            throw new \Exception("Gemini API Error ({$response->status()}): " . $response->body(), $response->status());
-        }
-
-        $result = $response->json();
-        
-        if (!isset($result['candidates'][0]['content']['parts'][0]['text'])) {
-            throw new \Exception('Invalid response structure from Gemini API');
-        }
-
-        return $result['candidates'][0]['content']['parts'][0]['text'];
+        $this->gemini = $gemini;
     }
 
     public function chat(Request $request)
@@ -111,7 +69,7 @@ When the user makes a mistake, gently correct it and explain why. Use examples t
         $conversationContext .= "Student: {$message}\n\nTutor:";
 
         try {
-            $text = $this->generateContent($modelName, $conversationContext);
+            $text = $this->gemini->generateContent($modelName, $conversationContext);
             return response()->json($text);
         } catch (\Exception $e) {
             Log::error("[GeminiController] Error in chat: " . $e->getMessage());
@@ -143,39 +101,15 @@ When the user makes a mistake, gently correct it and explain why. Use examples t
         answer_explanation (giải thích cho bài tập), correct_answer (từ đúng để điền vào chỗ trống).";
         }
 
-        $modelIndex = 0;
-        
-        while ($modelIndex < count($this->availableModels)) {
-            $modelName = $this->availableModels[$modelIndex];
-            Log::info("Trying Gemini model: {$modelName} for analyzeWord");
-
-            try {
-                $text = $this->generateContent($modelName, $prompt, [
-                    'responseMimeType' => 'application/json'
-                ]);
-
-                // Parse the JSON to ensure it is valid
-                $json = json_decode($text, true);
-                if (json_last_error() !== JSON_ERROR_NONE) {
-                    throw new \Exception("Gemini returned invalid JSON: " . json_last_error_msg());
-                }
-
-                return response()->json($json);
-                
-            } catch (\Exception $e) {
-                // If 429 quota error, fall back to next model
-                if ($e->getCode() == 429 || str_contains($e->getMessage(), '429') || str_contains($e->getMessage(), 'quota')) {
-                    Log::warning("Model {$modelName} quota exceeded. Falling back to next model.", ['error' => $e->getMessage()]);
-                    $modelIndex++;
-                    continue;
-                }
-                
-                // Other errors, throw them out to the client
-                Log::error("Gemini API Error in analyzeWord with model {$modelName}: " . $e->getMessage());
-                return response()->json(['message' => 'Lỗi kết nối Gemini: ' . $e->getMessage()], 500);
+        try {
+            $json = $this->gemini->generateJsonWithFallback($prompt);
+            return response()->json($json);
+        } catch (\Exception $e) {
+            if (str_contains($e->getMessage(), 'hết hạn mức')) {
+                return response()->json(['message' => $e->getMessage()], 429);
             }
+            Log::error("Gemini API Error in analyzeWord: " . $e->getMessage());
+            return response()->json(['message' => 'Lỗi kết nối Gemini: ' . $e->getMessage()], 500);
         }
-
-        return response()->json(['message' => 'Tất cả các model đều đã hết hạn mức hôm nay.'], 429);
     }
 }

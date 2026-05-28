@@ -12,6 +12,7 @@ class EnWord extends Model
     'next_review_at' => 'datetime',
     'is_active' => 'boolean',
     'is_grammar' => 'boolean',
+    'topic' => 'array',
 ];
 
      protected $fillable = [
@@ -27,6 +28,7 @@ class EnWord extends Model
         'exampleVn',
         'is_active',
         'is_grammar',
+        'topic',
         'streak',
         'lapses',
     ];

@@ -44,7 +44,9 @@ class JapaneseController extends Controller
                 'explanation'       => 'required|string',
                 'stroke_url'        => 'nullable|url',
                 'audio_url'         => 'nullable|url',
-                'is_grammar'        => 'nullable|string',
+                'is_grammar'        => 'nullable|boolean',
+                'topic'             => 'nullable|array',
+                'topic.*'           => 'string|max:100',
                 'contexts'                  => 'nullable|array',
                 'contexts.*.context_vi'     => 'required_with:contexts|string',
                 'contexts.*.highlight_line' => 'nullable|string',
@@ -67,8 +69,14 @@ class JapaneseController extends Controller
             ]);
 
             if ($v->fails()) {
+                $errorDetails = [];
+                foreach ($v->errors()->toArray() as $field => $messages) {
+                    $errorDetails[] = "$field (" . implode(', ', $messages) . ")";
+                }
+                $errorMessage = "Item #$idx không hợp lệ: " . implode(', ', $errorDetails);
+
                 return response()->json([
-                    'error'   => "Item #$idx không hợp lệ",
+                    'error'   => $errorMessage,
                     'details' => $v->errors()->toArray(),
                 ], 422);
             }
@@ -182,6 +190,8 @@ class JapaneseController extends Controller
             'sentence_vi'     => 'nullable|string',
             'is_grammar'      => 'nullable|boolean',
             'is_active'      => 'nullable|boolean',
+            'topic'          => 'nullable|array',
+            'topic.*'        => 'string|max:100',
         ]);
 
         $userId = $request->user()->id;
@@ -215,6 +225,8 @@ class JapaneseController extends Controller
             'level'            => 'nullable|integer|min:1|max:7',
             'is_grammar'       => 'nullable|boolean',
             'is_active'        => 'nullable|boolean',
+            'topic'            => 'nullable|array',
+            'topic.*'          => 'string|max:100',
             'han_viet'            => 'nullable|string|max:255',
             'hanviet_explanation' => 'nullable|string',
             'context_vi'          => 'nullable|string',

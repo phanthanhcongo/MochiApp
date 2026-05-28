@@ -21,6 +21,7 @@ type EnWord = {
   examples?: Example[];
   is_active?: boolean | number | "1" | "0";
   is_grammar?: boolean | number | "1" | "0";
+  topic?: string[] | null;
 };
 type CEFROption = "" | "A1" | "A2" | "B1" | "B2" | "C1" | "C2" | "all";
 
@@ -46,11 +47,23 @@ export default function VocabularyTable() {
   const [cefrFilter, setCefrFilter] = useState<CEFROption>("all");
   const [activeFilter, setActiveFilter] = useState<"all" | "active" | "inactive">("all");
   const [typeFilter, setTypeFilter] = useState<"all" | "word" | "grammar">("all");
+  const [topicFilter, setTopicFilter] = useState<string>("all");
 
   // Tạo list level để chọn
   const levels = useMemo(() => {
     const u = Array.from(new Set(words.map(w => w.level))).sort((a, b) => a - b);
     return u.length ? u : [1, 2, 3, 4, 5];
+  }, [words]);
+
+  // Collect all unique topics for filter dropdown
+  const allTopics = useMemo(() => {
+    const topicSet = new Set<string>();
+    words.forEach(w => {
+      if (Array.isArray(w.topic)) {
+        w.topic.forEach(t => topicSet.add(t));
+      }
+    });
+    return Array.from(topicSet).sort();
   }, [words]);
 
   useEffect(() => {
@@ -128,9 +141,13 @@ export default function VocabularyTable() {
       const matchType = typeFilter === "all" ? true : 
         (typeFilter === "grammar" ? isGrammar : !isGrammar);
 
-      return matchSearch && matchLevel && matchCefr && matchActive && matchType;
+      // Filter by topic
+      const matchTopic = topicFilter === "all" ? true :
+        (Array.isArray(w.topic) && w.topic.includes(topicFilter));
+
+      return matchSearch && matchLevel && matchCefr && matchActive && matchType && matchTopic;
     });
-  }, [words, searchTerm, levelFilter, cefrFilter, activeFilter, typeFilter]);
+  }, [words, searchTerm, levelFilter, cefrFilter, activeFilter, typeFilter, topicFilter]);
 
   const goEdit = (w: EnWord) => navigate(`/en/editWord/${w.id}`);
 
@@ -199,6 +216,135 @@ export default function VocabularyTable() {
       closeConfirm();
     }
   }
+
+  // ===== EXPORT SELECTED WORDS =====
+  const handleExportSelected = () => {
+    // Lấy danh sách từ đã chọn (hoặc tất cả nếu không chọn gì)
+    const wordsToExport = selectedIds.size > 0
+      ? words.filter(w => selectedIds.has(w.id))
+      : filteredWords;
+
+    if (wordsToExport.length === 0) {
+      setError("Không có từ nào để export");
+      return;
+    }
+
+    // Map sang format import
+    const exportData = wordsToExport.map((w: EnWord) => {
+      const item: any = {
+        id: w.id,
+        word: w.word || '',
+        ipa: w.ipa || '',
+        meaning_vi: w.meaning_vi || '',
+        cefr_level: w.cefr_level || null,
+        level: w.level ?? 1,
+        exampleEn: w.exampleEn || '',
+        exampleVi: w.exampleVn || '',
+        is_grammar: w.is_grammar ? '1' : '0',
+        topic: w.topic || [],
+      };
+
+      // Contexts
+      if (Array.isArray(w.contexts) && w.contexts.length > 0) {
+        item.contexts = w.contexts.map((ctx: Context) => ({
+          context_vi: ctx.context_vi || '',
+        }));
+      } else {
+        item.contexts = [];
+      }
+
+      // Examples
+      if (Array.isArray(w.examples) && w.examples.length > 0) {
+        item.examples = w.examples.map((ex: Example) => ({
+          sentence_en: ex.sentence_en || '',
+          sentence_vi: ex.sentence_vi || '',
+        }));
+      } else {
+        item.examples = [];
+      }
+
+      // Quizzes
+      if (Array.isArray(w.examples) && w.examples.length > 0) {
+        const quizzes: any[] = [];
+        w.examples.forEach((ex: Example) => {
+          if (Array.isArray(ex.exercises)) {
+            ex.exercises.forEach((q: Exercise) => {
+              quizzes.push({
+                question_type: q.question_type || 'fill_in_blank',
+                question_text: q.question_text || '',
+                blank_position: q.blank_position ?? 1,
+                answer_explanation: q.answer_explanation || '',
+                choices: Array.isArray(q.choices)
+                  ? q.choices.map((c: Choice) => ({
+                      content: c.content || '',
+                      is_correct: !!c.is_correct,
+                    }))
+                  : [],
+              });
+            });
+          }
+        });
+        if (quizzes.length > 0) {
+          item.quizzes = quizzes;
+        } else {
+          item.quizzes = [];
+        }
+      } else {
+        item.quizzes = [];
+      }
+
+      return item;
+    });
+
+    // Tạo file JSON và download
+    const blob = new Blob([JSON.stringify(exportData, null, 4)], {
+      type: 'application/json',
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    const timestamp = new Date().toISOString().slice(0, 10);
+    a.download = `mochi_en_export_${timestamp}_${exportData.length}words.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    setMessage(`Đã export ${exportData.length} từ thành công!`);
+  };
+
+  // ===== EXPORT MINIMAL (ID & WORD) =====
+  const handleExportMinimal = () => {
+    // Lấy danh sách từ đã chọn (hoặc tất cả nếu không chọn gì)
+    const wordsToExport = selectedIds.size > 0
+      ? words.filter(w => selectedIds.has(w.id))
+      : filteredWords;
+
+    if (wordsToExport.length === 0) {
+      setError("Không có từ nào để export");
+      return;
+    }
+
+    const exportData = wordsToExport.map((w: EnWord) => ({
+      id: w.id,
+      word: w.word || '',
+    }));
+
+    const blob = new Blob([JSON.stringify(exportData, null, 4)], {
+      type: 'application/json',
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    const timestamp = new Date().toISOString().slice(0, 10);
+    a.download = `mochi_en_minimal_${timestamp}_${exportData.length}words.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    setMessage(`Đã export ${exportData.length} từ (ID & Word) thành công!`);
+  };
 
   // ===== BULK ACTIONS =====
   const handleBulkActivate = async () => {
@@ -437,6 +583,17 @@ export default function VocabularyTable() {
                 <option value="inactive">Đang ẩn</option>
               </select>
 
+              <select
+                value={topicFilter}
+                onChange={(e) => setTopicFilter(e.target.value)}
+                className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
+              >
+                <option value="all">Topic: Tất cả</option>
+                {allTopics.map(topic => (
+                  <option key={topic} value={topic}>{topic}</option>
+                ))}
+              </select>
+
               <div className="ml-auto bg-yellow-100 text-yellow-700 px-2 py-1 rounded-md text-[10px] font-bold">
                 {filteredWords.length} kết quả
               </div>
@@ -476,6 +633,18 @@ export default function VocabularyTable() {
                     Đã chọn: {selectedIds.size}
                   </span>
                   <button
+                    onClick={() => handleExportSelected()}
+                    className="px-3 py-1 text-xs font-medium rounded-md bg-indigo-500 text-white hover:bg-indigo-600 transition-colors shadow-sm"
+                  >
+                    📥 Export JSON
+                  </button>
+                  <button
+                    onClick={() => handleExportMinimal()}
+                    className="px-3 py-1 text-xs font-medium rounded-md bg-purple-500 text-white hover:bg-purple-600 transition-colors shadow-sm"
+                  >
+                    📥 Export ID & Word
+                  </button>
+                  <button
                     onClick={() => handleBulkActivate()}
                     disabled={isBulkProcessing}
                     className="px-3 py-1 text-xs font-medium rounded-md bg-green-500 text-white hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
@@ -504,7 +673,23 @@ export default function VocabularyTable() {
                   </button>
                 </>
               ) : (
-                <span className="text-xs text-gray-400 italic">Chọn các từ để thao tác hàng loạt</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-gray-400 italic">Chọn các từ để thao tác hàng loạt</span>
+                  <button
+                    onClick={() => handleExportSelected()}
+                    className="px-3 py-1 text-xs font-medium rounded-md border border-indigo-300 bg-indigo-50 text-indigo-600 hover:bg-indigo-100 transition-colors shadow-sm"
+                    title="Export tất cả từ đang hiển thị"
+                  >
+                    📥 Export tất cả
+                  </button>
+                  <button
+                    onClick={() => handleExportMinimal()}
+                    className="px-3 py-1 text-xs font-medium rounded-md border border-purple-300 bg-purple-50 text-purple-600 hover:bg-purple-100 transition-colors shadow-sm"
+                    title="Export ID & Word tất cả từ đang hiển thị"
+                  >
+                    📥 Export ID & Word
+                  </button>
+                </div>
               )}
             </div>
           </div>
@@ -557,6 +742,11 @@ export default function VocabularyTable() {
                     Ngữ pháp
                   </span>
                 )}
+                {Array.isArray(w.topic) && w.topic.length > 0 && w.topic.map((t, i) => (
+                  <span key={i} className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 text-blue-700 px-2 py-0.5 rounded-full text-[10px] font-semibold">
+                    {t}
+                  </span>
+                ))}
               </div>
 
               <div className="flex gap-2">

@@ -1,0 +1,846 @@
+[
+  {
+    "kanji": "指導",
+    "reading_hiragana": "しどう",
+    "reading_romaji": "shidou",
+    "meaning_vi": "hướng dẫn, chỉ đạo",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "CHỈ ĐẠO",
+    "explanation": "Danh động từ. Chỉ dạy, hướng dẫn công việc hoặc nghiệp vụ cho cấp dưới hoặc người mới.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "先輩から作業手順を指導されました。",
+        "sentence_hira": "せんぱいからさぎょうてじゅんをしどうされました。",
+        "sentence_romaji": "Senpai kara sagyou tejun o shidou saremashita.",
+        "sentence_vi": "Tôi đã được tiền bối hướng dẫn trình tự công việc."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "先輩から作業手順を（　）されました。",
+        "blank_position": 1,
+        "answer_explanation": "‘指導’ (shidou) nghĩa là sự hướng dẫn, dạy bảo trong công việc.",
+        "choices": [
+          {
+            "content": "指導",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "担当",
+    "reading_hiragana": "たんとう",
+    "reading_romaji": "tantou",
+    "meaning_vi": "phụ trách",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "ĐẢM ĐƯƠNG",
+    "explanation": "Danh động từ. Đảm nhiệm, chịu trách nhiệm xử lý một mảng công việc nào đó.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "私は予約管理を担当しています。",
+        "sentence_hira": "わたしはよやくかんりをたんとうしています。",
+        "sentence_romaji": "Watashi wa yoyaku kanri o tantou shite imasu.",
+        "sentence_vi": "Tôi đang phụ trách quản lý đặt trước."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "私は予約管理を（　）しています。",
+        "blank_position": 1,
+        "answer_explanation": "‘担当’ (tantou) là phụ trách, đảm nhiệm công việc.",
+        "choices": [
+          {
+            "content": "担当",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "役職",
+    "reading_hiragana": "やくしょく",
+    "reading_romaji": "yakushoku",
+    "meaning_vi": "chức vụ",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "DỊCH CHỨC",
+    "explanation": "Danh từ. Chức vụ, vị trí đảm nhiệm trong công ty hoặc tổ chức.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "役職に応じて責任が変わります。",
+        "sentence_hira": "やくしょくにおうじてせきにんがかわります。",
+        "sentence_romaji": "Yakushoku ni oujite sekinin ga kawarimasu.",
+        "sentence_vi": "Trách nhiệm sẽ thay đổi tùy theo chức vụ."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）に応じて責任が変わります。",
+        "blank_position": 1,
+        "answer_explanation": "‘役職’ (yakushoku) là vị trí, chức vụ trong tổ chức.",
+        "choices": [
+          {
+            "content": "役職",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "上司",
+    "reading_hiragana": "じょうし",
+    "reading_romaji": "joushi",
+    "meaning_vi": "cấp trên",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Daily Life"
+    ],
+    "han_viet": "THƯỢNG TƯ",
+    "explanation": "Danh từ. Người có chức vụ cao hơn mình trong công ty.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "上司に確認してから返答します。",
+        "sentence_hira": "じょうしにかくにんしてからへんとうします。",
+        "sentence_romaji": "Joushi ni kakunin shite kara hentou shimasu.",
+        "sentence_vi": "Tôi sẽ xác nhận với cấp trên rồi mới trả lời."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）に確認してから返答します。",
+        "blank_position": 1,
+        "answer_explanation": "‘上司’ (joushi) nghĩa là cấp trên, sếp.",
+        "choices": [
+          {
+            "content": "上司",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "部下",
+    "reading_hiragana": "ぶか",
+    "reading_romaji": "buka",
+    "meaning_vi": "cấp dưới",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Daily Life"
+    ],
+    "han_viet": "BỘ HẠ",
+    "explanation": "Danh từ. Người có chức vụ thấp hơn, chịu sự quản lý trực tiếp của mình.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "部下の仕事をフォローします。",
+        "sentence_hira": "ぶかのしごとをフォローします。",
+        "sentence_romaji": "Buka no shigoto o foroo shimasu.",
+        "sentence_vi": "Tôi sẽ theo dõi (hỗ trợ) công việc của cấp dưới."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）の仕事をフォローします。",
+        "blank_position": 1,
+        "answer_explanation": "‘部下’ (buka) nghĩa là người cấp dưới.",
+        "choices": [
+          {
+            "content": "部下",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "同僚",
+    "reading_hiragana": "どうりょう",
+    "reading_romaji": "douryou",
+    "meaning_vi": "đồng nghiệp",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "ĐỒNG LIÊU",
+    "explanation": "Danh từ. Những người cùng làm việc trong một công ty hoặc cùng cấp bậc.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "同僚と協力して作業します。",
+        "sentence_hira": "どうりょうときょうりょくしてさぎょうします。",
+        "sentence_romaji": "Douryou to kyouryoku shite sagyou shimasu.",
+        "sentence_vi": "Hợp tác với đồng nghiệp để làm việc."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）と協力して作業します。",
+        "blank_position": 1,
+        "answer_explanation": "‘同僚’ (douryou) là những người đồng nghiệp làm cùng.",
+        "choices": [
+          {
+            "content": "同僚",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "顧客",
+    "reading_hiragana": "こきゃく",
+    "reading_romaji": "kokyaku",
+    "meaning_vi": "khách hàng",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "CỐ KHÁCH",
+    "explanation": "Danh từ. Khách hàng thân thiết, khách hàng của doanh nghiệp (dùng trong văn bản hoặc lịch sự).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "顧客対応を丁寧に行います。",
+        "sentence_hira": "こきゃくたいおうをていねいにおこないます。",
+        "sentence_romaji": "Kokyaku taiou o teinei ni okonaimasu.",
+        "sentence_vi": "Tiến hành đối ứng khách hàng một cách lịch sự."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）対応を丁寧に行います。",
+        "blank_position": 1,
+        "answer_explanation": "‘顧客’ (kokyaku) dùng để chỉ lượng khách hàng, người mua hàng.",
+        "choices": [
+          {
+            "content": "顧客",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "取引先",
+    "reading_hiragana": "とりひきさき",
+    "reading_romaji": "torihikisaki",
+    "meaning_vi": "đối tác giao dịch",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "THỦ DẪN TIÊN",
+    "explanation": "Danh từ. Công ty, tổ chức mà doanh nghiệp đang có quan hệ làm ăn, mua bán.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "取引先へメールを送ります。",
+        "sentence_hira": "とりひきさきへメールをおくります。",
+        "sentence_romaji": "Torihikisaki e meeru o okurimasu.",
+        "sentence_vi": "Tôi sẽ gửi email cho đối tác."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）へメールを送ります。",
+        "blank_position": 1,
+        "answer_explanation": "‘取引先’ là công ty khách hàng, đối tác làm ăn.",
+        "choices": [
+          {
+            "content": "取引先",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "担当者",
+    "reading_hiragana": "たんとうしゃ",
+    "reading_romaji": "tantousha",
+    "meaning_vi": "người phụ trách",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "ĐẢM ĐƯƠNG GIẢ",
+    "explanation": "Danh từ. Người trực tiếp chịu trách nhiệm thực hiện một mảng công việc cụ thể.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "担当者に確認します。",
+        "sentence_hira": "たんとうしゃにかくにんします。",
+        "sentence_romaji": "Tantousha ni kakunin shimasu.",
+        "sentence_vi": "Tôi sẽ xác nhận với người phụ trách."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）に確認します。",
+        "blank_position": 1,
+        "answer_explanation": "‘担当者’ (tantousha) nghĩa là người nhận nhiệm vụ phụ trách.",
+        "choices": [
+          {
+            "content": "担当者",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "責任者",
+    "reading_hiragana": "せきにんしゃ",
+    "reading_romaji": "sekininsha",
+    "meaning_vi": "người chịu trách nhiệm",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "TRÁCH NHIỆM GIẢ",
+    "explanation": "Danh từ. Người chịu trách nhiệm cao nhất về một vấn đề, quyết định sự việc.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "責任者に報告してください。",
+        "sentence_hira": "せきにんしゃにほうこくしてください。",
+        "sentence_romaji": "Sekininsha ni houkoku shite kudasai.",
+        "sentence_vi": "Hãy báo cáo cho người chịu trách nhiệm."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）に報告してください。",
+        "blank_position": 1,
+        "answer_explanation": "‘責任者’ (sekininsha) là người đứng mũi chịu sào, phụ trách chính.",
+        "choices": [
+          {
+            "content": "責任者",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "受付",
+    "reading_hiragana": "うけつけ",
+    "reading_romaji": "uketsuke",
+    "meaning_vi": "lễ tân, tiếp nhận",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "THỤ PHÓ",
+    "explanation": "Danh động từ. Việc tiếp nhận đơn từ, hồ sơ hoặc quầy tiếp tân đón khách.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "受付でお名前をお伝えください。",
+        "sentence_hira": "うけつけでおなまえをおつたえください。",
+        "sentence_romaji": "Uketsuke de onamae o otsutae kudasai.",
+        "sentence_vi": "Xin vui lòng cho biết tên tại quầy lễ tân."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）でお名前をお伝えください。",
+        "blank_position": 1,
+        "answer_explanation": "‘受付’ (uketsuke) là quầy lễ tân hoặc việc tiếp nhận.",
+        "choices": [
+          {
+            "content": "受付",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "案内",
+    "reading_hiragana": "あんない",
+    "reading_romaji": "annai",
+    "meaning_vi": "hướng dẫn",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "ÁN NỘI",
+    "explanation": "Danh động từ. Hướng dẫn đường đi, cách làm, cung cấp thông tin cho người khác.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "お客様を席まで案内します。",
+        "sentence_hira": "おきゃくさまをせきまであんないします。",
+        "sentence_romaji": "Okyakusama o seki made annai shimasu.",
+        "sentence_vi": "Tôi sẽ hướng dẫn (dẫn) khách đến chỗ ngồi."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "お客様を席まで（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘案内’ (annai) là sự chỉ dẫn, dẫn đường cho khách.",
+        "choices": [
+          {
+            "content": "案内",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "対応",
+    "reading_hiragana": "たいおう",
+    "reading_romaji": "taiou",
+    "meaning_vi": "xử lý, ứng đối",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "ĐỐI ỨNG",
+    "explanation": "Danh động từ. Việc ứng phó, đối đáp, xử lý vấn đề (thường dùng khi nói chuyện với khách hàng).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "クレームに落ち着いて対応します。",
+        "sentence_hira": "クレームにおちついてたいおうします。",
+        "sentence_romaji": "Kureemu ni ochitsuite taiou shimasu.",
+        "sentence_vi": "Xử lý phàn nàn một cách bình tĩnh."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "クレームに落ち着いて（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘対応’ (taiou) nghĩa là sự phản hồi, giải quyết sự việc hay vấn đề.",
+        "choices": [
+          {
+            "content": "対応",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "接客",
+    "reading_hiragana": "せっきゃく",
+    "reading_romaji": "sekkyaku",
+    "meaning_vi": "phục vụ khách hàng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "TIẾP KHÁCH",
+    "explanation": "Danh động từ. Việc đón tiếp và phục vụ khách hàng.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "笑顔で接客することを心がけています。",
+        "sentence_hira": "えがおでせっきゃくすることをこころがけています。",
+        "sentence_romaji": "Egao de sekkyaku suru koto o kokorogakete imasu.",
+        "sentence_vi": "Tôi luôn cố gắng phục vụ khách hàng với nụ cười."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "笑顔で（　）することを心がけています。",
+        "blank_position": 1,
+        "answer_explanation": "‘接客’ (sekkyaku) nghĩa là việc tiếp đón, phục vụ khách hàng.",
+        "choices": [
+          {
+            "content": "接客",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "注文",
+    "reading_hiragana": "ちゅうもん",
+    "reading_romaji": "chuumon",
+    "meaning_vi": "gọi món, đặt hàng",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Shopping",
+      "Food & Drink"
+    ],
+    "han_viet": "CHÚ VĂN",
+    "explanation": "Danh động từ. Yêu cầu làm, mua hoặc mang ra một món hàng, thức ăn.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "お客様の注文を確認します。",
+        "sentence_hira": "おきゃくさまのちゅうもんをかくにんします。",
+        "sentence_romaji": "Okyakusama no chuumon o kakunin shimasu.",
+        "sentence_vi": "Tôi sẽ xác nhận lại order của quý khách."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "お客様の（　）を確認します。",
+        "blank_position": 1,
+        "answer_explanation": "‘注文’ (chuumon) có nghĩa là đặt hàng hoặc gọi món.",
+        "choices": [
+          {
+            "content": "注文",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "予約",
+    "reading_hiragana": "よやく",
+    "reading_romaji": "yoyaku",
+    "meaning_vi": "đặt trước",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Travel",
+      "Daily Life"
+    ],
+    "han_viet": "DỰ ƯỚC",
+    "explanation": "Danh động từ. Việc đăng ký trước chỗ ngồi, phòng hoặc dịch vụ.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "予約内容を確認しました。",
+        "sentence_hira": "よやくないようをかくにんしました。",
+        "sentence_romaji": "Yoyaku naiyou o kakunin shimashita.",
+        "sentence_vi": "Tôi đã xác nhận nội dung đặt trước."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）内容を確認しました。",
+        "blank_position": 1,
+        "answer_explanation": "‘予約’ (yoyaku) có nghĩa là đăng ký, hẹn đặt chỗ trước.",
+        "choices": [
+          {
+            "content": "予約",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "変更",
+    "reading_hiragana": "へんこう",
+    "reading_romaji": "henkou",
+    "meaning_vi": "thay đổi",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "BIẾN CANH",
+    "explanation": "Danh động từ. Sửa đổi, đổi khác so với kế hoạch hoặc trạng thái ban đầu.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "シフトの変更を相談します。",
+        "sentence_hira": "シフトのへんこうをそうだんします。",
+        "sentence_romaji": "Shifuto no henkou o soudan shimasu.",
+        "sentence_vi": "Tôi sẽ bàn bạc về việc thay đổi ca làm việc."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "シフトの（　）を相談します。",
+        "blank_position": 1,
+        "answer_explanation": "‘変更’ (henkou) mang ý nghĩa điều chỉnh lại, thay đổi.",
+        "choices": [
+          {
+            "content": "変更",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "中止",
+    "reading_hiragana": "ちゅうし",
+    "reading_romaji": "chuushi",
+    "meaning_vi": "hủy, dừng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "TRUNG CHỈ",
+    "explanation": "Danh động từ. Hủy bỏ hoặc dừng giữa chừng một kế hoạch, sự kiện.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "雨のためイベントは中止になりました。",
+        "sentence_hira": "あめのためイベントはちゅうしになりました。",
+        "sentence_romaji": "Ame no tame ibento wa chuushi ni narimashita.",
+        "sentence_vi": "Vì trời mưa nên sự kiện đã bị hủy bỏ."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "雨のためイベントは（　）になりました。",
+        "blank_position": 1,
+        "answer_explanation": "‘中止’ (chuushi) nghĩa là dừng lại, ngừng việc diễn ra sự kiện.",
+        "choices": [
+          {
+            "content": "中止",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "確定",
+    "reading_hiragana": "かくてい",
+    "reading_romaji": "kakutei",
+    "meaning_vi": "xác định, chốt",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "XÁC ĐỊNH",
+    "explanation": "Danh động từ. Việc chốt lại cuối cùng một quyết định, lịch trình.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "日程が確定しました。",
+        "sentence_hira": "にっていがかくていしました。",
+        "sentence_romaji": "Nittei ga kakutei shimashita.",
+        "sentence_vi": "Lịch trình đã được chốt (xác định)."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "日程が（　）しました。",
+        "blank_position": 1,
+        "answer_explanation": "‘確定’ (kakutei) dùng để nói về việc chốt, đưa ra quyết định cuối cùng.",
+        "choices": [
+          {
+            "content": "確定",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "調整",
+    "reading_hiragana": "ちょうせい",
+    "reading_romaji": "chousei",
+    "meaning_vi": "điều chỉnh",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "ĐIỀU CHỈNH",
+    "explanation": "Danh động từ. Việc sắp xếp, điều chỉnh lại cho cân bằng, hợp lý (như lịch trình, thông số).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "面談時間を調整します。",
+        "sentence_hira": "めんだんじかんをちょうせいします。",
+        "sentence_romaji": "Mendanjikan o chousei shimasu.",
+        "sentence_vi": "Tôi sẽ điều chỉnh thời gian phỏng vấn/trao đổi."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "面談時間を（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘調整’ (chousei) là thay đổi để đạt được sự cân đối, phù hợp.",
+        "choices": [
+          {
+            "content": "調整",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  }
+]

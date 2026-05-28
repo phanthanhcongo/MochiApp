@@ -53,6 +53,7 @@ const VocabularyTable: React.FC = () => {
   const [confirmingId, setConfirmingId] = useState<string | null>(null); // ô xác nhận
   const [typeFilter, setTypeFilter] = useState<'all' | 'word' | 'grammar'>('all');
   const [activeFilter, setActiveFilter] = useState<'all' | 'active' | 'inactive'>('all');
+  const [topicFilter, setTopicFilter] = useState<string>('all');
 
   // Thêm state thông báo và lỗi + trạng thái xoá
   const [message, setMessage] = useState<string | null>(null);
@@ -92,6 +93,17 @@ const VocabularyTable: React.FC = () => {
     [words]
   );
 
+  // Collect all unique topics for filter dropdown
+  const allTopics = React.useMemo(() => {
+    const topicSet = new Set<string>();
+    words.forEach((w: any) => {
+      if (Array.isArray(w.topic)) {
+        w.topic.forEach((t: string) => topicSet.add(t));
+      }
+    });
+    return Array.from(topicSet).sort();
+  }, [words]);
+
   const getJlpt = (w: any): 'N1' | 'N2' | 'N3' | 'N4' | 'N5' | undefined => {
     if (typeof w?.jlpt_level === 'string') {
       const up = w.jlpt_level.toUpperCase();
@@ -107,7 +119,8 @@ const VocabularyTable: React.FC = () => {
     const matchText =
       word.kanji.toLowerCase().includes(q) ||
       word.reading_romaji.toLowerCase().includes(q) ||
-      word.meaning_vi.toLowerCase().includes(q);
+      word.meaning_vi.toLowerCase().includes(q) ||
+      (Array.isArray(word.topic) && word.topic.some((t: string) => t.toLowerCase().includes(q)));
 
     const matchLevel = levelFilter === 'all' ? true : word.level === levelFilter;
 
@@ -130,7 +143,11 @@ const VocabularyTable: React.FC = () => {
           ? activeFlag
           : !activeFlag;
 
-    return matchText && matchLevel && matchJlpt && matchType && matchActive;
+    // Filter by topic
+    const matchTopic = topicFilter === 'all' ? true :
+      (Array.isArray(word.topic) && word.topic.includes(topicFilter));
+
+    return matchText && matchLevel && matchJlpt && matchType && matchActive && matchTopic;
   });
 
 
@@ -163,7 +180,13 @@ const VocabularyTable: React.FC = () => {
     const form = toFormState(w);
     sessionStorage.setItem('editingId', String(id));
     sessionStorage.setItem('editingForm', JSON.stringify(form));
-    navigate(`/jp/editWord/${id}`, { state: { id, form } });
+    // Also store topic tags for edit form
+    if (Array.isArray(w.topic)) {
+      sessionStorage.setItem('editingTopicTags', JSON.stringify(w.topic));
+    } else {
+      sessionStorage.removeItem('editingTopicTags');
+    }
+    navigate(`/jp/editWord/${id}`, { state: { id, form, topic: w.topic || [] } });
   };
 
   // ===== EXPORT SELECTED WORDS =====
@@ -181,6 +204,7 @@ const VocabularyTable: React.FC = () => {
     // Map sang format import (giống data.json)
     const exportData = wordsToExport.map((w: any) => {
       const item: any = {
+        id: w.id ?? w._id ?? '',
         kanji: w.kanji || '',
         reading_hiragana: w.reading_hiragana || '',
         reading_romaji: w.reading_romaji || '',
@@ -192,6 +216,7 @@ const VocabularyTable: React.FC = () => {
         stroke_url: w.stroke?.stroke_url || null,
         audio_url: w.audio_url || null,
         is_grammar: w.is_grammar ? '1' : '0',
+        topic: w.topic || [],
       };
 
       // Contexts
@@ -267,6 +292,39 @@ const VocabularyTable: React.FC = () => {
     URL.revokeObjectURL(url);
 
     setMessage(`Đã export ${exportData.length} từ thành công!`);
+  };
+
+  // ===== EXPORT MINIMAL (ID & KANJI) =====
+  const handleExportMinimal = () => {
+    // Lấy danh sách từ đã chọn (hoặc tất cả nếu không chọn gì)
+    const wordsToExport = selectedIds.size > 0
+      ? words.filter(w => selectedIds.has(String(w.id ?? w._id)))
+      : displayedWords;
+
+    if (wordsToExport.length === 0) {
+      setError('Không có từ nào để export');
+      return;
+    }
+
+    const exportData = wordsToExport.map((w: any) => ({
+      id: w.id ?? w._id ?? '',
+      kanji: w.kanji || '',
+    }));
+
+    const blob = new Blob([JSON.stringify(exportData, null, 4)], {
+      type: 'application/json',
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    const timestamp = new Date().toISOString().slice(0, 10);
+    a.download = `mochi_jp_minimal_${timestamp}_${exportData.length}words.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    setMessage(`Đã export ${exportData.length} từ (ID & Kanji) thành công!`);
   };
 
   // ===== BULK ACTIONS =====
@@ -514,6 +572,17 @@ const VocabularyTable: React.FC = () => {
               </select>
 
               <select
+                value={topicFilter}
+                onChange={(e) => setTopicFilter(e.target.value)}
+                className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
+              >
+                <option value="all">Topic: Tất cả</option>
+                {allTopics.map((t) => (
+                  <option key={t} value={t}>{t}</option>
+                ))}
+              </select>
+
+              <select
                 value={limitFilter}
                 onChange={(e) => setLimitFilter(e.target.value === 'all' ? 'all' : Number(e.target.value) as 10 | 20)}
                 className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
@@ -568,6 +637,12 @@ const VocabularyTable: React.FC = () => {
                     📥 Export JSON
                   </button>
                   <button
+                    onClick={() => handleExportMinimal()}
+                    className="px-3 py-1 text-xs font-medium rounded-md bg-purple-500 text-white hover:bg-purple-600 transition-colors shadow-sm"
+                  >
+                    📥 Export ID & Kanji
+                  </button>
+                  <button
                     onClick={() => handleBulkActivate()}
                     disabled={isBulkProcessing}
                     className="px-3 py-1 text-xs font-medium rounded-md bg-green-500 text-white hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
@@ -604,6 +679,13 @@ const VocabularyTable: React.FC = () => {
                     title="Export tất cả từ đang hiển thị"
                   >
                     📥 Export tất cả
+                  </button>
+                  <button
+                    onClick={() => handleExportMinimal()}
+                    className="px-3 py-1 text-xs font-medium rounded-md border border-purple-300 bg-purple-50 text-purple-600 hover:bg-purple-100 transition-colors shadow-sm"
+                    title="Export ID & Kanji tất cả từ đang hiển thị"
+                  >
+                    📥 Export ID & Kanji
                   </button>
                 </div>
               )}
@@ -656,6 +738,11 @@ const VocabularyTable: React.FC = () => {
                       Ngữ pháp
                     </span>
                   )}
+                  {Array.isArray(word.topic) && word.topic.length > 0 && word.topic.map((t: string, i: number) => (
+                    <span key={i} className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 text-blue-700 px-2 py-0.5 rounded-full text-[10px] font-semibold">
+                      {t}
+                    </span>
+                  ))}
                 </div>
 
                 <div className="flex gap-2">

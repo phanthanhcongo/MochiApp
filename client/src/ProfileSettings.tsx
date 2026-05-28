@@ -41,6 +41,7 @@ const ProfileSettings: React.FC = () => {
   const [showAvatarModal, setShowAvatarModal] = useState(false);
   const token = localStorage.getItem('token');
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+  const [expandedSessionId, setExpandedSessionId] = useState<number | null>(null);
 
   // Unified current language resolver. Order: state, URL, profile, localStorage, navigator, default "en".
   const resolvedLang: Lang = useMemo(() => {
@@ -195,6 +196,28 @@ const ProfileSettings: React.FC = () => {
       setMessage({ type: 'error', text: e instanceof Error ? e.message : 'Lưu thất bại, vui lòng thử lại' });
     } finally {
       setSaving(false);
+    }
+  };
+
+  const handleExportSession = (session: any) => {
+    try {
+      if (!session) return;
+      const formattedJson = JSON.stringify(session, null, 2);
+      const blob = new Blob([formattedJson], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      const sessionDateStr = new Date(session.date).toISOString().replace(/[:.]/g, '-');
+      link.download = `practice_session_${sessionDateStr}.json`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+
+      setMessage({ type: 'success', text: 'Xuất file phiên học thành công!' });
+    } catch (e) {
+      console.error('Lỗi khi xuất file JSON:', e);
+      setMessage({ type: 'error', text: 'Đã xảy ra lỗi khi xuất file.' });
     }
   };
 
@@ -399,24 +422,83 @@ const ProfileSettings: React.FC = () => {
                 };
 
                 return history.map((h: any) => (
-                  <div key={h.id} className="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-100 text-[10px] md:text-xs hover:bg-white hover:shadow-sm transition-all duration-200">
-                    <div className="flex flex-col">
-                      <span className="font-bold text-gray-700">
-                        {new Date(h.date).toLocaleDateString('vi-VN')} {new Date(h.date).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}
-                      </span>
-                      <span className="text-gray-500 uppercase tracking-tight flex items-center gap-1">
-                        <span className={h.type === 'grammar' ? 'text-purple-600' : 'text-blue-600'}>
-                          {h.type === 'grammar' ? '📓 Ngữ pháp' : '🔤 Từ vựng'}
+                  <div
+                    key={h.id}
+                    onClick={() => {
+                      if (h.words && h.words.length > 0) {
+                        setExpandedSessionId(expandedSessionId === h.id ? null : h.id);
+                      }
+                    }}
+                    className={`flex flex-col p-2.5 rounded-lg border transition-all duration-200 ${
+                      h.words && h.words.length > 0 ? 'cursor-pointer' : ''
+                    } ${
+                      expandedSessionId === h.id
+                        ? 'bg-slate-50/50 border-amber-200 shadow-inner'
+                        : 'bg-slate-50 border-slate-100 hover:bg-white hover:shadow-sm hover:border-slate-200'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between w-full">
+                      <div className="flex flex-col">
+                        <span className="font-bold text-gray-700 text-[10px] md:text-xs">
+                          {new Date(h.date).toLocaleDateString('vi-VN')} {new Date(h.date).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}
                         </span>
-                        <span>•</span>
-                        <span className="font-semibold text-gray-600">{h.count} câu</span>
-                      </span>
+                        <span className="text-gray-500 uppercase tracking-tight flex items-center gap-1 text-[9px] md:text-[10px]">
+                          <span className={h.type === 'grammar' ? 'text-purple-600' : 'text-blue-600'}>
+                            {h.type === 'grammar' ? '📓 Ngữ pháp' : '🔤 Từ vựng'}
+                          </span>
+                          <span>•</span>
+                          <span className="font-semibold text-gray-600">{h.count} câu</span>
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleExportSession(h);
+                          }}
+                          className="w-6 h-6 rounded bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-700 transition-all duration-200 active:scale-95 cursor-pointer flex items-center justify-center border border-slate-200 shadow-sm"
+                          title="Xuất phiên học này ra file JSON"
+                        >
+                          <svg className="w-3 h-3 md:w-3.5 md:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                          </svg>
+                        </button>
+                        <span className="bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full font-black shadow-sm text-[9px] md:text-xs">
+                          {formatDuration(h.duration)}
+                        </span>
+                        {h.words && h.words.length > 0 && (
+                          <span
+                            className="text-slate-400 text-[8px] md:text-[10px] transition-transform duration-200"
+                            style={{ transform: expandedSessionId === h.id ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                          >
+                            ▼
+                          </span>
+                        )}
+                      </div>
                     </div>
-                    <div className="flex flex-col items-end gap-1">
-                      <span className="bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full font-black shadow-sm text-[9px] md:text-xs">
-                        {formatDuration(h.duration)}
-                      </span>
-                    </div>
+
+                    {/* Danh sách từ vựng/kanji chi tiết */}
+                    {expandedSessionId === h.id && h.words && Array.isArray(h.words) && h.words.length > 0 && (
+                      <div className="mt-2.5 pt-2.5 border-t border-slate-100 w-full animate-in slide-in-from-top-1 duration-200">
+                        <p className="font-bold text-slate-500 mb-1.5 text-[8px] md:text-[9px] uppercase tracking-wider">Danh sách từ đã ôn:</p>
+                        <div className="space-y-1.5 max-h-48 overflow-y-auto pr-1 custom-scrollbar">
+                          {h.words.map((w: any, idx: number) => (
+                            <div key={idx} className="p-1.5 rounded bg-white border border-slate-100/70 shadow-sm flex flex-col gap-0.5">
+                              <div className="flex items-center gap-1.5">
+                                <span className="font-bold text-orange-500 text-xs md:text-sm">{w.kanji}</span>
+                              </div>
+                              {w.example && (
+                                <div className="mt-0.5 pl-1.5 border-l-2 border-amber-300 text-[9px] md:text-[11px] text-slate-600 flex flex-col gap-0.5 leading-relaxed">
+                                  <span className="font-medium text-slate-700">{w.example}</span>
+                                  {w.example_vi && <span className="text-slate-400 italic text-[8px] md:text-[10px]">{w.example_vi}</span>}
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 ));
               } catch (e) {

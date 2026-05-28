@@ -14,6 +14,7 @@ protected $casts = [
     'next_review_at' => 'datetime',
       'is_grammar' => 'boolean',
         'is_active' => 'boolean',
+        'topic' => 'array',
 ];
     protected $fillable = [
         'user_id',
@@ -28,6 +29,7 @@ protected $casts = [
         'audio_url',
         'is_grammar',
         'is_active',
+        'topic',
         'streak',
         'lapses',
         'last_quiz_type',

@@ -1,0 +1,852 @@
+[
+  {
+    "kanji": "支払",
+    "reading_hiragana": "しはらい",
+    "reading_romaji": "shiharai",
+    "meaning_vi": "thanh toán",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Finance"
+    ],
+    "han_viet": "CHI PHẤT",
+    "explanation": "Danh từ. Trả tiền cho một dịch vụ hoặc hàng hóa đã nhận.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "支払日は毎月25日です。",
+        "sentence_hira": "しはらいびはまいつきにじゅうごにちです。",
+        "sentence_romaji": "Shiharaibi wa maitsuki nijuugonichi desu.",
+        "sentence_vi": "Ngày thanh toán là ngày 25 hàng tháng."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）日は毎月25日です。",
+        "blank_position": 1,
+        "answer_explanation": "‘支払’ (shiharai) nghĩa là thanh toán, chi trả.",
+        "choices": [
+          {
+            "content": "支払",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "経費",
+    "reading_hiragana": "けいひ",
+    "reading_romaji": "keihi",
+    "meaning_vi": "chi phí công việc",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Finance"
+    ],
+    "han_viet": "KINH PHÍ",
+    "explanation": "Danh từ. Khoản chi phí phát sinh trong quá trình hoạt động của công ty.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "交通費は経費として申請できます。",
+        "sentence_hira": "こうつうひはけいひとしてしんせいできます。",
+        "sentence_romaji": "Koutsuuhi wa keihi toshite shinsei dekimasu.",
+        "sentence_vi": "Phí đi lại có thể được đăng ký dưới dạng chi phí công việc."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "交通費は（　）として申請できます。",
+        "blank_position": 1,
+        "answer_explanation": "‘経費’ (keihi) là kinh phí, chi phí của công ty.",
+        "choices": [
+          {
+            "content": "経費",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "交通費",
+    "reading_hiragana": "こうつうひ",
+    "reading_romaji": "koutsuuhi",
+    "meaning_vi": "phí đi lại",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Finance"
+    ],
+    "han_viet": "GIAO THÔNG PHÍ",
+    "explanation": "Danh từ. Chi phí di chuyển, đi lại phục vụ công việc.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "交通費は会社が支給します。",
+        "sentence_hira": "こうつうひはかいしゃがしきゅうします。",
+        "sentence_romaji": "Koutsuuhi wa kaisha ga shikyuu shimasu.",
+        "sentence_vi": "Phí đi lại sẽ do công ty chi trả."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）は会社が支給します。",
+        "blank_position": 1,
+        "answer_explanation": "‘交通費’ (koutsuuhi) là chi phí đi lại, giao thông.",
+        "choices": [
+          {
+            "content": "交通費",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "給与",
+    "reading_hiragana": "きゅうよ",
+    "reading_romaji": "kyuuyo",
+    "meaning_vi": "tiền lương",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Finance"
+    ],
+    "han_viet": "CẤP DỮ",
+    "explanation": "Danh từ. Khoản tiền lương nhận được từ công ty (bao gồm lương cơ bản và phụ cấp).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "給与明細を確認しました。",
+        "sentence_hira": "きゅうよめいさいをかくにんしました。",
+        "sentence_romaji": "Kyuuyo meisai o kakunin shimashita.",
+        "sentence_vi": "Tôi đã kiểm tra bảng lương chi tiết."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）明細を確認しました。",
+        "blank_position": 1,
+        "answer_explanation": "‘給与’ (kyuuyo) là tiền lương, lương bổng.",
+        "choices": [
+          {
+            "content": "給与",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "賞与",
+    "reading_hiragana": "しょうよ",
+    "reading_romaji": "shouyo",
+    "meaning_vi": "tiền thưởng",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Finance"
+    ],
+    "han_viet": "THƯỞNG DỮ",
+    "explanation": "Danh từ. Tiền thưởng (thường là thưởng Tết hoặc thưởng định kỳ).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "賞与は年2回支給されます。",
+        "sentence_hira": "しょうよはねんにかいしきゅうされます。",
+        "sentence_romaji": "Shouyo wa nen nikai shikyuu saremasu.",
+        "sentence_vi": "Tiền thưởng được chi trả 2 lần 1 năm."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）は年2回支給されます。",
+        "blank_position": 1,
+        "answer_explanation": "‘賞与’ (shouyo) nghĩa là tiền thưởng.",
+        "choices": [
+          {
+            "content": "賞与",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "手当",
+    "reading_hiragana": "てあて",
+    "reading_romaji": "teate",
+    "meaning_vi": "phụ cấp",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Finance"
+    ],
+    "han_viet": "THỦ ĐƯƠNG",
+    "explanation": "Danh từ. Tiền phụ cấp ngoài lương cơ bản (ví dụ: phụ cấp nhà ở, đi lại).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "住宅手当があります。",
+        "sentence_hira": "じゅうたくてあてがあります。",
+        "sentence_romaji": "Juutaku teate ga arimasu.",
+        "sentence_vi": "Có phụ cấp nhà ở."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "住宅（　）があります。",
+        "blank_position": 1,
+        "answer_explanation": "‘手当’ (teate) trong công ty nghĩa là trợ cấp, phụ cấp.",
+        "choices": [
+          {
+            "content": "手当",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "控除",
+    "reading_hiragana": "こうじょ",
+    "reading_romaji": "koujo",
+    "meaning_vi": "khấu trừ",
+    "jlpt_level": "N1",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Finance"
+    ],
+    "han_viet": "KHỐNG TRỪ",
+    "explanation": "Danh động từ. Sự trừ đi một khoản tiền (như thuế, bảo hiểm) trước khi phát lương.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "保険料が給与から控除されます。",
+        "sentence_hira": "ほけんりょうがきゅうよからこうじょされます。",
+        "sentence_romaji": "Hokenryou ga kyuuyo kara koujo saremasu.",
+        "sentence_vi": "Phí bảo hiểm sẽ bị khấu trừ từ tiền lương."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "保険料が給与から（　）されます。",
+        "blank_position": 1,
+        "answer_explanation": "‘控除’ (koujo) là việc trừ bớt, khấu trừ khoản tiền.",
+        "choices": [
+          {
+            "content": "控除",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "残業",
+    "reading_hiragana": "ざんぎょう",
+    "reading_romaji": "zangyou",
+    "meaning_vi": "tăng ca",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "TÀN NGHIỆP",
+    "explanation": "Danh động từ. Làm việc ngoài giờ hành chính được quy định.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "残業がある場合は事前に確認します。",
+        "sentence_hira": "ざんぎょうがあるばあいはじぜんにかくにんします。",
+        "sentence_romaji": "Zangyou ga aru baai wa jizen ni kakunin shimasu.",
+        "sentence_vi": "Trường hợp có tăng ca, tôi sẽ kiểm tra trước."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）がある場合は事前に確認します。",
+        "blank_position": 1,
+        "answer_explanation": "‘残業’ (zangyou) nghĩa là làm thêm giờ, tăng ca.",
+        "choices": [
+          {
+            "content": "残業",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "出勤",
+    "reading_hiragana": "しゅっきん",
+    "reading_romaji": "shukkin",
+    "meaning_vi": "đi làm",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "XUẤT CẦN",
+    "explanation": "Danh động từ. Có mặt tại nơi làm việc để bắt đầu ca làm.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "明日は9時に出勤します。",
+        "sentence_hira": "あしたはくじにしゅっきんします。",
+        "sentence_romaji": "Ashita wa kuji ni shukkin shimasu.",
+        "sentence_vi": "Ngày mai tôi sẽ đi làm lúc 9 giờ."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "明日は9時に（　）します。",
+        "blank_position": 1,
+        "answer_explanation": "‘出勤’ (shukkin) nghĩa là đi làm, tới chỗ làm.",
+        "choices": [
+          {
+            "content": "出勤",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "退勤",
+    "reading_hiragana": "たいきん",
+    "reading_romaji": "taikin",
+    "meaning_vi": "tan làm",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "THOÁI CẦN",
+    "explanation": "Danh động từ. Kết thúc ca làm việc và ra về.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "退勤時に日報を提出します。",
+        "sentence_hira": "たいきんじににっぽうをていしゅつします。",
+        "sentence_romaji": "Taikinji ni nippou o teishutsu shimasu.",
+        "sentence_vi": "Tôi sẽ nộp báo cáo ngày vào lúc tan làm."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）時に日報を提出します。",
+        "blank_position": 1,
+        "answer_explanation": "‘退勤’ (taikin) là hết giờ làm, kết thúc làm việc.",
+        "choices": [
+          {
+            "content": "退勤",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "欠勤",
+    "reading_hiragana": "けっきん",
+    "reading_romaji": "kekkin",
+    "meaning_vi": "nghỉ không đi làm",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "KHIẾM CẦN",
+    "explanation": "Danh động từ. Vắng mặt, không đi làm trong ngày làm việc đã định.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "体調不良で欠勤する場合は連絡します。",
+        "sentence_hira": "たいちょうふりょうでけっきんするばあいはれんらくします。",
+        "sentence_romaji": "Taichou furyou de kekkin suru baai wa renraku shimasu.",
+        "sentence_vi": "Trường hợp nghỉ làm do sức khỏe không tốt, tôi sẽ liên lạc."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "体調不良で（　）する場合は連絡します。",
+        "blank_position": 1,
+        "answer_explanation": "‘欠勤’ (kekkin) nghĩa là vắng mặt, không thể đi làm.",
+        "choices": [
+          {
+            "content": "欠勤",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "遅刻",
+    "reading_hiragana": "ちこく",
+    "reading_romaji": "chikoku",
+    "meaning_vi": "đi muộn",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "TRÌ KHẮC",
+    "explanation": "Danh động từ. Đến nơi làm việc muộn hơn giờ quy định.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "遅刻しそうな時はすぐ連絡します。",
+        "sentence_hira": "ちこくしそうなときはすぐれんらくします。",
+        "sentence_romaji": "Chikoku shisou na toki wa sugu renraku shimasu.",
+        "sentence_vi": "Lúc có vẻ sẽ đi muộn tôi sẽ liên lạc ngay."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）しそうな時はすぐ連絡します。",
+        "blank_position": 1,
+        "answer_explanation": "‘遅刻’ (chikoku) là việc đi trễ, tới muộn.",
+        "choices": [
+          {
+            "content": "遅刻",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "早退",
+    "reading_hiragana": "そうたい",
+    "reading_romaji": "soutai",
+    "meaning_vi": "về sớm",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "TẢO THOÁI",
+    "explanation": "Danh động từ. Rời nơi làm việc trước giờ quy định tan làm.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "体調不良のため早退しました。",
+        "sentence_hira": "たいちょうふりょうのためそうたいしました。",
+        "sentence_romaji": "Taichou furyou no tame soutai shimashita.",
+        "sentence_vi": "Do sức khỏe kém nên tôi đã về sớm."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "体調不良のため（　）しました。",
+        "blank_position": 1,
+        "answer_explanation": "‘早退’ (soutai) là xin về sớm so với giờ quy định.",
+        "choices": [
+          {
+            "content": "早退",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "休憩",
+    "reading_hiragana": "きゅうけい",
+    "reading_romaji": "kyuukei",
+    "meaning_vi": "nghỉ giải lao",
+    "jlpt_level": "N4",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "HƯU KHẾ",
+    "explanation": "Danh động từ. Nghỉ ngơi tạm thời giữa giờ làm việc.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "休憩は1時間です。",
+        "sentence_hira": "きゅうけいはいちじかんです。",
+        "sentence_romaji": "Kyuukei wa ichijikan desu.",
+        "sentence_vi": "Nghỉ giải lao là 1 tiếng."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）は1時間です。",
+        "blank_position": 1,
+        "answer_explanation": "‘休憩’ (kyuukei) là giải lao, nghỉ ngơi giữa giờ.",
+        "choices": [
+          {
+            "content": "休憩",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "有給",
+    "reading_hiragana": "ゆうきゅう",
+    "reading_romaji": "yuukyuu",
+    "meaning_vi": "nghỉ phép có lương",
+    "jlpt_level": "N2",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "HỮU CẤP",
+    "explanation": "Danh từ. Viết tắt của 有給休暇 (nghỉ phép có lương).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "来月、有給を取りたいです。",
+        "sentence_hira": "らいげつ、ゆうきゅうをとりたいです。",
+        "sentence_romaji": "Raigetsu, yuukyuu o toritai desu.",
+        "sentence_vi": "Tháng sau, tôi muốn xin nghỉ phép có lương."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "来月、（　）を取りたいです。",
+        "blank_position": 1,
+        "answer_explanation": "‘有給’ (yuukyuu) là thời gian nghỉ mà vẫn được hưởng lương.",
+        "choices": [
+          {
+            "content": "有給",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "休暇",
+    "reading_hiragana": "きゅうか",
+    "reading_romaji": "kyuuka",
+    "meaning_vi": "kỳ nghỉ, ngày nghỉ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Travel"
+    ],
+    "han_viet": "HƯU HẠ",
+    "explanation": "Danh từ. Thời gian nghỉ ngơi hợp pháp được công ty cấp (như nghỉ hè, nghỉ lễ).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "夏季休暇の日程を確認します。",
+        "sentence_hira": "かききゅうかのにっていをかくにんします。",
+        "sentence_romaji": "Kaki kyuuka no nittei o kakunin shimasu.",
+        "sentence_vi": "Tôi sẽ kiểm tra lịch trình kỳ nghỉ hè."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "夏季（　）の日程を確認します。",
+        "blank_position": 1,
+        "answer_explanation": "‘休暇’ (kyuuka) mang nghĩa là một kỳ nghỉ phép.",
+        "choices": [
+          {
+            "content": "休暇",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "勤務",
+    "reading_hiragana": "きんむ",
+    "reading_romaji": "kinmu",
+    "meaning_vi": "làm việc, ca làm",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "CẦN VỤ",
+    "explanation": "Danh động từ. Việc thực hiện công việc tại công ty, ca làm việc.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "勤務時間はシフトで決まります。",
+        "sentence_hira": "きんむじかんはシフトできまります。",
+        "sentence_romaji": "Kinmu jikan wa shifuto de kimarimasu.",
+        "sentence_vi": "Thời gian làm việc được quyết định theo ca."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）時間はシフトで決まります。",
+        "blank_position": 1,
+        "answer_explanation": "‘勤務’ (kinmu) là công tác, làm việc (ví dụ 勤務時間: thời gian làm việc).",
+        "choices": [
+          {
+            "content": "勤務",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "配属",
+    "reading_hiragana": "はいぞく",
+    "reading_romaji": "haizoku",
+    "meaning_vi": "phân công bộ phận",
+    "jlpt_level": "N1",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work"
+    ],
+    "han_viet": "PHỐI THUỘC",
+    "explanation": "Danh động từ. Việc công ty phân bổ, bố trí nhân viên vào một bộ phận hay phòng ban cụ thể.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "入社後、営業部に配属されました。",
+        "sentence_hira": "にゅうしゃご、えいぎょうぶにはいぞくされました。",
+        "sentence_romaji": "Nyuushago, eigyoubu ni haizoku saremashita.",
+        "sentence_vi": "Sau khi vào công ty, tôi được phân công về phòng kinh doanh."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "入社後、営業部に（　）されました。",
+        "blank_position": 1,
+        "answer_explanation": "‘配属’ (haizoku) là sự phân công vào bộ phận, chi nhánh.",
+        "choices": [
+          {
+            "content": "配属",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "研修",
+    "reading_hiragana": "けんしゅう",
+    "reading_romaji": "kenshuu",
+    "meaning_vi": "đào tạo",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Education"
+    ],
+    "han_viet": "NGHIÊN TU",
+    "explanation": "Danh động từ. Quá trình học tập, bồi dưỡng, đào tạo kỹ năng trong môi trường công ty.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "新人研修に参加します。",
+        "sentence_hira": "しんじんけんしゅうにさんかします。",
+        "sentence_romaji": "Shinjin kenshuu ni sanka shimasu.",
+        "sentence_vi": "Tôi sẽ tham gia đào tạo nhân viên mới."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "新人（　）に参加します。",
+        "blank_position": 1,
+        "answer_explanation": "‘研修’ (kenshuu) là đợt tập huấn, đào tạo.",
+        "choices": [
+          {
+            "content": "研修",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "教育",
+    "reading_hiragana": "きょういく",
+    "reading_romaji": "kyouiku",
+    "meaning_vi": "giáo dục, đào tạo",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Work",
+      "Education"
+    ],
+    "han_viet": "GIÁO DỤC",
+    "explanation": "Danh động từ. Truyền đạt kiến thức, dạy bảo, huấn luyện (trong công sở mang nghĩa chỉ dẫn công việc).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "新人教育を担当しています。",
+        "sentence_hira": "しんじんきょういくをたんとうしています。",
+        "sentence_romaji": "Shinjin kyouiku o tantou shite imasu.",
+        "sentence_vi": "Tôi đang phụ trách đào tạo nhân viên mới."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "新人（　）を担当しています。",
+        "blank_position": 1,
+        "answer_explanation": "‘教育’ (kyouiku) là sự giáo dục, đào tạo cho thế hệ mới.",
+        "choices": [
+          {
+            "content": "教育",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  }
+]

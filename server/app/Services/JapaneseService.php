@@ -60,6 +60,7 @@ class JapaneseService
                     'jlpt_level'       => $item['jlpt_level'] ?? null,
                     'level'            => $item['level'] ?? 1,
                     'is_grammar'       => $item['is_grammar'] ?? '0',
+                    'topic'            => $item['topic'] ?? null,
                     'streak'           => 0,
                     'lapses'           => 0,
                     'last_reviewed_at' => Carbon::now()->subDays(3),
@@ -171,6 +172,7 @@ class JapaneseService
                 'level'            => $data['level'] ?? 1,
                 'is_grammar'       => $isGrammar,
                 'is_active'        => $isActive,
+                'topic'            => $data['topic'] ?? null,
                 'streak'           => $streak,
                 'lapses'           => $lapses,
                 'last_reviewed_at' => $now,
@@ -222,7 +224,7 @@ class JapaneseService
             $updateWord = [];
 
             // Chỉ set các key có gửi lên
-            foreach (['kanji', 'reading_hiragana', 'reading_romaji', 'meaning_vi', 'jlpt_level', 'is_grammar', 'is_active'] as $k) {
+            foreach (['kanji', 'reading_hiragana', 'reading_romaji', 'meaning_vi', 'jlpt_level', 'is_grammar', 'is_active', 'topic'] as $k) {
                 if (array_key_exists($k, $data)) {
                     $updateWord[$k] = $data[$k];
                 }
