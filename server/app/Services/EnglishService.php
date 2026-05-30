@@ -1163,6 +1163,45 @@ class EnglishService
     }
 
     /**
+     * Get random practice words for EN vocabulary
+     */
+    public function getRandomPractice(int $userId, int $limit = 20, ?int $level = null, bool $isGrammar = false): array
+    {
+        $query = EnWord::with(['contexts', 'examples.exercises.choices'])
+            ->where('user_id', $userId)
+            ->where('is_active', true)
+            ->where(function ($q) use ($isGrammar) {
+                if ($isGrammar) {
+                    $q->where('is_grammar', true);
+                } else {
+                    $q->where('is_grammar', false)->orWhereNull('is_grammar');
+                }
+            });
+
+        if ($level !== null) {
+            $query->where('level', $level);
+        }
+
+        $words = $query->inRandomOrder()
+            ->limit($limit)
+            ->get();
+
+        $scenarios = [];
+        foreach ($words as $index => $word) {
+            $scenarios[] = [
+                'order' => $index + 1,
+                'word' => $this->formatEnWord($word),
+                'quizType' => 'keyValueMatch',
+            ];
+        }
+
+        return [
+            'totalWords' => $words->count(),
+            'scenarios' => $scenarios,
+        ];
+    }
+
+    /**
      * Format EN word for response
      */
     private function formatEnWord(EnWord $word): array

@@ -1103,6 +1103,39 @@ class JapaneseService
     }
 
     /**
+     * Get random practice words for JP vocabulary
+     */
+    public function getRandomPractice(int $userId, int $limit = 20, ?int $level = null, bool $isGrammar = false): array
+    {
+        $query = JpWord::with(['hanviet', 'examples'])
+            ->where('user_id', $userId)
+            ->where('is_active', true)
+            ->where('is_grammar', $isGrammar);
+
+        if ($level !== null) {
+            $query->where('level', $level);
+        }
+
+        $words = $query->inRandomOrder()
+            ->limit($limit)
+            ->get();
+
+        $scenarios = [];
+        foreach ($words as $index => $word) {
+            $scenarios[] = [
+                'order' => $index + 1,
+                'word' => $this->formatWord($word),
+                'quizType' => 'keyValueMatch',
+            ];
+        }
+
+        return [
+            'totalWords' => $words->count(),
+            'scenarios' => $scenarios,
+        ];
+    }
+
+    /**
      * Format word for response
      */
     private function formatWord(JpWord $word): array

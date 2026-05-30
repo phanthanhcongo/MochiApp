@@ -19,12 +19,12 @@ const PracticeWrapper: React.FC = () => {
   const [displayQuizType, setDisplayQuizType] = useState<QuizType | null>(null);
   const [exitingQuizType, setExitingQuizType] = useState<QuizType | null>(null);
   const prevQuizTypeRef = useRef<QuizType | null>(null);
+  const validTypes: QuizType[] = ['multiple', 'ReadingHiraganaPractice', 'TypingRomajiPractice', 'voicePractice', 'WritingKanjiPractice'];
 
   // Lấy quizType từ pathname
   const quizType = useMemo<QuizType | null>(() => {
     const pathParts = location.pathname.split('/');
     const quizTypeFromPath = pathParts[pathParts.length - 1] as QuizType;
-    const validTypes: QuizType[] = ['multiple', 'ReadingHiraganaPractice', 'TypingRomajiPractice', 'voicePractice', 'WritingKanjiPractice'];
     return validTypes.includes(quizTypeFromPath) ? quizTypeFromPath : null;
   }, [location.pathname]);
 
@@ -99,8 +99,6 @@ const PracticeWrapper: React.FC = () => {
   if (!quizType) {
     return null;
   }
-
-  const validTypes: QuizType[] = ['multiple', 'ReadingHiraganaPractice', 'TypingRomajiPractice', 'voicePractice', 'WritingKanjiPractice'];
 
   return (
     <PracticeLayout 

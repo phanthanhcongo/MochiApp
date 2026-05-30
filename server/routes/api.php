@@ -108,6 +108,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/practice/delete/{id}', [JapaneseController::class, 'destroy']);
         Route::get('/practice/scenarios', [JapaneseController::class, 'getPracticeScenarios']);
         Route::get('/practice/scenarios-grammar', [JapaneseController::class, 'getGrammarPracticeScenarios']);
+        Route::get('/practice/random', [JapaneseController::class, 'getRandomPractice']);
     });
 
     // ========== English Routes (prefix /en) ==========
@@ -126,6 +127,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/practice/display', [EnglishController::class, 'index']);
         Route::get('/practice/scenarios', [EnglishController::class, 'getPracticeScenarios']);
         Route::get('/practice/scenarios-grammar', [EnglishController::class, 'getGrammarPracticeScenarios']);
+        Route::get('/practice/random', [EnglishController::class, 'getRandomPractice']);
         Route::get('/practice/{id}', [EnglishController::class, 'getById']);
         Route::post('/practice/update/{id}', [EnglishController::class, 'update']);
         Route::delete('/practice/delete/{id}', [EnglishController::class, 'destroy']);

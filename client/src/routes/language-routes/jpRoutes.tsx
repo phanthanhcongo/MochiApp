@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute';
 
 import WordPracticePage from '../../japanese/pages/WordPracticePage';
+import MatchingGamePage from '../../japanese/pages/MatchingGamePage';
 import CreateWordForm from '../../japanese/forms/CreateWordForm';
 import ImportWordsModal from '../../japanese/forms/ImportWordsModal';
 import ResultProgress from '../../japanese/components/ResultProgress';
@@ -36,6 +37,7 @@ export default function JpRoutes() {
         <Route path="/jp/quiz/TypingRomajiPractice" element={<PracticeWrapper />} />
         <Route path="/jp/quiz/voicePractice" element={<PracticeWrapper />} />
         <Route path="/jp/quiz/WritingKanjiPractice" element={<PracticeWrapper />} />
+        <Route path="/jp/matching-game" element={<MatchingGamePage />} />
         <Route path="/jp/summary" element={<ResultProgress />} />
         <Route path="/jp/listWord" element={<VocabularyTable />} />
         <Route path="/jp/ProfileSettings" element={<ProfileSettings />} />

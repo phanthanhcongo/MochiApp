@@ -381,4 +381,28 @@ class JapaneseController extends Controller
             ], 500);
         }
     }
+
+    /**
+     * Get random practice words
+     */
+    public function getRandomPractice(Request $request)
+    {
+        $userId = $request->user()->id;
+        $limit = $request->query('limit', 20);
+        $level = $request->query('level');
+        if ($level !== null) {
+            $level = (int) $level;
+        }
+
+        try {
+            $result = $this->japaneseService->getRandomPractice($userId, $limit, $level);
+            return response()->json($result);
+        } catch (\Throwable $e) {
+            \Log::error('Get random practice failed', ['message' => $e->getMessage()]);
+            return response()->json([
+                'error' => 'Lỗi khi lấy từ vựng ngẫu nhiên',
+                'details' => config('app.debug') ? $e->getMessage() : null,
+            ], 500);
+        }
+    }
 }

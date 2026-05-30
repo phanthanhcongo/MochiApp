@@ -13,6 +13,7 @@ import PracticeSummary from '../../english/components/PracticeSummary';
 import FillInBlankPractice from '../../english/practice/FillInBlankPractice';
 import VoicePractice from '../../english/practice/VoicePractice';
 import SentenceCompletionPractice from '../../english/practice/SentenceCompletionPractice';
+import MatchingGamePage from '../../english/pages/MatchingGamePage';
 import CreateWordForm from '../../english/forms/CreateWordForm';
 import VocabularyTable from '../../english/components/VocabularyTable';
 import ChatPage from '../../components/Chat/ChatPage';
@@ -39,6 +40,7 @@ export default function EnRoutes() {
         <Route path="/en/quiz/voicePractice" element={<VoicePractice />} />
         <Route path="/en/quiz/fillInBlank" element={<FillInBlankPractice />} />
         <Route path="/en/quiz/multipleSentence" element={<SentenceCompletionPractice />} />
+        <Route path="/en/matching-game" element={<MatchingGamePage />} />
         <Route path="/en/add" element={<CreateWordForm />} />
         <Route path="/en/listWord" element={<VocabularyTable />} />
         <Route path="/en/editWord/:id" element={<EditWordForm />} />
