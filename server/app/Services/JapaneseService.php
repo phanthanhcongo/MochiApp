@@ -548,7 +548,7 @@ class JapaneseService
                     $newLapses = $currentLapses + 1;
                 } else {
                     // When correct: increase streak, check for lapses decay
-                    $newLevel = min(7, $currentLevel + 1);
+                    $newLevel = min(9, $currentLevel + 1);
                     $newStreak = $currentStreak + 1;
                     $newLapses = $currentLapses;
     
@@ -791,6 +791,8 @@ class JapaneseService
             5 => 604800,       // 7 days
             6 => 1814400,      // 21 days
             7 => 7776000,      // 90 days
+            8 => 15552000,     // 180 days (Level 8)
+            9 => 31104000,     // 360 days (Level 9)
             default => 30,     // Default to 30 seconds
         };
     }

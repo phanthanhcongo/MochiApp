@@ -450,9 +450,7 @@ const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title
                 {/* Level */}
                 <label className="flex flex-col gap-0.5">
                   <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Level</span>
-                  <input
-                    type="number"
-                    min={1}
+                  <select
                     className={inputClass("level")}
                     value={word.level}
                     onChange={(e) => {
@@ -462,8 +460,11 @@ const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title
                       revalidateOnChange("level", next);
                     }}
                     onBlur={() => setFieldTouched("level")}
-                    placeholder="1"
-                  />
+                  >
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((lv) => (
+                      <option key={lv} value={lv}>Level {lv}</option>
+                    ))}
+                  </select>
                 </label>
 
                 {/* Meaning VI */}

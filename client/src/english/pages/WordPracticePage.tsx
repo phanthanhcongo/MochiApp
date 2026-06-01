@@ -240,13 +240,13 @@ const WordPracticePage = () => {
   };
 
 
-
+  const maxCount = Math.max(...reviewStats.map(item => item.count), 0);
 
   return (
     <div>
       {/* Invisible classes to force Tailwind build colors */}
       <div className="hidden">
-        bg-red-400 bg-fuchsia-300 bg-yellow-400 bg-green-400 bg-sky-400 bg-indigo-500 bg-purple-600 bg-gray-400
+        bg-red-400 bg-fuchsia-300 bg-yellow-400 bg-green-400 bg-sky-400 bg-indigo-500 bg-purple-600 bg-pink-500 bg-rose-600 bg-gray-400
       </div>
 
       <Header />
@@ -257,7 +257,7 @@ const WordPracticePage = () => {
         <div className="hidden xl:block w-2/10"></div>
 
         {/* Center Column */}
-        <div className="w-full xl:w-6/10 flex-1 flex flex-col items-center justify-start py-2 sm:py-3 md:py-4 lg:py-6 px-2 sm:px-4 md:px-6 lg:px-8 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] mx-auto relative min-h-full">
+        <div className="w-full xl:w-6/10 flex-1 flex flex-col items-center justify-between py-2 sm:py-3 md:py-4 lg:py-6 px-2 sm:px-4 md:px-6 lg:px-8 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] mx-auto relative h-full">
 
           {/* Top summary */}
           <motion.div
@@ -279,9 +279,9 @@ const WordPracticePage = () => {
 
           {/* Bar Chart */}
           <div className="relative w-full max-w-xl mb-6 sm:mb-8 md:mb-10 lg:mb-12 px-2 sm:px-4">
-            <div className="flex justify-between items-end gap-1 sm:gap-2 h-[220px] sm:h-[260px] md:h-[300px] lg:h-[340px] pb-4 sm:pb-6 md:pb-8 w-full">
+            <div className="flex justify-between items-end gap-1 sm:gap-2 h-[260px] sm:h-[320px] md:h-[380px] lg:h-[440px] pb-4 sm:pb-6 md:pb-8 w-full">
               {reviewStats.map((item, index) => (
-                <div key={item.level} className="flex flex-col items-center flex-1 group">
+                <div key={item.level} className="flex flex-col items-center justify-end flex-1 h-full group">
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -292,7 +292,7 @@ const WordPracticePage = () => {
                   </motion.div>
                   <motion.div
                     initial={{ height: 0 }}
-                    animate={{ height: `${Math.min(item.count / 2 + 20, 300)}px` }}
+                    animate={{ height: maxCount > 0 ? `${(item.count / maxCount) * 70 + 5}%` : '5%' }}
                     transition={{ type: "spring", damping: 15, stiffness: 100, delay: index * 0.1 }}
                     className={`${item.color} w-full max-w-[14px] sm:max-w-[20px] md:max-w-[28px] lg:max-w-[36px] rounded-t-lg sm:rounded-t-xl shadow-[0_3px_0_rgba(0,0,0,0.1)] group-hover:shadow-[0_5px_0_rgba(0,0,0,0.1)] group-hover:-translate-y-0.5 transition-all cursor-pointer relative`}
                   />

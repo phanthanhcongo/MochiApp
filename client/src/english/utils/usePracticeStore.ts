@@ -42,6 +42,7 @@ interface ReviewedWordLog {
   word: ReviewWord;
   firstFailed: boolean;
   reviewedAt: string;
+  quizType?: QuizType;
 }
 
 interface ReviewWordState {
@@ -60,7 +61,7 @@ interface PracticeSessionStore {
   isNavigating: boolean; // Lock to prevent multiple navigations
 
   setWords: (words: ReviewWord[]) => void;
-  markAnswer: (isCorrect: boolean) => void;
+  markAnswer: (isCorrect: boolean, quizType?: QuizType) => void;
   removeCurrentWord: () => void;
   getNextQuizType: () => QuizType | null;
   continueToNextQuiz: (navigate: (path: string, state?: any) => void, onComplete?: () => void) => Promise<void>;
@@ -100,7 +101,7 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
     });
   },
 
-  markAnswer: (isCorrect) => {
+  markAnswer: (isCorrect, quizType) => {
     const { currentWord, words, reviewedWords, completedCount } = get();
     if (!currentWord) return;
 
@@ -109,34 +110,28 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
       updatedCurrent.hasFailed = true;
     }
 
-    // Create log entry - simple firstFailed logic like JP
-    const newLog: ReviewedWordLog = {
-      word: updatedCurrent.word,
-      firstFailed: !isCorrect,
-      reviewedAt: new Date().toISOString(),
-    };
+    const alreadyReviewed = reviewedWords.find(r => r.word.id === updatedCurrent.word.id);
+    let updatedLogs = reviewedWords;
 
-    // Always log every attempt - no deduplication check
-    const updatedLogs = [...reviewedWords, newLog];
+    if (!alreadyReviewed) {
+      // Create log entry - only on the FIRST attempt for this word in the session
+      const newLog: ReviewedWordLog = {
+        word: updatedCurrent.word,
+        firstFailed: !isCorrect,
+        reviewedAt: new Date().toISOString(),
+        quizType: quizType || get().previousType || undefined,
+      };
 
-    // // DEBUG: Log what we're storing
-    // console.log('📝 Storing attempt:', {
-    //   word: updatedCurrent.word.word,
-    //   isCorrect,
-    //   firstFailed: !isCorrect,
-    //   totalLogs: updatedLogs.length
-    // });
+      updatedLogs = [...reviewedWords, newLog];
 
-    localStorage.setItem('reviewed_words_english', JSON.stringify(updatedLogs));
+      localStorage.setItem('reviewed_words_english', JSON.stringify(updatedLogs));
 
-    if (updatedLogs.length === 1) {
-      localStorage.setItem('practice_active', 'true');
+      if (updatedLogs.length === 1) {
+        localStorage.setItem('practice_active', 'true');
+      }
     }
 
     set({ reviewedWords: updatedLogs });
-
-    // Check if this is first time seeing this word
-    const alreadyReviewed = reviewedWords.find(r => r.word.id === updatedCurrent.word.id);
 
     // Update state based on answer
     if (!isCorrect) {
@@ -259,7 +254,8 @@ export const usePracticeSession = create<PracticeSessionStore>((set, get) => ({
     const minimalData = reviewedWords.map(item => ({
       word: { id: item.word.id },
       firstFailed: !!item.firstFailed,
-      reviewedAt: item.reviewedAt || new Date().toISOString()
+      reviewedAt: item.reviewedAt || new Date().toISOString(),
+      quizType: item.quizType // Gửi kèm dạng bài lên backend
     }));
 
     try {

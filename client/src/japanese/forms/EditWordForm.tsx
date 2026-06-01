@@ -6,7 +6,7 @@ import { BiLogOutCircle } from 'react-icons/bi';
 import { API_URL } from '../../apiClient';
 
 const JLPT_OPTIONS = ['N1', 'N2', 'N3', 'N4', 'N5'] as const;
-const LEVEL_OPTIONS = ['1', '2', '3', '4', '5', '6', '7'] as const;
+const LEVEL_OPTIONS = ['1', '2', '3', '4', '5', '6', '7', '8', '9'] as const;
 type JLPT = typeof JLPT_OPTIONS[number];
 const IS_GRAMMAR_OPTIONS: { value: string; label: string }[] = [
   { value: '0', label: 'Từ vựng thường' },
@@ -212,11 +212,11 @@ const EditWordForm: React.FC = () => {
     if (f.is_grammar && f.is_grammar !== '0' && f.is_grammar !== '1') {
       e.is_grammar = 'Giá trị không hợp lệ.';
     }
-    // level 1..7
+    // level 1..9
     if (f.level) {
       const n = Number(f.level);
-      if (!Number.isInteger(n) || n < 1 || n > 7) {
-        e.level = 'Level phải từ 1 đến 7.';
+      if (!Number.isInteger(n) || n < 1 || n > 9) {
+        e.level = 'Level phải từ 1 đến 9.';
       }
     }
 
@@ -348,7 +348,7 @@ const EditWordForm: React.FC = () => {
           value={form.level}
           onChange={handleChange as any}
           options={LEVEL_OPTIONS.map(l => ({ value: l, label: l }))}
-          placeholder="Chọn level 1 đến 7"
+          placeholder="Chọn level 1 đến 9"
           error={errors.level}
         />
         <SelectField

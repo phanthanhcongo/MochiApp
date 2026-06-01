@@ -42,6 +42,36 @@ const toFormState = (w: any): FormState => {
   };
 };
 
+const getLevelBorderClass = (level: number) => {
+  switch (level) {
+    case 1: return "border-l-red-400";
+    case 2: return "border-l-fuchsia-300";
+    case 3: return "border-l-yellow-400";
+    case 4: return "border-l-green-400";
+    case 5: return "border-l-sky-400";
+    case 6: return "border-l-indigo-500";
+    case 7: return "border-l-purple-600";
+    case 8: return "border-l-pink-500";
+    case 9: return "border-l-rose-600";
+    default: return "border-l-gray-400";
+  }
+};
+
+const getLevelBadgeClass = (level: number) => {
+  switch (level) {
+    case 1: return "bg-red-50 text-red-700 border-red-200";
+    case 2: return "bg-fuchsia-50 text-fuchsia-700 border-fuchsia-200";
+    case 3: return "bg-yellow-50 text-yellow-700 border-yellow-200";
+    case 4: return "bg-green-50 text-green-700 border-green-200";
+    case 5: return "bg-sky-50 text-sky-700 border-sky-200";
+    case 6: return "bg-indigo-50 text-indigo-700 border-indigo-200";
+    case 7: return "bg-purple-50 text-purple-700 border-purple-200";
+    case 8: return "bg-pink-50 text-pink-700 border-pink-200";
+    case 9: return "bg-rose-50 text-rose-700 border-rose-200";
+    default: return "bg-gray-50 text-gray-700 border-gray-200";
+  }
+};
+
 const VocabularyTable: React.FC = () => {
   const navigate = useNavigate();
 
@@ -85,13 +115,8 @@ const VocabularyTable: React.FC = () => {
   };
 
 
-  const levels = React.useMemo(
-    () =>
-      Array.from(new Set((words || []).map(w => w.level).filter(Boolean))).sort(
-        (a: number, b: number) => a - b
-      ),
-    [words]
-  );
+  // Cấp độ đồng bộ (9 cấp)
+  const levels = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   // Collect all unique topics for filter dropdown
   const allTopics = React.useMemo(() => {
@@ -705,7 +730,7 @@ const VocabularyTable: React.FC = () => {
         {displayedWords.map((word, index) => {
           const wid = String(word.id ?? word._id);
           return (
-            <div key={index} className="bg-white border rounded-xl mb-4 border-l-8 border-yellow-400 shadow-sm hover:shadow-md transition-shadow duration-200">
+            <div key={index} className={`bg-white border rounded-xl mb-4 border-l-8 ${getLevelBorderClass(Number(word.level))} shadow-sm hover:shadow-md transition-shadow duration-200`}>
               {/* Header với checkbox và actions */}
               <div className="flex justify-between items-start p-3 border-b border-gray-50">
                 <div className="flex items-center gap-3">
@@ -799,7 +824,7 @@ const VocabularyTable: React.FC = () => {
                       <p className="text-sm text-gray-500 mt-2 font-mono">{word.reading_romaji}</p>
                     )}
                     <div className="mt-4 flex flex-wrap justify-center gap-2">
-                      <span className="px-2 py-1 bg-gray-100 rounded text-xs font-bold text-gray-600">Level {word.level}</span>
+                      <span className={`px-2 py-1 rounded text-xs font-bold border ${getLevelBadgeClass(Number(word.level))}`}>Level {word.level}</span>
                       {word.jlpt_level && (
                         <span className="px-2 py-1 bg-yellow-100 rounded text-xs font-bold text-yellow-700">{word.jlpt_level}</span>
                       )}

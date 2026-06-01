@@ -26,7 +26,7 @@ class ReviewLogicTest extends TestCase
             $newLapses = $currentLapses + 1;
         } else {
             // Correct answer: level +1, streak +1, lapses may decay
-            $newLevel = min(7, $currentLevel + 1);
+            $newLevel = min(9, $currentLevel + 1);
             $newStreak = $currentStreak + 1;
             $newLapses = $currentLapses;
 
@@ -57,10 +57,10 @@ class ReviewLogicTest extends TestCase
         $this->assertEquals(3, $result['streak']);
     }
 
-    public function test_level_capped_at_7(): void
+    public function test_level_capped_at_9(): void
     {
-        $result = $this->processReview(7, 0, 0, false);
-        $this->assertEquals(7, $result['level']);
+        $result = $this->processReview(9, 0, 0, false);
+        $this->assertEquals(9, $result['level']);
     }
 
     public function test_lapses_decay_at_streak_3(): void
@@ -140,23 +140,29 @@ class ReviewLogicTest extends TestCase
         $this->assertEquals(6, $result['level']);
     }
 
+    public function test_wrong_at_level_9_drops_to_8(): void
+    {
+        $result = $this->processReview(9, 10, 0, true);
+        $this->assertEquals(8, $result['level']);
+    }
+
     // ====== Sequence Tests ======
 
-    public function test_full_correct_sequence_level_1_to_7(): void
+    public function test_full_correct_sequence_level_1_to_9(): void
     {
         $level = 1;
         $streak = 0;
         $lapses = 0;
 
-        for ($i = 0; $i < 6; $i++) {
+        for ($i = 0; $i < 8; $i++) {
             $result = $this->processReview($level, $streak, $lapses, false);
             $level = $result['level'];
             $streak = $result['streak'];
             $lapses = $result['lapses'];
         }
 
-        $this->assertEquals(7, $level);
-        $this->assertEquals(6, $streak);
+        $this->assertEquals(9, $level);
+        $this->assertEquals(8, $streak);
     }
 
     public function test_wrong_then_correct_recovery(): void

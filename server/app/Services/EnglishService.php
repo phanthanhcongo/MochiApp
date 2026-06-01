@@ -696,6 +696,7 @@ class EnglishService
                 $currentLevel = max(1, (int) ($enWord->level ?? 1));
                 $currentStreak = max(0, (int) ($enWord->streak ?? 0));
                 $currentLapses = max(0, (int) ($enWord->lapses ?? 0));
+                $quizType = data_get($log, 'quizType');
 
                 if ($firstFailed) {
                     // When wrong: increase lapses, reset streak to 0
@@ -704,7 +705,7 @@ class EnglishService
                     $newLapses = $currentLapses + 1;
                 } else {
                     // When correct: increase streak, check for lapses decay
-                    $newLevel = min(7, $currentLevel + 1);
+                    $newLevel = min(9, $currentLevel + 1);
                     $newStreak = $currentStreak + 1;
                     $newLapses = $currentLapses;
 
@@ -715,7 +716,7 @@ class EnglishService
                 }
 
                 // Calculate interval based on new values
-                $intervalSeconds = $this->calculateInterval($newLevel, $newStreak, $newLapses);
+                $intervalSeconds = $this->calculateInterval($newLevel, $newStreak, $newLapses, $quizType);
                 $nextReviewAt = $reviewedAt->copy()->addSeconds($intervalSeconds);
 
                 $updateData = [
@@ -766,7 +767,9 @@ class EnglishService
         if ($streak <= 1) {
             return 1.00;
         } elseif ($streak <= 3) {
-            return 1.15;
+            return 1.10;
+        } elseif ($streak <= 6) {
+            return 1.20;
         } else {
             return 1.30;
         }
@@ -777,15 +780,29 @@ class EnglishService
      */
     private function getLapseFactor(int $lapses): float
     {
-        if ($lapses <= 1) {
+        if ($lapses <= 0) {
             return 1.00;
+        } elseif ($lapses <= 2) {
+            return 0.90;
         } elseif ($lapses <= 4) {
-            return 0.85;
-        } elseif ($lapses <= 7) {
-            return 0.70;
+            return 0.75;
         } else {
             return 0.60;
         }
+    }
+
+    /**
+     * Get quiz factor based on quiz type
+     */
+    private function getQuizFactor(?string $quizType): float
+    {
+        return match ($quizType) {
+            'multiple' => 0.90,
+            'voicePractice' => 0.95,
+            'multipleSentence' => 1.00,
+            'fillInBlank' => 1.10,
+            default => 1.00,
+        };
     }
 
     /**
@@ -794,27 +811,30 @@ class EnglishService
     private function getBaseWaitSeconds(int $level): int
     {
         return match ($level) {
-            1 => 30,           // 30 seconds
-            2 => 600,          // 10 minutes
+            1 => 600,          // 10 minutes
+            2 => 28800,        // 8 hours
             3 => 86400,        // 1 day
             4 => 259200,       // 3 days
             5 => 604800,       // 7 days
-            6 => 1814400,      // 21 days
-            7 => 7776000,      // 90 days
-            default => 30,     // Default to 30 seconds
+            6 => 1296000,      // 15 days
+            7 => 2592000,      // 30 days
+            8 => 5184000,      // 60 days
+            9 => 10368000,     // 120 days
+            default => 600,    // Default to 10 minutes
         };
     }
 
     /**
      * Calculate review interval in seconds based on level, streak, and lapses
      */
-    private function calculateInterval(int $level, int $streak, int $lapses): int
+    private function calculateInterval(int $level, int $streak, int $lapses, ?string $quizType = null): int
     {
         $baseWait = $this->getBaseWaitSeconds($level);
         $streakFactor = $this->getStreakFactor($streak);
         $lapseFactor = $this->getLapseFactor($lapses);
+        $quizFactor = $this->getQuizFactor($quizType);
 
-        $interval = round($baseWait * $streakFactor * $lapseFactor);
+        $interval = round($baseWait * $streakFactor * $lapseFactor * $quizFactor);
         $minInterval = 30; // Minimum 30 seconds
 
         return max($minInterval, $interval);

@@ -60,13 +60,25 @@ class SrsIntervalTest extends TestCase
         return 0.60;
     }
 
-    private function calculateIntervalForPolicy(int $level, int $streak, int $lapses): int
+    private function getQuizFactor(?string $quizType): float
+    {
+        return match ($quizType) {
+            'multiple' => 0.90,
+            'voicePractice' => 0.95,
+            'multipleSentence' => 1.00,
+            'fillInBlank' => 1.10,
+            default => 1.00,
+        };
+    }
+
+    private function calculateIntervalForPolicy(int $level, int $streak, int $lapses, ?string $quizType = null): int
     {
         $baseInterval = $this->getBaseIntervalByLevel($level);
         $streakFactor = $this->getStreakFactor($streak);
         $lapseFactor = $this->getLapseFactor($lapses);
+        $quizFactor = $this->getQuizFactor($quizType);
 
-        return (int) round($baseInterval * $streakFactor * $lapseFactor);
+        return (int) round($baseInterval * $streakFactor * $lapseFactor * $quizFactor);
     }
 
     public function test_level_1_base_interval_is_10_minutes(): void
@@ -194,5 +206,26 @@ class SrsIntervalTest extends TestCase
         $newLevel = min(9, $currentLevel + 1);
 
         $this->assertEquals(9, $newLevel);
+    }
+
+    public function test_quiz_factors(): void
+    {
+        $this->assertEquals(0.90, $this->getQuizFactor('multiple'));
+        $this->assertEquals(0.95, $this->getQuizFactor('voicePractice'));
+        $this->assertEquals(1.00, $this->getQuizFactor('multipleSentence'));
+        $this->assertEquals(1.10, $this->getQuizFactor('fillInBlank'));
+        $this->assertEquals(1.00, $this->getQuizFactor(null));
+        $this->assertEquals(1.00, $this->getQuizFactor('invalidType'));
+    }
+
+    public function test_interval_applies_quiz_factor(): void
+    {
+        // Level 3 = 86400, streak 2 => 1.10, lapses 0 => 1.00
+        // Without quizFactor: 86400 * 1.10 * 1.00 = 95040
+        // With quizFactor (multiple = 0.90): 95040 * 0.90 = 85536
+        $this->assertEquals(85536, $this->calculateIntervalForPolicy(3, 2, 0, 'multiple'));
+
+        // With quizFactor (fillInBlank = 1.10): 95040 * 1.10 = 104544
+        $this->assertEquals(104544, $this->calculateIntervalForPolicy(3, 2, 0, 'fillInBlank'));
     }
 }

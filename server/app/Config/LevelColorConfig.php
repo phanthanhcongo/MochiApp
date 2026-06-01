@@ -16,6 +16,8 @@ class LevelColorConfig
         5 => 'bg-sky-400',
         6 => 'bg-indigo-500',
         7 => 'bg-purple-600',
+        8 => 'bg-pink-500',
+        9 => 'bg-rose-600',
     ];
 
     public const DEFAULT_COLOR = 'bg-gray-400';
