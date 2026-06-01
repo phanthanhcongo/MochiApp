@@ -12,7 +12,6 @@ use Illuminate\Support\Carbon;
 class ReviewFlowTest extends TestCase
 {
     use RefreshDatabase;
-
     private $user;
     private $word;
 

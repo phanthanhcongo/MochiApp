@@ -105,7 +105,6 @@ const LanguageToggle = () => {
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [navLoading, setNavLoading] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [userName, setUserName] = useState<string>("User");
   const menuRef = useRef<HTMLDivElement>(null);
@@ -179,12 +178,7 @@ const Header = () => {
     };
   }, []);
 
-  // ── Navigation idle listener ──
-  useEffect(() => {
-    const off = () => setNavLoading(false);
-    window.addEventListener("app:navigation-idle", off);
-    return () => window.removeEventListener("app:navigation-idle", off);
-  }, []);
+
 
   // ── Helpers ──
   const buildTo = (to: string) => {
@@ -204,7 +198,6 @@ const Header = () => {
   const handleGoProfile = () => {
     setOpen(false);
     setMobileMenuOpen(false);
-    setNavLoading(true);
     navigate(buildTo("/ProfileSettings"));
   };
 
@@ -442,12 +435,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* ── Slim progress bar (replaces full-screen overlay) ── */}
-      {navLoading && (
-        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gray-100 overflow-hidden">
-          <div className="h-full bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 w-1/3 rounded-full header-progress-bar" />
-        </div>
-      )}
     </header>
   );
 };
