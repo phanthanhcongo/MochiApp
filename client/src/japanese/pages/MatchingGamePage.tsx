@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../../components/Header';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaPlay, FaVolumeUp, FaRedo, FaHome, FaClock, FaCheckCircle, FaAward, FaTimesCircle, FaSignOutAlt } from "react-icons/fa";
 import { getApiUrl } from '../../apiClient';
@@ -160,7 +159,11 @@ const MatchingGamePage: React.FC = () => {
 
   const handleConfirmExit = () => {
     setShowConfirmExit(false);
-    navigate('/jp/home');
+    if (window.history.state && window.history.state.idx > 0) {
+      navigate(-1);
+    } else {
+      navigate('/jp/home');
+    }
   };
 
   // Speech pronunciation helper for Japanese
@@ -361,7 +364,6 @@ const MatchingGamePage: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-slate-50">
-      <Header />
 
       {/* Background decoration */}
       <div className="flex-1 flex flex-col justify-start items-center relative overflow-hidden bg-gradient-to-tr from-indigo-50/40 via-slate-50 to-emerald-50/30 py-8 px-4">
@@ -634,7 +636,13 @@ const MatchingGamePage: React.FC = () => {
                 Chơi lại
               </button>
               <button
-                onClick={() => navigate('/jp/home')}
+                onClick={() => {
+                  if (window.history.state && window.history.state.idx > 0) {
+                    navigate(-1);
+                  } else {
+                    navigate('/jp/home');
+                  }
+                }}
                 className="flex-1 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-extrabold text-sm flex items-center justify-center gap-2 cursor-pointer transition-all border border-slate-200"
               >
                 <FaHome className="text-xs" />

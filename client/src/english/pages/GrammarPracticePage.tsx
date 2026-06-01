@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { usePracticeSession } from '../utils/usePracticeStore';
 import type { ReviewWord } from '../utils/usePracticeStore';
 import { useNavigate } from 'react-router-dom';
-import Header from '../../components/Header';
 import { motion } from 'framer-motion';
 import { API_URL } from '../../apiClient';
 import { showToast } from '../../components/Toast';
@@ -236,14 +235,17 @@ const GrammarPracticePage = () => {
   const maxCount = Math.max(...reviewStats.map(item => item.count), 0);
 
   return (
-    <div>
+    <div className="flex flex-col h-full">
+      {/* Invisible classes to force Tailwind build colors */}
       <div className="hidden">
-        bg-red-400 bg-fuchsia-300 bg-yellow-400 bg-green-400 bg-sky-400 bg-indigo-500 bg-purple-600 bg-gray-400
+        bg-red-400 bg-fuchsia-300 bg-yellow-400 bg-green-400 bg-sky-400 bg-indigo-500 bg-purple-600 bg-pink-500 bg-rose-600 bg-gray-400
+        border-l-red-400 border-l-fuchsia-300 border-l-yellow-400 border-l-green-400 border-l-sky-400 border-l-indigo-500 border-l-purple-600 border-l-pink-500 border-l-rose-600 border-l-gray-400
+        bg-red-50 bg-fuchsia-50 bg-yellow-50 bg-green-50 bg-sky-50 bg-indigo-50 bg-purple-50 bg-pink-50 bg-rose-50 bg-gray-50
+        text-red-700 text-fuchsia-700 text-yellow-700 text-green-700 text-sky-700 text-indigo-700 text-purple-700 text-pink-700 text-rose-700 text-gray-700
       </div>
 
-      <Header />
       <div className="practice-page-container bg-[url('/103372501_p0.png')] bg-cover bg-center
-      flex h-screen text-xs sm:text-sm md:text-base lg:text-lg overflow-hidden">
+      flex flex-1 overflow-y-auto overflow-x-hidden text-xs sm:text-sm md:text-base lg:text-lg">
 
         {/* Left Column */}
         <div className="hidden xl:block w-2/10"></div>

@@ -91,6 +91,7 @@ const VocabularyTable: React.FC = () => {
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [isBulkProcessing, setIsBulkProcessing] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
   // Chuẩn hoá giá trị is_grammar từ backend
   const isGrammarWord = (w: any): boolean => {
     const v = w.is_grammar ?? w.isGrammar ?? w.grammar;
@@ -282,9 +283,9 @@ const VocabularyTable: React.FC = () => {
                 answer_explanation: q.answer_explanation || '',
                 choices: Array.isArray(q.choices)
                   ? q.choices.map((c: any) => ({
-                      content: c.content || '',
-                      is_correct: !!c.is_correct,
-                    }))
+                    content: c.content || '',
+                    is_correct: !!c.is_correct,
+                  }))
                   : [],
               });
             });
@@ -320,37 +321,37 @@ const VocabularyTable: React.FC = () => {
   };
 
   // ===== EXPORT MINIMAL (ID & KANJI) =====
-  const handleExportMinimal = () => {
-    // Lấy danh sách từ đã chọn (hoặc tất cả nếu không chọn gì)
-    const wordsToExport = selectedIds.size > 0
-      ? words.filter(w => selectedIds.has(String(w.id ?? w._id)))
-      : displayedWords;
+  // const handleExportMinimal = () => {
+  //   // Lấy danh sách từ đã chọn (hoặc tất cả nếu không chọn gì)
+  //   const wordsToExport = selectedIds.size > 0
+  //     ? words.filter(w => selectedIds.has(String(w.id ?? w._id)))
+  //     : displayedWords;
 
-    if (wordsToExport.length === 0) {
-      setError('Không có từ nào để export');
-      return;
-    }
+  //   if (wordsToExport.length === 0) {
+  //     setError('Không có từ nào để export');
+  //     return;
+  //   }
 
-    const exportData = wordsToExport.map((w: any) => ({
-      id: w.id ?? w._id ?? '',
-      kanji: w.kanji || '',
-    }));
+  //   const exportData = wordsToExport.map((w: any) => ({
+  //     id: w.id ?? w._id ?? '',
+  //     kanji: w.kanji || '',
+  //   }));
 
-    const blob = new Blob([JSON.stringify(exportData, null, 4)], {
-      type: 'application/json',
-    });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    const timestamp = new Date().toISOString().slice(0, 10);
-    a.download = `mochi_jp_minimal_${timestamp}_${exportData.length}words.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+  //   const blob = new Blob([JSON.stringify(exportData, null, 4)], {
+  //     type: 'application/json',
+  //   });
+  //   const url = URL.createObjectURL(blob);
+  //   const a = document.createElement('a');
+  //   a.href = url;
+  //   const timestamp = new Date().toISOString().slice(0, 10);
+  //   a.download = `mochi_jp_minimal_${timestamp}_${exportData.length}words.json`;
+  //   document.body.appendChild(a);
+  //   a.click();
+  //   document.body.removeChild(a);
+  //   URL.revokeObjectURL(url);
 
-    setMessage(`Đã export ${exportData.length} từ (ID & Kanji) thành công!`);
-  };
+  //   setMessage(`Đã export ${exportData.length} từ (ID & Kanji) thành công!`);
+  // };
 
   // ===== BULK ACTIONS =====
   const handleBulkActivate = async () => {
@@ -375,7 +376,7 @@ const VocabularyTable: React.FC = () => {
 
       const results = await Promise.all(promises);
       const failed = results.filter(r => !r.ok);
-      
+
       if (failed.length > 0) {
         throw new Error(`${failed.length} từ cập nhật thất bại`);
       }
@@ -388,7 +389,7 @@ const VocabularyTable: React.FC = () => {
         }
         return w;
       }));
-      
+
       setMessage(`Đã kích hoạt ${selectedIds.size} từ`);
       setSelectedIds(new Set());
     } catch (e: any) {
@@ -420,7 +421,7 @@ const VocabularyTable: React.FC = () => {
 
       const results = await Promise.all(promises);
       const failed = results.filter(r => !r.ok);
-      
+
       if (failed.length > 0) {
         throw new Error(`${failed.length} từ cập nhật thất bại`);
       }
@@ -433,7 +434,7 @@ const VocabularyTable: React.FC = () => {
         }
         return w;
       }));
-      
+
       setMessage(`Đã vô hiệu ${selectedIds.size} từ`);
       setSelectedIds(new Set());
     } catch (e: any) {
@@ -446,7 +447,7 @@ const VocabularyTable: React.FC = () => {
   const handleBulkDelete = async () => {
     if (selectedIds.size === 0) return;
     if (!confirm(`Bạn có chắc muốn xóa ${selectedIds.size} từ đã chọn?`)) return;
-    
+
     setIsBulkProcessing(true);
     setError(null);
     setMessage(null);
@@ -465,14 +466,14 @@ const VocabularyTable: React.FC = () => {
 
       const results = await Promise.all(promises);
       const failed = results.filter(r => !r.ok);
-      
+
       if (failed.length > 0) {
         throw new Error(`${failed.length} từ xóa thất bại`);
       }
 
       // Remove from local state
       setWords(prev => prev.filter(w => !selectedIds.has(String(w.id ?? w._id))));
-      
+
       setMessage(`Đã xóa ${selectedIds.size} từ`);
       setSelectedIds(new Set());
     } catch (e: any) {
@@ -514,117 +515,150 @@ const VocabularyTable: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-full">
-      {/* Header + Search */}
-      <div className="sticky top-0 bg-white/95 backdrop-blur-sm shrink-0 w-full mx-auto z-40 shadow-sm border-b border-gray-100">
-        <div className="mx-auto px-6 py-2">
-          <div className="flex items-center justify-between mb-2 relative">
+    <div className="flex flex-col h-full bg-slate-50/50">
+      {/* Search */}
+      <div className="sticky top-0 shrink-0 w-full mx-auto z-40">
+        <div className="max-w-6xl mx-auto px-6 py-2.5">
+          <div className="flex items-center justify-between mb-2.5 relative">
             <button
               onClick={() => navigate("/jp/home")}
-              className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-50 text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition-all cursor-pointer"
+              className="flex items-center justify-center w-9 h-9 rounded-full bg-slate-50 text-slate-500 hover:bg-slate-100 hover:text-slate-800 border border-slate-100/80 hover:shadow-sm transition-all duration-200 cursor-pointer"
               title="Quay lại"
             >
-              <BiLogOutCircle className="text-3xl" />
+              <BiLogOutCircle className="text-2xl" />
             </button>
 
-            <h2 className="text-xl font-black text-gray-800 tracking-tight">
+            <h2 className="text-lg sm:text-xl font-black bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-500 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
               Japanese Word List
             </h2>
 
-            <div className="w-8"></div>
+            <div className="w-9"></div>
           </div>
 
           {/* Search Bar and Filters Row */}
-          <div className="flex flex-col gap-2">
-            <div className="relative">
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Tìm kiếm từ vựng, nghĩa, hán việt..."
-                className="w-full pl-10 pr-4 py-1.5 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all shadow-sm text-sm"
-              />
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </span>
-            </div>
-            
-            <div className="flex flex-wrap items-center gap-2 pb-1">
-              <select
-                value={levelFilter}
-                onChange={(e) => setLevelFilter(e.target.value === 'all' ? 'all' : Number(e.target.value))}
-                className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
-              >
-                <option value="all">Cấp độ: Tất cả</option>
-                {levels.map((lv) => (
-                  <option key={lv} value={lv}>Cấp {lv}</option>
-                ))}
-              </select>
-
-              <select
-                value={jlptFilter}
-                onChange={(e) => setJlptFilter(e.target.value as any)}
-                className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
-              >
-                <option value="all">JLPT: Tất cả</option>
-                <option value="N1">N1</option>
-                <option value="N2">N2</option>
-                <option value="N3">N3</option>
-                <option value="N4">N4</option>
-                <option value="N5">N5</option>
-              </select>
-
-              <select
-                value={typeFilter}
-                onChange={(e) => setTypeFilter(e.target.value as 'all' | 'word' | 'grammar')}
-                className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
-              >
-                <option value="all">Loại: Tất cả</option>
-                <option value="word">Từ vựng</option>
-                <option value="grammar">Ngữ pháp</option>
-              </select>
-
-              <select
-                value={activeFilter}
-                onChange={(e) => setActiveFilter(e.target.value as 'all' | 'active' | 'inactive')}
-                className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
-              >
-                <option value="all">Trạng thái: Tất cả</option>
-                <option value="active">Đang dùng</option>
-                <option value="inactive">Đang ẩn</option>
-              </select>
-
-              <select
-                value={topicFilter}
-                onChange={(e) => setTopicFilter(e.target.value)}
-                className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
-              >
-                <option value="all">Topic: Tất cả</option>
-                {allTopics.map((t) => (
-                  <option key={t} value={t}>{t}</option>
-                ))}
-              </select>
-
-              <select
-                value={limitFilter}
-                onChange={(e) => setLimitFilter(e.target.value === 'all' ? 'all' : Number(e.target.value) as 10 | 20)}
-                className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
-              >
-                <option value="all">Hiển thị: Tất cả</option>
-                <option value="10">10 từ</option>
-                <option value="20">20 từ</option>
-              </select>
-
-              <div className="ml-auto bg-blue-100 text-blue-700 px-2 py-1 rounded-md text-[10px] font-bold">
-                {displayedWords.length} / {filteredWords.length} kết quả
+          <div className="flex flex-col gap-2.5">
+            {/* Search Input, Count Badge, and Filter Toggle */}
+            <div className="flex items-center gap-2">
+              <div className="relative flex-1">
+                <input
+                  type="text"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  placeholder="Tìm kiếm từ vựng, nghĩa, hán việt..."
+                  className="w-full pl-11 pr-10 py-2 rounded-2xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-amber-500/10 focus:border-amber-400 focus:shadow-md transition-all text-xs sm:text-sm placeholder-slate-400"
+                />
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </span>
+                {searchTerm && (
+                  <button
+                    onClick={() => setSearchTerm('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors p-1"
+                    title="Xóa tìm kiếm"
+                  >
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                )}
               </div>
+
+              <div className="shrink-0 bg-gradient-to-r from-amber-50 to-orange-50 text-amber-700 border border-amber-200/30 px-3 py-1.5 rounded-full text-[10px] sm:text-xs font-black shadow-inner whitespace-nowrap">
+                {displayedWords.length} / {filteredWords.length} từ
+              </div>
+
+              <button
+                onClick={() => setShowFilters(!showFilters)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 sm:px-4 rounded-2xl border text-xs font-bold transition-all duration-200 cursor-pointer shadow-sm shrink-0 ${showFilters
+                  ? 'bg-amber-500 text-white border-amber-500 hover:bg-amber-600 hover:border-amber-600'
+                  : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+                  }`}
+                title="Bộ lọc nâng cao"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                </svg>
+                <span className="hidden sm:inline">Bộ lọc</span>
+                {(levelFilter !== 'all' || jlptFilter !== 'all' || typeFilter !== 'all' || activeFilter !== 'all' || topicFilter !== 'all') && (
+                  <span className={`w-1.5 h-1.5 rounded-full ${showFilters ? 'bg-white' : 'bg-amber-500'} animate-pulse`} />
+                )}
+              </button>
             </div>
+
+            {showFilters && (
+              <div className="flex flex-wrap items-center gap-2 pb-1.5 mt-1 transition-all duration-200">
+                <select
+                  value={levelFilter}
+                  onChange={(e) => setLevelFilter(e.target.value === 'all' ? 'all' : Number(e.target.value))}
+                  className="px-3.5 py-1.5 rounded-full border border-slate-200/80 bg-white text-[11px] font-bold text-slate-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-amber-500/10 focus:border-amber-400 cursor-pointer hover:border-slate-300 hover:bg-slate-50/50 transition-all duration-200"
+                >
+                  <option value="all">Cấp độ: Tất cả</option>
+                  {levels.map((lv) => (
+                    <option key={lv} value={lv}>Cấp {lv}</option>
+                  ))}
+                </select>
+
+                <select
+                  value={jlptFilter}
+                  onChange={(e) => setJlptFilter(e.target.value as any)}
+                  className="px-3.5 py-1.5 rounded-full border border-slate-200/80 bg-white text-[11px] font-bold text-slate-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-amber-500/10 focus:border-amber-400 cursor-pointer hover:border-slate-300 hover:bg-slate-50/50 transition-all duration-200"
+                >
+                  <option value="all">JLPT: Tất cả</option>
+                  <option value="N1">N1</option>
+                  <option value="N2">N2</option>
+                  <option value="N3">N3</option>
+                  <option value="N4">N4</option>
+                  <option value="N5">N5</option>
+                </select>
+
+                <select
+                  value={typeFilter}
+                  onChange={(e) => setTypeFilter(e.target.value as 'all' | 'word' | 'grammar')}
+                  className="px-3.5 py-1.5 rounded-full border border-slate-200/80 bg-white text-[11px] font-bold text-slate-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-amber-500/10 focus:border-amber-400 cursor-pointer hover:border-slate-300 hover:bg-slate-50/50 transition-all duration-200"
+                >
+                  <option value="all">Loại: Tất cả</option>
+                  <option value="word">Từ vựng</option>
+                  <option value="grammar">Ngữ pháp</option>
+                </select>
+
+                <select
+                  value={activeFilter}
+                  onChange={(e) => setActiveFilter(e.target.value as 'all' | 'active' | 'inactive')}
+                  className="px-3.5 py-1.5 rounded-full border border-slate-200/80 bg-white text-[11px] font-bold text-slate-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-amber-500/10 focus:border-amber-400 cursor-pointer hover:border-slate-300 hover:bg-slate-50/50 transition-all duration-200"
+                >
+                  <option value="all">Trạng thái: Tất cả</option>
+                  <option value="active">Đang dùng</option>
+                  <option value="inactive">Đang ẩn</option>
+                </select>
+
+                <select
+                  value={topicFilter}
+                  onChange={(e) => setTopicFilter(e.target.value)}
+                  className="px-3.5 py-1.5 rounded-full border border-slate-200/80 bg-white text-[11px] font-bold text-slate-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-amber-500/10 focus:border-amber-400 cursor-pointer hover:border-slate-300 hover:bg-slate-50/50 transition-all duration-200"
+                >
+                  <option value="all">Topic: Tất cả</option>
+                  {allTopics.map((t) => (
+                    <option key={t} value={t}>{t}</option>
+                  ))}
+                </select>
+
+                <select
+                  value={limitFilter}
+                  onChange={(e) => setLimitFilter(e.target.value === 'all' ? 'all' : Number(e.target.value) as 10 | 20)}
+                  className="px-3.5 py-1.5 rounded-full border border-slate-200/80 bg-white text-[11px] font-bold text-slate-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-amber-500/10 focus:border-amber-400 cursor-pointer hover:border-slate-300 hover:bg-slate-50/50 transition-all duration-200"
+                >
+                  <option value="all">Hiển thị: Tất cả</option>
+                  <option value="10">10 từ</option>
+                  <option value="20">20 từ</option>
+                </select>
+              </div>
+            )}
           </div>
 
           {/* Bulk Actions and Select All Row */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-2 border-t border-gray-200">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-2 ">
             {/* Select All */}
             <div className="flex items-center gap-2 py-1">
               <input
@@ -661,12 +695,12 @@ const VocabularyTable: React.FC = () => {
                   >
                     📥 Export JSON
                   </button>
-                  <button
+                  {/* <button
                     onClick={() => handleExportMinimal()}
                     className="px-3 py-1 text-xs font-medium rounded-md bg-purple-500 text-white hover:bg-purple-600 transition-colors shadow-sm"
                   >
                     📥 Export ID & Kanji
-                  </button>
+                  </button> */}
                   <button
                     onClick={() => handleBulkActivate()}
                     disabled={isBulkProcessing}
@@ -705,13 +739,13 @@ const VocabularyTable: React.FC = () => {
                   >
                     📥 Export tất cả
                   </button>
-                  <button
+                  {/* <button
                     onClick={() => handleExportMinimal()}
                     className="px-3 py-1 text-xs font-medium rounded-md border border-purple-300 bg-purple-50 text-purple-600 hover:bg-purple-100 transition-colors shadow-sm"
                     title="Export ID & Kanji tất cả từ đang hiển thị"
                   >
                     📥 Export ID & Kanji
-                  </button>
+                  </button> */}
                 </div>
               )}
             </div>
@@ -726,7 +760,7 @@ const VocabularyTable: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto pb-10 max-w-6xl mx-auto">
+      <div className="flex-1 overflow-y-auto  pb-10 max-w-6xl mx-auto w-full px-6 pt-4">
         {displayedWords.map((word, index) => {
           const wid = String(word.id ?? word._id);
           return (
@@ -751,11 +785,10 @@ const VocabularyTable: React.FC = () => {
                     className="w-5 h-5 rounded border-gray-300 text-yellow-500 focus:ring-yellow-400 cursor-pointer"
                     onClick={(e) => e.stopPropagation()}
                   />
-                  <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${
-                    isActiveWord(word)
-                      ? "bg-green-100 text-green-700"
-                      : "bg-gray-100 text-gray-500"
-                  }`}>
+                  <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${isActiveWord(word)
+                    ? "bg-green-100 text-green-700"
+                    : "bg-gray-100 text-gray-500"
+                    }`}>
                     {isActiveWord(word) ? "Đang dùng" : "Đang ẩn"}
                   </span>
                   {isGrammarWord(word) && (
@@ -810,7 +843,7 @@ const VocabularyTable: React.FC = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* Nội dung word */}
               <div className="p-5">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6">

@@ -70,6 +70,7 @@ export default function VocabularyTable() {
   const [message, setMessage] = useState<string>("");
   const [selectedIds, setSelectedIds] = useState<Set<number>>(new Set());
   const [isBulkProcessing, setIsBulkProcessing] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
 
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [levelFilter, setLevelFilter] = useState<number | "all">("all");
@@ -526,104 +527,138 @@ export default function VocabularyTable() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="flex flex-col h-full bg-slate-50/50">
       {/* Header + Search */}
-      <div className="bg-white/95 backdrop-blur-sm sticky top-0 w-full z-30 shadow-sm border-b border-gray-100">
-        <div className="max-w-6xl  px-6 py-2">
-          <div className="flex items-center justify-between mb-2 relative">
+      <div className="sticky top-0 w-full z-30">
+        <div className="max-w-6xl px-6 py-2.5 mx-auto">
+          <div className="flex items-center justify-between mb-2.5 relative">
             <button
               onClick={() => navigate("/en/home")}
-              className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-50 text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition-all cursor-pointer"
+              className="flex items-center justify-center w-9 h-9 rounded-full bg-slate-50 text-slate-500 hover:bg-slate-100 hover:text-slate-800 border border-slate-100/80 hover:shadow-sm transition-all duration-200 cursor-pointer"
               title="Quay lại"
             >
-              <BiLogOutCircle className="text-xl" />
+              <BiLogOutCircle className="text-2xl" />
             </button>
 
-            <h2 className="text-xl font-black text-gray-800 tracking-tight">
+            <h2 className="text-lg sm:text-xl font-black bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-500 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
               English Word List
             </h2>
 
-            <div className="w-8"></div>
+            <div className="w-9"></div>
           </div>
 
           {/* Search Bar and Filters Row */}
-          <div className="flex flex-col gap-2">
-            <div className="relative">
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Tìm kiếm từ vựng, nghĩa, ví dụ..."
-                className="w-full pl-10 pr-4 py-1.5 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all shadow-sm text-sm"
-              />
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+          <div className="flex flex-col gap-2.5">
+            {/* Search Input, Count Badge, and Filter Toggle */}
+            <div className="flex items-center gap-2">
+              <div className="relative flex-1">
+                <input
+                  type="text"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  placeholder="Tìm kiếm từ vựng, nghĩa, ví dụ..."
+                  className="w-full pl-11 pr-10 py-2 rounded-2xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-amber-500/10 focus:border-amber-400 focus:shadow-md transition-all text-xs sm:text-sm placeholder-slate-400"
+                />
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </span>
+                {searchTerm && (
+                  <button
+                    onClick={() => setSearchTerm('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors p-1"
+                    title="Xóa tìm kiếm"
+                  >
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                )}
+              </div>
+
+              <div className="shrink-0 bg-gradient-to-r from-amber-50 to-orange-50 text-amber-700 border border-amber-200/30 px-3 py-1.5 rounded-full text-[10px] sm:text-xs font-black shadow-inner whitespace-nowrap">
+                {filteredWords.length} từ
+              </div>
+
+              <button
+                onClick={() => setShowFilters(!showFilters)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 sm:px-4 rounded-2xl border text-xs font-bold transition-all duration-200 cursor-pointer shadow-sm shrink-0 ${
+                  showFilters
+                    ? 'bg-amber-500 text-white border-amber-500 hover:bg-amber-600 hover:border-amber-600'
+                    : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+                }`}
+                title="Bộ lọc nâng cao"
+              >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
                 </svg>
-              </span>
+                <span className="hidden sm:inline">Bộ lọc</span>
+                {(levelFilter !== 'all' || cefrFilter !== 'all' || typeFilter !== 'all' || activeFilter !== 'all' || topicFilter !== 'all') && (
+                  <span className={`w-1.5 h-1.5 rounded-full ${showFilters ? 'bg-white' : 'bg-amber-500'} animate-pulse`} />
+                )}
+              </button>
             </div>
             
-            <div className="flex flex-wrap items-center gap-2 pb-1">
-              <select
-                value={levelFilter === "all" ? "all" : String(levelFilter)}
-                onChange={(e) => setLevelFilter(e.target.value === "all" ? "all" : Number(e.target.value))}
-                className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
-              >
-                <option value="all">Cấp độ: Tất cả</option>
-                {levels.map((lv) => (
-                  <option key={lv} value={lv}>Level {lv}</option>
-                ))}
-              </select>
+            {showFilters && (
+              <div className="flex flex-wrap items-center gap-2 pb-1.5 mt-1 transition-all duration-200">
+                <select
+                  value={levelFilter === "all" ? "all" : String(levelFilter)}
+                  onChange={(e) => setLevelFilter(e.target.value === "all" ? "all" : Number(e.target.value))}
+                  className="px-3.5 py-1.5 rounded-full border border-slate-200/80 bg-white text-[11px] font-bold text-slate-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-amber-500/10 focus:border-amber-400 cursor-pointer hover:border-slate-300 hover:bg-slate-50/50 transition-all duration-200"
+                >
+                  <option value="all">Cấp độ: Tất cả</option>
+                  {levels.map((lv) => (
+                    <option key={lv} value={lv}>Level {lv}</option>
+                  ))}
+                </select>
 
-              <select
-                value={cefrFilter}
-                onChange={(e) => setCefrFilter(e.target.value as CEFROption)}
-                className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
-              >
-                <option value="all">CEFR: Tất cả</option>
-                <option value="A1">A1</option>
-                <option value="A2">A2</option>
-                <option value="B1">B1</option>
-                <option value="B2">B2</option>
-                <option value="C1">C1</option>
-                <option value="C2">C2</option>
-              </select>
+                <select
+                  value={cefrFilter}
+                  onChange={(e) => setCefrFilter(e.target.value as CEFROption)}
+                  className="px-3.5 py-1.5 rounded-full border border-slate-200/80 bg-white text-[11px] font-bold text-slate-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-amber-500/10 focus:border-amber-400 cursor-pointer hover:border-slate-300 hover:bg-slate-50/50 transition-all duration-200"
+                >
+                  <option value="all">CEFR: Tất cả</option>
+                  <option value="A1">A1</option>
+                  <option value="A2">A2</option>
+                  <option value="B1">B1</option>
+                  <option value="B2">B2</option>
+                  <option value="C1">C1</option>
+                  <option value="C2">C2</option>
+                </select>
 
-              <select
-                value={typeFilter}
-                onChange={(e) => setTypeFilter(e.target.value as 'all' | 'word' | 'grammar')}
-                className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
-              >
-                <option value="all">Loại: Tất cả</option>
-                <option value="word">Từ vựng</option>
-                <option value="grammar">Ngữ pháp</option>
-              </select>
+                <select
+                  value={typeFilter}
+                  onChange={(e) => setTypeFilter(e.target.value as 'all' | 'word' | 'grammar')}
+                  className="px-3.5 py-1.5 rounded-full border border-slate-200/80 bg-white text-[11px] font-bold text-slate-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-amber-500/10 focus:border-amber-400 cursor-pointer hover:border-slate-300 hover:bg-slate-50/50 transition-all duration-200"
+                >
+                  <option value="all">Loại: Tất cả</option>
+                  <option value="word">Từ vựng</option>
+                  <option value="grammar">Ngữ pháp</option>
+                </select>
 
-              <select
-                value={activeFilter}
-                onChange={(e) => setActiveFilter(e.target.value as 'all' | 'active' | 'inactive')}
-                className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
-              >
-                <option value="all">Trạng thái: Tất cả</option>
-                <option value="active">Đang dùng</option>
-                <option value="inactive">Đang ẩn</option>
-              </select>
+                <select
+                  value={activeFilter}
+                  onChange={(e) => setActiveFilter(e.target.value as 'all' | 'active' | 'inactive')}
+                  className="px-3.5 py-1.5 rounded-full border border-slate-200/80 bg-white text-[11px] font-bold text-slate-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-amber-500/10 focus:border-amber-400 cursor-pointer hover:border-slate-300 hover:bg-slate-50/50 transition-all duration-200"
+                >
+                  <option value="all">Trạng thái: Tất cả</option>
+                  <option value="active">Đang dùng</option>
+                  <option value="inactive">Đang ẩn</option>
+                </select>
 
-              <select
-                value={topicFilter}
-                onChange={(e) => setTopicFilter(e.target.value)}
-                className="px-2 py-1 rounded-md border border-gray-200 bg-white text-xs font-medium focus:ring-2 focus:ring-yellow-400 outline-none cursor-pointer hover:border-gray-300 transition-colors"
-              >
-                <option value="all">Topic: Tất cả</option>
-                {allTopics.map(topic => (
-                  <option key={topic} value={topic}>{topic}</option>
-                ))}
-              </select>
-
-              <div className="ml-auto bg-yellow-100 text-yellow-700 px-2 py-1 rounded-md text-[10px] font-bold">
-                {filteredWords.length} kết quả
+                <select
+                  value={topicFilter}
+                  onChange={(e) => setTopicFilter(e.target.value)}
+                  className="px-3.5 py-1.5 rounded-full border border-slate-200/80 bg-white text-[11px] font-bold text-slate-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-amber-500/10 focus:border-amber-400 cursor-pointer hover:border-slate-300 hover:bg-slate-50/50 transition-all duration-200"
+                >
+                  <option value="all">Topic: Tất cả</option>
+                  {allTopics.map(topic => (
+                    <option key={topic} value={topic}>{topic}</option>
+                  ))}
+                </select>
               </div>
-            </div>
+            )}
           </div>
 
           {/* Bulk Actions and Select All Row */}
@@ -731,7 +766,7 @@ export default function VocabularyTable() {
       </div>
 
       {/* List */}
-      <div className="pt-4 pb-10 max-w-6xl mx-auto px-4">
+      <div className="pt-4 pb-10 max-w-6xl mx-auto w-full px-6">
         {filteredWords.map((w) => (
           <div
             key={w.id}

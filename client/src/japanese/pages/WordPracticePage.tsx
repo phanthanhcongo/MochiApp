@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { usePracticeSession } from '../utils/usePracticeStore';
 import { useNavigate } from 'react-router-dom';
-import Header from '../../components/Header';
 import { motion } from 'framer-motion';
 import { API_URL } from '../../apiClient';
 
@@ -268,11 +267,6 @@ const WordPracticePage = () => {
         bg-red-50 bg-fuchsia-50 bg-yellow-50 bg-green-50 bg-sky-50 bg-indigo-50 bg-purple-50 bg-pink-50 bg-rose-50 bg-gray-50
         text-red-700 text-fuchsia-700 text-yellow-700 text-green-700 text-sky-700 text-indigo-700 text-purple-700 text-pink-700 text-rose-700 text-gray-700
       </div> 
-
-
-      <div className="shrink-0">
-        <Header />
-      </div>
       <div className="practice-page-container bg-[url('/103372501_p0.png')] bg-cover bg-center
       flex flex-1 overflow-y-hidden overflow-x-hidden text-xs sm:text-sm md:text-base lg:text-lg">
 

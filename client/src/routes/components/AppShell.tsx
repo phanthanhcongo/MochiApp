@@ -8,15 +8,15 @@ interface AppShellProps {
 export default function AppShell({ children }: AppShellProps) {
   const { pathname } = useLocation();
 
-  // Match /jp/home, /en/home, và cho phép /home (fallback), có thể có dấu / ở cuối
-  const isPracticePage = useMemo(
-    () => /^\/(?:(jp|en)\/)?home(?:-grammar)?\/?$/.test(pathname),
+  // Xác định các trang protected bằng cách kiểm tra tiền tố ngôn ngữ /jp/ hoặc /en/
+  const isProtectedPage = useMemo(
+    () => /^\/(jp|en)\//.test(pathname),
     [pathname]
   );
 
   return (
     <div className="h-dvh">
-      {isPracticePage ? (
+      {isProtectedPage ? (
         children
       ) : (
         <div className="bg-[url('/103372501_p0.png')] bg-cover bg-center bg-gray-50/80 h-full">
