@@ -76,7 +76,7 @@ const PracticeResultPanel: React.FC<PracticeResultPanelProps> = ({
 
   if (isResultHidden) {
     return (
-      <div className={`${panelClass} fixed bottom-0  w-full z-50  cong_2`}>
+      <div className={`${panelClass} z-50 cong_2`}>
         {/* Nút Up - Bây giờ cũng dùng absolute top để bám vào mép bảng */}
         <div className="absolute -top-5 md:-top-8 right-[5%] z-20">
           <button
@@ -97,7 +97,7 @@ const PracticeResultPanel: React.FC<PracticeResultPanelProps> = ({
   }
 
   return (
-    <div className={`${panelClass} fixed bottom-0  w-full z-50  cong_2`}>
+    <div className={`${panelClass} z-50 cong_2`}>
 
       {/* NHÓM ĐIỀU KHIỂN (Floating Actions) */}
       <div className="absolute -top-5 md:-top-8 right-[5%] flex flex-col gap-2 z-20">
@@ -135,12 +135,18 @@ const PracticeResultPanel: React.FC<PracticeResultPanelProps> = ({
             <div className="flex-1 min-w-0">
               <div className="text-stone-50 text-xl sm:text-2xl break-words">
                 {word.example}
-                <button className="btn-eye ml-2" onClick={() => setIsTranslationHidden(!isTranslationHidden)}>
+                <button 
+                  className="btn-eye ml-2 inline-flex align-middle" 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsTranslationHidden((prev) => !prev);
+                  }}
+                >
                   {isTranslationHidden ? '🙈' : '👁'}
                 </button>
               </div>
-              <div className={`${isTranslationHidden ? 'opacity-0 h-0' : 'opacity-100'} transition-all duration-300`}>
-                <p className="text-stone-50/90 text-sm sm:text-base italic mt-1">{word.example_romaji}</p>
+              <div className={`transition-all duration-300 overflow-hidden ${isTranslationHidden ? 'opacity-0 max-h-0' : 'opacity-100 max-h-40 mt-2'}`}>
+                <p className="text-stone-50/90 text-sm sm:text-base italic">{word.example_romaji}</p>
                 <p className="text-stone-50/90 text-sm sm:text-base">{word.example_vi}</p>
               </div>
             </div>
