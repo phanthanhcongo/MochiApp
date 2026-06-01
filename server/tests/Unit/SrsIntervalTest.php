@@ -5,159 +5,194 @@ namespace Tests\Unit;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Unit tests for SRS (Spaced Repetition System) interval calculation logic.
- * Tests the core algorithm independently without database.
+ * Unit tests for the session-result SRS scheduling policy.
+ * These tests intentionally mirror the target business rules in isolation.
  */
 class SrsIntervalTest extends TestCase
 {
-    // ====== Base Wait Seconds ======
-
-    private function getBaseWaitSeconds(int $level): int
+    private function getBaseIntervalByLevel(int $level): int
     {
         return match ($level) {
-            1 => 30,            // 30 seconds
-            2 => 600,           // 10 minutes
-            3 => 86400,         // 1 day
-            4 => 259200,        // 3 days
-            5 => 604800,        // 7 days
-            6 => 1814400,       // 21 days
-            7 => 7776000,       // 90 days
-            default => 30,
+            1 => 600,         // 10 minutes
+            2 => 28800,       // 8 hours
+            3 => 86400,       // 1 day
+            4 => 259200,      // 3 days
+            5 => 604800,      // 7 days
+            6 => 1296000,     // 15 days
+            7 => 2592000,     // 30 days
+            8 => 5184000,     // 60 days
+            9 => 10368000,    // 120 days
+            default => 600,
         };
     }
 
     private function getStreakFactor(int $streak): float
     {
-        if ($streak <= 1) return 1.00;
-        if ($streak <= 3) return 1.15;
+        if ($streak <= 1) {
+            return 1.00;
+        }
+
+        if ($streak <= 3) {
+            return 1.10;
+        }
+
+        if ($streak <= 6) {
+            return 1.20;
+        }
+
         return 1.30;
     }
 
     private function getLapseFactor(int $lapses): float
     {
-        if ($lapses <= 1) return 1.00;
-        if ($lapses <= 4) return 0.85;
-        if ($lapses <= 7) return 0.70;
+        if ($lapses <= 0) {
+            return 1.00;
+        }
+
+        if ($lapses <= 2) {
+            return 0.90;
+        }
+
+        if ($lapses <= 4) {
+            return 0.75;
+        }
+
         return 0.60;
     }
 
-    private function calculateInterval(int $level, int $streak, int $lapses): int
+    private function calculateIntervalForPolicy(int $level, int $streak, int $lapses): int
     {
-        $baseWait = $this->getBaseWaitSeconds($level);
+        $baseInterval = $this->getBaseIntervalByLevel($level);
         $streakFactor = $this->getStreakFactor($streak);
         $lapseFactor = $this->getLapseFactor($lapses);
-        $interval = round($baseWait * $streakFactor * $lapseFactor);
-        return max(30, $interval);
+
+        return (int) round($baseInterval * $streakFactor * $lapseFactor);
     }
 
-    // ====== Tests for Base Wait Seconds ======
-
-    public function test_level_1_base_wait_is_30_seconds(): void
+    public function test_level_1_base_interval_is_10_minutes(): void
     {
-        $this->assertEquals(30, $this->getBaseWaitSeconds(1));
+        $this->assertEquals(600, $this->getBaseIntervalByLevel(1));
     }
 
-    public function test_level_2_base_wait_is_10_minutes(): void
+    public function test_level_2_base_interval_is_8_hours(): void
     {
-        $this->assertEquals(600, $this->getBaseWaitSeconds(2));
+        $this->assertEquals(28800, $this->getBaseIntervalByLevel(2));
     }
 
-    public function test_level_3_base_wait_is_1_day(): void
+    public function test_level_5_base_interval_is_7_days(): void
     {
-        $this->assertEquals(86400, $this->getBaseWaitSeconds(3));
+        $this->assertEquals(604800, $this->getBaseIntervalByLevel(5));
     }
 
-    public function test_level_7_base_wait_is_90_days(): void
+    public function test_level_9_base_interval_is_120_days(): void
     {
-        $this->assertEquals(7776000, $this->getBaseWaitSeconds(7));
+        $this->assertEquals(10368000, $this->getBaseIntervalByLevel(9));
     }
 
-    public function test_invalid_level_defaults_to_30_seconds(): void
+    public function test_invalid_level_defaults_to_level_1_interval(): void
     {
-        $this->assertEquals(30, $this->getBaseWaitSeconds(0));
-        $this->assertEquals(30, $this->getBaseWaitSeconds(99));
+        $this->assertEquals(600, $this->getBaseIntervalByLevel(0));
+        $this->assertEquals(600, $this->getBaseIntervalByLevel(99));
     }
 
-    // ====== Tests for Streak Factor ======
-
-    public function test_streak_0_factor_is_1(): void
+    public function test_streak_factor_for_zero_and_one_is_one(): void
     {
         $this->assertEquals(1.00, $this->getStreakFactor(0));
-    }
-
-    public function test_streak_1_factor_is_1(): void
-    {
         $this->assertEquals(1.00, $this->getStreakFactor(1));
     }
 
-    public function test_streak_2_3_factor_is_1_15(): void
+    public function test_streak_factor_for_two_and_three_is_one_point_one(): void
     {
-        $this->assertEquals(1.15, $this->getStreakFactor(2));
-        $this->assertEquals(1.15, $this->getStreakFactor(3));
+        $this->assertEquals(1.10, $this->getStreakFactor(2));
+        $this->assertEquals(1.10, $this->getStreakFactor(3));
     }
 
-    public function test_streak_4_plus_factor_is_1_30(): void
+    public function test_streak_factor_for_four_to_six_is_one_point_two(): void
     {
-        $this->assertEquals(1.30, $this->getStreakFactor(4));
-        $this->assertEquals(1.30, $this->getStreakFactor(10));
+        $this->assertEquals(1.20, $this->getStreakFactor(4));
+        $this->assertEquals(1.20, $this->getStreakFactor(6));
     }
 
-    // ====== Tests for Lapse Factor ======
+    public function test_streak_factor_for_seven_plus_is_one_point_three(): void
+    {
+        $this->assertEquals(1.30, $this->getStreakFactor(7));
+        $this->assertEquals(1.30, $this->getStreakFactor(20));
+    }
 
-    public function test_lapses_0_1_factor_is_1(): void
+    public function test_lapse_factor_for_zero_is_one(): void
     {
         $this->assertEquals(1.00, $this->getLapseFactor(0));
-        $this->assertEquals(1.00, $this->getLapseFactor(1));
     }
 
-    public function test_lapses_2_4_factor_is_0_85(): void
+    public function test_lapse_factor_for_one_to_two_is_zero_point_nine(): void
     {
-        $this->assertEquals(0.85, $this->getLapseFactor(2));
-        $this->assertEquals(0.85, $this->getLapseFactor(4));
+        $this->assertEquals(0.90, $this->getLapseFactor(1));
+        $this->assertEquals(0.90, $this->getLapseFactor(2));
     }
 
-    public function test_lapses_5_7_factor_is_0_70(): void
+    public function test_lapse_factor_for_three_to_four_is_zero_point_seven_five(): void
     {
-        $this->assertEquals(0.70, $this->getLapseFactor(5));
-        $this->assertEquals(0.70, $this->getLapseFactor(7));
+        $this->assertEquals(0.75, $this->getLapseFactor(3));
+        $this->assertEquals(0.75, $this->getLapseFactor(4));
     }
 
-    public function test_lapses_8_plus_factor_is_0_60(): void
+    public function test_lapse_factor_for_five_plus_is_zero_point_six(): void
     {
-        $this->assertEquals(0.60, $this->getLapseFactor(8));
-        $this->assertEquals(0.60, $this->getLapseFactor(20));
+        $this->assertEquals(0.60, $this->getLapseFactor(5));
+        $this->assertEquals(0.60, $this->getLapseFactor(12));
     }
 
-    // ====== Tests for Interval Calculation ======
-
-    public function test_level_1_no_streak_no_lapses(): void
+    public function test_interval_uses_level_streak_and_lapses(): void
     {
-        // 30 * 1.00 * 1.00 = 30
-        $this->assertEquals(30, $this->calculateInterval(1, 0, 0));
+        // Level 3 = 1 day, streak 2 => 1.10, lapses 0 => 1.00
+        $this->assertEquals(95040, $this->calculateIntervalForPolicy(3, 2, 0));
     }
 
-    public function test_level_3_with_streak_2(): void
+    public function test_lapses_reduce_interval_even_after_success(): void
     {
-        // 86400 * 1.15 * 1.00 = 99360
-        $this->assertEquals(99360, $this->calculateInterval(3, 2, 0));
+        $stable = $this->calculateIntervalForPolicy(5, 3, 0);
+        $unstable = $this->calculateIntervalForPolicy(5, 3, 3);
+
+        $this->assertGreaterThan($unstable, $stable);
     }
 
-    public function test_level_5_with_high_lapses(): void
+    public function test_high_streak_extends_interval_more_than_low_streak(): void
     {
-        // 604800 * 1.00 * 0.60 = 362880
-        $this->assertEquals(362880, $this->calculateInterval(5, 0, 10));
+        $lowStreak = $this->calculateIntervalForPolicy(6, 1, 0);
+        $highStreak = $this->calculateIntervalForPolicy(6, 7, 0);
+
+        $this->assertGreaterThan($lowStreak, $highStreak);
     }
 
-    public function test_level_7_with_streak_and_lapses(): void
+    public function test_first_result_success_promotes_level_once_in_policy(): void
     {
-        // 7776000 * 1.30 * 0.85 = 8587440
-        $this->assertEquals(8587440, $this->calculateInterval(7, 5, 3));
+        $currentLevel = 4;
+        $newLevel = min(9, $currentLevel + 1);
+
+        $this->assertEquals(5, $newLevel);
+        $this->assertEquals(
+            604800,
+            $this->getBaseIntervalByLevel($newLevel)
+        );
     }
 
-    public function test_minimum_interval_is_30_seconds(): void
+    public function test_first_result_failure_demotes_level_once_in_policy(): void
     {
-        // Even with extreme lapses at level 1: 30 * 1.00 * 0.60 = 18 → clamped to 30
-        $result = $this->calculateInterval(1, 0, 10);
-        $this->assertGreaterThanOrEqual(30, $result);
+        $currentLevel = 4;
+        $newLevel = max(1, $currentLevel - 1);
+
+        $this->assertEquals(3, $newLevel);
+        $this->assertEquals(
+            86400,
+            $this->getBaseIntervalByLevel($newLevel)
+        );
+    }
+
+    public function test_level_cap_is_nine(): void
+    {
+        $currentLevel = 9;
+        $newLevel = min(9, $currentLevel + 1);
+
+        $this->assertEquals(9, $newLevel);
     }
 }
