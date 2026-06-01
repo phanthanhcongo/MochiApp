@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaPlay, FaVolumeUp, FaRedo, FaHome, FaClock, FaCheckCircle, FaAward, FaTimesCircle, FaSignOutAlt } from "react-icons/fa";
+import JapanesePageLayout from '../components/JapanesePageLayout';
 import { getApiUrl } from '../../apiClient';
 import { showToast } from '../../components/Toast';
 
@@ -363,10 +364,9 @@ const MatchingGamePage: React.FC = () => {
   const currentProgress = allWords.length > 0 ? (correctMatchesCount / allWords.length) * 100 : 0;
 
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50">
-
+    <JapanesePageLayout>
       {/* Background decoration */}
-      <div className="flex-1 flex flex-col justify-start items-center relative overflow-hidden bg-gradient-to-tr from-indigo-50/40 via-slate-50 to-emerald-50/30 py-8 px-4">
+      <div className="flex-1 flex flex-col justify-start items-center relative overflow-hidden bg-gradient-to-tr from-indigo-50/20 via-transparent to-emerald-50/20 py-8 px-4 w-full">
 
         {/* SELECT STATE */}
         {gameState === 'select' && (
@@ -680,7 +680,6 @@ const MatchingGamePage: React.FC = () => {
 
           </motion.div>
         )}
-
       </div>
 
       {/* Confirm Exit Modal Dialog */}
@@ -734,7 +733,7 @@ const MatchingGamePage: React.FC = () => {
           animation: shake 0.5s ease-in-out;
         }
       `}</style>
-    </div>
+    </JapanesePageLayout>
   );
 };
 

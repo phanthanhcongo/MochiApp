@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BiLogOutCircle, BiEdit, BiTrash } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from '../../apiClient';
+import JapanesePageLayout from './JapanesePageLayout';
 
 type FormState = {
   id: string;
@@ -16,7 +17,7 @@ type FormState = {
   context_vi: string;
   sentence_jp: string;
   sentence_hira: string;
-  sentence_romaji: string;
+  sentence_romaji: string; 
   sentence_vi: string;
 
 };
@@ -515,10 +516,10 @@ const VocabularyTable: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-full bg-slate-50/50">
+    <JapanesePageLayout>
       {/* Search */}
-      <div className="sticky top-0 shrink-0 w-full mx-auto z-40">
-        <div className="max-w-6xl mx-auto px-6 py-2.5">
+      <div className="sticky top-0 shrink-0 w-full z-40 bg-slate-50/95 backdrop-blur-sm border-b border-slate-200/50">
+        <div className="w-full px-6 py-2.5">
           <div className="flex items-center justify-between mb-2.5 relative">
             <button
               onClick={() => navigate("/jp/home")}
@@ -759,8 +760,7 @@ const VocabularyTable: React.FC = () => {
           )}
         </div>
       </div>
-
-      <div className="flex-1 overflow-y-auto  pb-10 max-w-6xl mx-auto w-full px-6 pt-4">
+      <div className="flex-1 overflow-y-auto pb-10 w-full px-6 pt-4">
         {displayedWords.map((word, index) => {
           const wid = String(word.id ?? word._id);
           return (
@@ -922,7 +922,7 @@ const VocabularyTable: React.FC = () => {
       </div>
 
 
-    </div>
+    </JapanesePageLayout>
   );
 };
 

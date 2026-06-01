@@ -4,6 +4,7 @@ import { BiLogOutCircle, BiCodeBlock } from "react-icons/bi";
 import { Sparkles } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../../apiClient';
+import JapanesePageLayout from '../components/JapanesePageLayout';
 const JLPT_OPTIONS = ['N1', 'N2', 'N3', 'N4', 'N5'] as const;
 const IS_GRAMMAR_OPTIONS: { value: string; label: string }[] = [
   { value: '0', label: 'Từ vựng thường' },
@@ -260,15 +261,14 @@ const CreateWordForm = () => {
   };
 
   return (
-    <div className="flex flex-col h-full bg-[#f8faff] overflow-y-auto">
-      <form onSubmit={handleSubmit} className="max-w-4xl mx-auto px-4 py-4 pb-8">
-        <div className='text-center w-full text-3xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-gray-700 to-gray-400 uppercase tracking-tighter pt-2'>
+    <JapanesePageLayout innerClassName="p-6">
+      <form onSubmit={handleSubmit} className="flex-1 flex flex-col h-full overflow-hidden w-full">
+        <div className="shrink-0 text-center w-full text-3xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-gray-700 to-gray-400 uppercase tracking-tighter pt-2">
           Add New Word
         </div>
 
         {/* Nút quay lại + Coder Mode */}
-        {/* Nút quay lại + Coder Mode */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="shrink-0 flex items-center justify-between mb-6">
           <button
             type="button"
             onClick={() => navigate('/jp/home')}
@@ -288,7 +288,7 @@ const CreateWordForm = () => {
           </button>
         </div>
 
-        <div className="bg-white border border-gray-100 rounded-[1.5rem] p-5 shadow-xl shadow-gray-200/40 space-y-5 relative overflow-hidden">
+        <div className="flex-1 overflow-y-auto overflow-x-hidden pr-2 bg-white border border-gray-100 rounded-[1.5rem] p-5 shadow-xl shadow-gray-200/40 space-y-5 relative">
           {/* Một dải màu trang trí phía trên cùng */}
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-fuchsia-500"></div>
 
@@ -436,7 +436,7 @@ const CreateWordForm = () => {
           )}
         </div>
 
-      <div className="flex justify-end mt-4 pb-4">
+      <div className="shrink-0 flex justify-end mt-4">
         <button
           type="submit"
           disabled={loading}
@@ -449,8 +449,8 @@ const CreateWordForm = () => {
           {loading ? 'Đang lưu...' : 'Lưu từ vựng'}
         </button>
       </div>
-    </form>
-    </div>
+        </form>
+    </JapanesePageLayout>
   );
 };
 

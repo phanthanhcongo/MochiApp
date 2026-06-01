@@ -80,8 +80,8 @@ const LanguageToggle = () => {
       <button
         onClick={() => handleSwitch("jp")}
         className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all duration-300 cursor-pointer ${lang === "jp"
-            ? "bg-white shadow-sm text-amber-600 scale-105"
-            : "text-gray-400 hover:text-gray-600"
+          ? "bg-white shadow-sm text-amber-600 scale-105"
+          : "text-gray-400 hover:text-gray-600"
           }`}
       >
         🇯🇵 JP
@@ -89,8 +89,8 @@ const LanguageToggle = () => {
       <button
         onClick={() => handleSwitch("en")}
         className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all duration-300 cursor-pointer ${lang === "en"
-            ? "bg-white shadow-sm text-blue-600 scale-105"
-            : "text-gray-400 hover:text-gray-600"
+          ? "bg-white shadow-sm text-blue-600 scale-105"
+          : "text-gray-400 hover:text-gray-600"
           }`}
       >
         🇬🇧 EN
@@ -454,28 +454,28 @@ const MenuItem = ({ icon: Icon, label, to }: MenuItemProps) => {
     <Link to={to} className="group relative">
       <div
         className={`flex flex-col items-center justify-center px-2 py-1 lg:px-2.5 lg:py-1.5 rounded-xl cursor-pointer transition-all duration-300 min-w-[50px] ${isActive
-            ? "bg-amber-50/80 shadow-sm border border-amber-200/50"
-            : "hover:bg-white/60 hover:shadow-md hover:scale-105"
+          ? "bg-amber-50/80 shadow-sm"
+          : "hover:bg-white/60 hover:shadow-md hover:scale-105"
           }`}
       >
         <div className="relative">
           <div
             className={`absolute inset-0 rounded-lg blur-md transition-opacity duration-300 ${isActive
-                ? "bg-gradient-to-r from-amber-400 to-orange-400 opacity-25"
-                : "bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-30"
+              ? "bg-gradient-to-r from-amber-400 to-orange-400 opacity-25"
+              : "bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-30"
               }`}
           />
           <Icon
             className={`relative w-3.5 h-3.5 md:w-4 md:h-4 transition-all duration-300 ${isActive
-                ? "text-amber-600 scale-110"
-                : "text-gray-500 group-hover:text-blue-600 group-hover:scale-110"
+              ? "text-amber-600 scale-110"
+              : "text-gray-500 group-hover:text-blue-600 group-hover:scale-110"
               }`}
           />
         </div>
         <span
           className={`mt-0.5 text-[7.5px] md:text-[9px] font-semibold transition-colors duration-300 whitespace-nowrap text-center ${isActive
-              ? "text-amber-700"
-              : "text-gray-600 group-hover:text-blue-600"
+            ? "text-amber-700"
+            : "text-gray-600 group-hover:text-blue-600"
             }`}
         >
           {label}
@@ -512,15 +512,15 @@ const MobileMenuItem = ({
       to={to}
       onClick={onClick}
       className={`w-full text-left px-4 py-2.5 text-sm font-medium transition-all duration-200 flex items-center gap-3 group ${isActive
-          ? "bg-amber-50 text-amber-700 border-l-3 border-amber-400"
-          : "text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50"
+        ? "bg-amber-50 text-amber-700 border-l-3 border-amber-400"
+        : "text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50"
         }`}
       role="menuitem"
     >
       <Icon
         className={`w-4.5 h-4.5 transition-all duration-300 ${isActive
-            ? "text-amber-600"
-            : "text-gray-400 group-hover:text-blue-600 group-hover:scale-110"
+          ? "text-amber-600"
+          : "text-gray-400 group-hover:text-blue-600 group-hover:scale-110"
           }`}
       />
       <span>{label}</span>
