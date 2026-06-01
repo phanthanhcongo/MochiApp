@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 @layer base {
-  html, body {
+
+  html,
+  body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
@@ -11,18 +13,19 @@
     height: 100%;
     height: -webkit-fill-available;
   }
-  
+
   /* Ẩn thanh address bar trên Safari iPhone */
   @supports (-webkit-touch-callout: none) {
     html {
       height: -webkit-fill-available;
     }
+
     body {
       min-height: 100vh;
       min-height: -webkit-fill-available;
     }
   }
-  
+
   /* Fullscreen support for mobile */
   html:fullscreen,
   html:-webkit-full-screen,
@@ -31,7 +34,7 @@
     width: 100%;
     height: 100%;
   }
-  
+
   /* Safe area insets for iPhone */
   @supports (padding: max(0px)) {
     body {
@@ -41,20 +44,17 @@
       padding-bottom: env(safe-area-inset-bottom);
     }
   }
-  
+
   /* Fix height cứng cho iPhone 12 Pro Max - trừ status bar */
   /* iPhone 12 Pro Max: 428 x 926px, status bar ~47px */
-  @media only screen 
-    and (device-width: 428px) 
-    and (device-height: 926px) 
-    and (-webkit-device-pixel-ratio: 3) {
+  @media only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     html {
       height: calc(100vh - env(safe-area-inset-top));
       max-height: calc(100vh - env(safe-area-inset-top));
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
-    
+
     body {
       height: calc(100vh - env(safe-area-inset-top));
       max-height: calc(100vh - env(safe-area-inset-top));
@@ -63,14 +63,14 @@
       /* Trừ đi status bar height */
       padding-top: 0;
     }
-    
+
     #root {
       height: calc(100vh - env(safe-area-inset-top));
       max-height: calc(100vh - env(safe-area-inset-top));
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
-    
+
     /* Height cố định cho màn home trên iPhone 12 Pro Max */
     .practice-page-container {
       height: calc(100vh - env(safe-area-inset-top)) !important;
@@ -78,7 +78,7 @@
       min-height: calc(100vh - env(safe-area-inset-top)) !important;
     }
   }
-  
+
   /* Fallback cho các iPhone khác với notch */
   @supports (height: 100dvh) {
     @media only screen and (max-width: 428px) {
@@ -87,11 +87,13 @@
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
       }
+
       body {
         height: calc(100dvh - env(safe-area-inset-top));
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
       }
+
       #root {
         height: calc(100dvh - env(safe-area-inset-top));
         overflow-y: auto;
@@ -99,12 +101,9 @@
       }
     }
   }
-  
+
   /* Override min-h-screen cho iPhone 12 Pro Max */
-  @media only screen 
-    and (device-width: 428px) 
-    and (device-height: 926px) 
-    and (-webkit-device-pixel-ratio: 3) {
+  @media only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
     .min-h-screen {
       min-height: calc(100vh - env(safe-area-inset-top)) !important;
       height: calc(100vh - env(safe-area-inset-top)) !important;
@@ -112,43 +111,48 @@
     }
   }
 }
+
 /* Media query dành riêng cho iPhone 12/13/14 Pro Max */
-@media only screen 
-  and (device-width: 428px) 
-  and (device-height: 926px) 
-  and (-webkit-device-pixel-ratio: 3) {
-    
-  html, body {
+@media only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
+
+  html,
+  body {
     overflow: hidden;
     height: 100%;
     overflow-x: hidden;
     overflow-y: hidden;
     /* iOS Safari đôi khi cần thêm các thuộc tính này để khóa triệt để */
-    position: fixed; 
+    position: fixed;
     width: 100%;
-    touch-action: none; /* Chặn mọi tương tác chạm gây cuộn */
+    touch-action: none;
+    /* Chặn mọi tương tác chạm gây cuộn */
   }
 }
 
 .falseAnswer {
   @apply bg-red-500 text-stone-50;
 }
+
 .correctAnswer {
   @apply bg-green-600 text-stone-50;
 }
+
 .progress-container {
   @apply relative h-6 bg-orange-100 overflow-hidden mb-6 rounded-lg;
 }
 
 .progress-fill {
-  @apply bg-orange-400 h-full transition-all ;
+  @apply bg-orange-400 h-full transition-all;
 }
+
 .progress-label {
   @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xl text-gray-700 font-medium;
 }
+
 .btn-primary {
   @apply font-semibold rounded-full transition;
 }
+
 .btn-primary--active {
   @apply bg-slate-50 text-stone-950 w-full sm:w-64 md:w-72 h-10 sm:h-12 hover:bg-stone-950 hover:text-slate-50 transition-colors duration-200 text-sm sm:text-base md:text-lg;
 }
@@ -156,9 +160,11 @@
 .btn-primary--disabled {
   @apply bg-gray-200 text-gray-500 cursor-not-allowed text-sm sm:text-base md:text-lg font-semibold h-10 sm:h-12 md:h-14;
 }
+
 .btn-forget {
   @apply text-sm text-gray-500 hover:text-gray-700 underline;
 }
+
 .answer-option {
   @apply w-[95%] sm:w-[85%] md:w-[75%] min-h-[48px] sm:min-h-[52px] md:min-h-[56px] px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-lg sm:rounded-xl border-2 transition-all duration-200 mx-auto mb-2 sm:mb-3 flex items-center shadow-sm cursor-pointer relative;
 }
@@ -198,39 +204,44 @@
 .answer-option--wrong span.option-index {
   @apply border-red-400 text-white;
 }
+
 .result-panel_true {
-  @apply bg-green-600 text-stone-50 p-4 rounded-t-lg mx-auto absolute bottom-0 left-0 right-0 transition-transform duration-300 ease-in-out;
+  @apply bg-green-600 text-stone-50 p-4 rounded-t-lg mx-auto absolute bottom-0 transition-transform duration-300 ease-in-out;
+  left: -2px !important;
+  right: -2px !important;
 }
+
 .panel-collapsed_true {
   @apply relative w-full bg-green-600 min-h-[100px] flex items-center justify-center;
 }
+
 .result-panel_false {
-  @apply bg-red-400 text-stone-50 p-4 rounded-t-lg mx-auto absolute bottom-0 left-0 right-0 transition-transform duration-300 ease-in-out;
+  @apply bg-red-400 text-stone-50 p-4 rounded-t-lg mx-auto absolute bottom-0 transition-transform duration-300 ease-in-out;
+  left: -2px !important;
+  right: -2px !important;
 }
 
 /* Tăng padding-bottom cho iPhone 12 */
-@media only screen 
-  and (device-width: 390px) 
-  and (device-height: 844px) 
-  and (-webkit-device-pixel-ratio: 2) {
+@media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 2) {
+
   .result-panel_true,
   .result-panel_false {
     padding-bottom: calc(1rem + env(safe-area-inset-bottom) + 1.5rem) !important;
   }
-  
+
   /* Điều chỉnh nút thu gọn cho iPhone 12 */
   .displayBtn {
     right: 1rem !important;
     bottom: calc(24rem + env(safe-area-inset-bottom)) !important;
     z-index: 10;
   }
-  
+
   .displayBtnEnglish {
     right: 1rem !important;
     bottom: calc(22rem + env(safe-area-inset-bottom)) !important;
     z-index: 10;
   }
-  
+
   .hiddenBtn {
     right: 1rem !important;
     bottom: calc(8.5rem + env(safe-area-inset-bottom)) !important;
@@ -239,41 +250,39 @@
 }
 
 /* Tăng padding-bottom cho iPhone 12 Pro Max */
-@media only screen 
-  and (device-width: 428px) 
-  and (device-height: 926px) 
-  and (-webkit-device-pixel-ratio: 3) {
+@media only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
+
   .result-panel_true,
   .result-panel_false {
     padding-bottom: calc(1rem + env(safe-area-inset-bottom) + 2rem) !important;
   }
-  
+
   /* Điều chỉnh nút thu gọn cho iPhone 12 Pro Max */
   .displayBtn {
     right: 1rem !important;
     bottom: calc(24rem + env(safe-area-inset-bottom)) !important;
-    z-index: 999    
-  
+    z-index: 999
   }
-  
+
   .displayBtnEnglish {
     right: 1rem !important;
     bottom: calc(22rem + env(safe-area-inset-bottom)) !important;
     z-index: 10;
   }
-  
+
   .hiddenBtn {
     right: 1rem !important;
     bottom: calc(8.5rem + env(safe-area-inset-bottom)) !important;
     z-index: 10;
   }
-  
+
 }
 
 
 .panel-collapsed_false {
   @apply relative w-full bg-red-600 min-h-[100px] flex items-center justify-center;
 }
+
 .btn-toggle {
   @apply rounded-full border border-stone-50 text-base sm:text-lg md:text-xl font-bold w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 transition hover:opacity-[90%];
   /* Tăng kích thước và touch target cho iPhone */
@@ -281,33 +290,42 @@
   min-height: 40px;
   touch-action: manipulation;
 }
+
 .btn-toggle--green {
-  @apply bg-green-600 text-stone-50 ;
+  @apply bg-green-600 text-stone-50;
 }
+
 .btn-toggle--red {
-  @apply bg-red-400 text-stone-50 ;
+  @apply bg-red-400 text-stone-50;
 }
+
 .btn-audio {
   @apply w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center bg-slate-50 rounded-full cursor-pointer hover:opacity-80 transition;
 }
+
 .btn-eye {
   @apply ml-2 mt-1 text-stone-50 hover:opacity-80 transition;
 }
-.displayBtn{
+
+.displayBtn {
   @apply absolute bottom-94 right-10;
 }
-.hiddenBtn{
+
+.hiddenBtn {
   @apply absolute bottom-33 right-10;
 }
-.btn-primary--check{
+
+.btn-primary--check {
   @apply bg-green-600 text-stone-50 hover:bg-green-700 border-green-700 text-sm sm:text-base md:text-lg font-semibold h-10 sm:h-12 md:h-14;
-} 
+}
+
 .scrollbar-hide {
-    scrollbar-width: none; /* Firefox */
-  }
+  scrollbar-width: none;
+  /* Firefox */
+}
 
 
-.displayBtnEnglish{
+.displayBtnEnglish {
   @apply absolute bottom-86 right-10;
 }
 
@@ -321,9 +339,9 @@
     opacity: 0;
     transform: translateY(-10px) scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
 }
-

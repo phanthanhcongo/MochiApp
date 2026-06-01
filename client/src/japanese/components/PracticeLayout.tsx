@@ -67,9 +67,9 @@ const PracticeLayout: React.FC<PracticeLayoutProps> = React.memo(({
   }, []);
 
   return (
-    <div className="flex flex-col h-full bg-[url('/103372501_p0.png')] bg-cover bg-center overflow-x-hidden overflow-y-hidden">
+    <div className="flex flex-col h-full bg-[url('/103372501_p0.png')] bg-cover bg-center">
       {/* Centered unified glass container */}
-      <div className="w-full xl:w-6/10 mx-auto h-full bg-slate-50/95 backdrop-blur-sm shadow-2xl border-x border-slate-100 flex flex-col overflow-hidden">
+      <div className="w-full xl:w-6/10 mx-auto h-full bg-slate-50/95 backdrop-blur-sm shadow-2xl border-x border-slate-100 flex flex-col">
         <div className="pt-3 sm:pt-4 md:pt-6 relative shrink-0">
           {/* Header with padding */}
           <div className="mx-auto px-3 sm:px-4 md:px-6 lg:px-8 pb-3">
@@ -98,8 +98,8 @@ const PracticeLayout: React.FC<PracticeLayoutProps> = React.memo(({
         </div>
 
         {/* Practice content wrapper - takes remaining space */}
-        <div className="flex-1 overflow-hidden flex flex-col">
-          <div className="flex-1 w-full h-full overflow-y-hidden overflow-x-hidden cong_1 relative">
+        <div className="flex-1 flex flex-col">
+          <div className="flex-1 w-full h-full  cong_1 relative">
             {children}
           </div>
         </div>

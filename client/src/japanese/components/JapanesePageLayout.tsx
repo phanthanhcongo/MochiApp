@@ -21,3 +21,4 @@ const JapanesePageLayout: React.FC<JapanesePageLayoutProps> = ({
 };
 
 export default JapanesePageLayout;
+ 

@@ -262,7 +262,7 @@ const TypingRomajiPractice: React.FC = () => {
                 const rawValue = e.currentTarget.value;
                 const normalized = removeVietnameseTones(rawValue);
                 const filtered = normalized.replace(/[^a-zA-Z\s]/g, '');
-                
+
                 if (filtered !== rawValue) {
                   setHasSpecialCharWarning(true);
                   setTimeout(() => setHasSpecialCharWarning(false), 1500);
@@ -280,7 +280,7 @@ const TypingRomajiPractice: React.FC = () => {
                 // Nếu không trong quá trình gõ tổ hợp, tiến hành lọc và chuẩn hóa ngay
                 const normalized = removeVietnameseTones(value);
                 const filtered = normalized.replace(/[^a-zA-Z\s]/g, '');
-                
+
                 if (filtered !== value) {
                   setHasSpecialCharWarning(true);
                   setTimeout(() => setHasSpecialCharWarning(false), 1500);
