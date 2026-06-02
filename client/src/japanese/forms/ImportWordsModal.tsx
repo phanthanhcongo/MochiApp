@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { BiLogOutCircle,BiCodeBlock } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../../apiClient';
+import JapanesePageLayout from '../components/JapanesePageLayout';
 
 const ImportWordsModal = () => {
   const [jsonText, setJsonText] = useState<string>('');
@@ -106,10 +107,9 @@ const handleImport = async () => {
   };
 
   return (
-    <div className="flex flex-col h-full p-4 mx-auto overflow-y-auto">
+    <JapanesePageLayout innerClassName="p-4 overflow-y-auto">
        {/* Tiêu đề + nút Back Home + User Mode */}
       <div className="flex items-center justify-between mb-3">
-
         <div className="flex items-center gap-4">
           <button
             type="button"
@@ -187,7 +187,7 @@ const handleImport = async () => {
 
       {message && <p className="mt-4 text-green-600">{message}</p>}
       {error && <p className="mt-4 text-red-500">{error}</p>}
-    </div>
+    </JapanesePageLayout>
   );
 };
 

@@ -1,0 +1,342 @@
+[
+  {
+    "kanji": "詰める",
+    "reading_hiragana": "つめる",
+    "reading_romaji": "tsumeru",
+    "meaning_vi": "nhét vào, lấp, dồn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Life",
+      "Work"
+    ],
+    "han_viet": "CẬT",
+    "explanation": "Động từ nhóm 2. Lấp đầy khoảng trống, nhét vật gì đó vào không gian hẹp hoặc dồn ép lại.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "スーツケースに服を詰める。",
+        "sentence_hira": "すーつけーすにふくをつめる。",
+        "sentence_romaji": "Suutsukeesu ni fuku o tsumeru。",
+        "sentence_vi": "Nhét quần áo vào va li."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "スーツケースに服を（　）。",
+        "blank_position": 1,
+        "answer_explanation": "‘詰める’ (tsumeru) có nghĩa là nhét vào, đóng gói vào không gian hẹp.",
+        "choices": [
+          {
+            "content": "詰める",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "見詰める",
+    "reading_hiragana": "みつめる",
+    "reading_romaji": "mitsumeru",
+    "meaning_vi": "nhìn chằm chằm",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Life",
+      "Emotion"
+    ],
+    "han_viet": "KIẾN CẬT",
+    "explanation": "Động từ nhóm 2. Nhìn chăm chú, tập trung cao độ không rời mắt vào ai đó hoặc vật gì đó.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "彼女の目をじっと見つめる。",
+        "sentence_hira": "かのじょのめをじっとみつめる。",
+        "sentence_romaji": "Kanojo no me o jitto mitsumeru。",
+        "sentence_vi": "Nhìn chằm chằm vào mắt cô ấy."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "彼女の目をじっと（　）。",
+        "blank_position": 1,
+        "answer_explanation": "‘見つめる’ (mitsumeru) có nghĩa là nhìn chằm chằm, nhìn chăm chú.",
+        "choices": [
+          {
+            "content": "見つめる",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "詰め込む",
+    "reading_hiragana": "つめこむ",
+    "reading_romaji": "tsumekomu",
+    "meaning_vi": "nhồi nhét, nhét đầy",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Life",
+      "Education"
+    ],
+    "han_viet": "CẬT NHẬP",
+    "explanation": "Động từ nhóm 1. Nhồi nhét, tống nhiều thứ vào trong một không gian hẹp hoặc nhồi nhét kiến thức trước khi thi.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "カバンに荷物を詰め込む。",
+        "sentence_hira": "かばんにもつをつめこむ。",
+        "sentence_romaji": "Kaban ni nimotsu o tsumekomu。",
+        "sentence_vi": "Nhồi nhét hành lý vào túi xách."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "カバンに荷物を（　）。",
+        "blank_position": 1,
+        "answer_explanation": "‘詰め込む’ (tsumekomu) có nghĩa là nhồi nhét, nhét đầy vào.",
+        "choices": [
+          {
+            "content": "詰め込む",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "缶詰",
+    "reading_hiragana": "かんづめ",
+    "reading_romaji": "kanzume",
+    "meaning_vi": "đồ hộp; bị \"nhốt\" trong không gian kín",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Food",
+      "Life"
+    ],
+    "han_viet": "PHẪU CẬT",
+    "explanation": "Danh từ. Đồ hộp ăn liền được đóng bảo quản; cũng chỉ trạng thái bị giam hay nhốt làm việc tập trung trong không gian kín.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "非常食として魚の缶詰を買いました。",
+        "sentence_hira": "ひじょうしょくとしてさかなのかんづめをかいました。",
+        "sentence_romaji": "Hijoushouku to shite sakana no kanzume o kaimashita。",
+        "sentence_vi": "Tôi đã mua cá hộp làm thức ăn dự phòng khẩn cấp."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "非常食として魚の（　）を買いました。",
+        "blank_position": 1,
+        "answer_explanation": "‘缶詰’ (kanzume) có nghĩa là đồ hộp.",
+        "choices": [
+          {
+            "content": "缶詰",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "評論",
+    "reading_hiragana": "ひょうろん",
+    "reading_romaji": "hyouron",
+    "meaning_vi": "bình luận, phê bình mang tính phân tích",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Media",
+      "Society",
+      "Work"
+    ],
+    "han_viet": "BÌNH LUẬN",
+    "explanation": "Danh động từ. Đưa ra ý kiến bình luận, đánh giá hoặc phê bình mang tính phân tích về một sự việc, tác phẩm nghệ thuật, hoặc hiện tượng xã hội.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "新刊についての評論を読む。",
+        "sentence_hira": "しんかんについてのひょうろんをよむ。",
+        "sentence_romaji": "Shinkan ni tsuite no hyouron o yomu。",
+        "sentence_vi": "Đọc lời bình luận về cuốn sách mới xuất bản."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "新刊についての（　）を読む。",
+        "blank_position": 1,
+        "answer_explanation": "‘評論’ (hyouron) là bình luận, phê bình mang tính phân tích.",
+        "choices": [
+          {
+            "content": "評論",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "批評",
+    "reading_hiragana": "ひひょう",
+    "reading_romaji": "hihyou",
+    "meaning_vi": "phê bình, nhận xét, đánh giá",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Art",
+      "Society",
+      "Work"
+    ],
+    "han_viet": "PHÊ BÌNH",
+    "explanation": "Danh động từ. Xem xét, phân tích các điểm tốt và xấu của một tác phẩm, sự việc hay hành động để đưa ra đánh giá, nhận xét khách quan.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "彼の絵画を客観的に批評する。",
+        "sentence_hira": "かれのかいがをきゃっかんてきにひひょうする。",
+        "sentence_romaji": "Kare no kaiga o kyakkan teki ni hihyou suru。",
+        "sentence_vi": "Phê bình bức tranh của anh ấy một cách khách quan."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "彼の絵画を客観的に（　）する。",
+        "blank_position": 1,
+        "answer_explanation": "‘批評’ (hihyou) nghĩa là phê bình, nhận xét, đánh giá.",
+        "choices": [
+          {
+            "content": "批評",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "誤り",
+    "reading_hiragana": "あやまり",
+    "reading_romaji": "ayamari",
+    "meaning_vi": "lỗi sai, nhầm lẫn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Education",
+      "Work",
+      "Life"
+    ],
+    "han_viet": "NGỘ",
+    "explanation": "Danh từ. Lỗi sai, lỗi lầm hoặc sự nhầm lẫn trong hành động, suy nghĩ hay tính toán.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "解答に誤りがないか確認する。",
+        "sentence_hira": "かいとうにあやまりがないかかくにんする。",
+        "sentence_romaji": "Kaitou ni ayamari ga nai ka kakunin suru。",
+        "sentence_vi": "Xác nhận xem có lỗi sai nào trong câu trả lời không."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "解答に（　）がないか確認する。",
+        "blank_position": 1,
+        "answer_explanation": "‘誤り’ (ayamari) nghĩa là lỗi sai, nhầm lẫn.",
+        "choices": [
+          {
+            "content": "誤り",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "誤解",
+    "reading_hiragana": "ごかい",
+    "reading_romaji": "gokai",
+    "meaning_vi": "hiểu lầm, hiểu sai",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Life",
+      "Emotion",
+      "Social"
+    ],
+    "han_viet": "NGỘ GIẢI",
+    "explanation": "Danh động từ. Sự hiểu sai ý, hiểu lầm ý của người khác dẫn đến suy nghĩ hoặc hành động không đúng.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "私の言葉が彼に誤解された。",
+        "sentence_hira": "わたしのことばがかれにごかいされた。",
+        "sentence_romaji": "Watashi no kotoba ga kare ni gokai sareta。",
+        "sentence_vi": "Lời nói của tôi bị anh ấy hiểu lầm."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "私の言葉が彼に（　）された。",
+        "blank_position": 1,
+        "answer_explanation": "‘誤解’ (gokai) là sự hiểu lầm, hiểu sai ý.",
+        "choices": [
+          {
+            "content": "誤解",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  }
+]
