@@ -1167,5 +1167,45 @@ class JapaneseService
             ] : null,
         ];
     }
+
+    /**
+     * Adjust review time early (e.g. during matching games before due time)
+     */
+    public function adjustReviewTime(int $id, int $userId, bool $correct, float $multiplier = 1.2, float $penaltyMultiplier = 0.8): JpWord
+    {
+        $word = JpWord::where('id', $id)
+            ->where('user_id', $userId)
+            ->firstOrFail();
+
+        $now = Carbon::now();
+        $nextReviewAt = $word->next_review_at ? Carbon::parse($word->next_review_at) : null;
+
+        if ($nextReviewAt && $nextReviewAt->gt($now)) {
+            $remainingSeconds = $nextReviewAt->diffInSeconds($now);
+            if ($correct) {
+                $newRemainingSeconds = (int) ($remainingSeconds * $multiplier);
+            } else {
+                $newRemainingSeconds = (int) ($remainingSeconds * $penaltyMultiplier);
+            }
+            $newNextReviewAt = $now->copy()->addSeconds($newRemainingSeconds);
+        } else {
+            if ($correct) {
+                $level = max(1, (int) ($word->level ?? 1));
+                $streak = max(0, (int) ($word->streak ?? 0));
+                $lapses = max(0, (int) ($word->lapses ?? 0));
+                $baseInterval = $this->calculateInterval($level, $streak, $lapses);
+                $newInterval = (int) ($baseInterval * $multiplier);
+                $newNextReviewAt = $now->copy()->addSeconds($newInterval);
+            } else {
+                $newNextReviewAt = $now;
+            }
+        }
+
+        $word->update([
+            'next_review_at' => $newNextReviewAt,
+        ]);
+
+        return $word;
+    }
 }
 

@@ -187,6 +187,92 @@ const MatchingGamePage: React.FC = () => {
     }
   }, []);
 
+  // Call adjust-review API to adjust the review time based on answer correctness
+  const adjustReviewTimeOnServer = useCallback((wordId: number, isCorrect: boolean) => {
+    const token = localStorage.getItem('token');
+    if (!token) return;
+
+    // 1. Push to Local Storage Queue to prevent data loss on exit
+    const storageKey = 'matching_reviewed_words';
+    const currentQueue: Array<{ wordId: number; correct: boolean; timestamp: number }> = JSON.parse(
+      localStorage.getItem(storageKey) || '[]'
+    );
+    const newLog = { wordId, correct: isCorrect, timestamp: Date.now() };
+    currentQueue.push(newLog);
+    localStorage.setItem(storageKey, JSON.stringify(currentQueue));
+
+    // 2. Call API with keepalive
+    fetch(`${getApiUrl()}/jp/practice/adjust-review/${wordId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify({ correct: isCorrect }),
+      keepalive: true, // Browser keeps request alive even if unmounted or closed
+    })
+      .then((res) => {
+        if (res.ok) {
+          // 3. Remove from Local Storage Queue on success
+          const updatedQueue: Array<{ wordId: number; correct: boolean; timestamp: number }> = JSON.parse(
+            localStorage.getItem(storageKey) || '[]'
+          );
+          const filteredQueue = updatedQueue.filter(
+            (item) => !(item.wordId === wordId && item.correct === isCorrect)
+          );
+          localStorage.setItem(storageKey, JSON.stringify(filteredQueue));
+        } else {
+          console.warn(`Không thể cập nhật thời gian ôn tập cho từ #${wordId}`);
+        }
+      })
+      .catch((err) => {
+        console.error('Lỗi khi gọi API adjust-review:', err);
+      });
+  }, []);
+
+  // Auto-sync leftover logs from previous sessions on mount
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) return;
+
+    const storageKey = 'matching_reviewed_words';
+    const leftoverQueue: Array<{ wordId: number; correct: boolean }> = JSON.parse(
+      localStorage.getItem(storageKey) || '[]'
+    );
+
+    if (leftoverQueue.length > 0) {
+      console.log(`🔄 Phát hiện ${leftoverQueue.length} log ghép thẻ tiếng Nhật tồn đọng, đang đồng bộ...`);
+      
+      leftoverQueue.forEach((item) => {
+        fetch(`${getApiUrl()}/jp/practice/adjust-review/${item.wordId}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+          body: JSON.stringify({ correct: item.correct }),
+          keepalive: true,
+        })
+          .then((res) => {
+            if (res.ok) {
+              const currentQueue: Array<{ wordId: number; correct: boolean }> = JSON.parse(
+                localStorage.getItem(storageKey) || '[]'
+              );
+              const filtered = currentQueue.filter(
+                (q) => !(q.wordId === item.wordId && q.correct === item.correct)
+              );
+              localStorage.setItem(storageKey, JSON.stringify(filtered));
+            }
+          })
+          .catch((err) => {
+            console.error(`Không thể đồng bộ log tồn đọng cho từ #${item.wordId}:`, err);
+          });
+      });
+    }
+  }, []);
+
   // Timer effect
   useEffect(() => {
     if (gameState === 'playing' && !roundCompleted && isPlaying) {
@@ -290,6 +376,9 @@ const MatchingGamePage: React.FC = () => {
           speak(matchedWord.kanji || matchedWord.reading_hiragana || '');
         }
 
+        // Adjust review time on server (correct = true)
+        adjustReviewTimeOnServer(selectedKey, true);
+
         // Add to matches
         setMatchedIds(prev => {
           const next = new Set(prev);
@@ -306,6 +395,10 @@ const MatchingGamePage: React.FC = () => {
         setWrongValueId(selectedValue);
         setIncorrectAttempts(prev => prev + 1);
 
+        // Adjust review time on server for both incorrect choices
+        adjustReviewTimeOnServer(selectedKey, false);
+        adjustReviewTimeOnServer(selectedValue, false);
+
         // Vibrate / flash red for 800ms then reset selection
         const timer = setTimeout(() => {
           setSelectedKey(null);
@@ -317,7 +410,7 @@ const MatchingGamePage: React.FC = () => {
         return () => clearTimeout(timer);
       }
     }
-  }, [selectedKey, selectedValue, roundWords, speak]);
+  }, [selectedKey, selectedValue, roundWords, speak, adjustReviewTimeOnServer]);
 
   // Check if round or entire game is finished
   useEffect(() => {

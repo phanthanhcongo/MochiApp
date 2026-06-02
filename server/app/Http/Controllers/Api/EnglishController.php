@@ -459,4 +459,49 @@ class EnglishController extends Controller
             ], 500);
         }
     }
+
+    /**
+     * Adjust review time early based on correct/incorrect response
+     */
+    public function adjustReviewTime(Request $request, $id)
+    {
+        $userId = optional($request->user())->id;
+        if (!$userId) {
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'correct' => 'required|boolean',
+            'multiplier' => 'nullable|numeric|min:1.0',
+            'penalty_multiplier' => 'nullable|numeric|min:0.1|max:1.0',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => 'Dữ liệu không hợp lệ',
+                'details' => $validator->errors()->toArray()
+            ], 422);
+        }
+
+        $correct = (bool) $request->input('correct');
+        $multiplier = (float) $request->input('multiplier', 1.2);
+        $penaltyMultiplier = (float) $request->input('penalty_multiplier', 0.8);
+
+        try {
+            $word = $this->englishService->adjustReviewTime((int)$id, $userId, $correct, $multiplier, $penaltyMultiplier);
+            return response()->json([
+                'message' => 'Điều chỉnh thời gian ôn tập thành công',
+                'word_id' => $word->id,
+                'next_review_at' => $word->next_review_at ? $word->next_review_at->toDateTimeString() : null,
+            ]);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return response()->json(['error' => 'Không tìm thấy từ vựng hợp lệ của người dùng'], 404);
+        } catch (\Throwable $e) {
+            \Log::error('Adjust EN review time failed', ['message' => $e->getMessage()]);
+            return response()->json([
+                'error' => 'Lỗi khi điều chỉnh thời gian ôn tập',
+                'details' => config('app.debug') ? $e->getMessage() : null,
+            ], 500);
+        }
+    }
 }

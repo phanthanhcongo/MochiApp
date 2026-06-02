@@ -73,6 +73,56 @@ const getLevelBadgeClass = (level: number) => {
   }
 };
 
+const WordCountdown: React.FC<{ nextReviewAt: string | null }> = ({ nextReviewAt }) => {
+  const [timeLeft, setTimeLeft] = useState<string>('');
+
+  useEffect(() => {
+    if (!nextReviewAt) {
+      setTimeLeft('Chưa có lịch ôn');
+      return;
+    }
+
+    const calculateTimeLeft = () => {
+      const difference = +new Date(nextReviewAt) - +new Date();
+      if (difference <= 0) {
+        return '🔥 Đã đến hạn ôn!';
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((difference / 1000 / 60) % 60);
+      const seconds = Math.floor((difference / 1000) % 60);
+
+      const parts = [];
+      if (days > 0) parts.push(`${days}d`);
+      if (hours > 0 || days > 0) parts.push(`${hours}h`);
+      if (minutes > 0 || hours > 0 || days > 0) parts.push(`${minutes}m`);
+      parts.push(`${seconds}s`);
+
+      return `⏳ Còn ${parts.join(' ')}`;
+    };
+
+    setTimeLeft(calculateTimeLeft());
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [nextReviewAt]);
+
+  return (
+    <span className={`px-2 py-1 rounded text-xs font-bold border whitespace-nowrap ${
+      timeLeft.includes('Đã đến hạn')
+        ? 'bg-red-50 text-red-700 border-red-200'
+        : timeLeft.includes('Chưa có')
+          ? 'bg-gray-50 text-gray-500 border-gray-200'
+          : 'bg-blue-50 text-blue-700 border-blue-200'
+    }`}>
+      {timeLeft}
+    </span>
+  );
+};
+
 const VocabularyTable: React.FC = () => {
   const navigate = useNavigate();
 
@@ -861,6 +911,7 @@ const VocabularyTable: React.FC = () => {
                       {word.jlpt_level && (
                         <span className="px-2 py-1 bg-yellow-100 rounded text-xs font-bold text-yellow-700">{word.jlpt_level}</span>
                       )}
+                      <WordCountdown nextReviewAt={word.next_review_at} />
                     </div>
                   </div>
 
