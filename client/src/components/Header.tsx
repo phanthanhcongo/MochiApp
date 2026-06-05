@@ -13,6 +13,7 @@ import {
   Menu,
   X,
   Puzzle,
+  BookOpen,
 } from "lucide-react";
 import { showToast } from "./Toast";
 
@@ -227,6 +228,11 @@ const Header = () => {
       icon: List,
       label: "Danh sách từ",
       to: buildTo("listWord"),
+    },
+    {
+      icon: BookOpen,
+      label: "Đoạn văn",
+      to: buildTo("passages"),
     },
     {
       icon: MessageCircle,

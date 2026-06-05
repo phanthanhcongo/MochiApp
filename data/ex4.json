@@ -1,0 +1,1331 @@
+[
+  {
+    "kanji": "対処",
+    "reading_hiragana": "たいしょ",
+    "reading_romaji": "taisho",
+    "meaning_vi": "đối phó, xử lý",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract",
+      "Action"
+    ],
+    "han_viet": "ĐỐI XỨ",
+    "explanation": "Danh từ, động từ nhóm 3. Đối phó, xử lý thích hợp với một tình huống khó khăn hoặc khẩn cấp.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "緊急事態に対処する。",
+        "sentence_hira": "きんきゅうじたいにたいしょする。",
+        "sentence_romaji": "Kinkyuu jitai ni taisho suru.",
+        "sentence_vi": "Ứng phó với tình trạng khẩn cấp."
+      },
+      {
+        "sentence_jp": "問題が深刻になる前に、早めに対処することが大切だ。",
+        "sentence_hira": "もんだいがしんこくになるまえに、はやめにたいしょすることがたいせつだ。",
+        "sentence_romaji": "Mondai ga shinkoku ni naru mae ni, hayame ni taisho suru koto ga taisetsu da.",
+        "sentence_vi": "Việc xử lý sớm trước khi vấn đề trở nên nghiêm trọng là rất quan trọng."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "緊急事態に（　）する。",
+        "blank_position": 1,
+        "answer_explanation": "‘対処’ (taisho) nghĩa là đối phó, xử lý.",
+        "choices": [
+          {
+            "content": "対処",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "誤解",
+    "reading_hiragana": "ごかい",
+    "reading_romaji": "gokai",
+    "meaning_vi": "hiểu lầm, hiểu sai",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract",
+      "Communication"
+    ],
+    "han_viet": "NGỘ GIẢI",
+    "explanation": "Danh từ, động từ nhóm 3. Hiểu lầm, hiểu sai ý nghĩa của lời nói hoặc hành động.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "説明不足で誤解を招いてしまった。",
+        "sentence_hira": "せつめいぶそくでごかいをまねいてしまった。",
+        "sentence_romaji": "Setsumei busoku de gokai o maneite shimatta.",
+        "sentence_vi": "Vì giải thích không đầy đủ nên tôi đã gây ra hiểu lầm."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "説明不足で（　）を招いてしまった。",
+        "blank_position": 1,
+        "answer_explanation": "‘誤解’ (gokai) nghĩa là hiểu lầm, hiểu sai.",
+        "choices": [
+          {
+            "content": "誤解",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "検討",
+    "reading_hiragana": "けんとう",
+    "reading_romaji": "kentou",
+    "meaning_vi": "xem xét, cân nhắc",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Thought",
+      "Action",
+      "Work"
+    ],
+    "han_viet": "KIỂM THẢO",
+    "explanation": "Danh từ, động từ nhóm 3. Xem xét, bàn thảo, cân nhắc kỹ lưỡng các khía cạnh khác nhau của vấn đề.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "この点に関しては、さらに検討が必要だ。",
+        "sentence_hira": "このてんにかんしては、さらにけんとうがひつようだ。",
+        "sentence_romaji": "Kono ten ni kanshite wa, sarani kentou ga hitsuyou da.",
+        "sentence_vi": "Về điểm này thì cần xem xét thêm."
+      },
+      {
+        "sentence_jp": "問題点を検討する。",
+        "sentence_hira": "もんだいてんをけんとうする。",
+        "sentence_romaji": "Mondaiten o kentou suru.",
+        "sentence_vi": "Xem xét các điểm còn vấn đề."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "この点に関しては、さらに（　）が必要だ。",
+        "blank_position": 1,
+        "answer_explanation": "‘検討’ (kentou) nghĩa là xem xét, cân nhắc.",
+        "choices": [
+          {
+            "content": "検討",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "吸収",
+    "reading_hiragana": "きゅうしゅう",
+    "reading_romaji": "kyuushuu",
+    "meaning_vi": "hút, hấp thụ/ tiếp thu (kiến thức)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Nature",
+      "Ability",
+      "Abstract"
+    ],
+    "han_viet": "HẤP THU",
+    "explanation": "Danh từ, động từ nhóm 3. Hút, hấp thụ chất lỏng hoặc tiếp thu kiến thức, thông tin.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "綿は水をよく吸収する。",
+        "sentence_hira": "めんはみずをよくきゅうしゅうする。",
+        "sentence_romaji": "Men wa mizu o yoku kyuushuu suru.",
+        "sentence_vi": "Bông thấm nước rất tốt."
+      },
+      {
+        "sentence_jp": "子供は知識 of 吸収が早い。",
+        "sentence_hira": "こどもはちしきのきゅうしゅうがはやい。",
+        "sentence_romaji": "Kodomo wa chishiki no kyuushuu ga hayai.",
+        "sentence_vi": "Trẻ em tiếp thu kiến thức rất nhanh."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "子供は知識の（　）が早い。",
+        "blank_position": 1,
+        "answer_explanation": "‘吸収’ (kyuushuu) nghĩa là tiếp thu, hấp thụ.",
+        "choices": [
+          {
+            "content": "吸収",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "収集",
+    "reading_hiragana": "しゅうしゅう",
+    "reading_romaji": "shuushuu",
+    "meaning_vi": "thu thập, tập hợp/ sưu tầm",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Daily Life",
+      "Action"
+    ],
+    "han_viet": "THU TẬP",
+    "explanation": "Danh từ, động từ nhóm 3. Thu thập, gom góp các thông tin, tài liệu hoặc sưu tầm đồ vật.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "最近起きた事件の情報収集をする。",
+        "sentence_hira": "さいきんおきたじけんのじょうほうしゅうしゅうをする。",
+        "sentence_romaji": "Saikin okita jiken no jouhou shuushuu o suru.",
+        "sentence_vi": "Thu thập thông tin về vụ việc xảy ra gần đây."
+      },
+      {
+        "sentence_jp": "アイドルの写真を収集する。",
+        "sentence_hira": "あいどるのしゃしんをしゅうしゅうする。",
+        "sentence_romaji": "Aidoru no shashin o shuushuu suru.",
+        "sentence_vi": "Sưu tầm ảnh thần tượng."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "アイドルの写真を（　）する。",
+        "blank_position": 1,
+        "answer_explanation": "‘収集’ (shuushuu) nghĩa là thu thập, sưu tầm.",
+        "choices": [
+          {
+            "content": "収集",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "収穫",
+    "reading_hiragana": "しゅうかく",
+    "reading_romaji": "shuukaku",
+    "meaning_vi": "thu hoạch, gặt hái (cây trồng, kết quả)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Nature",
+      "Daily Life",
+      "Abstract"
+    ],
+    "han_viet": "THU HOẠCH",
+    "explanation": "Danh từ, động từ nhóm 3. Thu hoạch nông sản hoặc gặt hái, thu nhận được những kết quả, kinh nghiệm bổ ích.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "祖母が畑からトマトを収穫するのを手伝った。",
+        "sentence_hira": "そぼがはたけからとまとをしゅうかくするのをてつだった。",
+        "sentence_romaji": "Sobo ga hatake kara tomato o shuukaku suru no o tetsudatta.",
+        "sentence_vi": "Tôi đã giúp bà thu hoạch cà chua từ ruộng."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "祖母が畑からトマトを（　）するのを手伝った。",
+        "blank_position": 1,
+        "answer_explanation": "‘収穫’ (shuukaku) nghĩa là thu hoạch.",
+        "choices": [
+          {
+            "content": "収穫",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "予算",
+    "reading_hiragana": "よさん",
+    "reading_romaji": "yosan",
+    "meaning_vi": "ngân sách, dự toán",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Money"
+    ],
+    "han_viet": "DƯ TOÁN",
+    "explanation": "Danh từ. Ngân sách chi tiêu, dự toán tài chính cho một mục đích cụ thể.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "パソコンを買い替えたいが、予算が足りない。",
+        "sentence_hira": "ぱそこんをかいかえたいが、よさんがたりない。",
+        "sentence_romaji": "Pasokon o kaikaetai ga, yosan ga tarinai.",
+        "sentence_vi": "Tôi muốn mua máy tính mới nhưng không đủ ngân sách."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "パソコンを買い替えたいが、（　）が足りない。",
+        "blank_position": 1,
+        "answer_explanation": "‘予算’ (yosan) nghĩa là ngân sách, dự toán.",
+        "choices": [
+          {
+            "content": "予算",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "依頼",
+    "reading_hiragana": "いらい",
+    "reading_romaji": "irai",
+    "meaning_vi": "yêu cầu, nhờ vả",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Communication",
+      "Work",
+      "Action"
+    ],
+    "han_viet": "Ỷ LẠI",
+    "explanation": "Danh từ, động từ nhóm 3. Yêu cầu, nhờ vả ai đó thực hiện việc gì.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "友人に引っ越しの手伝いを依頼した。",
+        "sentence_hira": "ゆうじんにひっこしのてつだいをいらいした。",
+        "sentence_romaji": "Yuujin ni hikkoshi no tetsudai o irai shita.",
+        "sentence_vi": "Tôi đã nhờ bạn giúp chuyển nhà."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "友人に引っ越しの手伝いを（　）した。",
+        "blank_position": 1,
+        "answer_explanation": "‘依頼’ (irai) nghĩa là yêu cầu, nhờ vả.",
+        "choices": [
+          {
+            "content": "依頼",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "渋滞",
+    "reading_hiragana": "じゅうたい",
+    "reading_romaji": "juutai",
+    "meaning_vi": "tắc đường",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Traffic",
+      "Daily Life"
+    ],
+    "han_viet": "SÁP TRỆ",
+    "explanation": "Danh từ, động từ nhóm 3. Tình trạng kẹt xe, tắc nghẽn giao thông.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "事故のため、道路が渋滞している。",
+        "sentence_hira": "じこのため、どうろがじゅうたいしている。",
+        "sentence_romaji": "Jiko no tame, douro ga juutai shite iru.",
+        "sentence_vi": "Do có tai nạn nên đường đang bị kẹt xe."
+      },
+      {
+        "sentence_jp": "道が渋滞していたので、学校に遅れてしまった。",
+        "sentence_hira": "みちがじゅうたいしていたので、gっこうにおくれてしまった。",
+        "sentence_romaji": "Michi ga juutai shite ita node, gakkou ni okurete shimatta.",
+        "sentence_vi": "Vì đường bị tắc nên tôi đã đến trường muộn."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "事故のため、道路が（　）している。",
+        "blank_position": 1,
+        "answer_explanation": "‘渋滞’ (juutai) nghĩa là tắc đường, kẹt xe.",
+        "choices": [
+          {
+            "content": "渋滞",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "対応",
+    "reading_hiragana": "たいおう",
+    "reading_romaji": "taiou",
+    "meaning_vi": "ứng phó, xử lý (một vấn đề, tình huống)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Action",
+      "Work",
+      "Abstract"
+    ],
+    "han_viet": "ĐỐI ỨNG",
+    "explanation": "Danh từ, động từ nhóm 3. Đối ứng, ứng phó, giải quyết thích đáng một yêu cầu, khiếu nại hoặc tình huống.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "お客さんからの苦情に対応する。",
+        "sentence_hira": "おきゃくさんからのくじょうにたいおうする。",
+        "sentence_romaji": "Okyaku-san kara no kujou ni taiou suru.",
+        "sentence_vi": "Xử lý các khiếu nại từ khách hàng."
+      },
+      {
+        "sentence_jp": "あの会社はいつもメールの対応が遅い。",
+        "sentence_hira": "あのかいしゃはいつもめーるのたいおうがおそい。",
+        "sentence_romaji": "Ano kaisha wa itsumo meeru no taiou ga osoi.",
+        "sentence_vi": "Công ty đó lúc nào cũng phản hồi email rất chậm."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "お客さんからの苦情に（　）する。",
+        "blank_position": 1,
+        "answer_explanation": "‘対応’ (taiou) nghĩa là đối ứng, ứng phó, xử lý.",
+        "choices": [
+          {
+            "content": "対応",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "変化",
+    "reading_hiragana": "へんか",
+    "reading_romaji": "henka",
+    "meaning_vi": "thay đổi",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract",
+      "Nature"
+    ],
+    "han_viet": "BIẾN HÓA",
+    "explanation": "Danh từ, động từ nhóm 3. Sự thay đổi, biến đổi về trạng thái, hình dáng hoặc tính chất.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "日本語は時代と共に変化する。",
+        "sentence_hira": "にほんごはじだいとともにへんかする。",
+        "sentence_romaji": "Nihongo wa jidai to tomo ni henka suru.",
+        "sentence_vi": "Tiếng Nhật thay đổi theo thời đại."
+      },
+      {
+        "sentence_jp": "生活が大きく変化する。",
+        "sentence_hira": "せいかつがおおきくへんかする。",
+        "sentence_romaji": "Seikatsu ga ookiku henka suru.",
+        "sentence_vi": "Cuộc sống thay đổi lớn."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "日本語は時代と共に（　）する。",
+        "blank_position": 1,
+        "answer_explanation": "‘変化’ (henka) nghĩa là thay đổi, biến hóa.",
+        "choices": [
+          {
+            "content": "変化",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "発売",
+    "reading_hiragana": "はつばい",
+    "reading_romaji": "hatsubai",
+    "meaning_vi": "bán ra, phát hành",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Business",
+      "Daily Life"
+    ],
+    "han_viet": "PHÁT MẠI",
+    "explanation": "Danh từ, động từ nhóm 3. Bán ra thị trường hoặc phát hành sản phẩm mới (sách, đĩa, hàng hóa).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "明日は好きな雑誌の最新号が発売される。",
+        "sentence_hira": "あしたはすきなざっしのさいしんごうがはつばいされる。",
+        "sentence_romaji": "Ashita wa sukina zasshi no saishingou ga hatsubai sareru.",
+        "sentence_vi": "Ngày mai sẽ phát hành số mới nhất của tạp chí tôi thích."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "明日は好きな雑誌の最新号が（　）される。",
+        "blank_position": 1,
+        "answer_explanation": "‘発売’ (hatsubai) nghĩa là bán ra, phát hành.",
+        "choices": [
+          {
+            "content": "発売",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "受講",
+    "reading_hiragana": "じゅこう",
+    "reading_romaji": "jukou",
+    "meaning_vi": "tham gia khóa học, tham dự lớp học",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Education",
+      "Action"
+    ],
+    "han_viet": "THU GIẢNG",
+    "explanation": "Danh từ, động từ nhóm 3. Tham gia khóa học, nghe giảng bài tại lớp học.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "文法だけでなく、会話のクラスも受講するつもりだ。",
+        "sentence_hira": "ぶんぽうだけでなく、かいわのくらすもじゅこうするつもりだ。",
+        "sentence_romaji": "Bunpou dake de naku, kaiwa no kurasu mo jukou suru tsumori da.",
+        "sentence_vi": "Tôi dự định tham gia không chỉ lớp ngữ pháp mà cả lớp hội thoại."
+      },
+      {
+        "sentence_jp": "受講の受付は明日までだが、どうするかまだ迷っている。",
+        "sentence_hira": "じゅこうのうけつけはあしたまでだが、どうするかまだまよっている。",
+        "sentence_romaji": "Jukou no uketsuke wa ashita made da ga, dou suru ka mada mayotte iru.",
+        "sentence_vi": "Thời hạn đăng ký tham gia khóa học là đến ngày mai, nhưng tôi vẫn đang phân vân."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "文法だけでなく、会話のクラスも（　）するつもりだ。",
+        "blank_position": 1,
+        "answer_explanation": "‘受講’ (jukou) nghĩa là tham gia khóa học, nghe giảng.",
+        "choices": [
+          {
+            "content": "受講",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "計算",
+    "reading_hiragana": "けいさん",
+    "reading_romaji": "keisan",
+    "meaning_vi": "tính toán, phép tính",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Thought",
+      "Action",
+      "Math"
+    ],
+    "han_viet": "KẾ TOÁN",
+    "explanation": "Danh từ, động từ nhóm 3. Tính toán số liệu, thực hiện các phép tính toán học.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "会計をする時に金額を計算する。",
+        "sentence_hira": "かいけいをするときにきんがくをけいさんする。",
+        "sentence_romaji": "Kaikei o suru toki ni kingaku o keisan suru.",
+        "sentence_vi": "Khi thanh toán sẽ tính toán số tiền."
+      },
+      {
+        "sentence_jp": "簡単な計算にも時間がかかってしまう。",
+        "sentence_hira": "かんたんなけいさんにもじかんがかかってしまう。",
+        "sentence_romaji": "Kantanna keisan ni mo jikan ga kakatte shimau.",
+        "sentence_vi": "Dù là phép tính đơn giản tôi cũng mất nhiều thời gian."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "会計をする時に金額を（　）する。",
+        "blank_position": 1,
+        "answer_explanation": "‘計算’ (keisan) nghĩa là tính toán, phép tính.",
+        "choices": [
+          {
+            "content": "計算",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "記録",
+    "reading_hiragana": "きろく",
+    "reading_romaji": "kiroku",
+    "meaning_vi": "kỉ lục / ghi chép",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Sports",
+      "Abstract",
+      "Action"
+    ],
+    "han_viet": "KÝ LỤC",
+    "explanation": "Danh từ, động từ nhóm 3. Ghi chép lại các sự kiện thông tin hoặc lập kỷ lục (thành tích tốt nhất).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "世界新記録を出す。",
+        "sentence_hira": "せかいしんきろくをだす。",
+        "sentence_romaji": "Sekai shin-kiroku o dasu.",
+        "sentence_vi": "Lập kỷ lục thế giới mới."
+      },
+      {
+        "sentence_jp": "今回の記録は、今までで一番よかった。",
+        "sentence_hira": "こんかいのきろくは、いままででいちばんよかった。",
+        "sentence_romaji": "Konkai no kiroku wa, ima made de ichiban yokatta.",
+        "sentence_vi": "Kỷ lục lần này là tốt nhất từ trước đến giờ."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "今回の（　）は、今までで一番よかった。",
+        "blank_position": 1,
+        "answer_explanation": "‘記録’ (kiroku) nghĩa là kỷ lục, ghi chép.",
+        "choices": [
+          {
+            "content": "記録",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "研修",
+    "reading_hiragana": "けんしゅう",
+    "reading_romaji": "kenshuu",
+    "meaning_vi": "đào tạo, huấn luyện (ngắn hạn)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Education",
+      "Work"
+    ],
+    "han_viet": "NGHIÊN TU",
+    "explanation": "Danh từ, động từ nhóm 3. Khóa đào tạo, học tập nâng cao kiến thức hoặc kỹ năng thực hành nghề nghiệp.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "作業の前に、研修でやり方を教わる。",
+        "sentence_hira": "さぎょうのまえに、けんしゅうでやりかたをおそわる。",
+        "sentence_romaji": "Sagyou no mae ni, kenshuu de yarikata o osowaru.",
+        "sentence_vi": "Trước khi làm việc, tôi được hướng dẫn cách làm qua khóa đào tạo."
+      },
+      {
+        "sentence_jp": "まだ研修だから、うまくできなくても問題ありません。",
+        "sentence_hira": "まだけんしゅうだから、うまくできなくてももんだいありません。",
+        "sentence_romaji": "Mada kenshuu da kara, umaku dekinakute mo mondai arimasen.",
+        "sentence_vi": "Vì vẫn còn trong thời gian đào tạo nên làm chưa tốt cũng không sao."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "作業の前に、（　）でやり方を教わる。",
+        "blank_position": 1,
+        "answer_explanation": "‘研修’ (kenshuu) nghĩa là đào tạo, huấn luyện.",
+        "choices": [
+          {
+            "content": "研修",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "下降",
+    "reading_hiragana": "かこう",
+    "reading_romaji": "kakou",
+    "meaning_vi": "giảm xuống, hạ xuống",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract",
+      "Action",
+      "Nature"
+    ],
+    "han_viet": "HẠ GIÁNG",
+    "explanation": "Danh từ, động từ nhóm 3. Đi xuống, giảm xuống (độ cao, xu hướng, nền kinh tế).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "空港に近づき、飛行機は下降を始めた。",
+        "sentence_hira": "くうこうにちかづき、ひこうきはかこうをはじめた。",
+        "sentence_romaji": "Kuukou ni chikadzuki, hikouki wa kakou o hajimeta.",
+        "sentence_vi": "Máy bay tiến gần đến sân bay và bắt đầu hạ cánh."
+      },
+      {
+        "sentence_jp": "景気が下降すると、政府に不満を持つ人が増える。",
+        "sentence_hira": "けいきがかこうすると、せいふにふまんをもつひとがふえる。",
+        "sentence_romaji": "Keiki ga kakou suru to, seifu ni fuman o motsu hito ga fueru.",
+        "sentence_vi": "Khi nền kinh tế suy giảm, số người bất mãn với chính phủ tăng lên."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "空港に近づき、飛行機は（　）を始めた。",
+        "blank_position": 1,
+        "answer_explanation": "‘下降’ (kakou) nghĩa là giảm xuống, đi xuống.",
+        "choices": [
+          {
+            "content": "下降",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "違反",
+    "reading_hiragana": "いはん",
+    "reading_romaji": "ihan",
+    "meaning_vi": "vi phạm",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Society",
+      "Law"
+    ],
+    "han_viet": "VI PHẢN",
+    "explanation": "Danh từ, động từ nhóm 3. Hành vi vi phạm luật pháp, quy định hoặc hợp đồng.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "契約に違反して会社をクビになった。",
+        "sentence_hira": "けいやくにいはんしてかいしゃをくびになった。",
+        "sentence_romaji": "Keiyaku ni ihan shite kaisha o kubi ni natta.",
+        "sentence_vi": "Vì vi phạm hợp đồng nên bị sa thải khỏi công ty."
+      },
+      {
+        "sentence_jp": "法律に違反するようなことをしてはいけません。",
+        "sentence_hira": "ほうりつにいはんするようなことをしてはいけません。",
+        "sentence_romaji": "Houritsu ni ihan suru youna koto o shite wa ikemasen.",
+        "sentence_vi": "Không được làm những việc vi phạm pháp luật."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "法律に（　）するようなことをしてはいけません。",
+        "blank_position": 1,
+        "answer_explanation": "‘違反’ (ihan) nghĩa là vi phạm.",
+        "choices": [
+          {
+            "content": "違反",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "企画",
+    "reading_hiragana": "きかく",
+    "reading_romaji": "kikaku",
+    "meaning_vi": "kế hoạch",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Work",
+      "Business",
+      "Action"
+    ],
+    "han_viet": "XÍ HỌA",
+    "explanation": "Danh từ, động từ nhóm 3. Việc lập kế hoạch, dự án hoặc lên ý tưởng tổ chức sự kiện.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "新しい企画を担当することになった。",
+        "sentence_hira": "あたらしいきかくをたんとうすることになった。",
+        "sentence_romaji": "Atarashii kikaku o tantou suru koto ni natta.",
+        "sentence_vi": "Tôi được phân công phụ trách dự án mới."
+      },
+      {
+        "sentence_jp": "私の仕事は、イベントを企画して実行することです。",
+        "sentence_hira": "わたしのしごとは、いべんとをきかくしてじっこうすることです。",
+        "sentence_romaji": "Watashi no shigoto wa, ibento o kikaku shite jikkou suru koto desu.",
+        "sentence_vi": "Công việc của tôi là lên kế hoạch và thực hiện các sự kiện."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "新しい（　）を担当することになった。",
+        "blank_position": 1,
+        "answer_explanation": "‘企画’ (kikaku) nghĩa là kế hoạch, dự án.",
+        "choices": [
+          {
+            "content": "企画",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "処理",
+    "reading_hiragana": "しょり",
+    "reading_romaji": "shori",
+    "meaning_vi": "xử lý, giải quyết",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Work",
+      "Action",
+      "Abstract"
+    ],
+    "han_viet": "XỬ LÍ",
+    "explanation": "Danh từ, động từ nhóm 3. Xử lý công việc, giải quyết các vấn đề phát sinh hoặc xử lý rác thải.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "部長は簡単に問題を処理した。",
+        "sentence_hira": "ぶちょうはかんたんにもんだいをしょりした。",
+        "sentence_romaji": "Buchou wa kantan ni mondai o shori shita.",
+        "sentence_vi": "Trưởng ban đã giải quyết vấn đề một cách dễ dàng."
+      },
+      {
+        "sentence_jp": "ごみを処理する方法はいろいろある。",
+        "sentence_hira": "ごみをしょりするほうほうはいろいろある。",
+        "sentence_romaji": "Gomi o shori suru houhou wa iroiro aru.",
+        "sentence_vi": "Có nhiều cách để xử lý rác thải."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "部長は簡単に問題を（　）した。",
+        "blank_position": 1,
+        "answer_explanation": "‘処理’ (shori) nghĩa là xử lý, giải quyết.",
+        "choices": [
+          {
+            "content": "処理",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "密閉",
+    "reading_hiragana": "みっぺい",
+    "reading_romaji": "mippei",
+    "meaning_vi": "bịt kín, đóng kín",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract",
+      "Daily Life"
+    ],
+    "han_viet": "MẬT BẾ",
+    "explanation": "Danh từ, động từ nhóm 3. Bịt kín, đóng kín không để không khí hoặc nước lọt qua.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "空気が入らないように密閉する。",
+        "sentence_hira": "くうきがはいらないようにみっぺいする。",
+        "sentence_romaji": "Kuuki ga hairanai you ni mippei suru.",
+        "sentence_vi": "Đóng kín lại để không khí không lọt vào."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "空気が入らないように（　）する。",
+        "blank_position": 1,
+        "answer_explanation": "‘密閉’ (mippei) nghĩa là bịt kín, đóng kín.",
+        "choices": [
+          {
+            "content": "密閉",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "求人",
+    "reading_hiragana": "きゅうじん",
+    "reading_romaji": "kyuujin",
+    "meaning_vi": "tuyển dụng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Work",
+      "Business"
+    ],
+    "han_viet": "CẦU NHÂN",
+    "explanation": "Danh từ, động từ nhóm 3. Tìm kiếm nhân lực, tuyển dụng người làm việc.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "求人情報をチェックする。",
+        "sentence_hira": "きゅうじんじょうほうをちぇっくする。",
+        "sentence_romaji": "Kyuujin jouhou o chekku suru.",
+        "sentence_vi": "Kiểm tra thông tin tuyển dụng."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）情報をチェックする。",
+        "blank_position": 1,
+        "answer_explanation": "‘求人’ (kyuujin) nghĩa là tuyển dụng.",
+        "choices": [
+          {
+            "content": "求人",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "願望",
+    "reading_hiragana": "がんぼう",
+    "reading_romaji": "ganbou",
+    "meaning_vi": "nguyện vọng, mong muốn",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Emotion",
+      "Abstract"
+    ],
+    "han_viet": "NGUYỆN VỌNG",
+    "explanation": "Danh từ, động từ nhóm 3. Nguyện vọng, ước muốn mãnh liệt từ bên trong.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "私には、自分の会社を作りたいという願望がある。",
+        "sentence_hira": "わたしには、じぶんのかいしゃをつくりたいというがんぼうがある。",
+        "sentence_romaji": "Watashi ni wa, jibun no kaisha o tsukuritai to iu ganbou ga aru.",
+        "sentence_vi": "Tôi có khát vọng muốn thành lập công ty riêng."
+      },
+      {
+        "sentence_jp": "息子は結婚願望がないらしい。",
+        "sentence_hira": "むすこはけっこんがんぼうがないらしい。",
+        "sentence_romaji": "Musuko wa kekkon ganbou ga nai rashii.",
+        "sentence_vi": "Có vẻ như con trai tôi không có mong muốn kết hôn."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "私には、自分の会社を作りたいという（　）がある。",
+        "blank_position": 1,
+        "answer_explanation": "‘願望’ (ganbou) nghĩa là nguyện vọng, mong muốn.",
+        "choices": [
+          {
+            "content": "願望",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "完結",
+    "reading_hiragana": "かんけつ",
+    "reading_romaji": "kanketsu",
+    "meaning_vi": "kết thúc, hoàn tất",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract",
+      "Entertainment"
+    ],
+    "han_viet": "HOÀN KẾT",
+    "explanation": "Danh từ, động từ nhóm 3. Hoàn tất, hoàn thành trọn vẹn (một bộ truyện, loạt phim hoặc chuỗi sự kiện).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "このシリーズは今回で完結する。",
+        "sentence_hira": "このしりーずはこんかいでかんけつする。",
+        "sentence_romaji": "Kono shiriizu wa konkai de kanketsu suru.",
+        "sentence_vi": "Bộ truyện/ loạt phim này sẽ kết thúc ở lần này."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "このシリーズは今回で（　）する。",
+        "blank_position": 1,
+        "answer_explanation": "‘完結’ (kanketsu) nghĩa là kết thúc, hoàn tất.",
+        "choices": [
+          {
+            "content": "完結",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "油断",
+    "reading_hiragana": "ゆだん",
+    "reading_romaji": "yudan",
+    "meaning_vi": "lơ là, chủ quan",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract",
+      "Emotion"
+    ],
+    "han_viet": "DU ĐOẠN",
+    "explanation": "Danh từ, động từ nhóm 3. Lơ là, chủ quan, mất cảnh giác dẫn đến sai lầm.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "いつもどおりと油断して失敗した。",
+        "sentence_hira": "いつもどおりとゆだんしてしっぱいた。",
+        "sentence_romaji": "Itsumo doori to yudan shite shippai shita.",
+        "sentence_vi": "Vì chủ quan rằng mọi thứ sẽ như mọi khi nên tôi đã thất bại."
+      },
+      {
+        "sentence_jp": "やり慣れた作業でも、油断大敵だよ。",
+        "sentence_hira": "やりなれたさぎょうでも、ゆだんたいてきだよ。",
+        "sentence_romaji": "Yarinareta sagyou demo, yudan taiteki dayo.",
+        "sentence_vi": "Dù là công việc đã quen làm, chủ quan vẫn rất nguy hiểm đấy."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "いつもどおりと（　）して失敗した。",
+        "blank_position": 1,
+        "answer_explanation": "‘油断’ (yudan) nghĩa là lơ là, chủ quan.",
+        "choices": [
+          {
+            "content": "油断",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "評論",
+    "reading_hiragana": "ひょうろん",
+    "reading_romaji": "hyouron",
+    "meaning_vi": "bình luận, nhận xét, phê bình",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Communication",
+      "Thought"
+    ],
+    "han_viet": "BÌNH LUẬN",
+    "explanation": "Danh từ, động từ nhóm 3. Phê bình, phân tích và bình luận về một vấn đề xã hội, tác phẩm văn học nghệ thuật.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "新しい小説の評論を読んだ。",
+        "sentence_hira": "あたらしいしょうせつのひょうろんをよんだ。",
+        "sentence_romaji": "Atarashii shousetsu no hyouron o yonda.",
+        "sentence_vi": "Tôi đã đọc bài bình luận về cuốn tiểu thuyết mới."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "新しい小説の（　）を読んだ。",
+        "blank_position": 1,
+        "answer_explanation": "‘評論’ (hyouron) nghĩa là bình luận, nhận xét, phê bình.",
+        "choices": [
+          {
+            "content": "評論",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "批評",
+    "reading_hiragana": "ひひょう",
+    "reading_romaji": "hihyou",
+    "meaning_vi": "phê bình, nhận xét, bình phẩm",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Communication",
+      "Thought"
+    ],
+    "han_viet": "PHÊ BÌNH",
+    "explanation": "Danh từ, động từ nhóm 3. Xem xét giá trị, ưu nhược điểm của tác phẩm để đưa ra nhận xét, đánh giá.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "この映画の批評を読んでから、見に行くか決めよう。",
+        "sentence_hira": "このえいがのひひょうをよんでから、みにいくかきめよう。",
+        "sentence_romaji": "Kono eiga no hihyou o yonde kara, mi ni iku ka kimeyou.",
+        "sentence_vi": "Sau khi đọc bài nhận xét về bộ phim này, tôi sẽ quyết định có đi xem hay không."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "この映画の（　）を読んでから、見に行くか決めよう。",
+        "blank_position": 1,
+        "answer_explanation": "‘批評’ (hihyou) nghĩa là phê bình, nhận xét, đánh giá.",
+        "choices": [
+          {
+            "content": "批評",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "比較的",
+    "reading_hiragana": "ひかくてき",
+    "reading_romaji": "hikakuteki",
+    "meaning_vi": "tương đối, khá",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract"
+    ],
+    "han_viet": "TÌ GIÁC ĐÍCH",
+    "explanation": "Trạng từ. Mang tính tương đối, khá (khi so sánh với mức trung bình hoặc đối tượng khác).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "田中さんは比較的背が高い。",
+        "sentence_hira": "たなかさんはひかくてきせがたかい。",
+        "sentence_romaji": "Tanaka-san wa hikakuteki se ga takai.",
+        "sentence_vi": "Anh Tanaka tương đối cao."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "田中さんは（　）背が高い。",
+        "blank_position": 1,
+        "answer_explanation": "‘比較的’ (hikakuteki) nghĩa là tương đối, khá.",
+        "choices": [
+          {
+            "content": "比較的",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "～団",
+    "reading_hiragana": "だん",
+    "reading_romaji": "dan",
+    "meaning_vi": "đoàn (hậu tố chỉ đoàn thể có tổ chức)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Society",
+      "Organization"
+    ],
+    "han_viet": "ĐOÀN",
+    "explanation": "Hậu tố. Dùng để chỉ các đoàn thể, tổ chức gồm nhiều người hoạt động vì một mục đích chung.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "応援団、消防団、バレエ団。",
+        "sentence_hira": "おうえんだん、しょうぼうだん、ばれえだん。",
+        "sentence_romaji": "Ouendan, shouboundan, bareedan.",
+        "sentence_vi": "Đội cổ vũ, Đội phòng cháy chữa cháy, Đoàn múa ba lê."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "消防（　）が消火活動を行う。",
+        "blank_position": 1,
+        "answer_explanation": "‘団’ (dan) dùng làm hậu tố chỉ đoàn thể.",
+        "choices": [
+          {
+            "content": "団",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  }
+]

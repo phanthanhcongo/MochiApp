@@ -182,39 +182,42 @@ export async function apiGet<T>(path: string, init?: RequestInit): Promise<T> {
 
 // Helper function cho POST, PUT, DELETE
 export async function apiPost<T>(path: string, data?: any, init?: RequestInit): Promise<T> {
+  const { headers, ...rest } = init || {};
   return apiGet<T>(path, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
-      ...init?.headers,
+      ...headers,
     },
     body: data ? JSON.stringify(data) : undefined,
-    ...init,
+    ...rest,
   });
 }
 
 export async function apiPut<T>(path: string, data?: any, init?: RequestInit): Promise<T> {
+  const { headers, ...rest } = init || {};
   return apiGet<T>(path, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
-      ...init?.headers,
+      ...headers,
     },
     body: data ? JSON.stringify(data) : undefined,
-    ...init,
+    ...rest,
   });
 }
 
 export async function apiDelete<T>(path: string, init?: RequestInit): Promise<T> {
+  const { headers, ...rest } = init || {};
   return apiGet<T>(path, {
     method: 'DELETE',
     headers: {
       Accept: 'application/json',
-      ...init?.headers,
+      ...headers,
     },
-    ...init,
+    ...rest,
   });
 }
 

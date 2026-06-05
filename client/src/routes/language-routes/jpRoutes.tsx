@@ -16,6 +16,7 @@ import LoginPage from '../../Login';
 import RegisterPage from '../../Register';
 import ProfileSettings from '../../ProfileSettings';
 import EditWordForm from '../../japanese/forms/EditWordForm';
+import PassagePage from '../../components/Passage/PassagePage';
 
 export default function JpRoutes() {
   return (
@@ -30,6 +31,7 @@ export default function JpRoutes() {
         <Route path="/jp/home-grammar" element={<GrammarPracticePage />} />
         <Route path="/jp/home" element={<WordPracticePage />} />
         <Route path="/jp/chat" element={<ChatPage />} />
+        <Route path="/jp/passages" element={<PassagePage />} />
         <Route path="/jp/add" element={<CreateWordForm />} />
         <Route path="/jp/import" element={<ImportWordsModal />} />
         <Route path="/jp/quiz/multiple" element={<PracticeWrapper />} />

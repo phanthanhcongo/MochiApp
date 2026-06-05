@@ -1,0 +1,1376 @@
+[
+  {
+    "kanji": "恥",
+    "reading_hiragana": "はじ",
+    "reading_romaji": "haji",
+    "meaning_vi": "sự xấu hổ",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract",
+      "Emotion"
+    ],
+    "han_viet": "SỈ",
+    "explanation": "Danh từ. Cảm giác xấu hổ, ngượng ngùng khi làm điều gì đó sai hoặc khi không đạt được kỳ vọng.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "妹として、兄の行動を恥だと感じている。",
+        "sentence_hira": "いもうととして、あにのこうどうをはじだとかんじている。",
+        "sentence_romaji": "Imouto to shite, ani no koudou o haji da to kanjite iru.",
+        "sentence_vi": "Là em gái, tôi cảm thấy hành động của anh trai mình thật đáng xấu hổ."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "妹として、兄の行動を（　）だと感じている。",
+        "blank_position": 1,
+        "answer_explanation": "‘恥’ (haji) nghĩa là sự xấu hổ.",
+        "choices": [
+          {
+            "content": "恥",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "強火",
+    "reading_hiragana": "つよび",
+    "reading_romaji": "tsuyobi",
+    "meaning_vi": "lửa mạnh, lửa to (khi nấu ăn)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Daily Life",
+      "Food"
+    ],
+    "han_viet": "CƯỜNG HỎA",
+    "explanation": "Danh từ. Mức lửa lớn, nhiệt độ cao khi nấu ăn.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "強火で一気に炒めるとおいしい。",
+        "sentence_hira": "つよびでいっきにいためるとおいしい。",
+        "sentence_romaji": "Tsuyobi de ikki ni itameru to oishii.",
+        "sentence_vi": "Xào nhanh trên lửa lớn sẽ ngon hơn."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）で一気に炒めるとおいしい。",
+        "blank_position": 1,
+        "answer_explanation": "‘強火’ (tsuyobi) nghĩa là lửa mạnh, lửa to.",
+        "choices": [
+          {
+            "content": "強火",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "現象",
+    "reading_hiragana": "げんしょう",
+    "reading_romaji": "genshou",
+    "meaning_vi": "hiện tượng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Nature",
+      "Abstract"
+    ],
+    "han_viet": "HIỆN TƯỢNG",
+    "explanation": "Danh từ. Sự việc, sự kiện diễn ra trong tự nhiên hoặc xã hội mà con người có thể quan sát được.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "最近、海岸に大量の魚が流れて来る現象がよく見られる。",
+        "sentence_hira": "さいきん、かいがんにたいりょうのさかながながれてくるげんしょうがよくみられる。",
+        "sentence_romaji": "Saikin, kaigan ni tairyou no sakana ga nagarete kuru genshou ga yoku mirareru.",
+        "sentence_vi": "Gần đây, hiện tượng một lượng lớn cá trôi dạt vào bờ biển thường xuyên được nhìn thấy."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "最近、海岸に大量の魚が流れて来る（　）がよく見られる。",
+        "blank_position": 1,
+        "answer_explanation": "‘現象’ (genshou) nghĩa là hiện tượng.",
+        "choices": [
+          {
+            "content": "現象",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "行事",
+    "reading_hiragana": "ぎょうじ",
+    "reading_romaji": "gyouji",
+    "meaning_vi": "sự kiện, hoạt động",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Society",
+      "Daily Life"
+    ],
+    "han_viet": "HÀNH SỰ",
+    "explanation": "Danh từ. Sự kiện, hoạt động tập thể hoặc truyền thống được tổ chức theo kế hoạch hoặc định kỳ.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "学校行事に参加する。",
+        "sentence_hira": "がっこうぎょうじにさんかする。",
+        "sentence_romaji": "Gakkou gyouji ni sanka suru.",
+        "sentence_vi": "Tham gia các hoạt động của trường."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "学校（　）に参加する。",
+        "blank_position": 1,
+        "answer_explanation": "‘行事’ (gyouji) nghĩa là sự kiện, hoạt động.",
+        "choices": [
+          {
+            "content": "行事",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "好調",
+    "reading_hiragana": "こうちょう",
+    "reading_romaji": "kouchou",
+    "meaning_vi": "thuận lợi, tiến triển tốt",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract",
+      "Business"
+    ],
+    "han_viet": "HẢO ĐIỀU",
+    "explanation": "Tính từ đuôi na, danh từ. Trạng thái tiến triển thuận lợi, tốt đẹp (như kinh tế, doanh thu).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "ベトナムの経済は好調だ。",
+        "sentence_hira": "べとなむのけいざいはこうちょうだ。",
+        "sentence_romaji": "Betonamu no keizai wa kouchou da.",
+        "sentence_vi": "Nền kinh tế Việt Nam đang phát triển tốt."
+      },
+      {
+        "sentence_jp": "会社の売り上げが今年から好調になった。",
+        "sentence_hira": "かいしゃのうりあげがことしからこうちょうになった。",
+        "sentence_romaji": "Kaisha no uriage ga kotoshi kara kouchou ni natta.",
+        "sentence_vi": "Doanh số của công ty đã tăng trưởng tốt từ năm nay."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "ベトナムの経済は（　）だ。",
+        "blank_position": 1,
+        "answer_explanation": "‘好調’ (kouchou) nghĩa là thuận lợi, tiến triển tốt.",
+        "choices": [
+          {
+            "content": "好調",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "快い",
+    "reading_hiragana": "こころよい",
+    "reading_romaji": "kokoroyoi",
+    "meaning_vi": "thoải mái, vui vẻ, sẵn lòng",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract",
+      "Emotion"
+    ],
+    "han_viet": "KHOÁI",
+    "explanation": "Tính từ đuôi i. Cảm giác dễ chịu, thoải mái, hoặc sự vui lòng, sẵn lòng giúp đỡ.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "彼女はいつも快く仕事を引き受けてくれる。",
+        "sentence_hira": "かのじょはいつもこころよくしごとをひきうけてくれる。",
+        "sentence_romaji": "Kanojo wa itsumo kokoroyoku shigoto o hikiukete kureru.",
+        "sentence_vi": "Cô ấy lúc nào cũng vui vẻ nhận việc."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "彼女はいつも（　）仕事を引き受けてくれる。",
+        "blank_position": 1,
+        "answer_explanation": "‘快く’ (kokoroyoku) là dạng phó từ của ‘快い’ (kokoroyoi), nghĩa là vui vẻ, sẵn lòng.",
+        "choices": [
+          {
+            "content": "快く",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "適切",
+    "reading_hiragana": "てきせつ",
+    "reading_romaji": "tekisetsu",
+    "meaning_vi": "thích hợp, phù hợp",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract"
+    ],
+    "han_viet": "THÍCH THIẾT",
+    "explanation": "Tính từ đuôi na. Phù hợp, thích đáng trong một hoàn cảnh hay mục đích cụ thể.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "適切な方法を選ぶ。",
+        "sentence_hira": "てきせつなほうほうをえらぶ。",
+        "sentence_romaji": "Tekisetsu na houhou o erabu.",
+        "sentence_vi": "Chọn phương pháp phù hợp."
+      },
+      {
+        "sentence_jp": "部長から適切な指示が出され、みんなが従った。",
+        "sentence_hira": "ぶちょうからてきせつなしじがだされ、みんながしたがった。",
+        "sentence_romaji": "Buchou kara tekisetsu na shiji ga dasare, minna ga shitagatta.",
+        "sentence_vi": "Trưởng ban đã đưa ra chỉ thị phù hợp và mọi người đã làm theo."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "（　）な方法を選ぶ。",
+        "blank_position": 1,
+        "answer_explanation": "‘適切’ (tekisetsu) nghĩa là thích hợp, phù hợp.",
+        "choices": [
+          {
+            "content": "適切",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "柔軟",
+    "reading_hiragana": "じゅうなん",
+    "reading_romaji": "juunan",
+    "meaning_vi": "mềm dẻo, linh hoạt",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Body",
+      "Ability"
+    ],
+    "han_viet": "NHU NHUYỄN",
+    "explanation": "Tính từ đuôi na. Cơ thể mềm dẻo hoặc suy nghĩ, cách tiếp cận linh hoạt, không cứng nhắc.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "子供は体がとても柔軟だ。",
+        "sentence_hira": "こどもはからだがとてもじゅうなんだ。",
+        "sentence_romaji": "Kodomo wa karada ga totemo juunan da.",
+        "sentence_vi": "Trẻ con có cơ thể rất dẻo dai."
+      },
+      {
+        "sentence_jp": "彼は柔軟な考え方ができる人です。",
+        "sentence_hira": "かれはじゅうなんなかんがえかたができるひとです。",
+        "sentence_romaji": "Kare wa juunan na kangaekata ga dekiru hito desu.",
+        "sentence_vi": "Anh ấy là người có cách suy nghĩ linh hoạt."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "彼は（　）な考え方ができる人です。",
+        "blank_position": 1,
+        "answer_explanation": "‘柔軟’ (juunan) nghĩa là mềm dẻo, linh hoạt.",
+        "choices": [
+          {
+            "content": "柔軟",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "圧倒的",
+    "reading_hiragana": "あっとうてき",
+    "reading_romaji": "attouteki",
+    "meaning_vi": "áp đảo, vượt trội",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract",
+      "Ability"
+    ],
+    "han_viet": "ÁP ĐẢO ĐÍCH",
+    "explanation": "Tính từ đuôi na. Mang tính chất áp đảo, có sức mạnh hoặc lợi thế vượt trội hơn hẳn đối thủ.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "現在、相手のチームのほうが圧倒的に有利な状況だ。",
+        "sentence_hira": "げんざい、あいてのちーむのほうがあっとうてきにゆうりなじょうきょうだ。",
+        "sentence_romaji": "Genzai, aite no chiimu no hou ga attouteki ni yuuri na joukyou da.",
+        "sentence_vi": "Hiện tại, đội đối thủ đang ở thế áp đảo."
+      },
+      {
+        "sentence_jp": "日本チームが圧倒的な強さで優勝した。",
+        "sentence_hira": "にほんちーむがあっとうてきなつよさでゆうしょうした。",
+        "sentence_romaji": "Nihon chiimu ga attouteki na tsuyosa de yuushou shita.",
+        "sentence_vi": "Đội Nhật đã giành chiến thắng với sức mạnh áp đảo."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "日本チームが（　）な強さで優勝した。",
+        "blank_position": 1,
+        "answer_explanation": "‘圧倒的’ (attouteki) nghĩa là áp đảo, vượt trội.",
+        "choices": [
+          {
+            "content": "圧倒的",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "和やか",
+    "reading_hiragana": "なごやか",
+    "reading_romaji": "nagoyaka",
+    "meaning_vi": "hòa nhã, nhẹ nhàng, ôn hòa",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract",
+      "People"
+    ],
+    "han_viet": "HÒA",
+    "explanation": "Tính từ đuôi na. Bầu không khí ấm cúng, thân thiện, ôn hòa hoặc thái độ hòa nhã, nhẹ nhàng.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "パーティーは和やかに行われた。",
+        "sentence_hira": "ぱーてぃーはなごやかにおこなわれた。",
+        "sentence_romaji": "Paatii wa nagoyaka ni okonawareta.",
+        "sentence_vi": "Bữa tiệc đã diễn ra trong bầu không khí ấm cúng, thân thiện."
+      },
+      {
+        "sentence_jp": "和やかな雰囲気の職場で働きたい。",
+        "sentence_hira": "なごやかなふんいきのしょくばではたらきたい。",
+        "sentence_romaji": "Nagoyaka na fun'iki no shokuba de hatarakitai.",
+        "sentence_vi": "Tôi muốn làm việc ở một nơi có bầu không khí hòa nhã."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "パーティーは（　）に行われた。",
+        "blank_position": 1,
+        "answer_explanation": "‘和やか’ (nagoyaka) nghĩa là hòa nhã, ôn hòa.",
+        "choices": [
+          {
+            "content": "和やか",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "異なる",
+    "reading_hiragana": "ことなる",
+    "reading_romaji": "kotonaru",
+    "meaning_vi": "khác nhau",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract"
+    ],
+    "han_viet": "DỊ",
+    "explanation": "Động từ. Khác biệt, không giống nhau.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "料理の作り方は人によって異なる。",
+        "sentence_hira": "りょうりのつくりかたはひとによってことなる。",
+        "sentence_romaji": "Ryouri no tsukurikata wa hito ni yotte kotonaru.",
+        "sentence_vi": "Cách nấu ăn khác nhau tùy từng người."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "料理の作り方は人によって（　）。",
+        "blank_position": 1,
+        "answer_explanation": "‘異なる’ (kotonaru) nghĩa là khác nhau.",
+        "choices": [
+          {
+            "content": "異なる",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "保つ",
+    "reading_hiragana": "たもつ",
+    "reading_romaji": "tamotsu",
+    "meaning_vi": "giữ, duy trì",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract",
+      "Action"
+    ],
+    "han_viet": "BẢO",
+    "explanation": "Động từ. Giữ nguyên trạng thái tốt đẹp, ổn định hoặc duy trì một mức độ nào đó.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "コートなどを着て、暖かさを保つ。",
+        "sentence_hira": "こーとなどをきて、あたたかさをたもつ。",
+        "sentence_romaji": "Kooto nado o kite, atatakasa o tamotsu.",
+        "sentence_vi": "Tôi mặc mấy thứ kiểu như áo khoác để giữ ấm."
+      },
+      {
+        "sentence_jp": "健康を保つために、毎日運動している。",
+        "sentence_hira": "けんこうをたもつために、まいにちうんどうしている。",
+        "sentence_romaji": "Kenkou o tamotsu tame ni, mainichi undou shite iru.",
+        "sentence_vi": "Tôi tập thể dục mỗi ngày để giữ gìn sức khỏe."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "健康を（　）ために、毎日運動している。",
+        "blank_position": 1,
+        "answer_explanation": "‘保つ’ (tamotsu) nghĩa là giữ, duy trì.",
+        "choices": [
+          {
+            "content": "保つ",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "散る",
+    "reading_hiragana": "ちる",
+    "reading_romaji": "chiru",
+    "meaning_vi": "rơi, tàn, phân tán",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Nature",
+      "Action"
+    ],
+    "han_viet": "TÁN",
+    "explanation": "Động từ. (Hoa, lá) rơi rụng, héo tàn hoặc (người, vật) phân tán đi khắp nơi.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "桜が散る様子はきれいだ。",
+        "sentence_hira": "さくらがちるようすはきれいだ。",
+        "sentence_romaji": "Sakura ga chiru yousu wa kirei da.",
+        "sentence_vi": "Cảnh hoa anh đào rơi rất đẹp."
+      },
+      {
+        "sentence_jp": "高校時代のクラスメイトは全国に散ってしまい、なかなか会えなくなった。",
+        "sentence_hira": "こうこうじだいのくらすめいとはぜんこくにちってしまい、なかなかあえなくなった。",
+        "sentence_romaji": "Koukou jidai no kurasumeito wa zenkoku ni chitte shimai, naka-naka aenaku natta.",
+        "sentence_vi": "Các bạn cùng lớp thời cấp ba đã tản ra khắp cả nước nên khó có dịp gặp lại."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "桜が（　）様子はきれいだ。",
+        "blank_position": 1,
+        "answer_explanation": "‘散る’ (chiru) nghĩa là rơi, tàn.",
+        "choices": [
+          {
+            "content": "散る",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "重ねる",
+    "reading_hiragana": "かさねる",
+    "reading_romaji": "kasaneru",
+    "meaning_vi": "chồng lên, chất lên, lặp lại nhiều lần",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Action",
+      "Abstract"
+    ],
+    "han_viet": "TRỌNG",
+    "explanation": "Động từ. Chồng chất vật này lên vật khác, hoặc lặp đi lặp lại nhiều lần (kinh nghiệm, nỗ lực).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "Ｔシャツを２枚重ねて着る。",
+        "sentence_hira": "てぃーしゃつをにまいかさねてきる。",
+        "sentence_romaji": "Tii-shatsu o nimai kasanete kiru.",
+        "sentence_vi": "Mặc hai chiếc áo thun chồng lên nhau."
+      },
+      {
+        "sentence_jp": "練習を重ねて、試合に勝った。",
+        "sentence_hira": "れんしゅうをかさねて、しあいにかった。",
+        "sentence_romaji": "Renshuu o kasanete, shiai ni katta.",
+        "sentence_vi": "Nhờ luyện tập nhiều mà tôi đã thắng trận đấu."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "練習を（　）、試合に勝った。",
+        "blank_position": 1,
+        "answer_explanation": "‘重ねて’ (kasanete) là dạng chia te của ‘重ねる’ (kasaneru), nghĩa là tích lũy, lặp lại nhiều lần.",
+        "choices": [
+          {
+            "content": "重ねて",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "務める",
+    "reading_hiragana": "つとめる",
+    "reading_romaji": "tsutomeru",
+    "meaning_vi": "đảm nhiệm, giữ vai trò",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Work",
+      "Action"
+    ],
+    "han_viet": "VỤ",
+    "explanation": "Động từ. Đảm nhiệm chức vụ, vai trò hoặc nhiệm vụ nào đó.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "私はこの会社の社長を務めております。",
+        "sentence_hira": "わたしはこのかいしゃのしゃちょうをつとめております。",
+        "sentence_romaji": "Watashi wa kono kaisha no shachou o tsutomete orimasu.",
+        "sentence_vi": "Tôi đang giữ chức vụ giám đốc công ty này."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "私はこの会社の社長を（　）おります。",
+        "blank_position": 1,
+        "answer_explanation": "‘務めて’ (tsutomete) là dạng chia te của ‘務める’ (tsutomeru), nghĩa là đảm nhiệm.",
+        "choices": [
+          {
+            "content": "務めて",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "任せる",
+    "reading_hiragana": "まかせる",
+    "reading_romaji": "makaseru",
+    "meaning_vi": "giao phó",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Work",
+      "Action"
+    ],
+    "han_viet": "NHIỆM",
+    "explanation": "Động từ. Giao công việc hoặc trách nhiệm cho người khác giải quyết.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "あとは山田さんに仕事を任せます。",
+        "sentence_hira": "あとはやまださんにしごとをまかせます。",
+        "sentence_romaji": "Ato wa Yamada-san ni shigoto o makasemasu.",
+        "sentence_vi": "Những việc còn lại tôi giao cho anh Yamada."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "あとは山田さんに仕事を（　）。",
+        "blank_position": 1,
+        "answer_explanation": "‘任せます’ (makasemasu) là dạng lịch sự của ‘任せる’ (makaseru), nghĩa là giao phó.",
+        "choices": [
+          {
+            "content": "任せます",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "積もる",
+    "reading_hiragana": "つもる",
+    "reading_romaji": "tsumoru",
+    "meaning_vi": "chất đống, chồng chất",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Nature",
+      "Action"
+    ],
+    "han_viet": "TÍCH",
+    "explanation": "Động từ. Tích tụ, chất đống lại (như tuyết rơi dày, bụi bám).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "朝になると、雪が積もっていた。",
+        "sentence_hira": "あさになると、ゆきがつもっていた。",
+        "sentence_romaji": "Asa ni naru to, yuki ga tsumotte ita.",
+        "sentence_vi": "Đến sáng thì tuyết đã phủ đầy."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "朝になると、雪が（　）いた。",
+        "blank_position": 1,
+        "answer_explanation": "‘積もって’ (tsumotte) là dạng chia te của ‘積もる’ (tsumoru), nghĩa là chồng chất, tích tụ.",
+        "choices": [
+          {
+            "content": "積もって",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "縮める",
+    "reading_hiragana": "ちぢめる",
+    "reading_romaji": "chijimeru",
+    "meaning_vi": "rút ngắn, làm ngắn lại, co lại",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract",
+      "Action"
+    ],
+    "han_viet": "SÚC",
+    "explanation": "Động từ. Làm ngắn lại (khoảng cách, thời gian) hoặc làm co rút lại.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "彼女との距離を縮める。",
+        "sentence_hira": "かのじょとのきょりをちぢめる。",
+        "sentence_romaji": "Kanojo to no kyori o chijimeru.",
+        "sentence_vi": "Thu hẹp khoảng cách với cô ấy."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "彼女との距離を（　）。",
+        "blank_position": 1,
+        "answer_explanation": "‘縮める’ (chijimeru) nghĩa là rút ngắn, thu hẹp.",
+        "choices": [
+          {
+            "content": "縮める",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "混じる",
+    "reading_hiragana": "まじる",
+    "reading_romaji": "majiru",
+    "meaning_vi": "bị trộn lẫn, bị pha lẫn, lẫn vào",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract"
+    ],
+    "han_viet": "HỖN",
+    "explanation": "Động từ. Bị trộn lẫn, pha tạp chất khác vào trong một tổng thể (các thành phần vẫn có thể phân biệt được).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "あの人には、日本人とベトナム人の血が混じっている。",
+        "sentence_hira": "あのひとには、にほんじんとべとなむじんのちがまじっている。",
+        "sentence_romaji": "Ano hito ni wa, Nihonjin to Betonamujin no chi ga majitte iru.",
+        "sentence_vi": "Người đó mang trong mình cả dòng máu Nhật và Việt."
+      },
+      {
+        "sentence_jp": "男の子の中に、女の子が混じって遊んでいる。",
+        "sentence_hira": "おとこのこのなかに、おんなのこがまじってあそんでいる。",
+        "sentence_romaji": "Otokonoko no naka ni, onnanoko ga majitte asonde iru.",
+        "sentence_vi": "Có thể bé gái chơi cùng nhóm các bé trai."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "あの人には、日本人とベトナム人の血が（　）いる。",
+        "blank_position": 1,
+        "answer_explanation": "‘混じって’ (majitte) là dạng chia te của ‘混じる’ (majiru), nghĩa là bị pha lẫn, trộn lẫn.",
+        "choices": [
+          {
+            "content": "混じって",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "迎える",
+    "reading_hiragana": "むかえる",
+    "reading_romaji": "mukaeru",
+    "meaning_vi": "đón, chào đón, bước sang",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Action",
+      "Daily Life"
+    ],
+    "han_viet": "NGHÊNH",
+    "explanation": "Động từ. Chào đón người khác hoặc bước sang, đạt tới một thời điểm, độ tuổi, giai đoạn mới.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "駅まで友達を迎えに行く。",
+        "sentence_hira": "えきまでともだちをむかえにいく。",
+        "sentence_romaji": "Eki made tomodachi o mukae ni iku.",
+        "sentence_vi": "Tôi đi đón bạn ở nhà ga."
+      },
+      {
+        "sentence_jp": "父はもうすぐ50歳の誕生日を迎える。",
+        "sentence_hira": "ちちはもうすぐごじゅっさいのたんじょうびをむかえる。",
+        "sentence_romaji": "Chichi wa mousugu gojussai no tanjoubi o mukaeru.",
+        "sentence_vi": "Bố tôi sắp đón sinh nhật 50 tuổi."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "駅まで友達を（　）に行く。",
+        "blank_position": 1,
+        "answer_explanation": "‘迎え’ (mukae) là dạng liên dụng (masu stem) của ‘迎える’ (mukaeru), dùng trong cấu trúc đi đón ai đó.",
+        "choices": [
+          {
+            "content": "迎え",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "養う",
+    "reading_hiragana": "やしなう",
+    "reading_romaji": "yashinau",
+    "meaning_vi": "nuôi dưỡng, bồi dưỡng (kỹ năng, tinh thần)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Daily Life",
+      "Ability"
+    ],
+    "han_viet": "DƯỠNG",
+    "explanation": "Động từ. Nuôi sống (gia đình) bằng tiền bạc, thực phẩm hoặc rèn luyện, bồi dưỡng (năng lực, thói quen tốt).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "今の給料では、家族５人を養うことは難しい。",
+        "sentence_hira": "いまのきゅうりょうでは、かぞくごにんをやしなうことはむずかしい。",
+        "sentence_romaji": "Ima no kyuuryou de wa, kazoku gonin o yashinau koto wa muzukashii.",
+        "sentence_vi": "Với mức lương hiện tại, thật khó để nuôi sống gia đình 5 người."
+      },
+      {
+        "sentence_jp": "子供のころから自分で考えて行動する習慣を養うことは大事だ。",
+        "sentence_hira": "こどものころからじぶんでかんがえてこうどうするしゅうかんをやしなうことはだいじだ。",
+        "sentence_romaji": "Kodomo no koro kara jibun de kangaete koudou suru shuukan o yashinau koto wa daiji da.",
+        "sentence_vi": "Việc rèn luyện thói quen tự suy nghĩ và hành động từ khi còn nhỏ là rất quan trọng."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "今の給料では、家族５人を（　）ことは難しい。",
+        "blank_position": 1,
+        "answer_explanation": "‘養う’ (yashinau) nghĩa là nuôi dưỡng, nuôi sống.",
+        "choices": [
+          {
+            "content": "養う",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "争う",
+    "reading_hiragana": "あらそう",
+    "reading_romaji": "arasou",
+    "meaning_vi": "tranh giành, tranh cãi, đấu tranh",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract",
+      "Action"
+    ],
+    "han_viet": "TRANH",
+    "explanation": "Động từ. Cạnh tranh, tranh giành thứ gì đó hoặc tranh cãi, bất đồng ý kiến.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "うちの子供たちは、つまらないことでよく争う。",
+        "sentence_hira": "うちのこどもたちは、つまらないことでよくあらそう。",
+        "sentence_romaji": "Uchi no kodomotachi wa, tsumaranai koto de yoku arasou.",
+        "sentence_vi": "Các con tôi thường hay cãi nhau vì những chuyện nhỏ nhặt."
+      },
+      {
+        "sentence_jp": "田中選手と山本選手の２人が優勝を争っている。",
+        "sentence_hira": "たなかせんしゅとやまもとせんしゅのふたりがゆうしょうをあらそっている。",
+        "sentence_romaji": "Tanaka-senshu to Yamamoto-senshu no futari ga yuushou o arasotte iru.",
+        "sentence_vi": "Tuyển thủ Tanaka và tuyển thủ Yamamoto đang cạnh tranh nhau cho chức vô địch."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "田中選手と山本選手の２人が優勝を（　）いる。",
+        "blank_position": 1,
+        "answer_explanation": "‘争って’ (arasotte) là dạng chia te của ‘争う’ (arasou), nghĩa là tranh giành, cạnh tranh.",
+        "choices": [
+          {
+            "content": "争って",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "伺う",
+    "reading_hiragana": "うかがう",
+    "reading_romaji": "ukagau",
+    "meaning_vi": "hỏi, đến thăm, ghé thăm (khiêm nhường ngữ)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Communication",
+      "Action"
+    ],
+    "han_viet": "TỨ",
+    "explanation": "Động từ. Thể khiêm nhường của 聞く (nghe, hỏi) hoặc 行く / 訪ねる (đi, đến thăm).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "佐藤様のお話は部長から伺っております。",
+        "sentence_hira": "さとうさまのおはなしはぶちょうからうかがっております。",
+        "sentence_romaji": "Satou-sama no ohanashi wa buchou kara ukagatte orimasu.",
+        "sentence_vi": "Tôi đã nghe câu chuyện của anh/chị Satou từ trưởng ban."
+      },
+      {
+        "sentence_jp": "昨日、先生のお宅へ伺いました。",
+        "sentence_hira": "きのう、せんせいのおたくへうかがいました。",
+        "sentence_romaji": "Kinou, sensei no otaku he ukagaimashita.",
+        "sentence_vi": "Hôm qua, tôi đã đến nhà thầy giáo."
+      },
+      {
+        "sentence_jp": "明日のご都合を伺ってもよろしいでしょうか。",
+        "sentence_hira": "あしたのごつごうをうかがってもよろしいでしょうか。",
+        "sentence_romaji": "Ashita no gotsugou o ukagatte mo yoroshii deshou ka.",
+        "sentence_vi": "Tôi có thể hỏi về thời gian thuận tiện của anh/chị vào ngày mai không?"
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "昨日、先生のお宅へ（　）ました。",
+        "blank_position": 1,
+        "answer_explanation": "‘伺い’ (ukagai) là dạng liên dụng của ‘伺う’ (ukagau), dùng làm khiêm nhường ngữ của việc đến thăm.",
+        "choices": [
+          {
+            "content": "伺い",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "見つめる",
+    "reading_hiragana": "みつめる",
+    "reading_romaji": "mitsumeru",
+    "meaning_vi": "nhìn chằm chằm, nhìn chăm chú",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Action"
+    ],
+    "han_viet": "KIẾN",
+    "explanation": "Động từ. Nhìn chăm chú, không rời mắt khỏi ai hoặc cái gì.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "赤ちゃんが母親をじっと見つめている。",
+        "sentence_hira": "あかちゃんがははおやをじっとみつめている。",
+        "sentence_romaji": "Akachan ga hahaoya o jitto mitsumete iru.",
+        "sentence_vi": "Em bé đang chăm chú nhìn mẹ."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "赤ちゃんが母親をじっと（　）いる。",
+        "blank_position": 1,
+        "answer_explanation": "‘見つめて’ (mitsumete) là dạng chia te của ‘見つめる’ (mitsumeru), nghĩa là nhìn chăm chú.",
+        "choices": [
+          {
+            "content": "見つめて",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "詰め込む",
+    "reading_hiragana": "つめこむ",
+    "reading_romaji": "tsumekomu",
+    "meaning_vi": "nhét đầy vào, nhồi nhét",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Action"
+    ],
+    "han_viet": "CẬT",
+    "explanation": "Động từ. Nhét đầy, nhồi nhét nhiều vật vào một không gian hẹp (hoặc nhồi nhét kiến thức vào đầu).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "スーツケースに旅行の荷物を詰め込んだ。",
+        "sentence_hira": "すーつけーすにりょこうのにもつをつめこんだ。",
+        "sentence_romaji": "Suutsukeesu ni ryokou no nimotsu o tsumekonda.",
+        "sentence_vi": "Tôi đã nhét hành lý du lịch vào vali."
+      },
+      {
+        "sentence_jp": "試験に出る単語を頭に詰め込む。",
+        "sentence_hira": "しけんにでるたんごをあたまにつめこむ。",
+        "sentence_romaji": "Shiken ni deru tango o atama ni tsumekomu.",
+        "sentence_vi": "Nhồi nhét từ vựng thi vào đầu."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "試験に出る単語を頭に（　）。",
+        "blank_position": 1,
+        "answer_explanation": "‘詰め込む’ (tsumekomu) nghĩa là nhồi nhét vào.",
+        "choices": [
+          {
+            "content": "詰め込む",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "訪れる",
+    "reading_hiragana": "おとずれる",
+    "reading_romaji": "otozureru",
+    "meaning_vi": "đến thăm, ghé thăm / đến, tới (mùa, thời điểm)",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Action",
+      "Nature"
+    ],
+    "han_viet": "PHÓNG",
+    "explanation": "Động từ. Đến thăm một nơi hoặc một mùa, một thời điểm, một tình thế cụ thể xuất hiện.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "この美術館には毎日多くの人が訪れる。",
+        "sentence_hira": "このびじゅつかんにはまいにちおおくのひとがおとずれる。",
+        "sentence_romaji": "Kono bijutsukan ni wa mainichi ooku no hito ga otozureru.",
+        "sentence_vi": "Mỗi ngày đều có nhiều người đến thăm bảo tàng mỹ thuật này."
+      },
+      {
+        "sentence_jp": "桜が咲き始め、町に春が訪れた。",
+        "sentence_hira": "さくらがさきはじめ、まちにはるがおとずれた。",
+        "sentence_romaji": "Sakura ga sakihajime, machi ni haru ga otozureta.",
+        "sentence_vi": "Hoa anh đào bắt đầu nở, mùa xuân đã đến với thành phố."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "この美術館には毎日多くの人が（　）。",
+        "blank_position": 1,
+        "answer_explanation": "‘訪れる’ (otozureru) nghĩa là đến thăm, ghé thăm.",
+        "choices": [
+          {
+            "content": "訪れる",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "収める",
+    "reading_hiragana": "おさめる",
+    "reading_romaji": "osameru",
+    "meaning_vi": "cất giữ, cho vào / thu được, giành được",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Action",
+      "Abstract"
+    ],
+    "han_viet": "THU",
+    "explanation": "Động từ. Cất giữ vật gì đó vào hộp, tủ hoặc giành được (kết quả, chiến thắng), lưu lại (hình ảnh).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "指輪をケースに収める。",
+        "sentence_hira": "ゆびわをけーすにおさめる。",
+        "sentence_romaji": "Yubiwa o keesu ni osameru.",
+        "sentence_vi": "Cất nhẫn vào hộp."
+      },
+      {
+        "sentence_jp": "試合の様子を写真に収める。",
+        "sentence_hira": "しあいのようすをしゃしんにおさめる。",
+        "sentence_romaji": "Shiai no yousu o shashin ni osameru.",
+        "sentence_vi": "Tôi lưu lại khoảnh khắc của trận đấu vào những bức ảnh."
+      },
+      {
+        "sentence_jp": "みんなで力を合わせて、ようやく勝利を収めることができた。",
+        "sentence_hira": "みんなでちからをあわせて、ようやくしょうりをおさめることができた。",
+        "sentence_romaji": "Minna de chikara o awasete, youyaku shouri o osameru koto ga dekita.",
+        "sentence_vi": "Nhờ mọi người hợp sức lại, cuối cùng chúng tôi cũng đã giành chiến thắng."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "指輪をケースに（　）。",
+        "blank_position": 1,
+        "answer_explanation": "‘収める’ (osameru) nghĩa là cất giữ, cho vào.",
+        "choices": [
+          {
+            "content": "収める",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "リクエスト",
+    "reading_hiragana": "りくえすと",
+    "reading_romaji": "rikuesuto",
+    "meaning_vi": "yêu cầu, đề nghị",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Communication",
+      "Music"
+    ],
+    "han_viet": "",
+    "explanation": "Danh từ, động từ nhóm 3. Yêu cầu hoặc đề nghị (đặc biệt là yêu cầu bài hát, dịch vụ).",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "あの歌手は、いつも客のリクエストを聞いてくれる。",
+        "sentence_hira": "あのかしゅは、いつもきゃくのりくえすとをきいてくれる。",
+        "sentence_romaji": "Ano kashu wa, itsumo kyaku no rikuesuto o kiite kureru.",
+        "sentence_vi": "Ca sĩ đó lúc nào cũng lắng nghe yêu cầu của khán giả."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "あの歌手は、いつも客の（　）を聞いてくれる。",
+        "blank_position": 1,
+        "answer_explanation": "‘リクエスト’ (rikuesuto) nghĩa là yêu cầu, đề nghị.",
+        "choices": [
+          {
+            "content": "リクエスト",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "処置",
+    "reading_hiragana": "しょち",
+    "reading_romaji": "shochi",
+    "meaning_vi": "xử lý, biện pháp xử lý",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract",
+      "Health"
+    ],
+    "han_viet": "XỬ TRÍ",
+    "explanation": "Danh từ, động từ nhóm 3. Việc đưa ra biện pháp giải quyết hoặc điều trị y tế thích hợp cho một tình huống.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "ハチに刺されたので、病院で処置してもらった。",
+        "sentence_hira": "はちにさされたので、びょういんでしょちしてもらった。",
+        "sentence_romaji": "Hachi ni sasareta node, byouin de shochi shite moratta.",
+        "sentence_vi": "Tôi bị ong đốt nên được xử lý vết đốt ở bệnh viện."
+      },
+      {
+        "sentence_jp": "事故現場では、警察官が適切な処置を行っていた。",
+        "sentence_hira": "じこげんばでは、けいさつかんがてきせつなしょちをおこなっていた。",
+        "sentence_romaji": "Jiko genba de wa, keisatsukan ga tekisetsu na shochi o okonatte ita.",
+        "sentence_vi": "Ở hiện trường vụ tai nạn, cảnh sát đã xử lý tình huống một cách phù hợp."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "ハチに刺されたので、病院で（　）してもらった。",
+        "blank_position": 1,
+        "answer_explanation": "‘処置’ (shochi) nghĩa là xử lý, điều trị.",
+        "choices": [
+          {
+            "content": "処置",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kanji": "処分",
+    "reading_hiragana": "しょぶん",
+    "reading_romaji": "shobun",
+    "meaning_vi": "xử lý, vứt bỏ / xử phạt",
+    "jlpt_level": "N3",
+    "level": 1,
+    "is_grammar": 0,
+    "topic": [
+      "Abstract"
+    ],
+    "han_viet": "XỬ PHÂN",
+    "explanation": "Danh từ, động từ nhóm 3. Thanh lý, vứt bỏ đồ dùng không cần thiết hoặc đưa ra hình thức phạt đối với người vi phạm quy định.",
+    "stroke_url": null,
+    "audio_url": null,
+    "last_reviewed_at": null,
+    "next_review_at": null,
+    "contexts": [],
+    "examples": [
+      {
+        "sentence_jp": "古くなった家具を処分する。",
+        "sentence_hira": "ふるくなったかぐをしょぶんする。",
+        "sentence_romaji": "Furuku natta kagu o shobun suru.",
+        "sentence_vi": "Vứt bỏ đồ nội thất đã cũ."
+      },
+      {
+        "sentence_jp": "会社のお金を使い込んだ社員は、厳正な処分を受けた。",
+        "sentence_hira": "かいしゃのおかねをつかいこんだしゃいんは、げんせいなしょぶんをうけた。",
+        "sentence_romaji": "Kaisha no okane o tsukaikonda shain wa, gensei na shobun o uketa.",
+        "sentence_vi": "Nhân viên biển thủ tiền của công ty đã bị xử lý nghiêm khắc."
+      }
+    ],
+    "quizzes": [
+      {
+        "question_type": "fill_in_blank",
+        "question_text": "古くなった家具を（　）する。",
+        "blank_position": 1,
+        "answer_explanation": "‘処分’ (shobun) nghĩa là xử lý, vứt bỏ.",
+        "choices": [
+          {
+            "content": "処分",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  }
+]

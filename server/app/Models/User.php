@@ -26,4 +26,13 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    /**
+     * Get the passages associated with the user.
+     */
+    public function passages()
+    {
+        return $this->hasMany(UserPassage::class);
+    }
 }
+

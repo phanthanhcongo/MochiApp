@@ -345,3 +345,16 @@
     transform: translateY(0) scale(1);
   }
 }
+
+/* ── Furigana (Ruby) & Highlights ── */
+ruby {
+  ruby-position: over;
+  ruby-align: center;
+}
+
+rt {
+  font-size: 0.55em;
+  color: #64748b; /* slate-500 */
+  user-select: none;
+  padding-bottom: 0.1em;
+}

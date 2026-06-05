@@ -20,6 +20,7 @@ import ChatPage from '../../components/Chat/ChatPage';
 
 import ProfileSettings from '../../ProfileSettings';
 import EditWordForm from '../../english/forms/EditWordForm';
+import PassagePage from '../../components/Passage/PassagePage';
 
 export default function EnRoutes() {
   return (
@@ -34,6 +35,7 @@ export default function EnRoutes() {
         <Route path="/en/home-grammar" element={<GrammarPracticePage />} />
         <Route path="/en/home" element={<WordPracticePage />} />
         <Route path="/en/chat" element={<ChatPage />} />
+        <Route path="/en/passages" element={<PassagePage />} />
         <Route path="/en/import" element={<ImportWordsModal />} />
         <Route path="/en/quiz/multiple" element={<MultipleChoicePractice />} />
         <Route path="/en/summary" element={<PracticeSummary />} />

@@ -1,0 +1,835 @@
+[
+    {
+        "kanji": "布団",
+        "reading_hiragana": "ふとん",
+        "reading_romaji": "futon",
+        "meaning_vi": "nệm, chăn đệm kiểu Nhật",
+        "jlpt_level": "N5",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "Daily Life"
+        ],
+        "han_viet": "BỐ ĐOÀN",
+        "explanation": "Danh từ. Chỉ chăn, đệm kiểu Nhật dùng để trải ngủ trên chiếu Tatami hoặc sàn.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "夜、布団を敷いて寝ます。",
+                "sentence_hira": "よる、ふとんを敷いてねます。",
+                "sentence_romaji": "Yoru, futon o shiite nemasu.",
+                "sentence_vi": "Buổi tối, tôi trải đệm ra để ngủ."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "夜、（　）を敷いて寝ます。",
+                "blank_position": 1,
+                "answer_explanation": "‘布団’ (futon) nghĩa là nệm, đệm kiểu Nhật.",
+                "choices": [
+                    {
+                        "content": "布団",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "座布団",
+        "reading_hiragana": "ざぶとん",
+        "reading_romaji": "zabuton",
+        "meaning_vi": "đệm ngồi kiểu nhật",
+        "jlpt_level": "N5",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "Daily Life"
+        ],
+        "han_viet": "TỌA BỐ ĐOÀN",
+        "explanation": "Danh từ. Loại đệm vuông nhỏ dùng để ngồi lên khi trải trên chiếu Tatami.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "お客様に座布団を勧める。",
+                "sentence_hira": "おきゃくさまにざぶとんをすすめる。",
+                "sentence_romaji": "Okyakusama ni zabuton o susumeru.",
+                "sentence_vi": "Mời khách ngồi lên đệm ngồi."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "お客様に（　）を勧める。",
+                "blank_position": 1,
+                "answer_explanation": "‘座布団’ (zabuton) nghĩa là đệm ngồi kiểu Nhật.",
+                "choices": [
+                    {
+                        "content": "座布団",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "集団",
+        "reading_hiragana": "しゅうだん",
+        "reading_romaji": "shuudan",
+        "meaning_vi": "tập thể, nhóm",
+        "jlpt_level": "N3",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "Social",
+            "Society"
+        ],
+        "han_viet": "TẬP ĐOÀN",
+        "explanation": "Danh từ. Chỉ một tập thể, một nhóm người cùng tụ tập hoặc cùng hành động.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "集団で行動する時は、ルールを守ってください。",
+                "sentence_hira": "しゅうだんでこうどうするときは、ルールをまもってください。",
+                "sentence_romaji": "Shuudan de koudou suru toki wa, ruuru o mamotte kudasai.",
+                "sentence_vi": "Khi hành động theo tập thể, hãy tuân thủ quy tắc."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "（　）で行動する時は、ルールを守ってください。",
+                "blank_position": 1,
+                "answer_explanation": "‘集団’ (shuudan) nghĩa là tập thể, nhóm.",
+                "choices": [
+                    {
+                        "content": "集団",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "団体",
+        "reading_hiragana": "だんたい",
+        "reading_romaji": "dantai",
+        "meaning_vi": "đoàn thể, tổ chức",
+        "jlpt_level": "N3",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "Organization",
+            "Social"
+        ],
+        "han_viet": "ĐOÀN THỂ",
+        "explanation": "Danh từ. Chỉ một tổ chức, đoàn thể được hình thành với một mục đích chung.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "団体旅行に参加する。",
+                "sentence_hira": "だんたいりょこうにさんかする。",
+                "sentence_romaji": "Dantai ryokou ni sanka suru.",
+                "sentence_vi": "Tham gia vào chuyến du lịch theo đoàn."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "（　）旅行に参加する。",
+                "blank_position": 1,
+                "answer_explanation": "‘団体’ (dantai) nghĩa là đoàn thể, tổ chức.",
+                "choices": [
+                    {
+                        "content": "団体",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "応援団",
+        "reading_hiragana": "おうえんだん",
+        "reading_romaji": "ouendan",
+        "meaning_vi": "đội cổ vũ",
+        "jlpt_level": "N3",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "Sports",
+            "School"
+        ],
+        "han_viet": "ỨNG VIỆN ĐOÀN",
+        "explanation": "Danh từ. Đội ngũ hoặc nhóm người chuyên cổ vũ, khích lệ tinh thần cho người khác, đặc biệt trong thể thao.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "応援団の大きな声が聞こえる。",
+                "sentence_hira": "おうえんだんのおおきなこえがきこえる。",
+                "sentence_romaji": "Ouendan no ookina koe ga kikoeru.",
+                "sentence_vi": "Có thể nghe thấy tiếng hô lớn của đội cổ vũ."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "（　）の大きな声が聞こえる。",
+                "blank_position": 1,
+                "answer_explanation": "‘応援団’ (ouendan) nghĩa là đội cổ vũ.",
+                "choices": [
+                    {
+                        "content": "応援団",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "検討",
+        "reading_hiragana": "けんとう",
+        "reading_romaji": "kentou",
+        "meaning_vi": "cân nhắc, xem xét",
+        "jlpt_level": "N3",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "Work",
+            "Business"
+        ],
+        "han_viet": "KIỂM THẢO",
+        "explanation": "Danh động từ. Việc suy nghĩ, xem xét kỹ lưỡng trước khi đưa ra quyết định.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "この問題について検討しましょう。",
+                "sentence_hira": "このもんだいについてけんとうしましょう。",
+                "sentence_romaji": "Kono mondai ni tsuite kentou shimashou.",
+                "sentence_vi": "Hãy cùng cân nhắc, xem xét về vấn đề này."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "この問題について（　）しましょう。",
+                "blank_position": 1,
+                "answer_explanation": "‘検討’ (kentou) nghĩa là cân nhắc, xem xét.",
+                "choices": [
+                    {
+                        "content": "検討",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "詩人",
+        "reading_hiragana": "しじん",
+        "reading_romaji": "shijin",
+        "meaning_vi": "nhà thơ, thi nhân",
+        "jlpt_level": "N3",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "Art",
+            "Literature"
+        ],
+        "han_viet": "THI NHÂN",
+        "explanation": "Danh từ. Người sáng tác thơ ca.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "彼は有名な詩人です。",
+                "sentence_hira": "かれはゆうめいなしじんです。",
+                "sentence_romaji": "Kare wa yuumei na shijin desu.",
+                "sentence_vi": "Anh ấy là một nhà thơ nổi tiếng."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "彼は有名な（　）です。",
+                "blank_position": 1,
+                "answer_explanation": "‘詩人’ (shijin) nghĩa là nhà thơ, thi nhân.",
+                "choices": [
+                    {
+                        "content": "詩人",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "訪ねる",
+        "reading_hiragana": "たずねる",
+        "reading_romaji": "tazuneru",
+        "meaning_vi": "ghé thăm, đến thăm",
+        "jlpt_level": "N4",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "Action"
+        ],
+        "han_viet": "PHÓNG",
+        "explanation": "Động từ. Dùng khi đến thăm một người hoặc địa điểm nào đó.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "明日、友達の家を訪ねます。",
+                "sentence_hira": "あした、ともだちのいえをたずねます。",
+                "sentence_romaji": "Ashita, tomodachi no ie o tazunemasu.",
+                "sentence_vi": "Ngày mai tôi sẽ ghé thăm nhà bạn."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "明日、友達の家を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘訪ねる’ (tazuneru) nghĩa là ghé thăm.",
+                "choices": [
+                    {
+                        "content": "訪ねます",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "訪れる",
+        "reading_hiragana": "おとずれる",
+        "reading_romaji": "otozureru",
+        "meaning_vi": "đến thăm, (1 mùa/ trạng thái) đến",
+        "jlpt_level": "N3",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "Action",
+            "Nature"
+        ],
+        "han_viet": "PHÓNG",
+        "explanation": "Động từ. Mang ý nghĩa một người đến thăm, hoặc một mùa/trạng thái nào đó tới (ví dụ: mùa xuân đến).",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "春が訪れる。",
+                "sentence_hira": "はるがおとずれる。",
+                "sentence_romaji": "Haru ga otozureru.",
+                "sentence_vi": "Mùa xuân đến."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "春が（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘訪れる’ (otozureru) nghĩa là (mùa) đến.",
+                "choices": [
+                    {
+                        "content": "訪れる",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "訪問",
+        "reading_hiragana": "ほうもん",
+        "reading_romaji": "houmon",
+        "meaning_vi": "việc thăm hỏi, chuyến thăm",
+        "jlpt_level": "N3",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "Action"
+        ],
+        "han_viet": "PHÓNG VẤN",
+        "explanation": "Danh động từ. Đi thăm, tới thăm.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "お客様の会社を訪問する。",
+                "sentence_hira": "おきゃくさまのかいしゃをほうもんする。",
+                "sentence_romaji": "Okyakusama no kaisha o houmon suru.",
+                "sentence_vi": "Đến thăm công ty của khách hàng."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "お客様の会社を（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘訪問’ (houmon) nghĩa là thăm hỏi.",
+                "choices": [
+                    {
+                        "content": "訪問",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "脂肪",
+        "reading_hiragana": "しぼう",
+        "reading_romaji": "shibou",
+        "meaning_vi": "mỡ, chất béo",
+        "jlpt_level": "N3",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "Body",
+            "Health"
+        ],
+        "han_viet": "CHI PHƯƠNG",
+        "explanation": "Danh từ. Mỡ, chất béo trong cơ thể hoặc thực phẩm.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "運動して脂肪を燃やす。",
+                "sentence_hira": "うんどうしてしぼうをもやす。",
+                "sentence_romaji": "Undou shite shibou o moyasu.",
+                "sentence_vi": "Vận động để đốt cháy mỡ thừa."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "運動して（　）を燃やす。",
+                "blank_position": 1,
+                "answer_explanation": "‘脂肪’ (shibou) nghĩa là mỡ, chất béo.",
+                "choices": [
+                    {
+                        "content": "脂肪",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "寝坊",
+        "reading_hiragana": "ねぼう",
+        "reading_romaji": "nebou",
+        "meaning_vi": "ngủ quên, ngủ nướng",
+        "jlpt_level": "N4",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "Daily Life"
+        ],
+        "han_viet": "TẨM PHƯỜNG",
+        "explanation": "Danh động từ. Thức dậy muộn hơn dự định.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "今朝は寝坊して遅刻しました。",
+                "sentence_hira": "けさはねぼうしてちこくしました。",
+                "sentence_romaji": "Kesa wa nebou shite chikoku shimashita.",
+                "sentence_vi": "Sáng nay tôi ngủ quên nên đã đi trễ."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "今朝は（　）して遅刻しました。",
+                "blank_position": 1,
+                "answer_explanation": "‘寝坊’ (nebou) nghĩa là ngủ quên.",
+                "choices": [
+                    {
+                        "content": "寝坊",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "坊っちゃん",
+        "reading_hiragana": "ぼっちゃん",
+        "reading_romaji": "botchan",
+        "meaning_vi": "con trai (người khác), cậu ấm",
+        "jlpt_level": "N3",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "People"
+        ],
+        "han_viet": "PHƯỜNG",
+        "explanation": "Danh từ. Cách gọi lịch sự dành cho con trai của người khác hoặc một bé trai.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "隣の坊っちゃんはもう小学生です。",
+                "sentence_hira": "となりのぼっちゃんはもうしょうがくせいです。",
+                "sentence_romaji": "Tonari no botchan wa mou shougakusei desu.",
+                "sentence_vi": "Cậu con trai nhà bên cạnh đã là học sinh tiểu học rồi."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "隣の（　）はもう小学生です。",
+                "blank_position": 1,
+                "answer_explanation": "‘坊っちゃん’ (botchan) nghĩa là con trai (của người khác).",
+                "choices": [
+                    {
+                        "content": "坊っちゃん",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "双子",
+        "reading_hiragana": "ふたご",
+        "reading_romaji": "futago",
+        "meaning_vi": "cặp song sinh, sinh đôi",
+        "jlpt_level": "N3",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "People",
+            "Family"
+        ],
+        "han_viet": "SONG TỬ",
+        "explanation": "Danh từ. Những người được sinh ra cùng một lúc từ một người mẹ.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "あの二人は双子です。",
+                "sentence_hira": "あのふたりはふたごです。",
+                "sentence_romaji": "Ano futari wa futago desu.",
+                "sentence_vi": "Hai người đó là anh em/chị em sinh đôi."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "あの二人は（　）です。",
+                "blank_position": 1,
+                "answer_explanation": "‘双子’ (futago) nghĩa là song sinh, sinh đôi.",
+                "choices": [
+                    {
+                        "content": "双子",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "収める",
+        "reading_hiragana": "おさめる",
+        "reading_romaji": "osameru",
+        "meaning_vi": "giành được, cất gọn",
+        "jlpt_level": "N3",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "Action"
+        ],
+        "han_viet": "THU",
+        "explanation": "Động từ. Thu được, giành được (thành công) hoặc cất giữ vào một chỗ.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "大成功を収める。",
+                "sentence_hira": "だいせいこうをおさめる。",
+                "sentence_romaji": "Daiseikou o osameru.",
+                "sentence_vi": "Giành được thành công lớn."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "大成功を（　）。",
+                "blank_position": 1,
+                "answer_explanation": "‘収める’ (osameru) nghĩa là giành được.",
+                "choices": [
+                    {
+                        "content": "収める",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "収入",
+        "reading_hiragana": "しゅうにゅう",
+        "reading_romaji": "shuunyuu",
+        "meaning_vi": "thu nhập",
+        "jlpt_level": "N3",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "Money",
+            "Work"
+        ],
+        "han_viet": "THU NHẬP",
+        "explanation": "Danh từ. Tiền bạc kiếm được từ công việc, kinh doanh...",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "毎月の収入を計算する。",
+                "sentence_hira": "まいつきのしゅうにゅうをけいさんする。",
+                "sentence_romaji": "Maitsuki no shuunyuu o keisan suru.",
+                "sentence_vi": "Tính toán thu nhập mỗi tháng."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "毎月の（　）を計算する。",
+                "blank_position": 1,
+                "answer_explanation": "‘収入’ (shuunyuu) nghĩa là thu nhập.",
+                "choices": [
+                    {
+                        "content": "収入",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "年収",
+        "reading_hiragana": "ねんしゅう",
+        "reading_romaji": "nenshuu",
+        "meaning_vi": "thu nhập hằng năm",
+        "jlpt_level": "N3",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "Money",
+            "Work"
+        ],
+        "han_viet": "NIÊN THU",
+        "explanation": "Danh từ. Tổng số tiền thu nhập được trong một năm.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "彼の年収は高いです。",
+                "sentence_hira": "かれのねんしゅうはたかいです。",
+                "sentence_romaji": "Kare no nenshuu wa takai desu.",
+                "sentence_vi": "Thu nhập hàng năm của anh ấy rất cao."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "彼の（　）は高いです。",
+                "blank_position": 1,
+                "answer_explanation": "‘年収’ (nenshuu) nghĩa là thu nhập hằng năm.",
+                "choices": [
+                    {
+                        "content": "年収",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "吸収",
+        "reading_hiragana": "きゅうしゅう",
+        "reading_romaji": "kyuushuu",
+        "meaning_vi": "hấp thụ, tiếp thu",
+        "jlpt_level": "N3",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "Science",
+            "Learning"
+        ],
+        "han_viet": "HẤP THU",
+        "explanation": "Danh động từ. Việc hút vào (như bọt biển hút nước) hoặc việc tiếp thu kiến thức.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "植物は水分を吸収する。",
+                "sentence_hira": "しょくぶつはすいぶんをきゅうしゅうする。",
+                "sentence_romaji": "Shokubutsu wa suibun o kyuushuu suru.",
+                "sentence_vi": "Thực vật hấp thụ hơi nước."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "植物は水分を（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘吸収’ (kyuushuu) nghĩa là hấp thụ.",
+                "choices": [
+                    {
+                        "content": "吸収",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "収集",
+        "reading_hiragana": "しゅうしゅう",
+        "reading_romaji": "shuushuu",
+        "meaning_vi": "thu thập, gom lại",
+        "jlpt_level": "N2",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "Action",
+            "Hobby"
+        ],
+        "han_viet": "THU TẬP",
+        "explanation": "Danh động từ. Thu gom, tập hợp lại (ví dụ như thu gom rác, hoặc sở thích sưu tầm tem).",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "情報を収集する。",
+                "sentence_hira": "じょうほうをしゅうしゅうする。",
+                "sentence_romaji": "Jouhou o shuushuu suru.",
+                "sentence_vi": "Thu thập thông tin."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "情報を（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘収集’ (shuushuu) nghĩa là thu thập.",
+                "choices": [
+                    {
+                        "content": "収集",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kanji": "収穫",
+        "reading_hiragana": "しゅうかく",
+        "reading_romaji": "shuukaku",
+        "meaning_vi": "thu hoạch, gặt hái",
+        "jlpt_level": "N2",
+        "level": 1,
+        "is_grammar": 0,
+        "topic": [
+            "Agriculture",
+            "Result"
+        ],
+        "han_viet": "THU HOẠCH",
+        "explanation": "Danh động từ. Cắt lấy nông sản (như lúa, trái cây) hoặc giành được kết quả tốt sau một quá trình cố gắng.",
+        "stroke_url": null,
+        "audio_url": null,
+        "last_reviewed_at": null,
+        "next_review_at": null,
+        "contexts": [],
+        "examples": [
+            {
+                "sentence_jp": "秋に米を収穫する。",
+                "sentence_hira": "あきにこめをしゅうかくする。",
+                "sentence_romaji": "Aki ni kome o shuukaku suru.",
+                "sentence_vi": "Thu hoạch lúa vào mùa thu."
+            }
+        ],
+        "quizzes": [
+            {
+                "question_type": "fill_in_blank",
+                "question_text": "秋に米を（　）する。",
+                "blank_position": 1,
+                "answer_explanation": "‘収穫’ (shuukaku) nghĩa là thu hoạch.",
+                "choices": [
+                    {
+                        "content": "収穫",
+                        "is_correct": true
+                    }
+                ]
+            }
+        ]
+    }
+]

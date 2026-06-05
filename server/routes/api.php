@@ -82,6 +82,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/me/language', [UserLanguageController::class, 'show']);
     Route::post('/me/language', [UserLanguageController::class, 'update']);
 
+    // User passages
+    Route::get('/user-passages', [\App\Http\Controllers\Api\UserPassageController::class, 'index']);
+    Route::post('/user-passages', [\App\Http\Controllers\Api\UserPassageController::class, 'store']);
+    Route::put('/user-passages/{id}', [\App\Http\Controllers\Api\UserPassageController::class, 'update']);
+    Route::delete('/user-passages/{id}', [\App\Http\Controllers\Api\UserPassageController::class, 'destroy']);
+
     // Gemini
     Route::post('/gemini/chat', [\App\Http\Controllers\Api\GeminiController::class, 'chat']);
     Route::post('/gemini/analyze', [\App\Http\Controllers\Api\GeminiController::class, 'analyzeWord']);

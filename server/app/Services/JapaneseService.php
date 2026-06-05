@@ -31,7 +31,8 @@ class JapaneseService
 
         DB::transaction(function () use ($items, $userId, &$committed, &$duplicates, &$seenInBatch) {
             foreach ($items as $item) {
-                $kanji = trim($item['kanji']);
+                // Remove all whitespaces (including full-width) for robust anti-duplication
+                $kanji = preg_replace('/\s+/u', '', $item['kanji']);
 
                 // Chống trùng trong cùng payload
                 if (isset($seenInBatch[mb_strtolower($kanji)])) {
